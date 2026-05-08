@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-05-04",
-            "hash": "c7c86dc4616104d277b937d395cf4badd8347fda359541565d5dfea548c1d72e"
+            "date": "2026-05-08",
+            "hash": "1abd721c0dcbf17624ec71b88dd03ad45a119286cf6ae5698c3e2574c05533ad"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1715,16 +1715,16 @@
             "hash": "31f22a7f70c115f55147e4a41520ed5281a6955cb2d91903e416da5af994ad6a"
         },
         "reference/device-os/api/cloud-functions/particle-variable.md": {
-            "date": "2024-11-13",
-            "hash": "f254b612d2d6997af846f07a910967e76fcba6ed0a5f7ade357f9d657f8004d1"
+            "date": "2026-05-08",
+            "hash": "d2dc182aa6ba7cba62a56214953800dd8d3d5dd1c1bdf1ff035eced7c80d40b8"
         },
         "reference/device-os/api/cloud-functions/particle-variable-calculated.md": {
-            "date": "2023-09-20",
-            "hash": "0ee29cf7bda4a9c6b91ea077fc5acf9a7249500c421d56fd033d4964e64b1165"
+            "date": "2026-05-08",
+            "hash": "4c8c4b72dc132cb7c1d24c654cc5ba5988441994f60b0b471d8e142e362dd485"
         },
         "reference/device-os/api/cloud-functions/particle-function.md": {
-            "date": "2025-02-23",
-            "hash": "eb70eefb81a6a119bea3316b94f9658723ef487c1b5d696d40d437db6816b7a2"
+            "date": "2026-05-08",
+            "hash": "b3e2e9fd165b7b923a3ca558a9b0c99268b22052b0a52715c7104c7392784fa5"
         },
         "reference/device-os/api/cloud-functions/particle-publish.md": {
             "date": "2024-10-04",
@@ -1735,64 +1735,64 @@
             "hash": "eca110b7752b1de606b6be6b19efa9a8d7586f4887ea2a3b915d01d31b95a0e6"
         },
         "reference/device-os/api/cloud-functions/particle-unsubscribe.md": {
-            "date": "2023-09-20",
-            "hash": "22b85a83a90ef647d93fc708278fa8618886e48c67a1a5603191f561fb1c6cc8"
+            "date": "2026-05-08",
+            "hash": "f4defc2b0076e0000f475e4f0138c3b0f3c881f2f74975891abe9ce7f1e52f26"
         },
         "reference/device-os/api/cloud-functions/particle-maxeventdatasize.md": {
-            "date": "2025-02-13",
-            "hash": "9086049eaeec220cc7e7f14cc9430a17e74d0acf7300ab6ce512bbc7929ac4ac"
+            "date": "2026-05-08",
+            "hash": "09e28eb0226f8f02cbd3832b956d8a475bbb8c0b18e35ebe4ff3cb1122be8453"
         },
         "reference/device-os/api/cloud-functions/particle-maxvariablevaluesize.md": {
-            "date": "2024-02-27",
-            "hash": "78fea5cfbe414cfb5ddbe3952457873c771d74180768763f82a92273ec95f417"
+            "date": "2026-05-08",
+            "hash": "42bd1fef442f1bb2fab93da68aaf43979ff2535afa9df64594da362de099dffc"
         },
         "reference/device-os/api/cloud-functions/particle-maxfunctionargumentsize.md": {
-            "date": "2024-02-27",
-            "hash": "35f996bb27762cb0fe73e6802806ce3613face3d17a7777abf56061744acf099"
+            "date": "2026-05-08",
+            "hash": "e717e303df0a3a3d3a0ca9678642380c389c681ade4ec5cf963ebf1d9a3f60b9"
         },
         "reference/device-os/api/cloud-functions/particle-publishvitals.md": {
-            "date": "2023-09-20",
-            "hash": "936a3cc1be02321b1322e853d7b55f561f5994c05c8b9671b717ab3137416e24"
+            "date": "2026-05-08",
+            "hash": "b78284310a9bf0f6a2b2381c9b3d0303f9a4a5f37c528061abeeb373b4ab62c5"
         },
         "reference/device-os/api/cloud-functions/particle-connect.md": {
-            "date": "2025-04-02",
-            "hash": "3e109646e1102ae5882adcaf9d91f8119c032a7f2aa288ef7897e9a9fc07521e"
+            "date": "2026-05-08",
+            "hash": "d93246816d60b61ddbc9af9c58591dd91eabdcc6a8d91326255ecb287d82cb79"
         },
         "reference/device-os/api/cloud-functions/particle-disconnect.md": {
-            "date": "2024-01-30",
-            "hash": "363f7ddc236b1212bac209fb7b97b96b0d3a69f43c9493bed5a2caa9a9ad1574"
+            "date": "2026-05-08",
+            "hash": "b5e12ecbf8b9dcf6632e5be94daa835c975ddd4213aa8e241fa49209fd166875"
         },
         "reference/device-os/api/cloud-functions/clear-session.md": {
             "date": "2023-09-20",
             "hash": "a2c4993059154a3660c518d88a046579f594bf401a0e22d4b616457abebfde34"
         },
         "reference/device-os/api/cloud-functions/particle-connected.md": {
-            "date": "2023-09-20",
-            "hash": "e61f8e68b717ce384a883f57225743c7a5ff40cc4a7aaa6c2999275964186837"
+            "date": "2026-05-08",
+            "hash": "df2f77244497ecf5aa0274e4345608099656d89b42632964bb40abe595810039"
         },
         "reference/device-os/api/cloud-functions/particle-disconnected.md": {
             "date": "2023-09-20",
             "hash": "6de8ffd44055ef9d8c920d6af1dfb2512e98eacf6f592158146766f606895a71"
         },
         "reference/device-os/api/cloud-functions/particle-setdisconnectoptions.md": {
-            "date": "2023-09-20",
-            "hash": "773fd72815c78baf8c5c763aa9706017a7eaa7cf3823719f2df350ceb429b029"
+            "date": "2026-05-08",
+            "hash": "7e684bfd04af0a5ba2c9d7c5922fd7e83b6795591fc72562046ff721df84ccb9"
         },
         "reference/device-os/api/cloud-functions/particle-keepalive.md": {
-            "date": "2024-12-03",
-            "hash": "d3f89e7680ca73f952f174667757ac1498789adcb9734da8c205a92ac686bd04"
+            "date": "2026-05-08",
+            "hash": "585412a3151f96bc25e5e69a74f97dcc34783a0f631756ab94f165fad1ecd471"
         },
         "reference/device-os/api/cloud-functions/particle-process.md": {
             "date": "2024-10-15",
             "hash": "97e69c5d78dabe1509ff59688ef59e32bf8b11d791c62e761819b3987c430500"
         },
         "reference/device-os/api/cloud-functions/particle-synctime.md": {
-            "date": "2025-08-15",
-            "hash": "4f1530a3cea5e218dd02e03f9987d1422759ced11adbf6fd2b821ef7c5fcbd7c"
+            "date": "2026-05-08",
+            "hash": "3cc1116962b372cda7bcee3be5a363e8adecdb427b633447129154aa72d45c4e"
         },
         "reference/device-os/api/cloud-functions/particle-synctimedone.md": {
-            "date": "2025-08-15",
-            "hash": "f5180004dd52129d97839974d176ff9df236f1d5d8b396cf2e32ccfed92712bd"
+            "date": "2026-05-08",
+            "hash": "3853f98c5285f197c91303a7838e07ee9f63c9249e96de7f8f1813d4e8e76e36"
         },
         "reference/device-os/api/cloud-functions/particle-synctimepending.md": {
             "date": "2025-08-15",
@@ -1903,24 +1903,24 @@
             "hash": "43b60b9dddb0b6432d9fa03e6c124edce99338eb0bc6ef8a51e3ef451681d63e"
         },
         "reference/device-os/api/wifi/off.md": {
-            "date": "2023-09-20",
-            "hash": "41655789190d03f1bf075065743de6f17c55a2864186157fef2fc7d4c0592a12"
+            "date": "2026-05-08",
+            "hash": "67a72f86a5a5291089ccdee47ad3a0a2ab74128dd2d6b0ad752abaceba4adce6"
         },
         "reference/device-os/api/wifi/connect.md": {
-            "date": "2024-02-27",
-            "hash": "c0973dc35fa811c88946722f1da94484271f25743d61950c0c0382fccfd7f39d"
+            "date": "2026-05-08",
+            "hash": "a5e5ed79d03a5061ea56bd291ddcf3c80a66874fad921442c6245d21901b73ce"
         },
         "reference/device-os/api/wifi/disconnect.md": {
-            "date": "2023-09-20",
-            "hash": "ce05e99ac1ad5be088eef804e66fe26d9b8d6ff5ce463cf7d1e3c69ac0c21b84"
+            "date": "2026-05-08",
+            "hash": "68a554cd4880795d6182a638a15867332b79fd1689ca8926d5a9126923fd2663"
         },
         "reference/device-os/api/wifi/connecting.md": {
-            "date": "2023-09-20",
-            "hash": "8126e38c48408be3a986da8fb80d3deb90b704dbcf10d079f7fbc2c26a6e5678"
+            "date": "2026-05-08",
+            "hash": "fcba6dd3fe6d5bc3e9315f0f685363e0ffed0401c233ff1e492cd700fcca402d"
         },
         "reference/device-os/api/wifi/ready.md": {
-            "date": "2023-09-20",
-            "hash": "40151f0955763f2b2171033aaabd3767f0a06a21dbf9ed03aac16612d2d2334e"
+            "date": "2026-05-08",
+            "hash": "5a5c064cd1735d37e8d0af7b763e2a0dd63446e538205eb9aee3a8fc09489d29"
         },
         "reference/device-os/api/wifi/setconfig-wifi.md": {
             "date": "2025-11-05",
@@ -1931,84 +1931,84 @@
             "hash": "333ac5995f00eefedd20652b3d60b99e754993cccbb48f4b391ae35dc0576070"
         },
         "reference/device-os/api/wifi/selectantenna-antenna.md": {
-            "date": "2024-04-30",
-            "hash": "037030ed8ea0c5eff8387f3e99cda6dea3ca50dc1ba2010dca46e68fb5152f4b"
+            "date": "2026-05-08",
+            "hash": "65019eaca0b51ca71f7a2b853c8ac50f218d1a506bea2da6ef4f4c39b0f38bd4"
         },
         "reference/device-os/api/wifi/listen.md": {
-            "date": "2023-09-20",
-            "hash": "818ee1a9e19ae7b7219fb5b13cb46c5f83ba2f2f62b39534136514aba934ca28"
+            "date": "2026-05-08",
+            "hash": "6333260245ae27493f0522d28c6d72719e187587769cf19801389e1dd29d9808"
         },
         "reference/device-os/api/wifi/listening.md": {
-            "date": "2024-10-15",
-            "hash": "91a7394a140e24992a5b94b65470860aa406122f6fafcaddeadf885955930548"
+            "date": "2026-05-08",
+            "hash": "314bc016ffdb8b5239c0bf6afe8e788a47ecc691ea69b4da8bcde24cca4e5513"
         },
         "reference/device-os/api/wifi/setlistentimeout.md": {
-            "date": "2023-09-20",
-            "hash": "15ff350b8f67c790ad6c314e6f58439baed36e21123f1790af12639931ef1b93"
+            "date": "2026-05-08",
+            "hash": "d2b5460c4ecc698ed387746339d3ae445af8db90f8517a335d22a6849a6be78c"
         },
         "reference/device-os/api/wifi/getlistentimeout.md": {
-            "date": "2023-09-20",
-            "hash": "b5d2ab0b081fbc1d82ec0ec52dc658d425816fb2e869d26a4b509aa26f3d83ac"
+            "date": "2026-05-08",
+            "hash": "b4567e4f11756d8d49e9e6891c7b469d89114a8401791ac48c210f0bf19c9276"
         },
         "reference/device-os/api/wifi/setcredentials.md": {
             "date": "2025-12-01",
             "hash": "9c503114fbb3540d7aa1d6eb9b3e7842d30c7ce8c91022105bd91c0e7a217683"
         },
         "reference/device-os/api/wifi/getcredentials.md": {
-            "date": "2023-09-20",
-            "hash": "a56e9df8537c5d8a919a14784df2343e550cfac818e7a3973991dcf4b2b73e42"
+            "date": "2026-05-08",
+            "hash": "6a91922cff99d9c560f52cba2542a9603db9d37260afd8e25ad8d3cbabde513b"
         },
         "reference/device-os/api/wifi/clearcredentials.md": {
-            "date": "2023-09-20",
-            "hash": "4a1431675b7078fc791115b0df1686681e6c49c27b94d7bd2247eac0f79f724a"
+            "date": "2026-05-08",
+            "hash": "6196443aeca3468c5b6c29075724eda7c916e9d024f00dfaa3db0a5c779b13e3"
         },
         "reference/device-os/api/wifi/hascredentials.md": {
-            "date": "2023-09-20",
-            "hash": "d6b2bb9ab881bf7620f5e2939af68a7f65a1f2d181821f7cfcb0a205fb5ea39b"
+            "date": "2026-05-08",
+            "hash": "0e0602d2c52b47ffe16c6e033d2febab3680fe4bb9fd24ff7209b6eda3517e72"
         },
         "reference/device-os/api/wifi/macaddress.md": {
-            "date": "2023-09-20",
-            "hash": "da8ad43c55f9675d676a3894063fb84c061542f7e46b35089893308718048be2"
+            "date": "2026-05-08",
+            "hash": "a0cae3cb6e4ac8d79c8d8964353d7fe55f029fa0d4b6df96f44128acd1f80e86"
         },
         "reference/device-os/api/wifi/ssid.md": {
             "date": "2023-09-20",
             "hash": "d47e365522642ce1263077cb25abf975054b9337d47cea43cfac4687c6fae422"
         },
         "reference/device-os/api/wifi/bssid.md": {
-            "date": "2023-09-20",
-            "hash": "1ca44bf0bf224ec69516ec5e51f3fc28c1871b3afa3d683cd74f8cfa1adf4521"
+            "date": "2026-05-08",
+            "hash": "344b38cb8f70d1ccc5807fe0482c705dfd40df5ebc50292b5d1f27b7440b4df7"
         },
         "reference/device-os/api/wifi/rssi.md": {
-            "date": "2023-09-20",
-            "hash": "a2246fe857237f52ca2f469174d77b62196315b7b72439c540d009050d314af0"
+            "date": "2026-05-08",
+            "hash": "0ba512b9d7ec94e3903166e1ea1d7b3f13391687be82f5f12717f6e639d1ba7c"
         },
         "reference/device-os/api/wifi/wifisignal-class.md": {
-            "date": "2026-04-15",
-            "hash": "d62dc2f6d6b01c58c5e33d210df53c3d1a763cb449f528413c07353aa92df376"
+            "date": "2026-05-08",
+            "hash": "3ae79a4f33668143587c18c29ca8a19e71597be5bd6bbc4974e9f052164c398f"
         },
         "reference/device-os/api/wifi/ping.md": {
             "date": "2025-02-14",
             "hash": "a5dd436a7cd91e582f5b56732adb0c0b0d99602d0d92a3d343a27f46d43d4814"
         },
         "reference/device-os/api/wifi/scan.md": {
-            "date": "2023-09-20",
-            "hash": "55edb88dc14f106c4f467a3787906db5331c4f7f5960348209f2a39f04c9a3ee"
+            "date": "2026-05-08",
+            "hash": "eb1db2914436541f860973f62bcf6f7652e0c56af4d799d539bd224b98d980ed"
         },
         "reference/device-os/api/wifi/resolve.md": {
-            "date": "2023-09-20",
-            "hash": "ad9e2f4ebd762e0d163e9888b93df732d63128fe73ec6424c8d28dac86a2587a"
+            "date": "2026-05-08",
+            "hash": "34df991b3c44d6f338e2aa71b5f5c8c95d01fd113252561ee2d5a1e59858ec2d"
         },
         "reference/device-os/api/wifi/localip.md": {
-            "date": "2023-09-20",
-            "hash": "bacf85f6c881fb78d17a9d3cbef9349a606da433d85b63007d6ee16c3c844bd7"
+            "date": "2026-05-08",
+            "hash": "8e5f14548a6c8787813b50b90c3ff777a2cb5781ad2f5675938b983c02fb1410"
         },
         "reference/device-os/api/wifi/subnetmask.md": {
-            "date": "2023-09-20",
-            "hash": "5f854448897aa49d0ca603cc414dc1321e5b3f4b4acf51c8eebd8136247d8b6f"
+            "date": "2026-05-08",
+            "hash": "9dec30a95a4ef0fcc032563b2213a3f3112b2becce993e8099df5782dee0c64a"
         },
         "reference/device-os/api/wifi/gatewayip.md": {
-            "date": "2023-09-20",
-            "hash": "256ee3624c99afca313bdd35473981879add33be7afa75aed32749dabd6e99ef"
+            "date": "2026-05-08",
+            "hash": "ef4f889fa8eb2c383aeae5dd624782310bb9a976acd6356819289ec1a035870c"
         },
         "reference/device-os/api/wifi/dnsserverip.md": {
             "date": "2023-09-20",
@@ -2019,8 +2019,8 @@
             "hash": "66c9b9073b70c65502687c805ec8d1514d0ed79857dcd9fe38027680f2a359a1"
         },
         "reference/device-os/api/wifi/setstaticip.md": {
-            "date": "2023-09-20",
-            "hash": "99f588445122c5d49d45d89574085221d2e17ee5b0cd9f91b4f0b968552c92b6"
+            "date": "2026-05-08",
+            "hash": "1bf3acfd3c4f7d90e911f89550c1312f32826ffb439e673152c67466ab49bbd9"
         },
         "reference/device-os/api/wifi/usestaticip.md": {
             "date": "2023-09-20",
@@ -2031,12 +2031,12 @@
             "hash": "ad0e1d40d157b7da4db380c43c5656525ff8e4a00cb8935411f5fbd2c69c6882"
         },
         "reference/device-os/api/wifi/sethostname.md": {
-            "date": "2023-09-20",
-            "hash": "8745eab31f5e3117994bd5304195995bf9cd59eddae0097c29d7d0bd32fe60ff"
+            "date": "2026-05-08",
+            "hash": "e77efbfdc34a06c972ecc83ba4688c6efe10613c726da7d72f03c1ebb21937dc"
         },
         "reference/device-os/api/wifi/hostname.md": {
-            "date": "2023-09-20",
-            "hash": "a17c60954bba9002b4f3a9f379d48b6114dbd15c9f32e77864d1f081a78541a8"
+            "date": "2026-05-08",
+            "hash": "b325979b74ae11bf37703ea9d8d762d5f36e813425a1851ffffbe4f5e804b054"
         },
         "reference/device-os/api/wifi/wlan_get_country_code.md": {
             "date": "2024-04-30",
@@ -2047,8 +2047,8 @@
             "hash": "a51c7ffaea46064889b6fba9c7903927a35748b69821ad96cc4426a316fffad2"
         },
         "reference/device-os/api/wifi/wificredentials-class.md": {
-            "date": "2024-05-21",
-            "hash": "c7e2a10e137706585332475e31aedfa38bc08dc28a5dd9553e781bdc3d9cb2ca"
+            "date": "2026-05-08",
+            "hash": "2ba69a7bb0809ec2556ffbc58ddf0c64b7b28545d3781bac32e46c332f25caa9"
         },
         "reference/device-os/api/wifi/wlaneaptype-enum.md": {
             "date": "2024-01-31",
@@ -2067,28 +2067,28 @@
             "hash": "1110bc9937c6f0e0de0f296fee5e603c9b4fac44388875fe52dae7eb5f678de4"
         },
         "reference/device-os/api/network/on-network.md": {
-            "date": "2023-09-20",
-            "hash": "5296731f97ca58012b89decc9b8ad4b346d314f395ddbd992eebc762719e3343"
+            "date": "2026-05-08",
+            "hash": "9b422968406714126e211c6ce8f778fff8155ce0802cfebd73d52cccce8d31bb"
         },
         "reference/device-os/api/network/off-network.md": {
-            "date": "2023-09-20",
-            "hash": "c382b4128ccecb1acc49776a4a1b0cef98c21302ecb7b7ed266656650e093229"
+            "date": "2026-05-08",
+            "hash": "1c0ec2e4ca41f63918e278eed4379f1447fdc4a25bf92617fa46c71bbb2cf521"
         },
         "reference/device-os/api/network/connect-network.md": {
-            "date": "2024-02-27",
-            "hash": "0700a9aadd855343a6d8936d1e74530ad6d51ccb969ac5ad38cbde4b61c31b9e"
+            "date": "2026-05-08",
+            "hash": "55d26b17773559420461dbe77e5e754394d3f732daab0abccb14e168bbcebeb0"
         },
         "reference/device-os/api/network/disconnect-network.md": {
-            "date": "2023-09-20",
-            "hash": "99b9367b9570c6139fc2f51dfd4ed57d57428dc0cf82abac98770d0077d603cc"
+            "date": "2026-05-08",
+            "hash": "9699bfd81dca15707fbbdf1e67c9743119698e461e63adf7b7dfacad4557c7af"
         },
         "reference/device-os/api/network/connecting-network.md": {
-            "date": "2023-09-20",
-            "hash": "9188f2c1260a95e243e52ed27ef165f2916c14a9eb31ae146f9cbd0d1fe7cc7f"
+            "date": "2026-05-08",
+            "hash": "f138c7eb8610c11bb114a9cef0040af714425afbb3040087e080dc4c502ffe80"
         },
         "reference/device-os/api/network/ready-network.md": {
-            "date": "2023-09-20",
-            "hash": "f8da89cbffd039851da150ce85faad519e3bce0777bbd27a89760627bafe8254"
+            "date": "2026-05-08",
+            "hash": "1064c60125d8ad992770da1327f07ccc54a0615259e4b83edd5cf37e058f9baa"
         },
         "reference/device-os/api/network/setconfig-network.md": {
             "date": "2024-01-12",
@@ -2099,20 +2099,20 @@
             "hash": "3d01c639735ef5ec5da4507e3db7631edd52cdb7810d2284a522fee0e95f4263"
         },
         "reference/device-os/api/network/listen-network.md": {
-            "date": "2023-09-20",
-            "hash": "d1b55d95609fafa09d03264f18e3465f3f87a8493184954ce41ba2599c09196f"
+            "date": "2026-05-08",
+            "hash": "e8b6e05d30917421c0e90d9d20433c759b04f82b81d87b512cabb3031c52a536"
         },
         "reference/device-os/api/network/listening-network.md": {
-            "date": "2024-10-15",
-            "hash": "576ea31f80590c84481edc9e7620dfb80ff5f8b29319a7d5d2781e26d5890921"
+            "date": "2026-05-08",
+            "hash": "cebdbb67937c9c5effbd6e8ca0afef79055f55f494be0a587cdd9c180575bd58"
         },
         "reference/device-os/api/network/setlistentimeout-network.md": {
-            "date": "2023-09-20",
-            "hash": "e5d69b449d4657213f1226e769f0c54d7d25c299b08f3f0709d41011f5f6f590"
+            "date": "2026-05-08",
+            "hash": "8d3ac7131a426c41c3f22f9d917cb6d7e598b093f1c3f4e113b73f46be181aec"
         },
         "reference/device-os/api/network/getlistentimeout-network.md": {
-            "date": "2023-09-20",
-            "hash": "7b4a1240d1419a981e22ab2f74462256da5e90bc470e5eaad6b70b17e76e25bf"
+            "date": "2026-05-08",
+            "hash": "8f72cb3d125a0c1dc3d34bf214cbbf942c609c30e13ef791010f6a72604c73d0"
         },
         "reference/device-os/api/network/networkinterfaceconfig.md": {
             "date": "2025-11-05",
@@ -2151,96 +2151,96 @@
             "hash": "77e5fab40617550bc37a9fbd4a6af3524b4709ddedb5b6aebd33c20ac6c2f507"
         },
         "reference/device-os/api/cellular/on.md": {
-            "date": "2024-12-10",
-            "hash": "38300d244ae5d3791aeed79f5052adb4d058667c8a9f8c666c20c089a208f5d8"
+            "date": "2026-05-08",
+            "hash": "2c7c07b8309e34da9b30eae556c8d363ef7d22af68c3fac2d43d9cdf9da12376"
         },
         "reference/device-os/api/cellular/off.md": {
-            "date": "2024-12-10",
-            "hash": "9790af5833e45b6bc410083d3f70e0498fa4b3e9330612f28e5728782e243e21"
+            "date": "2026-05-08",
+            "hash": "b32b26310908e919949930dfad8b8ff1e275dea5f894374aff7387ba50f6f6a4"
         },
         "reference/device-os/api/cellular/ison.md": {
-            "date": "2023-09-20",
-            "hash": "b3791fb34f1a2e70eb9b188bdc9add04c8c877964ab00ff744e92c69a66e253c"
+            "date": "2026-05-08",
+            "hash": "6569283ba6b223e25272a57d5645c5fd5c62748a5a2f555937ad3937a01747b6"
         },
         "reference/device-os/api/cellular/isoff.md": {
-            "date": "2023-09-20",
-            "hash": "2bb9582fc12240bee56fe00f5cfba814a5bb4fc15e8f334f75180854a48c41e2"
+            "date": "2026-05-08",
+            "hash": "002990c9a101474672bb7e2d038ba301e5b78dcdb84d8db2c3ec441ae81055bc"
         },
         "reference/device-os/api/cellular/connect.md": {
-            "date": "2025-04-01",
-            "hash": "10ea7b1f4595361580ba11bea9105e92a336e818176cfe209f359b40a6b42d52"
+            "date": "2026-05-08",
+            "hash": "d057c8dcd08ce07b227d4f2aef03ed4ee71eab48ba0658ce3af00395b819fe5d"
         },
         "reference/device-os/api/cellular/disconnect.md": {
-            "date": "2023-09-20",
-            "hash": "b7f88a34558e6f3a9c73e6f44bf8ef88bcce3b01b3d026a517a023f183357689"
+            "date": "2026-05-08",
+            "hash": "0730f016d7de15a67f0cf0e6594921754a22c64380734c4b9c1869cfc77b4b4b"
         },
         "reference/device-os/api/cellular/connecting.md": {
-            "date": "2023-09-20",
-            "hash": "4c9c0b183817d7f5b1d2d07ef64f575953ecaf721b28bfb5dda9eea94fbdc7fa"
+            "date": "2026-05-08",
+            "hash": "acaf02051432c8fbf8df95802fe97fa1f40e5885536acb6657b25d4720a9016d"
         },
         "reference/device-os/api/cellular/ready.md": {
-            "date": "2023-09-20",
-            "hash": "25e9c3f8a9fa4e76f44266535d85455de1017ada95783f202756f497030d6dee"
+            "date": "2026-05-08",
+            "hash": "27a48576dbbb0ce3fc79cabe9924a97ad31e8dfdaeb1f4b9ec2babfa3e6ac5a8"
         },
         "reference/device-os/api/cellular/listen.md": {
-            "date": "2023-09-20",
-            "hash": "401cafe5f08093b6d227189260858b18e21eb688c343b1b438dec7e69abbdb10"
+            "date": "2026-05-08",
+            "hash": "ae1b681bf959613d4c3797511afeaff850550d121f808b9ff29678e00f3ba550"
         },
         "reference/device-os/api/cellular/listening.md": {
-            "date": "2024-10-15",
-            "hash": "e0cc4f4f519b28ff95dc92c1179e33e1297751a513245cc2420e013f4ab5c3ab"
+            "date": "2026-05-08",
+            "hash": "de9a9cff2425526c2de460883e843357edad7f989832b810b152e76e02385c61"
         },
         "reference/device-os/api/cellular/setlistentimeout.md": {
-            "date": "2023-09-20",
-            "hash": "b26389e4898d5a33df8a8dde4491a17020e0ad066c8fd7f5edadbc6e3e02ebe2"
+            "date": "2026-05-08",
+            "hash": "cd916870d7f48856b5035b89ea38513656de2f8fe6cae5103af3d6a686cfe21d"
         },
         "reference/device-os/api/cellular/getlistentimeout.md": {
-            "date": "2023-09-20",
-            "hash": "ed62b273a9e20acb44e0e63b4708c89cd6a4b08e60eda74e848d56bd899b7a03"
+            "date": "2026-05-08",
+            "hash": "972a22f3f9a64cf27a367816e8b76385755328c4ecfd19eb59a7259277d1fdd9"
         },
         "reference/device-os/api/cellular/lock.md": {
-            "date": "2023-09-20",
-            "hash": "c965d91dad557249008e3aa851a9c27f72b0fd950a645a4adc5c8639192595f1"
+            "date": "2026-05-08",
+            "hash": "61877c45dfd67a4e4dfb1b00244d563068bce9be25b2a99fff99423766572d06"
         },
         "reference/device-os/api/cellular/unlock.md": {
-            "date": "2023-09-20",
-            "hash": "324348b186672a39244aeb717dbcc972d113797eb6fe1d0ac6be1a7fc6fb105a"
+            "date": "2026-05-08",
+            "hash": "8805c8a2d0f2330fdbb829109dc557111b39620756417fd3a1d5a0132c930296"
         },
         "reference/device-os/api/cellular/setcredentials.md": {
-            "date": "2024-09-18",
-            "hash": "3f227cd87ad4fb12bb2c7f02201e71fc8fc867e0587ca7a1b58c099c93f9a2a8"
+            "date": "2026-05-08",
+            "hash": "8acb5b5212f690e0a5fc07da95c2c096daf3a47315252bc9829f45ab91e61ce5"
         },
         "reference/device-os/api/cellular/clearcredentials.md": {
-            "date": "2024-09-18",
-            "hash": "1af827ef4d2aa74bdb8a1586833aeea41db715e01421deac2f70e73d4c231d9f"
+            "date": "2026-05-08",
+            "hash": "2b6fff289102fd0f99ad2a558e9d9e43f8d3e81ce61276560adf4402aa3225a7"
         },
         "reference/device-os/api/cellular/setactivesim.md": {
-            "date": "2023-09-20",
-            "hash": "40445e734ad0d35b6b070c238414414514b1ce738e5a9b7a51f6fc24982a7b64"
+            "date": "2026-05-08",
+            "hash": "385008d2d7cc94b21460a6c8d0451dbd2bf07560f0c118d9c8e3781b06944d97"
         },
         "reference/device-os/api/cellular/getactivesim.md": {
-            "date": "2023-09-20",
-            "hash": "f2a59b8f0b72f13a18f6d509b25640272274a6b1b83f3e97133a0fee6cd4e8bb"
+            "date": "2026-05-08",
+            "hash": "6f364a36b44819d3ede263231dc00364e99114416662e61dd8289e62e39fc806"
         },
         "reference/device-os/api/cellular/getdatausage.md": {
-            "date": "2024-02-27",
-            "hash": "34c1d8e8babe0bf33322dce0ef787b9b1a9f7a038192657a3a72ee146fd9fbff"
+            "date": "2026-05-08",
+            "hash": "130bcce368a534619589865c73c8a0c00811397350f0aa4bd0d56078b32bf519"
         },
         "reference/device-os/api/cellular/setdatausage.md": {
-            "date": "2023-09-20",
-            "hash": "799a8a2bcad09f2aab2e776d2dc947b37352538efa7a49d6f1ca22039bd87fe4"
+            "date": "2026-05-08",
+            "hash": "5fcdde5c221ac8680e612d5ac028a40c23fe1494b99a701009ee1034f08449a7"
         },
         "reference/device-os/api/cellular/resetdatausage.md": {
-            "date": "2023-09-20",
-            "hash": "33af993d30a30357ae2c2cf1693d61871abadbb834f923ef6407946d28d22b83"
+            "date": "2026-05-08",
+            "hash": "ae673b6ed7ff0211bb56fbad151845cfc7c330965547c7077fe9bb1d52a1aa39"
         },
         "reference/device-os/api/cellular/rssi.md": {
-            "date": "2023-09-20",
-            "hash": "3a0ced1d21067c700b42a56962835210a780430e7608de44ee1f2b79e57262ae"
+            "date": "2026-05-08",
+            "hash": "7cc7dc8bcd34893c55336b41e47734bf61a66b32a0dccec3537009e3e6f5eb49"
         },
         "reference/device-os/api/cellular/cellularsignal-class.md": {
-            "date": "2026-04-15",
-            "hash": "5af73844468a6d83336e99960c260356e79b6e36caacf2163cbc77936cb68d8d"
+            "date": "2026-05-08",
+            "hash": "168ce4c5851780c1a88c0f5e57af4227ef581fbbba0c1bd876146a8dcfd9d865"
         },
         "reference/device-os/api/cellular/getbandavailable.md": {
             "date": "2024-11-06",
@@ -2255,16 +2255,16 @@
             "hash": "036f553a96c3b5c0d12b8b74bce72c638cb1774959c0b83dc0502d8b01a97499"
         },
         "reference/device-os/api/cellular/resolve.md": {
-            "date": "2023-09-20",
-            "hash": "eebdeaf5068252564e6742b65329c66417d8ec538e48d9894181805cae0feda0"
+            "date": "2026-05-08",
+            "hash": "459c46033d182a4db004c3b018d12a931b9aabd199ad4b1c0467900568c6740e"
         },
         "reference/device-os/api/cellular/localip.md": {
-            "date": "2023-09-20",
-            "hash": "345b7c777cb5dfc70f5aa0d0daa6c5d3ae104094ea7d8b8d50e6a4a1b692840c"
+            "date": "2026-05-08",
+            "hash": "4f32e60b599c0670d1902d036a221036e473421a5fc25dd66c89da7bfc40102a"
         },
         "reference/device-os/api/cellular/command.md": {
-            "date": "2024-12-10",
-            "hash": "c910bfe64c1efe3d63a1a9065a60146c9be377992bd36798a8f9364c3e850d71"
+            "date": "2026-05-08",
+            "hash": "be236519756e9ba849ccb1d4fbea31c2c7654ad853f64548f024b6d27a3eaf1a"
         },
         "reference/device-os/api/battery-voltage/battery-voltage-photon-2.md": {
             "date": "2023-10-21",
@@ -2351,24 +2351,24 @@
             "hash": "3087ca7b4bd067cfb998c77680c813672b2ad42b777eda062c6b9511cd57affd"
         },
         "reference/device-os/api/input-output/analogwrite-pwm.md": {
-            "date": "2024-10-23",
-            "hash": "17fa000bf88a0e7613bc1a5eb4f548804b8e1d719670a268e4f83259930777c6"
+            "date": "2026-05-08",
+            "hash": "e37104942838dad57886c5041d2508adb1c55bb531f8306baf5744cd0c89489f"
         },
         "reference/device-os/api/input-output/analogwriteresolution-pwm.md": {
-            "date": "2024-02-27",
-            "hash": "1c46640d0ded29ee87be326b655e51336adefaae81d248231ea03d329d1611a3"
+            "date": "2026-05-08",
+            "hash": "12ffd8670757b2d7b982f5df2d1d7b03b1127b0e41dd4ad1236ed3cf7db9c3f0"
         },
         "reference/device-os/api/input-output/analogwritemaxfrequency-pwm.md": {
-            "date": "2023-09-20",
-            "hash": "126e03a6f29010000928a481fef3ee4a52cf912e9184cc3558fe7beaa1566756"
+            "date": "2026-05-08",
+            "hash": "f6cc6e2ce175f0661fdf7ce6e18cb610f3b4d0a91a6e5ed6032a4550ae737e75"
         },
         "reference/device-os/api/input-output/analog-output-dac.md": {
             "date": "2024-02-27",
             "hash": "e0659a030f1fd8944f1d253622afab6e4d9ee4f3f1e9b4d3fdc4853688072a7d"
         },
         "reference/device-os/api/input-output/analogread-adc.md": {
-            "date": "2024-04-30",
-            "hash": "572920cdc8e414e34920f9b2ae10190e5e0cf41adbe5f9f2bd958bc0caba0cac"
+            "date": "2026-05-08",
+            "hash": "76a4be6bd5905a2c223a6e22b323db7518b3a937d4e0b5295a8cc8e5e24e50ff"
         },
         "reference/device-os/api/input-output/setadcsampletime.md": {
             "date": "2024-02-27",
@@ -2379,40 +2379,40 @@
             "hash": "33b93ad7f13686a5c7b01b74f308254d87c4b6fa9005fe6758af79f9f8ccccd5"
         },
         "reference/device-os/api/low-level-input-output/pinsetfast.md": {
-            "date": "2023-09-20",
-            "hash": "244b07433844b56918db029a0a621d7b68fdb619c500fe320a4fa25db68c6364"
+            "date": "2026-05-08",
+            "hash": "596952c2c52427154e35fbb87afd949850162dd1c03c28d7328ccd93d9b24736"
         },
         "reference/device-os/api/low-level-input-output/pinresetfast.md": {
-            "date": "2023-09-20",
-            "hash": "189644ad3a0b698045973654f180523787d05a424419ab76f0fc7ecf99391c78"
+            "date": "2026-05-08",
+            "hash": "d77b5c6ce7a0bf5ec412790332084b1f8d6901024a7650e9a5dac076fff9472b"
         },
         "reference/device-os/api/low-level-input-output/digitalwritefast.md": {
-            "date": "2023-09-20",
-            "hash": "de544209b965db4fdb6f41756c993b32fb093296bcdbf96febe5263767e764b1"
+            "date": "2026-05-08",
+            "hash": "16391eb55c41362aa3edc49a7b0e45de69872c274fb35ebbd2c34bcde6b63ca8"
         },
         "reference/device-os/api/low-level-input-output/pinreadfast.md": {
-            "date": "2023-09-20",
-            "hash": "8be3779b4b0f520689714b12bcc7282ad7e42d33d9850da553ecb6e55ca5da85"
+            "date": "2026-05-08",
+            "hash": "a97dd84a4880499c30684fe9e60c60d11eeb19cb9614d35999425707aefa0362"
         },
         "reference/device-os/api/input-output-advanced/tone.md": {
-            "date": "2024-04-30",
-            "hash": "cb5f9b7d025fab51267b299009d57ca4fb6a0be538c9583d000bf04aed8aef69"
+            "date": "2026-05-08",
+            "hash": "484fb617144731e2ed3261f541e0a746712b3bedab7a7889626737594b9f669c"
         },
         "reference/device-os/api/input-output-advanced/notone.md": {
-            "date": "2023-09-20",
-            "hash": "db57b17a1219ec89c2dff7d08dc6540ade93e031a0dc93fbb1ef33e6a62f617a"
+            "date": "2026-05-08",
+            "hash": "027ecc3849a210bf577557390e6fdf892a0e420d3aeb10150ff01c2a53277bfd"
         },
         "reference/device-os/api/input-output-advanced/shiftout.md": {
-            "date": "2023-09-20",
-            "hash": "7aeb513172e5dd1ed39503e9ee44c97562b6b49f037b3ea68abb58453aaef9f8"
+            "date": "2026-05-08",
+            "hash": "49b289f884fe58194fb5d51602cd106359f6e8fa08de55c1d137003ad6f8b1b9"
         },
         "reference/device-os/api/input-output-advanced/shiftin.md": {
-            "date": "2023-09-20",
-            "hash": "22895d4582f274a6119a754e62a566ee602c588260a976d3dbfa1e7f2d7a6c03"
+            "date": "2026-05-08",
+            "hash": "ac0462626fbf926099a69feeba1ef7f9ce842c9647274cd8136cb5b16d79e4ec"
         },
         "reference/device-os/api/input-output-advanced/pulsein.md": {
-            "date": "2023-09-20",
-            "hash": "9be6beacdf6f5b535a36001e96d451c5c17cf55fa979e411ef7ae790a6310d16"
+            "date": "2026-05-08",
+            "hash": "989e51c02f8d961b83ff26b416341b9725b1005cc8a3ae46bee542ea3b825d79"
         },
         "reference/device-os/api/power-manager/power-manager.md": {
             "date": "2026-03-19",
@@ -2507,172 +2507,172 @@
             "hash": "60a7e34f43a0c927dc0c60e327d93cc8cb454b94c9f4a8e94943f5c5d44a79f1"
         },
         "reference/device-os/api/pmic-power-management-ic/system-status-register.md": {
-            "date": "2023-09-20",
-            "hash": "5c63720e7b179dde9162ba7bd8469d7d93a3037f4bb4a027278c2b1274148c12"
+            "date": "2026-05-08",
+            "hash": "643ad7fa5efba32691b186b923c9d2c4dc470826f88c46c64d6b595d50d0815a"
         },
         "reference/device-os/api/serial/serial.md": {
             "date": "2026-03-19",
             "hash": "458895e2a66dc160494f2e87a5965ddfb6a636e3d39969910afcab2e88d90b34"
         },
         "reference/device-os/api/serial/begin.md": {
-            "date": "2024-04-30",
-            "hash": "39ac51924aea2edc63009f0b2b386087608816d173c58456f5fe1cb8234c4f4e"
+            "date": "2026-05-08",
+            "hash": "5cec9ad8eaf1fa5968aed7dfb50dc547e3c73fa087f51ecaa90ad1b6f56f72c0"
         },
         "reference/device-os/api/serial/end.md": {
-            "date": "2023-09-20",
-            "hash": "9be30ac49b69f26721fb32714778ff79e1d748c3fb018f6f1bf3c8fcb8aa0844"
+            "date": "2026-05-08",
+            "hash": "f740832678fcddf1d7ea3df237ff6c9b2eaf00ea353b63a9e80cbd2434ef3dff"
         },
         "reference/device-os/api/serial/available.md": {
-            "date": "2024-02-27",
-            "hash": "9833a195d828b3aab6554ee2ec2cdc656f01e49a606e8e65b4fce16157f16421"
+            "date": "2026-05-08",
+            "hash": "4582705f0c104ad72f0180ef2a31550d03d8880de43d9baa1b6aacb59bb953a2"
         },
         "reference/device-os/api/serial/availableforwrite.md": {
             "date": "2023-09-20",
             "hash": "14a80e5d7a32461081c04dc5cca0950b6b1e9c0ebd728e6f0392987d3c43dc8e"
         },
         "reference/device-os/api/serial/acquireserialbuffer.md": {
-            "date": "2024-02-27",
-            "hash": "0d3f65484557452cf54dd801c2cc5dc4d2a823c9dd9ba89b51823dbaf6e245a7"
+            "date": "2026-05-08",
+            "hash": "1a91a3b768cd757611a0b3ef9e6d373aa8e12ca1f415261fe897c310df38dd27"
         },
         "reference/device-os/api/serial/acquireserial1buffer.md": {
-            "date": "2023-09-20",
-            "hash": "9e9476306ac7f1a7057e0ce82ec87b07fe7a07691cd91d0d9f1db3341cf44526"
+            "date": "2026-05-08",
+            "hash": "20575c4c8014c88b5a8cef92fc236eece76551d435a4a48d7201cdd96778b57b"
         },
         "reference/device-os/api/serial/blockonoverrun.md": {
-            "date": "2024-02-27",
-            "hash": "f5eb07c3cfce0df693ab13f76d05b1aadca3cc02be256c64ddb18b05c9c52a19"
+            "date": "2026-05-08",
+            "hash": "42be4c6281f95e5e3bfe6a56d5f9427d0f1440269d4e36aee36b2ba2da409caf"
         },
         "reference/device-os/api/serial/serialevent.md": {
-            "date": "2023-09-20",
-            "hash": "2258011f61fc4c0a46e7b7ce9574abeec76cc9c6cdcf145e26c77df871825431"
+            "date": "2026-05-08",
+            "hash": "0fd6ce9235d718895a930cb66bd4c21298f15bb58e034bf922a06e8077b0dfc5"
         },
         "reference/device-os/api/serial/peek.md": {
-            "date": "2023-09-20",
-            "hash": "3f5641ca9e188ac9a1fd52f830d5538c9c84db26a9c210da07a8d8466782d6a6"
+            "date": "2026-05-08",
+            "hash": "8c602eb50fcff3413c1481b646da7dcfe08242e648864c3c3030791aa99f2fa2"
         },
         "reference/device-os/api/serial/write.md": {
-            "date": "2023-09-20",
-            "hash": "93547abd231c18ee3c1470242e939cd652eb78f7a84a54a5302a9dcfeae5e834"
+            "date": "2026-05-08",
+            "hash": "2e65240ec8550bd913ff5d84d4fb3a40ce46e16eab90d0c54d2d6a2c029a4234"
         },
         "reference/device-os/api/serial/read.md": {
-            "date": "2023-09-20",
-            "hash": "7ab5dfc82525228f462499c662cc237994946106dfb866aff7ff3a258656e415"
+            "date": "2026-05-08",
+            "hash": "d0c91c7bba0e7c4d1d945315f2feddf0de376c4a8b96b815c0493d2c680c5a0d"
         },
         "reference/device-os/api/serial/print.md": {
             "date": "2023-09-20",
             "hash": "da31e6219b08e43575d6d14334682968f6b33ae26dcc697f0851228699d55f5c"
         },
         "reference/device-os/api/serial/println.md": {
-            "date": "2023-09-20",
-            "hash": "01a063cab15c4a201d56a88b3fc45ade30c978b61cf3c4a4d2ad7daf21e47bfc"
+            "date": "2026-05-08",
+            "hash": "c8218ad6ba94a7aa52bf346342f9170fd68952f818fff6b542449a960a59bca0"
         },
         "reference/device-os/api/serial/printf.md": {
-            "date": "2023-09-20",
-            "hash": "23c5448e3fe9a9bc3ac82379ea4e7ec25df2f1a02daca38522a482f0a3f6a0b5"
+            "date": "2026-05-08",
+            "hash": "d3cbf3b2fa88f4779ad9cb959a082dc4b71073a4a60cfb714f6a1212c8084068"
         },
         "reference/device-os/api/serial/printlnf.md": {
             "date": "2023-09-20",
             "hash": "db20f74dd51c272c85a834ee9129496716fe8ea2cb888240219ba1f485c82edd"
         },
         "reference/device-os/api/serial/flush.md": {
-            "date": "2023-09-20",
-            "hash": "b5d0d5a71962fc1cb8aae32413f2d5fc376e4e0bd93e2029a2dbcc1227aba1c5"
+            "date": "2026-05-08",
+            "hash": "db0764984d191e45003f433c0667c6aa36a753ef98eec7b52d1b0ef78e1fbd4e"
         },
         "reference/device-os/api/serial/halfduplex.md": {
-            "date": "2024-02-27",
-            "hash": "4fcc5333aadb716fcd02656c1118781b9f10444986d23f17dd52fd18e99925da"
+            "date": "2026-05-08",
+            "hash": "2cfaaeb2d063520db1b9375b74bbd36b0b54bb3dd1cc9c875c0eca19702e577c"
         },
         "reference/device-os/api/serial/isconnected.md": {
-            "date": "2023-09-20",
-            "hash": "6daa53130d2cac15f3f987e1cd91e49a4747c2adb89441f32adbee7b1be2ee4a"
+            "date": "2026-05-08",
+            "hash": "6dd4e7b2a1674fa5b01abbad876e1170c326720623ef79dc8924b2136363a55a"
         },
         "reference/device-os/api/serial/lock.md": {
-            "date": "2023-09-20",
-            "hash": "6318b21c7595fc057f7a257ae01490050a610d12a7840d30595051d56ae2056b"
+            "date": "2026-05-08",
+            "hash": "b375f00cbb93393bac828f5f4a054beb2fa4ac25695301d9d2af3f819370f659"
         },
         "reference/device-os/api/serial/unlock.md": {
-            "date": "2023-09-20",
-            "hash": "559ca659686b9bab0927718613f8585c03e10c21e4a463b65bbdd8220782a5ee"
+            "date": "2026-05-08",
+            "hash": "93aff142fb887120b50b06b24fc4f6c185706f7299af7f4bdfdec27bce4eb449"
         },
         "reference/device-os/api/mouse/mouse.md": {
             "date": "2024-02-27",
             "hash": "279a4e17ab54d1cf7f70e06bd83580c0dff820f2c4adf36a2967515040959a2c"
         },
         "reference/device-os/api/mouse/begin.md": {
-            "date": "2023-09-20",
-            "hash": "5aa78679298541b9d526441b35f2b225428fcd7f3144ed67acebc84f5559e433"
+            "date": "2026-05-08",
+            "hash": "6cecc24828161259696b50510d24ae1b80d03eeb74fd8c20388382f1fbf8102a"
         },
         "reference/device-os/api/mouse/end.md": {
-            "date": "2023-09-20",
-            "hash": "43a5b67e09a5a8a577e224967962fb63a5e3b5e2bded82e07582bc1c7c7d775e"
+            "date": "2026-05-08",
+            "hash": "b6b056c4374eb3fa8cd845ee36731da3ea1e151aef69aba67b1dd4878674167a"
         },
         "reference/device-os/api/mouse/move.md": {
-            "date": "2023-09-20",
-            "hash": "025396abdfc98b9bac524a1bc32c8bc682faf6eb435d1f6140f65591aedac710"
+            "date": "2026-05-08",
+            "hash": "ca32ec4aa99265387c264163314d1755543c799e3dfd3f9f6ec3685740e6e465"
         },
         "reference/device-os/api/mouse/moveto.md": {
-            "date": "2023-09-20",
-            "hash": "71e31380a33021ddd974fcb3e94dd0bfc44b322f43131ceda50283986553e2b8"
+            "date": "2026-05-08",
+            "hash": "abe63a933fb28d386308cc3a45381baaa41dfb1e62c14bc1f6130c9c8d873650"
         },
         "reference/device-os/api/mouse/scroll.md": {
-            "date": "2023-09-20",
-            "hash": "04fc7a4b84e4e88a1f5601ec295c59c6f73872e646a0dd47c75ceff8ec5b9b9b"
+            "date": "2026-05-08",
+            "hash": "5d6490de04c0b996b5d1e4764b58f766d66d43342c290f0031c07667c0e7458e"
         },
         "reference/device-os/api/mouse/click.md": {
-            "date": "2023-09-20",
-            "hash": "419fba53b822c4a3cf828c7ef7a4e2fe81d1c20ac162fb67c244d38e79db1f0b"
+            "date": "2026-05-08",
+            "hash": "fbefd86613417ed9bda40e3d53a69bb35d8591fa3278f82abf8c3b6337a06ed2"
         },
         "reference/device-os/api/mouse/press.md": {
-            "date": "2023-09-20",
-            "hash": "f1ad62628aef94e2a86fd1fef6b0dc431955cc4586466e207f7ee3bc85daf88b"
+            "date": "2026-05-08",
+            "hash": "306a39e8008668773142c62e221985a5303b07456c0323393784aab48a81377d"
         },
         "reference/device-os/api/mouse/release.md": {
-            "date": "2023-09-20",
-            "hash": "b71499a9471038900f215c6791351021de997f7c9d151d298251835f91d17b89"
+            "date": "2026-05-08",
+            "hash": "49569618eece483c2e057f039c2c4f4180173f70d93d3b77223a9bf865ce104b"
         },
         "reference/device-os/api/mouse/ispressed.md": {
-            "date": "2023-09-20",
-            "hash": "9cdbc252eb4630f2bb515f3fd5a2f4a16c658a40d700e15de4f67e9916f86ed7"
+            "date": "2026-05-08",
+            "hash": "5c728b7f8286f581432e34f4551dce401bc3955a57ac17817299f8a0302748cc"
         },
         "reference/device-os/api/mouse/screensize.md": {
-            "date": "2023-09-20",
-            "hash": "d5f8f0b60ba0e581e718fdc68636f5480fa631efdd915e0c2fe344740ace3894"
+            "date": "2026-05-08",
+            "hash": "54c5d28db19d8bf293820037e1714df500d9822eca1ca4de914eae9b631042a2"
         },
         "reference/device-os/api/mouse/enablemoveto.md": {
-            "date": "2023-09-20",
-            "hash": "604c3d90da52d3e843abdbd2618ade973d77b089cd6c9ab4842e26c3ef467a11"
+            "date": "2026-05-08",
+            "hash": "5e96632913c5e60b716cb2d2a238ddc4a83c137d039109a955f055d6f7a0933b"
         },
         "reference/device-os/api/keyboard/keyboard.md": {
             "date": "2024-02-27",
             "hash": "5395c21badde8fbcee1828327508abde7f4c56e18662fc8fc10ee947f8f989b6"
         },
         "reference/device-os/api/keyboard/begin.md": {
-            "date": "2023-09-20",
-            "hash": "8a81ee8e5c6b616da1beea5f5473ef4078ebd75d0f0a676cd6685a65d0755911"
+            "date": "2026-05-08",
+            "hash": "74a979a373019df7839f4a4513d74de4eb5c9d55fefe457490a00ff9eedec877"
         },
         "reference/device-os/api/keyboard/end.md": {
-            "date": "2023-09-20",
-            "hash": "ffbad75d4e77f547945a88084b87db2fa78f47441b130d8991791ce0d65d9e43"
+            "date": "2026-05-08",
+            "hash": "8ecca38a92a5870e3d23e5f3209ae297469217939de5642ea86042eb5a8ba9be"
         },
         "reference/device-os/api/keyboard/write.md": {
-            "date": "2023-09-20",
-            "hash": "51758ed64395a498f14a3af739dc33b60866b48af96699833c806a9f640438eb"
+            "date": "2026-05-08",
+            "hash": "4faaa45e7fd94d861aac66b877b2ed6c5c34cdbf77d39bbf4189550f6a716a61"
         },
         "reference/device-os/api/keyboard/click.md": {
-            "date": "2023-09-20",
-            "hash": "acc4f1e4f54a3c418eb93aed602a34cf508cae0d7bdcd9732bfe41f42ac37de7"
+            "date": "2026-05-08",
+            "hash": "ebc946cbb64456feb5555a9f27c27bd58cbd1e1f3507557bda2ada974424ef35"
         },
         "reference/device-os/api/keyboard/press.md": {
-            "date": "2023-09-20",
-            "hash": "4ebfab0dfeec25be02a7ba8714e6fbc77df97ebae83a3f6ef9f8a1a9dbeea5bd"
+            "date": "2026-05-08",
+            "hash": "af67841f2591080f7ed3ce4deae4c4ab1e78c90f3e86a7528f02912b5fbc6170"
         },
         "reference/device-os/api/keyboard/release.md": {
-            "date": "2023-09-20",
-            "hash": "bc125afea7ba27109ad43a9aef2be9186fd1df5cd63e6beeef5e7d6b90448600"
+            "date": "2026-05-08",
+            "hash": "d7649c3e70f444ee3d1cdb35f4c3612612f4ae8df47f462107d55e2d71cdaad4"
         },
         "reference/device-os/api/keyboard/releaseall.md": {
-            "date": "2023-09-20",
-            "hash": "c31a6cec47c8241f75dd795d2dacd65cf8e428b665e89843e89dfbe3e2cd0e2e"
+            "date": "2026-05-08",
+            "hash": "9ee6d34bafafd062b2c1d54910b6c0ebd84e3574e78a06ebcf96f8fd134ba1a4"
         },
         "reference/device-os/api/keyboard/print.md": {
             "date": "2023-09-20",
@@ -2695,68 +2695,68 @@
             "hash": "9453b56145de15e7a70a12d28999369a83e4489f6e7b690e7e364273f1d57e5e"
         },
         "reference/device-os/api/spi/begin.md": {
-            "date": "2023-09-20",
-            "hash": "0eb76900b9ca1c332ab103b9d76a348af84a139583a3175c2d52a830db571781"
+            "date": "2026-05-08",
+            "hash": "5dfab7be7d60b42ced960e15026feef3ff3da6fac359d73c9de8720dcb107d27"
         },
         "reference/device-os/api/spi/begin-spi_mode-uint16_t.md": {
-            "date": "2024-02-27",
-            "hash": "616d280b89703f454e7aa4cce6bcdaf3c2f0528d1c128c1b3126c7847326d2d3"
+            "date": "2026-05-08",
+            "hash": "7b49ef0933c5d911cc5c936beede9595747598f3e55ecb001d535bbec3770a26"
         },
         "reference/device-os/api/spi/end.md": {
-            "date": "2023-09-20",
-            "hash": "20776b16901c6bda584bf0dcc09df1f6cf7cfad3fb96ec3c85e0a8c2b8bf1e60"
+            "date": "2026-05-08",
+            "hash": "e01eb7d7f83f2bd08d78e9ff7b024673597d149d9548d397f666accf2cda6b59"
         },
         "reference/device-os/api/spi/setbitorder.md": {
-            "date": "2023-09-20",
-            "hash": "e7b3101ae7e78c55529eefaec65f92c227369d97384e675df18564f672fe6aa2"
+            "date": "2026-05-08",
+            "hash": "957661a5ed628e8a324d7f0c5cf5d876234c85d8e65c060401591cd11fe407d5"
         },
         "reference/device-os/api/spi/setclockspeed.md": {
-            "date": "2024-02-27",
-            "hash": "b44fe12e2b6edf3a74d28d210a0f3061eaa0c611553bda669f798cbd8b7e1813"
+            "date": "2026-05-08",
+            "hash": "9a6d971c4ddb4c143e6b5905e48057193649b4c47a75d0e76e194b795ee398d5"
         },
         "reference/device-os/api/spi/setclockdividerreference.md": {
-            "date": "2024-02-27",
-            "hash": "4aef49888ff6d092e21220bf8ce4c5ef8ca571946c6ff7bd80cb22ec936f761d"
+            "date": "2026-05-08",
+            "hash": "19950888412ae8f4d1522921bad453d7db95a69aa0c619f627e4cc7e5fe051d0"
         },
         "reference/device-os/api/spi/setclockdivider.md": {
-            "date": "2024-02-27",
-            "hash": "34376de5c9df2c9c77ad64787bb22cd8e633e3915ec27520ae8d2743bcd6cc5f"
+            "date": "2026-05-08",
+            "hash": "4e2a38d181304fb568d97c376b9860ea2cc90a58beb20331adb6e7f65f73188c"
         },
         "reference/device-os/api/spi/setdatamode.md": {
-            "date": "2023-09-20",
-            "hash": "0e28119c95edda2e406fceadee76f5d62b0cdb6c464b820606b19e30d6de62b6"
+            "date": "2026-05-08",
+            "hash": "a58f0c4d79f4204915f8eeef24e39afe073f7d9b0b91108b530bc055ac6226a1"
         },
         "reference/device-os/api/spi/transfer.md": {
-            "date": "2023-09-20",
-            "hash": "0967d24dfc1ac5729a567f42b7da24f149246b85eb9398654ba9e4e687e3b17b"
+            "date": "2026-05-08",
+            "hash": "8eda1e04dad076549eb1ff11811fea059100c8c7a2f33b62fbf56f2c7aafbde6"
         },
         "reference/device-os/api/spi/transfer-void-void-size_t-std-function.md": {
-            "date": "2024-04-18",
-            "hash": "70cd226a1b94d1c3ade3bce92a7232101aa3aa5a36c72f7f67446ae4c2c8378e"
+            "date": "2026-05-08",
+            "hash": "3742d26897c1becd6d1127c6eef6c1ae9d5e5a42976fed6a7da2242e145bafe7"
         },
         "reference/device-os/api/spi/transfercancel.md": {
             "date": "2023-09-20",
             "hash": "9975791244b99bdc581286fa20a9569dd5c9e0e107f6c96d9386312e7474c5f6"
         },
         "reference/device-os/api/spi/onselect.md": {
-            "date": "2024-06-22",
-            "hash": "431f8c381adce8c638614584cc8822b48df27e7622499362e248773c80578977"
+            "date": "2026-05-08",
+            "hash": "7a417610b964f628c2f68fdae4d3669f9872ca5de723b27b9866511891b1219f"
         },
         "reference/device-os/api/spi/available.md": {
-            "date": "2023-09-20",
-            "hash": "1e6b549ead39e2657ee213f05aa193d3cdaebda5356dd62fd9005f2e68281e21"
+            "date": "2026-05-08",
+            "hash": "8b1f526ca66dcae365a33172ef0aa0215afb4d5a56a126700de839230200d4f2"
         },
         "reference/device-os/api/spi/spisettings.md": {
-            "date": "2023-09-20",
-            "hash": "36512b479fbfff36233f0e856ee48865fd40c859581922e6548d538befd8b7a4"
+            "date": "2026-05-08",
+            "hash": "415e266cac5de140b74f2d1fa9cfa20b26dccffc35a7a0e6b299117d3bc73fd0"
         },
         "reference/device-os/api/spi/begintransaction.md": {
-            "date": "2024-02-27",
-            "hash": "8f271c741853ce0c22fb0f76aef9ab88d09eecde61cbf8accf130916e7729d79"
+            "date": "2026-05-08",
+            "hash": "237721b1f6121901bd4c287c84abb77594f67dd7931e9f30b5f7b87d518815e7"
         },
         "reference/device-os/api/spi/endtransaction.md": {
-            "date": "2023-09-20",
-            "hash": "c8f60ab4bc95dbd77659a774eb95c9b088999eb5a6b7ff3cdfa283cb192ffabe"
+            "date": "2026-05-08",
+            "hash": "936f62ddf022ff2ff551b71ff5302b605aa50fb0aed3202ca72ddd9450920933"
         },
         "reference/device-os/api/wire-i2c/wire-i2c.md": {
             "date": "2026-03-19",
@@ -2771,72 +2771,72 @@
             "hash": "ad0a5b06d170b13aa6c6ad0f709e423df6a3747b5700bc9ba4b91096756ddc98"
         },
         "reference/device-os/api/wire-i2c/setspeed.md": {
-            "date": "2026-02-06",
-            "hash": "ea62d0aeafe31ea09ab29cea323507d50aeca7e0b4b0148e3350651929e0b7ff"
+            "date": "2026-05-08",
+            "hash": "d9df8166a74015a36bb695326b247ac94b80360fc3351aa8a197c8e1b4b6653a"
         },
         "reference/device-os/api/wire-i2c/stretchclock.md": {
-            "date": "2026-02-06",
-            "hash": "14a8e511cc0b49b0ec483d980e5b147535e3a99fad2aec82aa4278970188a0e3"
+            "date": "2026-05-08",
+            "hash": "a5e68ce8ab647cf5f4de28d2356ec31ef6a68d9e8027edd717edaa74e3f06bd7"
         },
         "reference/device-os/api/wire-i2c/begin.md": {
-            "date": "2026-02-06",
-            "hash": "472652ede57c65e1b075851803fc2726e623f7051e8947e3a5de50a746193d23"
+            "date": "2026-05-08",
+            "hash": "16c0f859bdf93d43d90eb374e2d6552f60b71ca5ce51623ac141a434d55bacd5"
         },
         "reference/device-os/api/wire-i2c/end.md": {
             "date": "2023-09-20",
             "hash": "9f73f693fd3f04a9771b0c338f3eb7ad0d1fa86f89f7c3bfc0c88694151d5e41"
         },
         "reference/device-os/api/wire-i2c/isenabled.md": {
-            "date": "2026-02-06",
-            "hash": "5d45c60f70fc126f2847e5dfa935f798ee60df64ce09b18319772e444f4bdcf6"
+            "date": "2026-05-08",
+            "hash": "4a5e6156026f196046bbef448ca7d50e9215ec5982675ef99f41b36a133de8b9"
         },
         "reference/device-os/api/wire-i2c/requestfrom.md": {
-            "date": "2026-02-06",
-            "hash": "78a2e7743d472700f82ed13a26733ba709c848d71ca0781b31f1dc4398c00a5c"
+            "date": "2026-05-08",
+            "hash": "61ff10d45cb503c8f315fa7e1793388e8f9d2105f252078f16e5bd53b2c377a6"
         },
         "reference/device-os/api/wire-i2c/reset.md": {
-            "date": "2026-02-06",
-            "hash": "27cff82ef253d176489ed0438f9ec7b1ee57382743fdcd08aca9bd43302452db"
+            "date": "2026-05-08",
+            "hash": "a400a81b5db8aa4dd3091b6c4f75d230271756de8fe3ea72b692d0abbb1963cb"
         },
         "reference/device-os/api/wire-i2c/begintransmission.md": {
-            "date": "2026-02-06",
-            "hash": "6867babdf431f0d5a3e9abfef59d77f0858f2eacdd1cb5adae0786fba3c4ac7d"
+            "date": "2026-05-08",
+            "hash": "30e437a59b01cf43d9795cf2ba78a3ae51326d24961e8389e8e9b99776561a2a"
         },
         "reference/device-os/api/wire-i2c/endtransmission.md": {
-            "date": "2026-02-06",
-            "hash": "00fe02f7d5341ec286a2996e21525a29be8b758ac701a92fba91dafa1e8e6cb3"
+            "date": "2026-05-08",
+            "hash": "a4c9019e61f225a4b017d60020faeb72b3a5e5ce116fb46d2a8c750a795f2e34"
         },
         "reference/device-os/api/wire-i2c/write.md": {
-            "date": "2026-02-06",
-            "hash": "9aa0e6a41c1ee07f5ebdb77a0493c5259dc9817506450d8bfaa5a71d189ab3f7"
+            "date": "2026-05-08",
+            "hash": "8a5da75c7b74156aae883d1c4c0ef0554b4c416f721b90b3d9fded13d2723fc6"
         },
         "reference/device-os/api/wire-i2c/available.md": {
-            "date": "2026-02-06",
-            "hash": "0ca4e3c80bd8928ee9aaff37181ea180309aa01f64e3ac8bc070c5f3d102cac1"
+            "date": "2026-05-08",
+            "hash": "672155c2876978ed2f5aa26bc0491f270b798c3737e28786d18bd03ec0cf89af"
         },
         "reference/device-os/api/wire-i2c/read.md": {
-            "date": "2026-02-06",
-            "hash": "c4171aead47ca26f958971ac8df5e90f2c63a29729fbb21899856a7921c4c61b"
+            "date": "2026-05-08",
+            "hash": "8daca79231fbffc8f2ea05db876dcf2aee45785119738616ac7d25fe589ec5e0"
         },
         "reference/device-os/api/wire-i2c/peek.md": {
-            "date": "2026-02-06",
-            "hash": "8d0fdcef1241d95feb3e2a0ff4d9d84a765cb757d7b7b12c4cd8e265e61987d9"
+            "date": "2026-05-08",
+            "hash": "409e653f179b189dfa5fca159e941931d601aa937b4e155730a547575e08b7bc"
         },
         "reference/device-os/api/wire-i2c/lock.md": {
-            "date": "2026-02-06",
-            "hash": "a1217f2ee376c1b5e279c5cb2c6afdf30753aafd6f5b68253f472b3ec42d89e7"
+            "date": "2026-05-08",
+            "hash": "dccfbefd819d308d44dfcdd1b01b0989b2d0a35918926697fa243a70f2b5d413"
         },
         "reference/device-os/api/wire-i2c/unlock.md": {
-            "date": "2026-02-06",
-            "hash": "7e4c6a65158bf0db92fee1bbcc64e9bdc7ca5b543313f68fb22640815416bdb7"
+            "date": "2026-05-08",
+            "hash": "da3af5d6ea9bac295c26e264266f889227d61c1b041e3b8c74d12dd6f390554d"
         },
         "reference/device-os/api/wire-i2c/onreceive.md": {
-            "date": "2026-02-06",
-            "hash": "e961a062de3006cdb69f269e8536e57decf4c9d96b1a3be5c19e238b03f791ec"
+            "date": "2026-05-08",
+            "hash": "aab83363b5a78a91f80938118dfc5d7b87b067cefa767c640261b4c9cc005c01"
         },
         "reference/device-os/api/wire-i2c/onrequest.md": {
-            "date": "2026-02-06",
-            "hash": "1dde3d4b35ba5c69e3f63ee5d5e361d69fae90559596035ede1ffb369f48e3d4"
+            "date": "2026-05-08",
+            "hash": "a6332a1846a9f28b56f84ed4a6db4dc1b5e5855d9fc27254e6a926a7aa2b5e9a"
         },
         "reference/device-os/api/wire-i2c/acquirewirebuffer.md": {
             "date": "2025-05-12",
@@ -2851,12 +2851,12 @@
             "hash": "aca1d17791bd0899f08eceefb1ffa6cdc6b04415b24945f977f381e4ee16e982"
         },
         "reference/device-os/api/can-canbus/canchannel.md": {
-            "date": "2023-09-20",
-            "hash": "0c111d2465e43f55632bfd9884624e4e0c4de6154ed2c7b21a37b6d9a07abf3f"
+            "date": "2026-05-08",
+            "hash": "9069dd41b0a9e2b7937ff40706974475f517451572d8d239b834c7c3497f3f34"
         },
         "reference/device-os/api/can-canbus/begin.md": {
-            "date": "2023-09-20",
-            "hash": "cc8438f856ccb3afb8791d5b94ad46c8378172164065b99973e41c400096be48"
+            "date": "2026-05-08",
+            "hash": "b52774e27d3b72420ca3ea8c0440b38e3b4153ed095c4bb87f2eddc84f0ed8c3"
         },
         "reference/device-os/api/can-canbus/end.md": {
             "date": "2023-09-20",
@@ -2887,8 +2887,8 @@
             "hash": "a254bd5a92beafe8dc0dd01c03ac119fabdabb14476d0f2a47449638e31b82e5"
         },
         "reference/device-os/api/can-canbus/errorstatus.md": {
-            "date": "2023-09-20",
-            "hash": "93cf699ad13b89edccffceb3d2b164615732d6c278ef395d6d2db7ede7d28f77"
+            "date": "2026-05-08",
+            "hash": "6a4bc2c75c260d9c194c976be601ee1580d757a369e14046b07aa971876d5288"
         },
         "reference/device-os/api/ipaddress/ipaddress.md": {
             "date": "2023-09-20",
@@ -2899,8 +2899,8 @@
             "hash": "1d233659dd97a62ba8f18e80cca831e2c13ba79d7d31dcf9461739f695a6c1cc"
         },
         "reference/device-os/api/bluetooth-le-ble/ble-class.md": {
-            "date": "2025-12-16",
-            "hash": "cd7685dcd1dcecd0f068d6067c5a72698cd9d47e81413037079fd5b671c6e131"
+            "date": "2026-05-08",
+            "hash": "3f390a8fa4bdd1786e9ec529b072fca1d1217d494d4325c6da0510783bcb058b"
         },
         "reference/device-os/api/bluetooth-le-ble/blescanfilter.md": {
             "date": "2023-09-20",
@@ -2919,12 +2919,12 @@
             "hash": "9257af6aa3dfaa6b413e6439bc3af1a20cc26c0fc5e16e0c949adcba7f10deeb"
         },
         "reference/device-os/api/bluetooth-le-ble/bleuuid.md": {
-            "date": "2025-08-15",
-            "hash": "e798ca912f0498a2edf4a500a5ec46d8f155433901c478ea4439cfae6e08d179"
+            "date": "2026-05-08",
+            "hash": "e3b1af3ff9ac11a2114e3df0c685071ab707243443d011c2de29122aad3198dc"
         },
         "reference/device-os/api/bluetooth-le-ble/bleadvertisingdata.md": {
-            "date": "2025-12-16",
-            "hash": "e4eb6104f8f9ca8e65cb55b437a8aca5e9bc1ca850de03418bee4e3297446ddc"
+            "date": "2026-05-08",
+            "hash": "d7d5a5c1021a89e9b4a3a537ea246710272f9281779583fce9a84b61e995edf0"
         },
         "reference/device-os/api/bluetooth-le-ble/bleadvertisingdatatype.md": {
             "date": "2025-12-16",
@@ -3003,228 +3003,228 @@
             "hash": "5fe687408e36da41fbf92b0dde12c29424a5748d8184548bd182bddcb08105b9"
         },
         "reference/device-os/api/tcpserver/tcpserver.md": {
-            "date": "2024-11-06",
-            "hash": "44e748a6b480c67a9cb3dbad97240f896bc40893fed30458c9977a5904e6bdb2"
+            "date": "2026-05-08",
+            "hash": "c6f9e962ca276e60ebdac6c034aa3b560789f81980899b0be8e46c9b950b5341"
         },
         "reference/device-os/api/tcpserver/begin.md": {
-            "date": "2023-09-20",
-            "hash": "690e99a0934d3bdb6bd658beb75d66b278d7cddc3c40b3bbcf23f9711c00e6eb"
+            "date": "2026-05-08",
+            "hash": "73349c37e36ccfd28bff75ddf3b1d2a34621aac54a213cd5ac6b1ff1309eb96f"
         },
         "reference/device-os/api/tcpserver/available.md": {
-            "date": "2023-09-20",
-            "hash": "15136c394060775fc4f9b10edf4d2f6a7c8baca22e103e7d6dd991408a7f3e90"
+            "date": "2026-05-08",
+            "hash": "621bb6e849244bb03872b449be5308fc11c9fe14fcc922cd7538cf334cb8f7fa"
         },
         "reference/device-os/api/tcpserver/write.md": {
-            "date": "2023-09-20",
-            "hash": "9620650ff52b1d1936f6e7051b7f07fddc486598ba3bf83b5c0c694974b1318c"
+            "date": "2026-05-08",
+            "hash": "0d5eecad23bb76627ca05ec4a7224106ee4ea1a955360aa92e86237e4750b122"
         },
         "reference/device-os/api/tcpserver/print.md": {
-            "date": "2023-09-20",
-            "hash": "dbed8e2a221e109ce1b564cecafe4e5a7e915bd09f136846037228cf2be472fd"
+            "date": "2026-05-08",
+            "hash": "5a15b87ac3918a236ace950fc5102a4edf9fbfdf63becd13b094f11b609f80af"
         },
         "reference/device-os/api/tcpserver/println.md": {
-            "date": "2023-09-20",
-            "hash": "a6fc27707f3da4142a853ed8507a45f2457f9b62b627cefd6cd73d87ca6964d2"
+            "date": "2026-05-08",
+            "hash": "c7d51006ca79c91fbb28adb425876156689627905435200295bbc2c814cfdfac"
         },
         "reference/device-os/api/tcpserver/getwriteerror.md": {
-            "date": "2023-09-20",
-            "hash": "cf59cdb7b547802d2edda82c7620ca97f3359fd7826b30fefce17493d2c2b334"
+            "date": "2026-05-08",
+            "hash": "9c91a6f7480fd92f0cfd3c3877d5544e487663de2324dbbc3ccfb0515a8ce0f3"
         },
         "reference/device-os/api/tcpserver/clearwriteerror.md": {
-            "date": "2023-09-20",
-            "hash": "ac1a9fd3c747d30d725a74dda0462a39cf68c00267d65fed30e06e2463ee153b"
+            "date": "2026-05-08",
+            "hash": "4248654ce896e7da0eeed3c93a3d54f2e52ce86dcd0081579f89136ba2f77837"
         },
         "reference/device-os/api/tcpclient/tcpclient.md": {
-            "date": "2024-11-06",
-            "hash": "7e6bc0419f5c6358dc3fcadf79836bd958287a99e4d76bc91f7f718ea5c3669f"
+            "date": "2026-05-08",
+            "hash": "cbc57d9abc8c4811c18711b4f1f6fb3f118c22b36b8f983d7e30df710ca34b2f"
         },
         "reference/device-os/api/tcpclient/connected.md": {
-            "date": "2023-09-20",
-            "hash": "a150ae486f92b8d76f75a73b549dd288cc503e45058ef60d683e932e87666363"
+            "date": "2026-05-08",
+            "hash": "dae034a12ec020e127d4e80469345d4804566dfe6b5478f070829773627ffd3c"
         },
         "reference/device-os/api/tcpclient/status.md": {
-            "date": "2023-09-20",
-            "hash": "98b59fb12e4fd2cb8a8f52660e7d2b2a4aa612af341ca33cd36b40e042bcc906"
+            "date": "2026-05-08",
+            "hash": "fd8721719edc3daadbe6405ebd9e0342b3483bbba62822dee702a53a70fccbbc"
         },
         "reference/device-os/api/tcpclient/connect.md": {
-            "date": "2023-09-20",
-            "hash": "f57605c2b54bf3478b3f67a936bfea8044e4312f916460c21e0bf854830d8693"
+            "date": "2026-05-08",
+            "hash": "10a66faa464c7468a8eddda18f6d3ce443194e972fff65c8d9f403cec519f290"
         },
         "reference/device-os/api/tcpclient/write.md": {
-            "date": "2023-09-20",
-            "hash": "5cc6b6cc1fdd5ddf76acd974fe9ed9744dd77b6a0f6aa8f4aa7cce73f265bf76"
+            "date": "2026-05-08",
+            "hash": "9648f0fa16ed7f80019f5d6c8e70a5c9aab3b550ac1f683b5d577fac4b87fc7f"
         },
         "reference/device-os/api/tcpclient/print.md": {
-            "date": "2023-09-20",
-            "hash": "7778d9a922dd23de34ad83716d533f700e16c38c0aa64a823d2c4363871210ad"
+            "date": "2026-05-08",
+            "hash": "6fce8070067790993fd3a50d678ce93400101716b533f3d5251897367fa8d8ed"
         },
         "reference/device-os/api/tcpclient/println.md": {
-            "date": "2023-09-20",
-            "hash": "fcb8af76adaaba2be0565db22913162edfbc7552a89ac6bd549acb7f40b2a550"
+            "date": "2026-05-08",
+            "hash": "08012dab237a2ab171a4123cc82249d73296fa86e536136d7cc783130ae7b11d"
         },
         "reference/device-os/api/tcpclient/available.md": {
-            "date": "2023-09-20",
-            "hash": "9b727f8b5b5b181b716101bef55d23ab51ccd55273f61f412b1778be30949ffb"
+            "date": "2026-05-08",
+            "hash": "a71b63c6b8bf74c16ca50cae2d77badeb25e05ff82a2ad97f0b77b68582ba03d"
         },
         "reference/device-os/api/tcpclient/read.md": {
-            "date": "2023-09-20",
-            "hash": "557a7aaf508dea5db89f3d55d834d8c1ec59e9f98b0ff2b8e1b1da5f501c4617"
+            "date": "2026-05-08",
+            "hash": "d78426fdec54a713310ff7ba7074ddc977db85d56f46dcb06f412db3c6830659"
         },
         "reference/device-os/api/tcpclient/flush.md": {
-            "date": "2023-09-20",
-            "hash": "83f372537a015661d1df02b46040c43e1febc29dedc18eb35f716a3be28e8fff"
+            "date": "2026-05-08",
+            "hash": "389ed4ecaf1fd6afc4b43a9e413ad5f1b410b1ef1b08de9d4dd3e8270c4d3255"
         },
         "reference/device-os/api/tcpclient/remoteip.md": {
-            "date": "2023-09-20",
-            "hash": "9720d3e6f9e723c711877bc9277d45b69199b9c37ce5a1887bbab0297019ab6b"
+            "date": "2026-05-08",
+            "hash": "af998a6b1bfc233b27b8224e444ed9f76d4ff89744dbb676112e8326788fdd20"
         },
         "reference/device-os/api/tcpclient/stop.md": {
-            "date": "2023-09-20",
-            "hash": "9637dcef92dc3ec7ace6bb06162cc5375a8704b12b9ce72f6c5bb67de90237d2"
+            "date": "2026-05-08",
+            "hash": "9f9a0b82024a239d737796343ffd47d469060c95b899078e9e683ce4e5b8d8b6"
         },
         "reference/device-os/api/tcpclient/getwriteerror.md": {
-            "date": "2023-09-20",
-            "hash": "6e35bb2430b44756ee8ec8fb7ce22796cfa553266fa49d3a817cb3488a207936"
+            "date": "2026-05-08",
+            "hash": "2bbb153a487c0595bd19356430e7788ae9726c595f16bbf2a6161b915b2a2632"
         },
         "reference/device-os/api/tcpclient/clearwriteerror.md": {
-            "date": "2023-09-20",
-            "hash": "addea3c2999deb89bbc6f499693b189c39110597b726b994e3ef121ff8ae18b2"
+            "date": "2026-05-08",
+            "hash": "814b94d4e94a05807c823c0813b411732b990b26a6edf766255a9be7cab2ad50"
         },
         "reference/device-os/api/udp/udp.md": {
             "date": "2023-09-20",
             "hash": "9fc91a92e99828f3c833b2b4c609b5415c38a7c88230b7a7b4ff6da70da3fdb4"
         },
         "reference/device-os/api/udp/begin.md": {
-            "date": "2025-10-15",
-            "hash": "43a132586a881283ab01202dd04e9469a3f206381cb85b63bfc044f08d3aa2a5"
+            "date": "2026-05-08",
+            "hash": "7a4e58e38c5b6fbc03120c1bcfb8669173a762ec905537971d5f846f177259e7"
         },
         "reference/device-os/api/udp/available.md": {
-            "date": "2023-09-20",
-            "hash": "516766fb1227d11cf5efc599842fc3811c814255367acd9ee7c7bff427fc9a50"
+            "date": "2026-05-08",
+            "hash": "10c0723953bb3225e07f32c4f4fa42277a2422504ca882a9484aa67269303a35"
         },
         "reference/device-os/api/udp/beginpacket.md": {
-            "date": "2023-09-20",
-            "hash": "04d300a11e6c1de258c8ed6ad418b3c0c20e20030a6a8100bfcf7ef231fdaaf2"
+            "date": "2026-05-08",
+            "hash": "2ba38491bdb963f27dfd6d5fa6912e07e71d031b8949faf5cf9d1e34011de0c4"
         },
         "reference/device-os/api/udp/endpacket.md": {
-            "date": "2023-09-20",
-            "hash": "b175470592a6c65728618433ab26d340dc22ed089cd3694052ddf2fc44da7482"
+            "date": "2026-05-08",
+            "hash": "883dd8d4a2197b32aafc52798f1ab4df4712e1605029a6ac15e975f3216ca441"
         },
         "reference/device-os/api/udp/write.md": {
-            "date": "2023-09-20",
-            "hash": "f0df165acf4337d0ffacf4d643c9f07836bf167d32a0e71c86ad15b40212893c"
+            "date": "2026-05-08",
+            "hash": "e3be2eeefd64a845d6600f45644fb80130d4181a02b979e59e03168b86b3b948"
         },
         "reference/device-os/api/udp/receivepacket.md": {
-            "date": "2023-09-20",
-            "hash": "b4690332897deb17c8c5fb7c7f745c85cd302b3837c7aa3d748318de3d4f456a"
+            "date": "2026-05-08",
+            "hash": "532fca397a8617d42d6363f2335d4505d153f480e25f8e7703296d7d0db8777f"
         },
         "reference/device-os/api/udp/parsepacket.md": {
-            "date": "2023-09-20",
-            "hash": "d6b58f2ca448b5972b7aa42df7816ac97636a71999b03478f1d294f8faeae682"
+            "date": "2026-05-08",
+            "hash": "567fc05717a4e42c6ef5a535a215efc9de3108b7c235cfa5c04173ef5e4898fa"
         },
         "reference/device-os/api/udp/read.md": {
-            "date": "2023-09-20",
-            "hash": "ce4cbdc4f5584a199542fe95920ab26895716c1b5a35ed26548b397abed95e9c"
+            "date": "2026-05-08",
+            "hash": "53438f120f894bf81c7c0a8539ef9042441ed7fdf5d81fc7c92dd46a22f309b0"
         },
         "reference/device-os/api/udp/flush.md": {
-            "date": "2023-09-20",
-            "hash": "170302aab11513747c75b781ffa028b752baa1dbfc705a2f2cb383cf5bbc156f"
+            "date": "2026-05-08",
+            "hash": "e832957378f2aa53c3110428d1f3706587376a0b5caa839b647bde0144dc1d44"
         },
         "reference/device-os/api/udp/stop.md": {
-            "date": "2023-09-20",
-            "hash": "9087aac8e6c886786885db052fbf83945787a0c4e5c44cfa0fed67f7af999baf"
+            "date": "2026-05-08",
+            "hash": "e08f9d700f755ea1539dbbfdc0431192ba9e80b193fdfea28e18c789f320494f"
         },
         "reference/device-os/api/udp/remoteip.md": {
-            "date": "2023-09-20",
-            "hash": "c4c254c291497c4839424125c8ccfa46b06556e3fd7aaf39e62a5b6211d26a55"
+            "date": "2026-05-08",
+            "hash": "768b3ac2cafe16b7a6542f5c1250cde9e5ebf72a92df793662fd037f0508360f"
         },
         "reference/device-os/api/udp/remoteport.md": {
-            "date": "2023-09-20",
-            "hash": "d43d38001c32ca9cafd29bdd1b22f14ac0948aa47e2144de5c66798b7664f98c"
+            "date": "2026-05-08",
+            "hash": "d4a32e5c472a67081069045a82e8e1068c3d3e31a34cbe83577dec181b3cfa6d"
         },
         "reference/device-os/api/udp/setbuffer.md": {
-            "date": "2023-09-20",
-            "hash": "9967e2529264458db823e0ad884ff71a0e5899cd21f1fd53b8816a05cc94ffbd"
+            "date": "2026-05-08",
+            "hash": "cc35796a91f87d23ce64e1d72ae189d0f7079daccc6eb9fedd18b293a69a3b91"
         },
         "reference/device-os/api/udp/releasebuffer.md": {
-            "date": "2023-09-20",
-            "hash": "7c5ffd5f6a5974f07c2c58610dc9ff680347c71c69563f398de6538e81afd054"
+            "date": "2026-05-08",
+            "hash": "2d6bcd383d0b806dd6e8c6d4f62fb352870978bcff863a68e3b66c0c2f1e4116"
         },
         "reference/device-os/api/udp/sendpacket.md": {
-            "date": "2023-09-20",
-            "hash": "9b920f4f543985df3df1f6c74e1a7ff2476ff631d966c60e8e67d65042139415"
+            "date": "2026-05-08",
+            "hash": "ceb642c64a9521a78317ace28f3c3b72b4461d56abf2b0804b555eb3669b66d5"
         },
         "reference/device-os/api/udp/joinmulticast.md": {
-            "date": "2023-09-20",
-            "hash": "d3efe31d12984598ee7f8c32d634382591b23f71400f4f3eddfac66db3693aaa"
+            "date": "2026-05-08",
+            "hash": "c5e3932b60551ba1915dfb1f74cd9164312ef0c9ab3d92aa953e50da65257d3d"
         },
         "reference/device-os/api/udp/leavemulticast.md": {
-            "date": "2023-09-20",
-            "hash": "1ba4e7575e507381796f62798f86ca9b47ad6233d9519b558850370ccde5bf1d"
+            "date": "2026-05-08",
+            "hash": "1012fffda1bac94714c1daaf1cbfd6f61c3ecf61c2717a349bf80ff515ddc0f9"
         },
         "reference/device-os/api/servo/servo.md": {
             "date": "2024-10-23",
             "hash": "e669bf1e59ac9b1556bc3b386bc473649dae063a8f56e2912dc0ec2a603b9be7"
         },
         "reference/device-os/api/servo/attach.md": {
-            "date": "2026-03-12",
-            "hash": "9aeb2f62d8cbc8aa3e59850bb579e5afa3d17e1bd9c3c38a3e1606404ee50ef2"
+            "date": "2026-05-08",
+            "hash": "0ba7315c3a32c960a2792ccab224797302f30e05a8ec902fda26588892df4a7f"
         },
         "reference/device-os/api/servo/write.md": {
-            "date": "2023-09-20",
-            "hash": "fcd8b4d2e9455f7dcf2cb584c663910d5d78f08c248be746dbdeba90838c28d0"
+            "date": "2026-05-08",
+            "hash": "3f40db3bfb676a396b6216a61cf079197a220494808f8777fdf130f1e86ff344"
         },
         "reference/device-os/api/servo/writemicroseconds.md": {
-            "date": "2025-02-11",
-            "hash": "e78599ff9e07edcfd999f8711006bab99d8e109b668410dcadc6871ac2d2ee69"
+            "date": "2026-05-08",
+            "hash": "8f212ad756571cd54d29ad26d958256f4f5b17b32e402b77063f6843a3e6dec7"
         },
         "reference/device-os/api/servo/read.md": {
-            "date": "2023-09-20",
-            "hash": "bde6d86810787efee0a68408e1407905b239f67ed99f5d529a6805784b32efd4"
+            "date": "2026-05-08",
+            "hash": "b9704c6e7e49ad68ae3c9aabe97630a8a28691053d3604b3033351c599fdc5ae"
         },
         "reference/device-os/api/servo/attached.md": {
-            "date": "2023-09-20",
-            "hash": "958a4ba04e5d57a697d2980b9edc5dcfa9d77106121d0c0335f26b5011b846c6"
+            "date": "2026-05-08",
+            "hash": "a17735deade86881277cfbc01ce07a2af75c8eaefc6d3cde2c37012ff6e88c97"
         },
         "reference/device-os/api/servo/detach.md": {
-            "date": "2023-09-20",
-            "hash": "31e014c2d28e328ff54c30f22c90c89263b25bdf9046a2987b7ee7ec45409872"
+            "date": "2026-05-08",
+            "hash": "dd95d3bb195ac516f9a4fb141dd02b3a47e96f7a4e38bc2328d049030bf7967d"
         },
         "reference/device-os/api/servo/settrim.md": {
-            "date": "2023-09-20",
-            "hash": "0627cf1d1587a2bc8e86486f471770287f0e0ab274c4c87a2bd6ef3e02829c3c"
+            "date": "2026-05-08",
+            "hash": "e11d9cf34772532da5822a05858448e496753de6193819a3e66425f78cdf3a1f"
         },
         "reference/device-os/api/rgb/rgb.md": {
             "date": "2023-09-20",
             "hash": "5aa158ee8c527a511ebdd22b1e4d9324852bf492eb80007f8c9d5432bc7e1d66"
         },
         "reference/device-os/api/rgb/control-user_control.md": {
-            "date": "2023-09-20",
-            "hash": "0bab5a6596080de40af414a58109a2a6cf4de2b3c9ca6a5fcabf0d0a4c792e99"
+            "date": "2026-05-08",
+            "hash": "28ea64bcd4f2fa1ce9d594414d5e3320b85debbe1241e53baeeb0e16688f2b00"
         },
         "reference/device-os/api/rgb/controlled.md": {
-            "date": "2023-09-20",
-            "hash": "fe03536a7dbfe44fa1722dde355dd64ab88281258260f03eadb02338b6d723ae"
+            "date": "2026-05-08",
+            "hash": "6c70125c9b17db3c1f50a9461270b9e54cdfa3f8ba476f9938922fdd3056d161"
         },
         "reference/device-os/api/rgb/color-red-green-blue.md": {
-            "date": "2023-09-20",
-            "hash": "20033dfbd6cea849da2448908a6d8c40fd09842da8595933e130419c96544b09"
+            "date": "2026-05-08",
+            "hash": "eeb426795f3c534e779b641778773950e01c1af77ceacd98ae261a3a1085423e"
         },
         "reference/device-os/api/rgb/brightness-val.md": {
-            "date": "2023-09-20",
-            "hash": "e9156a3180d5e145ba1e53d6cf9b29ae93c25cdcd059c3c61f84450705e89813"
+            "date": "2026-05-08",
+            "hash": "90689fc6ae26a63bc393ac4994c229b57979f41205100c5c04faee8fe923544d"
         },
         "reference/device-os/api/rgb/brightness.md": {
-            "date": "2023-09-20",
-            "hash": "267d126c1302a4f003bc53e55e343fc869153040b381cedb08c4cbfa46421762"
+            "date": "2026-05-08",
+            "hash": "ae80168655d4f7f76e3f397e11749ac7630268429567fa12868a94876046bce4"
         },
         "reference/device-os/api/rgb/onchange-handler.md": {
-            "date": "2023-09-20",
-            "hash": "bb989d4cfb5ee4030a2026673247a4e3694969e473cea637ebe855917cb14111"
+            "date": "2026-05-08",
+            "hash": "de69b8103e0ab3db438e2405ea2a3b87f924111a83dcce2501b148a60f625022"
         },
         "reference/device-os/api/rgb/mirrorto.md": {
-            "date": "2023-09-20",
-            "hash": "0a3ff4ffdb7031ee858ffae4fa1b846ddda069e6515db5dfc69302a7710e008d"
+            "date": "2026-05-08",
+            "hash": "8233facede06bd246fe26a4da1e02610990b7273167e644cda86ea599280fa6a"
         },
         "reference/device-os/api/rgb/mirrordisable.md": {
             "date": "2023-09-20",
@@ -3235,12 +3235,12 @@
             "hash": "56fab401553157783ff9b793195c514ce18926ade7035eb1fa2a2903eb83f6b4"
         },
         "reference/device-os/api/led-signaling/ledstatus-class.md": {
-            "date": "2024-02-27",
-            "hash": "dbfdbd8dd229aa36dbd41d0546ff606895e5c146b160ed727e0f99fb7af58527"
+            "date": "2026-05-08",
+            "hash": "cbef204bb8fc2854574419a3f16383da14c6b30c4d1c928b8fdb1b77abef7c37"
         },
         "reference/device-os/api/led-signaling/ledsystemtheme-class.md": {
-            "date": "2026-03-19",
-            "hash": "4dfbee501b5f7824625627d101b7a7ab0f6bb7ffdfd40d62c464e8fed0bcc731"
+            "date": "2026-05-08",
+            "hash": "82ee4e95a9234ec8e6d511e0265103c2511df91ea292bce2436346de75eb83c3"
         },
         "reference/device-os/api/led-signaling/ledsignal-enum.md": {
             "date": "2023-09-20",
@@ -3387,64 +3387,64 @@
             "hash": "0196531e4002125871ec4676159df29ac2e6a02044e62e3aa55a242d2a408332"
         },
         "reference/device-os/api/interrupts/interrupts.md": {
-            "date": "2023-09-20",
-            "hash": "63fa3f5429cd791e6bb0b287fbd464ef87587e0dd57916430eef6305b0163895"
+            "date": "2026-05-08",
+            "hash": "b62153920702067ce836ca450cf66ca90c16dee9e20987cdeb6f7ca5a977ad59"
         },
         "reference/device-os/api/interrupts/attachinterrupt.md": {
-            "date": "2024-12-03",
-            "hash": "fb5da020dfad7cefff5d85acb92963bec6a31e55d6dcd023276f4b1c1087b437"
+            "date": "2026-05-08",
+            "hash": "3df993060113da574b8f7aaefa5561430831b99eae41cda1584f90eebb732891"
         },
         "reference/device-os/api/interrupts/detachinterrupt.md": {
-            "date": "2023-09-20",
-            "hash": "9ec59af9e38c0e05189b03fc2f0f1d2f13f88014724883c3f9338281aa873183"
+            "date": "2026-05-08",
+            "hash": "de48b8b938a0fb9d0577ae5c53b2ba526255cee46015749878c5ffc67ee9de34"
         },
         "reference/device-os/api/interrupts/nointerrupts.md": {
-            "date": "2023-09-20",
-            "hash": "30c24111e03df40d42c830800102b5b7a2167297bca3bca14f2a3e541c710d51"
+            "date": "2026-05-08",
+            "hash": "b4a19f4d3825bd9eb15c08da2cc1f0542f73b0992256381167a33fe9582ec2cc"
         },
         "reference/device-os/api/software-timers/software-timers.md": {
-            "date": "2023-12-05",
-            "hash": "c262125befb84468f97755cb541b9601587b9422827d2404d53c51853741ada6"
+            "date": "2026-05-08",
+            "hash": "bcaacde3df7344c620e652f32ac24ef89ca2580e6412b223b9d182cb6c216fc2"
         },
         "reference/device-os/api/software-timers/class-member-callbacks.md": {
             "date": "2023-09-20",
             "hash": "e87bda2792ebdf96bcf7f92cfefac6c295979013a2476381457e5d5e61b42006"
         },
         "reference/device-os/api/software-timers/stop.md": {
-            "date": "2023-09-20",
-            "hash": "b642cac9864d9263652b647bbd828a003964fcb763dc62eef88d378040eafa1b"
+            "date": "2026-05-08",
+            "hash": "bf71d5769d0c71b1dcc3ce05c0ab67f58aa96a4fabe6203323da27a644bf9dad"
         },
         "reference/device-os/api/software-timers/changeperiod.md": {
-            "date": "2023-09-20",
-            "hash": "cb295211c1656dc1c5bf9a2ee911df79023c0170b5857c26be65802b2191135a"
+            "date": "2026-05-08",
+            "hash": "a75867f698b0330152e5fa1cd44c1a17c33dc7bcc1923b148b977159914306bc"
         },
         "reference/device-os/api/software-timers/reset.md": {
-            "date": "2023-09-20",
-            "hash": "e24ad982f6e1f872467f5066c19338d74394faf7ecfb216ce0208ff0c37157d1"
+            "date": "2026-05-08",
+            "hash": "efba046fce9023a8154bfbb7003884c48bf45ea11af2478641776e3537d9deab"
         },
         "reference/device-os/api/software-timers/startfromisr.md": {
-            "date": "2023-09-20",
-            "hash": "c0369688884abb076766d24c8cf77896110c46c6b19f994c2b8ab2e2b533d0a7"
+            "date": "2026-05-08",
+            "hash": "80ab1c81952054b904d48231d0ba2c4b8ea80478d3ab270e4e70610423ca76d0"
         },
         "reference/device-os/api/software-timers/stopfromisr.md": {
-            "date": "2023-09-20",
-            "hash": "18e6386ac78647092a433129f36f395410beec06ddfe2a53aa0dacac4f3201b3"
+            "date": "2026-05-08",
+            "hash": "4472c8cff562ae4fa8d956e1c719fdf7b665c64573942af12e893379a8652309"
         },
         "reference/device-os/api/software-timers/resetfromisr.md": {
-            "date": "2023-09-20",
-            "hash": "c18d38b07f8e6771e9bc48cbd40ac0557c76298f467d198032b2f5bb5dbb3d33"
+            "date": "2026-05-08",
+            "hash": "aa7dc66169d07931e8c40309e6e6e15e80505ff67eb74cfe937663e244eb3286"
         },
         "reference/device-os/api/software-timers/changeperiodfromisr.md": {
-            "date": "2023-09-20",
-            "hash": "8c7f284ffbffc1824dddbd0bc76ab7de0a5249121f891a2fbef092a7ac017868"
+            "date": "2026-05-08",
+            "hash": "0f36715c6a6c8707c210e9c9d25483380d1561e1188e7b24584656c26b00b6db"
         },
         "reference/device-os/api/software-timers/dispose.md": {
-            "date": "2023-09-20",
-            "hash": "b6f83a7e996f8bcbbe84d0785208f3bb951e0b703d1a7065f99c489f54c2365f"
+            "date": "2026-05-08",
+            "hash": "6685d63c93c0df890849721b649831204593432830b337837062403dc2617697"
         },
         "reference/device-os/api/software-timers/isactive.md": {
-            "date": "2023-09-20",
-            "hash": "2aa853a7f581c94cec3b65a2cb22731ba723d9cab8dc0c3515eefa23e124a26b"
+            "date": "2026-05-08",
+            "hash": "163fed0289f36bbd73faa4f6449402679a04a8651d48b0b540336eaf285fc949"
         },
         "reference/device-os/api/watchdog-hardware/watchdog-hardware.md": {
             "date": "2024-11-01",
@@ -3455,20 +3455,20 @@
             "hash": "7dc75621f8ec8d08d8b849fbe02d3df199a9ce7f4f88789ba74820b44a16dfec"
         },
         "reference/device-os/api/watchdog-hardware/watchdog-init.md": {
-            "date": "2024-02-27",
-            "hash": "d9709492e5fc1824477337fa6ab4e4c86080d9a1cb130ec04009c25155e049aa"
+            "date": "2026-05-08",
+            "hash": "565b1f788a5e371e5d576300f2aa4d8de3bbaabe981f535352df89c5785df475"
         },
         "reference/device-os/api/watchdog-hardware/watchdog-stop.md": {
-            "date": "2024-02-27",
-            "hash": "8c622e70f734a0b7645982c27284ad2ee4de22c7c965f85ee9c59ffec0c8a7cf"
+            "date": "2026-05-08",
+            "hash": "eaa2734a92c9d3f38d79c5f0987c5d453543c5e98e2a56d00c2d149576382a40"
         },
         "reference/device-os/api/watchdog-hardware/watchdog-refresh.md": {
-            "date": "2024-02-27",
-            "hash": "9e1153f40ce02ec753e18bb219d87edd6400e35d0efbdf99dd8b40c86c5890b2"
+            "date": "2026-05-08",
+            "hash": "31f0bf39db94ea56ec0e540c2ff26f61598027f2b4d3d92c4522e3411f9bd994"
         },
         "reference/device-os/api/watchdog-hardware/watchdog-onexpired.md": {
-            "date": "2024-02-27",
-            "hash": "1b741e45be92ec31feb2443af009ec78f43f217b2a1d295c26e4fcf0cc466b06"
+            "date": "2026-05-08",
+            "hash": "28c0518fa7e2d5be911a4cd734fb4a556e9c7d3ba51c0f7620d6d7cccfd35f42"
         },
         "reference/device-os/api/watchdog-application/watchdog-application.md": {
             "date": "2024-11-01",
@@ -3479,19 +3479,19 @@
             "hash": "2602896e967334b1e627411265b1fce4c1a4015fd9054532830eb271f559285c"
         },
         "reference/device-os/api/math/min.md": {
-            "date": "2023-09-20",
+            "date": "2026-05-08",
             "hash": "eb0ad4cf80ffb003f639ff343100e26ff45e570e5b652b3d1e38a98b5771873f"
         },
         "reference/device-os/api/math/max.md": {
-            "date": "2023-09-20",
+            "date": "2026-05-08",
             "hash": "6e7e28f964caa287701ecb03f37020761961edceba692e248790e085d0e3a6f7"
         },
         "reference/device-os/api/math/abs.md": {
-            "date": "2023-09-20",
+            "date": "2026-05-08",
             "hash": "3dcdcce7b89efd8ba9b72870f0ec84b059feb6839181ac4baeb936f0be33928c"
         },
         "reference/device-os/api/math/constrain.md": {
-            "date": "2023-09-20",
+            "date": "2026-05-08",
             "hash": "5a0ddaf5b97ca91c316b6e67694f7e0569f929ae668ab66debb3f94ea34a5499"
         },
         "reference/device-os/api/math/map.md": {
@@ -3511,12 +3511,12 @@
             "hash": "2ef3f40d91573997249eb2c68514e35c32e51066d1c48f8f29c2e01a6465c9e0"
         },
         "reference/device-os/api/random-numbers/random.md": {
-            "date": "2023-09-20",
-            "hash": "1e21cf307489989d8655c039e7a1bf97c0e8ea39919e07f23a8183e6e621cd30"
+            "date": "2026-05-08",
+            "hash": "b4c9754f17c0eaafc7342071ff6a486e63f55a5145701d61fea77f0f04f55c0b"
         },
         "reference/device-os/api/random-numbers/randomseed.md": {
-            "date": "2023-09-20",
-            "hash": "aa00aa0a9728107b775e1e6f4e1cb69905e16bfb476037a0002a5b90744d115f"
+            "date": "2026-05-08",
+            "hash": "9260f2a3f39eecfc2ef80d77948137a4a20580cb34852713c44448a2d441af64"
         },
         "reference/device-os/api/random-numbers/hal_rng_getrandomnumber.md": {
             "date": "2025-02-12",
@@ -3527,28 +3527,28 @@
             "hash": "dafc50772514afbdb52be84de6243f25d6a4e7933cfad04f0496bfa42420b97a"
         },
         "reference/device-os/api/eeprom/length.md": {
-            "date": "2024-02-27",
-            "hash": "d51ba13b46b011cef9b43e8360f24d6ef7490ab7a74d7d18caa2552a12b5504c"
+            "date": "2026-05-08",
+            "hash": "39a57b70119c0ac448588d2032274b1ad0c7979900188b7d0940675e4828af24"
         },
         "reference/device-os/api/eeprom/put.md": {
-            "date": "2023-09-20",
-            "hash": "df0547f7d2aa95f84234c3bac5e598cd4c7cc2be0d55987339455dcc1cd7a19c"
+            "date": "2026-05-08",
+            "hash": "442fd5a19c904844c9e384fb125f923ac53a6d236202e865c0a836c362fe8d64"
         },
         "reference/device-os/api/eeprom/get.md": {
-            "date": "2023-09-20",
-            "hash": "c94d18d03830bc09b5c6476d3bcc10100d617fac45fa9184ef833cf61120c699"
+            "date": "2026-05-08",
+            "hash": "f38cceafc42dac086ffaa2a4cc83a37c62b6390f5da1f103f095addab9bb3038"
         },
         "reference/device-os/api/eeprom/read.md": {
-            "date": "2023-09-20",
-            "hash": "4d60e5b586fadee4e7ac72563b800664efddcd66dcc665516d72c6584b4ffefc"
+            "date": "2026-05-08",
+            "hash": "6aad57f07a64195e6aa575ebb644dee0e60f876c42f799856504d6157dea63c1"
         },
         "reference/device-os/api/eeprom/write.md": {
-            "date": "2023-09-20",
-            "hash": "af3a558363c81ea1361e5654c29973161339f0d64732e52fe887a9c0be9c023f"
+            "date": "2026-05-08",
+            "hash": "fa254a274947525563b2bd765eb125107fe8eea72e997e1c9361346a08b2137b"
         },
         "reference/device-os/api/eeprom/clear.md": {
-            "date": "2023-09-20",
-            "hash": "ba325b114ee965fb0973da6981afba6643ce878da0036f78a9182f8cf2bc4f33"
+            "date": "2026-05-08",
+            "hash": "dae679f3eff20d3d0bbfca68291788c5a5a5b92e33fa3043ed85db8c2a08ab4a"
         },
         "reference/device-os/api/eeprom/haspendingerase.md": {
             "date": "2024-02-27",
@@ -3595,7 +3595,7 @@
             "hash": "83802608f4bc7411757af7ab70ce83ba1517d51f599a938c062b0e6a321850a1"
         },
         "reference/device-os/api/sleep-sleep/sleep-sleep.md": {
-            "date": "2026-03-19",
+            "date": "2026-05-08",
             "hash": "9a9a81edd8b12935ead72c4ad93244b2456da9d03d6420a5d2c82b2cbf8a5619"
         },
         "reference/device-os/api/sleep-sleep/mode-systemsleepconfiguration.md": {
@@ -3659,32 +3659,32 @@
             "hash": "8da3be2721f4a183c6e0bc42a963aea1307b09d73f68d8bd3a81a6421d9765d1"
         },
         "reference/device-os/api/sleep-classic-api/sleepresult-class.md": {
-            "date": "2023-09-20",
-            "hash": "fcfc710ba163578bd751c6b786845c52e79e8418f2921603342f18b1573e8fa8"
+            "date": "2026-05-08",
+            "hash": "1ce50f1cc7f03ddbed0adf838e74eb32016b7d5dbb2e1ee861a4017f7e15e05f"
         },
         "reference/device-os/api/sleep-classic-api/sleepresult.md": {
-            "date": "2023-09-20",
-            "hash": "5c90e8f0c36d2e20b1d2ad79322c10093ecb4bdb82ea392fd17e09b802df1c0f"
+            "date": "2026-05-08",
+            "hash": "9d1deee1dcd6483ffe5438deb4f4cb51554ba08c7232677c0909d5c5b8beaff5"
         },
         "reference/device-os/api/sleep-classic-api/wakeupreason.md": {
-            "date": "2023-09-20",
-            "hash": "f885d9d72cf998ef11440becbc21f1c99016348f46ceed619578df272012ca88"
+            "date": "2026-05-08",
+            "hash": "1719ed06f5423ea7ecbd5e3828e3a8620a98ee49b52a05ad74f6dcd28a34692c"
         },
         "reference/device-os/api/sleep-classic-api/wokenupbypin.md": {
-            "date": "2023-09-20",
-            "hash": "61ca8139f2adfebf277d41f2721e1a7a3ed72a629c9188b8f995775b14955a6f"
+            "date": "2026-05-08",
+            "hash": "468f022730654b648b92efae1c2a3d8f918266a4006ccfaeba1ea3f78cf46ff7"
         },
         "reference/device-os/api/sleep-classic-api/wokenupbyrtc.md": {
-            "date": "2023-09-20",
-            "hash": "32c3a75f504f865c999b83edaf4fadb4a4b662c29d22251d52b098f13d3c5963"
+            "date": "2026-05-08",
+            "hash": "ee63586430f8515aac76e201e49f5231b3e1328e63ca0dac57c063814b1effd0"
         },
         "reference/device-os/api/sleep-classic-api/wakeuppin.md": {
-            "date": "2023-09-20",
-            "hash": "0541a69d6ba949df5194dcad978206ac1ff49b68ac038d2090742553114978a9"
+            "date": "2026-05-08",
+            "hash": "feb4610ff4b5a00e94580bda29efe8201b1d8a5e560bda3620ac2354a2535ed3"
         },
         "reference/device-os/api/sleep-classic-api/sleeperror.md": {
-            "date": "2023-09-20",
-            "hash": "204f19e3e2daf10e77761e4c22ecb6fe9f837d541d1382afba33867b06136fc9"
+            "date": "2026-05-08",
+            "hash": "873788c20ec6b76a9a14b01b2ac26d6355df8b4fa1c79479390f874c0f7b3941"
         },
         "reference/device-os/api/system-events/system-events.md": {
             "date": "2023-09-20",
@@ -3747,68 +3747,68 @@
             "hash": "ceadfca8a21f7c4af00bfaa515994dd060f608b6a1ecc77b2dd22429cb28ea02"
         },
         "reference/device-os/api/system-thread/waiting-for-the-system.md": {
-            "date": "2023-09-20",
-            "hash": "274891131291f47532f53ccc2c349e28616a4fc043b9d3e6696462e62266fb6e"
+            "date": "2026-05-08",
+            "hash": "bffae0a4834235d62c192a624ba835d5e03e92a056111f59af40f22181685e63"
         },
         "reference/device-os/api/system-calls/version.md": {
-            "date": "2023-09-20",
-            "hash": "5a6c32529e8110fa75b4d35e0fad495cd2b0b29f889eeec1cfb0f65ce8708863"
+            "date": "2026-05-08",
+            "hash": "a1cd61ddbda184ebc8979975539dc092fc0972a2b48b254c6a36cab9c0e3a7a6"
         },
         "reference/device-os/api/system-calls/versionnumber.md": {
-            "date": "2023-09-20",
-            "hash": "ca97c12409e894b161bf97596097f3c1f2c68edcd290102ed7aab02b4ba45da3"
+            "date": "2026-05-08",
+            "hash": "bb0b23c219b7eeae9e8983a91769b17c0c6dc73bd8e7ba0b0b137267c6ca9720"
         },
         "reference/device-os/api/system-calls/buttonpushed.md": {
-            "date": "2023-09-20",
-            "hash": "c29640de1c85a35399d1afdd46216c176c475ae4bb146587690914bac1beb365"
+            "date": "2026-05-08",
+            "hash": "d2d52c04d4180dddcf2cb5e41011913cd226470055ee5c755cc24cff52282452"
         },
         "reference/device-os/api/system-calls/system-cycle-counter.md": {
-            "date": "2025-08-15",
-            "hash": "1710406699fb7b827a5990e215287cd2dbd5887a3055a69102808eb5cd6af158"
+            "date": "2026-05-08",
+            "hash": "c3d5fcb9c4816517540aa6a7d90ee567c06539fbd4160d10310819b0e5346957"
         },
         "reference/device-os/api/system-calls/freememory.md": {
-            "date": "2024-07-23",
-            "hash": "96f6779b7884ae5698b97d2b1d1c37629a62106ace3bcecec407d1619ad22e27"
+            "date": "2026-05-08",
+            "hash": "9320298ff2aecab68d5088cf71f10c6ee17e242ee1e18d2d227518c7b63d9cac"
         },
         "reference/device-os/api/system-calls/reset.md": {
-            "date": "2023-09-20",
-            "hash": "2bda81ebea0445ec3aeb1d9e6a929e830a6f889253681fed90d0e29faaa75e2a"
+            "date": "2026-05-08",
+            "hash": "7f57b1a67fe79b443b050332d1b551339650cf92b850c4298065f0391c403f2c"
         },
         "reference/device-os/api/system-calls/dfu.md": {
-            "date": "2023-09-20",
-            "hash": "b52a1036ab3e97b2e01056a084d12c3b003693ca813be01bb57a835d6bb71a4c"
+            "date": "2026-05-08",
+            "hash": "74169c7a1d1b8f9d4e744f9f62666cfffb5b58fe938ad4003eebaed4c15977dd"
         },
         "reference/device-os/api/system-calls/entersafemode.md": {
-            "date": "2023-09-20",
-            "hash": "5c1fbc171b75a99ca77faf4bdf3a8545c6e7c146bf6d37230bb03dff1fe0c59e"
+            "date": "2026-05-08",
+            "hash": "f32070bd7a3e2ebb08c1d626ec34f9815a6f193f1ad1c461154b7d8e5181c005"
         },
         "reference/device-os/api/system-calls/deviceid.md": {
-            "date": "2023-09-20",
-            "hash": "ca4de9d74d991340c0eaca2bfb3858c2f79a574cfda58b7374c7da5ba084d535"
+            "date": "2026-05-08",
+            "hash": "494a095e0896536760c4cf111d7b99fe123b14a35197046a52250f4aea8c664b"
         },
         "reference/device-os/api/system-calls/system-millis.md": {
-            "date": "2025-08-15",
-            "hash": "49124697877693e71743d8be8df41f00bac5a29b9e52a9432a09f313d788773d"
+            "date": "2026-05-08",
+            "hash": "e71b407e7a71ea323e8277b1494bb1a0fea213a525f0a8a65719d2163ddfda0e"
         },
         "reference/device-os/api/system-calls/system-uptime.md": {
-            "date": "2023-09-20",
-            "hash": "0e118a7f016b7e60bffffc5177f3f63beef866c0de50f78d734c540a571f0a91"
+            "date": "2026-05-08",
+            "hash": "befbc68e213c559fdf3b5e73bc418bedd3e102ce1ddf648471c9842cae80f1f9"
         },
         "reference/device-os/api/system-calls/powersource.md": {
-            "date": "2026-03-19",
-            "hash": "8ef53ad9ff60ef0efcad0709a87a983a1b8a2e561910bb681e4da18ba0c93a63"
+            "date": "2026-05-08",
+            "hash": "fa1b171728356b1f03ff5cc84e12e24fb7d88f5f559e13cfac48577c59dd4eb9"
         },
         "reference/device-os/api/system-calls/batterystate.md": {
-            "date": "2026-03-19",
-            "hash": "5c1b9f52d0f1a04fe9d8254e646d7c6d91a67af8ee76585057bfdc92455e175b"
+            "date": "2026-05-08",
+            "hash": "7ba2d4ec86d6a2caa42799c3390d28d2e5035fb48e6dfff4fbd2058c1aeecdc0"
         },
         "reference/device-os/api/system-calls/batterycharge.md": {
-            "date": "2026-03-19",
-            "hash": "46acdad0b563a1653c05c74ec8ab8bba26a39e98ff7a5949cb150c145415f1ad"
+            "date": "2026-05-08",
+            "hash": "0330243dcc5559b6ac87360ee027393af6f85e571bafd690bdcd2999bf075382"
         },
         "reference/device-os/api/system-calls/onassetota-system.md": {
-            "date": "2023-09-20",
-            "hash": "edfca9003ef0413d1502ce0acd03e0a057e77dc145475c03c03d2427c7576097"
+            "date": "2026-05-08",
+            "hash": "3cca5647f25dceb8aea676776ee1ec9e4cc7d12a23d2c76f15cfb039ee70dd61"
         },
         "reference/device-os/api/system-calls/assetshandled-system.md": {
             "date": "2023-09-20",
@@ -3819,16 +3819,16 @@
             "hash": "1bd4ceaabb60ba3235b66c3727779cd321b3443ff8bb2e92baab10338a642c72"
         },
         "reference/device-os/api/system-calls/disablereset.md": {
-            "date": "2023-09-20",
-            "hash": "b316495c65776ef16a3494bfee5cc986debd721cdf944fe670787af7bc260e8b"
+            "date": "2026-05-08",
+            "hash": "67c9171845f0d52fd0dfea5a048e4fa29d1dd059e920a683090778eba132d55b"
         },
         "reference/device-os/api/system-calls/enablereset.md": {
-            "date": "2023-09-20",
-            "hash": "893cb22ccfe2f9026ac85987cbd88a6f3b394daddc0250598868820ae9963626"
+            "date": "2026-05-08",
+            "hash": "bf513abcb767f90eb9aa1b2e1ab35045c4ef068e8bc56e874dc6a61ccfff0bc1"
         },
         "reference/device-os/api/system-calls/resetpending.md": {
-            "date": "2023-09-20",
-            "hash": "30a0ea5aed90da92b19d707fcace366d4bf782180cd63c42aa63d807f400ea1f"
+            "date": "2026-05-08",
+            "hash": "ec23664ad4cc393ea86eb7f7aeb533591e1356e3d5f5f26ac61c3696b1c0c49d"
         },
         "reference/device-os/api/system-calls/reset-reason.md": {
             "date": "2025-05-02",
@@ -3839,8 +3839,8 @@
             "hash": "5c42a3d1aaa8c648d6831fe1f1896002a3232d4ab3c4597336ce88ff4d142d70"
         },
         "reference/device-os/api/system-calls/system-config-set.md": {
-            "date": "2023-09-20",
-            "hash": "e385a5d0466b5daa9e0a51c8e0c158ce397ac5cb326875795dca490688570e2f"
+            "date": "2026-05-08",
+            "hash": "a2d1a0704567c6c4ac0abc02d670e997e32c79996f40f5459fbe1c5fcc04ebfd"
         },
         "reference/device-os/api/system-calls/system-flags-disable.md": {
             "date": "2023-09-20",
@@ -3875,24 +3875,24 @@
             "hash": "a3849d9e7a68501103c334889b5946e76178a352770cf28ec6e3a234554696d6"
         },
         "reference/device-os/api/system-interrupts/attachinteruptdirect.md": {
-            "date": "2023-09-20",
-            "hash": "f813df6df225a67c05eb88f93510905d9c8c4f1a7c39290d3a0758ee412df958"
+            "date": "2026-05-08",
+            "hash": "bd48432579b412ea068dd4747147746f19c7b8e13870723a6bda3072804e7dbd"
         },
         "reference/device-os/api/system-interrupts/detachinterruptdirect.md": {
-            "date": "2023-09-20",
-            "hash": "d6a0bcaa88dd19974ddb1f367f20be36b7209d2858dc843261c25caab334668a"
+            "date": "2026-05-08",
+            "hash": "e3bdece63ac04cfa474c7d43815dd69b1b6d8f65b4f88332d280fa7585096130"
         },
         "reference/device-os/api/system-interrupts/buttonmirror.md": {
-            "date": "2023-09-20",
-            "hash": "2a419ed1df14a74bc4524854abf6879da68b6911fa25becd23926b00ae5f5495"
+            "date": "2026-05-08",
+            "hash": "4612783d96fe74887196646731546f8d668b2ba9c48d2439aff270c04fb94afb"
         },
         "reference/device-os/api/system-interrupts/disablebuttonmirror.md": {
-            "date": "2023-09-20",
-            "hash": "0f01c5262d9c3df1a48b93aff109eefe6e53cc2d15267d8dc50b2cd0a8ec44e5"
+            "date": "2026-05-08",
+            "hash": "5832a1d399fd110e1f604de7bc78a3ac6b0a082825cbf290ec0bb94031a193b2"
         },
         "reference/device-os/api/system-interrupts/system-features.md": {
-            "date": "2023-09-20",
-            "hash": "f03880f245195d5c7358167b0f083e22e557309cf8e482a6b49049937672eace"
+            "date": "2026-05-08",
+            "hash": "b21efac9ab107150fb49e78accd57deb4480de11487f455c0bcfee66a990a2cd"
         },
         "reference/device-os/api/file-system/file-system.md": {
             "date": "2026-03-19",
@@ -3991,24 +3991,24 @@
             "hash": "2d0864c884c23321ddf5a28419757fe237d5c4eafddf59550148bfb395f04cbc"
         },
         "reference/device-os/api/ota-updates/system-disableupdates.md": {
-            "date": "2023-09-20",
-            "hash": "427dc6874f9c3ebccc535076679f2942249a66104b8fde9923e6fce12535e3ff"
+            "date": "2026-05-08",
+            "hash": "4297e558fa22b62bc42b8454ed9b08626db49c6a6c25b09bdcd4329c03481249"
         },
         "reference/device-os/api/ota-updates/system-enableupdates.md": {
-            "date": "2023-09-20",
-            "hash": "2e708b1e04cf2d533891d297aceab21ec4fd377266727b7c331937fd8c0c1e5f"
+            "date": "2026-05-08",
+            "hash": "f2ae8293bae1f1619f0f45a108d3df7bb1048aaf057ae3fadf60ca082b2b4b14"
         },
         "reference/device-os/api/ota-updates/system-updatesenabled.md": {
-            "date": "2023-09-20",
-            "hash": "e28fb2569682f140d273d2599e7587e752553a1b446869da395cd84fbb2d988a"
+            "date": "2026-05-08",
+            "hash": "e890ddd575bd65ba6f0c86a40feb43412a5e71a4124254bbd44349dbfe1211a0"
         },
         "reference/device-os/api/ota-updates/system-updatespending.md": {
-            "date": "2023-09-20",
-            "hash": "87e4529a05135a3ff55b613329aa1afd35284d7ac50d68bebfcf6b2f682f7ee0"
+            "date": "2026-05-08",
+            "hash": "f65b2107b8af01ed0ec0dae976c6377afd18f969305a9e29c95880e44eaa67ef"
         },
         "reference/device-os/api/ota-updates/system-updatesforced.md": {
-            "date": "2023-09-20",
-            "hash": "c20d4e0d26217a8fc946164e8f5a78b45b509c038da899f5324790224de202fc"
+            "date": "2026-05-08",
+            "hash": "478491a1abf48141549e9525e42c0d56b84845cf3d40b794971f5de90548b690"
         },
         "reference/device-os/api/asset-ota/asset-ota.md": {
             "date": "2023-10-06",
@@ -4059,156 +4059,156 @@
             "hash": "952edc9de7091bc93a9e2e7e7f1ecf98fda78fabf2e9698a1a22f4c001c31654"
         },
         "reference/device-os/api/string-class/string.md": {
-            "date": "2023-09-20",
-            "hash": "71446923080459057bc564059fb9c8379513bbef76787363d14d3aaba0967a70"
+            "date": "2026-05-08",
+            "hash": "2dcd0069c0ebe535e7a8f17b292b52f78041af4539ddf5bd81dee6acf695696e"
         },
         "reference/device-os/api/string-class/charat.md": {
-            "date": "2023-09-20",
-            "hash": "87005a5179b95f0d72e65f31ccbc31b4bf97984f9fa2666e6c95a88a4a9e65d9"
+            "date": "2026-05-08",
+            "hash": "04b822f8d38ab0296b95bdda2054d2385d12ffefdbde814c635b801b72d1d379"
         },
         "reference/device-os/api/string-class/compareto.md": {
-            "date": "2023-09-20",
-            "hash": "e801755b3acc6291e0b7118d046465d9eb743cfa2f8fce5645b3c4713d6aae76"
+            "date": "2026-05-08",
+            "hash": "15069c4a81473998050bda76f6112e59859f21ff140cb4b90ee03e26759967be"
         },
         "reference/device-os/api/string-class/comparison-operators-string.md": {
             "date": "2023-09-20",
             "hash": "b45d2f694331daf99ed3e7de4569737bf4197f20bd4203385eff24c669f5db63"
         },
         "reference/device-os/api/string-class/concat.md": {
-            "date": "2023-09-20",
-            "hash": "4d0f60aefc8d2077df52791cfcc7ac2634aebe4613b2fa3036163ab7c4f4b3e5"
+            "date": "2026-05-08",
+            "hash": "7c063bdddc1feb7f0eea875853f2c16bd7384b30e46c48961f67abddd54266f5"
         },
         "reference/device-os/api/string-class/concatenation-operators-string.md": {
             "date": "2023-09-20",
             "hash": "eded955570fe20eba0b938af3fc53ca59575a4c85f7e8fd344b40a22afd91900"
         },
         "reference/device-os/api/string-class/endswith.md": {
-            "date": "2023-09-20",
-            "hash": "7b89739c2bcf5998f3da10691fda77d6839f200798a3c8ea69466a79ca995a20"
+            "date": "2026-05-08",
+            "hash": "3165b001daadfe3daa49098276be9e41b23e8a7b67e8f37fc140c7a84a021dcb"
         },
         "reference/device-os/api/string-class/equals.md": {
-            "date": "2023-09-20",
-            "hash": "0cbba436264b1836cfc675116d6e4d2c1c04c4ae6802deb8956b0ac8bca541f2"
+            "date": "2026-05-08",
+            "hash": "06d4d18997d1a979f1376970115caaf501608b6df38ba683270bcba133c75005"
         },
         "reference/device-os/api/string-class/equality-operators-string.md": {
             "date": "2023-09-20",
             "hash": "6ed4a87f7d34e6eaaac5837a69bf898d451c93251584476a2e3353fb5c60de0b"
         },
         "reference/device-os/api/string-class/equalsignorecase.md": {
-            "date": "2023-09-20",
-            "hash": "8de2817dc6aeebbd9a8385f79ddaa16fd8c06afe31e2641c452bcd12d61618da"
+            "date": "2026-05-08",
+            "hash": "73c63813c903f8aa9b21ccda0ec5c52aed362078456f64ccdef9b9895ce599a1"
         },
         "reference/device-os/api/string-class/format.md": {
-            "date": "2023-09-20",
-            "hash": "07fd5189a808437a22becabdb4cc08fa1306691aaa0ec86977115bf2f534e63c"
+            "date": "2026-05-08",
+            "hash": "addffe8acda876d7c8e0b6852797ef2205cad8151b6066da099b91edd686674f"
         },
         "reference/device-os/api/string-class/getbytes.md": {
-            "date": "2023-09-20",
-            "hash": "0b23aac815eb936e0f98d7135105580f168991931a13cd947d0316242765ea88"
+            "date": "2026-05-08",
+            "hash": "f65520f6eb3fad1cc8e1bb1e7502b47920119e7ada0291163a552d55324ce856"
         },
         "reference/device-os/api/string-class/c_str.md": {
-            "date": "2023-09-20",
-            "hash": "57650a3d82370a596bc3cc3fb595c1bcbf308e77d8b8ed4de9f3cce09f952d20"
+            "date": "2026-05-08",
+            "hash": "803efde21a29348302adf903fd6dd319683af6ff2708254fac6901ab9a6c1d3d"
         },
         "reference/device-os/api/string-class/indexof.md": {
-            "date": "2023-09-20",
-            "hash": "936c56069f402a733497639480f91d38bbc16e9ac6572196cd7b507cbac05dea"
+            "date": "2026-05-08",
+            "hash": "aa028791715067d1822ee542c2bd8942b024358c3f1c9f558b36987d006ff607"
         },
         "reference/device-os/api/string-class/lastindexof.md": {
-            "date": "2023-09-20",
-            "hash": "56399bcc0920ebe859390990c248ea365b2e92f8401eb3247bbc5fe67a659868"
+            "date": "2026-05-08",
+            "hash": "47306a4285f86b4fd2c044331247bce57e4756f0229d747de237131a9747430b"
         },
         "reference/device-os/api/string-class/length.md": {
-            "date": "2023-09-20",
-            "hash": "a4d2ab71072319e2e6118dd3253f24180c5d889f877c3b0a58410c2e0adc2f1f"
+            "date": "2026-05-08",
+            "hash": "6230156ded1294a5bf4092abcfb7693877560592a2d15704e5499352263f12b2"
         },
         "reference/device-os/api/string-class/remove.md": {
-            "date": "2023-09-20",
-            "hash": "57cda60b049f2992cbb893739b930bad94b6a22a652efc1cbd20bceed13e8777"
+            "date": "2026-05-08",
+            "hash": "eb082e654685a11ae04300de32901e1dc5986cd9c496f34d943533aec0504da7"
         },
         "reference/device-os/api/string-class/replace.md": {
-            "date": "2023-09-20",
-            "hash": "1870081031aa59601b77f32c3e5f2a5ed56457eb213c1692978fc1a3a2b0db3c"
+            "date": "2026-05-08",
+            "hash": "f53e9164e4ad15cedbe2273ecb5a1213a363ece23d44f8213ed1512305cc0223"
         },
         "reference/device-os/api/string-class/reserve.md": {
-            "date": "2023-09-20",
-            "hash": "ccf98fb485f755ba5abff33f954b5561d06c245bded600e36e604d297dc991e8"
+            "date": "2026-05-08",
+            "hash": "e0e4d5156aac06b0432ff0b7dba22e4e24993d436c3af5ea9a19e324a192b780"
         },
         "reference/device-os/api/string-class/setcharat.md": {
-            "date": "2023-09-20",
-            "hash": "9f69e4c64579ffcdc2915eab907e82ba58ca09da2209abdf4097c294d6c0c88c"
+            "date": "2026-05-08",
+            "hash": "6b473a345cc88beb9d38b45b6f93ee878ec9608e278c4c1484350015a24aaa06"
         },
         "reference/device-os/api/string-class/startswith.md": {
-            "date": "2023-09-20",
-            "hash": "e44f089a2c6900540b502b657a528185582f952a86e0ba2e1a13d2b0c40db1b0"
+            "date": "2026-05-08",
+            "hash": "ee9591ef0b797eb98a45fd3163b0b2e4a8dfffcd914fbae4777c83e82ae3b8d7"
         },
         "reference/device-os/api/string-class/substring.md": {
-            "date": "2023-09-20",
-            "hash": "e1e79b468ef60391f7311caaf7bda156b8ce044375ea9b753bdc47fc3dfcc491"
+            "date": "2026-05-08",
+            "hash": "0fb4115d43855d34a68ac0833641233e3cddfd4c2e1c321d6ff282cb14775aa5"
         },
         "reference/device-os/api/string-class/tochararray.md": {
-            "date": "2023-09-20",
-            "hash": "1555c0a3625a57290aebe3eea52385579c35a35f3425ba331054e7c92dd661eb"
+            "date": "2026-05-08",
+            "hash": "bd212344b178e16fd7832677d564b143bdbf27d84e5ec5e4ed1feb977a3e5134"
         },
         "reference/device-os/api/string-class/tofloat.md": {
-            "date": "2023-09-20",
-            "hash": "e08b38074b7bb0786ec1d86050b532cb34a5a9ca5a8d236a3d3c9bde250bcf0f"
+            "date": "2026-05-08",
+            "hash": "ff6d2ee5108d0f85fdd27e6cea42c84712e8a67493c2b1f39bc7dab30577b7cd"
         },
         "reference/device-os/api/string-class/toint.md": {
-            "date": "2023-09-20",
-            "hash": "4c52d8c677f0978b85fa60c93aabddd0fa83164975f937eb4fa18c55418d5ca7"
+            "date": "2026-05-08",
+            "hash": "9cdc2e345bfa58f7aece21e460cbebe6d63d61745fbbc4a7952b731d8e59d545"
         },
         "reference/device-os/api/string-class/tolowercase.md": {
-            "date": "2023-09-20",
-            "hash": "57f0d77e2cbffb6d7e23950cf9384d4fcf2715607ea8a49009976879d016c753"
+            "date": "2026-05-08",
+            "hash": "7875fb3f47c07f7cc12bc3202def0ccdc689400abbda5108bc9e39c1836e558e"
         },
         "reference/device-os/api/string-class/touppercase.md": {
-            "date": "2023-09-20",
-            "hash": "a27bb261c6806625040873d00d795b9e400c1e9e110ae08c9c42d8b3f122015b"
+            "date": "2026-05-08",
+            "hash": "40084142f47ddf7e5c121e4b8918b28f397e5ae2683484a5dd6502ae2028ccaa"
         },
         "reference/device-os/api/string-class/trim.md": {
-            "date": "2023-09-20",
-            "hash": "0caf9e223424b0ce910a1bdd7fc7489a96b28bba4e71b507e53b0f821c71c6a9"
+            "date": "2026-05-08",
+            "hash": "54b9eda78271dd6793da06928ad77498d381f35a963939763b100b216fb7aa07"
         },
         "reference/device-os/api/stream-class/stream-class.md": {
             "date": "2023-09-20",
             "hash": "64cdef376721b1d4a753ff168011979fe584058fc12beb1c0ec17a2a8351b6c1"
         },
         "reference/device-os/api/stream-class/settimeout.md": {
-            "date": "2023-09-20",
-            "hash": "19ba3ad1a6a2c41e636dc0f462d804bd7873af2dc440ff68051f15d9d97e50da"
+            "date": "2026-05-08",
+            "hash": "b8a31e785300266cdd2a3c891d556f7039597010c1371256525b390752622fe4"
         },
         "reference/device-os/api/stream-class/find.md": {
-            "date": "2023-09-20",
-            "hash": "41bc30c8ec35314480d2546dbc18b7f050526ab9c31327df9ef6cb042f188672"
+            "date": "2026-05-08",
+            "hash": "e6e098ca56ef9242026ab364941d5b10200cde02bfdd2cc64b421b29e0bd2612"
         },
         "reference/device-os/api/stream-class/finduntil.md": {
-            "date": "2023-09-20",
-            "hash": "9f951378a2571cb11b6c785cc01e8c5c5b4424c3b165751337b89a8588ad7c2c"
+            "date": "2026-05-08",
+            "hash": "428791cb3c4750b1eae76aa85297d5ff9e6419262ed4105b6d5049d1a4728df1"
         },
         "reference/device-os/api/stream-class/readbytes.md": {
-            "date": "2023-09-20",
-            "hash": "a32f88566d8c6398a3aa33fc154706d77e4fa1992653660da77b5596a9cf0f42"
+            "date": "2026-05-08",
+            "hash": "57c21df8f884be9a01b3bc5b1690d940909f19fcf54daa4f3ab82ec9a62a76da"
         },
         "reference/device-os/api/stream-class/readbytesuntil.md": {
-            "date": "2023-09-20",
-            "hash": "2b914904fda397d8d82238dc324f450343ac054e0f0eb0dcc7782ce02eebf81a"
+            "date": "2026-05-08",
+            "hash": "bec3a1500407a1c27e3d2969d10b4fd2e7d931504c7afc91e9e4a07c56777556"
         },
         "reference/device-os/api/stream-class/readstring.md": {
-            "date": "2023-09-20",
-            "hash": "ab2b85fa2d29f1425ab0035381a9271bec96b965d341efa707e796e466c33e7b"
+            "date": "2026-05-08",
+            "hash": "16faaa6f6cdeef479c5f8f21e01bb0272bf3a746a19d54948768de27f306d8ff"
         },
         "reference/device-os/api/stream-class/readstringuntil.md": {
-            "date": "2023-09-20",
-            "hash": "9682e02a89aa527aa22de02601ff95b4cbdc3bca5384a2a3840b6a4c6e6f4cf4"
+            "date": "2026-05-08",
+            "hash": "d6feca85cbececa43bd164b37a36ff2b833c5ae5ef781f49346fbcef5bbd7eaa"
         },
         "reference/device-os/api/stream-class/parseint.md": {
-            "date": "2023-09-20",
-            "hash": "ad93f27843a73900355088b8245dfe05e31a3a5422812f3eabdca54245122aee"
+            "date": "2026-05-08",
+            "hash": "b0c82bf0ce71dff1e54d39b1100ac39f562b6633594fa6dc696e2f8d2305f36e"
         },
         "reference/device-os/api/stream-class/parsefloat.md": {
-            "date": "2023-09-20",
-            "hash": "26a947fe4a5c69bc2ad40ec81167da28a4124fbd1dc19553716f0bb1a1860957"
+            "date": "2026-05-08",
+            "hash": "0b40b2686c1db68a1cd48225bbc7b79a6d188f1c7b89a826830d28a560679865"
         },
         "reference/device-os/api/json/json.md": {
             "date": "2023-09-20",
@@ -4291,8 +4291,8 @@
             "hash": "1a817edcece528cd1ea79681d9f6452bdc7c30ff6e41b242bbde62d31c01571f"
         },
         "reference/device-os/api/logging/logger-class.md": {
-            "date": "2023-09-20",
-            "hash": "bf57d6ccaf6bd0e6401c36a9057aa026365b451f4411b25076d439024e866c0c"
+            "date": "2026-05-08",
+            "hash": "321364d4ed5665873b1bd93a9f9025bfbf69764973f45deec489802f8ffe3a98"
         },
         "reference/device-os/api/device-identifiers/device-id.md": {
             "date": "2023-09-20",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "4d7390177f9a09902f2a15f89396682d66123983a7fc4e37d6978693b66419b9",
-            "date": "2026-05-05"
+            "hash": "e4586c7f003c513543d12f5cfe0ee92b1fe333d148e712e3e044e4e304bc45ca",
+            "date": "2026-05-08"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8507,32 +8507,32 @@
             "date": "2024-04-30"
         },
         "reference/device-os/api/threading/thread-class-threading.md": {
-            "hash": "76dcc149fee9bbb2d3ce3f5dc28503497e41cf952bc0b235aa63dce84a27facf",
-            "date": "2024-04-30"
+            "hash": "42193b17091e1b955ca613f07ddf3a88ee91f6a4bea9f67160cc168e158d463b",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/threading/thread-dispose-threading.md": {
-            "hash": "a740b90e5fb6a711a75754615f21c447361f5f640241a76c4bc43213e18ca2a3",
-            "date": "2024-04-30"
+            "hash": "5d1a232dc254ba2c6565b2c760a6b7024a2f459c0388425459afaa183959de5e",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/threading/thread-isvalid-threading.md": {
-            "hash": "a1cdd821491e0d5cfa94b332535928bf2a4c55f6814a425f207fc286ccba9b36",
-            "date": "2024-04-30"
+            "hash": "0d4c2a3262f8d816c58e3ecd4991815f5eb5fbfa4bb77533ef20bf8686682d6a",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/threading/thread-iscurrent-threading.md": {
-            "hash": "b5f91210e87b443d83601a03f80a23af0226e6bf29f1085dcce53a13dde11ab1",
-            "date": "2024-04-30"
+            "hash": "0e4b308ce66c6714d9c080b24672d1d50114f0011109e34882c212f7954952da",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/threading/thread-isrunning-threading.md": {
-            "hash": "c15f46903750d6178f1d5afb503d739d6357bc0a442543fbbae50d0f1c096fad",
-            "date": "2024-04-30"
+            "hash": "aee00d34bea745211c98e24f4910c2c346e42d6161cb03947fd4b8185251501d",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/threading/mutex-class-threading.md": {
-            "hash": "524552bc6222be7b56436d3c5f1414bf5a2ba39303fad1815ee513385d022927",
-            "date": "2025-03-03"
+            "hash": "1d7d9c76b2448ef711e51ad9188b5115ca1ade7a97b756e0f4d7a12615f5e677",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/threading/recursivemutex-class-threading.md": {
-            "hash": "5d126f568a473cb9bd29e83902f21413d3bdefe90b2cb72d9c72d29fa0553088",
-            "date": "2025-03-03"
+            "hash": "3a26e621eb3c8c847571b553430d5046ef2a2624015137e0e0dcab0ffa8b6cb3",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/threading/locking-threading.md": {
             "hash": "9a4e5b691fc4cd0238dd4ee47c6fa81b09a543a829c037762e67141a299d15df",
@@ -8575,8 +8575,8 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/ledger/set-ledger-class.md": {
-            "hash": "1cd8cd979bb2156dd310e1cde408dc473cd16ab08b7885f2ff6584993d5d0f42",
-            "date": "2024-05-01"
+            "hash": "0709aa77ceaaab2281e2faeab57b89bde411d027d46ad0e9ae36cab002520c0b",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ledger/setmode-ledger-class.md": {
             "hash": "07649356e6110dcdb29ecc3ced203a44c9e0d30bfbe202837f94e46f28e68a89",
@@ -8603,8 +8603,8 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/ledger/name-ledger-class.md": {
-            "hash": "878a5e92ba505384e87e1e4b72cf07911ce55ea31cd4c00abe171ca27e1218b7",
-            "date": "2024-05-01"
+            "hash": "0541cfa627a384f4e5c1e092459b623f50f05c0096d83a2859e5efa623915ce8",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ledger/scope-ledger-class.md": {
             "hash": "f3f7f8f30e5ae83bc82476e321a666bca4b48321f56776c46f2a9134aa4e908c",
@@ -8675,8 +8675,8 @@
             "date": "2024-10-11"
         },
         "reference/device-os/api/variant/set-variant-class.md": {
-            "hash": "35a8c861983f6f22dc95bc68acbbd6a8bcb807001f36874a7b49f36133b02bcb",
-            "date": "2024-05-01"
+            "hash": "886d3c5220e7edf60a94a9991b0bfd85e87a3f02ac1be8aa51d148f342171919",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/variant/variant-type.md": {
             "hash": "eb6d44701d2a03357dfc981abfc807d18348cc3ffafbd46a552fcfee6d494055",
@@ -8811,20 +8811,20 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/variantmap/set-variantmap.md": {
-            "hash": "f2f3ab577035829b2693c8025002c05d4e4388ba7cedb173f4ed165736e78edb",
-            "date": "2024-05-01"
+            "hash": "3723e583d9f269eed2091e61c9f0b8e7ca8cf5c9f31606ff1adc282f38431f93",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/variantmap/remove-variantmap.md": {
-            "hash": "783a7b7a93ae81405ee7fe88e1435acb2e44d03c38acf141fb6422b96eadd7f0",
-            "date": "2024-05-01"
+            "hash": "125f12c36cea42887a9f79d5093492ace7454ca4f7847a8829bf20f3c8cb96b9",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/variantmap/get-variantmap.md": {
-            "hash": "da98b68c57aa8850c2bfecae5a0e3906d0e2845f92ca9dddee065e1518323ece",
-            "date": "2024-05-01"
+            "hash": "8836d62b788c9524c04ddf676a8f87d70f8398412f44e6681112a97a06334052",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/variantmap/has-variantmap.md": {
-            "hash": "8b1efa6a02e479a65b419e7c654f401ec05423becfcf8124c7e3738223d3fe36",
-            "date": "2024-05-01"
+            "hash": "3ebede5984ed91b226f180797850bd55459d539c094c0aaed6d7e6dc9655468c",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/map/map.md": {
             "hash": "b6fbe2a561f7a7154b2dc9563b5de07731e56b9fde925f462fe3002ef104a51d",
@@ -9043,8 +9043,8 @@
             "date": "2024-05-01"
         },
         "reference/device-os/api/math/map-value-tranformation.md": {
-            "hash": "a2d3af9f1caf11a31e318c81caa3a55d2390897994853d03a793a08c224e653d",
-            "date": "2024-05-01"
+            "hash": "8683f226d247201183b5ee558240abbd2429463b0381bb631dc77ac574429040",
+            "date": "2026-05-08"
         },
         "reference/cloud-apis/firmware-update-events.md": {
             "hash": "d14f7ea78ab6df8ed887de37c2353c9c2f080bbecf899e0b993ac0a4bee0c398",
@@ -9311,8 +9311,8 @@
             "date": "2025-02-03"
         },
         "reference/device-os/api/publish/particle-publish-publish.md": {
-            "hash": "a980dde869a351ce91d367010574cf98e12e638011ddc27b695fecb09e603746",
-            "date": "2025-04-02"
+            "hash": "cd5d65b412455a66e813dc1de13ffbce028073bf49231e31dd51becb1aa11f2e",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/publish/name-particle-publish-publish.md": {
             "hash": "60ee919159fcc7297aa17e722177bff8f070680ac980604ef088f21bd7b6e39e",
@@ -9335,8 +9335,8 @@
             "date": "2024-10-04"
         },
         "reference/device-os/api/publish/particle-publish-classic-api-publish.md": {
-            "hash": "3066bffa4bc9be3d690b292b89cbe33bc3abb991d8bbcf358206dc461a316935",
-            "date": "2025-04-02"
+            "hash": "6bbff5edede85e879d27372a2c69cbedbb9e107e955cd1916751f05c6ced9ac8",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/subscribe/subscribe.md": {
             "hash": "64708ab47cc0195a9de85b766735ccd9609dace3165b3289cddc7ef4196786de",
@@ -9367,40 +9367,40 @@
             "date": "2024-10-22"
         },
         "reference/device-os/api/tether/on-tether.md": {
-            "hash": "4b0721016ce4d758a5071690a9b5a0e13d3f848af4880e7fb8f446a322bd8ab2",
-            "date": "2024-10-22"
+            "hash": "3a592c3666aca287c4b6a63823b2256097c619d16ddb9cb6ae019063c8c341a8",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/tether/off-tether.md": {
-            "hash": "5863c5e38f3b574bd5be72f838d58f1df5f80b652263b1372d99ae89d4ef5974",
-            "date": "2024-10-22"
+            "hash": "6caf609187e7f17c448325bce35e02017dee557e2c3aebd53f064b055a0e76d3",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/tether/connect-tether.md": {
-            "hash": "ce15cea4391c4ccb438f7e5a6a135bad185eba65e77911efda4b2caef538a9e5",
-            "date": "2024-10-22"
+            "hash": "329b39bd682c3121837ed2bdd34bcf867f25f836b27cee365d9647527f3fbd67",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/tether/disconnect-tether.md": {
-            "hash": "368ee7907ec0691f727e8cd7f381fb3b4f67982eacca03cbfe16ee9e9c644303",
-            "date": "2024-10-22"
+            "hash": "ff73b8376be1454bd102836db4e17025a6ffc0bbdf1e2e38c548dc9ed323cf77",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/tether/connecting-tether.md": {
-            "hash": "11be0feb735d2b2783e85fd7c4b3726dcd045d3622d7be70cdfb71f7891e91d2",
-            "date": "2024-10-22"
+            "hash": "6e9bddf3f13131384fc8785f52f1ca2d3f9a40fee34aa08c98d1d7c146e90586",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/tether/ready-tether.md": {
-            "hash": "300c0c15329e37be943c23cf7ef7165eb6ba19e8954ea00e61fbb155549c24a7",
-            "date": "2024-10-22"
+            "hash": "7b4f59b9c1f8a1a3222c928e5c8db76f49aab0518eb39eda9504f76934b493b4",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/tether/localip-tether.md": {
-            "hash": "0ab4bdae4d015a0093b6295688ec19f734f6d6ff7510ea21b6876085d78452c7",
-            "date": "2024-10-22"
+            "hash": "64e46c39d596966d33e9c0d97b48be6176cc3896753afacc4e5d8d7ae5d4dc69",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/tether/subnetmask-tether.md": {
-            "hash": "b656682b17d820b7f60b2ec54ff742fb90e6d087e989a64e7fe5b29cca9820cb",
-            "date": "2024-10-22"
+            "hash": "717d45ae3687a5b0b58007e129247b18312dc7cf4a07702a52e2c90488005dcf",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/tether/gatewayip-tether.md": {
-            "hash": "cbcbbc1f4a57866a898598c470c3290eeb331bb1e3dba2a3ed302afce43e8f1d",
-            "date": "2024-10-22"
+            "hash": "3a1554bfa06c1bfcb37ea86c49d1499cfc2822dd90ffbb850e54f2205df30388",
+            "date": "2026-05-08"
         },
         "tools/cloud-tools/event-decoder.md": {
             "hash": "0dd5a3d286253100810c4b4cc603f19dd94e1006bc93d7531e8e1c1a316796d9",
@@ -9515,60 +9515,60 @@
             "date": "2024-12-10"
         },
         "reference/device-os/api/ethernet/ison-ethernet.md": {
-            "hash": "bdc579aaf3f0c68ec01a3485914ee77869ef2174dd3905d9c2cfcd2c091f854e",
-            "date": "2024-12-10"
+            "hash": "86c5a9ad72af2039bf72fd8ff95efbce3c93ce2b97bfb98bc83d30e4957eddf4",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/isoff-ethernet.md": {
-            "hash": "4a976d620b239baf7274c84421ff22f0f101123592b9aaba0072c6dc6ca5a757",
-            "date": "2024-12-10"
+            "hash": "046c02e3f83fccced233002ba0a38d1a4e64d3e77ffabf84903244f90a6e6c44",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/connect-ethernet.md": {
-            "hash": "54ddedf324207bdbc91b856f9c99e5959b75e1b84f00e7e6be62415925e4c97f",
-            "date": "2024-12-10"
+            "hash": "612483daef6ff28bfe16fa3d76f624ecd33016523557f0ac7faa7f398cd0fbc0",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/disconnect-ethernet.md": {
-            "hash": "ffecdf961cc404be43f34b449a8d0dcc84df71b745682dd41e6f3f9d421a137f",
-            "date": "2024-12-10"
+            "hash": "e30ea85a33866462610779bd39f19f4deb3407038bd4d09cbe59c2af6f051df7",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/connecting-ethernet.md": {
-            "hash": "f9ffe2f6cd3e25c58931f5cb8ccae1ff341752782c921682ce79c7c2d85cca2e",
-            "date": "2024-12-10"
+            "hash": "20718cf3af764d1b78ed115e72254ba69dd59b9f50e662fbaad528f79f297928",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/ready-ethernet.md": {
-            "hash": "d22b2f90ff2c831cf501d9c1fcf11124c9e9ba55cd61dc176e4112a9f9090be3",
-            "date": "2024-12-10"
+            "hash": "f6347df261ae2055d2f31a24e0c6610c47c67fcae5a7163deffd7f97cf310f63",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/listen-ethernet.md": {
-            "hash": "cd9d120157e4ebc7a140ccf571351f19430be6c00888c57eea1edefa25fad1c5",
-            "date": "2024-12-10"
+            "hash": "e723570edf3eb74cbbe7ed2364f1af3f335db3bcdc4bdefd02a21c7c778e6d55",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/listening-ethernet.md": {
-            "hash": "23ea84e59ae0874b850ebf2ab08376ee75dee0f0b78d128f61357dee185ec827",
-            "date": "2024-12-10"
+            "hash": "4e1613666bfb611f68e8c7bdc67ff8179c29b4839b29344ab328418174c164ca",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/setlistentimeout-ethernet.md": {
-            "hash": "fc9f6932453a5f1082b9e315821ec8c845b4eae15cc2bf430fc03c3d163ea7fc",
-            "date": "2024-12-10"
+            "hash": "664cf0e75b800ed1acc7da01dc6387875c8852e9b2ff84efe31a900ef4a30716",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/getlistentimeout-ethernet.md": {
-            "hash": "19fd4b155be805e362a8c51f7bc617d052c962160137ce43165945f2f6fe415a",
-            "date": "2024-12-10"
+            "hash": "ea0add8e47e6dd1a955c09989674922d2e90c787681fa05ccc9f38dd86720e67",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/macaddress-ethernet.md": {
-            "hash": "d3212719ad53abfc47022157a3e80cf288ae26c0afeaf37e6029e38f137e6237",
-            "date": "2024-12-10"
+            "hash": "219a3af915fafbfdf1463f4fa26bbf5b6f8f4b0e09ef75332c699667d8c6ef41",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/localip-ethernet.md": {
-            "hash": "ce7b72b6b24f8000722fbe534e2d9c481c248b6102f2c4787f0b93538653fac5",
-            "date": "2024-12-10"
+            "hash": "5af9c559155a4a2f214bb2de381201b0a59ec6ef89316c35bdfe43ad474c0b2e",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/subnetmask-ethernet.md": {
-            "hash": "1b183eb89d5d0b152b4977d38f70f6ba802a3a0c7572ec38f8829b3e148d03a0",
-            "date": "2024-12-10"
+            "hash": "39c7fa6ba9a7277457b481c917a9087a89e8aa21ac2efb79561fd477dab6b046",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/gatewayip-ethernet.md": {
-            "hash": "8fbb3c70ae3aad15d66d16dc262a54bfc978b3e2c0dd6d8bdd90ad3839a5f20f",
-            "date": "2024-12-10"
+            "hash": "c02650b6729adc5ffa1157d44794e7506f5a8ff01aec813fe1c419b00610508c",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/ethernet/dnsserverip-ethernet.md": {
             "hash": "ad28a9c3d835954687e3a2b68e7133c2cd244c2bcd5dd41b4da2c869c13fe4d2",
@@ -9767,116 +9767,116 @@
             "date": "2025-08-06"
         },
         "reference/device-os/api/time/millis-time.md": {
-            "hash": "7aff88f97bc96e1900bd555b30a9a0deea359c96b993ac8ceb6acc306aa52853",
-            "date": "2025-08-15"
+            "hash": "12aaab32ebe27452c53fdc34b72c94f55090bd44f7cd02ee4e9ab92a95714976",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/micros-time.md": {
-            "hash": "8a716d55158457ba891f4fec466e582074b85b2422ef448181ed0b0e1c98cbf0",
-            "date": "2025-08-15"
+            "hash": "0b4dd24c6cfc533095c51674b90adbe6cc6fbdd6c78e1e5277b830bc5062e611",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/delay-time.md": {
-            "hash": "7a62977dcd253b2b201b043eb5d53e1d9ef806dd25641cde3fefe616b54cc302",
-            "date": "2025-08-15"
+            "hash": "7f70cac91264e3709d672a769b55ad843bfcf814436a24fc14d804b90dbfa07a",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/delaymicroseconds-time.md": {
-            "hash": "44564193e2255a4602d35c5b4fe6599d2b8f7390daa7e2b04219d03a3641ce45",
-            "date": "2025-08-15"
+            "hash": "35b176b8a3be286a10274e2d0987c633cb4f1fed7569df07f64be1211b0f9b15",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/hour-time.md": {
-            "hash": "f8aa8bce4f27a6162f7defac22a25b34a1a34da2c1ff019f7531a98c1b7ba0b4",
-            "date": "2025-08-15"
+            "hash": "7dffb03217597890ebe363a9841b4b7f5be7013e24f61756379663736de85256",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/hourformat12-time.md": {
-            "hash": "08e6a3c75daefe0c0e3dfa524046a2935cfb83c7b8613b685f7078ad7f585039",
-            "date": "2025-08-15"
+            "hash": "c62a39577472fb4948637ad422906a9f93265d85cb94223206ad7e020c325359",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/isam-time.md": {
-            "hash": "b0d0021853835992d51587c0a934a5f5b3efd6c611f06c4ea36ed751b37f9464",
-            "date": "2025-08-15"
+            "hash": "4116750de43b566d270947919599ba0a54a988f093a7e493c9be0b398ac8e2db",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/ispm-time.md": {
-            "hash": "41076c22fe144eda4d8b484195691698b15776434990c5bc1d7dd5f081c196d1",
-            "date": "2025-08-15"
+            "hash": "cee20c935961aeec6b59cd1b9a5b9d704f1a78ae85011aa2aab48d1162fa752f",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/minute-time.md": {
-            "hash": "0b9cba1b0bcbc46509ed2f1145898de55a4f38c6f0414379d55701f01b252251",
-            "date": "2025-08-15"
+            "hash": "5da92cda0837e82610014aadc7c969d783d6f27736a5919ad804942385c9e674",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/second-time.md": {
-            "hash": "99006993646b3abefb2ff98a33298bc34daed8d609d8adb60843fa6747d963c6",
-            "date": "2025-08-15"
+            "hash": "841fec13d2f366f3cd37599ecd0961a2ff0da0cb0d0af94803d8713b64d0cf29",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/day-time.md": {
-            "hash": "0592586fc7b89b25f64a653e558cd11719b9b05d5427803e7663582649f49ac0",
-            "date": "2025-08-15"
+            "hash": "7e1fe080b97213b3c350ae48b81921d2245af19ca31e0064a5ea3a203ffd84d5",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/weekday-time.md": {
-            "hash": "208da057a8c59087a5191f30fbb4fd51fa2c1f9a0dda778b2b69f2e4a49d9d66",
-            "date": "2025-08-15"
+            "hash": "8b9f73b5b4bcdae09a1f29da6d22246bf018c9d779b7a3155977ac6ea86e0609",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/month-time.md": {
-            "hash": "05e8233fc4899277730c2c95ecf705431bcdfd4b1cd9c25235a3af6a296e3a74",
-            "date": "2025-08-15"
+            "hash": "542811572b10ba6ab3a4e77c5371db1f9c3f32d94e9e3771988ffc330039a626",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/year-time.md": {
-            "hash": "ea293548f5c7362117e41a3e11de577c832d1670479b05d79808df32c3d6e829",
-            "date": "2025-08-15"
+            "hash": "8943d6369b6918e671359e568c03093bd66cb4eeae7e144823a54549e52fad71",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/now-time.md": {
-            "hash": "e6b20d0695e4e66d19a22958c99c1e79e66d2c0940fa147501eb93a34d1967e9",
-            "date": "2025-08-15"
+            "hash": "be45ad1f9b7d7a865ee01b11b424d7d26192a638e476f92c32381497202cde51",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/local-time.md": {
-            "hash": "e91759b56a174ce926d01fbf2bca74d6b51d6b7ec484da2e93e00a932a20e59f",
-            "date": "2025-08-15"
+            "hash": "0782ee53a1ffe0fb063596cb8a0f1e21571f5f8fba35dacb4453a220d9844fba",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/zone-time.md": {
-            "hash": "fab3e24d313d36344b407784cce9c6dba8246e6c578eb2eeb47b6a47c460adc4",
-            "date": "2025-08-15"
+            "hash": "58eaa5384142485b9604f6dacd6286fd6fc5c5876549ed12473bbb1286e563e5",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/isdst-time.md": {
-            "hash": "be9f870a9f7d469febf63b7ae526d7f538c5b22aaa3d75f8787aeab1b0aef52a",
-            "date": "2025-08-15"
+            "hash": "d2620f3268212f739b784139baee2aff71fe76dffc1f484c0ba5842a1bd9c700",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/getdstoffset-time.md": {
-            "hash": "d34f3cbfdfbeb9d2733e5c156f036a2c11ba2a6d3d1b545bece1750ba33121ae",
-            "date": "2025-08-15"
+            "hash": "cf8111304b9381f484f9a87dc189e6065d8f98e4247ae13a664f1ca24b240d43",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/setdstoffset-time.md": {
-            "hash": "a9c6a8763bfb79ec2d5daa51f56c124d8d1c6f487deab49263acfc16bd7a1428",
-            "date": "2025-08-15"
+            "hash": "34e46d5bbca46de1ef9d7ea316017a1050f5494f0b1511cbdff996c99e42e324",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/begindst-time.md": {
-            "hash": "0992a308c31eed2138452ad3f623f74bb33b0a9583604978943329c2dd8e8e8e",
-            "date": "2025-08-15"
+            "hash": "19337511f6650f10f3424aa753f05d36600f0afed2e9f9559e41311c6fe7c75c",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/enddst-time.md": {
-            "hash": "169a745fae6ae4af9651f1df164b45f49db946c86e895b93cc97dc09461a346d",
-            "date": "2025-08-15"
+            "hash": "ab1e8256f627cfb9a85b92019a652c110fe08fa4411928dd093ce4b547f4e138",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/settime-time.md": {
-            "hash": "7386ef9098db5f7b783656967b37e089e9dfd71e17a80622aafdbd0930f0ac77",
-            "date": "2025-08-15"
+            "hash": "5ee6eb242d138791872a21de211893af279a39e310053a1546508bd7f4d76f58",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/timestr-time.md": {
-            "hash": "13e04a837550efae4af2306a70f592280f998eb4185e67b0345757c30ec14235",
-            "date": "2025-08-15"
+            "hash": "5e30288321a847b4a55be444d0ed24f3a2f73a7d4b903c5d5637428e6839b303",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/format-time.md": {
-            "hash": "809df78e6605413846431e3510dbf3426e87c6e7133afae4a1c6a27f3ba2be85",
-            "date": "2025-08-15"
+            "hash": "3a07afbf071c9a8357e4c75c17ba6ac7ce33bc9da72192ffda563b8ce7e54bff",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/setformat-time.md": {
-            "hash": "3dfacc573b2dceb12b9412d0ad849eff49802d6a82a00f1e92954bfe17469d0e",
-            "date": "2025-08-15"
+            "hash": "3f2117b55507b7dced9d125e11864e9895ab6862e55d4918d80fe6f6b8439558",
+            "date": "2026-05-08"
         },
         "reference/device-os/api/time/getformat-time.md": {
             "hash": "f21e03d86222012e056929f4f7f7dafb43f669dc91296c7ff2eae6032232cc00",
             "date": "2025-08-15"
         },
         "reference/device-os/api/time/isvalid-time.md": {
-            "hash": "8e3344ea9ce247febdeaf1d5f61d4cb0e3b5b37dd037beb0b88f8cd459caaa48",
-            "date": "2025-08-15"
+            "hash": "160aea0abd798b0290d82ad274ebf13f6736996d2e84fa5a12524c778ad9359e",
+            "date": "2026-05-08"
         },
         "reference/device-os/libraries/s/STM32_Flash.md": {
             "hash": "588071848f4187e3c448893c51aab86dd74653bc446b0ddcc2de9915d7699157",

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS firmware API 2026-05-08
+
+Added C++ prototypes for most functions in the [Device OS firmware API](/reference/device-os/firmware/) that did not already have them.
+
 ### Release note viewer 2026-05-05
 
 In the [Release note viewer](/reference/device-os/release-notes/?mode=rel1&ver=v6.4.1), when viewing release notes for a single version, a panel is now shown with the supported platforms, downloads, publish date, and compatible SKUs.

@@ -99,6 +99,15 @@ The variable must be one of:
 
 The underlying variable must not be a local variable allocated on the stack within a function, such as setup(), as the storage for it will go away after the function exits and the variable will not work properly.
 
+```cpp
+// PROTOTYPES
+bool variable(const char *varKey, const bool &var);
+bool variable(const char *varKey, const int &var);
+bool variable(const char *varKey, const double &var);
+bool variable(const char *varKey, const String &var);
+bool variable(const char *varKey, const char *var);
+```
+<!-- spark_wiring_cloud.h 141 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -207,6 +216,15 @@ Such a function should return a value of one of the supported variable types and
 The callback function is called application loop thread context, between calls to loop(), during Particle.process(), and delay().
 
 ```cpp
+// PROTOTYPES
+bool variable(const char *varKey, std::function<bool()> fn);
+bool variable(const char *varKey, std::function<int()> fn);
+bool variable(const char *varKey, std::function<double()> fn);
+bool variable(const char *varKey, std::function<String()> fn);
+```
+<!-- spark_wiring_cloud.h 584 -->
+
+```cpp
 // EXAMPLE USAGE - registering functions as cloud variables
 
 bool flag() {
@@ -297,6 +315,18 @@ Each variable retrieval uses one Data Operation from your monthly or yearly quot
 Expose a *function* through the Cloud so that it can be called with `POST /v1/devices/{DEVICE_ID}/{FUNCTION}`.
 
 Particle.function allows code on the device to be run when requested from the cloud API. You typically do this when you want to control something on your device, say a LCD display or a buzzer, or control features in your firmware from the cloud.
+
+```cpp
+// PROTOTYPES
+bool function(const char *funcKey, user_function_int_str_t *func);
+bool function(const char *funcKey, user_std_function_int_str_t func);
+template <typename T>
+bool function(const char *funcKey, int (T::*func)(String), T *instance);
+
+typedef int (user_function_int_str_t)(String paramString);
+typedef std::function<user_function_int_str_t> user_std_function_int_str_t;
+```
+<!-- spark_wiring_cloud.h 259 -->
 
 ```cpp
 // SYNTAX
@@ -430,6 +460,12 @@ See [Subscribe](#subscribe), below.
 Removes all subscription handlers previously registered with `Particle.subscribe()`.
 
 ```cpp
+// PROTOTYPE
+void unsubscribe();
+```
+<!-- spark_wiring_cloud.h 406 -->
+
+```cpp
 // SYNTAX
 Particle.unsubscribe();
 ```
@@ -472,8 +508,11 @@ void setup() {
 
 ```cpp
 // PROTOTYPE
-int maxEventDataSize();
+static int maxEventDataSize();
+```
+<!-- spark_wiring_cloud.h 497 -->
 
+```cpp
 // SYNTAX
 Log.info("eventDataSize=%d", Particle.maxEventDataSize());
 ```
@@ -493,8 +532,11 @@ Devices with a maximum data size of less than 1024 bytes cannot use the [large p
 
 ```cpp
 // PROTOTYPE
-int maxVariableValueSize();
+static int maxVariableValueSize();
+```
+<!-- spark_wiring_cloud.h 507 -->
 
+```cpp
 // SYNTAX
 Log.info("maxVariableValueSize=%d", Particle.maxVariableValueSize());
 ```
@@ -514,8 +556,11 @@ This value is only available when connected to the cloud. At other times, `SYSTE
 
 ```cpp
 // PROTOTYPE
-int maxFunctionArgumentSize();
+static int maxFunctionArgumentSize();
+```
+<!-- spark_wiring_cloud.h 517 -->
 
+```cpp
 // SYNTAX
 Log.info("maxFunctionArgumentSize=%d", Particle.maxFunctionArgumentSize());
 ```
@@ -531,6 +576,12 @@ This value is only available when connected to the cloud. At other times, `SYSTE
 {{api name1="Particle.publishVitals"}}
 
 {{since when="1.2.0"}}
+
+```cpp
+// PROTOTYPE
+int publishVitals(system_tick_t period_s = particle::NOW);
+```
+<!-- spark_wiring_cloud.h 347 -->
 
 ```cpp
 // SYNTAX
@@ -637,6 +688,12 @@ It is not possible to disable the device vitals messages, however they do not co
 `Particle.connect()` connects the device to the Cloud. This will automatically activate the network connection and attempt to connect to the Particle cloud if the device is not already connected to the cloud.
 
 ```cpp
+// PROTOTYPE
+static void connect(void);
+```
+<!-- spark_wiring_cloud.h 447 -->
+
+```cpp
 void setup() {}
 
 void loop() {
@@ -703,6 +760,12 @@ if (Particle.connectionInterface() == WiFi) {
 {{api name1="Particle.disconnect"}}
 
 `Particle.disconnect()` disconnects the device from the Cloud.
+
+```cpp
+// PROTOTYPE
+static void disconnect(const CloudDisconnectOptions& options = CloudDisconnectOptions());
+```
+<!-- spark_wiring_cloud.h 450 -->
 
 ```cpp
 SerialLogHandler logHandler;
@@ -800,6 +863,12 @@ You may see references to `spark/device/session/end` in the community forums, ho
 Returns `true` when connected to the Cloud, and `false` when disconnected from the Cloud.
 
 ```cpp
+// PROTOTYPE
+static bool connected(void);
+```
+<!-- spark_wiring_cloud.h 445 -->
+
+```cpp
 // SYNTAX
 Particle.connected();
 
@@ -833,6 +902,12 @@ Returns `true` when disconnected from the Cloud, and `false` when connected to C
 {{since when="2.0.0"}}
 
 ```cpp
+// PROTOTYPE
+static void setDisconnectOptions(const CloudDisconnectOptions& options);
+```
+<!-- spark_wiring_cloud.h 487 -->
+
+```cpp
 // EXAMPLE
 Particle.setDisconnectOptions(CloudDisconnectOptions().graceful(true).timeout(5000));
 
@@ -853,6 +928,12 @@ Sets the options for when disconnecting from the cloud, such as from `Particle.d
 On all Gen 3 devices (Argon, Boron, B-Series SoM, Tracker) and Gen 2 cellular devices:
 
 Sets the duration between keep-alive messages used to maintain the connection to the cloud.
+
+```cpp
+// PROTOTYPE
+static void keepAlive(unsigned sec);
+```
+<!-- spark_wiring_cloud.h 469 -->
 
 ```cpp
 // SYNTAX
@@ -912,6 +993,12 @@ However, if your device runs continuously for a long time,
 you may want to synchronize once per day or so.
 
 ```cpp
+// PROTOTYPE
+bool syncTime(void);
+```
+<!-- spark_wiring_cloud.h 408 -->
+
+```cpp
 #define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
 unsigned long lastSync = millis();
 
@@ -940,6 +1027,12 @@ For more information about real-time clocks on Particle devices, see [Learn more
 {{since when="0.6.1"}}
 
 Returns `true` if there is no `syncTime()` request currently pending or there is no active connection to Particle Device Cloud. Returns `false` when there is a pending `syncTime()` request.
+
+```cpp
+// PROTOTYPE
+bool syncTimeDone(void);
+```
+<!-- spark_wiring_cloud.h 421 -->
 
 ```cpp
 // SYNTAX
@@ -1265,6 +1358,14 @@ some types of data in the event stream.
 The return type of the `Particle.publish` function is `particle::Future<bool>`. There are three common ways to use this:
 
 ```cpp
+// PROTOTYPE
+particle::Future<bool> publish(const char* name);
+particle::Future<bool> publish(const char* name, const char* data);
+particle::Future<bool> publish(const char* name, const String& data);
+```
+<!-- spark_wiring_cloud.h 303 -->
+
+```cpp
 // EXAMPLE 1
 Particle.publish("myEvent");
 
@@ -1438,7 +1539,9 @@ data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","d
 // PROTOTYPES
 particle::Future<bool> publish(const char* name, PublishFlags flags1, PublishFlags flags2 = PublishFlags());
 particle::Future<bool> publish(const char* name, const char* data, PublishFlags flags1, PublishFlags flags2 = PublishFlags());
+```
 
+```cpp
 // SYNTAX
 
 float temperature = sensor.readTemperature();  // by way of example, not part of the API
@@ -2581,6 +2684,12 @@ Note that `Ethernet.on()` does not need to be called unless you have changed the
 This function will return `true` if the Ethernet is available, powered on, and went through low level initialization. Otherwise it will return `false`.
 
 ```cpp
+// PROTOTYPE
+virtual bool isOn();
+```
+<!-- spark_wiring_network.h 91 -->
+
+```cpp
 // SYNTAX
 Ethernet.isOn();
 
@@ -2598,6 +2707,12 @@ waitFor(Ethernet.isOn, 30000);
 This function will return `true` if the Ethernet is powered off. Otherwise it will return `false`.
 
 ```cpp
+// PROTOTYPE
+virtual bool isOff();
+```
+<!-- spark_wiring_network.h 92 -->
+
+```cpp
 // SYNTAX
 Ethernet.isOff();
 
@@ -2613,6 +2728,12 @@ waitFor(Ethernet.isOff, 60000);
 Attempts to connect to the Ethernet network. When this function returns, the device may not have an IP address on the LAN; use `Ethernet.ready()` to determine the connection status.
 
 ```cpp
+// PROTOTYPE
+void connect(unsigned flags = 0);
+```
+<!-- spark_wiring_ethernet.h 47 -->
+
+```cpp
 // SYNTAX
 Ethernet.connect();
 ```
@@ -2622,6 +2743,12 @@ Ethernet.connect();
 {{api name1="Ethernet.disconnect"}}
 
 Disconnects from the Ethernet network, but leaves the Ethernet module on.
+
+```cpp
+// PROTOTYPE
+void disconnect();
+```
+<!-- spark_wiring_ethernet.h 55 -->
 
 ```cpp
 // SYNTAX
@@ -2635,6 +2762,12 @@ Ethernet.disconnect();
 This function will return `true` once the device is attempting to connect, and will return `false` once the device has successfully connected to the Ethernet network.
 
 ```cpp
+// PROTOTYPE
+bool connecting(void);
+```
+<!-- spark_wiring_ethernet.h 51 -->
+
+```cpp
 // SYNTAX
 Ethernet.connecting();
 ```
@@ -2644,6 +2777,12 @@ Ethernet.connecting();
 {{api name1="Ethernet.ready"}}
 
 This function will return `true` once the device is connected to the network and has been assigned an IP address, which means that it's ready to open TCP sockets and send UDP datagrams. Otherwise it will return `false`.
+
+```cpp
+// PROTOTYPE
+bool ready();
+```
+<!-- spark_wiring_ethernet.h 75 -->
 
 ```cpp
 // SYNTAX
@@ -2761,6 +2900,12 @@ This will enter or exit listening mode, which opens a Serial connection to get E
 Bluetooth.
 
 ```cpp
+// PROTOTYPE
+void listen(bool begin = true);
+```
+<!-- spark_wiring_ethernet.h 59 -->
+
+```cpp
 // SYNTAX - enter listening mode
 Ethernet.listen();
 ```
@@ -2781,6 +2926,12 @@ Ethernet.listen(false);
 {{api name1="Ethernet.listening"}}
 
 ```cpp
+// PROTOTYPE
+bool listening(void);
+```
+<!-- spark_wiring_ethernet.h 71 -->
+
+```cpp
 // SYNTAX
 Ethernet.listening();
 ```
@@ -2794,6 +2945,12 @@ returns false. With Device OS {{systemThreadRequired}} and later, system thread 
 ### setListenTimeout() - Ethernet
 
 {{api name1="Ethernet.setListenTimeout"}}
+
+```cpp
+// PROTOTYPE
+void setListenTimeout(uint16_t timeout);
+```
+<!-- spark_wiring_ethernet.h 63 -->
 
 ```cpp
 // SYNTAX
@@ -2812,6 +2969,12 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 {{api name1="Ethernet.getListenTimeout"}}
 
 ```cpp
+// PROTOTYPE
+uint16_t getListenTimeout(void);
+```
+<!-- spark_wiring_ethernet.h 67 -->
+
+```cpp
 // SYNTAX
 uint16_t seconds = Ethernet.getListenTimeout();
 ```
@@ -2824,6 +2987,12 @@ uint16_t seconds = Ethernet.getListenTimeout();
 {{api name1="Ethernet.macAddress"}}
 
 `Ethernet.macAddress()` gets the MAC address of the Ethernet interface.
+
+```cpp
+// PROTOTYPE
+uint8_t* macAddress(uint8_t *mac);
+```
+<!-- spark_wiring_ethernet.h 79 -->
 
 ```cpp
 // EXAMPLE
@@ -2847,6 +3016,12 @@ void setup() {
 `Ethernet.localIP()` is used to get the IP address of the Ethernet interface as an `IPAddress`.
 
 ```cpp
+// PROTOTYPE
+IPAddress localIP();
+```
+<!-- spark_wiring_ethernet.h 91 -->
+
+```cpp
 // EXAMPLE
 SerialLogHandler logHandler;
 
@@ -2865,6 +3040,12 @@ void setup() {
 `Ethernet.subnetMask()` returns the subnet mask of the network as an `IPAddress`.
 
 ```cpp
+// PROTOTYPE
+IPAddress subnetMask();
+```
+<!-- spark_wiring_ethernet.h 97 -->
+
+```cpp
 SerialLogHandler logHandler;
 
 void setup() {
@@ -2881,6 +3062,12 @@ void setup() {
 {{api name1="Ethernet.gatewayIP"}}
 
 `Ethernet.gatewayIP()` returns the gateway IP address of the network as an `IPAddress`.
+
+```cpp
+// PROTOTYPE
+IPAddress gatewayIP();
+```
+<!-- spark_wiring_ethernet.h 103 -->
 
 ```cpp
 SerialLogHandler logHandler;
@@ -2942,6 +3129,12 @@ Note that `WiFi.on()` does not need to be called unless you have changed the [sy
 {{api name1="WiFi.off"}}
 
 ```cpp
+// PROTOTYPE
+void off(void);
+```
+<!-- spark_wiring_wifi.h 88 -->
+
+```cpp
 // EXAMPLE:
 Particle.disconnect();
 WiFi.off();
@@ -2959,6 +3152,12 @@ This should only be used with [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mo
 {{api name1="WiFi.connect"}}
 
 Attempts to connect to the Wi-Fi network. If there are no credentials stored, this will enter listening mode (see below for how to avoid this.). If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `WiFi.ready()` to determine the connection status.
+
+```cpp
+// PROTOTYPE
+void connect(unsigned flags = 0);
+```
+<!-- spark_wiring_wifi.h 179 -->
 
 ```cpp
 // SYNTAX
@@ -2987,6 +3186,12 @@ On the Argon, starting with Device OS 1.5.0, a quick Wi-Fi scan is done before c
 Disconnects from the Wi-Fi network, but leaves the Wi-Fi module on.
 
 ```cpp
+// PROTOTYPE
+void disconnect(void);
+```
+<!-- spark_wiring_wifi.h 183 -->
+
+```cpp
 // SYNTAX
 WiFi.disconnect();
 ```
@@ -2998,6 +3203,12 @@ WiFi.disconnect();
 This function will return `true` once the device is attempting to connect using stored Wi-Fi credentials, and will return `false` once the device has successfully connected to the Wi-Fi network.
 
 ```cpp
+// PROTOTYPE
+bool connecting(void);
+```
+<!-- spark_wiring_wifi.h 187 -->
+
+```cpp
 // SYNTAX
 WiFi.connecting();
 ```
@@ -3007,6 +3218,12 @@ WiFi.connecting();
 {{api name1="WiFi.ready"}}
 
 This function will return `true` once the device is connected to the network and has been assigned an IP address, which means that it's ready to open TCP sockets and send UDP datagrams. Otherwise it will return `false`.
+
+```cpp
+// PROTOTYPE
+bool ready(void);
+```
+<!-- spark_wiring_wifi.h 191 -->
 
 ```cpp
 // SYNTAX
@@ -3069,6 +3286,12 @@ setting until it is changed. Resetting Wi-Fi credentials does not clear the ante
 {{note op="end"}}
 
 ---
+
+```cpp
+// PROTOTYPE
+int selectAntenna(WLanSelectAntenna_TypeDef antenna);
+```
+<!-- spark_wiring_wifi.h 103 -->
 
 ```cpp
 // SYNTAX
@@ -3179,6 +3402,12 @@ This will enter or exit listening mode, which opens a Serial connection to get W
 Soft AP on the Photon or BLE on the Argon.
 
 ```cpp
+// PROTOTYPE
+void listen(bool begin = true);
+```
+<!-- spark_wiring_wifi.h 195 -->
+
+```cpp
 // SYNTAX - enter listening mode
 WiFi.listen();
 ```
@@ -3201,6 +3430,12 @@ WiFi.listen(false);
 {{api name1="WiFi.listening"}}
 
 ```cpp
+// PROTOTYPE
+bool listening(void);
+```
+<!-- spark_wiring_wifi.h 208 -->
+
+```cpp
 // SYNTAX
 WiFi.listening();
 ```
@@ -3217,6 +3452,12 @@ returns false. With Device OS {{systemThreadRequired}} and later, system thread 
 {{api name1="WiFi.setListenTimeout"}}
 
 {{since when="0.6.1"}}
+
+```cpp
+// PROTOTYPE
+void setListenTimeout(uint16_t timeout);
+```
+<!-- spark_wiring_wifi.h 199 -->
 
 ```cpp
 // SYNTAX
@@ -3252,6 +3493,12 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 {{api name1="WiFi.getListenTimeout"}}
 
 {{since when="0.6.1"}}
+
+```cpp
+// PROTOTYPE
+uint16_t getListenTimeout(void);
+```
+<!-- spark_wiring_wifi.h 204 -->
 
 ```cpp
 // SYNTAX
@@ -3417,6 +3664,11 @@ Lists the Wi-Fi networks with credentials stored on the device. Returns the numb
 
 Note that this returns details about the Wi-Fi networks, but not the actual password.
 
+```cpp
+// PROTOTYPE
+int getCredentials(WiFiAccessPoint* results, size_t result_count);
+```
+<!-- spark_wiring_wifi.h 286 -->
 
 ```cpp
 // DEFINITION
@@ -3454,6 +3706,12 @@ for (int i = 0; i < found; i++) {
 This will clear all saved credentials from the Wi-Fi module's memory. This will return `true` on success and `false` if the Wi-Fi module has an error.
 
 ```cpp
+// PROTOTYPE
+bool clearCredentials(void);
+```
+<!-- spark_wiring_wifi.h 255 -->
+
+```cpp
 // SYNTAX
 WiFi.clearCredentials();
 ```
@@ -3465,6 +3723,12 @@ WiFi.clearCredentials();
 Will return `true` if there are Wi-Fi credentials stored in the Wi-Fi module's memory.
 
 ```cpp
+// PROTOTYPE
+bool hasCredentials(void);
+```
+<!-- spark_wiring_wifi.h 251 -->
+
+```cpp
 // SYNTAX
 WiFi.hasCredentials();
 ```
@@ -3474,6 +3738,12 @@ WiFi.hasCredentials();
 {{api name1="WiFi.macAddress"}}
 
 `WiFi.macAddress()` returns the MAC address of the device.
+
+```cpp
+// PROTOTYPE
+uint8_t* macAddress(uint8_t *mac);
+```
+<!-- spark_wiring_wifi.h 120 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -3505,6 +3775,12 @@ void setup() {
 `WiFi.BSSID()` retrieves the 6-byte MAC address of the access point the device is currently connected to.
 
 ```cpp
+// PROTOTYPE
+uint8_t* BSSID(uint8_t* bssid);
+```
+<!-- spark_wiring_wifi.h 168 -->
+
+```cpp
 SerialLogHandler logHandler;
 byte bssid[6];
 
@@ -3523,6 +3799,12 @@ void setup() {
 {{api name1="WiFi.RSSI"}}
 
 `WiFi.RSSI()` returns the signal strength of a Wi-Fi network from -127 (weak) to -1dB (strong) as an `int`. Positive return values indicate an error with 1 indicating a Wi-Fi chip error and 2 indicating a time-out error.
+
+```cpp
+// PROTOTYPE
+WiFiSignal RSSI();
+```
+<!-- spark_wiring_wifi.h 177 -->
 
 ```cpp
 // SYNTAX
@@ -3560,6 +3842,12 @@ This class allows to query a number of signal parameters of the currently connec
 Gets the signal strength as a percentage (0.0 - 100.0). See [`getStrengthValue()`](#getstrengthvalue-) on how strength values are mapped to 0%-100% range.
 
 ```cpp
+// PROTOTYPE
+virtual float getStrength() const;
+```
+<!-- spark_wiring_wifi.h 58 -->
+
+```cpp
 // SYNTAX
 WiFiSignal sig = WiFi.RSSI();
 float strength = sig.getStrength();
@@ -3578,6 +3866,12 @@ Returns: `float`
 Gets the signal quality as a percentage (0.0 - 100.0). See [`getQualityValue()`](#getqualityvalue-) on how quality values are mapped to 0%-100% range.
 
 ```cpp
+// PROTOTYPE
+virtual float getQuality() const;
+```
+<!-- spark_wiring_wifi.h 60 -->
+
+```cpp
 // SYNTAX
 WiFiSignal sig = WiFi.RSSI();
 float quality = sig.getQuality();
@@ -3594,6 +3888,12 @@ Returns: `float`
 {{api name1="WiFiSignal::getStrengthValue"}}
 
 ```cpp
+// PROTOTYPE
+virtual float getStrengthValue() const;
+```
+<!-- spark_wiring_wifi.h 59 -->
+
+```cpp
 // SYNTAX
 WiFiSignal sig = WiFi.RSSI();
 float strength = sig.getStrengthValue();
@@ -3606,6 +3906,12 @@ Returns: `float`
 #### getQualityValue()
 
 {{api name1="WiFiSignal::getQualityValue"}}
+
+```cpp
+// PROTOTYPE
+virtual float getQualityValue() const;
+```
+<!-- spark_wiring_wifi.h 61 -->
 
 ```cpp
 // SYNTAX
@@ -3661,6 +3967,14 @@ The first form is the simplest, but also least flexible. You provide a
 array of `WiFiAccessPoint` instances, and the call to `WiFi.scan()` fills out the array.
 If there are more APs detected than will fit in the array, they are dropped.
 Returns the number of access points written to the array.
+
+```cpp
+// PROTOTYPES
+int scan(WiFiAccessPoint* results, size_t result_count);
+template <typename T>
+int scan(void (*handler)(WiFiAccessPoint* ap, T* instance), T* instance);
+```
+<!-- spark_wiring_wifi.h 96 -->
 
 ```cpp
 // EXAMPLE - retrieve up to 20 Wi-Fi APs
@@ -3753,6 +4067,12 @@ const char* ssid = strongestFinder.scan();
 `WiFi.resolve()` finds the IP address for a domain name.
 
 ```cpp
+// PROTOTYPE
+IPAddress resolve(const char* name);
+```
+<!-- spark_wiring_wifi.h 260 -->
+
+```cpp
 // SYNTAX
 ip = WiFi.resolve(name);
 ```
@@ -3784,6 +4104,12 @@ void setup() {
 `WiFi.localIP()` returns the local IP address assigned to the device as an `IPAddress`.
 
 ```cpp
+// PROTOTYPE
+IPAddress localIP();
+```
+<!-- spark_wiring_wifi.h 148 -->
+
+```cpp
 SerialLogHandler logHandler;
 
 void setup() {
@@ -3802,6 +4128,12 @@ void setup() {
 `WiFi.subnetMask()` returns the subnet mask of the network as an `IPAddress`.
 
 ```cpp
+// PROTOTYPE
+IPAddress subnetMask();
+```
+<!-- spark_wiring_wifi.h 152 -->
+
+```cpp
 SerialLogHandler logHandler;
 
 void setup() {
@@ -3818,6 +4150,12 @@ void setup() {
 {{api name1="WiFi.gatewayIP"}}
 
 `WiFi.gatewayIP()` returns the gateway IP address of the network as an `IPAddress`.
+
+```cpp
+// PROTOTYPE
+IPAddress gatewayIP();
+```
+<!-- spark_wiring_wifi.h 156 -->
 
 ```cpp
 SerialLogHandler logHandler;
@@ -3864,6 +4202,12 @@ Defines the static IP addresses used by the system to connect to the network whe
 This API is only available for the Photon and P1 (Gen 2). 
 
 On the Argon, P2, and Photon 2, static IP addressing requires Device OS 5.3.0 or later and uses a different API. See [`NetworkInterfaceConfig`](#networkinterfaceconfig).
+
+```cpp
+// PROTOTYPE
+void setStaticIP(const IPAddress& host, const IPAddress& netmask, const IPAddress& gateway, const IPAddress& dns);
+```
+<!-- spark_wiring_wifi.h 269 -->
 
 ```cpp
 // SYNTAX
@@ -3926,6 +4270,12 @@ Parameters:
 - `hostname`: the hostname to set (string)
 
 ```cpp
+// PROTOTYPE
+int setHostname(const char* hostname);
+```
+<!-- spark_wiring_wifi.h 297 -->
+
+```cpp
 // SYNTAX
 
 WiFi.setHostname("photon-123");
@@ -3955,6 +4305,12 @@ or Ethernet (Gen 3), P2, or Photon 2.
 Retrieves device hostname used as DHCP client name (DHCP option 12).
 
 This function does not take any arguments and returns a `String`.
+
+```cpp
+// PROTOTYPE
+String hostname();
+```
+<!-- spark_wiring_wifi.h 289 -->
 
 ```cpp
 // SYNTAX
@@ -4053,6 +4409,13 @@ void loop() {
 Constructs an instance of the WiFiCredentials class. By default security type is initialized to unsecured (`UNSEC`).
 
 ```cpp
+// PROTOTYPES
+WiFiCredentials(SecurityType security = UNSEC);
+WiFiCredentials(const char* ssid, SecurityType security = UNSEC);
+```
+<!-- spark_wiring_wifi_credentials.h 62 -->
+
+```cpp
 // SYNTAX
 WiFiCredentials credentials(SecurityType security = UNSEC); // 1
 WiFiCredentials credentials(const char* ssid, SecurityType security = UNSEC); // 2
@@ -4081,6 +4444,12 @@ Parameters:
 Sets access point SSID.
 
 ```cpp
+// PROTOTYPE
+virtual WiFiCredentials& setSsid(const char* ssid, int ssidLen = -1);
+```
+<!-- spark_wiring_wifi_credentials.h 78 -->
+
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setSsid(const char* ssid);
 ```
@@ -4101,6 +4470,12 @@ Parameters:
 Sets access point security type.
 
 ```cpp
+// PROTOTYPE
+virtual WiFiCredentials& setSecurity(SecurityType security);
+```
+<!-- spark_wiring_wifi_credentials.h 73 -->
+
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setSecurity(SecurityType security);
 ```
@@ -4116,6 +4491,12 @@ Parameters:
 
 #### setCipher()
 Sets access point cipher.
+
+```cpp
+// PROTOTYPE
+virtual WiFiCredentials& setCipher(WLanSecurityCipher cipher);
+```
+<!-- spark_wiring_wifi_credentials.h 83 -->
 
 ```cpp
 // SYNTAX
@@ -4138,6 +4519,12 @@ Parameters:
 Sets access point password.
 
 When configuring credentials for WPA/WPA2 Enterprise access point with PEAP/MSCHAPv2 authentication, this function sets password for username set by [setIdentity()](#setidentity-).
+
+```cpp
+// PROTOTYPE
+virtual WiFiCredentials& setPassword(const char* password, int passwordLen = -1);
+```
+<!-- spark_wiring_wifi_credentials.h 88 -->
 
 ```cpp
 // SYNTAX
@@ -4211,6 +4598,12 @@ WiFi.setCredentials(creds);
 Sets access point channel.
 
 ```cpp
+// PROTOTYPE
+virtual WiFiCredentials& setChannel(int ch);
+```
+<!-- spark_wiring_wifi_credentials.h 142 -->
+
+```cpp
 // SYNYAX
 WiFiCredentials& WiFiCredentials::setChannel(int channel);
 ```
@@ -4229,6 +4622,12 @@ Parameters:
 {{api name1="WiFiCredentials::setEapType"}}
 
 Sets EAP type. 
+
+```cpp
+// PROTOTYPE
+virtual WiFiCredentials& setEapType(WLanEapType type);
+```
+<!-- spark_wiring_wifi_credentials.h 107 -->
 
 ```cpp
 // SYNTAX
@@ -4254,6 +4653,12 @@ This is a feature of WPA Enterprise and is only available on the Photon and P1
 Sets EAP inner identity (username in case of PEAP/MSCHAPv2).
 
 ```cpp
+// PROTOTYPE
+virtual WiFiCredentials& setIdentity(const char* identity, int identityLen = -1);
+```
+<!-- spark_wiring_wifi_credentials.h 93 -->
+
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setIdentity(const char* identity);
 ```
@@ -4273,6 +4678,12 @@ Parameters:
 {{api name1="WiFiCredentials::setOuterIdentify"}}
 
 Sets EAP outer identity. Defaults to "anonymous".
+
+```cpp
+// PROTOTYPE
+virtual WiFiCredentials& setOuterIdentity(const char* identity, int identityLen = -1);
+```
+<!-- spark_wiring_wifi_credentials.h 102 -->
 
 ```cpp
 // SYNTAX
@@ -4296,6 +4707,12 @@ This is a feature of WPA Enterprise and is only available on the Photon and P1
 {{api name1="WiFiCredentials::setClientCertificate"}}
 
 Sets client certificate used for EAP-TLS authentication.
+
+```cpp
+// PROTOTYPE
+virtual WiFiCredentials& setClientCertificate(const char* cert);
+```
+<!-- spark_wiring_wifi_credentials.h 134 -->
 
 ```cpp
 // SYNTAX
@@ -4324,6 +4741,12 @@ This is a feature of WPA Enterprise and is only available on the Photon and P1
 Sets private key used for EAP-TLS authentication.
 
 ```cpp
+// PROTOTYPE
+virtual WiFiCredentials& setPrivateKey(const char* pkey);
+```
+<!-- spark_wiring_wifi_credentials.h 130 -->
+
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setPrivateKey(const char* key);
 ```
@@ -4348,6 +4771,12 @@ This is a feature of WPA Enterprise and is only available on the Photon and P1
 {{api name1="WiFiCredentials::setRootCertificate"}}
 
 Sets one more root (CA) certificates.
+
+```cpp
+// PROTOTYPE
+virtual WiFiCredentials& setRootCertificate(const char* cert);
+```
+<!-- spark_wiring_wifi_credentials.h 138 -->
 
 ```cpp
 // SYNTAX
@@ -4482,6 +4911,12 @@ unsigned baudrate() const;
 `Tether.on()` turns on the tethering support. It defaults to off.
 
 ```cpp
+// PROTOTYPE
+void on();
+```
+<!-- spark_wiring_tether.h 57 -->
+
+```cpp
 // EXAMPLE
 Tether.bind(TetherSerialConfig().baudrate(921600).serial(Serial1));
 Tether.on();
@@ -4493,12 +4928,24 @@ Tether.connect();
 {{api name1="Tether.off"}}
 
 `Tether.off()` turns off tethering support. 
- 
+
+```cpp
+// PROTOTYPE
+void off();
+```
+<!-- spark_wiring_tether.h 61 -->
+
 ### connect() - Tether
 
 {{api name1="Tether.connect"}}
 
 Starts the PPP server so the other device can send requests to it. You will typically turn it on, then connect, after connecting to cellular.
+
+```cpp
+// PROTOTYPE
+void connect(unsigned flags = 0);
+```
+<!-- spark_wiring_tether.h 65 -->
 
 ```cpp
 // EXAMPLE
@@ -4517,6 +4964,12 @@ Tether.connect();
 Disconnects from the tethering, but leaves it on.
 
 ```cpp
+// PROTOTYPE
+void disconnect();
+```
+<!-- spark_wiring_tether.h 73 -->
+
+```cpp
 // SYNTAX
 Tether.disconnect();
 ```
@@ -4526,6 +4979,12 @@ Tether.disconnect();
 {{api name1="Tether.connecting"}}
 
 This function will return `true` while the PPP server is starting up, and `false` once running.
+
+```cpp
+// PROTOTYPE
+bool connecting(void);
+```
+<!-- spark_wiring_tether.h 69 -->
 
 ```cpp
 // SYNTAX
@@ -4539,6 +4998,12 @@ Tether.connecting();
 This function will return `true` once PPP server is running and can accept requests from the other device. Otherwise it will return `false`.
 
 ```cpp
+// PROTOTYPE
+bool ready();
+```
+<!-- spark_wiring_tether.h 93 -->
+
+```cpp
 // SYNTAX
 Tether.ready();
 ```
@@ -4548,6 +5013,12 @@ Tether.ready();
 {{api name1="Tether.localIP"}}
 
 `Tether.localIP()` is used to get the IP address of the PPP server as an `IPAddress`.
+
+```cpp
+// PROTOTYPE
+IPAddress localIP();
+```
+<!-- spark_wiring_tether.h 97 -->
 
 ```cpp
 // EXAMPLE
@@ -4568,6 +5039,12 @@ void setup() {
 `Tether.subnetMask()` returns the subnet mask of the PPP server as an `IPAddress`.
 
 ```cpp
+// PROTOTYPE
+IPAddress subnetMask();
+```
+<!-- spark_wiring_tether.h 103 -->
+
+```cpp
 SerialLogHandler logHandler;
 
 void setup() {
@@ -4584,6 +5061,12 @@ void setup() {
 {{api name1="Tether.gatewayIP"}}
 
 `Tether.gatewayIP()` returns the gateway IP address of the PPP server as an `IPAddress`.
+
+```cpp
+// PROTOTYPE
+IPAddress gatewayIP();
+```
+<!-- spark_wiring_tether.h 109 -->
 
 ```cpp
 SerialLogHandler logHandler;
@@ -4665,9 +5148,21 @@ When using the switchable network, it uses `network` (lowercase, the member vari
 
 Note that `Network.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the network off.
 
+```cpp
+// PROTOTYPE
+virtual void on();
+```
+<!-- spark_wiring_network.h 88 -->
+
 ### off() [Network]
 
 {{api name1="Network.off"}}
+
+```cpp
+// PROTOTYPE
+virtual void off();
+```
+<!-- spark_wiring_network.h 89 -->
 
 ```cpp
 // EXAMPLE:
@@ -4691,6 +5186,12 @@ Attempts to connect to default network interface for this device, typically Cell
 For Wi-Fi devices, if there are no credentials stored, this will enter listening mode, blinking dark blue. If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `Network.ready()` to determine the connection status.
 
 ```cpp
+// PROTOTYPE
+virtual void connect(unsigned flags = 0);
+```
+<!-- spark_wiring_network.h 83 -->
+
+```cpp
 // SYNTAX
 Network.connect();
 ```
@@ -4706,6 +5207,12 @@ On the Argon, starting with Device OS 1.5.0, a quick Wi-Fi scan is done before c
 Disconnects from the network, but leaves the network module on.
 
 ```cpp
+// PROTOTYPE
+virtual void disconnect();
+```
+<!-- spark_wiring_network.h 84 -->
+
+```cpp
 // SYNTAX
 Network.disconnect();
 ```
@@ -4717,6 +5224,12 @@ Network.disconnect();
 This function will return `true` once the device is attempting to connect, and will return `false` once the device has successfully connected to the network.
 
 ```cpp
+// PROTOTYPE
+virtual bool connecting();
+```
+<!-- spark_wiring_network.h 85 -->
+
+```cpp
 // SYNTAX
 Network.connecting();
 ```
@@ -4726,6 +5239,12 @@ Network.connecting();
 {{api name1="Network.ready"}}
 
 This function will return `true` once the device is connected to the network. Otherwise it will return `false`.
+
+```cpp
+// PROTOTYPE
+virtual bool ready();
+```
+<!-- spark_wiring_network.h 86 -->
 
 ```cpp
 // SYNTAX
@@ -4837,6 +5356,12 @@ These methods are only avaiable in Device OS 6.3.0 and later. They are available
 This will enter or exit listening mode, blinking dark blue. The cloud connection is not available in listening mode.
 
 ```cpp
+// PROTOTYPE
+virtual void listen(bool begin = true);
+```
+<!-- spark_wiring_network.h 92 -->
+
+```cpp
 // SYNTAX - enter listening mode
 Network.listen();
 ```
@@ -4859,6 +5384,12 @@ Network.listen(false);
 {{api name1="Network.listening"}}
 
 ```cpp
+// PROTOTYPE
+virtual bool listening();
+```
+<!-- spark_wiring_network.h 95 -->
+
+```cpp
 // SYNTAX
 Network.listening();
 ```
@@ -4875,6 +5406,12 @@ returns false. With Device OS {{systemThreadRequired}} and later, system thread 
 {{api name1="Network.setListenTimeout"}}
 
 {{since when="0.6.1"}}
+
+```cpp
+// PROTOTYPE
+virtual void setListenTimeout(uint16_t timeout);
+```
+<!-- spark_wiring_network.h 93 -->
 
 ```cpp
 // SYNTAX
@@ -4910,6 +5447,12 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 {{api name1="Network.getListenTimeout"}}
 
 {{since when="0.6.1"}}
+
+```cpp
+// PROTOTYPE
+virtual uint16_t getListenTimeout();
+```
+<!-- spark_wiring_network.h 94 -->
 
 ```cpp
 // SYNTAX
@@ -5187,6 +5730,12 @@ It is not available on Wi-Fi devices including the P2, Photon 2, Argon, Photon, 
 Note that `Cellular.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the Cellular module off.  When turning on the Cellular module, it will go through a full re-connect to the Cellular network which will take anywhere from 30 to 60 seconds in most situations.
 
 ```cpp
+// PROTOTYPE
+void on();
+```
+<!-- spark_wiring_cellular.h 47 -->
+
+```cpp
 // SYNTAX
 Cellular.on();
 ```
@@ -5202,6 +5751,12 @@ Cellular.on();
 {{api name1="Cellular.off"}}
 
 `Cellular.off()` turns off the Cellular module. Useful for saving power, since most of the power draw of the device is the Cellular module.  Note: turning off the Cellular module will force it to go through a full re-connect to the Cellular network the next time it is turned on.
+
+```cpp
+// PROTOTYPE
+void off();
+```
+<!-- spark_wiring_cellular.h 50 -->
 
 ```cpp
 // SYNTAX
@@ -5235,6 +5790,12 @@ This should only be used with [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mo
 This function will return `true` if the cellular modem is powered on and went through low level initialization. Otherwise it will return `false`.
 
 ```cpp
+// PROTOTYPE
+virtual bool isOn();
+```
+<!-- spark_wiring_network.h 90 -->
+
+```cpp
 // SYNTAX
 Cellular.isOn();
 
@@ -5252,6 +5813,12 @@ waitFor(Cellular.isOn, 30000);
 This function will return `true` if the cellular modem is powered off. Otherwise it will return `false`.
 
 ```cpp
+// PROTOTYPE
+virtual bool isOff();
+```
+<!-- spark_wiring_network.h 91 -->
+
+```cpp
 // SYNTAX
 Cellular.isOff();
 
@@ -5265,6 +5832,12 @@ waitFor(Cellular.isOff, 60000);
 {{api name1="Cellular.connect"}}
 
 Attempts to connect to the Cellular network. If there are no credentials entered, the default Particle APN for Particle SIM cards will be used.  If no SIM card is inserted, the device will enter listening mode. If a 3rd party APN is set, these credentials must match the inserted SIM card for the device to connect to the cellular network. When this function returns, the device may not have a local (private) IP address; use `Cellular.ready()` to determine the connection status.
+
+```cpp
+// PROTOTYPE
+void connect(unsigned flags = 0);
+```
+<!-- spark_wiring_cellular.h 53 -->
 
 ```cpp
 // SYNTAX
@@ -5302,6 +5875,12 @@ the power to the modem. This is more thorough than entering sleep mode, or using
 Disconnects from the Cellular network, but leaves the Cellular module on.
 
 ```cpp
+// PROTOTYPE
+void disconnect();
+```
+<!-- spark_wiring_cellular.h 60 -->
+
+```cpp
 // SYNTAX
 Cellular.disconnect();
 ```
@@ -5314,6 +5893,12 @@ Cellular.disconnect();
 This function will return `true` once the device is attempting to connect using the default Particle APN or 3rd party APN cellular credentials, and will return `false` once the device has successfully connected to the cellular network.
 
 ```cpp
+// PROTOTYPE
+bool connecting(void);
+```
+<!-- spark_wiring_cellular.h 56 -->
+
+```cpp
 // SYNTAX
 Cellular.connecting();
 ```
@@ -5323,6 +5908,12 @@ Cellular.connecting();
 {{api name1="Cellular.ready"}}
 
 This function will return `true` once the device is connected to the cellular network and has been assigned an IP address, which means it has an activated PDP context and is ready to open TCP/UDP sockets. Otherwise it will return `false`.
+
+```cpp
+// PROTOTYPE
+bool ready();
+```
+<!-- spark_wiring_cellular.h 99 -->
 
 ```cpp
 // SYNTAX
@@ -5403,6 +5994,12 @@ These methods are only avaiable in Device OS 6.3.0 and later. They are available
 This will enter or exit listening mode, which opens a Serial connection to get Cellular information such as the IMEI or CCID over USB.
 
 ```cpp
+// PROTOTYPE
+void listen(bool begin = true);
+```
+<!-- spark_wiring_cellular.h 81 -->
+
+```cpp
 // SYNTAX - enter listening mode
 Cellular.listen();
 ```
@@ -5423,6 +6020,12 @@ Cellular.listen(false);
 {{api name1="Cellular.listening"}}
 
 ```cpp
+// PROTOTYPE
+bool listening(void);
+```
+<!-- spark_wiring_cellular.h 95 -->
+
+```cpp
 // SYNTAX
 Cellular.listening();
 ```
@@ -5439,6 +6042,12 @@ returns false. With Device OS {{systemThreadRequired}} and later, system thread 
 {{api name1="Cellular.setListenTimeout"}}
 
 {{since when="0.6.1"}}
+
+```cpp
+// PROTOTYPE
+inline void setListenTimeout(uint16_t timeout);
+```
+<!-- spark_wiring_cellular.h 85 -->
 
 ```cpp
 // SYNTAX
@@ -5460,6 +6069,12 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 {{since when="0.6.1"}}
 
 ```cpp
+// PROTOTYPE
+uint16_t getListenTimeout(void);
+```
+<!-- spark_wiring_cellular.h 91 -->
+
+```cpp
 // SYNTAX
 uint16_t seconds = Cellular.getListenTimeout();
 ```
@@ -5474,6 +6089,12 @@ uint16_t seconds = Cellular.getListenTimeout();
 The `Cellular` object does not have built-in thread-safety. If you want to use things like `Cellular.command()` from multiple threads, including from a software timer, you must lock and unlock it to prevent data from multiple thread from being interleaved or corrupted.
 
 A call to lock `lock()` must be balanced with a call to `unlock()` and not be nested. To make sure every lock is released, it's good practice to use `WITH_LOCK` like this:
+
+```cpp
+// PROTOTYPE
+void lock();
+```
+<!-- spark_wiring_cellular.h 171 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -5493,12 +6114,26 @@ Never use `lock()` or `WITH_LOCK()` within a `SINGLE_THREADED_BLOCK()` as deadlo
 
 Unlocks the `Cellular` mutex. See `lock()`.
 
+```cpp
+// PROTOTYPE
+void unlock();
+```
+<!-- spark_wiring_cellular.h 176 -->
+
 
 ### setCredentials()
 
 {{api name1="Cellular.setCredentials"}}
 
 Sets 3rd party SIM credentials for the Cellular network from within the user application. 
+
+```cpp
+// PROTOTYPES
+void setCredentials(const char* apn);
+void setCredentials(const char* username, const char* password);
+void setCredentials(const char* apn, const char* username, const char* password);
+```
+<!-- spark_wiring_cellular.h 64 -->
 
 Only a subset of Particle cellular devices are able to use a plastic 4FF nano SIM card from a 3rd-party carrier. [This table](/getting-started/hardware/cellular-overview/#sim-cards) lists external SIM capability and includes the Electron and Boron only. There are also limits on the number of devices with 3rd-party SIM cards in an account. For more information, see the [3rd-party SIM guide](/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/).
 
@@ -5567,6 +6202,12 @@ void loop() {
 ### clearCredentials()
 
 {{api name1="Cellular.clearCredentials"}}
+
+```cpp
+// PROTOTYPE
+void clearCredentials();
+```
+<!-- spark_wiring_cellular.h 76 -->
 
 Gen 3 cellular devices only use one set of credentials, and they
 must be correctly matched to the SIM card that's used.  If using a
@@ -5654,7 +6295,11 @@ not support `Cellular.setActiveSim()`.
 
 For Boron LTE modules, a special command needs to be given to the cell radio after setting `setActiveSim`. If this command is not given, the device may end up blinking green, and the device does not connect to cloud. Please refer to [this support article](/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/) if you are switching SIM cards with Boron LTE.
 
-
+```cpp
+// PROTOTYPE
+int setActiveSim(SimType sim);
+```
+<!-- spark_wiring_cellular.h 157 -->
 
 ```cpp
 SYSTEM_MODE(SEMI_AUTOMATIC);
@@ -5677,6 +6322,12 @@ Get the current active SIM (internal or external):
 - EXTERNAL_SIM = 2
 
 ```cpp
+// PROTOTYPE
+SimType getActiveSim() const;
+```
+<!-- spark_wiring_cellular.h 161 -->
+
+```cpp
 void setup() {
 	Serial.begin();
 }
@@ -5697,6 +6348,11 @@ void loop() {
 The data usage APIs are only available on the Electron 2G and 3G and E-Series E310. It is not available on other cellular devices.
 {{note op="end"}}
 
+```cpp
+// PROTOTYPE
+bool getDataUsage(CellularData &data_get);
+```
+<!-- spark_wiring_cellular.h 110 -->
 
 A software implementation of Data Usage that pulls sent and received session and total bytes from the cellular modem's internal counters.  The sent / received bytes are the gross payload evaluated by the protocol stack, therefore they comprise the TCP and IP header bytes and the packets used to open and close the TCP connection.  I.e., these counters account for all overhead in cellular communications.
 
@@ -5801,6 +6457,12 @@ Sets the Data Usage counters to the values indicated in the supplied CellularDat
 Returns `bool` - `true` indicating this operation was successful and the CellularData object was updated.
 
 ```cpp
+// PROTOTYPE
+bool setDataUsage(CellularData &data_set);
+```
+<!-- spark_wiring_cellular.h 111 -->
+
+```cpp
 // SYNTAX
 // Set Data Usage
 CellularData data;
@@ -5815,6 +6477,12 @@ Resets the Data Usage counters to all zero.  No CellularData object is required.
 
 Returns: `bool`
 - `true` indicates this operation was successful and the internally stored software offset has been reset to zero. If getDataUsage() was called immediately after without any data being used, the CellularData object would indicate zero data used.
+
+```cpp
+// PROTOTYPE
+bool resetDataUsage(void);
+```
+<!-- spark_wiring_cellular.h 112 -->
 
 ```cpp
 // SYNTAX
@@ -5832,6 +6500,12 @@ This function queries the cellular modem for the RSSI. This is normally quick, a
 
 However, it is possible that the call will still block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if the system thread is busy trying to reconnect to cellular and is unable to do so. Doing operations that access the cellular modem or require access to the system thread from a separate worker thread is a good workaround.
 
+```cpp
+// PROTOTYPE
+CellularSignal RSSI();
+```
+<!-- spark_wiring_cellular.h 104 -->
+
 
 ### CellularSignal Class
 
@@ -5842,6 +6516,12 @@ This class allows to query a number of signal parameters of the currently connec
 #### getAccessTechnology()
 
 {{api name1="CellularSignal::getAccessTechnology"}}
+
+```cpp
+// PROTOTYPE
+virtual hal_net_access_tech_t getAccessTechnology() const;
+```
+<!-- spark_wiring_cellular_printable.h 46 -->
 
 ```cpp
 // SYNTAX
@@ -5865,6 +6545,12 @@ The following radio technologies are defined:
 Gets the signal strength as a percentage (0.0 - 100.0). See [`getStrengthValue()`](#getstrengthvalue-) on how raw RAT-specific strength values are mapped to 0%-100% range.
 
 ```cpp
+// PROTOTYPE
+virtual float getStrength() const;
+```
+<!-- spark_wiring_cellular_printable.h 47 -->
+
+```cpp
 // SYNTAX
 CellularSignal sig = Cellular.RSSI();
 float strength = sig.getStrength();
@@ -5881,6 +6567,12 @@ Returns: `float`
 {{api name1="CellularSignal::getQuality"}}
 
 Gets the signal quality as a percentage (0.0 - 100.0). See [`getQualityValue()`](#getqualityvalue-) on how raw RAT-specific quality values are mapped to 0%-100% range.
+
+```cpp
+// PROTOTYPE
+virtual float getQuality() const;
+```
+<!-- spark_wiring_cellular_printable.h 49 -->
 
 ```cpp
 // SYNTAX
@@ -5903,6 +6595,12 @@ LTE Cat M1 devices (SARA-R410M-02B modem) only return qual with Device OS 1.5.0 
 {{api name1="CellularSignal::getStrengthValue"}}
 
 ```cpp
+// PROTOTYPE
+virtual float getStrengthValue() const;
+```
+<!-- spark_wiring_cellular_printable.h 48 -->
+
+```cpp
 // SYNTAX
 CellularSignal sig = Cellular.RSSI();
 float strength = sig.getStrengthValue();
@@ -5920,6 +6618,12 @@ Returns: `float`
 #### getQualityValue()
 
 {{api name1="CellularSignal::getQualityValue"}}
+
+```cpp
+// PROTOTYPE
+virtual float getQualityValue() const;
+```
+<!-- spark_wiring_cellular_printable.h 50 -->
 
 ```cpp
 // SYNTAX
@@ -6248,6 +6952,12 @@ else {
 `Cellular.resolve()` finds the IP address for a domain name.
 
 ```cpp
+// PROTOTYPE
+IPAddress resolve(const char* name);
+```
+<!-- spark_wiring_cellular.h 146 -->
+
+```cpp
 // SYNTAX
 IPAddress ip = Cellular.resolve(name);
 ```
@@ -6279,6 +6989,12 @@ void setup() {
 {{since when="0.5.0"}}
 
 `Cellular.localIP()` returns the local (private) IP address assigned to the device as an `IPAddress`.
+
+```cpp
+// PROTOTYPE
+IPAddress localIP();
+```
+<!-- spark_wiring_cellular.h 44 -->
 
 ```cpp
 // EXAMPLE
@@ -6316,6 +7032,19 @@ The prototype definition is as follows:
 `int Cellular.command(_CALLBACKPTR_MDM cb, void* param, system_tick_t timeout, const char* format, ...);`
 
 `Cellular.command()` takes one or more arguments in 4 basic types of signatures.
+
+```cpp
+// PROTOTYPES
+template<typename... Targs>
+int command(const char* format, Targs... Fargs);
+template<typename... Targs>
+int command(system_tick_t timeout_ms, const char* format, Targs... Fargs);
+template<typename T, typename... Targs>
+int command(int (*cb)(int type, const char* buf, int len, T* param), T* param, const char* format, Targs... Fargs);
+template<typename T, typename... Targs>
+int command(int (*cb)(int type, const char* buf, int len, T* param), T* param, system_tick_t timeout_ms, const char* format, Targs... Fargs);
+```
+<!-- spark_wiring_cellular.h 119 -->
 
 ```cpp
 // SYNTAX (4 basic signatures with/without printf style formatting)
@@ -7098,6 +7827,13 @@ Writes an analog value to a pin as a digital PWM (pulse-width modulated) signal.
 Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to `analogWrite()` (or a call to `digitalRead()` or `digitalWrite()` on the same pin).
 
 ```cpp
+// PROTOTYPES
+void analogWrite(hal_pin_t pin, uint32_t value);
+void analogWrite(hal_pin_t pin, uint32_t value, uint32_t pwm_frequency);
+```
+<!-- spark_wiring.h 107 -->
+
+```cpp
 // SYNTAX
 analogWrite(pin, value);
 analogWrite(pin, value, frequency);
@@ -7276,6 +8012,13 @@ Sets or retrieves the resolution of `analogWrite()` function of a particular pin
 `analogWriteResolution()` returns currently set resolution.
 
 ```cpp
+// PROTOTYPES
+uint8_t analogWriteResolution(hal_pin_t pin, uint8_t value);
+uint8_t analogWriteResolution(hal_pin_t pin);
+```
+<!-- spark_wiring.h 109 -->
+
+```cpp
 // EXAMPLE USAGE
 pinMode(D1, OUTPUT);     // sets the pin as output
 analogWriteResolution(D1, 12); // sets analogWrite resolution to 12 bits
@@ -7304,6 +8047,12 @@ Returns maximum frequency that can be used with `analogWrite()` on this pin.
 `analogWriteMaxFrequency()` takes one argument:
 
 - `pin`: the number of the pin
+
+```cpp
+// PROTOTYPE
+uint32_t analogWriteMaxFrequency(hal_pin_t pin);
+```
+<!-- spark_wiring.h 111 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -7339,6 +8088,12 @@ DAC is not supported on the P2, Photon 2, or Gen 3 devices (Argon, Boron, B-Seri
 ### analogRead() (ADC)
 
 {{api name1="analogRead"}}
+
+```cpp
+// PROTOTYPE
+int32_t analogRead(uint16_t pin);
+```
+<!-- spark_wiring.h 68 -->
 
 ```cpp
 // SYNTAX
@@ -7526,6 +8281,12 @@ Prior to using the following low-level functions, `pinMode()` must be used to co
 Write a `HIGH` value to a digital pin.
 
 ```cpp
+// PROTOTYPE
+void pinSetFast(hal_pin_t _pin);
+```
+<!-- fast_pin.h 41 -->
+
+```cpp
 // SYNTAX
 pinSetFast(pin);
 ```
@@ -7557,6 +8318,12 @@ void loop()
 {{api name1="pinResetFast"}}
 
 Write a `LOW` value to a digital pin.
+
+```cpp
+// PROTOTYPE
+void pinResetFast(hal_pin_t _pin);
+```
+<!-- fast_pin.h 42 -->
 
 ```cpp
 // SYNTAX
@@ -7592,6 +8359,12 @@ void loop()
 Write a `HIGH` or `LOW` value to a digital pin.  This function will call pinSetFast() or pinResetFast() based on `value` and is useful when `value` is calculated. As such, this imposes a slight time overhead.
 
 ```cpp
+// PROTOTYPE
+inline void digitalWriteFast(hal_pin_t pin, uint8_t value);
+```
+<!-- fast_pin.h 122 -->
+
+```cpp
 // SYNTAX
 digitalWriteFast(pin, value);
 ```
@@ -7623,6 +8396,12 @@ void loop()
 {{api name1="pinReadFast"}}
 
 Reads the value from a specified digital `pin`, either `HIGH` or `LOW`.
+
+```cpp
+// PROTOTYPE
+int32_t pinReadFast(hal_pin_t _pin);
+```
+<!-- fast_pin.h 43 -->
 
 ```cpp
 // SYNTAX
@@ -7660,6 +8439,12 @@ void loop()
 {{api name1="tone"}}
 
 Generates a square wave of the specified frequency and duration (and 50% duty cycle) on a timer channel pin which supports PWM. Use of the tone() function will interfere with PWM output on the selected pin. tone() is generally used to make sounds or music on speakers or piezo buzzers.
+
+```cpp
+// PROTOTYPE
+void tone(uint8_t pin, unsigned int frequency, unsigned long duration = 0);
+```
+<!-- spark_wiring_tone.h 35 -->
 
 ```cpp
 // SYNTAX
@@ -7872,6 +8657,11 @@ Stops the generation of a square wave triggered by tone() on a specified pin. Ha
 
 The available pins are the same as for tone().
 
+```cpp
+// PROTOTYPE
+void noTone(uint8_t pin);
+```
+<!-- spark_wiring_tone.h 36 -->
 
 ```cpp
 // SYNTAX
@@ -7896,6 +8686,11 @@ Shifts out a byte of data one bit at a time on a specified pin. Starts from eith
 
 This is a software implementation; see also the SPI function, which provides a hardware implementation that is faster but works only on specific pins.
 
+```cpp
+// PROTOTYPE
+void shiftOut(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, uint8_t val);
+```
+<!-- spark_wiring.h 96 -->
 
 ```cpp
 // SYNTAX
@@ -7943,6 +8738,11 @@ Shifts in a byte of data one bit at a time. Starts from either the most (i.e. th
 
 This is a software implementation; see also the SPI function, which provides a hardware implementation that is faster but works only on specific pins.
 
+```cpp
+// PROTOTYPE
+uint8_t shiftIn(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder);
+```
+<!-- spark_wiring.h 97 -->
 
 ```cpp
 // SYNTAX
@@ -7988,6 +8788,12 @@ loop() {
 Reads a pulse (either HIGH or LOW) on a pin. For example, if value is HIGH, pulseIn() waits for the pin to go HIGH, starts timing, then waits for the pin to go LOW and stops timing. Returns the length of the pulse in microseconds or 0 if no complete pulse was received within the timeout.
 
 The timing of this function is based on an internal hardware counter derived from the system tick clock.  Resolution is 1/120MHz for Photon/P1/Electron). Works on pulses from 10 microseconds to 3 seconds in length. Please note that if the pin is already reading the desired `value` when the function is called, it will wait for the pin to be the opposite state of the desired `value`, and then finally measure the duration of the desired `value`. This routine is blocking and does not use interrupts.  The `pulseIn()` routine will time out and return 0 after 3 seconds.
+
+```cpp
+// PROTOTYPE
+uint32_t pulseIn(hal_pin_t pin, uint16_t value);
+```
+<!-- spark_wiring.h 101 -->
 
 ```cpp
 // SYNTAX
@@ -8771,6 +9577,12 @@ Returns the charge voltage register. This is the direct register value from the 
 
 {{api name1="PMIC::getVsysStat"}}
 
+```cpp
+// PROTOTYPE
+bool getVsysStat();
+```
+<!-- spark_wiring_power.h 139 -->
+
 `bool getVsysStat();`
 
 ---
@@ -8966,6 +9778,13 @@ For more information about serial ports, see [learn more about serial](/hardware
 {{api name1="Serial.begin" name2="Serial1.begin"}}
 
 Enables serial channel with specified configuration.
+
+```cpp
+// PROTOTYPES
+void begin(unsigned long baud);
+void begin(unsigned long baud, uint32_t config);
+```
+<!-- spark_wiring_usartserial.h 42 -->
 
 ```cpp
 // SYNTAX
@@ -9181,6 +10000,12 @@ When used with hardware serial channels (Serial1, Serial2, etc.), disables seria
 When used with USB serial channels (`Serial` or `USBSerial1`), `end()` will cause the device to quickly disconnect from Host and connect back without the selected serial channel.
 
 ```cpp
+// PROTOTYPE
+void end();
+```
+<!-- spark_wiring_usartserial.h 45 -->
+
+```cpp
 // SYNTAX
 Serial1.end();
 ```
@@ -9194,6 +10019,12 @@ Get the number of bytes (characters) available for reading from the serial port.
 The receive buffer size for hardware UART serial channels (Serial1, Serial2, etc.) is 128 bytes on Gen 3 (Argon, Boron, B-Series SoM, Tracker SoM) and 64 or 128 bytes depending on the UART mode on Gen 2 (Photon, P1, Electron, E-Series). {{since when="3.2.0"}} See also [`acquireSerial1Buffer`](#acquireserial1buffer-).
 
 For USB serial (Serial, USBSerial1), the receive buffer is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-) [`acquireSerial1Buffer`](#acquireserial1buffer-).
+
+```cpp
+// PROTOTYPE
+virtual int available(void);
+```
+<!-- spark_wiring_usartserial.h 51 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -9237,6 +10068,12 @@ If `blockOnOverrun(false)` has been called, the method returns the number of byt
 
 
 ### acquireSerialBuffer()
+
+```cpp
+// PROTOTYPE
+HAL_USB_USART_Config acquireSerialBuffer();
+```
+<!-- spark_wiring_usbserial.h 99 -->
 
 ```cpp
 // SYNTAX
@@ -9284,6 +10121,12 @@ On Gen 2 devices (Photon, P1, Electron. E-Series), the `USBSerial1` receive buff
 ### acquireSerial1Buffer()
 
 {{api name1="Serial1.acquireSerialBuffer"}}
+
+```cpp
+// PROTOTYPE
+hal_usart_buffer_config_t acquireSerial1Buffer();
+```
+<!-- spark_wiring_usartserial.h 110 -->
 
 ```cpp
 // SYNTAX
@@ -9346,6 +10189,12 @@ Defines what should happen when calls to `write()/print()/println()/printlnf()` 
 - `blockOnOverrun(false)` - when there is no room in the buffer for data to be written, the data is written anyway, causing the new data to replace the old data. This option is provided when performance is more important than data integrity.
 
 ```cpp
+// PROTOTYPE
+virtual void blockOnOverrun(bool);
+```
+<!-- spark_wiring_usartserial.h 47 -->
+
+```cpp
 // EXAMPLE - fast and furious over Serial1
 Serial1.blockOnOverrun(false);
 Serial1.begin(115200);
@@ -9354,6 +10203,14 @@ Serial1.begin(115200);
 ### serialEvent()
 
 {{api name1="Serial.serialEvent"  name2="Serial1.serialEvent"}}
+
+```cpp
+// PROTOTYPES
+void serialEvent() __attribute__((weak));
+void serialEvent1() __attribute__((weak));
+void serialEvent2() __attribute__((weak));
+```
+<!-- spark_wiring_usartserial.h 81 -->
 
 A family of application-defined functions that are called whenever there is data to be read
 from a serial peripheral.
@@ -9393,6 +10250,12 @@ void serialEvent()
 Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to `read()`.
 
 ```cpp
+// PROTOTYPE
+virtual int peek(void);
+```
+<!-- spark_wiring_usartserial.h 52 -->
+
+```cpp
 // SYNTAX
 Serial.peek();
 Serial1.peek();
@@ -9404,6 +10267,13 @@ Serial1.peek();
 {{api name1="Serial.write" name2="Serial1.write"}}
 
 Writes binary data to the serial port. This data is sent as a byte or series of bytes; to send the characters representing the digits of a number use the `print()` function instead.
+
+```cpp
+// PROTOTYPES
+virtual size_t write(uint8_t);
+size_t write(uint16_t);
+```
+<!-- spark_wiring_usartserial.h 54 -->
 
 ```cpp
 // SYNTAX
@@ -9443,6 +10313,12 @@ void loop()
 {{api name1="Serial.read" name2="Serial1.read"}}
 
 Reads incoming serial data.
+
+```cpp
+// PROTOTYPE
+virtual int read(void);
+```
+<!-- spark_wiring_usartserial.h 53 -->
 
 ```cpp
 // SYNTAX
@@ -9497,6 +10373,13 @@ An optional second parameter specifies the base (format) to use; permitted value
 
 {{api name1="Serial.println" name2="Serial1.println"}}
 
+```cpp
+// PROTOTYPES
+size_t println(const char[]);
+size_t println(char);
+size_t println(void);
+```
+<!-- spark_wiring_print.h 170 -->
 
 Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n'). This command takes the same forms as `Serial.print()`.
 
@@ -9549,6 +10432,11 @@ void loop() {
 
 {{since when="0.4.6"}}
 
+```cpp
+// PROTOTYPE
+size_t printf(const char* format, ...) __attribute__ ((format(printf, 2, 3)));
+```
+<!-- spark_wiring_print.h 203 -->
 
 Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting over serial.
 
@@ -9588,6 +10476,12 @@ so to that subsequent output appears on the next line.
 Waits for the transmission of outgoing serial data to complete.
 
 ```cpp
+// PROTOTYPE
+virtual void flush(void);
+```
+<!-- spark_wiring_usartserial.h 54 -->
+
+```cpp
 // SYNTAX
 Serial.flush();
 Serial1.flush();
@@ -9604,6 +10498,12 @@ Serial1.flush();
 Puts Serial1 into half-duplex mode.  In this mode both the transmit and receive
 are on the TX pin.  This mode can be used for a single wire bus communications
 scheme between microcontrollers.
+
+```cpp
+// PROTOTYPE
+void halfduplex(bool);
+```
+<!-- spark_wiring_usartserial.h 44 -->
 
 ```cpp
 // SYNTAX
@@ -9633,6 +10533,12 @@ hardware UART ports (Serial1, Serial2, ...).
 ### isConnected()
 
 {{api name1="Serial.isConnected"}}
+
+```cpp
+// PROTOTYPE
+bool isConnected();
+```
+<!-- spark_wiring_usbserial.h 48 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -9674,6 +10580,12 @@ Returns:
 
 {{api name1="Serial.lock" name2="Serial1.lock"}}
 
+```cpp
+// PROTOTYPE
+void lock();
+```
+<!-- spark_wiring_usbserial.h 78 -->
+
 The USB serial objects does not have built-in thread-safety. If you want to read or write the object from multiple threads, including from a software timer, you must lock and unlock it to prevent data from multiple thread from being interleaved or corrupted.
 
 A call to lock `lock()` must be balanced with a call to `unlock()` and not be nested. To make sure every lock is released, it's good practice to use `WITH_LOCK` like this:
@@ -9695,6 +10607,12 @@ The UART serial objects such as `Serial1` allow multiple threads to read and wri
 ### unlock()
 
 {{api name1="Serial.unlock" name2="Serial1.unlock"}}
+
+```cpp
+// PROTOTYPE
+void unlock();
+```
+<!-- spark_wiring_usbserial.h 85 -->
 
 Unlocks the Serial mutex. See `lock()`.
 
@@ -9756,6 +10674,12 @@ Keyboard and Mouse support is only available on some devices and Device OS versi
 {{api name1="Mouse.begin"}}
 
 ```cpp
+// PROTOTYPE
+void begin(void);
+```
+<!-- spark_wiring_usbmouse.h 79 -->
+
+```cpp
 // SYNTAX
 Mouse.begin();
 ```
@@ -9777,6 +10701,12 @@ This function takes no parameters and does not return anything.
 ### end()
 
 {{api name1="Mouse.end"}}
+
+```cpp
+// PROTOTYPE
+void end(void);
+```
+<!-- spark_wiring_usbmouse.h 80 -->
 
 ```cpp
 // SYNTAX
@@ -9808,6 +10738,12 @@ This function takes no parameters and does not return anything.
 {{api name1="Mouse.move"}}
 
 ```cpp
+// PROTOTYPE
+void move(int16_t x, int16_t y, int8_t wheel = 0);
+```
+<!-- spark_wiring_usbmouse.h 91 -->
+
+```cpp
 // SYNTAX
 Mouse.move(x, y);
 Mouse.move(x, y, wheel);
@@ -9826,6 +10762,12 @@ Moves the cursor relative to the current position.
 ### moveTo()
 
 {{api name1="Mouse.moveTo"}}
+
+```cpp
+// PROTOTYPE
+void moveTo(int16_t x, int16_t y);
+```
+<!-- spark_wiring_usbmouse.h 81 -->
 
 ```cpp
 // SYNTAX
@@ -9848,6 +10790,12 @@ The default range [0, 32767] can be mapped to actual screen resolution by callin
 {{api name1="Mouse.scroll"}}
 
 ```cpp
+// PROTOTYPE
+void scroll(int8_t wheel);
+```
+<!-- spark_wiring_usbmouse.h 92 -->
+
+```cpp
 // SYNTAX
 Mouse.scroll(wheel);
 ```
@@ -9863,6 +10811,12 @@ Scrolls the mouse wheel by the specified amount.
 ### click()
 
 {{api name1="Mouse.click"}}
+
+```cpp
+// PROTOTYPE
+void click(uint8_t button = MOUSE_LEFT);
+```
+<!-- spark_wiring_usbmouse.h 95 -->
 
 ```cpp
 // SYNTAX
@@ -9895,6 +10849,12 @@ Mouse.click(MOUSE_LEFT | MOUSE_RIGHT);
 {{api name1="Mouse.press"}}
 
 ```cpp
+// PROTOTYPE
+void press(uint8_t button = MOUSE_LEFT);
+```
+<!-- spark_wiring_usbmouse.h 96 -->
+
+```cpp
 // SYNTAX
 Mouse.press();
 Mouse.press(button);
@@ -9923,6 +10883,12 @@ Mouse.press(MOUSE_LEFT | MOUSE_RIGHT);
 ### release()
 
 {{api name1="Mouse.release"}}
+
+```cpp
+// PROTOTYPE
+void release(uint8_t button = MOUSE_LEFT);
+```
+<!-- spark_wiring_usbmouse.h 97 -->
 
 ```cpp
 // SYNTAX
@@ -9955,6 +10921,12 @@ Mouse.release(MOUSE_LEFT | MOUSE_RIGHT);
 {{api name1="Mouse.isPressed"}}
 
 ```cpp
+// PROTOTYPE
+bool isPressed(uint8_t button = MOUSE_LEFT);
+```
+<!-- spark_wiring_usbmouse.h 98 -->
+
+```cpp
 // SYNTAX
 Mouse.isPressed();
 Mouse.isPressed(button);
@@ -9982,6 +10954,15 @@ pressed = Mouse.isPressed(MOUSE_MIDDLE);
 ### screenSize()
 
 {{api name1="Mouse.screenSize"}}
+
+```cpp
+// PROTOTYPES
+void screenSize(uint16_t width, uint16_t height,
+                float marginLeft = 0.0f, float marginRight = 0.0f,
+                float marginTop = 0.0f, float marginBottom = 0.0f);
+void screenSize(uint16_t width, uint16_t height, const ScreenMargin& margin);
+```
+<!-- spark_wiring_usbmouse.h 85 -->
 
 ```cpp
 // SYNTAX
@@ -10025,6 +11006,12 @@ void loop() {
 ### enableMoveTo()
 
 {{api name1="Mouse.enableMoveTo"}}
+
+```cpp
+// PROTOTYPE
+void enableMoveTo(bool state);
+```
+<!-- spark_wiring_usbmouse.h 83 -->
 
 ```cpp
 // SYNTAX
@@ -10112,6 +11099,12 @@ Keyboard and Mouse support is only available on some devices and Device OS versi
 {{api name1="Keyboard.begin"}}
 
 ```cpp
+// PROTOTYPE
+void begin(void);
+```
+<!-- spark_wiring_usbkeyboard.h 51 -->
+
+```cpp
 // SYNTAX
 Keyboard.begin();
 ```
@@ -10133,6 +11126,12 @@ This function takes no parameters and does not return anything.
 ### end()
 
 {{api name1="Keyboard.end"}}
+
+```cpp
+// PROTOTYPE
+void end(void);
+```
+<!-- spark_wiring_usbkeyboard.h 52 -->
 
 ```cpp
 // SYNTAX
@@ -10162,6 +11161,12 @@ This function takes no parameters and does not return anything.
 ### write()
 
 {{api name1="Keyboard.write"}}
+
+```cpp
+// PROTOTYPE
+virtual size_t write(uint8_t ch);
+```
+<!-- spark_wiring_usbkeyboard.h 55 -->
 
 ```cpp
 // SYNTAX
@@ -10196,6 +11201,12 @@ This function is used by [`print()`](#print--1), [`println()`](#println--1), [`p
 {{api name1="Keyboard.click"}}
 
 ```cpp
+// PROTOTYPE
+virtual size_t click(uint16_t k, uint16_t modifiers = 0);
+```
+<!-- spark_wiring_usbkeyboard.h 58 -->
+
+```cpp
 // SYNTAX
 Keyboard.click(key);
 Keyboard.click(key, modifiers);
@@ -10223,6 +11234,12 @@ void setup() {
 ### press()
 
 {{api name1="Keyboard.press"}}
+
+```cpp
+// PROTOTYPE
+virtual size_t press(uint16_t k, uint16_t modifiers = 0);
+```
+<!-- spark_wiring_usbkeyboard.h 59 -->
 
 ```cpp
 // SYNTAX
@@ -10261,6 +11278,12 @@ void setup() {
 {{api name1="Keyboard.release"}}
 
 ```cpp
+// PROTOTYPE
+virtual size_t release(uint16_t k, uint16_t modifiers = 0);
+```
+<!-- spark_wiring_usbkeyboard.h 60 -->
+
+```cpp
 // SYNTAX
 Keyboard.release(key);
 Keyboard.release(key, modifier);
@@ -10292,6 +11315,12 @@ See [`Keyboard.click()`](#click--1) documentation for information about keycodes
 ### releaseAll()
 
 {{api name1="Keyboard.releaseAll"}}
+
+```cpp
+// PROTOTYPE
+virtual void releaseAll(void);
+```
+<!-- spark_wiring_usbkeyboard.h 61 -->
 
 ```cpp
 // SYNTAX
@@ -10505,6 +11534,13 @@ Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select 
 **Note:**  The SPI firmware ONLY initializes the user-specified slave-select pin as an `OUTPUT`. The user's code must control the slave-select pin with `digitalWrite()` before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
 
 ```cpp
+// PROTOTYPES
+void begin();
+void begin(uint16_t ss_pin);
+```
+<!-- spark_wiring_spi.h 171 -->
+
+```cpp
 // SYNTAX
 SPI.begin(ss);
 SPI1.begin(ss);
@@ -10536,6 +11572,11 @@ Parameters:
 - `mode`: `SPI_MODE_MASTER` or `SPI_MODE_SLAVE`
 - `ss_pin`: slave-select pin to initialize. The default SS pin varies by port and device, see above.
 
+```cpp
+// PROTOTYPE
+void begin(hal_spi_mode_t mode, uint16_t ss_pin = SPI_DEFAULT_SS);
+```
+<!-- spark_wiring_spi.h 173 -->
 
 ```cpp
 // Example using SPI in master mode, with the default SS pin:
@@ -10559,6 +11600,12 @@ On Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1. 
 Disables the SPI bus (leaving pin modes unchanged).
 
 ```cpp
+// PROTOTYPE
+void end();
+```
+<!-- spark_wiring_spi.h 174 -->
+
+```cpp
 // SYNTAX
 SPI.end();
 ```
@@ -10570,6 +11617,12 @@ Note that you must use the same `SPI` object as used with `SPI.begin()` so if yo
 {{api name1="SPI.setBitOrder"}}
 
 Sets the order of the bits shifted out of and into the SPI bus, either LSBFIRST (least-significant bit first) or MSBFIRST (most-significant bit first).
+
+```cpp
+// PROTOTYPE
+void setBitOrder(uint8_t bitOrder);
+```
+<!-- spark_wiring_spi.h 176 -->
 
 ```cpp
 // SYNTAX
@@ -10586,6 +11639,12 @@ Note that you must use the same `SPI` object as used with `SPI.begin()` so if yo
 
 Sets the SPI clock speed. The value can be specified as a direct value, or as
 as a value plus a multiplier.
+
+```cpp
+// PROTOTYPE
+unsigned setClockSpeed(unsigned value, unsigned scale = HZ);
+```
+<!-- spark_wiring_spi.h 213 -->
 
 ```cpp
 // SYNTAX
@@ -10624,6 +11683,12 @@ need to be changed to reflect the system clock speed of the device being used.
 This can be avoided by placing a call to `SPI.setClockDividerReference()` before the other SPI calls.
 
 ```cpp
+// PROTOTYPE
+void setClockDividerReference(unsigned value, unsigned scale = HZ);
+```
+<!-- spark_wiring_spi.h 198 -->
+
+```cpp
 
 // setting divider reference
 
@@ -10653,6 +11718,12 @@ Note that you must use the same `SPI` object as used with `SPI.begin()` so if yo
 {{api name1="SPI.setClockDivider"}}
 
 Sets the SPI clock divider relative to the selected clock reference. The available dividers  are 2, 4, 8, 16, 32, 64, 128 or 256. The default setting is SPI_CLOCK_DIV4, which sets the SPI clock to one-quarter the frequency of the system clock.
+
+```cpp
+// PROTOTYPE
+void setClockDivider(uint8_t divider);
+```
+<!-- spark_wiring_spi.h 204 -->
 
 ```cpp
 // SYNTAX
@@ -10685,6 +11756,12 @@ Note that you must use the same `SPI` object as used with `SPI.begin()` so if yo
 Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia article on SPI](http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) for details.
 
 ```cpp
+// PROTOTYPE
+void setDataMode(uint8_t dataMode);
+```
+<!-- spark_wiring_spi.h 177 -->
+
+```cpp
 // SYNTAX
 SPI.setDataMode(mode);
 ```
@@ -10700,6 +11777,12 @@ Where the parameter, `mode` can be:
 {{api name1="SPI.transfer"}}
 
 Transfers one byte over the SPI bus, both sending and receiving.
+
+```cpp
+// PROTOTYPE
+byte transfer(byte _data);
+```
+<!-- spark_wiring_spi.h 221 -->
 
 ```cpp
 // SYNTAX
@@ -10723,7 +11806,9 @@ For transferring a large number of bytes, this form of transfer() uses DMA to sp
 // PROTOTYPE
 void transfer(const void* tx_buffer, void* rx_buffer, size_t length, wiring_spi_dma_transfercomplete_callback_t user_callback);
 typedef void (*wiring_spi_dma_transfercomplete_callback_t)(void);
+```
 
+```cpp
 // SYNTAX
 SPI.transfer(tx_buffer, rx_buffer, length, myFunction);
 ```
@@ -10785,6 +11870,12 @@ Aborts the configured DMA transfer and disables the DMA peripheral’s channel a
 Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected). This function is called as an interrupt service routine (ISR) so you must be careful about what calls you make from it.
 
 On Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1.
+
+```cpp
+// PROTOTYPE
+void onSelect(wiring_spi_select_callback_t user_callback);
+```
+<!-- spark_wiring_spi.h 229 -->
 
 ```cpp
 // SYNTAX
@@ -10868,6 +11959,12 @@ The problem is that in the prohibited cases, a temporary buffer is located in RA
 Returns the number of bytes available for reading in the `rx_buffer` supplied in `transfer()`. In general, it returns the actual number of bytes received/transmitted during the ongoing or finished DMA transfer.
 
 ```cpp
+// PROTOTYPE
+int32_t available();
+```
+<!-- spark_wiring_spi.h 231 -->
+
+```cpp
 // SYNTAX
 SPI.available();
 ```
@@ -10892,6 +11989,13 @@ The `SPISettings` object specifies the SPI peripheral settings. This object can 
 You should use `SPISettings()` with 2.0.0 and later, with or without `#include "Arduino.h`. 
 
 `__SPISettings()` can be used in 0.6.2 and later for backward compatibility with those versions of Device OS, but is unnecessary for 2.0.0 and later.
+
+```cpp
+// PROTOTYPES
+SPISettings(uint32_t clock, uint8_t bitOrder, uint8_t dataMode);
+SPISettings();
+```
+<!-- spark_wiring_spi.h 51 -->
 
 ```cpp
 // SYNTAX
@@ -10925,6 +12029,13 @@ It is required that you use `beginTransaction()` and `endTransaction()` if:
 You must not use `beginTransaction()` within a `SINGLE_THREADED_BLOCK` as deadlock can occur.
 
 ```cpp
+// PROTOTYPES
+int32_t beginTransaction();
+int32_t beginTransaction(const particle::SPISettings& settings);
+```
+<!-- spark_wiring_spi.h 181 -->
+
+```cpp
 // SYNTAX
 SPI.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
 // Pre-declared SPISettings object
@@ -10951,6 +12062,11 @@ Releases the SPI peripheral.
 
 This function releases the SPI peripheral lock, allowing other threads to use it. See [Synchronizing Access to Shared System Resources](#synchronizing-access-to-shared-system-resources) section for additional information on shared resource locks.
 
+```cpp
+// PROTOTYPE
+void endTransaction();
+```
+<!-- spark_wiring_spi.h 183 -->
 
 ```cpp
 // SYNTAX
@@ -11066,12 +12182,15 @@ single hardware I2C port.
 Sets the I2C clock speed. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin().  The default I2C clock speed is 100KHz and the maximum clock speed is 400KHz.
 
 ```cpp
+// PROTOTYPE
+void setSpeed(uint32_t clockSpeed);
+```
+<!-- spark_wiring_i2c.h 114 -->
+
+```cpp
 // SYNTAX
 Wire.setSpeed(clockSpeed);
 Wire.begin();
-
-// PROTOTYPE
-void setSpeed(uint32_t);
 ```
 
 Parameters:
@@ -11103,12 +12222,15 @@ On Gen 2 devices, a user-specified frequency can be used.
 Enables or Disables I2C clock stretching. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin(). I2C clock stretching is only used with I2C Slave mode. The default I2C clock stretching mode is enabled.
 
 ```cpp
+// PROTOTYPE
+void stretchClock(bool stretch);
+```
+<!-- spark_wiring_i2c.h 116 -->
+
+```cpp
 // SYNTAX
 Wire.stretchClock(stretch);
 Wire.begin(4); // I2C Slave mode, address #4
-
-// PROTOTYPE
-void stretchClock(bool);
 ```
 
 Parameters:
@@ -11123,15 +12245,17 @@ Parameters:
 Initiate the Wire library and join the I2C bus as a master or slave. This should normally be called only once.
 
 ```cpp
+// PROTOTYPES
+void begin();
+void begin(uint8_t address);
+void begin(int address);
+```
+<!-- spark_wiring_i2c.h 117 -->
+
+```cpp
 // SYNTAX
 Wire.begin(); // I2C master mode
 Wire.begin(address); // I2C slave mode
-
-// PROTOTYPES
-void begin();
-void begin(uint8_t);
-void begin(int);
-
 ```
 
 Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master. If address is specified, join the bus as an I2C slave. If you are communicating with I2C sensors, displays, etc. you will almost always use I2C master mode (no address specified).
@@ -11183,11 +12307,14 @@ Releases the I2C bus so that the pins used by the I2C bus are available for gene
 Used to check if the Wire library is enabled already.  Useful if using multiple slave devices on the same I2C bus.  Check if enabled before calling Wire.begin() again.
 
 ```cpp
-// SYNTAX
-Wire.isEnabled();
-
 // PROTOTYPE
 bool isEnabled(void);
+```
+<!-- spark_wiring_i2c.h 147 -->
+
+```cpp
+// SYNTAX
+Wire.isEnabled();
 ```
 
 Returns: boolean `true` if I2C enabled, `false` if I2C disabled.
@@ -11208,15 +12335,17 @@ if (!Wire.isEnabled()) {
 Used by the master to request bytes from a slave device. The bytes may then be retrieved with the `available()` and `read()` functions.
 
 ```cpp
+// PROTOTYPES
+size_t requestFrom(uint8_t address, size_t quantity);
+size_t requestFrom(uint8_t address, size_t quantity, uint8_t stop);
+size_t requestFrom(const WireTransmission& transfer);
+```
+<!-- spark_wiring_i2c.h 126 -->
+
+```cpp
 // SYNTAX
 Wire.requestFrom(address, quantity);
 Wire.requestFrom(address, quantity, stop);
-
-// PROTOTYPE
-size_t requestFrom(uint8_t, size_t);
-size_t requestFrom(uint8_t, size_t, uint8_t);
-size_t requestFrom(const WireTransmission& transfer);
-
 ```
 
 Parameters:
@@ -11259,6 +12388,8 @@ we hope this function isn't required, and it's provided for completeness.
 // PROTOTYPE
 int reset();
 ```
+<!-- spark_wiring_i2c.h 152 -->
+
 ### beginTransmission()
 
 {{api name1="Wire.beginTransmission"}}
@@ -11266,13 +12397,16 @@ int reset();
 Begin a transmission to the I2C slave device with the given address. Subsequently, queue bytes for transmission with the `write()` function and transmit them by calling `endTransmission()`.
 
 ```cpp
+// PROTOTYPES
+void beginTransmission(uint8_t address);
+void beginTransmission(int address);
+void beginTransmission(const WireTransmission& transfer);
+```
+<!-- spark_wiring_i2c.h 120 -->
+
+```cpp
 // SYNTAX
 Wire.beginTransmission(address);
-
-// PROTOTYPE
-void beginTransmission(uint8_t);
-void beginTransmission(int);
-void beginTransmission(const WireTransmission& transfer);
 ```
 
 Parameters: `address`: the 7-bit address of the device to transmit to.
@@ -11297,13 +12431,16 @@ Ends a transmission to a slave device that was begun by `beginTransmission()` an
 
 
 ```cpp
+// PROTOTYPES
+uint8_t endTransmission(void);
+uint8_t endTransmission(uint8_t stop);
+```
+<!-- spark_wiring_i2c.h 124 -->
+
+```cpp
 // SYNTAX
 Wire.endTransmission();
 Wire.endTransmission(stop);
-
-// PROTOTYPE
-uint8_t endTransmission(void);
-uint8_t endTransmission(uint8_t);
 ```
 
 Parameters: `stop` : boolean.
@@ -11336,14 +12473,17 @@ Queues bytes for transmission from a master to slave device (in-between calls to
 The default buffer size is 32 bytes; writing bytes beyond 32 before calling endTransmission() will be ignored. The buffer size can be increased by using `acquireWireBuffer()`.
 
 ```cpp
+// PROTOTYPES
+virtual size_t write(uint8_t value);
+virtual size_t write(const uint8_t* data, size_t length);
+```
+<!-- spark_wiring_i2c.h 129 -->
+
+```cpp
 // SYNTAX
 Wire.write(value);
 Wire.write(string);
 Wire.write(data, length);
-
-// PROTOTYPE
-virtual size_t write(uint8_t);
-virtual size_t write(const uint8_t *, size_t);
 ```
 Parameters:
 
@@ -11389,8 +12529,8 @@ Returns the number of bytes available for retrieval with `read()`. This should b
 ```cpp
 // PROTOTYPE
 virtual int available(void);
- 
 ```
+<!-- spark_wiring_i2c.h 131 -->
 
 Returns: The number of bytes available for reading.
 
@@ -11401,11 +12541,14 @@ Returns: The number of bytes available for reading.
 Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class.
 
 ```cpp
-// SYNTAX
-Wire.read();
-
 // PROTOTYPE
 virtual int read(void);
+```
+<!-- spark_wiring_i2c.h 133 -->
+
+```cpp
+// SYNTAX
+Wire.read();
 ```
 
 Returns: The next byte received
@@ -11441,11 +12584,14 @@ void loop() {
 Similar in use to read(). Reads (but does not remove from the buffer) a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class. Useful for peeking at the next byte to be read.
 
 ```cpp
-// SYNTAX
-Wire.peek();
-
 // PROTOTYPE
 virtual int peek(void);
+```
+<!-- spark_wiring_i2c.h 133 -->
+
+```cpp
+// SYNTAX
+Wire.peek();
 ```
 
 Returns: The next byte received (without removing it from the buffer)
@@ -11461,7 +12607,10 @@ A call to lock `lock()` must be balanced with a call to `unlock()` and not be ne
 ```cpp
 // PROTOTYPE
 bool lock();
+```
+<!-- spark_wiring_i2c.h 138 -->
 
+```cpp
 // EXAMPLE USAGE
 void loop()
 {
@@ -11488,6 +12637,7 @@ Unlocks the `Wire` mutex. See `lock()`.
 // PROTOTYPE
 bool unlock();
 ```
+<!-- spark_wiring_i2c.h 139 -->
 
 ### onReceive()
 
@@ -11499,8 +12649,11 @@ Parameters: `handler`: the function to be called when the slave receives data; t
 
 ```cpp
 // PROTOTYPE
-void onReceive(void (*)(int));
+void onReceive(void (*handler)(int));
+```
+<!-- spark_wiring_i2c.h 135 -->
 
+```cpp
 // EXAMPLE USAGE
 
 // Slave Reader running on Device No.2 (Use with corresponding Master Writer running on Device No.1)
@@ -11539,8 +12692,11 @@ Parameters: `handler`: the function to be called, takes no parameters and return
 
 ```cpp
 // PROTOTYPE
-void onRequest(void (*)(void));
+void onRequest(void (*handler)(void));
+```
+<!-- spark_wiring_i2c.h 136 -->
 
+```cpp
 // EXAMPLE USAGE
 
 // Slave Writer running on Device No.2 (Use with corresponding Master Reader running on Device No.1)
@@ -11680,6 +12836,12 @@ struct CANMessage
 
 {{api name1="CANChannel"}}
 
+```cpp
+// PROTOTYPE
+CANChannel(HAL_CAN_Channel channel, uint16_t rxQueueSize = 32, uint16_t txQueueSize = 32);
+```
+<!-- spark_wiring_can.h 38 -->
+
 Create a `CANChannel` global object to connect to a CAN bus on the specified pins.
 
 ```cpp
@@ -11705,6 +12867,12 @@ CANChannel can(CAN_D1_D2, 10, 5);
 {{api name1="CAN::begin"}}
 
 Joins the bus at the given `baud` rate.
+
+```cpp
+// PROTOTYPE
+void begin(unsigned long baudRate, uint32_t flags = 0);
+```
+<!-- spark_wiring_can.h 42 -->
 
 ```cpp
 // SYNTAX
@@ -11878,6 +13046,12 @@ Returns: boolean `true` if the CAN bus is enabled, `false` if the CAN bus is dis
 {{api name1="CAN::errorStatus"}}
 
 Get the current error status of the CAN bus.
+
+```cpp
+// PROTOTYPE
+HAL_CAN_Errors errorStatus();
+```
+<!-- spark_wiring_can.h 55 -->
 
 ```
 // SYNTAX
@@ -12632,6 +13806,16 @@ will be used.
 {{api name1="BLE.scanWithFilter"}}
 
 ```cpp
+// PROTOTYPES
+int scanWithFilter(const BleScanFilter& filter, BleOnScanResultCallback callback, void* context = nullptr) const;
+int scanWithFilter(const BleScanFilter& filter, BleOnScanResultCallbackRef callback, void* context = nullptr) const;
+int scanWithFilter(const BleScanFilter& filter, const BleOnScanResultStdFunction& callback) const;
+int scanWithFilter(const BleScanFilter& filter, BleScanResult* results, size_t resultCount) const;
+Vector<BleScanResult> scanWithFilter(const BleScanFilter& filter) const;
+```
+<!-- spark_wiring_ble.h 1052 -->
+
+```cpp
 void scan() {
     BleScanFilter filter;
     filter.deviceName("MyDevice").minRssi(-50).serviceUUID(0x1234);
@@ -13100,6 +14284,12 @@ See [`BleAddress`](#bleaddress) for more information.
 {{api name1="BLE.selectAntenna"}}
 
 {{since when="1.3.1"}}
+
+```cpp
+// PROTOTYPE
+int selectAntenna(BleAntennaType antenna) const;
+```
+<!-- spark_wiring_ble.h 948 -->
 
 Selects which antenna is used by the BLE radio stack. This is a persistent setting.
 
@@ -13640,8 +14830,10 @@ See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more inf
 Returns true if BLE provisioning mode is enabled.
 
 ```cpp
+// PROTOTYPE
 bool getProvisioningStatus() const;
 ```
+<!-- spark_wiring_ble.h 952 -->
 
 See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information about BLE provisioning mode.
 
@@ -14187,8 +15379,10 @@ const uint8_t* rawBytes() const;
 {{api name1="BleUuid::operator[]"}}
 
 ```cpp
+// PROTOTYPE
 uint8_t operator[](uint8_t i) const;
 ```
+<!-- spark_wiring_ble.h 280 -->
 
 {{since when="3.0.0"}}
 
@@ -14451,8 +15645,10 @@ size_t length() const;
 {{api name1="BleAdvertisingData::operator[]"}}
 
 ```cpp
+// PROTOTYPE
 uint8_t operator[](uint8_t i) const;
 ```
+<!-- spark_wiring_ble.h 491 -->
 
 {{since when="3.0.0"}}
 
@@ -15085,7 +16281,10 @@ Sets a value in the ledger. The data is saved to local flash storage immediately
 ```cpp
 // PROTOTYPE
 int set(const LedgerData& data, SetMode mode = SetMode::REPLACE);
+```
+<!-- spark_wiring_ledger.h 128 -->
 
+```cpp
 // EXAMPLE
 Variant data;
 data.set("sensor", sensorValue);
@@ -15160,9 +16359,10 @@ size_t dataSize() const;
 Returns the name of the ledger. This is typically set during setup().
 
 ```cpp
-// 
+// PROTOTYPE
 const char* name() const;
 ```
+<!-- spark_wiring_ledger.h 163 -->
 
 
 ### scope() [Ledger class]
@@ -15633,6 +16833,14 @@ If you have a JSON object and want to create code stubs for generating a `Varian
 shape, see the [JSON tool](/tools/developer-tools/json/) which has a Variant code generator.
 
 ### set() [Variant class]
+
+```cpp
+// PROTOTYPES
+bool set(const char* key, Variant val);
+bool set(const String& key, Variant val);
+bool set(String&& key, Variant val);
+```
+<!-- spark_wiring_variant.h 593 -->
 
 One common use-case of Variant is setting values in a ledger. In this code, a fake sensor value is stored in `int sensorValue`. In a real application, you'd read an actual sensor there.
 
@@ -16289,6 +17497,7 @@ Add or update an element with key `key` in the map, setting the value to `value`
 bool set(const char* key, Variant val);
 bool set(const String& key, Variant val);
 ```
+<!-- spark_wiring_variant.h 593 -->
 
 If the stored value of this `Variant` is not a map, it is converted to a map in place prior to the operation.
 
@@ -16303,6 +17512,7 @@ Remove an key `key` in the map. Returns true if this variant is a map and the ke
 bool remove(const char* key);
 bool remove(const String& key);
 ```
+<!-- spark_wiring_variant.h 607 -->
 
 ### get() [VariantMap]
 
@@ -16320,7 +17530,7 @@ If this variant is not a map, or the key does not exist, a null variant is retur
 Variant get(const char* key) const;
 Variant get(const String& key) const;
 ```
-
+<!-- spark_wiring_variant.h 625 -->
 
 ### has() [VariantMap]
 
@@ -16333,7 +17543,7 @@ Returns true if this variant is a map and contains `key`. This method is impleme
 bool has(const char* key) const;
 bool has(const String& key) const;
 ```
-
+<!-- spark_wiring_variant.h 638 -->
 
 ## Map
 
@@ -17434,11 +18644,14 @@ Cellular devices (Boron, B-Series SoM, Tracker SoM, Electron, E-Series) do not s
 ---
 
 ```cpp
+// PROTOTYPE
+TCPServer(uint16_t port, network_interface_t nif = 0);
+```
+<!-- spark_wiring_tcpserver.h 42 -->
+
+```cpp
 // SYNTAX
 TCPServer server = TCPServer(port);
-
-// PROTOTYPE
-TCPServer(uint16_t, network_interface_t nif=0);
 ```
 
 Create a server that listens for incoming connections on the specified port.
@@ -17499,6 +18712,12 @@ such as a Raspberry Pi connected by UART serial.
 Tells the server to begin listening for incoming connections.
 
 ```cpp
+// PROTOTYPE
+virtual bool begin();
+```
+<!-- spark_wiring_tcpserver.h 46 -->
+
+```cpp
 // SYNTAX
 server.begin();
 ```
@@ -17511,6 +18730,12 @@ Gets a client that is connected to the server and has data available for reading
 
 `available()` inherits from the `Stream` utility class.
 
+```cpp
+// PROTOTYPE
+TCPClient available();
+```
+<!-- spark_wiring_tcpserver.h 45 -->
+
 ### write()
 
 {{api name1="TCPServer::write"}}
@@ -17521,6 +18746,14 @@ This function also takes an optional argument `timeout`, which allows the caller
 
 The application code may additionally check if an error occurred during the last `write()` call by checking [`getWriteError()`](#getwriteerror-) return value. Any non-zero error code indicates and error during write operation.
 
+```cpp
+// PROTOTYPES
+virtual size_t write(uint8_t val);
+virtual size_t write(const uint8_t* buf, size_t size);
+virtual size_t write(uint8_t val, system_tick_t timeout);
+virtual size_t write(const uint8_t* buf, size_t size, system_tick_t timeout);
+```
+<!-- spark_wiring_tcpserver.h 47 -->
 
 ```cpp
 // SYNTAX
@@ -17543,6 +18776,13 @@ Returns: `size_t`: the number of bytes written
 
 {{api name1="TCPServer::print"}}
 
+```cpp
+// PROTOTYPE
+size_t print(const char[]);
+size_t print(char);
+size_t print(const Printable&);
+```
+<!-- spark_wiring_print.h 145 -->
 
 Print data to the last client connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
@@ -17562,6 +18802,14 @@ Returns: `size_t`: the number of bytes written
 ### println()
 
 {{api name1="TCPServer::println"}}
+
+```cpp
+// PROTOTYPE
+size_t println(const char[]);
+size_t println(char);
+size_t println(void);
+```
+<!-- spark_wiring_print.h 170 -->
 
 Print data, followed by a newline, to the last client connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
@@ -17588,6 +18836,12 @@ Returns: int `0` when everything is ok, a non-zero error code in case of an erro
 This value is updated every after every call to `write()` or can be manually cleared by  [`clearWriteError()`](#clearwriteerror-)
 
 ```cpp
+// PROTOTYPE
+int getWriteError() const;
+```
+<!-- spark_wiring_print.h 135 -->
+
+```cpp
 // SYNTAX
 int err = server.getWriteError();
 ```
@@ -17611,6 +18865,12 @@ Clears the error code of the most recent `write()` operation setting it to `0`. 
 
 `clearWriteError()` does not return anything.
 
+```cpp
+// PROTOTYPE
+void clearWriteError();
+```
+<!-- spark_wiring_print.h 136 -->
+
 
 
 ## TCPClient
@@ -17631,12 +18891,15 @@ In most cases, using `TCPClient` is not recommended. If you want to export data 
 {{note op="end"}}
 
 ```cpp
+// PROTOTYPES
+TCPClient();
+TCPClient(sock_handle_t sock);
+```
+<!-- spark_wiring_tcpclient.h 44 -->
+
+```cpp
 // SYNTAX
 TCPClient client;
-
-// PROTOTYPE
-int connect(IPAddress ip, uint16_t port, network_interface_t nif=0);
-int connect(const char *host, uint16_t port, network_interface_t nif=0);
 ```
 
 ```cpp
@@ -17716,6 +18979,12 @@ Direct TCP, UDP, and DNS do not consume Data Operations from your monthly or yea
 Whether or not the client is connected. Note that a client is considered connected if the connection has been closed but there is still unread data.
 
 ```cpp
+// PROTOTYPE
+virtual uint8_t connected();
+```
+<!-- spark_wiring_tcpclient.h 62 -->
+
+```cpp
 // SYNTAX
 client.connected();
 ```
@@ -17729,6 +18998,12 @@ Returns true if the client is connected, false if not.
 Returns true if the network socket is open and the underlying network is ready. 
 
 ```cpp
+// PROTOTYPE
+uint8_t status();
+```
+<!-- spark_wiring_tcpclient.h 48 -->
+
+```cpp
 // SYNTAX
 client.status();
 ```
@@ -17740,6 +19015,13 @@ This is different than connected() which returns true if the socket is closed bu
 {{api name1="TCPClient::connect"}}
 
 Connects to a specified IP address and port. The return value indicates success or failure. Also supports DNS lookups when using a domain name.
+
+```cpp
+// PROTOTYPES
+virtual int connect(IPAddress ip, uint16_t port, network_interface_t nif = 0);
+virtual int connect(const char* host, uint16_t port, network_interface_t nif = 0);
+```
+<!-- spark_wiring_tcpclient.h 49 -->
 
 ```cpp
 // SYNTAX
@@ -17766,6 +19048,14 @@ This function also takes an optional argument `timeout`, which allows the caller
 
 The application code may additionally check if an error occurred during the last `write()` call by checking `getWriteError()` return value. Any non-zero error code indicates and error during write operation.
 
+```cpp
+// PROTOTYPES
+virtual size_t write(uint8_t val);
+virtual size_t write(const uint8_t* buffer, size_t size);
+virtual size_t write(uint8_t val, system_tick_t timeout);
+virtual size_t write(const uint8_t* buffer, size_t size, system_tick_t timeout);
+```
+<!-- spark_wiring_tcpclient.h 51 -->
 
 ```cpp
 // SYNTAX
@@ -17788,6 +19078,14 @@ Returns: `size_t`: `write()` returns the number of bytes written.
 
 {{api name1="TCPClient::print"}}
 
+```cpp
+// PROTOTYPE
+size_t print(const char[]);
+size_t print(char);
+size_t print(const Printable&);
+```
+<!-- spark_wiring_print.h 145 -->
+
 Print data to the server that a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```cpp
@@ -17806,6 +19104,14 @@ Returns:  `byte`:  `print()` will return the number of bytes written, though rea
 ### println()
 
 {{api name1="TCPClient::println"}}
+
+```cpp
+// PROTOTYPE
+size_t println(const char[]);
+size_t println(char);
+size_t println(void);
+```
+<!-- spark_wiring_print.h 170 -->
 
 Print data, followed by a carriage return and newline, to the server a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
@@ -17828,6 +19134,12 @@ Parameters:
 Returns the number of bytes available for reading (that is, the amount of data that has been written to the client by the server it is connected to).
 
 ```cpp
+// PROTOTYPE
+virtual int available();
+```
+<!-- spark_wiring_tcpclient.h 55 -->
+
+```cpp
 // SYNTAX
 client.available();
 ```
@@ -17839,6 +19151,13 @@ Returns the number of bytes available.
 {{api name1="TCPClient::read"}}
 
 Read the next byte received from the server the client is connected to (after the last call to `read()`).
+
+```cpp
+// PROTOTYPES
+virtual int read();
+virtual int read(uint8_t* buffer, size_t size);
+```
+<!-- spark_wiring_tcpclient.h 56 -->
 
 ```cpp
 // SYNTAX
@@ -17865,6 +19184,12 @@ Waits until all outgoing data in buffer has been sent.
 **NOTE:** That this function does nothing at present.
 
 ```cpp
+// PROTOTYPE
+virtual void flush();
+```
+<!-- spark_wiring_tcpclient.h 59 -->
+
+```cpp
 // SYNTAX
 client.flush();
 ```
@@ -17884,7 +19209,12 @@ When `TCPClient` was created directly via `TCPClient.connect()`, then `remoteIP`
 returns the remote server the client is connected to.
 
 ```cpp
+// PROTOTYPE
+virtual IPAddress remoteIP();
+```
+<!-- spark_wiring_tcpclient.h 65 -->
 
+```cpp
 // EXAMPLE - TCPClient from TCPServer
 
 TCPServer server(80);
@@ -17932,6 +19262,12 @@ if (client.connected())
 Disconnect from the server.
 
 ```cpp
+// PROTOTYPE
+virtual void stop();
+```
+<!-- spark_wiring_tcpclient.h 61 -->
+
+```cpp
 // SYNTAX
 client.stop();
 ```
@@ -17947,6 +19283,11 @@ Returns: int `0` when everything is ok, a non-zero error code in case of an erro
 
 This value is updated every after every call to #write--4 or can be manually cleared by `clearWriteError()`.
 
+```cpp
+// PROTOTYPE
+int getWriteError() const;
+```
+<!-- spark_wiring_print.h 135 -->
 
 ```cpp
 // SYNTAX
@@ -17971,6 +19312,12 @@ if (err != 0) {
 Clears the error code of the most recent `write()` operation setting it to `0`. This function is automatically called by `write()`.
 
 `clearWriteError()` does not return anything.
+
+```cpp
+// PROTOTYPE
+void clearWriteError();
+```
+<!-- spark_wiring_print.h 136 -->
 
 
 ## UDP
@@ -18053,11 +19400,14 @@ Direct TCP, UDP, and DNS do not consume Data Operations from your monthly or yea
 Initializes the UDP library and network settings.
 
 ```cpp
+// PROTOTYPE
+virtual uint8_t begin(uint16_t port, network_interface_t nif = 0);
+```
+<!-- spark_wiring_udp.h 121 -->
+
+```cpp
 // SYNTAX
 Udp.begin(port);
-
-// PROTOTYPE
-uint8_t begin(uint16_t port, network_interface_t nif=0);
 ```
 
 If using [`SYSTEM_THREAD(ENABLED)`](#system-thread), you'll need
@@ -18109,6 +19459,12 @@ such as a Raspberry Pi connected by UART serial.
 Get the number of bytes (characters) available for reading from the buffer. This is data that's already arrived.
 
 ```cpp
+// PROTOTYPE
+virtual int available();
+```
+<!-- spark_wiring_udp.h 192 -->
+
+```cpp
 // SYNTAX
 int count = Udp.available();
 ```
@@ -18124,6 +19480,13 @@ Returns the number of bytes available to read.
 {{api name1="UDP::beginPacket"}}
 
 Starts a connection to write UDP data to the remote connection.
+
+```cpp
+// PROTOTYPES
+virtual int beginPacket(IPAddress ip, uint16_t port);
+virtual int beginPacket(const char* host, uint16_t port);
+```
+<!-- spark_wiring_udp.h 162 -->
 
 ```cpp
 // SYNTAX
@@ -18144,6 +19507,11 @@ It returns nothing.
 Called after writing buffered UDP data using `write()` or `print()`. The buffered data is then sent to the
 remote UDP peer.
 
+```cpp
+// PROTOTYPE
+virtual int endPacket();
+```
+<!-- spark_wiring_udp.h 183 -->
 
 ```cpp
 // SYNTAX
@@ -18157,6 +19525,13 @@ Parameters: NONE
 {{api name1="UDP::write"}}
 
 Writes UDP data to the buffer - no data is actually sent. Must be wrapped between `beginPacket()` and `endPacket()`. `beginPacket()` initializes the packet of data, it is not sent until `endPacket()` is called.
+
+```cpp
+// PROTOTYPES
+virtual size_t write(uint8_t byte);
+virtual size_t write(const uint8_t* buffer, size_t size);
+```
+<!-- spark_wiring_udp.h 170 -->
 
 ```cpp
 // SYNTAX
@@ -18181,9 +19556,12 @@ Returns:
 
 ```cpp
 // PROTOTYPES
-int receivePacket(uint8_t* buffer, size_t buf_size, system_tick_t timeout = 0)
-int receivePacket(char* buffer, size_t buf_size, system_tick_t timeout = 0)
+virtual int receivePacket(uint8_t* buffer, size_t buf_size, system_tick_t timeout = 0);
+virtual int receivePacket(char* buffer, size_t buf_size, system_tick_t timeout = 0);
+```
+<!-- spark_wiring_udp.h 151 -->
 
+```cpp
 // SYNTAX
 size = Udp.receivePacket(buffer, size);
 // EXAMPLE USAGE - get a string without buffer copy
@@ -18229,8 +19607,11 @@ It's usually more efficient to use `receivePacket()` instead of `parsePacket()` 
 
 ```cpp
 // PROTOTYPE
-int parsePacket(system_tick_t timeout = 0);
+virtual int parsePacket(system_tick_t timeout = 0);
+```
+<!-- spark_wiring_udp.h 186 -->
 
+```cpp
 // SYNTAX
 size = Udp.parsePacket();
 ```
@@ -18250,6 +19631,13 @@ Returns:
 Reads UDP data from the specified buffer. If no arguments are given, it will return the next character in the buffer.
 
 This function can only be successfully called after `UDP.parsePacket()`.
+
+```cpp
+// PROTOTYPES
+virtual int read();
+virtual int read(unsigned char* buffer, size_t len);
+```
+<!-- spark_wiring_udp.h 198 -->
 
 ```cpp
 // SYNTAX
@@ -18274,6 +19662,12 @@ Waits until all outgoing data in buffer has been sent.
 **NOTE:** That this function does nothing at present.
 
 ```cpp
+// PROTOTYPE
+virtual void flush();
+```
+<!-- spark_wiring_udp.h 207 -->
+
+```cpp
 // SYNTAX
 Udp.flush();
 ```
@@ -18283,6 +19677,12 @@ Udp.flush();
 {{api name1="UDP::stop"}}
 
 Disconnect from the server. Release any resource being used during the UDP session.
+
+```cpp
+// PROTOTYPE
+virtual void stop();
+```
+<!-- spark_wiring_udp.h 126 -->
 
 ```cpp
 // SYNTAX
@@ -18296,6 +19696,12 @@ Parameters: NONE
 {{api name1="UDP::remoteIP"}}
 
 Returns the IP address of sender of the packet parsed by `Udp.parsePacket()`/`Udp.receivePacket()`.
+
+```cpp
+// PROTOTYPE
+virtual IPAddress remoteIP();
+```
+<!-- spark_wiring_udp.h 217 -->
 
 ```cpp
 // SYNTAX
@@ -18313,6 +19719,12 @@ Returns:
 {{api name1="UDP::remotePort"}}
 
 Returns the port from which the UDP packet was sent. The packet is the one most recently processed by `Udp.parsePacket()`/`Udp.receivePacket()`.
+
+```cpp
+// PROTOTYPE
+virtual uint16_t remotePort();
+```
+<!-- spark_wiring_udp.h 218 -->
 
 ```cpp
 // SYNTAX
@@ -18336,6 +19748,12 @@ Returns:
 Initializes the buffer used by a `UDP` instance for buffered reads/writes. The buffer
 is used when your application calls `beginPacket()` and `parsePacket()`.  If `setBuffer()` isn't called,
 the buffer size defaults to 512 bytes, and is allocated when buffered operation is initialized via `beginPacket()` or `parsePacket()`.
+
+```cpp
+// PROTOTYPE
+bool setBuffer(size_t buffer_size, uint8_t* buffer = NULL);
+```
+<!-- spark_wiring_udp.h 107 -->
 
 ```cpp
 // SYNTAX
@@ -18384,6 +19802,12 @@ the function always returns `true`.)
 Releases the buffer previously set by a call to `setBuffer()`.
 
 ```cpp
+// PROTOTYPE
+void releaseBuffer();
+```
+<!-- spark_wiring_udp.h 114 -->
+
+```cpp
 // SYNTAX
 Udp.releaseBuffer();
 ```
@@ -18398,6 +19822,12 @@ not scoped to the lifetime of the application._
 {{since when="0.4.5"}}
 
 Sends a packet, unbuffered, to a remote UDP peer.
+
+```cpp
+// PROTOTYPE
+virtual int sendPacket(const uint8_t* buffer, size_t buffer_size, IPAddress destination, uint16_t port);
+```
+<!-- spark_wiring_udp.h 137 -->
 
 ```cpp
 // SYNTAX
@@ -18439,6 +19869,12 @@ Returns:
 Join a multicast address for all UDP sockets which are on the same network interface as this one.
 
 ```cpp
+// PROTOTYPE
+int joinMulticast(const IPAddress& ip);
+```
+<!-- spark_wiring_udp.h 235 -->
+
+```cpp
 // SYNTAX
 Udp.joinMulticast(IPAddress& ip);
 
@@ -18463,6 +19899,12 @@ Must be called only after `begin()` so that the network interface is established
 {{since when="0.4.5"}}
 
 Leaves a multicast group previously joined on a specific multicast address.
+
+```cpp
+// PROTOTYPE
+int leaveMulticast(const IPAddress& ip);
+```
+<!-- spark_wiring_udp.h 243 -->
 
 ```cpp
 // SYNTAX
@@ -18546,6 +19988,16 @@ Set up a servo on a particular pin. Note that, Servo can only be attached to pin
 {{!-- END do not edit content above, it is automatically generated --}}
 
 ```cpp
+// PROTOTYPE
+bool attach(uint16_t pin,
+            uint16_t minPulseWidth = SERVO_DEFAULT_MIN_PW,
+            uint16_t maxPulseWidth = SERVO_DEFAULT_MAX_PW,
+            int16_t minAngle = SERVO_DEFAULT_MIN_ANGLE,
+            int16_t maxAngle = SERVO_DEFAULT_MAX_ANGLE);
+```
+<!-- spark_wiring_servo.h 118 -->
+
+```cpp
 // SYNTAX
 servo.attach(pin)
 ```
@@ -18555,6 +20007,12 @@ servo.attach(pin)
 {{api name1="Servo::write"}}
 
 Writes a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with 0 being full-speed in one direction, 180 being full speed in the other, and a value near 90 being no movement).
+
+```cpp
+// PROTOTYPE
+void write(int angle);
+```
+<!-- spark_wiring_servo.h 157 -->
 
 ```cpp
 // SYNTAX
@@ -18568,6 +20026,12 @@ servo.write(angle)
 Writes a value in microseconds (uS) to the servo, controlling the shaft accordingly. 
 
 The function write() call writeMicroseconds(), mapping the values of 0 to 180 degrees to a microsecond value of 544 to 2400.
+
+```cpp
+// PROTOTYPE
+void writeMicroseconds(uint16_t pulseWidth);
+```
+<!-- spark_wiring_servo.h 178 -->
 
 ```cpp
 // SYNTAX
@@ -18586,6 +20050,12 @@ Continuous-rotation servos will respond to the writeMicrosecond function in an a
 Read the current angle of the servo (the value passed to the last call to write()). Returns an integer from 0 to 180 degrees.
 
 ```cpp
+// PROTOTYPE
+int read() const;
+```
+<!-- spark_wiring_servo.h 166 -->
+
+```cpp
 // SYNTAX
 servo.read()
 ```
@@ -18597,6 +20067,12 @@ servo.read()
 Check whether the Servo variable is attached to a pin. Returns a boolean.
 
 ```cpp
+// PROTOTYPE
+bool attached() const;
+```
+<!-- spark_wiring_servo.h 129 -->
+
+```cpp
 // SYNTAX
 servo.attached()
 ```
@@ -18606,6 +20082,12 @@ servo.attached()
 {{api name1="Servo::detach"}}
 
 Detach the Servo variable from its pin.
+
+```cpp
+// PROTOTYPE
+bool detach();
+```
+<!-- spark_wiring_servo.h 146 -->
 
 ```cpp
 // SYNTAX
@@ -18622,6 +20104,12 @@ In Device OS 2.0.0 and later, the destructor for Servo will detach from the pin 
 
 Sets a trim value that allows minute timing adjustments to correctly
 calibrate 90 as the stationary point.
+
+```cpp
+// PROTOTYPE
+void setTrim(int trim);
+```
+<!-- spark_wiring_servo.h 188 -->
 
 ```cpp
 // SYNTAX
@@ -18674,6 +20162,12 @@ RGB.control(false);
 User can take control of the RGB LED, or give control back to the system.
 
 ```cpp
+// PROTOTYPE
+static void control(bool);
+```
+<!-- spark_wiring_rgb.h 40 -->
+
+```cpp
 // take control of the RGB LED
 RGB.control(true);
 
@@ -18684,6 +20178,12 @@ RGB.control(false);
 ### controlled()
 
 Returns Boolean `true` when the RGB LED is under user control, or `false` when it is not.
+
+```cpp
+// PROTOTYPE
+static bool controlled(void);
+```
+<!-- spark_wiring_rgb.h 39 -->
 
 ```cpp
 // take control of the RGB LED
@@ -18705,6 +20205,13 @@ RGB.control(false);
 Set the color of the RGB with three values, 0 to 255 (0 is off, 255 is maximum brightness for that color).  User must take control of the RGB LED before calling this method.
 
 ```cpp
+// PROTOTYPES
+static void color(int red, int green, int blue);
+static void color(uint32_t rgb);
+```
+<!-- spark_wiring_rgb.h 41 -->
+
+```cpp
 // Set the RGB LED to red
 RGB.color(255, 0, 0);
 
@@ -18722,6 +20229,12 @@ RGB.color(255, 255, 255);
 Scale the brightness value of all three RGB colors with one value, 0 to 255 (0 is 0%, 255 is 100%).  This setting persists after `RGB.control()` is set to `false`, and will govern the overall brightness of the RGB LED under normal system operation. User must take control of the RGB LED before calling this method.
 
 ```cpp
+// PROTOTYPE
+static void brightness(uint8_t val, bool update = true);
+```
+<!-- spark_wiring_rgb.h 43 -->
+
+```cpp
 // Scale the RGB LED brightness to 25%
 RGB.brightness(64);
 
@@ -18737,6 +20250,12 @@ RGB.brightness(255);
 Returns current brightness value.
 
 ```cpp
+// PROTOTYPE
+static uint8_t brightness();
+```
+<!-- spark_wiring_rgb.h 44 -->
+
+```cpp
 // EXAMPLE
 
 uint8_t value = RGB.brightness();
@@ -18747,6 +20266,15 @@ uint8_t value = RGB.brightness();
 {{api name1="RGB.onChange"}}
 
 Specifies a function to call when the color of the RGB LED changes. It can be used to implement an external RGB LED.
+
+```cpp
+// PROTOTYPES
+void onChange(wiring_rgb_change_handler_t handler);
+void onChange(raw_rgb_change_handler_t* handler);
+template <typename T>
+void onChange(void (T::*handler)(uint8_t, uint8_t, uint8_t), T* instance);
+```
+<!-- spark_wiring_rgb.h 46 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -18807,6 +20335,12 @@ The onChange handler is called 1000 times per second so you should be careful to
 {{since when="0.6.1"}}
 
 Allows a set of PWM pins to mirror the functionality of the on-board RGB LED.
+
+```cpp
+// PROTOTYPE
+static void mirrorTo(hal_pin_t rpin, hal_pin_t gpin, hal_pin_t bpin, bool invert = false, bool bootloader = false);
+```
+<!-- spark_wiring_rgb.h 55 -->
 
 ```cpp
 // SYNTAX
@@ -18885,12 +20419,15 @@ In the provided example, the application defines a single LED status (`blinkRed`
 Constructs a status instance. Initially, a newly constructed status instance is set to inactive state and doesn't affect the LED until [setActive()](#setactive-) method is called by an application to activate this instance.
 
 ```cpp
-// SYNTAX
-LEDStatus::LEDStatus(uint32_t color = RGB_COLOR_WHITE, LEDPattern pattern = LED_PATTERN_SOLID, LEDPriority priority = LED_PRIORITY_NORMAL); // 1
-LEDStatus::LEDStatus(uint32_t color, LEDPattern pattern, LEDSpeed speed, LEDPriority priority = LED_PRIORITY_NORMAL); // 2
-LEDStatus::LEDStatus(uint32_t color, LEDPattern pattern, uint16_t period, LEDPriority priority = LED_PRIORITY_NORMAL); // 3
-LEDStatus::LEDStatus(LEDPattern pattern, LEDPriority priority = LED_PRIORITY_NORMAL); // 4
+// PROTOTYPES
+LEDStatus(uint32_t color, LEDPattern pattern = LED_PATTERN_SOLID, LEDPriority priority = LED_PRIORITY_NORMAL);
+LEDStatus(uint32_t color, LEDPattern pattern, LEDSpeed speed, LEDPriority priority = LED_PRIORITY_NORMAL);
+LEDStatus(uint32_t color, LEDPattern pattern, uint16_t period, LEDPriority priority = LED_PRIORITY_NORMAL);
+LEDStatus(LEDPattern pattern, LEDPriority priority = LED_PRIORITY_NORMAL);
+```
+<!-- spark_wiring_led.h 34 -->
 
+```cpp
 // EXAMPLE - constructing LEDStatus instance
 // Solid green; normal priority (default)
 LEDStatus status1(RGB_COLOR_GREEN);
@@ -18931,10 +20468,12 @@ On Gen 2 devices (Photon, P1, Electron, E-Series), the priority of breathing cya
 Sets status color.
 
 ```cpp
-// SYNTAX
-void LEDStatus::setColor(uint32_t color);
-uint32_t LEDStatus::color() const;
+// PROTOTYPE
+void setColor(uint32_t color);
+```
+<!-- spark_wiring_led.h 41 -->
 
+```cpp
 // EXAMPLE - setting and getting status color
 LEDStatus status;
 status.setColor(RGB_COLOR_BLUE);
@@ -18958,10 +20497,12 @@ Returns status color (`uint32_t`).
 Sets pattern type.
 
 ```cpp
-// SYNTAX
-void LEDStatus::setPattern(LEDPattern pattern);
-LEDPattern LEDStatus::pattern() const;
+// PROTOTYPE
+void setPattern(LEDPattern pattern);
+```
+<!-- spark_wiring_led.h 44 -->
 
+```cpp
 // EXAMPLE - setting and getting pattern type
 LEDStatus status;
 status.setPattern(LED_PATTERN_BLINK);
@@ -18985,9 +20526,12 @@ Returns pattern type ([`LEDPattern`](#ledpattern-enum)).
 Sets pattern speed. This method resets pattern period to a system-default value that depends on specified pattern speed and current pattern type set for this status instance.
 
 ```cpp
-// SYNTAX
-void LEDStatus::setSpeed(LEDSpeed speed);
+// PROTOTYPE
+void setSpeed(LEDSpeed speed);
+```
+<!-- spark_wiring_led.h 47 -->
 
+```cpp
 // EXAMPLE - setting pattern speed
 LEDStatus status;
 status.setSpeed(LED_SPEED_FAST);
@@ -19004,10 +20548,12 @@ Parameters:
 Sets pattern period. Pattern period specifies duration of a signaling pattern in milliseconds. For example, given the pattern type `LED_PATTERN_BLINK` (blinking color) with period set to 1000 milliseconds, the system will toggle the LED on and off every 500 milliseconds.
 
 ```cpp
-// SYNTAX
-void LEDStatus::setPeriod(uint16_t period);
-uint16_t LEDStatus::period() const;
+// PROTOTYPE
+void setPeriod(uint16_t period);
+```
+<!-- spark_wiring_led.h 48 -->
 
+```cpp
 // EXAMPLE - setting and getting pattern period
 LEDStatus status;
 status.setPeriod(1000); // 1 second
@@ -19031,10 +20577,12 @@ Returns pattern period in milliseconds (`uint16_t`).
 Sets status priority. Note that a newly assigned priority will take effect only after [`setActive()`](#setactive-) method is called for the next time.
 
 ```cpp
-// SYNTAX
-void LEDStatus::setPriority(LEDPriority priority);
-LEDPriority LEDStatus::priority() const;
+// PROTOTYPE
+void setPriority(LEDPriority priority);
+```
+<!-- spark_wiring_led.h 51 -->
 
+```cpp
 // EXAMPLE - setting and getting status priority
 LEDStatus status;
 status.setPriority(LED_PRIORITY_IMPORTANT);
@@ -19058,13 +20606,16 @@ Returns status priority ([`LEDPriority`](#ledpriority-enum)).
 Turns the LED on.
 
 ```cpp
-// SYNTAX
-void LEDStatus::on();
-void LEDStatus::off();
-void LEDStatus::toggle();
-bool LEDStatus::isOn() const;
-bool LEDStatus::isOff() const;
+// PROTOTYPES
+void on();
+void off();
+void toggle();
+bool isOn();
+bool isOff();
+```
+<!-- spark_wiring_led.h 54 -->
 
+```cpp
 // EXAMPLE - turning the LED on and off
 LEDStatus status;
 status.off(); // Turns the LED off
@@ -19110,11 +20661,14 @@ Returns `true` if the LED turned off, or `false` otherwise.
 Activates or deactivates this status instance. The overloaded method that takes `priority` argument assigns a new priority to this status instance before activating it.
 
 ```cpp
-// SYNTAX
-void LEDStatus::setActive(bool active = true); // 1
-void LEDStatus::setActive(LEDPriority priority); // 2
-bool LEDStatus::isActive() const;
+// PROTOTYPES
+void setActive(LEDPriority priority);
+void setActive(bool active = true);
+bool isActive() const;
+```
+<!-- spark_wiring_led.h 60 -->
 
+```cpp
 // EXAMPLE - activating and deactivating a status instance
 LEDStatus status;
 status.setActive(true); // Activates status
@@ -19233,9 +20787,12 @@ If using `PRE_STARTUP()` the `LEDSystemTheme` object must be local to the functi
 Constructs a theme instance and initializes it with current system settings.
 
 ```cpp
-// SYNTAX
-LEDSystemTheme::LEDSystemTheme();
+// PROTOTYPE
+LEDSystemTheme();
+```
+<!-- spark_wiring_led.h 85 -->
 
+```cpp
 // EXAMPLE - constructing theme instance
 LEDSystemTheme theme;
 ```
@@ -19247,10 +20804,12 @@ LEDSystemTheme theme;
 Sets signal color.
 
 ```cpp
-// SYNTAX
-void LEDSystemTheme::setColor(LEDSignal signal, uint32_t color);
-uint32_t LEDSystemTheme::color(LEDSignal signal) const;
+// PROTOTYPE
+void setColor(LEDSignal signal, uint32_t color);
+```
+<!-- spark_wiring_led.h 87 -->
 
+```cpp
 // EXAMPLE - setting and getting signal color
 LEDSystemTheme theme;
 theme.setColor(LED_SIGNAL_NETWORK_ON, RGB_COLOR_BLUE);
@@ -19275,10 +20834,12 @@ Returns signal color (`uint32_t`).
 Sets signal pattern.
 
 ```cpp
-// SYNTAX
-void LEDSystemTheme::setPattern(LEDSignal signal, LEDPattern pattern);
-LEDPattern LEDSystemTheme::pattern(LEDSignal signal) const;
+// PROTOTYPE
+void setPattern(LEDSignal signal, LEDPattern pattern);
+```
+<!-- spark_wiring_led.h 91 -->
 
+```cpp
 // EXAMPLE - setting and getting signal pattern
 LEDSystemTheme theme;
 theme.setPattern(LED_SIGNAL_NETWORK_ON, LED_PATTERN_BLINK);
@@ -19299,9 +20860,12 @@ Returns signal pattern ([`LEDPattern`](#ledpattern-enum)).
 Sets signal speed.
 
 ```cpp
-// SYNTAX
-void LEDSystemTheme::setSpeed(LEDSignal signal, LEDSpeed speed);
+// PROTOTYPE
+void setSpeed(LEDSignal signal, LEDSpeed speed);
+```
+<!-- spark_wiring_led.h 94 -->
 
+```cpp
 // EXAMPLE - setting signal speed
 LEDSystemTheme theme;
 theme.setSpeed(LED_SIGNAL_NETWORK_ON, LED_SPEED_FAST);
@@ -19317,10 +20881,12 @@ Parameters:
 Sets signal period.
 
 ```cpp
-// SYNTAX
-void LEDSystemTheme::setPeriod(LEDSignal signal, uint16_t period);
-uint16_t LEDSystemTheme::period(LEDSignal signal) const;
+// PROTOTYPE
+void setPeriod(LEDSignal signal, uint16_t period);
+```
+<!-- spark_wiring_led.h 95 -->
 
+```cpp
 // EXAMPLE - setting and getting signal period
 LEDSystemTheme theme;
 theme.setPeriod(LED_SIGNAL_NETWORK_ON, 1000); // 1 second
@@ -19345,11 +20911,14 @@ Returns signal period in milliseconds (`uint16_t`).
 Sets several signal parameters at once.
 
 ```cpp
-// SYNTAX
-void LEDSystemTheme::setSignal(LEDSignal signal, uint32_t color); // 1
-void LEDSystemTheme::setSignal(LEDSignal signal, uint32_t color, LEDPattern pattern, LEDSpeed speed = LED_SPEED_NORMAL); // 2
-void LEDSystemTheme::setSignal(LEDSignal signal, uint32_t color, LEDPattern pattern, uint16_t period); // 3
+// PROTOTYPES
+void setSignal(LEDSignal signal, uint32_t color);
+void setSignal(LEDSignal signal, uint32_t color, LEDPattern pattern, LEDSpeed speed = LED_SPEED_NORMAL);
+void setSignal(LEDSignal signal, uint32_t color, LEDPattern pattern, uint16_t period);
+```
+<!-- spark_wiring_led.h 99 -->
 
+```cpp
 // EXAMPLE - setting signal parameters
 LEDSystemTheme theme;
 theme.setSignal(LED_SIGNAL_NETWORK_ON, RGB_COLOR_BLUE, LED_PATTERN_BLINK, LED_SPEED_FAST);
@@ -19370,10 +20939,12 @@ Parameters:
 Applies theme settings.
 
 ```cpp
-// SYNTAX
-void LEDSystemTheme::apply(bool save = false);
+// PROTOTYPE
+void apply(bool save = false);
+```
+<!-- spark_wiring_led.h 105 -->
 
-
+```cpp
 // EXAMPLE - applying theme settings
 LEDSystemTheme theme;
 theme.setColor(LED_SIGNAL_NETWORK_ON, RGB_COLOR_BLUE);
@@ -19391,9 +20962,12 @@ Parameters:
 Restores factory default theme.
 
 ```cpp
-// SYNTAX
-static void LEDSystemTheme::restoreDefault();
+// PROTOTYPE
+static void restoreDefault();
+```
+<!-- spark_wiring_led.h 108 -->
 
+```cpp
 // EXAMPLE - restoring factory default theme
 LEDSystemTheme::restoreDefault();
 ```
@@ -19489,6 +21063,12 @@ Before the device gets online and for short intervals, you can use the
 
 Returns the number of milliseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 49 days.
 
+```cpp
+// PROTOTYPE
+system_tick_t millis(void);
+```
+<!-- spark_wiring_ticks.h 38 -->
+
 `unsigned long time = millis();`
 
 ```cpp
@@ -19519,6 +21099,12 @@ Instead of using `millis()`, you can instead use [`System.millis()`](#system-mil
 
 Returns the number of microseconds since the device booted.
 
+```cpp
+// PROTOTYPE
+unsigned long micros(void);
+```
+<!-- spark_wiring_ticks.h 39 -->
+
 `unsigned long time = micros();`
 
 ```cpp
@@ -19546,6 +21132,13 @@ It overflows at the maximum 32-bit unsigned long value.
 {{api name1="delay"}}
 
 Pauses the program for the amount of time (in milliseconds) specified as parameter. (There are 1000 milliseconds in a second.)
+
+```cpp
+// PROTOTYPES
+void delay(unsigned long ms);
+void delay(std::chrono::milliseconds ms);
+```
+<!-- spark_wiring_ticks.h 40 -->
 
 ```cpp
 // SYNTAX
@@ -19588,6 +21181,13 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
 
 ```cpp
+// PROTOTYPES
+void delayMicroseconds(unsigned int us);
+void delayMicroseconds(std::chrono::microseconds us);
+```
+<!-- spark_wiring_ticks.h 41 -->
+
+```cpp
 // SYNTAX
 delayMicroseconds(us);
 ```
@@ -19624,6 +21224,13 @@ Retrieve the hour for the current or given time.
 Integer is returned without a leading zero.
 
 ```cpp
+// PROTOTYPES
+int hour();
+int hour(time_t t);
+```
+<!-- spark_wiring_time.h 49 -->
+
+```cpp
 // Print the hour for the current time
 Serial.print(Time.hour());
 
@@ -19643,6 +21250,13 @@ If you have set a timezone using zone(), beginDST(), etc. the hour returned will
 
 Retrieve the hour in 12-hour format for the current or given time.
 Integer is returned without a leading zero.
+
+```cpp
+// PROTOTYPES
+int hourFormat12();
+int hourFormat12(time_t t);
+```
+<!-- spark_wiring_time.h 51 -->
 
 ```cpp
 // Print the hour in 12-hour format for the current time
@@ -19665,6 +21279,13 @@ If you have set a timezone using zone(), beginDST(), etc. the hour returned will
 Returns true if the current or given time is AM.
 
 ```cpp
+// PROTOTYPES
+uint8_t isAM();
+uint8_t isAM(time_t t);
+```
+<!-- spark_wiring_time.h 53 -->
+
+```cpp
 // Print true or false depending on whether the current time is AM
 Serial.print(Time.isAM());
 
@@ -19683,6 +21304,13 @@ If you have set a timezone using zone(), beginDST(), etc. the hour returned will
 {{api name1="Time.isPM"}}
 
 Returns true if the current or given time is PM.
+
+```cpp
+// PROTOTYPES
+uint8_t isPM();
+uint8_t isPM(time_t t);
+```
+<!-- spark_wiring_time.h 55 -->
 
 ```cpp
 // Print true or false depending on whether the current time is PM
@@ -19706,6 +21334,13 @@ Retrieve the minute for the current or given time.
 Integer is returned without a leading zero.
 
 ```cpp
+// PROTOTYPES
+int minute();
+int minute(time_t t);
+```
+<!-- spark_wiring_time.h 57 -->
+
+```cpp
 // Print the minute for the current time
 Serial.print(Time.minute());
 
@@ -19727,6 +21362,13 @@ Retrieve the seconds for the current or given time.
 Integer is returned without a leading zero.
 
 ```cpp
+// PROTOTYPES
+int second();
+int second(time_t t);
+```
+<!-- spark_wiring_time.h 59 -->
+
+```cpp
 // Print the second for the current time
 Serial.print(Time.second());
 
@@ -19745,6 +21387,13 @@ Returns: Integer 0-59
 
 Retrieve the day for the current or given time.
 Integer is returned without a leading zero.
+
+```cpp
+// PROTOTYPES
+int day();
+int day(time_t t);
+```
+<!-- spark_wiring_time.h 61 -->
 
 ```cpp
 // Print the day for the current time
@@ -19775,6 +21424,13 @@ Retrieve the weekday for the current or given time.
  - 7 = Saturday
 
 ```cpp
+// PROTOTYPES
+int weekday();
+int weekday(time_t t);
+```
+<!-- spark_wiring_time.h 63 -->
+
+```cpp
 // Print the weekday number for the current time
 Serial.print(Time.weekday());
 
@@ -19794,6 +21450,13 @@ If you have set a timezone using zone(), beginDST(), etc. the hour returned will
 
 Retrieve the month for the current or given time.
 Integer is returned without a leading zero.
+
+```cpp
+// PROTOTYPES
+int month();
+int month(time_t t);
+```
+<!-- spark_wiring_time.h 65 -->
 
 ```cpp
 // Print the month number for the current time
@@ -19816,6 +21479,13 @@ If you have set a timezone using zone(), beginDST(), etc. the hour returned will
 Retrieve the 4-digit year for the current or given time.
 
 ```cpp
+// PROTOTYPES
+int year();
+int year(time_t t);
+```
+<!-- spark_wiring_time.h 67 -->
+
+```cpp
 // Print the current year
 Serial.print(Time.year());
 
@@ -19835,7 +21505,10 @@ Returns: Integer
 ```cpp
 // PROTOTYPE
 time32_t now();
+```
+<!-- spark_wiring_time.h 71 -->
 
+```cpp
 // Print the current Unix timestamp
 Serial.print((int) Time.now()); // 1400647897
 
@@ -19859,6 +21532,12 @@ _Since 0.6.0_
 
 Local time is also affected by the Daylight Saving Time (DST) settings.
 
+```cpp
+// PROTOTYPE
+time32_t local();
+```
+<!-- spark_wiring_time.h 72 -->
+
 Returns: time32_t (Unix timestamp), local time, `int32_t` (signed 32-bit integer). Prior to Device OS 2.0.0, this was a standard C `time_t`, however starting in Device OS 2.0.0, the standard C library changed the size of time_t to 64-bit to avoid rollover to 0 in 2038. For compatibility, Device OS still uses the 32-bit version.
 
 ### zone() - Time
@@ -19869,6 +21548,13 @@ Set the time zone offset (+/-) from UTC.
 The device will remember this offset until reboot.
 
 *NOTE*: This function does not observe daylight savings time.
+
+```cpp
+// PROTOTYPES
+void zone(float GMT_Offset);
+float zone();
+```
+<!-- spark_wiring_time.h 73 -->
 
 ```cpp
 // Set time zone to Eastern USA daylight saving time
@@ -19884,6 +21570,12 @@ Parameters: floating point offset from UTC in hours, from -12.0 to 14.0
 {{since when="0.6.0"}}
 
 Returns true if Daylight Saving Time (DST) is in effect.
+
+```cpp
+// PROTOTYPE
+uint8_t isDST();
+```
+<!-- spark_wiring_time.h 95 -->
 
 ```cpp
 // Print true or false depending on whether the DST in in effect
@@ -19903,6 +21595,12 @@ This function only returns the current DST setting that you choose using beginDS
 Retrieve the current Daylight Saving Time (DST) offset that is added to the current local time when Time.beginDST() has been called. The default is 1 hour.
 
 ```cpp
+// PROTOTYPE
+float getDSTOffset();
+```
+<!-- spark_wiring_time.h 87 -->
+
+```cpp
 // Get current DST offset
 float offset = Time.getDSTOffset();
 ```
@@ -19917,6 +21615,12 @@ Returns: floating point DST offset in hours (default is +1.0 hours)
 
 Set a custom Daylight Saving Time (DST) offset.
 The device will remember this offset until reboot.
+
+```cpp
+// PROTOTYPE
+void setDSTOffset(float offset);
+```
+<!-- spark_wiring_time.h 89 -->
 
 ```cpp
 // Set DST offset to 30 minutes
@@ -19935,6 +21639,12 @@ Start applying Daylight Saving Time (DST) offset to the current time.
 
 You must call beginDST() at startup if you want use DST mode. The setting is not remembered and is not automatically changed based on the calendar.
 
+```cpp
+// PROTOTYPE
+void beginDST();
+```
+<!-- spark_wiring_time.h 91 -->
+
 ### endDST() - Time
 
 {{api name1="Time.endDST"}}
@@ -19944,6 +21654,12 @@ You must call beginDST() at startup if you want use DST mode. The setting is not
 Stop applying Daylight Saving Time (DST) offset to the current time.
 
 You must call endDST() on the appropriate date to end DST mode. It is not calculated automatically.
+
+```cpp
+// PROTOTYPE
+void endDST();
+```
+<!-- spark_wiring_time.h 93 -->
 
 ### setTime() - Time
 
@@ -19955,6 +21671,12 @@ Set the system time to the given timestamp.
 If the cloud connection drops, the reconnection handshake will set the time again
 
 Also see: [`Particle.syncTime()`](#particle-synctime-)
+
+```cpp
+// PROTOTYPE
+void setTime(time_t t);
+```
+<!-- spark_wiring_time.h 75 -->
 
 ```cpp
 // Set the time to 2014-10-11 13:37:42
@@ -19969,6 +21691,14 @@ Parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 {{api name1="Time.timeStr"}}
 
 Return string representation for the given time.
+
+```cpp
+// PROTOTYPES
+String timeStr();
+String timeStr(time_t t);
+```
+<!-- spark_wiring_time.h 97 -->
+
 ```cpp
 Serial.print(Time.timeStr()); // Wed May 21 01:08:47 2014
 ```
@@ -19982,6 +21712,13 @@ _NB: In 0.3.4 and earlier, this function included a newline at the end of the re
 {{api name1="Time.format"}}
 
 Formats a time string using a configurable format. 
+
+```cpp
+// PROTOTYPES
+String format(time_t t, const char* format_spec = NULL);
+String format(const char* format_spec = NULL);
+```
+<!-- spark_wiring_time.h 116 -->
 
 ```cpp
 // SYNTAX
@@ -20019,6 +21756,12 @@ If you have set the time zone using Time.zone(), beginDST(), etc. the formatted 
 Sets the format string that is the default value used by `format()`.
 
 ```cpp
+// PROTOTYPE
+void setFormat(const char* format);
+```
+<!-- spark_wiring_time.h 123 -->
+
+```cpp
 
 Time.setFormat(TIME_FORMAT_ISO8601_FULL);
 
@@ -20047,6 +21790,12 @@ Retrieves the currently configured format string for time formatting with `forma
 {{api name1="Time.isValid"}}
 
 {{since when="0.6.1"}}
+
+```cpp
+// PROTOTYPE
+bool isValid() const;
+```
+<!-- spark_wiring_time.h 80 -->
 
 ```cpp
 // SYNTAX
@@ -20252,6 +22001,15 @@ Shared on the Electron/E series (only one pin for each bullet item can be used a
 
 Additional information on which pins can be used for interrupts is available on the [pin information page](/reference/device-os/pin-info/).
 
+```cpp
+// PROTOTYPES
+bool attachInterrupt(uint16_t pin, wiring_interrupt_handler_t handler, InterruptMode mode, int8_t priority = -1, uint8_t subpriority = 0);
+bool attachInterrupt(uint16_t pin, raw_interrupt_handler_t handler, InterruptMode mode, int8_t priority = -1, uint8_t subpriority = 0);
+template <typename T>
+bool attachInterrupt(uint16_t pin, void (T::*handler)(), T* instance, InterruptMode mode, int8_t priority = -1, uint8_t subpriority = 0);
+```
+<!-- spark_wiring_interrupts.h 42 -->
+
 ```
 // SYNTAX
 attachInterrupt(pin, function, mode);
@@ -20346,6 +22104,12 @@ Things you should not do from an ISR:
 
 Turns off the given interrupt.
 
+```cpp
+// PROTOTYPE
+bool detachInterrupt(uint16_t pin);
+```
+<!-- spark_wiring_interrupts.h 49 -->
+
 ```
 // SYNTAX
 detachInterrupt(pin);
@@ -20361,6 +22125,12 @@ The `detachInterrpt()` function is not interrupt-safe. Do not call it from withi
 {{api name1="interrupts"}}
 
 Re-enables interrupts (after they've been disabled by `noInterrupts()`). Interrupts allow certain important tasks to happen in the background and are enabled by default. Some functions will not work while interrupts are disabled, and incoming communication may be ignored. Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
+
+```cpp
+// PROTOTYPE
+void interrupts(void);
+```
+<!-- spark_wiring_interrupts.h 50 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -20393,6 +22163,12 @@ Disables interrupts (you can re-enable them with `interrupts()`). Interrupts all
 - Do not allocate memory with interrupts disabled. This includes malloc, new, strdup, as well as `String` and many standard library functions (like std::vector).
 
 ```cpp
+// PROTOTYPE
+void noInterrupts(void);
+```
+<!-- spark_wiring_interrupts.h 51 -->
+
+```cpp
 // SYNTAX
 noInterrupts();
 ```
@@ -20409,6 +22185,15 @@ You must enable interrupts again as quickly as possible. Never return from setup
 {{since when="0.4.7"}}
 
 Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequentially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
+
+```cpp
+// PROTOTYPES
+Timer(unsigned period, timer_callback_fn callback, bool one_shot = false);
+
+template <typename T>
+Timer(unsigned period, void (T::*callback)(), T& instance, bool one_shot = false);
+```
+<!-- spark_wiring_timer.h 38 -->
 
 ```cpp
 // EXAMPLE
@@ -20487,6 +22272,12 @@ Starts a stopped timer (a newly created timer is stopped). If `start()` is calle
 `start()`
 
 ```cpp
+// PROTOTYPE
+bool start(unsigned block = default_wait);
+```
+<!-- spark_wiring_timer.h 61 -->
+
+```cpp
 // EXAMPLE USAGE
 timer.start(); // starts timer if stopped or resets it if started.
 
@@ -20499,6 +22290,12 @@ timer.start(); // starts timer if stopped or resets it if started.
 Stops a running timer.
 
 `stop()`
+
+```cpp
+// PROTOTYPE
+bool stop(unsigned block = default_wait);
+```
+<!-- spark_wiring_timer.h 62 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -20517,6 +22314,13 @@ Changes the period of a previously created timer. It can be called to change the
 `newPeriod` is the new timer period (unsigned int)
 
 ```cpp
+// PROTOTYPES
+bool changePeriod(unsigned period, unsigned block = default_wait);
+bool changePeriod(std::chrono::milliseconds ms, unsigned block = default_wait);
+```
+<!-- spark_wiring_timer.h 64 -->
+
+```cpp
 // EXAMPLE USAGE
 timer.changePeriod(1000); // Reset period of timer to 1000ms.
 
@@ -20533,6 +22337,12 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is stopped, it will be started.
 
 `reset()`
+
+```cpp
+// PROTOTYPE
+bool reset(unsigned block = default_wait);
+```
+<!-- spark_wiring_timer.h 63 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -20560,6 +22370,16 @@ timer.reset(); // reset timer if running, or start timer if stopped.
 Start, stop and reset a timer or change a timer's period (as above) BUT from within an ISR.  These functions MUST be called when doing timer operations within an ISR.
 
 ```cpp
+// PROTOTYPES
+bool startFromISR();
+bool stopFromISR();
+bool resetFromISR();
+bool changePeriodFromISR(unsigned period);
+bool changePeriodFromISR(std::chrono::milliseconds ms);
+```
+<!-- spark_wiring_timer.h 53 -->
+
+```cpp
 // EXAMPLE USAGE
 timer.startFromISR(); // WITHIN an ISR, starts timer if stopped or resets it if started.
 
@@ -20579,6 +22399,12 @@ timer.changePeriodFromISR(newPeriod);  // WITHIN an ISR, change the timer period
 Stop and remove a timer from the (max. 10) timer list, freeing a timer "slot" in the list.
 
 ```cpp
+// PROTOTYPE
+void dispose();
+```
+<!-- spark_wiring_timer.h 92 -->
+
+```cpp
 // EXAMPLE USAGE
 timer.dispose(); // stop and delete timer from timer list.
 
@@ -20593,6 +22419,12 @@ timer.dispose(); // stop and delete timer from timer list.
 `bool isActive()`
 
 Returns `true` if the timer is in active state (pending), or `false` otherwise.
+
+```cpp
+// PROTOTYPE
+bool isActive() const;
+```
+<!-- spark_wiring_timer.h 68 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -20658,6 +22490,12 @@ The capabilities vary depending on the platform:
 {{api name1="Watchdog.init"}}
 
 ```cpp
+// PROTOTYPE
+int init(const WatchdogConfiguration& config);
+```
+<!-- spark_wiring_watchdog.h 263 -->
+
+```cpp
 Watchdog.init(WatchdogConfiguration().timeout(30s));
 Watchdog.start();
 ```
@@ -20675,11 +22513,23 @@ You can only call `init()` if the watchdog is not currently running. On the nRF5
 
 {{api name1="Watchdog.start"}}
 
+```cpp
+// PROTOTYPE
+int start();
+```
+<!-- spark_wiring_watchdog.h 271 -->
+
 You typically start it when initializating during setup().
 
 ### Watchdog.stop
 
 {{api name1="Watchdog.stop"}}
+
+```cpp
+// PROTOTYPE
+int stop();
+```
+<!-- spark_wiring_watchdog.h 287 -->
 
 RTL872x platform (P2, Photon 2): You can stop the watchdog after starting it.
 
@@ -20690,6 +22540,12 @@ For maximum compatibility across devices, you should design your watchdog config
 ### Watchdog.refresh
 
 {{api name1="Watchdog.refresh"}}
+
+```cpp
+// PROTOTYPE
+int refresh();
+```
+<!-- spark_wiring_watchdog.h 295 -->
 
 You must call `Watchdog.refresh()` more often than the timeout interval. You can call it on every `loop()`. 
 
@@ -20722,6 +22578,16 @@ Since pausing the watchdog is not possible on the RTL872x platform (P2 and Photo
 ### Watchdog.onExpired
 
 {{api name1="Watchdog.onExpired"}}
+
+```cpp
+// PROTOTYPES
+int onExpired(WatchdogOnExpiredCallback callback, void* context = nullptr);
+int onExpired(const WatchdogOnExpiredStdFunction& callback);
+
+template<typename T>
+int onExpired(void(T::*callback)(void), T* instance);
+```
+<!-- spark_wiring_watchdog.h 314 -->
 
 ```cpp
 // As a global variable:
@@ -20950,6 +22816,13 @@ sensVal = constrain(sensVal, 10, 150);
 ### map() [value tranformation]
 
 ```cpp
+// PROTOTYPES
+int map(int value, int fromStart, int fromEnd, int toStart, int toEnd);
+double map(double value, double fromStart, double fromEnd, double toStart, double toEnd);
+```
+<!-- spark_wiring.h 116 -->
+
+```cpp
 // EXAMPLE USAGE
 
 // Map an analog value to 8 bits (0 to 255)
@@ -21037,6 +22910,13 @@ The firmware incorporates a pseudo-random number generator.
 
 {{api name1="random"}}
 
+```cpp
+// PROTOTYPES
+int random(int max);
+int random(int min, int max);
+```
+<!-- spark_wiring_random.h 12 -->
+
 Retrieves the next random value, restricted to a given range.
 
  `random(max);`
@@ -21080,6 +22960,12 @@ int r = random(10, 100);
 ### randomSeed()
 
 {{api name1="randomSeed"}}
+
+```cpp
+// PROTOTYPE
+void randomSeed(unsigned int seed);
+```
+<!-- spark_wiring_random.h 11 -->
 
 `randomSeed(newSeed);`
 
@@ -21185,6 +23071,12 @@ will persist even after the device resets after a deep sleep or is powered off.
 Returns the total number of bytes available in the emulated EEPROM.
 
 ```cpp
+// PROTOTYPE
+uint16_t length();
+```
+<!-- spark_wiring_eeprom.h 142 -->
+
+```cpp
 // SYNTAX
 size_t length = EEPROM.length();
 ```
@@ -21199,6 +23091,12 @@ size_t length = EEPROM.length();
 This function will write an object to the EEPROM. You can write single values like `int` and
 `float` or group multiple values together using `struct` to ensure that all values of the struct are
 updated together.
+
+```cpp
+// PROTOTYPE
+template <typename T> const T& put(int address, const T& object);
+```
+<!-- spark_wiring_eeprom.h 152 -->
 
 ```
 // SYNTAX
@@ -21245,6 +23143,12 @@ can leave empty room between objects in case you need to make the first object b
 
 This function will retrieve an object from the EEPROM. Use the same type of object you used in the
 `put` call.
+
+```cpp
+// PROTOTYPE
+template <typename T> T& get(int address, T& object);
+```
+<!-- spark_wiring_eeprom.h 145 -->
 
 ```
 // SYNTAX
@@ -21447,6 +23351,12 @@ addr=28, a=6 b=0.060000 c=1, sizeof(data)=12
 
 Read a single byte of data from the emulated EEPROM.
 
+```cpp
+// PROTOTYPE
+uint8_t read(int address);
+```
+<!-- spark_wiring_eeprom.h 135 -->
+
 ```
 // SYNTAX
 uint8_t value = EEPROM.read(int address);
@@ -21469,6 +23379,12 @@ When reading more than 1 byte, prefer `get()` over multiple `read()` since it's 
 {{api name1="EEPROM.write"}}
 
 Write a single byte of data to the emulated EEPROM.
+
+```cpp
+// PROTOTYPE
+void write(int address, uint8_t value);
+```
+<!-- spark_wiring_eeprom.h 136 -->
 
 ```
 // SYNTAX
@@ -21498,6 +23414,12 @@ haven't changed.
 {{api name1="EEPROM.clear"}}
 
 Erase all the EEPROM so that all reads will return 255 (hexadecimal 0xFF).
+
+```cpp
+// PROTOTYPE
+void clear();
+```
+<!-- spark_wiring_eeprom.h 159 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -23207,6 +25129,12 @@ This class allows to query the information about the most recent `System.sleep()
 {{api name1="SleepResult::reason"}}
 
 ```cpp
+// PROTOTYPE
+WakeupReason reason() const;
+```
+<!-- spark_wiring_system.h 152 -->
+
+```cpp
 // SYNTAX
 SleepResult result = System.sleepResult();
 int reason = result.reason();
@@ -23249,6 +25177,12 @@ Returns a code describing a reason the device woke up from sleep. The following 
 {{api name1="SleepResult::wokenUpByPin"}}
 
 ```cpp
+// PROTOTYPE
+bool wokenUpByPin() const;
+```
+<!-- spark_wiring_system.h 154 -->
+
+```cpp
 // SYNTAX
 SleepResult result = System.sleepResult();
 bool r = result.wokenUpByPin();
@@ -23265,6 +25199,12 @@ Returns `true` when the device was woken up by a pin.
 #### wokenUpByRtc()
 
 {{api name1="SleepResult::wokenUpByRtc"}}
+
+```cpp
+// PROTOTYPE
+bool wokenUpByRtc() const;
+```
+<!-- spark_wiring_system.h 153 -->
 
 Returns `true` when the device was woken up by the RTC (after a specified number of seconds).
 
@@ -23291,6 +25231,12 @@ An alias to [`wokenUpByRtc()`](#wokenupbyrtc-).
 {{api name1="SleepResult::pin"}}
 
 ```cpp
+// PROTOTYPE
+hal_pin_t pin() const;
+```
+<!-- spark_wiring_system.h 156 -->
+
+```cpp
 // SYNTAX
 SleepResult result = System.sleepResult();
 pin_t pin = result.pin();
@@ -23309,6 +25255,12 @@ Returns: the number of the pin that woke the device.
 
 {{api name1="SleepResult::error"}}
 
+```cpp
+// PROTOTYPE
+system_error_t error() const;
+```
+<!-- spark_wiring_system.h 158 -->
+
 Get the error code of the latest sleep.
 
 ```cpp
@@ -23326,6 +25278,12 @@ Returns: `SYSTEM_ERROR_NONE (0)` when there was no error during latest sleep or 
 {{since when="0.8.0"}}
 
 ```cpp
+// PROTOTYPE
+SleepResult sleepResult();
+```
+<!-- spark_wiring_system.h 907 -->
+
+```cpp
 // SYNTAX
 SleepResult result = System.sleepResult();
 ```
@@ -23341,6 +25299,12 @@ Returns: an instance of [`SleepResult`](#sleepresult-) class.
 {{since when="0.8.0"}}
 
 ```cpp
+// PROTOTYPE
+inline WakeupReason wakeUpReason();
+```
+<!-- spark_wiring_system.h 890 -->
+
+```cpp
 // SYNTAX
 int reason = System.wakeUpReason();
 ```
@@ -23352,6 +25316,12 @@ See [`SleepResult`](#reason-) documentation.
 {{api name1="System::wokenUpByPin"}}
 
 {{since when="0.8.0"}}
+
+```cpp
+// PROTOTYPE
+inline bool wokenUpByPin();
+```
+<!-- spark_wiring_system.h 894 -->
 
 ```cpp
 // SYNTAX
@@ -23367,6 +25337,12 @@ See [`SleepResult`](#wokenupbypin-) documentation.
 _Since 0.8.0_
 
 ```cpp
+// PROTOTYPE
+inline bool wokenUpByRtc();
+```
+<!-- spark_wiring_system.h 898 -->
+
+```cpp
 // SYNTAX
 bool result = System.wokenUpByRtc();
 ```
@@ -23380,6 +25356,12 @@ See [`SleepResult`](#wokenupbyrtc-) documentation.
 {{since when="0.8.0"}}
 
 ```cpp
+// PROTOTYPE
+inline hal_pin_t wakeUpPin();
+```
+<!-- spark_wiring_system.h 902 -->
+
+```cpp
 // SYNTAX
 pin_t pin = System.wakeUpPin();
 ```
@@ -23391,6 +25373,12 @@ See [`SleepResult`](#pin-) documentation.
 {{api name1="System::sleepError"}}
 
 {{since when="0.8.0"}}
+
+```cpp
+// PROTOTYPE
+inline system_error_t sleepError();
+```
+<!-- spark_wiring_system.h 927 -->
 
 ```cpp
 // SYNTAX
@@ -24003,7 +25991,6 @@ Note: `waitUntil` does not tickle the [application watchdog](#watchdog-applicati
 
 {{since when="2.0.0"}}
 
-
 ```cpp
 // SYNTAX
 waitUntilNot(condition);
@@ -24012,7 +25999,11 @@ waitUntilNot(condition);
 Particle.disconnect();
 waitUntilNot(Particle.connected);
 Log.info("disconnected");
+
+// IMPLEMENTATION
+#define waitUntilNot(condition) System.waitCondition([]{ return !(condition)(); })
 ```
+<!-- spark_wiring_system.h 1206 -->
 
 To delay the application indefinitely until the condition is not met (value of condition is false)
 
@@ -24023,6 +26014,7 @@ Note: `waitUntilNot` does not tickle the [application watchdog](#watchdog-applic
 #### waitFor()
 
 {{api name1="waitFor"}}
+
 
 ```cpp
 // SYNTAX
@@ -24042,7 +26034,11 @@ bool notConnected() {
 if (waitFor(notConnected, 10000)) {
     Log.info("not connected");
 }
+
+// IMPLEMENTATION
+#define waitFor(condition, timeout) System.waitCondition([]{ return (condition)(); }, (timeout))
 ```
+<!-- spark_wiring_system.h 1203 -->
 
 To delay the application only for a period of time or the condition is met.
 
@@ -24054,6 +26050,7 @@ Note: `waitFor` does not tickle the [application watchdog](#watchdog-application
 
 {{api name1="waitForNot"}}
 
+
 ```cpp
 // SYNTAX
 waitForNot(condition, timeout);
@@ -24062,7 +26059,10 @@ waitForNot(condition, timeout);
 if (waitForNot(Particle.connected, 10000)) {
     Log.info("not connected");
 }
+// IMPLEMENTATION
+#define waitForNot(condition, timeout) System.waitCondition([]{ return !(condition)(); }, (timeout))
 ```
+<!-- spark_wiring_system.h 1205 -->
 
 {{since when="2.0.0"}}
 
@@ -24160,15 +26160,16 @@ Thread(const char* name,
   os_thread_fn_t function, 
   void* function_param=NULL,
   os_thread_prio_t priority=OS_THREAD_PRIORITY_DEFAULT, 
-  size_t stack_size=OS_THREAD_STACK_SIZE_DEFAULT)
+  size_t stack_size=OS_THREAD_STACK_SIZE_DEFAULT);
 
 // os_thread_fn_t
 typedef os_thread_return_t (*os_thread_fn_t)(void* param);
 typedef void os_thread_return_t;
 
 // Thread function prototype
-void myThreadFunction(void *param)
+void myThreadFunction(void *param);
 ```
+<!-- spark_wiring_thread.h 95 -->
 
 - `name` a short string that can be used to identify your thread as a c-string of up to 16 ASCII characters.
 - `function` The function that will be run in the new thread.
@@ -24183,15 +26184,16 @@ void myThreadFunction(void *param)
 Thread(const char *name, 
   wiring_thread_fn_t function,
   os_thread_prio_t priority=OS_THREAD_PRIORITY_DEFAULT, 
-  size_t stack_size=OS_THREAD_STACK_SIZE_DEFAULT)
+  size_t stack_size=OS_THREAD_STACK_SIZE_DEFAULT);
 
 // wiring_thread_fn_t
 typedef std::function<os_thread_return_t(void)> wiring_thread_fn_t;
 typedef void os_thread_return_t;
 
 // Thread function prototype
-void myThreadFunction()
+void myThreadFunction();
 ```
+<!-- spark_wiring_thread.h 117 -->
 
 - `name` a short string that can be used to identify your thread as a c-string of up to 16 ASCII characters.
 - `function` The function that will be run in the new thread.
@@ -24252,8 +26254,9 @@ See [callback functions](/firmware/software-design/callback-functions/) for more
 
 ```cpp
 // PROTOTYPE
-void dispose()
+void dispose();
 ```
+<!-- spark_wiring_thread.h 151 -->
 
 Stop a thread and release the resources used by the thread. This cannot be used to stop the currently running thread; you should exit the thread function instead.
 
@@ -24262,8 +26265,9 @@ Stop a thread and release the resources used by the thread. This cannot be used 
 
 ```cpp
 // PROTOTYPE
-bool isValid() const 
+bool isValid() const;
 ```
+<!-- spark_wiring_thread.h 184 -->
 
 Returns true if the underlying thread object has been allocated.
 
@@ -24272,8 +26276,9 @@ Returns true if the underlying thread object has been allocated.
 
 ```cpp
 // PROTOTYPE
-bool isCurrent() const 
+bool isCurrent() const;
 ```
+<!-- spark_wiring_thread.h 195 -->
 
 Returns true if this thread is the currently running thread.
 
@@ -24282,8 +26287,9 @@ Returns true if this thread is the currently running thread.
 
 ```cpp
 // PROTOTYPE
-bool isRunning() const 
+bool isRunning() const;
 ```
+<!-- spark_wiring_thread.h 200 -->
 
 Returns true if this thread is running (has started and has not exited yet).
 
@@ -24293,8 +26299,9 @@ Returns true if this thread is running (has started and has not exited yet).
 
 ```cpp
 // PROTOTYPE
-Mutex()
+Mutex();
 ```
+<!-- spark_wiring_thread.h 238 -->
 
 Construct a new Mutex object. You will typically include a `Mutex` either as a member of your class.
 
@@ -24309,6 +26316,7 @@ Mutex functions cannot be called from an ISR.
 // PROTOTYPE
 void lock();
 ```
+<!-- spark_wiring_thread.h 255 -->
 
 Lock the mutex. If the mutex is already locked, blocks the current thread until is is unlocked.
 
@@ -24319,10 +26327,11 @@ You cannot lock a mutex from an ISR.
 #### Mutex::trylock - Threading
 
 ```cpp
-// PROTOTYPE
+// PROTOTYPES
 bool trylock();
 bool try_lock();
 ```
+<!-- spark_wiring_thread.h 256 -->
 
 Attempts to lock the mutex If it is unlocked, it will be locked and `true` is returned. If it is already locked, `false` is returned and the thread that previously held the lock will continue to hold the lock.
 
@@ -24334,6 +26343,7 @@ You cannot lock a mutex from an ISR.
 // PROTOTYPE
 void unlock();
 ```
+<!-- spark_wiring_thread.h 258 -->
 
 Unlocks the mutex. Typically only the thread that locked the mutex will unlock it.
 
@@ -24348,8 +26358,9 @@ A `Mutex` can only be locked once, even from the same thread. `RecursiveMutex`, 
 
 ```cpp
 // PROTOTYPE
-RecursiveMutex()
+RecursiveMutex();
 ```
+<!-- spark_wiring_thread.h 272 -->
 
 Construct a new recursive mutex object. You will typically include a `RecursiveMutex` either as a member of your class.
 
@@ -24363,6 +26374,7 @@ RecursiveMutex functions cannot be called from an ISR.
 // PROTOTYPE
 void lock();
 ```
+<!-- spark_wiring_thread.h 289 -->
 
 Lock the recursive mutex. If the mutex is already locked from a different thread, blocks the current thread until is is unlocked.
 
@@ -24373,10 +26385,11 @@ You cannot lock a recursive mutex from an ISR.
 #### RecursiveMutex::trylock - Threading
 
 ```cpp
-// PROTOTYPE
+// PROTOTYPES
 bool trylock();
 bool try_lock();
 ```
+<!-- spark_wiring_thread.h 290 -->
 
 Attempts to lock the recursive mutex If it is unlocked or locked from this thread, it will be locked and `true` is returned. If it is already locked, `false` is returned and the thread that previously held the lock will continue to hold the lock.
 
@@ -24388,6 +26401,7 @@ You cannot lock a recursive mutex from an ISR.
 // PROTOTYPE
 void unlock();
 ```
+<!-- spark_wiring_thread.h 292 -->
 
 Unlocks the recursive mutex. Typically only the thread that locked the mutex will unlock it.
 
@@ -24439,6 +26453,12 @@ of the format:
 
 Such as "0.4.7".
 
+```cpp
+// PROTOTYPE
+String version();
+```
+<!-- spark_wiring_system.h 800 -->
+
 For example
 
 ```
@@ -24455,6 +26475,12 @@ void setup()
 ### versionNumber()
 
 {{api name1="System.versionNumber"}}
+
+```cpp
+// PROTOTYPE
+uint32_t versionNumber();
+```
+<!-- spark_wiring_system.h 808 -->
 
 Determines the version of Device OS available. Returns the version encoded
 as a number:
@@ -24478,6 +26504,12 @@ Firmware 0.4.7 has a version number 0x00040700
 Can be used to determine how long the System button (SETUP on Photon, MODE on other devices) has been pushed.
 
 Returns `uint16_t` as duration button has been held down in milliseconds.
+
+```cpp
+// PROTOTYPE
+static uint16_t buttonPushed(uint8_t button = 0);
+```
+<!-- spark_wiring_system.h 592 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -24536,6 +26568,12 @@ be more suitable.
 
 {{api name1="System.ticks"}}
 
+```cpp
+// PROTOTYPE
+static inline uint32_t ticks();
+```
+<!-- spark_wiring_system.h 446 -->
+
 Returns the current value of the system tick count. One tick corresponds to
 one cpu cycle.
 
@@ -24548,6 +26586,12 @@ one cpu cycle.
 #### ticksPerMicrosecond();
 
 {{api name1="System.ticksPerMicrosecond"}}
+
+```cpp
+// PROTOTYPE
+static inline uint32_t ticksPerMicrosecond();
+```
+<!-- spark_wiring_system.h 442 -->
 
 Retrieves the number of ticks per microsecond for this device. This is useful
 when converting between a number of ticks and time in microseconds.
@@ -24566,6 +26610,12 @@ when converting between a number of ticks and time in microseconds.
 #### ticksDelay()
 
 {{api name1="System.ticksDelay"}}
+
+```cpp
+// PROTOTYPE
+static inline void ticksDelay(uint32_t duration);
+```
+<!-- spark_wiring_system.h 459 -->
 
 Pause execution a given number of ticks. This can be used to implement precise
 delays.
@@ -24595,6 +26645,12 @@ at compile time and inline the function calls, reducing overhead to a minimum.
 Retrieves the amount of free memory in the system in bytes.
 
 ```cpp
+// PROTOTYPE
+static uint32_t freeMemory();
+```
+<!-- spark_wiring_system.h 752 -->
+
+```cpp
 uint32_t freemem = System.freeMemory();
 Serial.print("free memory: ");
 Serial.println(freemem);
@@ -24611,11 +26667,13 @@ the system. See [out of memory handler](/firmware/best-practices/code-size-tips/
 
 ```cpp
 // PROTOTYPES
-void reset();
-void reset(SystemResetFlags flags);
-void reset(uint32_t data, SystemResetFlags flags = SystemResetFlags());
+static void reset();
+static void reset(SystemResetFlags flags);
+static void reset(uint32_t data, SystemResetFlags flags = SystemResetFlags());
+```
+<!-- spark_wiring_system.h 435 -->
 
-
+```cpp
 // EXAMPLE
 uint32_t lastReset = 0;
 
@@ -24651,9 +26709,10 @@ In Device OS 2.0.0 and later, a call to `System.reset()` defaults to notifying t
 
 ```cpp
 // PROTOTYPES
-void dfu(SystemResetFlags flags = SystemResetFlags());
-void dfu(bool persist);
+static void dfu(SystemResetFlags flags = SystemResetFlags());
+static void dfu(bool persist);
 ```
+<!-- spark_wiring_system.h 433 -->
 
 The device will enter DFU-mode to allow new user firmware to be refreshed. DFU mode is cancelled by
 
@@ -24684,8 +26743,9 @@ new firmware is flashed, pass `true` for the `persist` flag.
 
 ```cpp
 // PROTOTYPE
-void enterSafeMode(SystemResetFlags flags = SystemResetFlags())
+static void enterSafeMode(SystemResetFlags flags = SystemResetFlags());
 ```
+<!-- spark_wiring_system.h 439 -->
 
 {{since when="0.4.6"}}
 
@@ -24707,6 +26767,12 @@ In Device OS 2.0.0 and later, a call to `System.dfu()` defaults to notifying the
 {{api name1="System.deviceID"}}
 
 `System.deviceID()` provides an easy way to extract the device ID of your device. It returns a [String object](#string-class) of the device ID, which is used to identify your device.
+
+```cpp
+// PROTOTYPE
+static String deviceID(void);
+```
+<!-- spark_wiring_system.h 588 -->
 
 ```cpp
 // EXAMPLE USAGE
@@ -24733,6 +26799,12 @@ void loop() {}
 
 {{since when="0.8.0"}}
 
+```cpp
+// PROTOTYPE
+static uint64_t millis();
+```
+<!-- spark_wiring_system.h 940 -->
+
 Returns the number of milliseconds passed since the device was last reset. This function is similar to the global [`millis()`](#millis-time) function but returns a 64-bit value.
 
 While the 32-bit `millis()` rolls over to 0 after approximately 49 days, the 64-bit `System.millis()` does not.
@@ -24746,6 +26818,12 @@ As a workaround you can use the `Print64` firmware library in the community libr
 {{api name1="System.uptime"}}
 
 {{since when="0.8.0"}}
+
+```cpp
+// PROTOTYPE
+static unsigned uptime();
+```
+<!-- spark_wiring_system.h 944 -->
 
 Returns the number of seconds passed since the device was last reset.
 
@@ -24766,7 +26844,10 @@ Determines the power source, typically one of:
 ```cpp
 // PROTOTYPE
 int powerSource() const;
+```
+<!-- spark_wiring_system.h 960 -->
 
+```cpp
 // CONSTANTS
 typedef enum {
     POWER_SOURCE_UNKNOWN = 0,
@@ -24803,8 +26884,11 @@ Determines the state of battery charging.
 
 ```cpp
 // PROTOTYPE
-int batteryState() const
+int batteryState() const;
+```
+<!-- spark_wiring_system.h 969 -->
 
+```cpp
 // CONSTANTS
 typedef enum {
     BATTERY_STATE_UNKNOWN = 0,
@@ -24843,8 +26927,11 @@ Determines the battery state of charge (SoC) as a percentage, as a floating poin
 
 ```cpp
 // PROTOTYPE
-float batteryCharge() const
+float batteryCharge() const;
+```
+<!-- spark_wiring_system.h 978 -->
 
+```cpp
 // EXAMPLE
 float batterySoc = System.batteryCharge();
 Log.info("soc=%.1f", batterySoc);
@@ -24869,6 +26956,16 @@ It is not available on the P2, Photon 2, Argon, Photon, or P1.
 Register a handler function that will be called by Device OS when new assets have been delivered to the device using Asset OTA. Your handler will be called before the application `setup()`. It will receive a vector of all the application assets, not just the new ones.
 
 The `System.onAssetOta()` call is typically made from the `STARTUP()` macro to ensure your handler is registered before `setup()` is called.
+
+```cpp
+// PROTOTYPES
+static int onAssetOta(OnAssetOtaCallback callback, void* context = nullptr);
+static int onAssetOta(OnAssetOtaStdFunc callback);
+
+template<typename T>
+static int onAssetOta(void(T::*callback)(spark::Vector<ApplicationAsset> assets), T* instance);
+```
+<!-- spark_wiring_system.h 1075 -->
 
 ```cpp
 void handleAssets(spark::Vector<ApplicationAsset> assets);
@@ -24944,6 +27041,12 @@ See [`ApplicationAsset`](#applicationasset) class for using the vector of applic
 This method allows to disable automatic resetting of the device on such events as successful firmware update.
 
 ```cpp
+// PROTOTYPE
+inline void disableReset();
+```
+<!-- spark_wiring_system.h 854 -->
+
+```cpp
 // EXAMPLE
 void on_reset_pending() {
     // Enable resetting of the device. The system will reset after this method is called
@@ -24968,11 +27071,23 @@ When the system needs to reset the device it first sends the [`reset_pending`](#
 
 {{api name1="System.enableReset"}}
 
+```cpp
+// PROTOTYPE
+inline void enableReset();
+```
+<!-- spark_wiring_system.h 850 -->
+
 Allows the system to reset the device when necessary.
 
 ### resetPending()
 
 {{api name1="System.resetPending"}}
+
+```cpp
+// PROTOTYPE
+inline uint8_t resetPending();
+```
+<!-- spark_wiring_system.h 862 -->
 
 Returns `true` if the system needs to reset the device.
 
@@ -25233,6 +27348,13 @@ static bool clearEnv(bool reset = true);
 {{api name1="System.set"}}
 
 System configuration can be modified with the `System.set()` call.
+
+```cpp
+// PROTOTYPES
+bool set(hal_system_config_t config_type, const void* data, unsigned length);
+bool set(hal_system_config_t config_type, const char* data);
+```
+<!-- spark_wiring_system.h 773 -->
 
 ```cpp
 // SYNTAX
@@ -25661,6 +27783,12 @@ detachSystemInterrupt(SysInterrupt_TIM5);
 
 _Since 0.8.0_
 
+```cpp
+// PROTOTYPE
+bool attachInterruptDirect(IRQn_Type irq, hal_interrupt_direct_handler_t handler, bool enable = true);
+```
+<!-- spark_wiring_interrupts.h 56 -->
+
 Registers a function that is called when an interrupt happens. This function installs the interrupt handler function directly into the interrupt vector table and will override system handlers for the specified interrupt.
 
 **NOTE**: Most likely use-cases:
@@ -25702,6 +27830,12 @@ EXTI_ClearFlag(EXTI9_5_IRQn);
 
 _Since 0.8.0_
 
+```cpp
+// PROTOTYPE
+bool detachInterruptDirect(IRQn_Type irq, bool disable = true);
+```
+<!-- spark_wiring_interrupts.h 57 -->
+
 Unregisters application-provided interrupt handlers for the given interrupt and restores the default one.
 
 ```cpp
@@ -25724,6 +27858,12 @@ Parameters:
 {{since when="0.6.1"}}
 
 Allows a pin to mirror the functionality of the SETUP/MODE button.
+
+```cpp
+// PROTOTYPE
+void buttonMirror(hal_pin_t pin, InterruptMode mode, bool bootloader = false) const;
+```
+<!-- spark_wiring_system.h 931 -->
 
 ```cpp
 // SYNTAX
@@ -25762,6 +27902,12 @@ STARTUP(System.buttonMirror(D1, RISING, true));
 Disables SETUP button mirroring on a pin.
 
 ```cpp
+// PROTOTYPE
+void disableButtonMirror(bool bootloader = true) const;
+```
+<!-- spark_wiring_system.h 935 -->
+
+```cpp
 // SYNTAX
 System.disableButtonMirror();
 System.disableButtonMirror(false);
@@ -25782,6 +27928,13 @@ The system allows to alter certain aspects of its default behavior via the syste
 {{api name1="FEATURE_RETAINED_MEMORY"}}
 
 Enables/disables retained memory on backup power (disabled by default) (see [Enabling Backup RAM (SRAM)](#enabling-backup-ram-sram-))
+
+```cpp
+// PROTOTYPES
+inline int enableFeature(HAL_Feature feature);
+inline int disableFeature(HAL_Feature feature);
+```
+<!-- spark_wiring_system.h 788 -->
 
 ```cpp
 // SYNTAX
@@ -26394,6 +28547,13 @@ count as a data operation for billing purposes.
 `System.disableUpdates()` should not be called from `STARTUP()`.
 
 ### System.disableUpdates()
+
+```cpp
+// PROTOTYPE
+inline void disableUpdates();
+```
+<!-- spark_wiring_system.h 824 -->
+
 ```cpp
 // System.disableUpdates() example where updates are disabled
 // when the device is busy.
@@ -26453,6 +28613,12 @@ device that has called `System.disableUpdates()` will result in the
 ### System.enableUpdates()
 
 {{api name1="System.enableUpdates"}}
+
+```cpp
+// PROTOTYPE
+inline void enableUpdates();
+```
+<!-- spark_wiring_system.h 820 -->
 
 ```cpp
 // System.enableUpdates() example where updates are disabled on startup
@@ -26518,6 +28684,12 @@ Releases](/getting-started/cloud/ota-updates/#intelligent-firmware-releases).
 {{api name1="System.updatesEnabled"}}
 
 ```cpp
+// PROTOTYPE
+inline uint8_t updatesEnabled();
+```
+<!-- spark_wiring_system.h 832 -->
+
+```cpp
 // System.updatesEnabled() example
 bool isSafeToUpdate() {
   return true;
@@ -26542,6 +28714,12 @@ Returns `true` on startup, and after `System.enableUpdates()` has been called. R
 ### System.updatesPending()
 
 {{api name1="System.updatesPending"}}
+
+```cpp
+// PROTOTYPE
+inline uint8_t updatesPending();
+```
+<!-- spark_wiring_system.h 828 -->
 
 ```cpp
 // System.updatesPending() example
@@ -26612,6 +28790,12 @@ OTA update is queued,
 ### System.updatesForced()
 
 {{api name1="System.updatesForced"}}
+
+```cpp
+// PROTOTYPE
+inline uint8_t updatesForced();
+```
+<!-- spark_wiring_system.h 836 -->
 
 ```cpp
 // System.updatesForced() example
@@ -27086,6 +29270,22 @@ Constructs an instance of the String class. There are multiple versions that con
   * a float variable, showing a specific number of decimal places
 
 ```cpp
+// PROTOTYPES
+String(const char *cstr = "");
+String(const char *cstr, unsigned int length);
+String(const String &str);
+explicit String(char c);
+explicit String(unsigned char, unsigned char base=10);
+explicit String(int, unsigned char base=10);
+explicit String(unsigned int, unsigned char base=10);
+explicit String(long, unsigned char base=10);
+explicit String(unsigned long, unsigned char base=10);
+explicit String(float, int decimalPlaces=6);
+explicit String(double, int decimalPlaces=6);
+```
+<!-- spark_wiring_string.h 60 -->
+
+```cpp
 // SYNTAX
 String(val)
 String(val, base)
@@ -27101,19 +29301,6 @@ String stringOne =  String(45, HEX);                   // using an int and a bas
 String stringOne =  String(255, BIN);                  // using an int and a base (binary)
 String stringOne =  String(millis(), DEC);             // using a long and a base
 String stringOne =  String(34.5432, 2);                // using a float showing only 2 decimal places shows 34.54
-
-// PROTOTYPES
-String(const char *cstr = "");
-String(const char *cstr, unsigned int length);
-String(const String &str);
-explicit String(char c);
-explicit String(unsigned char, unsigned char base=10);
-explicit String(int, unsigned char base=10);
-explicit String(unsigned int, unsigned char base=10);
-explicit String(long, unsigned char base=10);
-explicit String(unsigned long, unsigned char base=10);
-explicit String(float, int decimalPlaces=6);
-explicit String(double, int decimalPlaces=6);
 ```
 
 Constructing a String from a number results in a string that contains the ASCII representation of that number. The default is base ten, so
@@ -27143,11 +29330,14 @@ Returns: an instance of the String class
 Access a particular character of the String.
 
 ```cpp
-// SYNTAX
-string.charAt(n)
-
 // PROTOTYPE
 char charAt(unsigned int index) const;
+```
+<!-- spark_wiring_string.h 185 -->
+
+```cpp
+// SYNTAX
+string.charAt(n)
 ```
 Parameters:
 
@@ -27169,12 +29359,15 @@ Compares two Strings, testing whether one comes before or after the other, or wh
 
 String comparison only compares the 8-bit ASCII values. It does not compare UTF-8 encoded strings properly.
 
-```cpp  
-// SYNTAX
-string.compareTo(string2)
-
+```cpp
 // PROTOTYPE
 int compareTo(const String &s) const;
+```
+<!-- spark_wiring_string.h 163 -->
+
+```cpp
+// SYNTAX
+string.compareTo(string2)
 ```
 
 Parameters:
@@ -27216,9 +29409,6 @@ In addition to the `compareTo` method, the class also supports the comparison op
 Combines, or *concatenates* two strings into one string. The second string is appended to the first, and the result is placed in the original string.
 
 ```cpp
-// SYNTAX
-string.concat(string2)
-
 // PROTOTYPES
 unsigned char concat(const String &str);
 unsigned char concat(const char *cstr);
@@ -27230,6 +29420,12 @@ unsigned char concat(long num);
 unsigned char concat(unsigned long num);
 unsigned char concat(float num);
 unsigned char concat(double num);
+```
+<!-- spark_wiring_string.h 120 -->
+
+```cpp
+// SYNTAX
+string.concat(string2)
 ```
 
 Parameters:
@@ -27265,11 +29461,14 @@ In addition to the `concat` method, you can use the concatenation operator `+=` 
 Tests whether or not a String ends with the characters of another String.
 
 ```cpp
-// SYNTAX
-string.endsWith(string2)
-
 // PROTOTYPE
 unsigned char endsWith(const String &suffix) const;
+```
+<!-- spark_wiring_string.h 182 -->
+
+```cpp
+// SYNTAX
+string.endsWith(string2)
 ```
 
 Parameters:
@@ -27290,12 +29489,15 @@ Returns:
 Compares two strings for equality. The comparison is case-sensitive, meaning the String "hello" is not equal to the String "HELLO".
 
 ```cpp
-// SYNTAX
-string.equals(string2)
-
 // PROTOTYPES
 unsigned char equals(const String &s) const;
 unsigned char equals(const char *cstr) const;
+```
+<!-- spark_wiring_string.h 165 -->
+
+```cpp
+// SYNTAX
+string.equals(string2)
 ```
 Parameters:
 
@@ -27335,11 +29537,14 @@ In addition to the `equals` method, the class also supports the equility operato
 Compares two strings for equality. The comparison is not case-sensitive, meaning the String("hello") is equal to the String("HELLO").
 
 ```cpp
-// SYNTAX
-string.equalsIgnoreCase(string2)
-
 // PROTOTYPE
 unsigned char equalsIgnoreCase(const String &s) const;
+```
+<!-- spark_wiring_string.h 179 -->
+
+```cpp
+// SYNTAX
+string.equalsIgnoreCase(string2)
 ```
 Parameters:
 
@@ -27360,16 +29565,18 @@ This function only works properly with 7-bit ASCII characters. It does not corre
 
 
 ```cpp
+// PROTOTYPE
+static String format(const char* format, ...);
+```
+<!-- spark_wiring_string.h 221 -->
+
+```cpp
 // EXAMPLE
 Particle.publish("startup", String::format("frobnicator started at %s", Time.timeStr().c_str()));
 
 // EXAMPLE
 int a = 123;
 Particle.publish("startup", String::format("{\"a\":%d}", a);
-
-
-// PROTOTYPE
-static String format(const char* format, ...);
 ```
 
 Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting for strings.
@@ -27393,11 +29600,14 @@ String s = String::format("testing %d", a);
 Copies the string's characters to the supplied buffer.
 
 ```cpp
-// SYNTAX
-string.getBytes(buf, len)
-
 // PROTOTYPE
 void getBytes(unsigned char *buf, unsigned int bufsize, unsigned int index=0) const;
+```
+<!-- spark_wiring_string.h 189 -->
+
+```cpp
+// SYNTAX
+string.getBytes(buf, len)
 ```
 Parameters:
 
@@ -27414,11 +29624,14 @@ Returns: None
 Gets a pointer (const char *) to the internal c-string representation of the string. You can use this to pass to a function that require a c-string. This string cannot be modified.
 
 ```cpp
-// SYNTAX
-const char *s = string.c_str();
-
 // PROTOTYPE
 const char * c_str() const;
+```
+<!-- spark_wiring_string.h 192 -->
+
+```cpp
+// SYNTAX
+const char *s = string.c_str();
 ```
 	
 
@@ -27443,15 +29656,18 @@ Log.info("ip addr: %s", WiFi.localIP().toString().c_str());
 Locates a character or String within another String. By default, searches from the beginning of the String, but can also start from a given index, allowing for the locating of all instances of the character or String.
 
 ```cpp
-// SYNTAX
-string.indexOf(val)
-string.indexOf(val, from)
-
 // PROTOTYPES
 int indexOf( char ch ) const;
 int indexOf( char ch, unsigned int fromIndex ) const;
 int indexOf( const String &str ) const;
 int indexOf( const String &str, unsigned int fromIndex ) const;
+```
+<!-- spark_wiring_string.h 195 -->
+
+```cpp
+// SYNTAX
+string.indexOf(val)
+string.indexOf(val, from)
 ```
 
 Parameters:
@@ -27469,15 +29685,18 @@ Returns: The index of val within the String, or -1 if not found. The index value
 Locates a character or String within another String. By default, searches from the end of the String, but can also work backwards from a given index, allowing for the locating of all instances of the character or String.
 
 ```cpp
-// SYNTAX
-string.lastIndexOf(val)
-string.lastIndexOf(val, from)
-
 // PROTOTYPES
 int lastIndexOf( char ch ) const;
 int lastIndexOf( char ch, unsigned int fromIndex ) const;
 int lastIndexOf( const String &str ) const;
 int lastIndexOf( const String &str, unsigned int fromIndex ) const;
+```
+<!-- spark_wiring_string.h 199 -->
+
+```cpp
+// SYNTAX
+string.lastIndexOf(val)
+string.lastIndexOf(val, from)
 ```
 
 Parameters:
@@ -27496,11 +29715,14 @@ Returns: The index of val within the String, or -1 if not found. The index value
 Returns the length of the String, in characters. (Note that this doesn't include a trailing null character.)
 
 ```cpp
-// SYNTAX
-string.length()
-
 // PROTOTYPE
 inline unsigned int length(void) const;
+```
+<!-- spark_wiring_string.h 96 -->
+
+```cpp
+// SYNTAX
+string.length()
 ```
 
 Parameters:
@@ -27518,13 +29740,16 @@ The `length()` function is fast and is constant for any length of string, &Omicr
 The String `remove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count. This modifies the object, not a copy.
 
 ```cpp
-// SYNTAX
-string.remove(index)
-string.remove(index,count)
-
 // PROTOTYPES
 String& remove(unsigned int index);
 String& remove(unsigned int index, unsigned int count);
+```
+<!-- spark_wiring_string.h 209 -->
+
+```cpp
+// SYNTAX
+string.remove(index)
+string.remove(index,count)
 ```
 
 Parameters:
@@ -27542,12 +29767,15 @@ Returns: A reference to the String object (`*this`).
 The String `replace()` function allows you to replace all instances of a given character with another character. You can also use replace to replace substrings of a string with a different substring. This modified the object, not a copy.
 
 ```cpp
-// SYNTAX
-string.replace(substring1, substring2)
-
 // PROTOTYPES
 String& replace(char find, char replace);
 String& replace(const String& find, const String& replace);
+```
+<!-- spark_wiring_string.h 207 -->
+
+```cpp
+// SYNTAX
+string.replace(substring1, substring2)
 ```
 
 Parameters:
@@ -27565,11 +29793,14 @@ Returns: A reference to the String object (`*this`).
 The String reserve() function allows you to allocate a buffer in memory for manipulating strings.
 
 ```cpp
-// SYNTAX
-string.reserve(size)
-
 // PROTOTYPE
 unsigned char reserve(unsigned int size);
+```
+<!-- spark_wiring_string.h 94 -->
+
+```cpp
+// SYNTAX
+string.reserve(size)
 ```
 Parameters:
 
@@ -27611,11 +29842,14 @@ void loop() {
 Sets a character of the String. Has no effect on indices outside the existing length of the String.
 
 ```cpp
-// SYNTAX
-string.setCharAt(index, c)
-
 // PROTOTYPE
 void setCharAt(unsigned int index, char c);
+```
+<!-- spark_wiring_string.h 186 -->
+
+```cpp
+// SYNTAX
+string.setCharAt(index, c)
 ```
 Parameters:
 
@@ -27632,12 +29866,15 @@ Returns: None
 Tests whether or not a String starts with the characters of another String.
 
 ```cpp
-// SYNTAX
-string.startsWith(string2)
-
 // PROTOTYPES
 unsigned char startsWith( const String &prefix) const;
 unsigned char startsWith(const String &prefix, unsigned int offset) const;
+```
+<!-- spark_wiring_string.h 180 -->
+
+```cpp
+// SYNTAX
+string.startsWith(string2)
 ```
 
 Parameters:
@@ -27657,13 +29894,16 @@ Returns:
 Get a substring of a String. The starting index is inclusive (the corresponding character is included in the substring), but the optional ending index is exclusive (the corresponding character is not included in the substring). If the ending index is omitted, the substring continues to the end of the String.
 
 ```cpp
+// PROTOTYPES
+String substring( unsigned int beginIndex ) const;
+String substring( unsigned int beginIndex, unsigned int endIndex ) const;
+```
+<!-- spark_wiring_string.h 203 -->
+
+```cpp
 // SYNTAX
 string.substring(from)
 string.substring(from, to)
-
-// PROTOTYPE
-String substring( unsigned int beginIndex ) const;
-String substring( unsigned int beginIndex, unsigned int endIndex ) const;
 ```
 
 Parameters:
@@ -27681,12 +29921,14 @@ Returns: the substring
 Copies the string's characters to the supplied buffer.
 
 ```cpp
+// PROTOTYPE
+void toCharArray(char *buf, unsigned int bufsize, unsigned int index=0) const;
+```
+<!-- spark_wiring_string.h 190 -->
+
+```cpp
 // SYNTAX
 string.toCharArray(buf, len)
-
-// PROTOTYPES
-String substring( unsigned int beginIndex ) const;
-String substring( unsigned int beginIndex, unsigned int endIndex ) const;
 ```
 Parameters:
 
@@ -27703,11 +29945,14 @@ Returns: None
 Converts a valid String to a float. The input string should start with a digit. If the string contains non-digit characters, the function will stop performing the conversion. For example, the strings "123.45", "123", and "123fish" are converted to 123.45, 123.00, and 123.00 respectively. Note that "123.456" is approximated with 123.46. Note too that floats have only 6-7 decimal digits of precision and that longer strings might be truncated.
 
 ```cpp
-// SYNTAX
-string.toFloat()
-
 // PROTOTYPE
 float toFloat(void) const;
+```
+<!-- spark_wiring_string.h 219 -->
+
+```cpp
+// SYNTAX
+string.toFloat()
 ```
 
 Parameters:
@@ -27723,11 +29968,14 @@ Returns: float (If no valid conversion could be performed because the string doe
 Converts a valid String to an integer. The input string should start with an integral number. If the string contains non-integral numbers, the function will stop performing the conversion.
 
 ```cpp
-// SYNTAX
-string.toInt()
-
 // PROTOTYPE
 long toInt(void) const;
+```
+<!-- spark_wiring_string.h 216 -->
+
+```cpp
+// SYNTAX
+string.toInt()
 ```
 
 Parameters:
@@ -27743,11 +29991,14 @@ Returns: long (If no valid conversion could be performed because the string does
 Get a lower-case version of a String. `toLowerCase()` modifies the string in place.
 
 ```cpp
-// SYNTAX
-string.toLowerCase()
-
 // PROTOTYPE
 String& toLowerCase(void);
+```
+<!-- spark_wiring_string.h 211 -->
+
+```cpp
+// SYNTAX
+string.toLowerCase()
 ```
 
 Parameters:
@@ -27765,11 +30016,14 @@ This function only works properly with 7-bit ASCII characters. It does not corre
 Get an upper-case version of a String. `toUpperCase()` modifies the string in place.
 
 ```cpp
-// SYNTAX
-string.toUpperCase()
-
 // PROTOTYPE
 String& toUpperCase(void);
+```
+<!-- spark_wiring_string.h 212 -->
+
+```cpp
+// SYNTAX
+string.toUpperCase()
 ```
 
 Parameters:
@@ -27787,11 +30041,14 @@ This function only works properly with 7-bit ASCII characters. It does not corre
 Removes any leading and trailing whitespace (space or tab) from the string.
 
 ```cpp
-// SYNTAX
-string.trim()
-
 // PROTOTYPE
 String& trim(void);
+```
+<!-- spark_wiring_string.h 213 -->
+
+```cpp
+// SYNTAX
+string.trim()
 ```
 
 Parameters:
@@ -27824,7 +30081,10 @@ Some of the Particle classes that rely on Stream include :
 ```cpp
 // PROTOTYPE
 void setTimeout(system_tick_t timeout);
+```
+<!-- spark_wiring_stream.h 64 -->
 
+```cpp
 // SYNTAX
 stream.setTimeout(time);
 ```
@@ -27845,8 +30105,11 @@ Returns: None
 ```cpp
 // PROTOTYPES
 bool find(char *target);
-bool find(char *target, size_t length); 
+bool find(char *target, size_t length);
+```
+<!-- spark_wiring_stream.h 66 -->
 
+```cpp
 // SYNTAX
 stream.find(target);		// reads data from the stream until the target string is found
 stream.find(target, length);	// reads data from the stream until the target string of given length is found
@@ -27870,7 +30133,10 @@ Returns: returns true if target string is found, false if timed out
 // PROTOTYPES
 bool findUntil(char *target, char *terminator);
 bool findUntil(char *target, size_t targetLen, char *terminate, size_t termLen);
+```
+<!-- spark_wiring_stream.h 72 -->
 
+```cpp
 // SYNTAX
 stream.findUntil(target, terminal);		// reads data from the stream until the target string or terminator is found
 stream.findUntil(target, terminal, length);	// reads data from the stream until the target string of given length or terminator is found
@@ -27893,8 +30159,11 @@ Returns: returns true if target string or terminator string is found, false if t
 
 ```cpp
 // PROTOTYPE
-size_t readBytes( char *buffer, size_t length); 
+virtual size_t readBytes( char *buffer, size_t length);
+```
+<!-- spark_wiring_stream.h 83 -->
 
+```cpp
 // SYNTAX
 stream.readBytes(buffer, length);
 ```
@@ -27916,7 +30185,10 @@ Returns: returns the number of characters placed in the buffer (0 means no valid
 ```cpp
 // PROTOTYPE
 size_t readBytesUntil( char terminator, char *buffer, size_t length);
+```
+<!-- spark_wiring_stream.h 87 -->
 
+```cpp
 // SYNTAX
 stream.readBytesUntil(terminator, buffer, length);
 ```
@@ -27939,7 +30211,10 @@ Returns: returns the number of characters placed in the buffer (0 means no valid
 ```cpp
 // PROTOTYPE
 String readString();
+```
+<!-- spark_wiring_stream.h 92 -->
 
+```cpp
 // SYNTAX
 stream.readString();
 ```
@@ -27959,7 +30234,10 @@ Returns: the entire string read from stream (String)
 ```cpp
 // PROTOTYPE
 String readStringUntil(char terminator);
+```
+<!-- spark_wiring_stream.h 93 -->
 
+```cpp
 // SYNTAX
 stream.readStringUntil(terminator);
 ```
@@ -27981,10 +30259,13 @@ Returns: the entire string read from stream, until the terminator character is d
  - Parsing stops when no characters have been read for a configurable time-out value, or a non-digit is read;
 
 ```cpp
-// PROTOTYPE
+// PROTOTYPES
 long parseInt();
 long parseInt(char skipChar);
+```
+<!-- spark_wiring_stream.h 77 -->
 
+```cpp
 // SYNTAX
 stream.parseInt();
 stream.parseInt(skipChar);	// allows format characters (typically commas) in values to be ignored
@@ -28007,7 +30288,10 @@ Returns: parsed int value (long). If no valid digits were read when the time-out
 // PROTOTYPES
 float parseFloat();
 float parseFloat(char skipChar);
+```
+<!-- spark_wiring_stream.h 81 -->
 
+```cpp
 // SYNTAX
 stream.parsetFloat();
 stream.parsetFloat(skipChar);	// allows format characters (typically commas) in values to be ignored
@@ -29687,6 +31971,33 @@ This class is used to generate log messages. The library also provides default i
 
 `Logger()`  
 `Logger(const char *name)`
+
+```cpp
+// PROTOTYPES
+explicit Logger(const char *name = LOG_MODULE_CATEGORY);
+
+void trace(const char *fmt, ...) const;
+void info(const char *fmt, ...) const;
+void warn(const char *fmt, ...) const;
+void error(const char *fmt, ...) const;
+void log(const char *fmt, ...) const;
+void log(LogLevel level, const char *fmt, ...) const;
+void printf(const char *fmt, ...) const;
+void printf(LogLevel level, const char *fmt, ...) const;
+void print(const char *str) const;
+void print(LogLevel level, const char *str) const;
+void write(const char *data, size_t size) const;
+void write(LogLevel level, const char *data, size_t size) const;
+void dump(const void *data, size_t size) const;
+void dump(LogLevel level, const void *data, size_t size) const;
+bool isTraceEnabled() const;
+bool isInfoEnabled() const;
+bool isWarnEnabled() const;
+bool isErrorEnabled() const;
+bool isLevelEnabled(LogLevel level) const;
+const char* name() const;
+```
+<!-- spark_wiring_logging.h 252 -->
 
 ```cpp
 // EXAMPLE
