@@ -4784,7 +4784,12 @@
     {
       "country": "Armenia",
       "carrier": "ArmenTel",
-      "sunset2G": "NA",
+      "aliases": [
+        "Team Telecom Armenia",
+        "Telcom Armenia",
+        "VEON Armenia"
+      ],
+      "sunset2G": "2026-04-30",
       "sunset3G": "NA",
       "bands": [
         "2G-900",
@@ -7812,7 +7817,7 @@
     {
       "country": "China",
       "carrier": "China Mobile",
-      "sunset2G": "2025-12-31",
+      "sunset2G": "2026-06-23",
       "sunset3G": "2023-12-31",
       "supersim": {
         "allow2G": true,
@@ -7884,7 +7889,7 @@
       "country": "China",
       "carrier": "China Unicom",
       "sunset2G": "2020-01-01",
-      "sunset3G": "2024-12-31",
+      "sunset3G": "2026-06-30",
       "supersim": {
         "allow3G": true,
         "allow4G": true,
@@ -11266,10 +11271,11 @@
       "country": "Greenland",
       "carrier": "Tele",
       "aliases": [
+        "Tusass",
         "TeleGreenland",
         "TELE Greenland A/S"
       ],
-      "sunset3G": "2023-12-31",
+      "sunset3G": "2026-04-01",
       "telefonicaBundle2018": {
         "partnerZone": 5,
         "allow3G": true,
@@ -12387,7 +12393,7 @@
       "country": "Iceland",
       "carrier": "Nova",
       "sunset2G": "NA",
-      "sunset3G": "2025-12-31",
+      "sunset3G": "2026-04-30",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -13920,8 +13926,8 @@
     {
       "country": "Israel",
       "carrier": "Partner",
-      "sunset2G": "2025-12-31",
-      "sunset3G": "2025-12-31",
+      "sunset2G": "2026-04-30",
+      "sunset3G": "2026-05-01",
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -26257,6 +26263,11 @@
       "technologies": [
         "2G",
         "M1"
+      ],
+      "env": [
+        "PARTICLE_CELLULAR_PREFERRED_PLMN",
+        "PARTICLE_CELLULAR_PREFERRED_BANDS",
+        "PARTICLE_CELLULAR_FORBIDDEN_BANDS"
       ]
     },
     {
@@ -56990,12 +57001,21 @@
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "warn",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "China Mobile": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "4G-38",
           "4G-39",
           "4G-40",
@@ -57004,8 +57024,6 @@
           "4G-3"
         ],
         "China Mobile": [
-          "2G-900",
-          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
@@ -57145,23 +57163,24 @@
       "recommendation": "NR",
       "reason": "Permanent roaming issues, band compatibility",
       "technologies": [
+        "3G",
         "4G"
       ],
       "supported": {
         "*": [
+          "3G-1",
           "4G-3"
         ],
         "China Unicom": [
+          "3G-1",
           "4G-3"
         ]
       },
       "notSupported": {
         "*": [
-          "3G-1",
           "4G-41"
         ],
         "China Unicom": [
-          "3G-1",
           "4G-41"
         ]
       }
@@ -57174,36 +57193,40 @@
       "reason": "Permanent roaming issues, band compatibility",
       "roamingRestrictions": "warn",
       "technologies": [
+        "2G",
+        "3G",
         "4G"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
           "4G-3"
         ],
+        "China Mobile": [
+          "2G-900",
+          "2G-1800"
+        ],
         "China Unicom": [
+          "3G-1",
           "4G-3"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
-          "4G-41",
-          "3G-1"
+          "4G-41"
         ],
         "China Mobile": [
-          "2G-900",
-          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41"
         ],
         "China Unicom": [
-          "3G-1",
           "4G-41"
         ]
       }
@@ -57215,23 +57238,24 @@
       "recommendation": "NR",
       "reason": "Permanent roaming issues, band compatibility",
       "technologies": [
+        "3G",
         "4G"
       ],
       "supported": {
         "*": [
+          "3G-1",
           "4G-3"
         ],
         "China Unicom": [
+          "3G-1",
           "4G-3"
         ]
       },
       "notSupported": {
         "*": [
-          "3G-1",
           "4G-41"
         ],
         "China Unicom": [
-          "3G-1",
           "4G-41"
         ]
       }
@@ -57244,36 +57268,40 @@
       "reason": "Permanent roaming issues, band compatibility",
       "roamingRestrictions": "warn",
       "technologies": [
+        "2G",
+        "3G",
         "4G"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
           "4G-3"
         ],
+        "China Mobile": [
+          "2G-900",
+          "2G-1800"
+        ],
         "China Unicom": [
+          "3G-1",
           "4G-3"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
-          "4G-41",
-          "3G-1"
+          "4G-41"
         ],
         "China Mobile": [
-          "2G-900",
-          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41"
         ],
         "China Unicom": [
-          "3G-1",
           "4G-41"
         ]
       }
@@ -57318,12 +57346,21 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "2G-only model discontinued",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "China Mobile": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "4G-38",
           "4G-39",
           "4G-40",
@@ -57332,8 +57369,6 @@
           "4G-3"
         ],
         "China Mobile": [
-          "2G-900",
-          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
@@ -57434,23 +57469,19 @@
       "reason": "Poor band fit, relies on 2G or 3G",
       "supported": {
         "*": [
+          "3G-1",
           "4G-3",
           "4G-41"
         ],
         "China Unicom": [
+          "3G-1",
           "4G-3",
           "4G-41"
         ]
       },
-      "notSupported": {
-        "*": [
-          "3G-1"
-        ],
-        "China Unicom": [
-          "3G-1"
-        ]
-      },
+      "notSupported": {},
       "technologies": [
+        "3G",
         "4G"
       ],
       "roamingRestrictions": "warn"
@@ -57489,29 +57520,39 @@
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "technologies": [
+        "2G",
+        "3G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
           "2G-1800",
+          "3G-1"
+        ],
+        "China Mobile": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "China Unicom": [
+          "3G-1"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41",
-          "3G-1",
           "4G-3"
         ],
         "China Mobile": [
-          "2G-900",
-          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41"
         ],
         "China Unicom": [
-          "3G-1",
           "4G-3",
           "4G-41"
         ]
@@ -57522,16 +57563,23 @@
       "modem": "U201",
       "sim": 2,
       "recommendation": "NR",
-      "technologies": [],
-      "supported": {},
+      "technologies": [
+        "3G"
+      ],
+      "supported": {
+        "*": [
+          "3G-1"
+        ],
+        "China Unicom": [
+          "3G-1"
+        ]
+      },
       "notSupported": {
         "*": [
-          "3G-1",
           "4G-3",
           "4G-41"
         ],
         "China Unicom": [
-          "3G-1",
           "4G-3",
           "4G-41"
         ]
@@ -57544,29 +57592,39 @@
       "recommendation": "NR",
       "reason": "Permanent roaming issues",
       "roamingRestrictions": "warn",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "technologies": [
+        "2G",
+        "3G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
           "2G-1800",
+          "3G-1"
+        ],
+        "China Mobile": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "China Unicom": [
+          "3G-1"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41",
-          "3G-1",
           "4G-3"
         ],
         "China Mobile": [
-          "2G-900",
-          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41"
         ],
         "China Unicom": [
-          "3G-1",
           "4G-3",
           "4G-41"
         ]
@@ -57611,29 +57669,39 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NR",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "technologies": [
+        "2G",
+        "3G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
           "2G-1800",
+          "3G-1"
+        ],
+        "China Mobile": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "China Unicom": [
+          "3G-1"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41",
-          "3G-1",
           "4G-3"
         ],
         "China Mobile": [
-          "2G-900",
-          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41"
         ],
         "China Unicom": [
-          "3G-1",
           "4G-3",
           "4G-41"
         ]
@@ -166676,6 +166744,58 @@
       "3G": []
     },
     {
+      "date": "2026-06-30",
+      "country": "China",
+      "items": [
+        {
+          "carrier": "China Unicom",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2026-06-23",
+      "country": "China",
+      "items": [
+        {
+          "carrier": "China Mobile",
+          "rat": "2G"
+        }
+      ],
+      "2G": [],
+      "3G": [
+        "China Unicom"
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "country": "Iceland",
+      "items": [
+        {
+          "carrier": "Nova",
+          "rat": "3G"
+        }
+      ],
+      "2G": [],
+      "3G": []
+    },
+    {
+      "date": "2026-04-01",
+      "country": "Greenland",
+      "items": [
+        {
+          "carrier": "Tele",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "Tele"
+      ],
+      "3G": []
+    },
+    {
       "date": "2026-03-31",
       "country": "Albania",
       "items": [
@@ -166869,18 +166989,6 @@
     },
     {
       "date": "2025-12-31",
-      "country": "China",
-      "items": [
-        {
-          "carrier": "China Mobile",
-          "rat": "2G"
-        }
-      ],
-      "2G": [],
-      "3G": []
-    },
-    {
-      "date": "2025-12-31",
       "country": "Cyprus",
       "items": [
         {
@@ -167021,10 +167129,6 @@
       "country": "Iceland",
       "items": [
         {
-          "carrier": "Nova",
-          "rat": "3G"
-        },
-        {
           "carrier": "Siminn",
           "rat": "3G"
         },
@@ -167034,7 +167138,9 @@
         }
       ],
       "2G": [],
-      "3G": []
+      "3G": [
+        "Nova"
+      ]
     },
     {
       "date": "2025-12-31",
@@ -167766,20 +167872,6 @@
     },
     {
       "date": "2024-12-31",
-      "country": "China",
-      "items": [
-        {
-          "carrier": "China Unicom",
-          "rat": "3G"
-        }
-      ],
-      "2G": [
-        "China Mobile"
-      ],
-      "3G": []
-    },
-    {
-      "date": "2024-12-31",
       "country": "El Salvador",
       "items": [
         {
@@ -168365,20 +168457,6 @@
       "3G": [
         "DNA"
       ]
-    },
-    {
-      "date": "2023-12-31",
-      "country": "Greenland",
-      "items": [
-        {
-          "carrier": "Tele",
-          "rat": "3G"
-        }
-      ],
-      "2G": [
-        "Tele"
-      ],
-      "3G": []
     },
     {
       "date": "2023-12-31",
