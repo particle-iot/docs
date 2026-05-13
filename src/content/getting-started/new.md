@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device usage reports 2026-05-13
+
+Added additional documentation for [device usage reports](/reference/cloud-apis/api/#service-agreements-and-usage) in the Cloud API documentation.
+
 ### Device OS firmware API 2026-05-08
 
 Added C++ prototypes for most functions in the [Device OS firmware API](/reference/device-os/api/) that did not already have them.

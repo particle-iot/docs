@@ -134,7 +134,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2026-02-23T09:26:11.698Z",
+                  "value": "2026-05-13T07:54:59.312Z",
                   "disabled": true
                 }
               ]
@@ -199,7 +199,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2026-02-23T09:26:11.700Z",
+                      "value": "2026-05-13T07:54:59.314Z",
                       "disabled": true
                     }
                   ]
@@ -1596,7 +1596,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2026-02-23T09:26:11.720Z",
+                  "value": "2026-05-13T07:54:59.329Z",
                   "disabled": true
                 },
                 {
@@ -1656,7 +1656,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2026-02-23T09:26:11.721Z",
+                      "value": "2026-05-13T07:54:59.329Z",
                       "disabled": true
                     },
                     {
@@ -2101,6 +2101,74 @@
           ]
         },
         {
+          "name": "List device orders for a product",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/products/:productIdOrSlug/device_orders",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "products",
+                ":productIdOrSlug",
+                "device_orders"
+              ],
+              "query": [],
+              "variables": [
+                {
+                  "key": "productIdOrSlug",
+                  "value": "string",
+                  "description": "Product ID or Slug",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "List device orders associated with the product's organization. Each element represents a single shiment from a wholesale device order. Returns the full list — not paginated. Sorted by latest_fulfilled_at desc (most recently fulfilled first)."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/products/:productIdOrSlug/device_orders",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productIdOrSlug",
+                    "device_orders"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "GET /v1/products/:productIdOrSlug/device_orders\nHTTP/1.1 200 OK\n{\n  \"device_orders\": [\n    {\n      \"id\": \"SO-12345\",\n      \"package_count\": 3,\n      \"total_devices\": 120,\n      \"latest_imported_at\": null,\n      \"latest_fulfilled_at\": \"2026-03-02T00:00:00.000Z\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
           "name": "Get device information",
           "request": {
             "auth": null,
@@ -2371,7 +2439,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id\": \"string\",\n  \"ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"import_sims\": false,\n  \"claim_user\": \"string\"\n}"
+              "raw": "{\n  \"id\": \"string\",\n  \"ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"import_sims\": false,\n  \"claim_user\": \"string\",\n  \"groups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"device_order_id\": \"string\"\n}"
             },
             "url": {
               "raw": "{{url}}/v1/products/:productIdOrSlug/devices",
@@ -2409,7 +2477,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"id\": \"string\",\n  \"ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"import_sims\": false,\n  \"claim_user\": \"string\"\n}"
+                  "raw": "{\n  \"id\": \"string\",\n  \"ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"import_sims\": false,\n  \"claim_user\": \"string\",\n  \"groups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"device_order_id\": \"string\"\n}"
                 },
                 "url": {
                   "raw": "{{url}}/v1/products/:productIdOrSlug/devices",
@@ -3210,13 +3278,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-02-23T09:26:11.733Z",
+                  "value": "2026-05-13T07:54:59.344Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-02-23T09:26:11.733Z",
+                  "value": "2026-05-13T07:54:59.345Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -3517,7 +3585,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "HTTP/1.1 200 OK\n{\n  \"last_snapshot\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Owner\", \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"pdata\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Owner\", \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"pdata\" }\n    }\n  }\n}"
+              "body": "HTTP/1.1 200 OK\n{\n  \"last_snapshot\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Organization\", \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Organization\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"pdata\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Organization\", \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Organization\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"pdata\" }\n    }\n  }\n}"
             },
             {
               "name": "Response",
@@ -3550,7 +3618,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "HTTP/1.1 200 OK\n{\n  \"on_device\": {\n    \"rendered\": {\n      \"SOME_DATA_ON_MY_DEVICE\": \"yay!\"\n    },\n    \"last_reported_at\": \"2025-12-19T21:34:29.671Z\"\n  },\n  \"last_snapshot\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Product\", \"value\": \"pdata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"ddata\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Product\", \"value\": \"pdata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"ddata\" }\n    }\n  }\n}"
+              "body": "HTTP/1.1 200 OK\n{\n  \"on_device\": {\n    \"rendered\": {\n      \"SOME_DATA_ON_MY_DEVICE\": \"yay!\"\n    },\n    \"last_reported_at\": \"2025-12-19T21:34:29.671Z\"\n  },\n  \"last_snapshot\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Product\", \"value\": \"pdata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Organization\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"ddata\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Product\", \"value\": \"pdata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Organization\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"ddata\" }\n    }\n  }\n}"
             }
           ]
         },
@@ -5084,13 +5152,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-02-23T09:26:11.742Z",
+                  "value": "2026-05-13T07:54:59.359Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-02-23T09:26:11.742Z",
+                  "value": "2026-05-13T07:54:59.359Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5191,13 +5259,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-02-23T09:26:11.743Z",
+                  "value": "2026-05-13T07:54:59.360Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-02-23T09:26:11.743Z",
+                  "value": "2026-05-13T07:54:59.360Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5298,13 +5366,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-02-23T09:26:11.744Z",
+                  "value": "2026-05-13T07:54:59.361Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-02-23T09:26:11.745Z",
+                  "value": "2026-05-13T07:54:59.361Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5405,13 +5473,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-02-23T09:26:11.746Z",
+                  "value": "2026-05-13T07:54:59.364Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-02-23T09:26:11.746Z",
+                  "value": "2026-05-13T07:54:59.365Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5512,13 +5580,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-02-23T09:26:11.748Z",
+                  "value": "2026-05-13T07:54:59.366Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-02-23T09:26:11.748Z",
+                  "value": "2026-05-13T07:54:59.366Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -11604,7 +11672,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": " GET /v1/user/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-02-01\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}"
+              "body": " GET /v1/user/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2026-01-01\",\n    \"date_period_end\": \"2026-02-01\",\n    \"created_at\": \"2026-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null,\n    \"day\": null\n  }\n}"
             }
           ]
         },
@@ -11680,7 +11748,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": " GET /v1/orgs/:orgSlugOrId/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-02-01\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}"
+              "body": " GET /v1/orgs/:orgSlugOrId/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2026-01-01\",\n    \"date_period_end\": \"2026-02-01\",\n    \"created_at\": \"2026-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null,\n    \"day\": null\n  }\n}"
             }
           ]
         },
@@ -11767,7 +11835,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"report_type\": \"string\",\n  \"date_period_start\": \"string\",\n  \"date_period_end\": \"string\",\n  \"devices\": [\n    \"string\",\n    \"string\"\n  ],\n  \"products\": [\n    \"string\",\n    \"string\"\n  ]\n}"
+              "raw": "{\n  \"report_type\": \"string\",\n  \"date_period_start\": \"string\",\n  \"date_period_end\": \"string\",\n  \"day\": \"string\",\n  \"devices\": [\n    \"string\",\n    \"string\"\n  ],\n  \"products\": [\n    \"string\",\n    \"string\"\n  ]\n}"
             },
             "url": {
               "raw": "{{url}}/v1/user/service_agreements/:serviceAgreementId/usage_reports",
@@ -11791,7 +11859,7 @@
                 }
               ]
             },
-            "description": "Request a new usage report related to the user service agreement. \n\nThe usage report will be processed asynchronously. Expect its \"state\" to change throughout time."
+            "description": "Request a new usage report related to the user service agreement. \n\nThe usage report will be processed asynchronously. The download_url is populated once the report's state becomes available. \n\nRequired body parameters vary by report_type. Metered device reports can only query dates within the last 6 months."
           },
           "response": [
             {
@@ -11806,7 +11874,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"report_type\": \"string\",\n  \"date_period_start\": \"string\",\n  \"date_period_end\": \"string\",\n  \"devices\": [\n    \"string\",\n    \"string\"\n  ],\n  \"products\": [\n    \"string\",\n    \"string\"\n  ]\n}"
+                  "raw": "{\n  \"report_type\": \"string\",\n  \"date_period_start\": \"string\",\n  \"date_period_end\": \"string\",\n  \"day\": \"string\",\n  \"devices\": [\n    \"string\",\n    \"string\"\n  ],\n  \"products\": [\n    \"string\",\n    \"string\"\n  ]\n}"
                 },
                 "url": {
                   "raw": "{{url}}/v1/user/service_agreements/:serviceAgreementId/usage_reports",
@@ -11831,7 +11899,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": " POST /v1/user/service_agreements/:serviceAgreementId/usage_reports/\n HTTP/1.1 202 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-01-31\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}"
+              "body": " POST /v1/user/service_agreements/:serviceAgreementId/usage_reports/\n HTTP/1.1 202 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2026-01-01\",\n    \"date_period_end\": \"2026-01-31\",\n    \"created_at\": \"2026-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null,\n    \"day\": null\n  }\n}"
             }
           ]
         },
@@ -11848,7 +11916,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"report_type\": \"string\",\n  \"date_period_start\": \"string\",\n  \"date_period_end\": \"string\",\n  \"devices\": [\n    \"string\",\n    \"string\"\n  ],\n  \"products\": [\n    \"string\",\n    \"string\"\n  ]\n}"
+              "raw": "{\n  \"report_type\": \"string\",\n  \"date_period_start\": \"string\",\n  \"date_period_end\": \"string\",\n  \"day\": \"string\",\n  \"devices\": [\n    \"string\",\n    \"string\"\n  ],\n  \"products\": [\n    \"string\",\n    \"string\"\n  ]\n}"
             },
             "url": {
               "raw": "{{url}}/v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports",
@@ -11879,7 +11947,7 @@
                 }
               ]
             },
-            "description": "Request a new usage report related to the organization service agreement. \n\nThe usage report will be processed asynchronously. Expect its \"state\" to change throughout time. \n\nThe user must be an active member of the organization."
+            "description": "Request a new usage report related to the organization service agreement. \n\nThe usage report will be processed asynchronously. The download_url is populated once the report's state becomes available. \n\nThe user must be an active member of the organization. \n\nRequired body parameters vary by report_type. Metered device reports can only query dates within the last 6 months."
           },
           "response": [
             {
@@ -11894,7 +11962,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"report_type\": \"string\",\n  \"date_period_start\": \"string\",\n  \"date_period_end\": \"string\",\n  \"devices\": [\n    \"string\",\n    \"string\"\n  ],\n  \"products\": [\n    \"string\",\n    \"string\"\n  ]\n}"
+                  "raw": "{\n  \"report_type\": \"string\",\n  \"date_period_start\": \"string\",\n  \"date_period_end\": \"string\",\n  \"day\": \"string\",\n  \"devices\": [\n    \"string\",\n    \"string\"\n  ],\n  \"products\": [\n    \"string\",\n    \"string\"\n  ]\n}"
                 },
                 "url": {
                   "raw": "{{url}}/v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports",
@@ -11920,7 +11988,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": " POST /v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports/\n HTTP/1.1 202 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-01-31\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}"
+              "body": " POST /v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports/\n HTTP/1.1 202 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2026-01-01\",\n    \"date_period_end\": \"2026-01-31\",\n    \"created_at\": \"2026-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null,\n    \"day\": null\n  }\n}"
             }
           ]
         }

@@ -2339,11 +2339,27 @@
       },
       {
         "group": "Body",
+        "type": "String[]",
+        "optional": true,
+        "field": "groups",
+        "isArray": true,
+        "description": "<p>An array of group names to assign to the imported and existing devices. Overwrites the device groups. If not provided, groups are cleared. To keep existing groups, pass the current group names.</p>"
+      },
+      {
+        "group": "Body",
         "type": "File",
         "optional": true,
         "field": "file",
         "isArray": false,
         "description": "<p>A .txt file containing a single-column list of device identifiers: device IDs, serial numbers, IMEIs or ICCIDs. This is an alternative to <code>ids</code> for importing many devices into a product at once. Encoded in <code>multipart/form-data</code> format</p>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": true,
+        "field": "device_order_id",
+        "isArray": false,
+        "description": "<p>Identifier of the device order to import. When set, all devices associated with this order will be imported. Mutually exclusive with <code>id</code>, <code>ids</code>, and <code>file</code>.</p>"
       }
     ],
     "permission": [
@@ -2420,6 +2436,127 @@
         {
           "title": "POST /v1/products/:productIdOrSlug/devices",
           "content": "POST /v1/products/:productIdOrSlug/devices\nHTTP/1.1 200 OK\n{\n\t\"updated\":1,\n \"updatedDeviceIds\":[\"abc1234\"],\n \"existingDeviceIds\":[],\n\t\"nonmemberDeviceIds\":[],\n\t\"invalidDeviceIds\":[],\n \"protectedDeviceIds\": []\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/product.js",
+    "groupTitle": "Devices.3"
+  },
+  {
+    "type": "get",
+    "url": "/v1/products/:productIdOrSlug/device_orders",
+    "title": "List device orders for a product",
+    "name": "listDeviceOrdersForProduct",
+    "group": "Devices.3",
+    "description": "<p>List device orders associated with the product's organization. Each element represents a single shiment from a wholesale device order. Returns the full list — not paginated. Sorted by <code>latest_fulfilled_at</code> desc (most recently fulfilled first).</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productIdOrSlug",
+            "isArray": false,
+            "description": "<p>Product ID or Slug</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "devices:list"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "device_orders",
+            "isArray": true,
+            "description": "<p>Array of wholesale device orders</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "device_orders",
+              "field": "device_orders",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "device_orders.id",
+            "isArray": false,
+            "description": "<p>Identifier of the device order</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "parentNode": {
+              "path": "device_orders",
+              "field": "device_orders",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "device_orders.package_count",
+            "isArray": false,
+            "description": "<p>Number of compatible packages in this order</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "parentNode": {
+              "path": "device_orders",
+              "field": "device_orders",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "device_orders.total_devices",
+            "isArray": false,
+            "description": "<p>Total devices across all compatible packages in this order</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "device_orders",
+              "field": "device_orders",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "device_orders.latest_imported_at",
+            "isArray": false,
+            "description": "<p>Timestamp of the most recently imported package in this order; null if none have been imported</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "parentNode": {
+              "path": "device_orders",
+              "field": "device_orders",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "device_orders.latest_fulfilled_at",
+            "isArray": false,
+            "description": "<p>Timestamp of the most recently fulfilled package in this order; null if none have been fulfilled</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/products/:productIdOrSlug/device_orders",
+          "content": "GET /v1/products/:productIdOrSlug/device_orders\nHTTP/1.1 200 OK\n{\n  \"device_orders\": [\n    {\n      \"id\": \"SO-12345\",\n      \"package_count\": 3,\n      \"total_devices\": 120,\n      \"latest_imported_at\": null,\n      \"latest_fulfilled_at\": \"2026-03-02T00:00:00.000Z\"\n    }\n  ]\n}",
           "type": "json"
         }
       ]
@@ -5855,7 +5992,7 @@
             },
             "field": "last_snapshot.inherited.from",
             "isArray": false,
-            "description": "<p>The scope where the inherited variable is defined (<code>Owner</code>, <code>Product</code>, <code>Firmware</code>).</p>"
+            "description": "<p>The scope where the inherited variable is defined (<code>Sandbox</code>, <code>Organization</code>, <code>Product</code>, <code>Firmware</code>).</p>"
           },
           {
             "group": "Success 200",
@@ -5939,7 +6076,7 @@
             },
             "field": "latest.inherited",
             "isArray": false,
-            "description": "<p>Environment variables inherited from parent scopes (product or owner). Only present for product and device scopes. Keys are variable names, values are objects with <code>from</code> and <code>value</code> properties.</p>"
+            "description": "<p>Environment variables inherited from parent scopes. Only present for product and device scopes. Keys are variable names, values are objects with <code>from</code> and <code>value</code> properties.</p>"
           },
           {
             "group": "Success 200",
@@ -5959,7 +6096,7 @@
             },
             "field": "latest.inherited.from",
             "isArray": false,
-            "description": "<p>The scope where the inherited variable is defined (<code>Owner</code>, <code>Product</code>, <code>Firmware</code>).</p>"
+            "description": "<p>The scope where the inherited variable is defined (<code>Sandbox</code>, <code>Organization</code>, <code>Product</code>, <code>Firmware</code>).</p>"
           },
           {
             "group": "Success 200",
@@ -6047,12 +6184,12 @@
         },
         {
           "title": "Product response",
-          "content": "HTTP/1.1 200 OK\n{\n  \"last_snapshot\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Owner\", \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"pdata\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Owner\", \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"pdata\" }\n    }\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"last_snapshot\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Organization\", \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Organization\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"pdata\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Organization\", \"value\": \"odata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Organization\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"pdata\" }\n    }\n  }\n}",
           "type": "json"
         },
         {
           "title": "Device response",
-          "content": "HTTP/1.1 200 OK\n{\n  \"on_device\": {\n    \"rendered\": {\n      \"SOME_DATA_ON_MY_DEVICE\": \"yay!\"\n    },\n    \"last_reported_at\": \"2025-12-19T21:34:29.671Z\"\n  },\n  \"last_snapshot\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Product\", \"value\": \"pdata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"ddata\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Product\", \"value\": \"pdata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Owner\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"ddata\" }\n    }\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"on_device\": {\n    \"rendered\": {\n      \"SOME_DATA_ON_MY_DEVICE\": \"yay!\"\n    },\n    \"last_reported_at\": \"2025-12-19T21:34:29.671Z\"\n  },\n  \"last_snapshot\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Product\", \"value\": \"pdata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Organization\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"ddata\" }\n    },\n    \"rollout_at\": \"2025-12-19T21:34:29.671Z\",\n    \"rollout_by\": \"some-user-id\"\n  },\n  \"latest\": {\n    \"inherited\": {\n      \"DATA\": { \"from\": \"Product\", \"value\": \"pdata\" },\n      \"GLOBAL_DATA\": { \"from\": \"Organization\", \"value\": \"toall\" }\n    },\n    \"own\": {\n      \"DATA\": { \"value\": \"ddata\" }\n    }\n  }\n}",
           "type": "json"
         }
       ]
@@ -6702,7 +6839,7 @@
       },
       "examples": [
         {
-          "title": "Owner/Product response",
+          "title": "Organization/Sandbox/Product response",
           "content": "HTTP/1.1 200 OK\n{\n  \"from_snapshot\": {\n    \"changes\": [\n      { \"op\": \"Added\", \"key\": \"MY_DATA\", \"after\": \"wowza!\" },\n      { \"op\": \"Removed\", \"key\": \"ANOTHER_ONE\", \"before\": \"woahza!\" },\n      { \"op\": \"Changed\", \"key\": \"THING_NUMBER_THREE\", \"before\": \"previous\", \"after\": \"postvious\" }\n    ],\n    \"unchanged\": {\n      \"DATA\": \"yes\",\n      \"OTHER\": \"also yes\"\n    }\n  }\n}",
           "type": "json"
         },
@@ -16346,7 +16483,7 @@
       "examples": [
         {
           "title": "GET /v1/user/usage_reports/:usageReportId",
-          "content": " GET /v1/user/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-02-01\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}",
+          "content": " GET /v1/user/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2026-01-01\",\n    \"date_period_end\": \"2026-02-01\",\n    \"created_at\": \"2026-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null,\n    \"day\": null\n  }\n}",
           "type": "json"
         }
       ],
@@ -16431,6 +16568,20 @@
             "field": "attributes.date_period_end",
             "isArray": false,
             "description": "<p>The end of the date period to query</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "attributes",
+              "field": "attributes",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "attributes.day",
+            "isArray": false,
+            "description": "<p>The day to query (for &quot;metered_devices_snapshot&quot;)</p>"
           },
           {
             "group": "Success 200",
@@ -16614,7 +16765,7 @@
       "examples": [
         {
           "title": "GET /v1/orgs/:orgSlugOrId/usage_reports/:usageReportId",
-          "content": " GET /v1/orgs/:orgSlugOrId/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-02-01\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}",
+          "content": " GET /v1/orgs/:orgSlugOrId/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2026-01-01\",\n    \"date_period_end\": \"2026-02-01\",\n    \"created_at\": \"2026-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null,\n    \"day\": null\n  }\n}",
           "type": "json"
         }
       ],
@@ -16699,6 +16850,20 @@
             "field": "attributes.date_period_end",
             "isArray": false,
             "description": "<p>The end of the date period to query</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "attributes",
+              "field": "attributes",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "attributes.day",
+            "isArray": false,
+            "description": "<p>The day to query (for &quot;metered_devices_snapshot&quot;)</p>"
           },
           {
             "group": "Success 200",
@@ -16842,7 +17007,7 @@
     "url": "/v1/user/service_agreements/:serviceAgreementId/usage_reports",
     "title": "Create a user usage report",
     "name": "createUserUsageReport",
-    "description": "<p>Request a new usage report related to the user service agreement.</p> <p>The usage report will be processed asynchronously. Expect its &quot;state&quot; to change throughout time.</p>",
+    "description": "<p>Request a new usage report related to the user service agreement.</p> <p>The usage report will be processed asynchronously. The <code>download_url</code> is populated once the report's <code>state</code> becomes <code>available</code>.</p> <p>Required body parameters vary by <code>report_type</code>. Metered device reports can only query dates within the last 6 months.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -16864,23 +17029,31 @@
         "optional": false,
         "field": "report_type",
         "isArray": false,
-        "description": "<p>One of the supported report types, &quot;devices&quot; or &quot;products&quot;</p>"
+        "description": "<p>One of &quot;devices&quot;, &quot;products&quot;, &quot;metered_devices_snapshot&quot;, or &quot;metered_devices_changes&quot;</p>"
       },
       {
         "group": "Body",
         "type": "String",
-        "optional": false,
+        "optional": true,
         "field": "date_period_start",
         "isArray": false,
-        "description": "<p>The start of the date period to query</p>"
+        "description": "<p>The start of the date period to query, formatted as YYYY-MM-DD (e.g. &quot;2026-01-01&quot;). Required for &quot;devices&quot;, &quot;products&quot;, and &quot;metered_devices_changes&quot;</p>"
       },
       {
         "group": "Body",
         "type": "String",
-        "optional": false,
+        "optional": true,
         "field": "date_period_end",
         "isArray": false,
-        "description": "<p>The end of the date period to query</p>"
+        "description": "<p>The end of the date period to query, formatted as YYYY-MM-DD (e.g. &quot;2026-01-31&quot;). Required for &quot;devices&quot;, &quot;products&quot;, and &quot;metered_devices_changes&quot;</p>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": true,
+        "field": "day",
+        "isArray": false,
+        "description": "<p>The day to query, formatted as YYYY-MM-DD (e.g. &quot;2026-01-15&quot;). Required for &quot;metered_devices_snapshot&quot;</p>"
       },
       {
         "group": "Body",
@@ -16888,7 +17061,7 @@
         "optional": true,
         "field": "devices",
         "isArray": true,
-        "description": "<p>An optional array of Device IDs</p>"
+        "description": "<p>An optional array of Device IDs. Ignored by metered device reports</p>"
       },
       {
         "group": "Body",
@@ -16896,7 +17069,7 @@
         "optional": true,
         "field": "products",
         "isArray": true,
-        "description": "<p>An optional array of Product IDs</p>"
+        "description": "<p>An optional array of Product IDs. Ignored by metered device reports</p>"
       }
     ],
     "permission": [
@@ -16906,8 +17079,13 @@
     ],
     "examples": [
       {
-        "title": "Example Request",
-        "content": "$ curl -X POST \"https://api.particle.io/v1/user/service_agreements/:serviceAgreementId/usage_reports\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\n         \"report_type\": \"devices\",\n         \"date_period_start\": \"2022-01-01\",\n         \"date_period_end\": \"2022-01-31\",\n         \"devices\": [\"device1\", \"device2\"]\n       }'",
+        "title": "Example Request (Devices)",
+        "content": "$ curl -X POST \"https://api.particle.io/v1/user/service_agreements/:serviceAgreementId/usage_reports\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\n         \"report_type\": \"devices\",\n         \"date_period_start\": \"2026-01-01\",\n         \"date_period_end\": \"2026-01-31\",\n         \"devices\": [\"device1\", \"device2\"]\n       }'",
+        "type": "bash"
+      },
+      {
+        "title": "Example Request (Metered Devices Snapshot)",
+        "content": "$ curl -X POST \"https://api.particle.io/v1/user/service_agreements/:serviceAgreementId/usage_reports\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\n         \"report_type\": \"metered_devices_snapshot\",\n         \"day\": \"2026-01-15\"\n       }'",
         "type": "bash"
       }
     ],
@@ -16916,7 +17094,7 @@
       "examples": [
         {
           "title": "POST /v1/user/service_agreements/:serviceAgreementId/usage_reports/",
-          "content": " POST /v1/user/service_agreements/:serviceAgreementId/usage_reports/\n HTTP/1.1 202 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-01-31\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}",
+          "content": " POST /v1/user/service_agreements/:serviceAgreementId/usage_reports/\n HTTP/1.1 202 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2026-01-01\",\n    \"date_period_end\": \"2026-01-31\",\n    \"created_at\": \"2026-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null,\n    \"day\": null\n  }\n}",
           "type": "json"
         }
       ],
@@ -17001,6 +17179,20 @@
             "field": "attributes.date_period_end",
             "isArray": false,
             "description": "<p>The end of the date period to query</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "attributes",
+              "field": "attributes",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "attributes.day",
+            "isArray": false,
+            "description": "<p>The day to query (for &quot;metered_devices_snapshot&quot;)</p>"
           },
           {
             "group": "Success 200",
@@ -17144,7 +17336,7 @@
     "url": "/v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports",
     "title": "Create an org usage report",
     "name": "createOrgUsageReport",
-    "description": "<p>Request a new usage report related to the organization service agreement.</p> <p>The usage report will be processed asynchronously. Expect its &quot;state&quot; to change throughout time.</p> <p>The user must be an active member of the organization.</p>",
+    "description": "<p>Request a new usage report related to the organization service agreement.</p> <p>The usage report will be processed asynchronously. The <code>download_url</code> is populated once the report's <code>state</code> becomes <code>available</code>.</p> <p>The user must be an active member of the organization.</p> <p>Required body parameters vary by <code>report_type</code>. Metered device reports can only query dates within the last 6 months.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -17174,23 +17366,31 @@
         "optional": false,
         "field": "report_type",
         "isArray": false,
-        "description": "<p>One of the supported report types, &quot;devices&quot; or &quot;products&quot;</p>"
+        "description": "<p>One of &quot;devices&quot;, &quot;products&quot;, &quot;metered_devices_snapshot&quot;, &quot;metered_devices_changes&quot;, or &quot;devices_in_grace_period&quot; (enterprise only)</p>"
       },
       {
         "group": "Body",
         "type": "String",
-        "optional": false,
+        "optional": true,
         "field": "date_period_start",
         "isArray": false,
-        "description": "<p>The start of the date period to query</p>"
+        "description": "<p>The start of the date period to query, formatted as YYYY-MM-DD (e.g. &quot;2026-01-01&quot;). Required for &quot;devices&quot;, &quot;products&quot;, and &quot;metered_devices_changes&quot;</p>"
       },
       {
         "group": "Body",
         "type": "String",
-        "optional": false,
+        "optional": true,
         "field": "date_period_end",
         "isArray": false,
-        "description": "<p>The end of the date period to query</p>"
+        "description": "<p>The end of the date period to query, formatted as YYYY-MM-DD (e.g. &quot;2026-01-31&quot;). Required for &quot;devices&quot;, &quot;products&quot;, and &quot;metered_devices_changes&quot;</p>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": true,
+        "field": "day",
+        "isArray": false,
+        "description": "<p>The day to query, formatted as YYYY-MM-DD (e.g. &quot;2026-01-15&quot;). Required for &quot;metered_devices_snapshot&quot;</p>"
       },
       {
         "group": "Body",
@@ -17198,7 +17398,7 @@
         "optional": true,
         "field": "devices",
         "isArray": true,
-        "description": "<p>An optional array of Device IDs</p>"
+        "description": "<p>An optional array of Device IDs. Ignored by metered device reports</p>"
       },
       {
         "group": "Body",
@@ -17206,14 +17406,19 @@
         "optional": true,
         "field": "products",
         "isArray": true,
-        "description": "<p>An optional array of Product IDs</p>"
+        "description": "<p>An optional array of Product IDs. Ignored by metered device reports</p>"
       }
     ],
     "group": "ServiceAgreements.6",
     "examples": [
       {
-        "title": "Example Request",
-        "content": "$ curl -X POST \"https://api.particle.io/v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\n         \"report_type\": \"devices\",\n         \"date_period_start\": \"2022-01-01\",\n         \"date_period_end\": \"2022-01-31\",\n         \"devices\": [\"device1\", \"device2\"]\n       }'",
+        "title": "Example Request (Devices)",
+        "content": "$ curl -X POST \"https://api.particle.io/v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\n         \"report_type\": \"devices\",\n         \"date_period_start\": \"2026-01-01\",\n         \"date_period_end\": \"2026-01-31\",\n         \"devices\": [\"device1\", \"device2\"]\n       }'",
+        "type": "bash"
+      },
+      {
+        "title": "Example Request (Metered Devices Snapshot)",
+        "content": "$ curl -X POST \"https://api.particle.io/v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports\" \\\n       -H \"Authorization: Bearer :access_token\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\n         \"report_type\": \"metered_devices_snapshot\",\n         \"day\": \"2026-01-15\"\n       }'",
         "type": "bash"
       }
     ],
@@ -17221,7 +17426,7 @@
       "examples": [
         {
           "title": "POST /v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports/",
-          "content": " POST /v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports/\n HTTP/1.1 202 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-01-31\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}",
+          "content": " POST /v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports/\n HTTP/1.1 202 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2026-01-01\",\n    \"date_period_end\": \"2026-01-31\",\n    \"created_at\": \"2026-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null,\n    \"day\": null\n  }\n}",
           "type": "json"
         }
       ],
@@ -17306,6 +17511,20 @@
             "field": "attributes.date_period_end",
             "isArray": false,
             "description": "<p>The end of the date period to query</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "attributes",
+              "field": "attributes",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "attributes.day",
+            "isArray": false,
+            "description": "<p>The day to query (for &quot;metered_devices_snapshot&quot;)</p>"
           },
           {
             "group": "Success 200",
