@@ -1702,6 +1702,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 
 ### CE (Europe) - B523 B524 B-Series SoM
 
+- [EU Declaration of Conformity](/assets/pdfs/particle-B524-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
 - [Summary](/assets/pdfs/b523-ce-summary.pdf) (updated 2021-09-16)
 - [EMC Test Report](/assets/pdfs/b523-ce-emc-test-report.pdf) (updated 2021-09-16)
 - [RED BLE Test Report](/assets/pdfs/b523-ble-ce-test-report.pdf) (updated 2022-11-09)
@@ -1901,3 +1902,4 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | 023      | 20-Feb-2024 | RK | M.2 screw assembly should be connected to ground |
 | 024      | 23-Apr-2024 | RK | Added links to certification documents |
 | 025      | 2024-09-03 | RK | Added clarification of cellular modem USB pins |
+| 026      | 2026-05-18 | RK | Updated EU Declaration of Conformity |

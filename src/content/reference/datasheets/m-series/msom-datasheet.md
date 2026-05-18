@@ -1254,6 +1254,7 @@ SE, SI, SK, TR, UA, UK(NI).
 
 ### CE (European Union) - M524 M-SoM M-Series LTE Cat 1
 
+- [EU Declaration of Conformity](/assets/pdfs/particle-M524-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
 - [Summary](/assets/pdfs/m524-ce-summary.pdf)
 - [EN-62368-1 Test Report](/assets/pdfs/m524-EN-62368-1-test-report.pdf)
 - [EN 300 328 Test Report BLE](/assets/pdfs/m524-EN300-328-ble-test-report.pdf) (Bluetooth LE 2.4 GHz ISM band)
@@ -1500,3 +1501,4 @@ Global, country list to be provided a later date.
 | 013      | 2025-01-21 | RK | Incorrect RTL pin listed in SETUP and RESET button section. It was listed as PA[4] but is PA[11]. It was correct in the pin diagram. |
 | 014      | 2025-04-10 | RK | Added links to hardware-libraries and M.2 breakout board designs |
 | 015      | 2025-06-25 | RK | Clarifications for GNSS use |
+| 016      | 2026-05-18 | RK | Updated EU Declaration of Conformity |
