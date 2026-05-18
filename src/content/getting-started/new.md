@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated EU Declaration of Conformity 2026-05-18
+
+Updated the EU Declaration of Conformity for the P2, B524, and M524 in [certification documents](/hardware/certification/certification-documents/).
+
 ### Device usage reports 2026-05-13
 
 Added additional documentation for [device usage reports](/reference/cloud-apis/api/#service-agreements-and-usage) in the Cloud API documentation.
