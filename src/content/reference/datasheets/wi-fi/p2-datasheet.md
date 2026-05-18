@@ -2187,6 +2187,8 @@ SE, SI, SK, TR, UA, UK(NI).
 | 020 | 2024-08-21 | RK | Added supervisory reset information |
 | 021 | 2024-09-04 | RK | Added note about VBAT_MEAS |
 | 022 | 2024-10-02 | RK | Added warning to not use Argon (ANT-FLXV2) antenna |
+| 023 | 2026-05-18 | RK | Updated EU Declaration of Conformity |
+
 
 ## Known errata
 

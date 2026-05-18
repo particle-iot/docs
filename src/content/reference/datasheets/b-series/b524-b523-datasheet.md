@@ -1902,3 +1902,4 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | 023      | 20-Feb-2024 | RK | M.2 screw assembly should be connected to ground |
 | 024      | 23-Apr-2024 | RK | Added links to certification documents |
 | 025      | 2024-09-03 | RK | Added clarification of cellular modem USB pins |
+| 026      | 2026-05-18 | RK | Updated EU Declaration of Conformity |

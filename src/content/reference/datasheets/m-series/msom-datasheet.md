@@ -1501,3 +1501,4 @@ Global, country list to be provided a later date.
 | 013      | 2025-01-21 | RK | Incorrect RTL pin listed in SETUP and RESET button section. It was listed as PA[4] but is PA[11]. It was correct in the pin diagram. |
 | 014      | 2025-04-10 | RK | Added links to hardware-libraries and M.2 breakout board designs |
 | 015      | 2025-06-25 | RK | Clarifications for GNSS use |
+| 016      | 2026-05-18 | RK | Updated EU Declaration of Conformity |

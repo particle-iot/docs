@@ -1344,7 +1344,7 @@
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
             "date": "2026-05-18",
-            "hash": "0fe769c7d98fa20e884821f55f04d2650d2a4bc6f64958113b6d3500fdfc1d4a"
+            "hash": "ceac4c300f6f39d9bc80dbaec11d6d514652cd8647a405cab4d3874bff7bf3ea"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2026-02-06",
@@ -1400,7 +1400,7 @@
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
             "date": "2026-05-18",
-            "hash": "588ecb1ed2c13889483c7af8fe0bad73d20b9cabec30e6760cd5221b46736e12"
+            "hash": "a0ac26187f6d501f15fba59520ab3e0ddb8d06fe67a1155f4a13f63b54ccbda2"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
             "date": "2025-10-22",
@@ -8391,7 +8391,7 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "d9665bca12af0f372360dbd03d7da371286f351483f27b57698d66e5f7c5426d",
+            "hash": "0160c531e4244784e667934796e4af64940366cc3e99136ceb50eb14e8401079",
             "date": "2026-05-18"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
