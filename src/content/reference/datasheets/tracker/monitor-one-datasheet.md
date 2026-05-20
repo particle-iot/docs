@@ -910,7 +910,7 @@ To be provided at a later date.
 | France | MON524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | MON524 | 2G, 3G | Digicel |
 | Gabon | MON524 | 2G, 3G, 4G | Airtel |
-| Germany | MON524 | 2G, 3G, 4G | O2, Telekom, Vodafone |
+| Germany | MON524 | 2G, 4G | O2, Telekom, Vodafone |
 | Ghana | MON524 | 2G, 3G, 4G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | MON524 | 2G, 3G, 4G | Gibtel |
 | Greece | MON524 | 2G, 4G | Cosmote, Vodafone, Wind |

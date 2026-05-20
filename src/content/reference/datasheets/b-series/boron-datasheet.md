@@ -585,7 +585,7 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | French Guiana | BRN314 | 2G, 3G | Digicel |
 | Gabon | BRN314 | 2G, 3G | Airtel |
 | Georgia | BRN314 | 2G, 3G | Beeline, Geocell |
-| Germany | BRN314 | 2G, 3G | O2, Telekom, Vodafone |
+| Germany | BRN314 | 2G | O2, Telekom |
 | Ghana | BRN314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | BRN314 | 2G, 3G | Gibtel |
 | Greece | BRN314 | 2G | Cosmote, Wind |

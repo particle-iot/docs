@@ -112,7 +112,7 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | France | B524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | B524 | 2G, 3G | Digicel |
 | Gabon | B524 | 2G, 3G, 4G | Airtel |
-| Germany | B524 | 2G, 3G, 4G | O2, Telekom, Vodafone |
+| Germany | B524 | 2G, 4G | O2, Telekom, Vodafone |
 | Ghana | B524 | 2G, 3G, 4G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | B524 | 2G, 3G, 4G | Gibtel |
 | Greece | B524 | 2G, 4G | Cosmote, Vodafone, Wind |
