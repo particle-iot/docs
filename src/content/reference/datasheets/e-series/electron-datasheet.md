@@ -702,7 +702,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Indonesia | ELC314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
 | Ireland | ELC314 | 2G, 3G | Meteor, O2, Vodafone |
 | Israel | ELC314 | 2G, 3G | Hot Mobile |
-| Italy | ELC314 | 2G, 3G | TIM, Vodafone, Wind |
+| Italy | ELC314 | 2G | TIM, Vodafone, Wind |
 | Jordan | ELC314 | 2G, 3G | Zain |
 | Kazakhstan | ELC314 | 2G, 3G | Beeline, K-Cell |
 | Kenya | ELC314 | 2G, 3G | Airtel |

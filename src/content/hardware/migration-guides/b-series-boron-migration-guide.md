@@ -127,7 +127,7 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | Indonesia | B524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
 | Ireland | B524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | B524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
-| Italy | B524 | 2G, 3G, 4G | TIM, Vodafone, Wind |
+| Italy | B524 | 2G, 4G | TIM, Vodafone, Wind |
 | Japan | B524 | 4G | KDDI, NTT DoCoMo, Softbank |
 | Jordan | B524 | 2G, 3G, 4G | Zain |
 | Kazakhstan | B524 | 2G, 3G, 4G | Beeline, K-Cell |

@@ -474,7 +474,7 @@ Current measurements taken at 3.6V via the battery input. For more information a
 | Indonesia | ONE524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
 | Ireland | ONE524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | ONE524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
-| Italy | ONE524 | 2G, 3G, 4G | TIM, Vodafone, Wind |
+| Italy | ONE524 | 2G, 4G | TIM, Vodafone, Wind |
 | Jordan | ONE524 | 2G, 3G, 4G | Zain |
 | Kazakhstan | ONE524 | 2G, 3G, 4G | Beeline, K-Cell |
 | Kenya | ONE524 | 2G, 3G, 4G | Airtel |

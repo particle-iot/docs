@@ -1221,7 +1221,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Indonesia | M524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
 | Ireland | M524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | M524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
-| Italy | M524 | 2G, 3G, 4G | TIM, Vodafone, Wind |
+| Italy | M524 | 2G, 4G | TIM, Vodafone, Wind |
 | Jordan | M524 | 2G, 3G, 4G | Zain |
 | Kazakhstan | M524 | 2G, 3G, 4G | Beeline, K-Cell |
 | Kenya | M524 | 2G, 3G, 4G | Airtel |
