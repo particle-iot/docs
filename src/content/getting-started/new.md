@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Italy Wind 3G sunset 2026-05-20
+
+Updated the 3G sunset date for Wind in Italy. This occurred at the end of 2025, but wasn't listed as being discontinued.
+
 ### Germany 3G sunset 2026-05-20
 
 Updated the 3G sunset dates for Germany. This occurred by the end of 2022, but wasn't listed as being discontinued.
