@@ -1256,7 +1256,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Indonesia | T524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
 | Ireland | T524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | T524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
-| Italy | T524 | 2G, 3G, 4G | TIM, Vodafone, Wind |
+| Italy | T524 | 2G, 4G | TIM, Vodafone, Wind |
 | Jordan | T524 | 2G, 3G, 4G | Zain |
 | Kazakhstan | T524 | 2G, 3G, 4G | Beeline, K-Cell |
 | Kenya | T524 | 2G, 3G, 4G | Airtel |

@@ -923,7 +923,7 @@ To be provided at a later date.
 | Indonesia | MON524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
 | Ireland | MON524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | MON524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
-| Italy | MON524 | 2G, 3G, 4G | TIM, Vodafone, Wind |
+| Italy | MON524 | 2G, 4G | TIM, Vodafone, Wind |
 | Jordan | MON524 | 2G, 3G, 4G | Zain |
 | Kazakhstan | MON524 | 2G, 3G, 4G | Beeline, K-Cell |
 | Kenya | MON524 | 2G, 3G, 4G | Airtel |

@@ -992,7 +992,7 @@
         },
         "hardware/migration-guides/b-series-boron-migration-guide.md": {
             "date": "2026-05-20",
-            "hash": "63a1ba0f8d0825b822696c683b2419866988ed3ffe51abc5880e901c01e874bd"
+            "hash": "c9616d17ed3700614e176c64a1e801ebb3cb4139af555d513fe163b6940ee94f"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
             "date": "2026-05-20",
@@ -1344,11 +1344,11 @@
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
             "date": "2026-05-20",
-            "hash": "124e667deccfd3d35900dc8c5f093cf7caa180306f209f31a16c0d6c017b018e"
+            "hash": "5f41846c0436ddae323dbee3c253d339af9960ccd1736514b8acf7f342c4b757"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2026-05-20",
-            "hash": "96ac654c5c1ba5d96b34d67334648fc58be0e3518d50ce2b8875a76e1638f954"
+            "hash": "0fb17460558d40519ac9177ab26323e3061aa452e42751b0cc5cc97f58d341bc"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
             "date": "2025-09-03",
@@ -1372,7 +1372,7 @@
         },
         "reference/datasheets/e-series/e-series-datasheet.md": {
             "date": "2026-05-20",
-            "hash": "0ea6a81a34549a9e1c4145689a7aef5ec2500c1cf4dba15437d0013caa12d368"
+            "hash": "42ea9c15a46e194d2d6bfd19213efacf14456988779632342e512815a624a293"
         },
         "reference/datasheets/e-series/e-series-eval-board.md": {
             "date": "2025-03-21",
@@ -1388,7 +1388,7 @@
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
             "date": "2026-05-20",
-            "hash": "15fcaf31f29f6f87aa9f7efdc6cd1d84bf7b66e38d2036b968ebd567019ebf35"
+            "hash": "f30a493e2de3e383147a798895740a3f3fc79298b4961cfab4efe61e2b8e1b69"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
             "date": "2025-09-03",
@@ -1416,11 +1416,11 @@
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
             "date": "2026-05-20",
-            "hash": "6e3c5e81e8c899f5092917f9b15abaebe13f721981f645a7927d644ef09fa611"
+            "hash": "3ba5b2f820549ff82e8568ca8a9f5e3fff77a1fb23899e2003a592597ca16617"
         },
         "reference/datasheets/tracker/tracker-one.md": {
             "date": "2026-05-20",
-            "hash": "93e369d398c5d5408abbea799703ae5a0444b122ad995b88d2c332e5a62080f3"
+            "hash": "b3d1b9a11853abcdcd5fda9dded936419625ea4d418d67de38ad734684d9803e"
         },
         "reference/datasheets/tracker/tracker-m8-accessories.md": {
             "date": "2023-08-02",
@@ -1428,7 +1428,7 @@
         },
         "reference/datasheets/tracker/tracker-som-datasheet.md": {
             "date": "2026-05-20",
-            "hash": "65a75773fd118af0c1752e85c50c7d13b9029e356bd402299887fa64dddfda76"
+            "hash": "17c1c16df682e805d714b3cc92883c30bea711b9f8e148f6c22b581236b27e55"
         },
         "reference/datasheets/tracker/tracker-som-eval-board.md": {
             "date": "2025-03-21",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "32ed6dcf809fb16b53897fc9586ce0513b748615aee3735cf0115fa42a5a476b",
+            "hash": "ae3b29fc5f7955b2b05633909197a38aa521fb5f0906db4ec18c42862a19c4fa",
             "date": "2026-05-20"
         },
         "getting-started/cloud/logic.md": {
@@ -8391,11 +8391,11 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "3d2667f1bceaa7b9e18838025a482dfd3d594933750dad444be60f519184fc2e",
+            "hash": "b80053d030a7c18f6219e282db120d5c54a426baef7d30605d6e1334e1b670db",
             "date": "2026-05-20"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "34ce2c76eb412fad5620ae9775460fcc6895884f20b17a0549976d456a3c2eec",
+            "hash": "5fc30474709951ab80e7f3e40fdbfd0471a50ffc75cf3fa10c3efc843c3e1925",
             "date": "2026-05-20"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
@@ -9703,7 +9703,7 @@
             "date": "2025-10-15"
         },
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
-            "hash": "2e01cec6dbf3e90bd9e7b63372d35491b91afeb1cbdc21b64ca70c37edb56ed9",
+            "hash": "3940f61687c4f539c5c442f396a99f3f8b1d501dab9991d280cb9a772b2ef67b",
             "date": "2026-05-20"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
