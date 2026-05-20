@@ -1057,7 +1057,7 @@ Consumers should contact their local authority or retailer for information conce
 | Estonia | 2G, 3G, 4G | Elisa, Tele2, Telia |
 | Finland | 2G, 4G | DNA, Elisa, Telia |
 | France | 2G, 3G, 4G, 5G | Bouygues, Free Mobile, Orange, SFR |
-| Germany | 2G, 3G, 4G, 5G | O2, Telekom, Vodafone |
+| Germany | 2G, 4G, 5G | O2, Telekom, Vodafone |
 | Greece | 2G, 4G, 5G | Cosmote, Vodafone, Wind |
 | Hungary | 2G, 3G, 4G, 5G | T-Mobile, Telenor, Vodafone |
 | Iceland | 4G | Nova, Siminn |

@@ -1486,7 +1486,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | French Guiana | &nbsp; | &check; | &nbsp; | &check; |
 | Gabon | &check; | &check; | &nbsp; | &check; |
 | Georgia | &check; | &check; | &nbsp; | &nbsp; |
-| Germany | &check; | &check; | &nbsp; | &check; |
+| Germany | &check; | &nbsp; | &nbsp; | &check; |
 | Ghana | &check; | &check; | &nbsp; | &check; |
 | Gibraltar | &check; | &check; | &nbsp; | &check; |
 | Greece | &check; | &nbsp; | &nbsp; | &check; |

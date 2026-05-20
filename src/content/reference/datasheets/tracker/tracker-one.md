@@ -461,7 +461,7 @@ Current measurements taken at 3.6V via the battery input. For more information a
 | France | ONE524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | ONE524 | 2G, 3G | Digicel |
 | Gabon | ONE524 | 2G, 3G, 4G | Airtel |
-| Germany | ONE524 | 2G, 3G, 4G | O2, Telekom, Vodafone |
+| Germany | ONE524 | 2G, 4G | O2, Telekom, Vodafone |
 | Ghana | ONE524 | 2G, 3G, 4G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | ONE524 | 2G, 3G, 4G | Gibtel |
 | Greece | ONE524 | 2G, 4G | Cosmote, Vodafone, Wind |

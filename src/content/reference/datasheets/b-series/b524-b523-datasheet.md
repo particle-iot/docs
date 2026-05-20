@@ -1780,7 +1780,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | France | B524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | B524 | 2G, 3G | Digicel |
 | Gabon | B524 | 2G, 3G, 4G | Airtel |
-| Germany | B524 | 2G, 3G, 4G | O2, Telekom, Vodafone |
+| Germany | B524 | 2G, 4G | O2, Telekom, Vodafone |
 | Ghana | B524 | 2G, 3G, 4G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | B524 | 2G, 3G, 4G | Gibtel |
 | Greece | B524 | 2G, 4G | Cosmote, Vodafone, Wind |

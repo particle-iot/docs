@@ -619,7 +619,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | French Guiana | E314 | 2G, 3G | Digicel |
 | Gabon | E314 | 2G, 3G | Airtel |
 | Georgia | E314 | 2G, 3G | Beeline, Geocell |
-| Germany | E314 | 2G, 3G | O2, Telekom, Vodafone |
+| Germany | E314 | 2G | O2, Telekom |
 | Ghana | E314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | E314 | 2G, 3G | Gibtel |
 | Greece | E314 | 2G | Cosmote, Wind |

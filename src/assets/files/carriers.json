@@ -10673,7 +10673,7 @@
       "country": "Germany",
       "carrier": "E-Plus",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2022-12-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -10693,7 +10693,7 @@
         "Telefonica O2"
       ],
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2022-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -10782,7 +10782,7 @@
       "country": "Germany",
       "carrier": "Telekom",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2021-06-30",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -10841,7 +10841,7 @@
     {
       "country": "Germany",
       "carrier": "Vodafone",
-      "sunset2G": "2030-01-01",
+      "sunset2G": "2021-06-30",
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
@@ -74791,10 +74791,6 @@
           "M1-8",
           "M1-20",
           "M1-28"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
@@ -74814,6 +74810,8 @@
           "4G-32",
           "NB1-8",
           "M1-7",
+          "2G-900",
+          "2G-1800",
           "5G-3",
           "5G-28"
         ],
@@ -74843,6 +74841,8 @@
           "M1-7"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75151,13 +75151,10 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "4G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75166,8 +75163,6 @@
           "4G-28"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75178,6 +75173,8 @@
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-32",
           "4G-38",
           "NB1-20",
@@ -75187,6 +75184,8 @@
           "5G-78"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-32",
           "4G-38",
           "NB1-20",
@@ -75204,14 +75203,11 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
         "4G"
       ],
       "supported": {
         "*": [
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75222,8 +75218,6 @@
         ],
         "O2": [
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75241,8 +75235,6 @@
           "4G-28"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75253,6 +75245,8 @@
       },
       "notSupported": {
         "*": [
+          "3G-1",
+          "3G-8",
           "4G-38",
           "NB1-20",
           "M1-20",
@@ -75264,10 +75258,14 @@
           "M1-7",
           "M1-8",
           "M1-28",
+          "2G-900",
+          "2G-1800",
           "5G-3",
           "5G-28"
         ],
         "O2": [
+          "3G-1",
+          "3G-8",
           "4G-38",
           "NB1-20",
           "M1-20",
@@ -75285,6 +75283,8 @@
           "M1-28"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-32",
           "4G-38",
           "NB1-20",
@@ -75301,13 +75301,10 @@
       "sim": 2,
       "recommendation": "YES",
       "technologies": [
-        "2G",
         "4G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75316,8 +75313,6 @@
           "4G-28"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75328,6 +75323,8 @@
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-32",
           "4G-38",
           "NB1-20",
@@ -75337,6 +75334,8 @@
           "5G-78"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-32",
           "4G-38",
           "NB1-20",
@@ -75354,14 +75353,11 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
         "4G"
       ],
       "supported": {
         "*": [
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75372,8 +75368,6 @@
         ],
         "O2": [
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75391,8 +75385,6 @@
           "4G-28"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75403,6 +75395,8 @@
       },
       "notSupported": {
         "*": [
+          "3G-1",
+          "3G-8",
           "4G-38",
           "NB1-20",
           "M1-20",
@@ -75414,10 +75408,14 @@
           "M1-7",
           "M1-8",
           "M1-28",
+          "2G-900",
+          "2G-1800",
           "5G-3",
           "5G-28"
         ],
         "O2": [
+          "3G-1",
+          "3G-8",
           "4G-38",
           "NB1-20",
           "M1-20",
@@ -75435,6 +75433,8 @@
           "M1-28"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-32",
           "4G-38",
           "NB1-20",
@@ -75550,10 +75550,6 @@
         "Telekom": [
           "2G-900",
           "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
         ]
       },
       "notSupported": {
@@ -75577,6 +75573,8 @@
           "M1-7",
           "M1-8",
           "M1-28",
+          "2G-900",
+          "2G-1800",
           "5G-3",
           "5G-28"
         ],
@@ -75611,6 +75609,8 @@
           "M1-28"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75835,8 +75835,6 @@
       "supported": {
         "*": [
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75853,8 +75851,6 @@
         ],
         "O2": [
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75877,8 +75873,6 @@
           "4G-38"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -75895,15 +75889,21 @@
       },
       "notSupported": {
         "*": [
+          "3G-1",
+          "3G-8",
           "NB1-20",
           "M1-20",
           "NB1-8",
           "M1-3",
           "M1-7",
           "M1-8",
-          "M1-28"
+          "M1-28",
+          "2G-900",
+          "2G-1800"
         ],
         "O2": [
+          "3G-1",
+          "3G-8",
           "NB1-20",
           "M1-20"
         ],
@@ -75916,12 +75916,13 @@
           "M1-28"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "NB1-20"
         ]
       },
       "technologies": [
         "2G",
-        "3G",
         "4G",
         "5G"
       ]
@@ -76030,32 +76031,25 @@
       "sim": 1,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "2G-900"
         ],
         "O2": [
-          "2G-1800",
-          "3G-1",
-          "3G-8"
-        ],
-        "Telekom": [
-          "2G-900",
           "2G-1800"
         ],
-        "Vodafone": [
+        "Telekom": [
           "2G-900",
           "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "3G-1",
+          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -76073,10 +76067,14 @@
           "M1-7",
           "M1-8",
           "M1-28",
+          "2G-900",
+          "2G-1800",
           "5G-3",
           "5G-28"
         ],
         "O2": [
+          "3G-1",
+          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -76105,6 +76103,8 @@
           "M1-28"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -76125,22 +76125,13 @@
       "country": "Germany",
       "modem": "U201",
       "sim": 2,
-      "recommendation": "YES",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Vodafone": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "recommendation": "NR",
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -76156,6 +76147,8 @@
           "5G-78"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -76178,32 +76171,25 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "2G-900"
         ],
         "O2": [
-          "2G-1800",
-          "3G-1",
-          "3G-8"
-        ],
-        "Telekom": [
-          "2G-900",
           "2G-1800"
         ],
-        "Vodafone": [
+        "Telekom": [
           "2G-900",
           "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "3G-1",
+          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -76221,10 +76207,14 @@
           "M1-7",
           "M1-8",
           "M1-28",
+          "2G-900",
+          "2G-1800",
           "5G-3",
           "5G-28"
         ],
         "O2": [
+          "3G-1",
+          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -76253,6 +76243,8 @@
           "M1-28"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -76361,32 +76353,25 @@
       "sim": 1,
       "recommendation": "NRND",
       "technologies": [
-        "2G",
-        "3G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-1800",
-          "3G-1",
-          "3G-8",
           "2G-900"
         ],
         "O2": [
-          "2G-1800",
-          "3G-1",
-          "3G-8"
-        ],
-        "Telekom": [
-          "2G-900",
           "2G-1800"
         ],
-        "Vodafone": [
+        "Telekom": [
           "2G-900",
           "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
+          "3G-1",
+          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -76404,10 +76389,14 @@
           "M1-7",
           "M1-8",
           "M1-28",
+          "2G-900",
+          "2G-1800",
           "5G-3",
           "5G-28"
         ],
         "O2": [
+          "3G-1",
+          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -76436,6 +76425,8 @@
           "M1-28"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -166160,23 +166151,6 @@
     },
     {
       "date": "2030-01-01",
-      "country": "Germany",
-      "items": [
-        {
-          "carrier": "Vodafone",
-          "rat": "2G"
-        }
-      ],
-      "2G": [
-        "O2",
-        "Telekom"
-      ],
-      "3G": [
-        "O2"
-      ]
-    },
-    {
-      "date": "2030-01-01",
       "country": "Ghana",
       "items": [
         {
@@ -168758,6 +168732,21 @@
     },
     {
       "date": "2022-12-31",
+      "country": "Germany",
+      "items": [
+        {
+          "carrier": "O2",
+          "rat": "3G"
+        }
+      ],
+      "2G": [
+        "O2",
+        "Telekom"
+      ],
+      "3G": []
+    },
+    {
+      "date": "2022-12-31",
       "country": "Italy",
       "items": [
         {
@@ -168977,8 +168966,7 @@
       ],
       "2G": [
         "O2",
-        "Telekom",
-        "Vodafone"
+        "Telekom"
       ],
       "3G": [
         "O2"
@@ -169092,6 +169080,28 @@
       ],
       "3G": [
         "T-Mobile (USA)"
+      ]
+    },
+    {
+      "date": "2021-06-30",
+      "country": "Germany",
+      "items": [
+        {
+          "carrier": "Telekom",
+          "rat": "3G"
+        },
+        {
+          "carrier": "Vodafone",
+          "rat": "2G"
+        }
+      ],
+      "2G": [
+        "O2",
+        "Telekom"
+      ],
+      "3G": [
+        "O2",
+        "Vodafone"
       ]
     },
     {
@@ -172365,11 +172375,10 @@
       "Germany": {
         "carriers": [
           "O2",
-          "Telekom",
-          "Vodafone"
+          "Telekom"
         ],
-        "carrierRatCount": 3,
-        "status": "full"
+        "carrierRatCount": 2,
+        "status": "reduced"
       },
       "Ghana": {
         "carriers": [
@@ -173592,11 +173601,10 @@
       "Germany": {
         "carriers": [
           "O2",
-          "Telekom",
-          "Vodafone"
+          "Telekom"
         ],
-        "carrierRatCount": 3,
-        "status": "full"
+        "carrierRatCount": 2,
+        "status": "reduced"
       },
       "Ghana": {
         "carriers": [
@@ -174818,11 +174826,10 @@
       "Germany": {
         "carriers": [
           "O2",
-          "Telekom",
-          "Vodafone"
+          "Telekom"
         ],
-        "carrierRatCount": 3,
-        "status": "full"
+        "carrierRatCount": 2,
+        "status": "reduced"
       },
       "Ghana": {
         "carriers": [
@@ -176039,11 +176046,10 @@
       "Germany": {
         "carriers": [
           "O2",
-          "Telekom",
-          "Vodafone"
+          "Telekom"
         ],
-        "carrierRatCount": 3,
-        "status": "full"
+        "carrierRatCount": 2,
+        "status": "reduced"
       },
       "Ghana": {
         "carriers": [
@@ -177247,11 +177253,10 @@
       "Germany": {
         "carriers": [
           "O2",
-          "Telekom",
-          "Vodafone"
+          "Telekom"
         ],
-        "carrierRatCount": 3,
-        "status": "full"
+        "carrierRatCount": 2,
+        "status": "reduced"
       },
       "Ghana": {
         "carriers": [
@@ -178426,11 +178431,10 @@
       "Germany": {
         "carriers": [
           "O2",
-          "Telekom",
-          "Vodafone"
+          "Telekom"
         ],
-        "carrierRatCount": 3,
-        "status": "full"
+        "carrierRatCount": 2,
+        "status": "reduced"
       },
       "Ghana": {
         "carriers": [
@@ -179595,11 +179599,10 @@
       "Germany": {
         "carriers": [
           "O2",
-          "Telekom",
-          "Vodafone"
+          "Telekom"
         ],
-        "carrierRatCount": 3,
-        "status": "full"
+        "carrierRatCount": 2,
+        "status": "reduced"
       },
       "Ghana": {
         "carriers": [
@@ -180756,11 +180759,10 @@
       "Germany": {
         "carriers": [
           "O2",
-          "Telekom",
-          "Vodafone"
+          "Telekom"
         ],
-        "carrierRatCount": 3,
-        "status": "full"
+        "carrierRatCount": 2,
+        "status": "reduced"
       },
       "Ghana": {
         "carriers": [
@@ -181909,11 +181911,10 @@
       "Germany": {
         "carriers": [
           "O2",
-          "Telekom",
-          "Vodafone"
+          "Telekom"
         ],
-        "carrierRatCount": 3,
-        "status": "full"
+        "carrierRatCount": 2,
+        "status": "reduced"
       },
       "Ghana": {
         "carriers": [

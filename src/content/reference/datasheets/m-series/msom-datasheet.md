@@ -1361,7 +1361,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | France | M524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | M524 | 2G, 3G | Digicel |
 | Gabon | M524 | 2G, 3G, 4G | Airtel |
-| Germany | M524 | 2G, 3G, 4G | O2, Telekom, Vodafone |
+| Germany | M524 | 2G, 4G | O2, Telekom, Vodafone |
 | Ghana | M524 | 2G, 3G, 4G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | M524 | 2G, 3G, 4G | Gibtel |
 | Greece | M524 | 2G, 4G | Cosmote, Vodafone, Wind |

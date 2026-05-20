@@ -1243,7 +1243,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | France | T524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | T524 | 2G, 3G | Digicel |
 | Gabon | T524 | 2G, 3G, 4G | Airtel |
-| Germany | T524 | 2G, 3G, 4G | O2, Telekom, Vodafone |
+| Germany | T524 | 2G, 4G | O2, Telekom, Vodafone |
 | Ghana | T524 | 2G, 3G, 4G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | T524 | 2G, 3G, 4G | Gibtel |
 | Greece | T524 | 2G, 4G | Cosmote, Vodafone, Wind |

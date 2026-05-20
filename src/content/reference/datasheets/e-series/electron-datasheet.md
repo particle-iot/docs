@@ -685,7 +685,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | French Guiana | ELC314 | 2G, 3G | Digicel |
 | Gabon | ELC314 | 2G, 3G | Airtel |
 | Georgia | ELC314 | 2G, 3G | Beeline, Geocell |
-| Germany | ELC314 | 2G, 3G | O2, Telekom, Vodafone |
+| Germany | ELC314 | 2G | O2, Telekom |
 | Ghana | ELC314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | ELC314 | 2G, 3G | Gibtel |
 | Greece | ELC314 | 2G | Cosmote, Wind |
