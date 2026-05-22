@@ -18,7 +18,7 @@ std::chrono::milliseconds sensorCheckPeriod = 1s;
 // This keeps track of the last time we published
 unsigned long lastSensorCheckMs;
 
-// The is is the variable where the sensor value is stored.
+// This is the variable where the sensor value is stored.
 int sensor;
 
 void setup()
