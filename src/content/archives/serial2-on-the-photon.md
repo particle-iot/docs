@@ -23,7 +23,7 @@ You need to make connections to pins 28 and 29 (the serial port) and optionally 
 
 I used three female header sockets. You may prefer to use a different type of connector. Also, I decided that the pins should be mounted on the USB side, to keep the metal from the connectors out of the keep-away zone under the antenna.
 
-Here is is after soldering the leads in place:
+Here is after soldering the leads in place:
 
 ![Leads soldered](/assets/images/support/photon-serial2-faq-04leads.jpg)
 

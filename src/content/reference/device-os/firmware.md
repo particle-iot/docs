@@ -26318,7 +26318,7 @@ void lock();
 ```
 <!-- spark_wiring_thread.h 255 -->
 
-Lock the mutex. If the mutex is already locked, blocks the current thread until is is unlocked.
+Lock the mutex. If the mutex is already locked, blocks the current thread until is unlocked.
 
 A `Mutex` can only be locked once, even from the same thread. If you need to be able to lock a mutex multiple times, you should use `RecursiveMutex` instead. 
 
@@ -26376,7 +26376,7 @@ void lock();
 ```
 <!-- spark_wiring_thread.h 289 -->
 
-Lock the recursive mutex. If the mutex is already locked from a different thread, blocks the current thread until is is unlocked.
+Lock the recursive mutex. If the mutex is already locked from a different thread, blocks the current thread until is unlocked.
 
 If the recursive mutex is already locked from this thread, the lock will proceed without blocking, and the resource will only be released when the last balanced `unlock()` is called.
 

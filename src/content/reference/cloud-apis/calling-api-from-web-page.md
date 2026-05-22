@@ -44,7 +44,7 @@ This example:
 - Uses [Particle API JS](/reference/cloud-apis/javascript/) to interact with the Device from Javascript.
 - Uses [jQuery](https://jquery.com/) to handle some AJAX (asynchronous HTTP requests) and web page manipulation.
 - Prompt for login to a Particle developer account.
-- Handles MFA (multi-factor authentication) if is is enabled on the account.
+- Handles MFA (multi-factor authentication) if is enabled on the account.
 - Stores a short-lived access token in browser local storage. 
 
 {{> codebox content="/assets/files/app-notes/AN032/login-prompt.htm" format="html" height="500"}}

@@ -460,7 +460,7 @@ When using **older** releases, the following power requirements apply:
 
 ### I/O Characteristics
 
-The CPU runs at 1.8V, but I/O on the expansion HAT connector is is 3.3V. Levels are translated using TI TXS0108E bidirectional level translators.
+The CPU runs at 1.8V, but I/O on the expansion HAT connector is 3.3V. Levels are translated using TI TXS0108E bidirectional level translators.
 
 
 - Maximum data rates:
