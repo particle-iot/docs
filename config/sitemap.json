@@ -63,8 +63,8 @@
             "hash": "643e0ecae3612fa1c3b27df7ee9424b2f86632d2e1a3c47ec400d2c9a44f44b0"
         },
         "archives/serial2-on-the-photon.md": {
-            "date": "2025-10-15",
-            "hash": "ff69e08666b07ca75a67b8833d360490e7e4535c2975144a71aa611c16d62308"
+            "date": "2026-05-22",
+            "hash": "dcb7bb88db6f846c984589b62ff15ee5101e37841e590bde4d4e12bd6090e374"
         },
         "archives/xenon-options.md": {
             "date": "2022-06-29",
@@ -1139,8 +1139,8 @@
             "hash": "3c45086bd056826e4d9d4f10c1fdd0cf6f983ede0e45b116e6ae4f671e3c08f6"
         },
         "reference/cloud-apis/calling-api-from-web-page.md": {
-            "date": "2023-03-17",
-            "hash": "c9c0da0fa15aec20bd9c8bbdc12830b2a739320274732272f16956daa39e77b1"
+            "date": "2026-05-22",
+            "hash": "429481c485deb0b2b4299d39d5a8c4fc8773477cfe7dd45a44e960f1641b7ff2"
         },
         "reference/cloud-apis/data-report-tutorial.md": {
             "date": "2025-02-03",
@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-05-08",
-            "hash": "985603bbeb42934faf43aadd8ef0ff72e9296510add0ebc9725f8d3a2a919eab"
+            "date": "2026-05-22",
+            "hash": "3065fe4fae8a60417e8f5590285f17b7d77570eb7058d80466827ec2aaee2750"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1419,8 +1419,8 @@
             "hash": "3ba5b2f820549ff82e8568ca8a9f5e3fff77a1fb23899e2003a592597ca16617"
         },
         "reference/datasheets/tracker/tracker-one.md": {
-            "date": "2026-05-20",
-            "hash": "b3d1b9a11853abcdcd5fda9dded936419625ea4d418d67de38ad734684d9803e"
+            "date": "2026-05-22",
+            "hash": "f7bcc82c2ccd892c1bb9feff6d8790578a3c3cdfe0376941e3c988661e11c0be"
         },
         "reference/datasheets/tracker/tracker-m8-accessories.md": {
             "date": "2023-08-02",
@@ -8527,12 +8527,12 @@
             "date": "2026-05-08"
         },
         "reference/device-os/api/threading/mutex-class-threading.md": {
-            "hash": "1d7d9c76b2448ef711e51ad9188b5115ca1ade7a97b756e0f4d7a12615f5e677",
-            "date": "2026-05-08"
+            "hash": "b89330758dbf1977df6c5a5454db70263e6ef6c03a2596db5427ee925cdbc088",
+            "date": "2026-05-22"
         },
         "reference/device-os/api/threading/recursivemutex-class-threading.md": {
-            "hash": "3a26e621eb3c8c847571b553430d5046ef2a2624015137e0e0dcab0ffa8b6cb3",
-            "date": "2026-05-08"
+            "hash": "c31c67748e9eba2a08a828db6aad37a090d5385552f49a3a6b68080dc693c4f1",
+            "date": "2026-05-22"
         },
         "reference/device-os/api/threading/locking-threading.md": {
             "hash": "9a4e5b691fc4cd0238dd4ee47c6fa81b09a543a829c037762e67141a299d15df",
@@ -9703,8 +9703,8 @@
             "date": "2025-10-15"
         },
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
-            "hash": "3940f61687c4f539c5c442f396a99f3f8b1d501dab9991d280cb9a772b2ef67b",
-            "date": "2026-05-20"
+            "hash": "5807ba069d4603817fd9562e2f8bb4f004715950554a96bdcdab1a7256cf8067",
+            "date": "2026-05-22"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
             "hash": "cac5c6226004cb00f3b4fa8a832d9d7a1a1da4584cee69509f177f38c57088d9",
