@@ -53,6 +53,8 @@ This document includes a number of diagrams and tables that will be included in 
 
 Sulu supports 6 ADC inputs.
 
+{{imageOverlay src="/assets/images/sulu/sulu-pinout-adc.svg" alt="Pinout ADC" class="full-width"}}
+
 {{!-- BEGIN do not edit content below, it is automatically generated c76560c5-effb-4708-97a6-f21573263797 --}}
 
 | Pin Name | Description | Interface | MCU |
@@ -92,7 +94,27 @@ Sulu supports one UART serial interface.
 
 #### UART serial vs. Photon 2
 
-The Photon 2 supports additional UART interfaces `Serial2` and `Serial3`. These are not supported on Sulu.
+{{!-- imageOverlay src="/assets/images/sulu/sulu-photon2-serial-comparison.svg" alt="Serial comparison" class="full-width" --}}
+
+The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Photon 2. On Sulu only, `Serial1` optionally supports hardware flow control. On the Photon 2 only, there are additional UART serial ports `Serial2` and `Serial3`.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5fdfbe77-2ae3-406f-b4e0-e6aafb8ae948 --}}
+
+| Photon 2 Pin Name | Photon 2 Serial | Sulu Pin Name | Sulu Serial |
+| :--- | :--- | :--- | :--- |
+| SCK / D17 | Serial3 (RTS) | SCK / D13 | &nbsp; |
+| MOSI / D15 | Serial3 (TX) | MOSI / D12 | &nbsp; |
+| MISO / D16 | Serial3 (RX) | MISO / D11 | &nbsp; |
+| RX / D9 | Serial1 (RX)  | RX / D10 | Serial1 (RX)  |
+| TX / D8 | Serial1 (TX) | TX / D09 | Serial1 (TX) |
+| D2 | Serial2 (RTS) | D2 | Serial1 (RTS)  |
+| D3 | Serial2 (CTS) | D3 | Serial1 (CTS)  |
+| D4 | Serial2 (TX) | D4 | &nbsp; |
+| D5 | Serial2 (RX) | D5 | &nbsp; |
+| D10 / WKP | Serial3 (CTS) | D8 / WKP | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### SPI
 
@@ -122,7 +144,7 @@ Sulu supports two SPI (serial peripheral interconnect) ports.
 
 #### SPI vs. Boron
 
-{{imageOverlay src="/assets/images/sulu/sulu-boron-spi-comparison.svg" alt="SPI comparison" class="full-width"}}
+{{!-- imageOverlay src="/assets/images/sulu/sulu-boron-spi-comparison.svg" alt="SPI comparison" class="full-width" --}}
 
 Both Sulu and the Boron support two SPI interfaces, however `SPI1` (secondary SPI port) is on different pins.
 
@@ -146,7 +168,7 @@ Both Sulu and the Boron support two SPI interfaces, however `SPI1` (secondary SP
 
 #### SPI vs. Photon 2
 
-{{imageOverlay src="/assets/images/sulu/sulu-photon2-spi-comparison.svg" alt="SPI comparison" class="full-width"}}
+{{!-- imageOverlay src="/assets/images/sulu/sulu-photon2-spi-comparison.svg" alt="SPI comparison" class="full-width" --}}
 
 Both Sulu and the Photon 2 support two SPI interfaces, however there are important differences.
 
@@ -161,6 +183,7 @@ Both Sulu and the Photon 2 support two SPI interfaces, however there are importa
 | `SPI1`              | 50 MHz | 25 MHz |
 | SPI Master          | &check; | &check; |
 | SPI Slave           | &check; | |
+| Pins                | D2 - D5 | A2 - A5 |
 | Hardware peripheral | RTL872x SPI0 | RTL872x SPI1 |
 {{!-- END shared-blurb --}}
 
@@ -204,6 +227,7 @@ Sulu supports one I2C (two-wire serial interface) port.
 - Maximum bus speed is 400 kHz
 - External pull-up resistors are recommended for I2C as the internal pull-up is 13K.
 - If not using I2C, pins D0 and D1 can be used as GPIO or analog input.
+- The PMIC and Fuel Gauge are on a separate, dedicated I2C interface and do not affect `Wire`.
 
 ### PWM
 
@@ -230,7 +254,66 @@ Sulu supports PWM (pulse-width modulation) on the following pins:
 
 - PWM that share the same timer (`PMW2` for example) must share the same frequency but can have different duty cycles.
 - Pin `D7` (PWM0) share a timer with the RGB LED and you should not change its frequency but it can have a different duty cycle.
-- PWM pins vary greatly between devices, see migration guides for more information.
+
+#### PWM vs. Boron
+
+{{!-- imageOverlay src="/assets/images/sulu/sulu-boron-pwm-comparison.svg" alt="PWM comparison" class="full-width" --}}
+
+The pins that support PWM are different on the Argon and Photon 2.
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 6026dd9c-e783-4ada-a1ed-850c5cddcd0b --}}
+
+| Boron Pin Name | Boron PWM | Sulu Pin Name | Sulu PWM |
+| :--- | :--- | :--- | :--- |
+| A0 / D19 | &check; | A0 / D19 | &nbsp; |
+| A1 / D18 | &check; | A1 / D18 | &nbsp; |
+| A2 / D17 | &check; | A2 / D17 | &check; |
+| A3 / D16 | &check; | A3 / D16 | &check; |
+| A4 / D15 | &check; | A4 / D15 | &check; |
+| A5 / D14 | &check; | A5 / D14 | &nbsp; |
+| SCK / D13 | &nbsp; | SCK / D13 | &check; |
+| MOSI / D12 | &nbsp; | MOSI / D12 | &check; |
+| MISO / D11 | &nbsp; | MISO / D11 | &check; |
+| RX / D10 | &nbsp; | RX / D10 | &check; |
+| TX / D09 | &nbsp; | TX / D09 | &check; |
+| D0 | &nbsp; | D0 | &check; |
+| D1 | &nbsp; | D1 | &check; |
+| D2 | &check; | D2 | &nbsp; |
+| D3 | &check; | D3 | &nbsp; |
+| D4 | &check; | D4 | &check; |
+| D5 | &check; | D5 | &nbsp; |
+| D6 | &check; | D6 | &nbsp; |
+| D7 | &check; | D7 | &nbsp; |
+| D8 / WKP | &check; | D8 / WKP | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+#### PWM vs. Photon 2
+
+{{!-- imageOverlay src="/assets/images/sulu/sulu-photon2-pwm-comparison.svg" alt="PWM comparison" class="full-width" --}}
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 817332fa-3736-4879-a091-256b97e9d5c1 --}}
+
+| Photon 2 Pin Name | Photon 2 PWM | Sulu Pin Name | Sulu PWM |
+| :--- | :--- | :--- | :--- |
+| A2 / D13 | &check; | A2 / D17 | &check; |
+| A5 / D14 | &check; | A3 / D16 | &check; |
+| S4 / D19 | &nbsp; | A4 / D15 | &check; |
+| SCK / D17 | &nbsp; | SCK / D13 | &check; |
+| MOSI / D15 | &check; | MOSI / D12 | &check; |
+| MISO / D16 | &check; | MISO / D11 | &check; |
+| RX / D9 | &nbsp; | RX / D10 | &check; |
+| TX / D8 | &nbsp; | TX / D09 | &check; |
+| D0 / A3 | &nbsp; | D0 | &check; |
+| D1 / A4 | &check; | D1 | &check; |
+| D4 | &nbsp; | D4 | &check; |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 
 ### CAN (controller area network)
 
@@ -242,7 +325,7 @@ Sulu does not support CAN.
 ### PDM 
 
 Pulse density modulation digital microphones can be used with the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library 
-and Sulu, but only on specific pins. The Argon and Boron can use any pins for PDM (with the same library).
+and Sulu, but only on specific pins.
 
 {{!-- BEGIN do not edit content below, it is automatically generated e9d285b3-09e4-47f2-b040-a45f719a9bde --}}
 
@@ -253,30 +336,6 @@ and Sulu, but only on specific pins. The Argon and Boron can use any pins for PD
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
-
-
-```
-
-
-
-39c69dbe-1354-4b67-8f20-ae279d6f45d5
-
-5baa3b30-adfa-4fbb-a77c-0cacd12bb039
-
-cbc8d7de-f76a-47e5-abe0-4cd2c086d36a
-
-9b7f8b8e-d2fe-4003-b33d-f56bf4005356
-
-d9705340-416c-419f-b045-780a558d87c3
-
-e7ba7ebd-fb1f-496f-828b-490807aaa991
-
-ef9bf033-5ae7-4896-82cb-92e8fa23077f
-
-3d2171fa-5d98-4ddf-a5b8-a9c8f281177b
-
-97dbda7d-3614-4f56-a750-a6599b1b3ec4
-```
 
 
 ### I2S (Sound)
@@ -300,6 +359,10 @@ The Sulu hardware supports I2S (sound), but there is no support for it in Device
 BLE Central and BLE Peripheral modes are supported on Sulu.
 
 BLE long range (coded PHY) is not supported on Sulu.
+
+### PMIC and Fuel Gauge
+
+Sulu contains the bq24195 PMIC and MAX17043 fuel gauge. They are on a dedicated I2C interface and will not interfere with the `Wire` interface on `D0` and `D1`.
 
 ### SWD
 
@@ -335,6 +398,8 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+`TX` is a boot mode pin on the Photon 2, P2, and M-SoM, but not on Sulu.
+
 #### Boot mode pins vs. Photon 2
 
 {{imageOverlay src="/assets/images/sulu/sulu-photon2-boot-comparison.svg" alt="ADC comparison" class="full-width"}}
@@ -354,13 +419,13 @@ While the D7 pin is common between Sulu and Photon 2 as a boot pin, there are fe
 
 ### Interrupts
 
-All pins can be used for interrupts on Gen 3 devices and the Photon 2.
+All pins can be used for interrupts on Sulu.
 
 There is a limit of 8 pin interrupts on the Boron; this limitation does not exist on Sulu.
 
 ### Sleep
 
-The Photon 2 can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
+Sulu can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
 
 Sulu can only wake from `HIBERNATE` sleep mode certain pins, `RISING`, `FALLING`, or `CHANGE`. 
 
@@ -575,7 +640,7 @@ For analog to digital conversion (ADC) using `analogRead()`.
 
 ### PWM (Pulse-width modulation) - Sulu from Boron
 
-{{imageOverlay src="/assets/images/sulu/sulu-boron-pwm-comparison.svg" alt="ADC comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/sulu/sulu-boron-pwm-comparison.svg" alt="PWM comparison" class="full-width"}}
 
 The pins that support PWM are different on the Argon and Photon 2.
 
@@ -625,23 +690,6 @@ and Sulu, but only on specific pins. The Boron can use any pins for PDM (with th
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
-
-
-```
-cbc8d7de-f76a-47e5-abe0-4cd2c086d36a
-
-9b7f8b8e-d2fe-4003-b33d-f56bf4005356
-
-d9705340-416c-419f-b045-780a558d87c3
-
-e7ba7ebd-fb1f-496f-828b-490807aaa991
-
-ef9bf033-5ae7-4896-82cb-92e8fa23077f
-
-3d2171fa-5d98-4ddf-a5b8-a9c8f281177b
-
-97dbda7d-3614-4f56-a750-a6599b1b3ec4
-```
 
 
 ### I2S (Sound) - Sulu from Boron
@@ -752,6 +800,11 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 
 ### Full module pin comparison - Sulu from Boron
 
+{{imageOverlay src="/assets/images/boron-pinout.svg" alt="Boron Pinout Diagram" class="full-width"}}
+
+{{imageOverlay src="/assets/images/sulu/sulu-pinout.svg" alt="Pinout" class="full-width"}}
+
+
 {{!-- BEGIN do not edit content below, it is automatically generated xxx-ec636e6d-5401-4cf4-8ff9-27354ec41508 --}}
 {{!-- END do not edit content above, it is automatically generated --}}
 
@@ -780,6 +833,7 @@ Both Sulu and the Photon 2 support two SPI interfaces, however there are importa
 | `SPI1`              | 50 MHz | 25 MHz |
 | SPI Master          | &check; | &check; |
 | SPI Slave           | &check; | |
+| Pins                | D2 - D5 | A2 - A5 |
 | Hardware peripheral | RTL872x SPI0 | RTL872x SPI1 |
 {{!-- END shared-blurb --}}
 
@@ -810,7 +864,7 @@ Additionally, `SPI1` is on different pins.
 
 {{imageOverlay src="/assets/images/sulu/sulu-photon2-serial-comparison.svg" alt="Serial comparison" class="full-width"}}
 
-The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Boron. It optionally supports hardware flow control.
+The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Photon 2. On Sulu only, `Serial1` optionally supports hardware flow control. On the Photon 2 only, there are additional UART serial ports `Serial2` and `Serial3`.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5fdfbe77-2ae3-406f-b4e0-e6aafb8ae948 --}}
 
@@ -854,7 +908,7 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Bo
 
 ### PWM (Pulse-width modulation) - Sulu from Photon 2
 
-{{imageOverlay src="/assets/images/sulu/sulu-photon2-pwm-comparison.svg" alt="ADC comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/sulu/sulu-photon2-pwm-comparison.svg" alt="PWM comparison" class="full-width"}}
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 817332fa-3736-4879-a091-256b97e9d5c1 --}}
@@ -878,7 +932,7 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Bo
 
 ### Boot mode pins - Sulu from Photon 2
 
-{{imageOverlay src="/assets/images/sulu/sulu-photon2-boot-comparison.svg" alt="ADC comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/sulu/sulu-photon2-boot-comparison.svg" alt="Boot mode comparison" class="full-width"}}
 
 These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
 
@@ -896,7 +950,7 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 ### SWD - Sulu from Photon 2
 
-{{imageOverlay src="/assets/images/sulu/sulu-photon2-swd-comparison.svg" alt="ADC comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/sulu/sulu-photon2-swd-comparison.svg" alt="SWD comparison" class="full-width"}}
 
 Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connector on the top of the device. The Photon 2 also has this connector, but the pins are shared with GPIO pins.
 
@@ -915,6 +969,9 @@ Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connect
 
 
 ### Full module pin comparison - Sulu from Photon 2
+
+{{imageOverlay src="/assets/images/photon-2-pinout.svg" alt="Photon 2 Pinout Diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/sulu/sulu-pinout.svg" alt="Pinout" class="full-width"}}
 
 {{!-- BEGIN do not edit content below, it is automatically generated xxx-9fb77145-edd4-4f0a-815a-fb1994390006 --}}
 {{!-- END do not edit content above, it is automatically generated --}}
