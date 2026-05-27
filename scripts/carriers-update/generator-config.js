@@ -1261,7 +1261,272 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },        
-        // Electron 2
+        // Sulu - TODO: Rename platform
+        {
+            guid: 'c95d8236-be6f-492a-a5d6-40adf1a6acc7', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'Sulu'
+                }); 
+            } 
+        },                
+        {
+            guid: '96e7f64a-8089-4ee3-9e31-3906270428cb',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'Sulu',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'230fb891-7a16-4ccc-b5f0-4398c84303b8',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Sulu',
+                    interface: 'serial',
+                    noPinNumbers: true,
+                }); 
+            }                     
+        },
+        {
+            guid:'8db4f1d9-7b1d-4806-b83d-fb515a59d15c',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Sulu',
+                    interface: 'spi',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'529ff47f-b3ba-467b-8eb6-c95f5b0c3821',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Sulu',
+                    interface: 'i2c',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'c76560c5-effb-4708-97a6-f21573263797',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Sulu',
+                    interface: 'hardwareADC',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'420ef473-badc-4833-b341-1771f7a8699e',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Sulu',
+                    interface: 'analogWritePWM',
+                    noInterface: true,
+                    showHardwareTimer: true,
+                    noPinNumbers: true,
+                }); 
+            } 
+        },   
+        {
+            guid:'e9d285b3-09e4-47f2-b040-a45f719a9bde',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Sulu',
+                    interface: 'pdm',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'6489e45c-ce6e-41be-840b-c94c85124702',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Sulu',
+                    interface: 'i2s',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'db6531b6-9387-4e7c-b2f9-779c8423b2cf',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'bootPins',
+                    platformNew: 'Sulu'
+                }); 
+            }             
+        },
+        {
+            guid:'f1da1b65-7e6c-4611-ba44-b9273c40c9da',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Sulu',
+                    interface: 'hibernate',
+                    onlyGPIO: true,
+                }); 
+            }             
+        },
+
+        
+
+        // Sulu migration guide - from Boron
+        {
+            guid:'ec636e6d-5401-4cf4-8ff9-27354ec41508', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'Sulu',
+                    platformOld: 'Boron',
+                    noModulePin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'6026dd9c-e783-4ada-a1ed-850c5cddcd0b', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Sulu',
+                    platformOld: 'Boron',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'60b8d1d9-a3b4-431a-a028-c0f7c0bdda3a', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Sulu',
+                    platformOld: 'Boron',
+                    port: 'analogRead',
+                    label: 'ADC',
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },
+        {
+            guid:'8671f442-6d5f-468b-a0c2-a11870f7228d', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Sulu',
+                    platformOld: 'Boron',
+                    port: 'serial',
+                    label: 'Serial',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },
+        {
+            guid:'74e90cd9-f151-4393-86a2-fdd6ca70c4ca', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Sulu',
+                    platformOld: 'Boron',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },        
+
+        // Sulu migration guide - from Photon 2
+        {
+            guid:'9fb77145-edd4-4f0a-815a-fb1994390006', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'Sulu',
+                    platformOld: 'Photon 2',
+                    noModulePin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'817332fa-3736-4879-a091-256b97e9d5c1', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Sulu',
+                    platformOld: 'Photon 2',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'28c6f04f-66e8-4b64-87d0-4f6cf18e9228', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Sulu',
+                    platformOld: 'Photon 2',
+                    port: 'analogRead',
+                    label: 'ADC',
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },
+        {
+            guid:'5fdfbe77-2ae3-406f-b4e0-e6aafb8ae948', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Sulu',
+                    platformOld: 'Photon 2',
+                    port: 'serial',
+                    label: 'Serial',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },
+        {
+            guid:'6b9bbf34-54df-4cbb-bf2f-8dda881901e4', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Sulu',
+                    platformOld: 'Photon 2',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },        
+
+        // Electron 2 - TODO: Remove these
         {
             guid:'22694b55-ad2c-4e61-a33f-71994b569ba3', 
             generatorFn:function(updater){
