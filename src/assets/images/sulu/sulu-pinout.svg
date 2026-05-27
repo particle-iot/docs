@@ -1332,13 +1332,13 @@ A0    </text>
     </rect>
     <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D19    </text>
-    <line x1="-64" y1="0" x2="-68" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-64" y1="0" x2="-186" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-123" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
+    <rect x="-241" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
     </rect>
-    <text x="-95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-213.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC_0    </text>
-    <line x1="-123" y1="0" x2="-304" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-241" y1="0" x2="-304" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-359" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
@@ -1358,13 +1358,13 @@ A1    </text>
     </rect>
     <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D18    </text>
-    <line x1="-64" y1="0" x2="-68" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-64" y1="0" x2="-186" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-123" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
+    <rect x="-241" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
     </rect>
-    <text x="-95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-213.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC_1    </text>
-    <line x1="-123" y1="0" x2="-304" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-241" y1="0" x2="-304" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-359" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
@@ -1384,13 +1384,7 @@ A2    </text>
     </rect>
     <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D17    </text>
-    <line x1="-64" y1="0" x2="-68" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-123" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
-    </rect>
-    <text x="-95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-ADC_2    </text>
-    <line x1="-123" y1="0" x2="-186" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-64" y1="0" x2="-186" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-241" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
     </rect>
@@ -1422,13 +1416,7 @@ A3    </text>
     </rect>
     <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D16    </text>
-    <line x1="-64" y1="0" x2="-68" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-123" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
-    </rect>
-    <text x="-95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-ADC_3    </text>
-    <line x1="-123" y1="0" x2="-186" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-64" y1="0" x2="-186" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-241" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
     </rect>
@@ -1460,13 +1448,7 @@ A4    </text>
     </rect>
     <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D15    </text>
-    <line x1="-64" y1="0" x2="-68" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-123" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
-    </rect>
-    <text x="-95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-ADC_4    </text>
-    <line x1="-123" y1="0" x2="-186" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-64" y1="0" x2="-186" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-241" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
     </rect>
@@ -1498,13 +1480,7 @@ A5    </text>
     </rect>
     <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D14    </text>
-    <line x1="-64" y1="0" x2="-68" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-123" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
-    </rect>
-    <text x="-95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-ADC_5    </text>
-    <line x1="-123" y1="0" x2="-186" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-64" y1="0" x2="-186" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-241" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
     </rect>
