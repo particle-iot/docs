@@ -1314,6 +1314,185 @@ const svg = require('./svg');
 
 
 
+
+    diagram.generateSulu = async function(generateOptions, files) {
+        
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'Sulu',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/electron-2/electron-2-rendering.svg'),
+            outputPath: 'assets/images/sulu/sulu-pinout.svg',
+            // scale to make height 500px width 221
+            deviceImageTransform: 'scale(1.04) translate(-33,-27)',
+            width: 1000,
+            height: 510,
+            background: 'white',
+            pins: [
+                {   // Left side
+                    num: 1,
+                    x: 370,
+                    y: 70,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 24.6,
+                    count: 15,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['serial'],
+                        },
+                        {
+                            keys: ['spi'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+                {   // Right side
+                    num: 16,
+                    x: 598,
+                    y: 439,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -24.6,
+                    count: 12,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
+                        },
+                        {
+                            keys: ['serial'],
+                        },
+                        {
+                            keys: ['spi', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+            ],
+        });
+
+        await diagram.generate(options, files);
+    }
+
+
+    diagram.generateFeatherToSulu = async function(generateOptions, files) {
+        
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'Sulu',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/electron-2/electron-2-rendering.svg'),
+            outputPath: 'assets/images/sulu/' + generateOptions.outputFile,
+            deviceImageTransform: 'scale(1.04) translate(-33,-27)',
+            width: 1000,
+            height: 510,
+            background: 'white',
+            compareKey: 'argonName',
+            pins: [
+                {   // Left side
+                    num: 1,
+                    x: 370,
+                    y: 70,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 24.6,
+                    count: 15,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [],
+                },
+                {   // Right side
+                    num: 16,
+                    x: 598,
+                    y: 439,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -24.6,
+                    count: 12,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [],
+                },
+            ]
+        });
+
+        const titlePositions = ['first', 'last'];
+        for(let ii = 0; ii < options.pins.length; ii++) {
+            options.pins[ii].columns.push({
+                width: 30,
+                keys: ['name'],
+                titlePosition: titlePositions[ii],
+                titleAfter: 'Sulu',
+            });
+            options.pins[ii].columns.push({
+                width: 30,
+                keys: ['altName'],
+            });
+            if (generateOptions.feature) {
+                options.pins[ii].columns.push({
+                    keys: [generateOptions.feature],
+                });    
+            }
+
+            // Spacer
+            options.pins[ii].columns.push({
+                width: 20,
+            });
+
+            if (generateOptions.feature) {
+                options.pins[ii].columns.push({
+                    keys: ['compare_' + generateOptions.feature],
+                });    
+            }
+
+            options.pins[ii].columns.push({
+                width: 30,
+                keys: ['compareName'],
+                titlePosition: titlePositions[ii],
+                titleAfter: generateOptions.compareAfter,
+            });
+            options.pins[ii].columns.push({
+                width: 30,
+                keys: ['compare_altName'],
+            });
+        
+        }
+
+
+        await diagram.generate(options, files);
+    }
+
+
+    // TODO: Delete this
     diagram.generateElectron2 = async function(generateOptions, files) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
@@ -2349,8 +2528,72 @@ const svg = require('./svg');
         }, generateOptions), files);
         
         await diagram.generatePhoton2(generateOptions, files);
+        
+        // Sulu diagrams - rename these
+        await diagram.generateSulu(generateOptions, files); 
 
-        await diagram.generateElectron2(generateOptions, files);
+        await diagram.generateFeatherToSulu(Object.assign({
+            comparePlatform: 'Boron',
+            outputFile: 'sulu-boron-comparison.svg'
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToSulu(Object.assign({
+            comparePlatform: 'Boron',
+            outputFile: 'sulu-boron-spi-comparison.svg',
+            feature: 'spi',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToSulu(Object.assign({
+            comparePlatform: 'Boron',
+            outputFile: 'sulu-boron-serial-comparison.svg',
+            feature: 'serial',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToSulu(Object.assign({
+            comparePlatform: 'Boron',
+            outputFile: 'sulu-boron-adc-comparison.svg',
+            feature: 'hardwareADC',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToSulu(Object.assign({
+            comparePlatform: 'Boron',
+            outputFile: 'sulu-boron-pwm-comparison.svg',
+            feature: 'analogWritePWM',
+        }, generateOptions), files);
+
+        // 
+        await diagram.generateFeatherToSulu(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'sulu-photon2-comparison.svg'
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToSulu(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'sulu-photon2-spi-comparison.svg',
+            feature: 'spi',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToSulu(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'sulu-photon2-serial-comparison.svg',
+            feature: 'serial',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToSulu(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'sulu-photon2-adc-comparison.svg',
+            feature: 'hardwareADC',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToSulu(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'sulu-photon2-pwm-comparison.svg',
+            feature: 'analogWritePWM',
+        }, generateOptions), files);
+        
+
+        // TODO: remove this
+        await diagram.generateElectron2(generateOptions, files); 
 
         await diagram.generateFeatherAdapter(Object.assign(Object.assign({}, generateOptions), {
             platformName: 'Photon 2',
