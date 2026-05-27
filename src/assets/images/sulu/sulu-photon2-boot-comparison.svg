@@ -1717,7 +1717,7 @@ D7    </text>
     <rect x="68" y="-8" width="55" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
     <text x="95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-Low at boot triggers MCU boot mode.    </text>
+Yes    </text>
     <line x1="123" y1="0" x2="151" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="151" y="-8" width="55" height="16" stroke="black" fill="#E2E4EB" >
