@@ -51,9 +51,9 @@ This document includes a number of diagrams and tables that will be included in 
 
 ### ADC (analog to digital converter)
 
-Sulu supports 6 ADC inputs.
-
 {{imageOverlay src="/assets/images/sulu/sulu-pinout-adc.svg" alt="Pinout ADC" class="full-width"}}
+
+Sulu supports 6 ADC inputs.
 
 {{!-- BEGIN do not edit content below, it is automatically generated c76560c5-effb-4708-97a6-f21573263797 --}}
 
@@ -74,6 +74,8 @@ Sulu supports 6 ADC inputs.
 
 
 ### UART serial
+
+{{imageOverlay src="/assets/images/sulu/sulu-pinout-serial.svg" alt="Pinout serial" class="full-width"}}
 
 Sulu supports one UART serial interface. 
 
@@ -119,6 +121,8 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Ph
 ### SPI
 
 Sulu supports two SPI (serial peripheral interconnect) ports.
+
+{{imageOverlay src="/assets/images/sulu/sulu-pinout-spi.svg" alt="Pinout ADC" class="full-width"}}
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8db4f1d9-7b1d-4806-b83d-fb515a59d15c --}}
 
@@ -211,6 +215,8 @@ Additionally, `SPI1` is on different pins.
 
 ### I2C
 
+{{imageOverlay src="/assets/images/sulu/sulu-pinout-i2c.svg" alt="Pinout I2C" class="full-width"}}
+
 Sulu supports one I2C (two-wire serial interface) port.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 529ff47f-b3ba-467b-8eb6-c95f5b0c3821 --}}
@@ -230,6 +236,8 @@ Sulu supports one I2C (two-wire serial interface) port.
 - The PMIC and Fuel Gauge are on a separate, dedicated I2C interface and do not affect `Wire`.
 
 ### PWM
+
+{{imageOverlay src="/assets/images/sulu/sulu-pinout-pwm.svg" alt="Pinout PWM" class="full-width"}}
 
 Sulu supports PWM (pulse-width modulation) on the following pins:
 
@@ -260,7 +268,6 @@ Sulu supports PWM (pulse-width modulation) on the following pins:
 {{!-- imageOverlay src="/assets/images/sulu/sulu-boron-pwm-comparison.svg" alt="PWM comparison" class="full-width" --}}
 
 The pins that support PWM are different on the Argon and Photon 2.
-
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6026dd9c-e783-4ada-a1ed-850c5cddcd0b --}}
 
@@ -324,6 +331,8 @@ Sulu does not support CAN.
 
 ### PDM 
 
+{{imageOverlay src="/assets/images/sulu/sulu-pinout-pdm.svg" alt="Pinout PDM" class="full-width"}}
+
 Pulse density modulation digital microphones can be used with the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library 
 and Sulu, but only on specific pins.
 
@@ -339,6 +348,8 @@ and Sulu, but only on specific pins.
 
 
 ### I2S (Sound)
+
+{{imageOverlay src="/assets/images/sulu/sulu-pinout-i2s.svg" alt="Pinout I2S" class="full-width"}}
 
 The Sulu hardware supports I2S (sound), but there is no support for it in Device OS. It should be possible to implement in a third-party library from user firmware, but there is no publicly available library available at this time.
 
@@ -387,6 +398,8 @@ Unlike the Photon 2, SWD pins are not shared with GPIO.
 
 ### Boot mode pins
 
+{{imageOverlay src="/assets/images/sulu/sulu-pinout-boot.svg" alt="Pinout Boot" class="full-width"}}
+
 These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
 
 {{!-- BEGIN do not edit content below, it is automatically generated db6531b6-9387-4e7c-b2f9-779c8423b2cf --}}
@@ -402,7 +415,7 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 #### Boot mode pins vs. Photon 2
 
-{{imageOverlay src="/assets/images/sulu/sulu-photon2-boot-comparison.svg" alt="ADC comparison" class="full-width"}}
+{{!-- imageOverlay src="/assets/images/sulu/sulu-photon2-boot-comparison.svg" alt="ADC comparison" class="full-width" --}}
 
 While the D7 pin is common between Sulu and Photon 2 as a boot pin, there are fewer restrictions on Sulu.
 
@@ -425,11 +438,15 @@ There is a limit of 8 pin interrupts on the Boron; this limitation does not exis
 
 ### Sleep
 
+
 Sulu can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
 
 Sulu can only wake from `HIBERNATE` sleep mode certain pins, `RISING`, `FALLING`, or `CHANGE`. 
 
 Pin D10 `WKP` is the same module pin location as the Argon pin D8, which is also the WKP pin. 
+
+{{imageOverlay src="/assets/images/sulu/sulu-pinout-hibernate.svg" alt="Pinout Boot" class="full-width"}}
+
 
 {{!-- BEGIN do not edit content below, it is automatically generated f1da1b65-7e6c-4611-ba44-b9273c40c9da --}}
 
@@ -485,12 +502,499 @@ Sulu does not have NFC Tag support.
 
 {{collapse op="start" label="Show pin details"}}
 
-{{!-- BEGIN do not edit content below, it is automatically generated xxx-c95d8236-be6f-492a-a5d6-40adf1a6acc7 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated c95d8236-be6f-492a-a5d6-40adf1a6acc7 --}}
+
+
+#### 1 RST
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">1</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">RST</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Hardware reset. Pull low to reset; can leave unconnected in normal operation.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">CHIP_EN</td></tr>
+</tbody>
+</table>
+
+#### 2 3V3
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">2</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">3V3</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Regulated 3.3V DC output, maximum load 1000 mA</td></tr>
+</tbody>
+</table>
+
+#### 3 MODE
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">3</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">MODE</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">MODE button, has internal pull-up</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[11]</td></tr>
+</tbody>
+</table>
+
+#### 4 GND
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">4</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">GND</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Ground.</td></tr>
+</tbody>
+</table>
+
+#### 5 A0
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">5</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">A0</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D19</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">A0 Analog in, PDM CLK, GPIO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[1]</td></tr>
+</tbody>
+</table>
+
+#### 6 A1
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">6</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">A1</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D18</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">A1 Analog in, PDM DAT, GPIO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[2]</td></tr>
+</tbody>
+</table>
+
+#### 7 A2
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">7</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">A2</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D17</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">A2 Analog in, SPI1 SS, GPIO, PWM</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">SS. Use SPI1 object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[7]</td></tr>
+</tbody>
+</table>
+
+#### 8 A3
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">8</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">A3</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D16</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">A3 Analog in, SPI1 MOSI, GPIO, PWM</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">MOSI. Use SPI1 object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">42K</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[4]</td></tr>
+</tbody>
+</table>
+
+#### 9 A4
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">9</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">A4</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D15</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">A4 Analog in, SPI1 MISO, GPIO, PWM</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">MISO. Use SPI1 object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[5]</td></tr>
+</tbody>
+</table>
+
+#### 10 A5
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">10</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">A5</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D14</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">A5 Analog in, SPI1 SCK, GPIO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">SCK. Use SPI1 object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">22K</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[6]</td></tr>
+</tbody>
+</table>
+
+#### 11 SCK
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">11</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">SCK</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D13</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D13 GPIO, SPI SLK, PWM, I2S CLK</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">SCK. Use SPI object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">I2S interface</td><td class="" style="text-align: left; ">I2S CLK</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[20]</td></tr>
+</tbody>
+</table>
+
+#### 12 MOSI
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">12</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">MOSI</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D12</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">SPI MOSI, D12 GPIO, PWM</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">MOSI. Use SPI object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[18]</td></tr>
+</tbody>
+</table>
+
+#### 13 MISO
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">13</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">MISO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D11</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">SPI MISO, D5 GPIO, PWM, I2S TX</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">MISO. Use SPI object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">I2S interface</td><td class="" style="text-align: left; ">I2S TX</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[19]</td></tr>
+</tbody>
+</table>
+
+#### 14 RX
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">14</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">RX</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D10</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Serial RX, PWM, GPIO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">RX. Use Serial1 object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[13]</td></tr>
+</tbody>
+</table>
+
+#### 15 TX
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">15</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">TX</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D09</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Serial TX, PWM, GPIO, I2S MCLK</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">TX. Use Serial1 object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">I2S interface</td><td class="" style="text-align: left; ">I2S MCLK</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[12]</td></tr>
+</tbody>
+</table>
+
+#### 16 D0
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">16</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D0</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">I2C SDA, GPIO, PWM</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">I2C interface</td><td class="" style="text-align: left; ">SDA. Use Wire object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[24]</td></tr>
+</tbody>
+</table>
+
+#### 17 D1
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">17</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D1</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">I2C SCL, GPIO, PWM</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">I2C interface</td><td class="" style="text-align: left; ">SCL. Use Wire object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[23]</td></tr>
+</tbody>
+</table>
+
+#### 18 D2
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">18</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D2</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D2 GPIO, Serial RTS flow control (optional)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">RTS. Use Serial1 object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[14]</td></tr>
+</tbody>
+</table>
+
+#### 19 D3
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">19</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D3</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D3 GPIO, Serial1 CTS flow control (optional)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">CTS. Use Serial1 object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[15]</td></tr>
+</tbody>
+</table>
+
+#### 20 D4
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">20</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D4</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D4 GPIO, PWM, I2S WS</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">I2S interface</td><td class="" style="text-align: left; ">I2S WS</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[21]</td></tr>
+</tbody>
+</table>
+
+#### 21 D5
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">21</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D5</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">GPIO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[29]</td></tr>
+</tbody>
+</table>
+
+#### 22 D6
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">22</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D6</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">GPIO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[30]</td></tr>
+</tbody>
+</table>
+
+#### 23 D7
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">23</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D7</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">GPIO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Signal used at boot</td><td class="" style="text-align: left; ">Low at boot triggers MCU boot mode.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[31]</td></tr>
+</tbody>
+</table>
+
+#### 24 D8
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">24</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D8</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">WKP</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">GPIO, WKP</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[20]</td></tr>
+</tbody>
+</table>
+
+#### 25 VUSB
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">25</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">VUSB</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Input is 5V Tolerant</td><td class="" style="text-align: left; ">Yes</td></tr>
+</tbody>
+</table>
+
+#### 26 EN
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">26</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">EN</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.</td></tr>
+</tbody>
+</table>
+
+#### 27 LI+
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">27</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">LI+</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Connected to JST PH LiPo battery connector. 3.7V in or out.</td></tr>
+</tbody>
+</table>
+
+
 {{!-- END do not edit content above, it is automatically generated  --}}
 
 {{collapse op="end"}}
-
-
 
 
 ## Sulu from Boron
@@ -805,8 +1309,310 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 {{imageOverlay src="/assets/images/sulu/sulu-pinout.svg" alt="Pinout" class="full-width"}}
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated xxx-ec636e6d-5401-4cf4-8ff9-27354ec41508 --}}
+
+{{collapse op="start" label="Show pin details"}}
+{{!-- BEGIN do not edit content below, it is automatically generated ec636e6d-5401-4cf4-8ff9-27354ec41508 --}}
+
+#### RST
+| | Unchanged between Boron and Sulu |
+| :--- | :--- |
+| Pin Name | RST|
+| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
+#### 3V3
+| | Unchanged between Boron and Sulu |
+| :--- | :--- |
+| Pin Name | 3V3|
+| Description | Regulated 3.3V DC output, maximum load 1000 mA|
+#### MODE
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | MODE | MODE |
+| &nbsp; | Description | MODE button, has internal pull-up | MODE button, has internal pull-up |
+| ∆ | Supports attachInterrupt | n/a | Yes |
+#### GND
+| | Unchanged between Boron and Sulu |
+| :--- | :--- |
+| Pin Name | GND|
+| Description | Ground.|
+#### A0
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A0 | A0 |
+| &nbsp; | Pin Alternate Name | D19 | D19 |
+| ∆ | Description | A0 Analog in, GPIO, PWM | A0 Analog in, PDM CLK, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 2.1K |
+#### A1
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A1 | A1 |
+| &nbsp; | Pin Alternate Name | D18 | D18 |
+| ∆ | Description | A1 Analog in, GPIO, PWM | A1 Analog in, PDM DAT, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 2.1K |
+#### A2
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A2 | A2 |
+| &nbsp; | Pin Alternate Name | D17 | D17 |
+| ∆ | Description | A2 Analog in, GPIO, PWM | A2 Analog in, SPI1 SS, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
+| ∆ | SPI interface | n/a | SS. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | ??? |
+#### A3
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A3 | A3 |
+| &nbsp; | Pin Alternate Name | D16 | D16 |
+| ∆ | Description | A3 Analog in, GPIO, PWM | A3 Analog in, SPI1 MOSI, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
+| ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 42K |
+#### A4
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A4 | A4 |
+| &nbsp; | Pin Alternate Name | D15 | D15 |
+| ∆ | Description | A4 Analog in, GPIO, PWM | A4 Analog in, SPI1 MISO, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | Yes |
+| ∆ | SPI interface | n/a | MISO. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | ??? |
+#### A5
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A5 | A5 |
+| &nbsp; | Pin Alternate Name | D14 | D14 |
+| ∆ | Description | A5 Analog in, GPIO, PWM, SPI SS | A5 Analog in, SPI1 SCK, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | SCK. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 22K |
+#### SCK
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | SCK | SCK |
+| &nbsp; | Pin Alternate Name | D13 | D13 |
+| ∆ | Description | SPI SCK, GPIO | D13 GPIO, SPI SLK, PWM, I2S CLK |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | I2S CLK |
+| ∆ | Internal pull resistance | 13K | ??? |
+#### MOSI
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | MOSI | MOSI |
+| &nbsp; | Pin Alternate Name | D12 | D12 |
+| ∆ | Description | SPI MOSI, GPIO | SPI MOSI, D12 GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | ??? |
+#### MISO
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | MISO | MISO |
+| &nbsp; | Pin Alternate Name | D11 | D11 |
+| ∆ | Description | SPI MISO, GPIO | SPI MISO, D5 GPIO, PWM, I2S TX |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | I2S TX |
+| ∆ | Internal pull resistance | 13K | ??? |
+#### RX
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | RX | RX |
+| &nbsp; | Pin Alternate Name | D10 | D10 |
+| ∆ | Description | Serial RX, GPIO | Serial RX, PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 2.1K |
+#### TX
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | TX | TX |
+| &nbsp; | Pin Alternate Name | D09 | D09 |
+| ∆ | Description | Serial TX, GPIO | Serial TX, PWM, GPIO, I2S MCLK |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | I2S MCLK |
+| ∆ | Internal pull resistance | 13K | 2.1K |
+#### D0
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D0 | D0 |
+| ∆ | Description | I2C SDA, GPIO | I2C SDA, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | ??? |
+#### D1
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D1 | D1 |
+| ∆ | Description | I2C SCL, GPIO | I2C SCL, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | ??? |
+#### D2
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D2 | D2 |
+| ∆ | Description | SPI1 SCK, Serial1 RTS, GPIO, PWM | D2 GPIO, Serial RTS flow control (optional) |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| &nbsp; | UART serial | RTS. Use Serial1 object. | RTS. Use Serial1 object. |
+| ∆ | SPI interface | SCK. Use SPI1 object. | n/a |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | ??? |
+#### D3
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D3 | D3 |
+| ∆ | Description | SPI1 MOSI, Serial1 CTS, PWM, GPIO | D3 GPIO, Serial1 CTS flow control (optional) |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| &nbsp; | UART serial | CTS. Use Serial1 object. | CTS. Use Serial1 object. |
+| ∆ | SPI interface | MOSI. Use SPI1 object. | n/a |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | ??? |
+#### D4
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D4 | D4 |
+| ∆ | Description | SPI1 MISO, PWM, GPIO | D4 GPIO, PWM, I2S WS |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
+| ∆ | SPI interface | MISO. Use SPI1 object. | n/a |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | I2S interface | n/a | I2S WS |
+| ∆ | Internal pull resistance | 13K | ??? |
+#### D5
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D5 | D5 |
+| ∆ | Description | PWM, GPIO | GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | ??? |
+#### D6
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D6 | D6 |
+| ∆ | Description | PWM, GPIO | GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | ??? |
+#### D7
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D7 | D7 |
+| ∆ | Description | PWM, GPIO | GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| &nbsp; | Internal pull resistance | 13K | 13K |
+| ∆ | Signal used at boot | n/a | Low at boot triggers MCU boot mode. |
+#### D8
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D8 | D8 |
+| &nbsp; | Pin Alternate Name | WKP | WKP |
+| ∆ | Description | GPIO, PWM | GPIO, WKP |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | ??? |
+#### VUSB
+| | Unchanged between Boron and Sulu |
+| :--- | :--- |
+| Pin Name | VUSB|
+| Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.|
+| Input is 5V Tolerant | Yes|
+#### EN
+| | Unchanged between Boron and Sulu |
+| :--- | :--- |
+| Pin Name | EN|
+| Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
+#### LI+
+| | Unchanged between Boron and Sulu |
+| :--- | :--- |
+| Pin Name | LI+|
+| Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
+
+
 {{!-- END do not edit content above, it is automatically generated --}}
+{{collapse op="end"}}
+
 
 
 ## Sulu from Photon 2
@@ -932,7 +1738,7 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Ph
 
 ### Boot mode pins - Sulu from Photon 2
 
-{{imageOverlay src="/assets/images/sulu/sulu-photon2-boot-comparison.svg" alt="Boot mode comparison" class="full-width"}}
+{{!-- imageOverlay src="/assets/images/sulu/sulu-photon2-boot-comparison.svg" alt="Boot mode comparison" class="full-width" --}}
 
 These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
 
@@ -973,5 +1779,303 @@ Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connect
 {{imageOverlay src="/assets/images/photon-2-pinout.svg" alt="Photon 2 Pinout Diagram" class="full-width"}}
 {{imageOverlay src="/assets/images/sulu/sulu-pinout.svg" alt="Pinout" class="full-width"}}
 
-{{!-- BEGIN do not edit content below, it is automatically generated xxx-9fb77145-edd4-4f0a-815a-fb1994390006 --}}
+{{collapse op="start" label="Show pin details"}}
+{{!-- BEGIN do not edit content below, it is automatically generated 9fb77145-edd4-4f0a-815a-fb1994390006 --}}
+
+#### RST
+| | Unchanged between Photon 2 and Sulu |
+| :--- | :--- |
+| Pin Name | RST|
+| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
+#### 3V3
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | 3V3 | 3V3 |
+| ∆ | Description | Regulated 3.3V DC output, maximum load 500 mA | Regulated 3.3V DC output, maximum load 1000 mA |
+#### MODE
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | MODE | MODE |
+| &nbsp; | Description | MODE button, has internal pull-up | MODE button, has internal pull-up |
+| ∆ | Supports attachInterrupt | n/a | Yes |
+#### GND
+| | Unchanged between Photon 2 and Sulu |
+| :--- | :--- |
+| Pin Name | GND|
+| Description | Ground.|
+#### A0
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A0 | A0 |
+| ∆ | Pin Alternate Name | D11 | D19 |
+| &nbsp; | Description | A0 Analog in, PDM CLK, GPIO | A0 Analog in, PDM CLK, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| &nbsp; | Internal pull resistance | 2.1K | 2.1K |
+#### A1
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A1 | A1 |
+| ∆ | Pin Alternate Name | D12 | D18 |
+| &nbsp; | Description | A1 Analog in, PDM DAT, GPIO | A1 Analog in, PDM DAT, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| &nbsp; | Internal pull resistance | 2.1K | 2.1K |
+#### A2
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A2 | A2 |
+| ∆ | Pin Alternate Name | D13 | D17 |
+| ∆ | Description | A2 Analog in, GPIO, PWM. | A2 Analog in, SPI1 SS, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| &nbsp; | Supports tone | Yes | Yes |
+| ∆ | SPI interface | n/a | SS. Use SPI1 object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 42K | ??? |
+#### A5 / A3
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | A5 | A3 |
+| ∆ | Pin Alternate Name | D14 | D16 |
+| ∆ | Description | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. | A3 Analog in, SPI1 MOSI, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| &nbsp; | Supports tone | Yes | Yes |
+| ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| &nbsp; | Internal pull resistance | 42K | 42K |
+#### S4 / A4
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | S4 | A4 |
+| ∆ | Pin Alternate Name | D19 | D15 |
+| ∆ | Description | S4 GPIO, Was A4 on Gen 3. | A4 Analog in, SPI1 MISO, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| ∆ | SPI interface | n/a | MISO. Use SPI1 object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | ??? |
+#### S3 / A5
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | S3 | A5 |
+| ∆ | Pin Alternate Name | D18 | D14 |
+| ∆ | Description | S3 GPIO, SPI SS, Was A5 on Gen 3. | A5 Analog in, SPI1 SCK, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | SPI interface | Default SS for SPI. | SCK. Use SPI1 object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 2.1K | 22K |
+#### SCK
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | SCK | SCK |
+| ∆ | Pin Alternate Name | D17 | D13 |
+| ∆ | Description | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | D13 GPIO, SPI SLK, PWM, I2S CLK |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| ∆ | UART serial | RTS. Use Serial3 object. Flow control optional. | n/a |
+| &nbsp; | SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | n/a | I2S CLK |
+| ∆ | Internal pull resistance | 2.1K | ??? |
+#### MOSI
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | MOSI | MOSI |
+| ∆ | Pin Alternate Name | D15 | D12 |
+| ∆ | Description | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | SPI MOSI, D12 GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| &nbsp; | Supports tone | Yes | Yes |
+| ∆ | UART serial | TX. Use Serial3 object. | n/a |
+| &nbsp; | SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 2.1K | ??? |
+#### MISO
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | MISO | MISO |
+| ∆ | Pin Alternate Name | D16 | D11 |
+| ∆ | Description | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | SPI MISO, D5 GPIO, PWM, I2S TX |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| &nbsp; | Supports tone | Yes | Yes |
+| ∆ | UART serial | RX. Use Serial3 object. | n/a |
+| &nbsp; | SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | n/a | I2S TX |
+| ∆ | Internal pull resistance | 2.1K | ??? |
+#### RX
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | RX | RX |
+| ∆ | Pin Alternate Name | D9 | D10 |
+| ∆ | Description | Serial1 RX (received data), GPIO | Serial RX, PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 42K | 2.1K |
+#### TX
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | TX | TX |
+| ∆ | Pin Alternate Name | D8 | D09 |
+| ∆ | Description | Serial1 TX (transmitted data), GPIO | Serial TX, PWM, GPIO, I2S MCLK |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | n/a | I2S MCLK |
+| ∆ | Internal pull resistance | 42K | 2.1K |
+| ∆ | Signal used at boot | Low at boot triggers ISP flash download | n/a |
+#### D0
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D0 | D0 |
+| ∆ | Pin Alternate Name | A3 | n/a |
+| ∆ | Description | D0 GPIO, I2C SDA, A3 Analog In | I2C SDA, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | Yes | No |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| ∆ | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. | SDA. Use Wire object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 22K | ??? |
+#### D1
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D1 | D1 |
+| ∆ | Pin Alternate Name | A4 | n/a |
+| ∆ | Description | D1 GPIO, PWM, I2C SCL, A4 Analog In | I2C SCL, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | Yes | No |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| &nbsp; | Supports tone | Yes | Yes |
+| ∆ | I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. | SCL. Use Wire object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 22K | ??? |
+#### D2
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D2 | D2 |
+| ∆ | Description | D2 GPIO, Serial2 RTS, SPI1 MOSI | D2 GPIO, Serial RTS flow control (optional) |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | UART serial | RTS. Use Serial2 object. Flow control optional. | RTS. Use Serial1 object. |
+| ∆ | SPI interface | MOSI. Use SPI1 object. | n/a |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 2.1K | ??? |
+#### D3
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D3 | D3 |
+| ∆ | Description | D3 GPIO, Serial2 CTS, SPI1 MISO | D3 GPIO, Serial1 CTS flow control (optional) |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | UART serial | CTS. Use Serial2 object. Flow control optional. | CTS. Use Serial1 object. |
+| ∆ | SPI interface | MISO. Use SPI1 object. | n/a |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 2.1K | ??? |
+#### D4
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D4 | D4 |
+| ∆ | Description | D4 GPIO, Serial2 TX, SPI1 SCK | D4 GPIO, PWM, I2S WS |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| ∆ | UART serial | TX. Use Serial2 object. | n/a |
+| ∆ | SPI interface | SCK. Use SPI1 object. | n/a |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | n/a | I2S WS |
+| ∆ | Internal pull resistance | 2.1K | ??? |
+#### D5
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D5 | D5 |
+| ∆ | Description | D5 GPIO, Serial2 RX, SPI1 SS | GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | UART serial | RX. Use Serial2 object. | n/a |
+| ∆ | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | n/a |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 2.1K | ??? |
+#### D6
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D6 | D6 |
+| ∆ | Description | D6 GPIO, SWCLK. | GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 42K | ??? |
+| ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
+| ∆ | Signal used at boot | SWCLK. 40K pull-down at boot. | n/a |
+#### D7
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D7 | D7 |
+| ∆ | Description | D7 GPIO, Blue LED, SWDIO | GPIO |
+| ∆ | Supports digitalRead | Yes. | Yes |
+| ∆ | Supports digitalWrite | Yes. On the Photon this is the blue D7 LED. | Yes |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 2.1K | 13K |
+| ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
+| ∆ | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | Low at boot triggers MCU boot mode. |
+#### D10 / D8
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | D10 | D8 |
+| &nbsp; | Pin Alternate Name | WKP | WKP |
+| ∆ | Description | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | GPIO, WKP |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | UART serial | CTS. Use Serial3 object. Flow control optional. | n/a |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 2.1K | ??? |
+#### VUSB
+| | Unchanged between Photon 2 and Sulu |
+| :--- | :--- |
+| Pin Name | VUSB|
+| Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.|
+| Input is 5V Tolerant | Yes|
+#### EN
+| | Unchanged between Photon 2 and Sulu |
+| :--- | :--- |
+| Pin Name | EN|
+| Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
+#### LI+
+| | Unchanged between Photon 2 and Sulu |
+| :--- | :--- |
+| Pin Name | LI+|
+| Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
+
+
 {{!-- END do not edit content above, it is automatically generated --}}
+{{collapse op="end"}}
