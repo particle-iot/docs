@@ -205,7 +205,10 @@ const svg = require('./svg');
                                 if (info[key] == 'isNC') {
                                     text = 'NC';
                                 }
-
+                                if (['boot', 'hibernate', 'compare_boot', 'compare_hibernate'].includes(key) && text && typeof text === 'string' && text.length > 0) {
+                                    text = 'Yes';
+                                }
+ 
                                 if (text === true) {
                                     text = info.name;
                                 }
@@ -1341,7 +1344,7 @@ const svg = require('./svg');
             });
         }
         else {
-            for(const col of ['spi', 'hardwareADC', 'pdm', 'i2s']) {
+            for(const col of ['spi', 'hardwareADC', 'pdm', 'i2s', 'boot', 'swd', 'hibernate']) {
                 if (generateOptions.feature == col) {
                     columns.push({
                         keys: [col],
@@ -2578,6 +2581,17 @@ const svg = require('./svg');
             feature: 'i2s'
         }, generateOptions), files);
 
+        await diagram.generateSulu(Object.assign({
+            outputFile: 'sulu-pinout-boot.svg',
+            feature: 'boot'
+        }, generateOptions), files);
+
+        await diagram.generateSulu(Object.assign({
+            outputFile: 'sulu-pinout-hibernate.svg',
+            feature: 'hibernate'
+        }, generateOptions), files);
+
+        //
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Boron',
             outputFile: 'sulu-boron-comparison.svg'
