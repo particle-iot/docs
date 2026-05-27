@@ -6297,6 +6297,14 @@
           "dir": "ispreferred-wifi"
         },
         {
+          "title": "setCountryCode() [WiFi] - WiFi",
+          "dir": "setcountrycode-wifi"
+        },
+        {
+          "title": "getCountryCode() [WiFi] - WiFi",
+          "dir": "getcountrycode-wifi"
+        },
+        {
           "title": "listen() - WiFi",
           "dir": "listen"
         },

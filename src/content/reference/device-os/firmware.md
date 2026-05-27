@@ -3394,6 +3394,96 @@ if (WiFi.isPreferred()) {
 
 
 
+### setCountryCode() [WiFi]
+
+{{api name1="WiFi.setCountryCode"}}
+
+{{note op="start" type="note"}}
+Only supported on the P2, Photon 2, and M-SoM in Device OS 5.1.0 and later.
+
+The Argon (Gen 3) does not support Wi-Fi channel plans. You can set the value, but it doesn't do anything.
+
+The Photon 1 and P1 (Gen 2) do not support this API, but do support setting the DCT value to `WLAN_CC_JP` (0x4A50) to enable the channels used in Japan,
+{{note op="end"}}
+
+---
+
+```cpp
+// PROTOTYPE
+int setCountryCode(wlan_country_code_t country_code);
+```
+<!-- spark_wiring_wifi.h 131 -->
+
+By default, Wi-Fi devices use the United States channel plan, which is the most restrictive of channel plans for Wi-Fi. The most noticeable 
+effect of this is that devices will not use channel 2.4 GHz Wi-Fi channel 12, which has restrictions in the United States that make its use 
+impractical in many cases, so it's just disabled. 
+
+You can set the Wi-Fi country code from C++ code running on the device using:
+
+```cpp
+WiFi.setCountryCode(WLAN_CC_AU); // Australia
+```
+
+- This only sets a value in the DCT (configuration flash).
+- It is persistent, and not reset when flashing user firmware, Device OS, clear credentials, or Device Restore.
+- You must call it before connecting to Wi-Fi, which can be accomplished in several ways:
+  - Call it from your one-time setup or test firmware, since the setting is persistent (recommended).
+  - Use `SYSTEM_MODE(SEMI_AUTOMATIC)` and set the country code before `Particle.connect()`.
+  - Call it from `STARTUP()`.
+
+The following country codes are defined:
+
+```cpp
+typedef enum wlan_country_code_t {
+    WLAN_CC_UNSET = 0x0000,
+    WLAN_CC_US = 0x5553,
+    WLAN_CC_EU = 0x4555,
+    WLAN_CC_JP = 0x4A50,
+    WLAN_CC_CA = 0x4341,
+    WLAN_CC_MX = 0x4D58,
+    WLAN_CC_GB = 0x4742,
+    WLAN_CC_AU = 0x4155,
+    WLAN_CC_KR = 0x4B52,
+    WLAN_CC_WORLD = 0xFFFE,
+    WLAN_CC_MAX = 0xFFFF
+} wlan_country_code_t;
+```
+
+The data is stored in the DCT at `DCT_COUNTRY_CODE_OFFSET` (1758) as two bytes in big-endian order (high byte first). This is the implementation 
+of the underlying function which shows how it's actually written to the configuration flash.
+
+```cpp
+int wlan_set_country_code(wlan_country_code_t country_code, void* reserved) {
+    char cc_buf[2] = { (char)(country_code >> 8),  (char)(country_code & 0xFF) };
+    return dct_write_app_data(cc_buf, DCT_COUNTRY_CODE_OFFSET, sizeof(cc_buf));
+}
+```
+
+Because the setting is stored in the DCT, it's possible to set the value in DFU mode. You can do so using `dfu-util` with the `-a 1` (alt bank 1) option.
+
+The DCT on Gen 3 and Gen 4 devices is stored in a file on the file system, so it is impractical to set the value by SWD/JTAG.
+
+### getCountryCode() [WiFi] 
+
+{{api name1="WiFi.getCountryCode"}}
+
+{{note op="start" type="note"}}
+Only supported on the P2, Photon 2, and M-SoM in Device OS 5.1.0 and later.
+
+The Argon (Gen 3) does not support Wi-Fi channel plans. You can set the value, but it doesn't do anything.
+{{note op="end"}}
+
+---
+
+```cpp
+// PROTOTYPE
+int getCountryCode();
+```
+
+If the return value is >= 0, then it is a `wlan_country_code_t`. If it is < 0, then an error has occurred retrieving the value.
+
+The country codes are listed in [WiFi.setCountryCode()](/reference/device-os/api/wifi/setcountrycode-wifi/).
+
 ### listen()
 
 {{api name1="WiFi.listen"}}

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### WiFi.setCountryCode 2026-05-27
+
+Added documentation for [WiFi.setCountryCode()](/reference/device-os/api/wifi/setcountrycode-wifi/), added in Device OS 5.1.0 for the P2, Photon 2, and M-SoM.
+
 ### Italy Wind 3G sunset 2026-05-20
 
 Updated the 3G sunset date for Wind in Italy. This occurred at the end of 2025, but wasn't listed as being discontinued.

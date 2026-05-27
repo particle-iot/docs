@@ -135,6 +135,8 @@
   "/reference/device-os/firmware/#getantenna-": "/reference/device-os/api/wifi/getantenna/",
   "/reference/device-os/firmware/#prefer-wifi-": "/reference/device-os/api/wifi/prefer-wifi/",
   "/reference/device-os/firmware/#ispreferred-wifi-": "/reference/device-os/api/wifi/ispreferred-wifi/",
+  "/reference/device-os/firmware/#setcountrycode-wifi-": "/reference/device-os/api/wifi/setcountrycode-wifi/",
+  "/reference/device-os/firmware/#getcountrycode-wifi-": "/reference/device-os/api/wifi/getcountrycode-wifi/",
   "/reference/device-os/firmware/#listen-": "/reference/device-os/api/wifi/listen/",
   "/reference/device-os/firmware/#listening-": "/reference/device-os/api/wifi/listening/",
   "/reference/device-os/firmware/#setlistentimeout-": "/reference/device-os/api/wifi/setlistentimeout/",
