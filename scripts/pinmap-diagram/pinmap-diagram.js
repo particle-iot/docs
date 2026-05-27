@@ -435,15 +435,10 @@ const svg = require('./svg');
     };
 
 
-    diagram.generateArgon  = async function (generateOptions, files) {
+    diagram.generateFeather  = async function (generateOptions, files) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
-            platformName: 'Argon',
-            // height="194.98106" width="86.125328"
-            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/argon.svg'),
-            outputPath: 'assets/images/argon-pinout.svg',
-            // scale to make height 500px width 221
-            deviceImageTransform: 'translate(375,0) scale(2.564)',
+            // Pass ing: platformName, deviceImage, outputPath, deviceImageTransform
             width: 1000,
             height: 510,
             background: 'white',
@@ -1317,10 +1312,60 @@ const svg = require('./svg');
 
     diagram.generateSulu = async function(generateOptions, files) {
         
+        let columns = [
+            {
+                width: 30,
+                keys: ['name'],
+            },
+            {
+                width: 30,
+                keys: ['altName'],
+            },
+        ];
+
+        if (!generateOptions.feature || generateOptions.feature == 'i2c' || generateOptions.feature == 'swd') {
+            columns.push({
+                keys: ['isPower', 'isControl', 'i2c', 'swd'],
+            });
+        }
+
+        if (!generateOptions.feature || generateOptions.feature == 'serial') {
+            columns.push({
+                keys: ['serial'],
+            });
+        }
+
+        if (!generateOptions.feature) {
+            columns.push({
+                keys: ['spi', 'hardwareADC'],
+            });
+        }
+        else {
+            for(const col of ['spi', 'hardwareADC', 'pdm', 'i2s']) {
+                if (generateOptions.feature == col) {
+                    columns.push({
+                        keys: [col],
+                    });
+                }
+            }
+        }
+        
+        if (!generateOptions.feature || generateOptions.feature == 'analogWritePWM') {
+            columns.push({
+                keys: ['analogWritePWM'],
+            });
+        }
+
+
+
+        columns.push({
+            keys: ['hardwarePin'],
+        });
+
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: 'Sulu',
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/electron-2/electron-2-rendering.svg'),
-            outputPath: 'assets/images/sulu/sulu-pinout.svg',
+            outputPath: 'assets/images/sulu/' + generateOptions.outputFile,
             // scale to make height 500px width 221
             deviceImageTransform: 'scale(1.04) translate(-33,-27)',
             width: 1000,
@@ -1337,31 +1382,7 @@ const svg = require('./svg');
                     count: 15,
                     xDir: -1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 30,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 30,
-                            keys: ['altName'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['serial'],
-                        },
-                        {
-                            keys: ['spi'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                        {
-                            keys: ['hardwarePin'],
-                        },
-                    ],
+                    columns,
                 },
                 {   // Right side
                     num: 16,
@@ -1373,31 +1394,7 @@ const svg = require('./svg');
                     count: 12,
                     xDir: 1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 30,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 30,
-                            keys: ['altName'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
-                        },
-                        {
-                            keys: ['serial'],
-                        },
-                        {
-                            keys: ['spi', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                        {
-                            keys: ['hardwarePin'],
-                        },
-                    ],
+                    columns,
                 },
             ],
         });
@@ -2458,8 +2455,19 @@ const svg = require('./svg');
         // generateOptions:
         //      topDir - top of the docs directory (contains src directory)
         //      pinInfo - path to the pinInfo.json file
+        await diagram.generateFeather(Object.assign(Object.assign({}, generateOptions), {
+            platformName: 'Argon',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/argon.svg'),
+            outputPath: 'assets/images/argon-pinout.svg',
+            deviceImageTransform: 'translate(375,0) scale(2.564)',
+        }), files);
 
-        await diagram.generateArgon(generateOptions, files);
+        await diagram.generateFeather(Object.assign(Object.assign({}, generateOptions), {
+            platformName: 'Boron',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/boron.svg'),
+            outputPath: 'assets/images/boron-pinout.svg',
+            deviceImageTransform: 'translate(375,0) scale(2.564)',
+        }), files);
 
         await diagram.generatePhoton(generateOptions, files);
         
@@ -2530,7 +2538,45 @@ const svg = require('./svg');
         await diagram.generatePhoton2(generateOptions, files);
         
         // Sulu diagrams - rename these
-        await diagram.generateSulu(generateOptions, files); 
+        await diagram.generateSulu(Object.assign({
+            outputFile: 'sulu-pinout.svg'
+        }, generateOptions), files);
+
+        await diagram.generateSulu(Object.assign({
+            outputFile: 'sulu-pinout-adc.svg',
+            feature: 'hardwareADC'
+        }, generateOptions), files);
+
+
+        await diagram.generateSulu(Object.assign({
+            outputFile: 'sulu-pinout-spi.svg',
+            feature: 'spi'
+        }, generateOptions), files);
+
+        await diagram.generateSulu(Object.assign({
+            outputFile: 'sulu-pinout-serial.svg',
+            feature: 'serial'
+        }, generateOptions), files);
+
+        await diagram.generateSulu(Object.assign({
+            outputFile: 'sulu-pinout-i2c.svg',
+            feature: 'i2c'
+        }, generateOptions), files);
+
+        await diagram.generateSulu(Object.assign({
+            outputFile: 'sulu-pinout-pwm.svg',
+            feature: 'analogWritePWM'
+        }, generateOptions), files);
+
+        await diagram.generateSulu(Object.assign({
+            outputFile: 'sulu-pinout-pdm.svg',
+            feature: 'pdm'
+        }, generateOptions), files);
+
+        await diagram.generateSulu(Object.assign({
+            outputFile: 'sulu-pinout-i2s.svg',
+            feature: 'i2s'
+        }, generateOptions), files);
 
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Boron',
