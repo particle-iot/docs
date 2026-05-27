@@ -1024,11 +1024,11 @@
         },
         "hardware/migration-guides/photon-2-argon-migration-guide.md": {
             "date": "2026-05-27",
-            "hash": "491714c8cea62ddd47da24c1030b84982b0e7580172f5392d0e57fe2aea52154"
+            "hash": "fdffd10c3867f6f5076c60496ce51489eb5119347e0f1ce600d0436a0e0c8b4b"
         },
         "hardware/migration-guides/photon-2-photon-migration-guide.md": {
             "date": "2026-05-27",
-            "hash": "c5a242ac6df34f326ad265c4e8070134d6316f41df85bc3b10364af00e6a3857"
+            "hash": "04d24ddae20c5b300736c1d7f37668afdeb7fc80c3e8db85410b336bb269f9a3"
         },
         "hardware/power/batteries.md": {
             "date": "2026-03-05",
@@ -1404,7 +1404,7 @@
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
             "date": "2026-05-27",
-            "hash": "e92abe7744012b53cbf5bb1011b8d7f661ad6a4e19c226afef810cee8d46f1ba"
+            "hash": "6c9208aeff3fca2fa5c670b57c079cd6865a54499d7729f998d958f206139832"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2025-06-24",

@@ -8381,6 +8381,7 @@
           "analogWriteDAC": false,
           "analogWritePWM": false,
           "attachInterrupt": true,
+          "boot": "Low at boot triggers MCU boot mode.",
           "digitalRead": true,
           "digitalWrite": true,
           "hardwarePin": "PB[31]",
