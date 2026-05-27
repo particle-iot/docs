@@ -2591,6 +2591,17 @@ const svg = require('./svg');
             feature: 'analogWritePWM',
         }, generateOptions), files);
         
+        await diagram.generateFeatherToSulu(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'sulu-photon2-boot-comparison.svg',
+            feature: 'boot',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToSulu(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'sulu-photon2-swd-comparison.svg',
+            feature: 'swd',
+        }, generateOptions), files);
 
         // TODO: remove this
         await diagram.generateElectron2(generateOptions, files); 
