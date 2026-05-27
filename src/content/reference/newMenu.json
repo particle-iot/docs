@@ -488,6 +488,11 @@
                         {
                             "dir": "boron-datasheet",
                             "title": "Boron datasheet"
+                        },
+                        {
+                            "dir": "sulu",
+                            "title": "Sulu project notes",
+                            "internal": true
                         }
                     ]
                 },

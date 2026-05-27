@@ -1525,6 +1525,36 @@ const schemaDocs = require('./schema-docs');
                 }); 
             }
         },        
+        {
+            guid:'5baa3b30-adfa-4fbb-a77c-0cacd12bb039', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Sulu',
+                    platformOld: 'Photon 2',
+                    port: 'boot',
+                    label: 'Boot',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },      
+        {
+            guid:'39c69dbe-1354-4b67-8f20-ae279d6f45d5', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Sulu',
+                    platformOld: 'Photon 2',
+                    port: 'swd',
+                    label: 'SWD',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },        
 
         // Electron 2 - TODO: Remove these
         {
