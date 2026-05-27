@@ -344,9 +344,6 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 | Pin | Pin Name | Description | MCU |
 | :---: | :--- | :--- | :--- |
-| 15 | TX / D8 | Low at boot triggers ISP flash download | PA[7] |
-| 22 | D6 | SWCLK. 40K pull-down at boot. | PB[3] |
-| 23 | D7 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
