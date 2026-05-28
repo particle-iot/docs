@@ -2,7 +2,7 @@
 title: Wi-Fi country tool
 layout: commonTwo.hbs
 description: Tool to setting the Wi-Fi country code on Gen 4 devices
-includeDefinitions: [api-helper,api-helper-extras]
+includeDefinitions: [api-helper,api-helper-extras,api-helper-usb,webdfu]
 ---
 
 # {{title}}
