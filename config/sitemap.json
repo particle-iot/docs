@@ -935,8 +935,8 @@
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2026-05-18",
-            "hash": "29cef29b75962e2c040b6aed6a71ad3943afdaa257c8350d61b6f76b1fa9dfb3"
+            "date": "2026-05-28",
+            "hash": "1638da66b672d377036800362e44a876dbfa5d93ca6cebc8255622e814c08fc7"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1343,8 +1343,8 @@
             "hash": "b665c854ee1d177f21417da39d3899b821d19dc487443fc100bdcc39ca116095"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2026-05-20",
-            "hash": "5f41846c0436ddae323dbee3c253d339af9960ccd1736514b8acf7f342c4b757"
+            "date": "2026-05-28",
+            "hash": "62fe725a0222ac92e012e23b09cde33ef183503b56cc14a6e9f6b41345ba66e4"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2026-05-20",
@@ -1399,8 +1399,8 @@
             "hash": "a25ee15997fd92068f24b92fa506611af0f0bcbae34daaa769917bec984a3de0"
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
-            "date": "2026-05-18",
-            "hash": "a0ac26187f6d501f15fba59520ab3e0ddb8d06fe67a1155f4a13f63b54ccbda2"
+            "date": "2026-05-28",
+            "hash": "913dfa28e1cbc63108f91cd0740afca35dd7c58bd1e47f8dfec909986ea7eea3"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
             "date": "2025-10-22",
@@ -8391,8 +8391,8 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "b80053d030a7c18f6219e282db120d5c54a426baef7d30605d6e1334e1b670db",
-            "date": "2026-05-20"
+            "hash": "d0f5221f58474200ebf923a050be1e85572c1b8759cbe9a3256f772b76231b91",
+            "date": "2026-05-28"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "5fc30474709951ab80e7f3e40fdbfd0471a50ffc75cf3fa10c3efc843c3e1925",

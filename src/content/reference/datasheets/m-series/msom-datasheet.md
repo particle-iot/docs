@@ -1254,7 +1254,7 @@ SE, SI, SK, TR, UA, UK(NI).
 
 ### CE (European Union) - M524 M-SoM M-Series LTE Cat 1
 
-- [EU Declaration of Conformity](/assets/pdfs/particle-M524-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
+- [EU Declaration of Conformity EN 18031-1:2024](/assets/pdfs/particle-M524-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
 - [Summary](/assets/pdfs/m524-ce-summary.pdf)
 - [EN-62368-1 Test Report](/assets/pdfs/m524-EN-62368-1-test-report.pdf)
 - [EN 300 328 Test Report BLE](/assets/pdfs/m524-EN300-328-ble-test-report.pdf) (Bluetooth LE 2.4 GHz ISM band)
