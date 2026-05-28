@@ -3904,6 +3904,224 @@ $(document).ready(function() {
         }
     });
 
+    $('.wifiCountryTool').each(async function() {
+        let gaCategory = 'WiFiCountryTool';
+        const thisPartial = $(this);
+        const wifiCountryTool = {
+            dfuStartAddress: 1758, // DCT_COUNTRY_CODE_OFFSET
+        };
+
+        if (!navigator.usb) {
+            analytics.track('No WebUSB', {category:gaCategory, label:navigator.userAgent});
+            $('.browserError').show();
+            $('.apiHelper').hide();
+            return;
+        }
+
+        const deviceConstants = await apiHelper.getDeviceConstants();
+        const usbFilters = [];
+        for(const platformName in deviceConstants) {
+            const dcObj = deviceConstants[platformName];
+            if (dcObj.id >= 0 && dcObj.generation == 4) {
+                usbFilters.push({vendorId: 0x2b04, productId: (0xc000 | dcObj.id)});
+                usbFilters.push({vendorId: 0x2b04, productId: (0xd000 | dcObj.id)});
+            }
+        }
+
+        const countryCodes = {
+            "WLAN_CC_UNSET": 0x0000,
+            "WLAN_CC_US": 0x5553,
+            "WLAN_CC_EU": 0x4555,
+            "WLAN_CC_JP": 0x4A50,
+            "WLAN_CC_CA": 0x4341,
+            "WLAN_CC_MX": 0x4D58,
+            "WLAN_CC_GB": 0x4742,
+            "WLAN_CC_AU": 0x4155,
+            "WLAN_CC_KR": 0x4B52,
+            "WLAN_CC_WORLD": 0xFFFE,
+            "DCT not set": 0xFFFF,
+        };
+        
+        for(const key in countryCodes) {
+            const optionElem = document.createElement('option');
+            $(optionElem).text(key);
+            $(optionElem).attr('value', countryCodes[key].toString(16));
+
+            $(thisPartial).find('.countryCodeSelect').append(optionElem);
+        }
+
+
+        const setStatus = function(s) {
+            $(thisPartial).find('.statusDiv').text(s);
+        }
+
+        const createDfuseDevice = async function(interface) {
+            const dfuDevice = new dfu.Device(wifiCountryTool.nativeUsbDevice, interface);
+
+            await dfuDevice.open();
+
+            const interfaceNames = await dfuDevice.readInterfaceNames();
+            if (interface.name === null) {
+                let configIndex = interface.configuration.configurationValue;
+                let intfNumber = interface["interface"].interfaceNumber;
+                let alt = interface.alternate.alternateSetting;
+                interface.name = interfaceNames[configIndex][intfNumber][alt];
+            }
+
+            const dfuseDevice = new dfuse.Device(dfuDevice.device_, dfuDevice.settings);            
+
+            dfuseDevice.logInfo = function(msg) {
+                // console.log(msg); 
+                setStatus(msg);
+            };
+
+            return dfuseDevice;
+        }
+        
+        // selectDevice, getCountryCode, setCountryCode, countryCodeSelect
+        $(thisPartial).find('.selectDevice').on('click', async function() {
+            $(thisPartial).find('.selectDevice').prop('disabled', true);
+
+            try {
+                if (wifiCountryTool.usbDevice) {
+                    await wifiCountryTool.usbDevice.close();
+                    wifiCountryTool.usbDevice = null;
+                }
+
+                setStatus('Select Particle Gen 4 Wi-Fi device...');
+                wifiCountryTool.nativeUsbDevice = await navigator.usb.requestDevice({ filters: usbFilters });
+
+                wifiCountryTool.usbDevice = await ParticleUsb.openNativeUsbDevice(wifiCountryTool.nativeUsbDevice, {});
+
+                if (!wifiCountryTool.usbDevice.isInDfuMode) {
+                    setStatus('Entering DFU mode. You may need to select the device again.');
+
+                    wifiCountryTool.usbDevice.enterDfuMode();
+                }
+
+                setStatus('Connected to the device in DFU mode...');
+                $(thisPartial).find('.selectDevice').prop('disabled', false);
+                
+                const interfaces = dfu.findDeviceDfuInterfaces(wifiCountryTool.nativeUsbDevice);
+
+                for(const tempInterface of interfaces) {
+                    if (tempInterface.alternate.alternateSetting == 0) {
+                        wifiCountryTool.interface = tempInterface;
+                    }
+                    else
+                    if (tempInterface.alternate.alternateSetting == 1) {
+                        wifiCountryTool.altInterface = tempInterface;
+                    }
+                    else
+                    if (tempInterface.alternate.alternateSetting == 2) {
+                        wifiCountryTool.extInterface = tempInterface;
+                    }
+                }
+
+                if (wifiCountryTool.altInterface) {
+                    $(thisPartial).find('.disableNoDevice').prop('disabled', false);
+
+                }
+                else {
+                    setStatus('Unable to access alt interface to access DCT');
+                }
+
+            }
+            catch(e) {
+                setStatus('');
+                console.log('requestDevice exception', e);
+            }
+        });      
+
+        $(thisPartial).find('.getCountryCode').on('click', async function() {
+            $(thisPartial).find('.getCountryCode').prop('disabled', true);
+
+            const dfuseAltDevice = await createDfuseDevice(wifiCountryTool.altInterface);
+            
+            dfuseAltDevice.startAddress = wifiCountryTool.dfuStartAddress; // DCT_COUNTRY_CODE_OFFSET
+                      
+            try {
+                const dataBlob = await dfuseAltDevice.do_upload(4096, 2);                    
+
+                const dataArrayBuffer = await dataBlob.arrayBuffer();
+
+                const view = new DataView(dataArrayBuffer);
+                
+                let code = view.getUint16(0, false);
+
+                let foundKey;
+                for(const key in countryCodes) {
+                    if (countryCodes[key] == code) {
+                        foundKey = key;
+                        break;
+                    }
+                }
+                 
+                // console.log('dataArrayBuffer', {code, foundKey, dataArrayBuffer});
+
+                let text = '';
+                if (foundKey) {
+                    text = foundKey + ' ';
+                }
+                else {
+                    text = 'Unknown value '
+                    code = 0;
+                }
+                text += code.toString(16) + ' (' + code.toString(10) + ')';
+
+                $(thisPartial).find('.countryCodeSelect').val(code.toString(16));
+
+                $(thisPartial).find('.getResult').text(text);
+                analytics.track('getCountryCode success', {category:gaCategory, label: code.toString(16)});
+            }
+            catch(e) {
+                console.log('getCountryCode exception', e);
+                setStatus('Error getting country code');
+                analytics.track('getCountryCode error', {category:gaCategory});
+            }
+            
+
+            await dfuseAltDevice.close();
+
+            $(thisPartial).find('.getCountryCode').prop('disabled', false);
+        });
+
+        $(thisPartial).find('.setCountryCode').on('click', async function() {
+            $(thisPartial).find('.setCountryCode').prop('disabled', true);
+
+            const code = parseInt($(thisPartial).find('.countryCodeSelect').val(), 16);
+            
+            const dfuseAltDevice = await createDfuseDevice(wifiCountryTool.altInterface);
+            
+            dfuseAltDevice.startAddress = wifiCountryTool.dfuStartAddress; // DCT_COUNTRY_CODE_OFFSET
+                      
+            try {
+                const dataArrayBuffer = new ArrayBuffer(2);
+
+                const view = new DataView(dataArrayBuffer);
+                view.setUint16(0, code, false);
+
+                const uint8View = new Uint8Array(dataArrayBuffer); 
+
+                await dfuseAltDevice.do_download(4096, uint8View, {doManifestation:false, noErase:true});    
+
+                $(thisPartial).find('.getResult').text('');
+
+                analytics.track('setCountryCode success', {category:gaCategory, label:code.toString(16)});
+            }
+            catch(e) {
+                console.log('setCountryCode exception', e);
+                setStatus('Error getting country code');
+                analytics.track('setCountryCode error', {category:gaCategory});
+            }
+            
+
+            await dfuseAltDevice.close();
+            $(thisPartial).find('.setCountryCode').prop('disabled', false);
+        });
+
+    });
+
 });
 
 
