@@ -10029,6 +10029,10 @@
         "reference/device-os/api/wifi/getcountrycode-wifi.md": {
             "hash": "c40dc6191cb27f132c368a41f0a324a1751ccd84f9cfb6d9b21a20d5c8fc7f04",
             "date": "2026-05-27"
+        },
+        "tools/developer-tools/wifi-country.md": {
+            "hash": "c2d624292365e0ffbe2f4572e34bba5003198f8fa81e997f5f745a52130b9aa3",
+            "date": "2026-05-28"
         }
     }
 }

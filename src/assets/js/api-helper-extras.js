@@ -3904,6 +3904,35 @@ $(document).ready(function() {
         }
     });
 
+    $('.wifiCountryTool').each(async function() {
+        let gaCategory = 'WiFiCountryTool';
+        const thisPartial = $(this);
+        const wifiCountryTool = {};
+
+        if (!navigator.usb) {
+            analytics.track('No WebUSB', {category:gaCategory, label:navigator.userAgent});
+            $('.browserError').show();
+            $('.apiHelper').hide();
+            return;
+        }
+        
+        // selectDevice, getCountryCode, setCountryCode, countryCodeSelect
+        $(thisPartial).find('.selectDevice').on('click', async function() {
+            $(thisPartial).find('.selectDevice').prop('disabled', true);
+
+            try {
+                wifiCountryTool.nativeUsbDevice = await navigator.usb.requestDevice({ filters: usbFilters });
+                
+                $(thisPartial).find('.disableNoDevice').prop('disabled', false);
+            }
+            catch(e) {
+                console.log('requestDevice exception', e);
+                $(thisPartial).find('.selectDevice').prop('disabled', false);
+            }
+        });      
+
+    });
+
 });
 
 

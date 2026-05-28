@@ -112,6 +112,10 @@
                 {
                     "dir": "control-request",
                     "title": "USB control request"
+                },
+                {
+                    "dir": "wifi-country",
+                    "title": "Wi-Fi country tool"
                 }
             ]
         },
