@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-05-27",
-            "hash": "45edb5213d6745628f2c5e22d24354132e7bbfcb260ff35f0a215a3b3736bf7e"
+            "date": "2026-05-28",
+            "hash": "2f94c0b113a3bccf69b80dba0ed14fcb6fea30ef7b9f92dc566a3e3327a046c4"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "a77e7ca2eb1620b391019f75c7ac4cb4f2a353147d01df3886e0e85b6c535626",
-            "date": "2026-05-27"
+            "hash": "a154abbe0d9d6c7b166078d85856319d910dba8f0a0a0e89e9f3f1e038808edf",
+            "date": "2026-05-28"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -10023,8 +10023,8 @@
             "date": "2026-05-01"
         },
         "reference/device-os/api/wifi/setcountrycode-wifi.md": {
-            "hash": "4b83ccd3fe7d0162a01e36ba2d48ca6f0de18bbc93130648407ed34aa20d490b",
-            "date": "2026-05-27"
+            "hash": "7e3065f6609f1bfabb0ea6582712f9c758040a23842dde31c8424f3b462d4285",
+            "date": "2026-05-28"
         },
         "reference/device-os/api/wifi/getcountrycode-wifi.md": {
             "hash": "c40dc6191cb27f132c368a41f0a324a1751ccd84f9cfb6d9b21a20d5c8fc7f04",

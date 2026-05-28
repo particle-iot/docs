@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Wi-Fi country tool 2026-05-28
+
+The [Wi-Fi country tool](/tools/developer-tools/wifi-country/) is a web-based tool to allow you to set the Wi-Fi country code in the DCT (configuration flash)
+with the device connected by USB to your computer. It works with the P2, Photon 2, and M-SoM.
+
 ### WiFi.setCountryCode 2026-05-27
 
 Added documentation for [WiFi.setCountryCode()](/reference/device-os/api/wifi/setcountrycode-wifi/), added in Device OS 5.1.0 for the P2, Photon 2, and M-SoM.

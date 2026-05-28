@@ -4072,10 +4072,12 @@ $(document).ready(function() {
                 $(thisPartial).find('.countryCodeSelect').val(code.toString(16));
 
                 $(thisPartial).find('.getResult').text(text);
+                analytics.track('getCountryCode success', {category:gaCategory, label: code.toString(16)});
             }
             catch(e) {
                 console.log('getCountryCode exception', e);
                 setStatus('Error getting country code');
+                analytics.track('getCountryCode error', {category:gaCategory});
             }
             
 
@@ -4105,10 +4107,12 @@ $(document).ready(function() {
 
                 $(thisPartial).find('.getResult').text('');
 
+                analytics.track('setCountryCode success', {category:gaCategory, label:code.toString(16)});
             }
             catch(e) {
                 console.log('setCountryCode exception', e);
                 setStatus('Error getting country code');
+                analytics.track('setCountryCode error', {category:gaCategory});
             }
             
 

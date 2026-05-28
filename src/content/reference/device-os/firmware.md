@@ -3459,7 +3459,8 @@ int wlan_set_country_code(wlan_country_code_t country_code, void* reserved) {
 }
 ```
 
-Because the setting is stored in the DCT, it's possible to set the value in DFU mode. You can do so using `dfu-util` with the `-a 1` (alt bank 1) option.
+Because the setting is stored in the DCT, it's possible to set the value in DFU mode. You can do so using `dfu-util` with the `-a 1` (alt bank 1) option. 
+There is also a [web based tool](/tools/developer-tools/wifi-country/) for setting this value.
 
 The DCT on Gen 3 and Gen 4 devices is stored in a file on the file system, so it is impractical to set the value by SWD/JTAG.
 
