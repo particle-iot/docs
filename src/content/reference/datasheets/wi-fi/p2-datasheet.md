@@ -2085,7 +2085,7 @@ SE, SI, SK, TR, UA, UK(NI).
 
 ### CE (Europe) - P2
 
-- [EU Declaration of Conformity EN 18031-1:2024](/assets/pdfs/particle-P2-Photon2-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
+- [EU Declaration of Conformity](/assets/pdfs/particle-P2-Photon2-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
 - [Certificate of Conformity](/assets/pdfs/p2-ce-certificate.pdf)
 - [EN 300-328 Bluetooth LE Test Report](/assets/pdfs/p2-EN300-328-btle-test-report.pdf)
 - [EN 300-328 Wi-Fi Test Report](/assets/pdfs/p2-EN300-328-wifi-test-report.pdf)

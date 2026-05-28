@@ -223,7 +223,7 @@ The certification for the B504 applies to the B504e as changing only the SIM is 
 
 ### CE (Europe) - B523 B524 B-Series SoM
 
-- [EU Declaration of Conformity EN 18031-1:2024](/assets/pdfs/particle-B524-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
+- [EU Declaration of Conformity](/assets/pdfs/particle-B524-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
 - [Summary](/assets/pdfs/b523-ce-summary.pdf) (updated 2021-09-16)
 - [EMC Test Report](/assets/pdfs/b523-ce-emc-test-report.pdf) (updated 2021-09-16)
 - [RED BLE Test Report](/assets/pdfs/b523-ble-ce-test-report.pdf) (updated 2022-11-09)
@@ -961,7 +961,7 @@ Additional FCC Test Reports:
 
 ### CE (European Union) - M524 M-SoM M-Series LTE Cat 1
 
-- [EU Declaration of Conformity EN 18031-1:2024](/assets/pdfs/particle-M524-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
+- [EU Declaration of Conformity](/assets/pdfs/particle-M524-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
 - [Summary](/assets/pdfs/m524-ce-summary.pdf)
 - [EN-62368-1 Test Report](/assets/pdfs/m524-EN-62368-1-test-report.pdf)
 - [EN 300 328 Test Report BLE](/assets/pdfs/m524-EN300-328-ble-test-report.pdf) (Bluetooth LE 2.4 GHz ISM band)
@@ -1223,7 +1223,7 @@ The P1 module is deprecated. All designs should use the P2 module instead.
 
 ### CE (Europe) - P2
 
-- [EU Declaration of Conformity EN 18031-1:2024](/assets/pdfs/particle-P2-Photon2-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
+- [EU Declaration of Conformity](/assets/pdfs/particle-P2-Photon2-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
 - [Certificate of Conformity](/assets/pdfs/p2-ce-certificate.pdf)
 - [EN 300-328 Bluetooth LE Test Report](/assets/pdfs/p2-EN300-328-btle-test-report.pdf)
 - [EN 300-328 Wi-Fi Test Report](/assets/pdfs/p2-EN300-328-wifi-test-report.pdf)

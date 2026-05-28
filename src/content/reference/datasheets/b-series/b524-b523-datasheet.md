@@ -1702,7 +1702,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 
 ### CE (Europe) - B523 B524 B-Series SoM
 
-- [EU Declaration of Conformity EN 18031-1:2024](/assets/pdfs/particle-B524-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
+- [EU Declaration of Conformity](/assets/pdfs/particle-B524-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
 - [Summary](/assets/pdfs/b523-ce-summary.pdf) (updated 2021-09-16)
 - [EMC Test Report](/assets/pdfs/b523-ce-emc-test-report.pdf) (updated 2021-09-16)
 - [RED BLE Test Report](/assets/pdfs/b523-ble-ce-test-report.pdf) (updated 2022-11-09)
