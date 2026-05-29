@@ -1536,7 +1536,6 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Mozambique | &check; | &check; | &nbsp; | &check; |
 | Myanmar | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Namibia | &nbsp; | &nbsp; | &nbsp; | &check; |
-| Nauru | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Netherlands | &check; | &check; | &nbsp; | &check; |
 | New Zealand | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Nicaragua | &check; | &check; | &nbsp; | &nbsp; |

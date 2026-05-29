@@ -757,6 +757,11 @@ const familyMapCreate = function() {
             family = familyMap.options.family;
         }
 
+        if (family == 'ntn') {
+            familyMap.drawMapNTN();
+            return;
+        }
+
         // This is causing the family map to always get selected
         /*
         if (!familyMap.options.noHistory) {
@@ -837,60 +842,116 @@ const familyMapCreate = function() {
 
     }
 
+    familyMap.drawMapNTN = function() {
+        const options = {
+            labelValues: ['M1 only', 'NTN only', 'M1 and NTN'],
+            colors: [
+                '85D6E5', // COLOR_Sky_700 (blue, M1 only)
+                'FFE949', // COLOR_State_Yellow_500 (yellow, NTN only)
+                '36CE7E', // COLOR_Mint_800 (green, both)
+            ],
+            valueForCountry: function(countryObj) {
+
+                let foundValue = 0;
+
+                for(const cmsObj of datastore.data.countryModemSim) {
+                   if (countryObj.name != cmsObj.country) {
+                        continue;
+                    }
+                    if (cmsObj.modem != 'BG95-S5' || cmsObj.sim != 4) {
+                        continue;
+                    }
+
+                    const hasM1 = cmsObj.technologies.includes('M1');
+                    const hasNTN = cmsObj.technologies.includes('NTN');
+
+                    if (hasM1 && hasNTN) {
+                        foundValue = 3;
+                        break;
+                    }
+                    else
+                    if (hasNTN) {
+                        foundValue = 2;
+                        break;
+                    }
+                    else
+                    if (hasM1) {
+                        foundValue = 1;
+                        break;
+                    }
+                }
+
+                return foundValue;            },
+        };
+
+        familyMap.drawMapCustom(options);
+    }
+
     familyMap.drawMapCat1Expansion = function() {
+        const options = {
+            labelValues: ['Original Coverage', 'Expanded Coverage'],
+            colors: ['AFE4EE', '2BB1CA'],
+            valueForCountry: function(countryObj) {
+
+                let foundValue = 0;
+
+                for(const cmsObj of datastore.data.countryModemSim) {
+                   if (countryObj.name != cmsObj.country || cmsObj.recommendation != 'YES') {
+                        continue;
+                    }
+                    if (!cmsObj.modem.startsWith('EG91-E') || cmsObj.sim != 4) {
+                        continue;
+                    }
+
+                    if (cmsObj.expansion) {
+                        foundValue = 2;
+                        break;
+                    }
+                    else {
+                        foundValue = 1;
+                        break;
+                    }
+                }
+
+                return foundValue;
+            },
+        };
+
+        familyMap.drawMapCustom(options);
+
+    }
+
+    familyMap.drawMapCustom = function(options) {
         // let countryDataArray = [['Country', 'Coverage']];
 
         const svgElem = $('.familyMapDiv > svg ');
         familyMap.removeFill();
 
-        const labelValues = ['Original Coverage', 'Expanded Coverage'];
-        const colors = ['AFE4EE', '2BB1CA'];
-
-        datastore.data.countries.forEach(function(countryObj) {
-
-            let foundValue = 0;
-
-            datastore.data.countryModemSim.forEach(function(cmsObj) {
-                if (countryObj.name != cmsObj.country || cmsObj.recommendation != 'YES') {
-                    return;
-                }
-                if (!cmsObj.modem.startsWith('EG91-E') || cmsObj.sim != 4) {
-                    return;
-                }
-
-                if (cmsObj.expansion) {
-                    foundValue = 2;
-                }
-                else {
-                    if (foundValue == 0) {
-                        foundValue = 1;
-                    }
-                }
-            });    
-
+        for(const countryObj of datastore.data.countries) {
+            let foundValue = options.valueForCountry(countryObj);
             if (foundValue) {
                 const className = 'country-' + countryObj.isoCode;
                 familyMap.worldMapFill.push(className);
 
-                $(svgElem).find('.' + className).css('fill', '#' + colors[foundValue - 1]);
+                $(svgElem).find('.' + className).css('fill', '#' + options.colors[foundValue - 1]);
             }
-        });
+        }
 
         // 
         {
             let html = '<div><table><tbody>';
 
-            for(let ii = 0; ii < labelValues.length; ii++) {
-                const style = 'background-color:#' + colors[ii];
+            for(let ii = 0; ii < options.labelValues.length; ii++) {
+                const style = 'background-color:#' + options.colors[ii];
 
-                html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + labelValues[ii] + '</td></tr>';
+                html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + options.labelValues[ii] + '</td></tr>';
             }
 
             html += '</tbody></table></div>';
 
             $(familyMap.options.skusDiv).html(html);
         }
-    }
+    }    
     
     familyMap.initMap = async function() {
         familyMap.initMapStarted = true;
@@ -928,7 +989,6 @@ const familyMapCreate = function() {
             familyMap.options.clickToShow = false;
             familyMap.drawMap = familyMap.drawMapCat1Expansion;
         }
-
 
         if (familyMap.options.clickToShow) {
             $(familyMap.options.mapDiv).find('.clickToShow').show();
