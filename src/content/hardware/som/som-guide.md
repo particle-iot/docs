@@ -139,7 +139,6 @@ The following are M.2 SoM device SKUs:
 | [M524MEA](/reference/datasheets/m-series/msom-datasheet/) | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA |
 | [M524MTY](/reference/datasheets/m-series/msom-datasheet/) | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
 | [M635EMEA](/reference/datasheets/m-series/msom-datasheet/) | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
-| [M635MEA](/reference/datasheets/m-series/msom-datasheet/) | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

@@ -84,9 +84,11 @@ carriers2.selectMenu = function() {
     const values = $('#' + carriers2.options.deviceList).val().split(',');
     const skuFamilyObj = datastore.data.skuFamily[parseInt(values[0])].group[parseInt(values[1])];
 
-    const countryCarrierKey = datastore.findSimPlanById(skuFamilyObj.simPlan).countryCarrierKey;
+    const simPlanObj = datastore.findSimPlanById(skuFamilyObj.simPlan);
+    const countryCarrierKeys = simPlanObj.countryCarrierKeys || [simPlanObj.countryCarrierKey];
 
-    const technologies = datastore.findModemByModel(skuFamilyObj.modem).technologies;
+    const modemObj = datastore.findModemByModel(skuFamilyObj.modem);
+    const technologies = modemObj.technologies;
 
     const regionGroup = datastore.findRegionGroupById(carriers2.options.regionGroup);
     let regions;
@@ -117,33 +119,38 @@ carriers2.selectMenu = function() {
     let countryHasSecondaryOrBackup = {};
     let countryCarrierFiltered = [];
 
-    datastore.data.countryCarrier.forEach(function(ccObj) {
+    for(const ccObj of datastore.data.countryCarrier) {
 
-        if (!ccObj[countryCarrierKey] || ccObj[countryCarrierKey].prohibited) {
-            return;
-        }
-        const cmsObj = datastore.findCountryModemSim(ccObj.country, skuFamilyObj.modem, skuFamilyObj.sim);
-        if (!cmsObj || cmsObj.recommendation == 'NR' || cmsObj.recommendation == 'POSS' ||  cmsObj.recommendation == 'NS') {
-            return;
-        }
-
-        if (regions && !datastore.countryInRegionArray(ccObj.country, regions)) {
-            return;
-        }
-
-        if (ccObj[countryCarrierKey].rank == 'Secondary' || ccObj[countryCarrierKey].rank == 'Backup') {
-            countryHasSecondaryOrBackup[ccObj.country] = true;
-        }
-
-        if (ccObj.country == 'United States' && ccObj.carrier == 'Verizon') {
-            // Skip on E404 and ELC404
-            if (skuFamilyObj.short.includes('E404') || skuFamilyObj.short.includes('ELC404')) {
-                return;
+        for(const countryCarrierKey of countryCarrierKeys) {
+            if (!ccObj[countryCarrierKey] || ccObj[countryCarrierKey].prohibited) {
+                // console.log('no countryCarrierKey', {countryCarrierKey, ccObj});
+                continue;
             }
-        }
+            const cmsObj = datastore.findCountryModemSim(ccObj.country, skuFamilyObj.modem, skuFamilyObj.sim);
+            if (!cmsObj || cmsObj.recommendation == 'NR' || cmsObj.recommendation == 'POSS' ||  cmsObj.recommendation == 'NS') {
+                // console.log('no recommendation', {countryCarrierKey, cmsObj, ccObj});
+                continue;
+            }
 
-        countryCarrierFiltered.push(ccObj);
-    });
+            if (regions && !datastore.countryInRegionArray(ccObj.country, regions)) {
+                // console.log('no region', {countryCarrierKey, regions, ccObj});
+                continue;
+            }
+
+            if (ccObj[countryCarrierKey].rank == 'Secondary' || ccObj[countryCarrierKey].rank == 'Backup') {
+                countryHasSecondaryOrBackup[ccObj.country] = true;
+            }
+
+            if (ccObj.country == 'United States' && ccObj.carrier == 'Verizon') {
+                // Skip on E404 and ELC404
+                if (skuFamilyObj.short.includes('E404') || skuFamilyObj.short.includes('ELC404')) {
+                    continue;
+                }
+            }
+
+            countryCarrierFiltered.push(ccObj);
+        }
+    }
 
     let warnRoaming = false;
     let warnVerizon = false;
@@ -155,13 +162,15 @@ carriers2.selectMenu = function() {
         html += '<tr><td>' + ccObj.country + '</td><td>' + ccObj.carrier;
         
         if (countryHasSecondaryOrBackup[ccObj.country]) {
-            if (ccObj[countryCarrierKey].rank == 'Secondary') {
-                html += '<sup>2</sup>';
-            }
-            else if (ccObj[countryCarrierKey].rank == 'Backup') {
-                html += '<sup>3</sup>';
-            }
+            for(const countryCarrierKey of countryCarrierKeys) {
 
+                if (ccObj[countryCarrierKey].rank == 'Secondary') {
+                    html += '<sup>2</sup>';
+                }
+                else if (ccObj[countryCarrierKey].rank == 'Backup') {
+                    html += '<sup>3</sup>';
+                }
+            }
         }
         
         html += '</td>';        
@@ -170,55 +179,74 @@ carriers2.selectMenu = function() {
         technologies.forEach(function(tech) {
             let cell = '&nbsp;';
 
-            if (ccObj[countryCarrierKey]['allow' + tech]) {
-                allow = true;
+            for(const countryCarrierKey of countryCarrierKeys) {
+                if (!ccObj[countryCarrierKey]) {
+                    continue;
+                }
 
-                const allowValue = ccObj[countryCarrierKey]['allow' + tech];
+                if (ccObj[countryCarrierKey]['allow' + tech]) {
+                    allow = true;
 
-                if (allowValue == 5) {
-                    // T-Mobile  warning
-                    cell = '<sup>' + allowValue + '</sup>'; 
-                    warnTMobile = true;
-                }
-                else
-                if (allowValue == 7) {
-                    // Verizon warning
-                    cell = '<sup>' + allowValue + '</sup>'; 
-                    warnVerizon = true;
-                }
-                else
-                if (!ccObj[countryCarrierKey].roamingRestrictions) {
-                    cell = '&check;'; 
-                }
-                else {
-                    cell = '<sup>6</sup>'; 
-                    warnRoaming = true;
+                    const allowValue = ccObj[countryCarrierKey]['allow' + tech];
+
+                    if (allowValue == 5) {
+                        // T-Mobile  warning
+                        cell = '<sup>' + allowValue + '</sup>'; 
+                        warnTMobile = true;
+                    }
+                    else
+                    if (allowValue == 7) {
+                        // Verizon warning
+                        cell = '<sup>' + allowValue + '</sup>'; 
+                        warnVerizon = true;
+                    }
+                    else
+                    if (!ccObj[countryCarrierKey].roamingRestrictions) {
+                        cell = '&check;'; 
+                    }
+                    else {
+                        cell = '<sup>6</sup>'; 
+                        warnRoaming = true;
+                    }
                 }
             }
             html += '<td>' + cell + '</td>';
         });
 
         if (technologies.includes("2G")) {
-            const sunset2G = datastore.dateParse(ccObj.sunset2G);
+            let cell = '&nbsp;';
 
-            if (sunset2G.year && ccObj[countryCarrierKey]['allow2G']) {
-                html += '<td>' + sunset2G.s + '</td>';
-                warnSunset = true;
-            }    
-            else {
-                html += '<td>&nbsp;</td>';
+            for(const countryCarrierKey of countryCarrierKeys) {
+                if (!ccObj[countryCarrierKey]) {
+                    continue;
+                }
+                const sunset2G = datastore.dateParse(ccObj.sunset2G);
+
+                if (sunset2G.year && ccObj[countryCarrierKey]['allow2G']) {
+                    cell = sunset2G.s;
+                    warnSunset = true;
+                }    
             }
+
+            html += '<td>' + cell + '</td>';
         }
         if (technologies.includes("3G")) {
-            const sunset3G = datastore.dateParse(ccObj.sunset3G);
+            let cell = '&nbsp;';
 
-            if (sunset3G.year && ccObj[countryCarrierKey]['allow3G']) {
-                html += '<td>' + sunset3G.s + '</td>';
-                warnSunset = true;
-            }    
-            else {
-                html += '<td>&nbsp;</td>';
+            for(const countryCarrierKey of countryCarrierKeys) {
+                if (!ccObj[countryCarrierKey]) {
+                    continue;
+                }
+
+                const sunset3G = datastore.dateParse(ccObj.sunset3G);
+
+                if (sunset3G.year && ccObj[countryCarrierKey]['allow3G']) {
+                    cell = sunset3G.s;
+                    warnSunset = true;
+                }    
             }
+
+            html += '<td>' + cell + '</td>';
         }
 
         if (!allow) {
@@ -1137,7 +1165,10 @@ countryDetails.generateTable = function(options) {
         showAllTechnologies: true,
         showM1: modemObj.technologies.includes('M1')
     }
-    dataui.bandUseChangeHandler(options.tableId, [countryObj], simPlanObj.countryCarrierKey, modemObj, bandUseChangeOptions);
+    const countryCarrierKeys = simPlanObj.countryCarrierKeys || [simPlanObj.countryCarrierKey];
+
+
+    dataui.bandUseChangeHandler(options.tableId, [countryObj], countryCarrierKeys, modemObj, bandUseChangeOptions);
 }
 
 countryDetails.onCountrySelected = function(country) {
