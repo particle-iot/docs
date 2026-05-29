@@ -719,16 +719,8 @@ $(document).ready(function() {
                         obj.familyObj = familyObj;
                         obj.modemObj = modemObj;
                         obj.simPlanObj = datastore.findSimPlanById(groupItem.simPlan);
-                        obj.countryCarrierKey = obj.simPlanObj.countryCarrierKey;
+                        obj.countryCarrierKeys = obj.simPlanObj.countryCarrierKeys || [obj.simPlanObj.countryCarrierKey];
 
-                        /*
-                        obj.carriers = [];
-                        for(const ccObj of sunsetTool.countryCarrier) {
-                            if (ccObj[obj.countryCarrierKey]) {
-                                obj.carriers.push(ccObj);
-                            }
-                        }
-                        */
                         showItems.push(obj);                                            
                     }
                 }
@@ -750,24 +742,31 @@ $(document).ready(function() {
                 for(const ccObj of sunsetTool.countryCarrier) {
                     const tdElem = document.createElement('td');
 
-                    if (ccObj[obj.countryCarrierKey]) {
-                        // This carrier is supported on this device
-                        let bands = [];
-                        let techList = [];
+                    let bands = [];
+                    let techList = [];
+                    
+                    for(const countryCarrierKey of obj.countryCarrierKeys) {
+                        if (ccObj[countryCarrierKey]) {
+                            // This carrier is supported on this device
 
-                        for(const b of ccObj.bands) {
-                            if (!obj.modemObj.bands.includes(b)) {
-                                continue;
-                            }
-                            const tech = b.split('-', 1)[0];
-                            if (!ccObj[obj.countryCarrierKey]['allow' + tech]) {
-                                continue;
-                            }
-                            bands.push(b);
-                            if (!techList.includes(tech)) {
-                                techList.push(tech);
+                            for(const b of ccObj.bands) {
+                                if (!obj.modemObj.bands.includes(b)) {
+                                    continue;
+                                }
+                                const tech = b.split('-', 1)[0];
+                                if (!ccObj[countryCarrierKey]['allow' + tech]) {
+                                    continue;
+                                }
+                                bands.push(b);
+                                if (!techList.includes(tech)) {
+                                    techList.push(tech);
+                                }
                             }
                         }
+
+                    }
+
+                    if (bands.length > 0 && techList.length > 0) {
                         $(tdElem).attr('title', bands.join(', '));
                         $(tdElem).text(techList.join(', '));
                     }

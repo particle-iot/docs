@@ -1124,7 +1124,7 @@ dataui.bandToFrequency = function(band) {
 
 
 
-dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, options) {
+dataui.bandUseChangeHandler = function(tableId, countryList, planKeys, modem, options) {
     if (!options) {
         options = {};
     }
@@ -1139,8 +1139,10 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
     // and also supports our desired plan
     let countryCarrierFiltered = [];
     datastore.data.countryCarrier.forEach(function(obj) {
-        if (countryInCountryList[obj.country] && obj[planKey] && obj.bands.length > 0) {
-            countryCarrierFiltered.push(obj);
+        for(const planKey of planKeys) {
+            if (countryInCountryList[obj.country] && obj[planKey] && obj.bands.length > 0) {
+                countryCarrierFiltered.push(obj);
+            }
         }
     });
 
@@ -1221,94 +1223,99 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
 
                 let cellContents = '&nbsp;';
                 let tooltip = '';
+        
+                for(const planKey of planKeys) {
+                    if (!obj[planKey]) {
+                        continue;
+                    }
 
-                if ((tag == '2G' && obj[planKey].allow2G) ||
-                    (tag == '3G' && obj[planKey].allow3G) ||
-                    (tag == '4G' && obj[planKey].allow4G) ||
-                    (tag == '5G' && obj[planKey].allow5G) ||
-                    (tag == 'M1' && obj[planKey].allowM1)) {
-                    // Allowed by plan
+                    if ((tag == '2G' && obj[planKey].allow2G) ||
+                        (tag == '3G' && obj[planKey].allow3G) ||
+                        (tag == '4G' && obj[planKey].allow4G) ||
+                        (tag == '5G' && obj[planKey].allow5G) ||
+                        (tag == 'M1' && obj[planKey].allowM1)) {
+                        // Allowed by plan
 
-                    if (obj.bands.includes(tagBand)) {
-                        // This carrier uses the tag (2G, 3G, 4G) and band, and is allowed by plan
+                        if (obj.bands.includes(tagBand)) {
+                            // This carrier uses the tag (2G, 3G, 4G) and band, and is allowed by plan
 
-                        if (modem.bands.includes(tagBand)) {
-                            if (tag == 'M1') {
-                                const countryObj = datastore.findCountryByName(obj.country);
-                                if (countryObj.m1recommended || modem.globalM1) {
-                                    cellContents = '\u2705'; // Green Check
+                            if (modem.bands.includes(tagBand)) {
+                                if (tag == 'M1') {
+                                    const countryObj = datastore.findCountryByName(obj.country);
+                                    if (countryObj.m1recommended || modem.globalM1) {
+                                        cellContents = '\u2705'; // Green Check
 
-                                    if (options.footnotes && options.footnotes['warnTMobile'] && obj[planKey].allowM1 == 5) {
-                                        cellContents += '<sup>' + options.footnotes['warnTMobile'] + '</sup>';
-                                        showFootnotes.warnTMobile = true;                                        
+                                        if (options.footnotes && options.footnotes['warnTMobile'] && obj[planKey].allowM1 == 5) {
+                                            cellContents += '<sup>' + options.footnotes['warnTMobile'] + '</sup>';
+                                            showFootnotes.warnTMobile = true;                                        
+                                        }
+                                        if (options.footnotes && options.footnotes['warnVerizon'] && obj[planKey].allowM1 == 7) {
+                                            cellContents += '<sup>' + options.footnotes['warnVerizon'] + '</sup>';
+                                            showFootnotes.warnVerizon = true;                                        
+                                        }
                                     }
-                                    if (options.footnotes && options.footnotes['warnVerizon'] && obj[planKey].allowM1 == 7) {
+                                    else {
+                                        cellContents = '\u2753'; // Red question
+                                        if (options.footnotes && options.footnotes['warnM1']) {
+                                            cellContents += '<sup>' + options.footnotes['warnM1'] + '</sup>';
+                                            showFootnotes.warnM1 = true;
+                                        }
+                                    }
+                                }
+                                else {
+                                    cellContents = '\u2705'; // Green Check
+                                    if (options.footnotes && options.footnotes['warnVerizon'] && obj[planKey]['allow' + tag] == 7) {
                                         cellContents += '<sup>' + options.footnotes['warnVerizon'] + '</sup>';
                                         showFootnotes.warnVerizon = true;                                        
                                     }
                                 }
-                                else {
-                                    cellContents = '\u2753'; // Red question
-                                    if (options.footnotes && options.footnotes['warnM1']) {
-                                        cellContents += '<sup>' + options.footnotes['warnM1'] + '</sup>';
-                                        showFootnotes.warnM1 = true;
-                                    }
+                            }
+                            else {
+                                cellContents = '\u274C'; // Red X
+                                tooltip = 'band not supported by modem';
+                                if (options.footnotes && options.footnotes['noBand']) {
+                                    cellContents += '<sup>' + options.footnotes['noBand'] + '</sup>';
+                                    showFootnotes.noBand = true;
+                                }
+                            }
+                        }
+                        else {
+                            // Carrier does not use this band, leave cell blank
+                        }
+
+                    }
+                    else {
+                        // Not allowed by plan
+                        if (obj.bands.includes(tagBand)) {
+                            // This carrier uses the tag (2G, 3G, LTE) and band, show red X
+                            if (modem.bands.includes(tagBand)) {
+                                cellContents = '\u274C'; // Red X
+                                tooltip = 'not available on carrier plan';
+                                if (options.footnotes && options.footnotes['noPlan']) {
+                                    cellContents += '<sup>' + options.footnotes['noPlan'] + '</sup>';
+                                    showFootnotes.noPlan = true;
                                 }
                             }
                             else {
-                                cellContents = '\u2705'; // Green Check
-                                if (options.footnotes && options.footnotes['warnVerizon'] && obj[planKey]['allow' + tag] == 7) {
-                                    cellContents += '<sup>' + options.footnotes['warnVerizon'] + '</sup>';
-                                    showFootnotes.warnVerizon = true;                                        
+                                cellContents = '\u274C'; // Red X
+                                tooltip = 'band not supported by modem or carrier plan';
+                                if (options.footnotes && options.footnotes['noBandNoPlan']) {
+                                    cellContents += '<sup>' + options.footnotes['noBandNoPlan'] + '</sup>';
+                                    showFootnotes.noBandNoPlan = true;
                                 }
                             }
                         }
                         else {
-                            cellContents = '\u274C'; // Red X
-                            tooltip = 'band not supported by modem';
-                            if (options.footnotes && options.footnotes['noBand']) {
-                                cellContents += '<sup>' + options.footnotes['noBand'] + '</sup>';
-                                showFootnotes.noBand = true;
-                            }
+                            // Carrier does not use this band, leave cell blank
+                            
                         }
                     }
-                    else {
-                        // Carrier does not use this band, leave cell blank
-                    }
 
-                }
-                else {
-                    // Not allowed by plan
-                    if (obj.bands.includes(tagBand)) {
-                        // This carrier uses the tag (2G, 3G, LTE) and band, show red X
-                        if (modem.bands.includes(tagBand)) {
-                            cellContents = '\u274C'; // Red X
-                            tooltip = 'not available on carrier plan';
-                            if (options.footnotes && options.footnotes['noPlan']) {
-                                cellContents += '<sup>' + options.footnotes['noPlan'] + '</sup>';
-                                showFootnotes.noPlan = true;
-                            }
-                        }
-                        else {
-                            cellContents = '\u274C'; // Red X
-                            tooltip = 'band not supported by modem or carrier plan';
-                            if (options.footnotes && options.footnotes['noBandNoPlan']) {
-                                cellContents += '<sup>' + options.footnotes['noBandNoPlan'] + '</sup>';
-                                showFootnotes.noBandNoPlan = true;
-                            }
-                        }
-                    }
-                    else {
-                        // Carrier does not use this band, leave cell blank
-                        
+                    tdExtra = '';
+                    if (tooltip) {
+                        tdExtra += 'title="' + tooltip + '" ';
                     }
                 }
-
-                tdExtra = '';
-                if (tooltip) {
-                    tdExtra += 'title="' + tooltip + '" ';
-                }
-
                 html += '<td class="bandListCell" ' + tdExtra + '>' + cellContents + '</td>';
             });    
 
