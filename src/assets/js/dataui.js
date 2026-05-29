@@ -1037,6 +1037,7 @@ dataui.collectModemBands = function(countryCarrierList, technologies, options) {
     bandsUsed.bands3G = [];
     bandsUsed.bands4G = [];
     bandsUsed.bands5G = [];
+    bandsUsed.bandsNTN = [];
     bandsUsed.bandsM1 = [];
     bandsUsed.bandsAll = [];
 
@@ -1074,6 +1075,14 @@ dataui.collectModemBands = function(countryCarrierList, technologies, options) {
                     }                        
                 }
             }
+            if (tag == 'NTN') {
+                if (!technologies || technologies.includes(tag)) {
+                    if (!bandsUsed.bandsNTN.includes(band)) {
+                        bandsUsed.bandsNTN.push(band);
+                        bandsUsed.bandsAll.push(tagBand);                
+                    }                        
+                }
+            }
             if (tag == 'M1') {
                 if (!technologies || technologies.includes(tag)) {
                     if (!bandsUsed.bandsM1.includes(band)) {
@@ -1090,6 +1099,7 @@ dataui.collectModemBands = function(countryCarrierList, technologies, options) {
     bandsUsed.bands3G.sort(dataui.sortCompareNumeric);
     bandsUsed.bands4G.sort(dataui.sortCompareNumeric);
     bandsUsed.bands5G.sort(dataui.sortCompareNumeric);
+    bandsUsed.bandsNTN.sort(dataui.sortCompareNumeric);
     bandsUsed.bandsM1.sort(dataui.sortCompareNumeric);
     bandsUsed.bandsAll.sort(dataui.sortCompareTagBand);
 
@@ -1153,7 +1163,7 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKeys, modem, op
 
     if (bandsUsed.bandsAll.length > 20) {
         // If there are too many bands
-        for(const tech of ['5G', 'M1', '4G', '3G', '2G']) {
+        for(const tech of ['NTN', '5G', 'M1', '4G', '3G', '2G']) {
             if (!modem.technologies.includes(tech)) {
                 bandsUsed['bands' + tech] = [];
                 for(let ii = bandsUsed.bandsAll.length - 1; ii >= 0; ii--) {
@@ -1233,6 +1243,7 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKeys, modem, op
                         (tag == '3G' && obj[planKey].allow3G) ||
                         (tag == '4G' && obj[planKey].allow4G) ||
                         (tag == '5G' && obj[planKey].allow5G) ||
+                        (tag == 'NTN' && obj[planKey].allowNTN) ||
                         (tag == 'M1' && obj[planKey].allowM1)) {
                         // Allowed by plan
 
