@@ -1837,12 +1837,11 @@ bandFit.init = function(callback) {
 
     bandFit.tests = {
         'msom': {
-            title: 'M-Series (M404/M635 vs. M524)',
+            title: 'M-Series (M404 vs. M524)',
             sim: 4, // EtherSIM
             tests: [
                 {
                     title: 'M404',
-                    moreTitles: ['M635'],
                     modemObj: datastore.data.modems.find(e => e.model == 'BG95-M5'),
                     borderRight: true,
                     backgroundColor: '#AFE4EE', // COLOR_Sky_600        
