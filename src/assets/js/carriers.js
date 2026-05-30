@@ -1174,7 +1174,7 @@ countryDetails.generateTable = function(options) {
             }
         }
         if (!hasNTN) {
-            html += '<p><strong>NTN is not supported in ' + options.country + '</strong></p>\n';
+            html += '<p><strong>NTN (satellite) is not supported in ' + options.country + ' at this time</strong></p>\n';
         }
     }
 
@@ -1255,8 +1255,6 @@ countryDetails.onCountrySelected = function(country) {
     const countryObj = datastore.findCountryByName(country);
 
     const skuFamilyDevice = countryDetails.getSkuFamilyDevice();
-
-    console.log('getSkuFamilyDevice', skuFamilyDevice);
 
     if (skuFamilyDevice) {
         // skuFamilyDevice: region, lifecycle, sim, simPlan, modem
