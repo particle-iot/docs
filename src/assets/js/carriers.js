@@ -1080,6 +1080,7 @@ countryDetails.buildMenu = function() {
 
 countryDetails.getSkuFamilyDevice = function() {
     const valueArray = $('#' + countryDetails.options.deviceList).val().split(',');
+
     if (valueArray.length != 2) {
         return null;
     }
@@ -1112,6 +1113,8 @@ countryDetails.generateTable = function(options) {
     const simPlanObj = datastore.findSimPlanById(options.simPlan);
 
     const modemObj = datastore.findModemByModel(options.modem);
+
+    const isNTN = modemObj.technologies.includes('NTN');
 
     let html = '';
 
@@ -1159,6 +1162,19 @@ countryDetails.generateTable = function(options) {
         html += '<p>' + s + '</p>\n';
         if (recommendation.roamingRestrictions) {
             html += '<p>There are permanent roaming restrictions in this country. See <a href="/getting-started/hardware/cellular-overview/#permanent-roaming">permanent roaming</a> for more information.</p>\n';
+        }
+    }
+    if (isNTN) {
+        let hasNTN = false;
+        for(const ccObj of datastore.data.countryCarrier) {
+            if (ccObj.country == options.country) {
+                if (typeof ccObj.skylo != 'undefined') {
+                    hasNTN = true;
+                }
+            }
+        }
+        if (!hasNTN) {
+            html += '<p><strong>NTN is not supported in ' + options.country + '</strong></p>\n';
         }
     }
 
@@ -1239,6 +1255,9 @@ countryDetails.onCountrySelected = function(country) {
     const countryObj = datastore.findCountryByName(country);
 
     const skuFamilyDevice = countryDetails.getSkuFamilyDevice();
+
+    console.log('getSkuFamilyDevice', skuFamilyDevice);
+
     if (skuFamilyDevice) {
         // skuFamilyDevice: region, lifecycle, sim, simPlan, modem
 
