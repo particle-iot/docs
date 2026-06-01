@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2026-06-01
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
 ### Updated EU Declaration of Conformity 2026-06-01
 
 Updated the EU Declaration of Conformity for the Tachyon in [certification documents](/hardware/certification/certification-documents/#ce-europe-tach4row-tach8row).
