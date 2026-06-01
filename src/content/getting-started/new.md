@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated EU Declaration of Conformity 2026-06-01
+
+Updated the EU Declaration of Conformity for the Tachyon in [certification documents](/hardware/certification/certification-documents/#ce-europe-tach4row-tach8row).
+
 ### Wi-Fi country tool 2026-05-28
 
 The [Wi-Fi country tool](/tools/developer-tools/wifi-country/) is a web-based tool to allow you to set the Wi-Fi country code in the DCT (configuration flash)

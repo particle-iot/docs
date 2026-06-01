@@ -935,8 +935,8 @@
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2026-05-18",
-            "hash": "29cef29b75962e2c040b6aed6a71ad3943afdaa257c8350d61b6f76b1fa9dfb3"
+            "date": "2026-06-01",
+            "hash": "5bb3aead8969433b5a1020ecc4cc6d631f7d927c9297748ca3c17f8752f3cfbf"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "a154abbe0d9d6c7b166078d85856319d910dba8f0a0a0e89e9f3f1e038808edf",
-            "date": "2026-05-28"
+            "hash": "c21c044eb8912717ec363ebc35504cd0538d7a46b60d9eece3f33f8f3a7d970b",
+            "date": "2026-06-01"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9703,8 +9703,8 @@
             "date": "2025-10-15"
         },
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
-            "hash": "5807ba069d4603817fd9562e2f8bb4f004715950554a96bdcdab1a7256cf8067",
-            "date": "2026-05-22"
+            "hash": "2f5c7a0183867c42986bed594ceb73f060e28f0c04df7bd2d64bdc067b9a1aca",
+            "date": "2026-06-01"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
             "hash": "cac5c6226004cb00f3b4fa8a832d9d7a1a1da4584cee69509f177f38c57088d9",
