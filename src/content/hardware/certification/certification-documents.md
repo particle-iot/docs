@@ -1560,6 +1560,7 @@ The T523 and T524 is not FCC certified as it does not support the cellular bands
 
 
 ### CE (Europe) - TACH4ROW TACH8ROW
+- [EU Declaration of Conformity](/assets/pdfs/particle-Tachyon-EU-DoC-RED-Cyber-May_19_2026.pdf) (updated 2026-06-01)
 - [Summary](/assets/pdfs/tach8row-ce-summary.pdf)
 - [EMC Test Report](/assets/pdfs/tach8row-ce-emc-test-report.pdf)
 - [EN-62311 Test Report](/assets/pdfs/tach8row-EN62311-test-report.pdf) 
