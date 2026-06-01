@@ -111,7 +111,25 @@ carriers2.selectMenu = function() {
 
     const skuFamilyInfo = datastore.findSkuFamilyInfoByShortName($(carriers2.options.deviceList).val()); 
 
-    const skuFamilyObj = skuFamilyInfo.groupObj;
+    // Update other tabs 
+    const deviceVal = $(carriers2.options.deviceList).val();
+    if (countryDetails.options && $(countryDetails.options.deviceList).val() != 'all' && skuFamilyInfo) {
+        $(countryDetails.options.deviceList).val(deviceVal);
+        countryDetails.update();
+        
+        const skuFamily = skuFamilyInfo.groupObj.family || skuFamilyInfo.skuFamilyObj.family;
+        $('#familyMapSelect').val(skuFamily);
+        if (carriers2.familyMap) {
+            carriers2.familyMap.drawMap();
+        }
+    };
+
+    carriers2.update();
+};
+
+carriers2.update = function() {
+    const skuFamilyInfo = datastore.findSkuFamilyInfoByShortName($(carriers2.options.deviceList).val()); 
+
     const simPlanObj = datastore.findSimPlanById(skuFamilyInfo.groupObj.simPlan);
     const countryCarrierKeys = simPlanObj.countryCarrierKeys || [simPlanObj.countryCarrierKey];
 
@@ -154,7 +172,7 @@ carriers2.selectMenu = function() {
                 // console.log('no countryCarrierKey', {countryCarrierKey, ccObj});
                 continue;
             }
-            const cmsObj = datastore.findCountryModemSim(ccObj.country, skuFamilyObj.modem, skuFamilyObj.sim);
+            const cmsObj = datastore.findCountryModemSim(ccObj.country, skuFamilyInfo.groupObj.modem, skuFamilyInfo.groupObj.sim);
             if (!cmsObj || cmsObj.recommendation == 'NR' || cmsObj.recommendation == 'POSS' ||  cmsObj.recommendation == 'NS') {
                 // console.log('no recommendation', {countryCarrierKey, cmsObj, ccObj});
                 continue;
@@ -171,7 +189,7 @@ carriers2.selectMenu = function() {
 
             if (ccObj.country == 'United States' && ccObj.carrier == 'Verizon') {
                 // Skip on E404 and ELC404
-                if (skuFamilyObj.short.includes('E404') || skuFamilyObj.short.includes('ELC404')) {
+                if (skuFamilyInfo.groupObj.short.includes('E404') || skuFamilyInfo.groupObj.short.includes('ELC404')) {
                     continue;
                 }
             }
@@ -287,7 +305,7 @@ carriers2.selectMenu = function() {
 
     });
 
-    if (skuFamilyObj.short.includes('M404')) {
+    if (skuFamilyInfo.groupObj.short.includes('M404')) {
         $('#byDeviceM404Warning').show();
     }
     else {
@@ -368,6 +386,47 @@ const familyMapCreate = function() {
             }
         }
         familyMap.worldMapFill = [];
+    }
+
+    familyMap.selectChange = function() {
+        familyMap.saveQuery();
+
+        // Update other tabs
+        let family;
+
+        if (familyMap.options.familySelect) {
+            family = $(familyMap.options.familySelect).val();
+        }
+        else {
+            family = familyMap.options.family;
+        }
+        let deviceVal;
+
+        const skuFamilyObj = datastore.findSkuFamily(family);
+        if (skuFamilyObj && skuFamilyObj.group && skuFamilyObj.group.length >= 1) {
+            const groupObj = skuFamilyObj.group[0];
+
+            if (groupObj && groupObj.short && groupObj.short.length >= 1) {
+                deviceVal = groupObj.short[0];
+            }
+        }
+        else {
+            if (family == 'ntn') {
+                deviceVal = 'M635E';
+            }
+        }
+
+        if (deviceVal) {
+            $(carriers2.options.deviceList).val(deviceVal);
+            carriers2.update();
+
+            if (countryDetails && countryDetails.options) {
+                $(countryDetails.options.deviceList).val(deviceVal);
+                countryDetails.update();
+            }
+        }
+
+        familyMap.drawMap();
     }
 
     familyMap.drawMap = function() {
@@ -627,7 +686,7 @@ const familyMapCreate = function() {
         }
 
         if (familyMap.options.familySelect) {
-            $(familyMap.options.familySelect).on('change', familyMap.drawMap);
+            $(familyMap.options.familySelect).on('change', familyMap.selectChange);
         }
 
         familyMaps.push(familyMap);
@@ -697,7 +756,6 @@ countryDetails.generateTable = function(options) {
     // options.resultDiv
     // options.showSkus
     const countryObj = datastore.findCountryByName(options.country);
-    console.log('generateTable', {country: options.country, countryObj});
 
     let recommendation;
     datastore.data.countryModemSim.forEach(function(obj) {
@@ -849,14 +907,36 @@ countryDetails.generateTable = function(options) {
 }
 
 countryDetails.onCountrySelected = function() {
+    const skuFamilyInfo = datastore.findSkuFamilyInfoByShortName($(countryDetails.options.deviceList).val()); 
+
+    // Update other tabs 
+    const deviceVal = $(countryDetails.options.deviceList).val();
+    if (carriers2.options.deviceList && deviceVal != 'all' && skuFamilyInfo) {
+        $(carriers2.options.deviceList).val(deviceVal);
+        carriers2.update();
+
+        const skuFamily = skuFamilyInfo.groupObj.family || skuFamilyInfo.skuFamilyObj.family;
+        $('#familyMapSelect').val(skuFamily);
+        if (carriers2.familyMap) {
+            carriers2.familyMap.drawMap();
+        }
+    };
+
+    countryDetails.update();
+};
+
+countryDetails.update = function() {
+    const skuFamilyInfo = datastore.findSkuFamilyInfoByShortName($(countryDetails.options.deviceList).val()); 
+
     const country = $('#' + countryDetails.options.countryField).val();
+    if (country == '') {
+        return;
+    }
 
     const resultDiv = $('#' + countryDetails.options.resultDiv);
     $(resultDiv).html('');
 
     const countryObj = datastore.findCountryByName(country);
-
-    const skuFamilyInfo = datastore.findSkuFamilyInfoByShortName($(countryDetails.options.deviceList).val()); 
 
     if (skuFamilyInfo && skuFamilyInfo.groupObj) {
         // skuFamilyInfo.groupObj: region, lifecycle, sim, simPlan, modem
@@ -1776,7 +1856,9 @@ $(document).ready(function() {
             $('.carrierFamilyMap').each(function() {
                 const thisElem = $(this);
 
-                familyMapCreate().init({
+                carriers2.familyMap = familyMapCreate();
+
+                carriers2.familyMap.init({
                     mapDiv:$(thisElem).find('.familyMapDiv'),
                     skusDiv:$(thisElem).find('.familyMapSkusDiv'),
                     family:$(thisElem).data('family'),
