@@ -130,6 +130,33 @@ datastore.findSkuFamily = function(family) {
     return null;
 };
 
+datastore.findSkuFamilyInfoByShortName = function(name) {
+
+    for(const skuFamilyObj of datastore.data.skuFamily) {
+        if (skuFamilyObj.wifi || skuFamilyObj.cellular === false || !skuFamilyObj.group) {
+            continue;
+        }
+
+        for(const groupObj of skuFamilyObj.group) {
+            if (Array.isArray(groupObj.short)) {
+                if (groupObj.short.includes(name)) {
+                    let skuFamilyInfo = {
+                        skuFamilyObj,
+                        groupObj,
+                        simPlanObj: datastore.findSimPlanById(groupObj.simPlan),
+                        modemObj: datastore.findModemByModel(groupObj.modem),
+                    };
+
+                    return skuFamilyInfo;
+                }
+            }
+        }
+    }
+
+    return null;
+};
+
+
 datastore.findTechnologiesForModems = function(modemsOpt) {
     let results = [];
     if (!modemsOpt) {
