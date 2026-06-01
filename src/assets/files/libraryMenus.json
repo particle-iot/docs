@@ -930,6 +930,10 @@
           "dir": "BlueDot_BME280_TSL2591"
         },
         {
+          "title": "BluetoothManager",
+          "dir": "BluetoothManager"
+        },
+        {
           "title": "bluz_gateway",
           "dir": "bluz_gateway"
         },
