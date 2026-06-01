@@ -5299,8 +5299,8 @@
             "hash": "9c779b0a2810d6143cddf2000fdf30172d6ef390531a5fc96289d0b6117c54ac"
         },
         "reference/device-os/libraries/b/blynk.md": {
-            "date": "2024-08-28",
-            "hash": "d669fa6b04e643d99a6067d2ac2af8ed7f052c56f6b585b7d7be6fe5291cc537"
+            "date": "2026-06-01",
+            "hash": "ecf267fe986777c55f0b8d75c3c9236b941826f1e339e3a7c7a8dc4e96846e6d"
         },
         "reference/device-os/libraries/b/BlynkLog.md": {
             "date": "2024-08-28",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "c21c044eb8912717ec363ebc35504cd0538d7a46b60d9eece3f33f8f3a7d970b",
+            "hash": "e556256399fda5172dbd85581128b542e359185da36827e2fcb8fe99c74096db",
             "date": "2026-06-01"
         },
         "getting-started/cloud/logic.md": {
@@ -10033,6 +10033,10 @@
         "tools/developer-tools/wifi-country.md": {
             "hash": "c2d624292365e0ffbe2f4572e34bba5003198f8fa81e997f5f745a52130b9aa3",
             "date": "2026-05-28"
+        },
+        "reference/device-os/libraries/b/BluetoothManager.md": {
+            "hash": "0bc344994eb6db6e0adab650173ab85008e1b038ee4c29182fb4ad800d43cbc7",
+            "date": "2026-06-01"
         }
     }
 }
