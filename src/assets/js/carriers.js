@@ -922,6 +922,18 @@ countryDetails.onCountrySelected = function() {
         }
     };
 
+
+    if (skuFamilyInfo && skuFamilyInfo.groupObj) {
+        // skuFamilyInfo.groupObj: region, lifecycle, sim, simPlan, modem
+        const country = $('#' + countryDetails.options.countryField).val();
+        if (country != '') {
+
+            countryDetails.country = country;
+
+            countryDetails.saveQuery();
+        }
+    }
+
     countryDetails.update();
 };
 
@@ -940,10 +952,6 @@ countryDetails.update = function() {
 
     if (skuFamilyInfo && skuFamilyInfo.groupObj) {
         // skuFamilyInfo.groupObj: region, lifecycle, sim, simPlan, modem
-
-        countryDetails.country = country;
-
-        countryDetails.saveQuery();
 
         countryDetails.generateTable({
             country,
