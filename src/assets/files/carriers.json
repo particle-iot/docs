@@ -32671,7 +32671,8 @@
           "lifecycle": "In development",
           "sim": 4,
           "simPlan": 41,
-          "modem": "BG95-S5"
+          "modem": "BG95-S5",
+          "family": "ntn"
         }
       ]
     },
@@ -59565,40 +59566,36 @@
       "recommendation": "NR",
       "reason": "Permanent roaming issues, band compatibility",
       "technologies": [
-        "2G",
-        "3G",
         "4G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
-          "3G-1",
           "4G-3"
         ],
-        "China Mobile": [
-          "2G-900",
-          "2G-1800"
-        ],
         "China Unicom": [
-          "3G-1",
           "4G-3"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
-          "4G-41"
+          "4G-41",
+          "3G-1"
         ],
         "China Mobile": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41"
         ],
         "China Unicom": [
+          "3G-1",
           "4G-41"
         ]
       }
@@ -59611,40 +59608,36 @@
       "reason": "Permanent roaming issues, band compatibility",
       "roamingRestrictions": "warn",
       "technologies": [
-        "2G",
-        "3G",
         "4G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
-          "3G-1",
           "4G-3"
         ],
-        "China Mobile": [
-          "2G-900",
-          "2G-1800"
-        ],
         "China Unicom": [
-          "3G-1",
           "4G-3"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
-          "4G-41"
+          "4G-41",
+          "3G-1"
         ],
         "China Mobile": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41"
         ],
         "China Unicom": [
+          "3G-1",
           "4G-41"
         ]
       }
@@ -59656,40 +59649,36 @@
       "recommendation": "NR",
       "reason": "Permanent roaming issues, band compatibility",
       "technologies": [
-        "2G",
-        "3G",
         "4G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
-          "3G-1",
           "4G-3"
         ],
-        "China Mobile": [
-          "2G-900",
-          "2G-1800"
-        ],
         "China Unicom": [
-          "3G-1",
           "4G-3"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
-          "4G-41"
+          "4G-41",
+          "3G-1"
         ],
         "China Mobile": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41"
         ],
         "China Unicom": [
+          "3G-1",
           "4G-41"
         ]
       }
@@ -59702,40 +59691,36 @@
       "reason": "Permanent roaming issues, band compatibility",
       "roamingRestrictions": "warn",
       "technologies": [
-        "2G",
-        "3G",
         "4G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "2G-1800",
-          "3G-1",
           "4G-3"
         ],
-        "China Mobile": [
-          "2G-900",
-          "2G-1800"
-        ],
         "China Unicom": [
-          "3G-1",
           "4G-3"
         ]
       },
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
-          "4G-41"
+          "4G-41",
+          "3G-1"
         ],
         "China Mobile": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41"
         ],
         "China Unicom": [
+          "3G-1",
           "4G-41"
         ]
       }
@@ -59780,21 +59765,12 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "2G-only model discontinued",
-      "technologies": [
-        "2G"
-      ],
-      "supported": {
-        "*": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "China Mobile": [
-          "2G-900",
-          "2G-1800"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
@@ -59803,6 +59779,8 @@
           "4G-3"
         ],
         "China Mobile": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
@@ -59903,19 +59881,23 @@
       "reason": "Poor band fit, relies on 2G or 3G",
       "supported": {
         "*": [
-          "3G-1",
           "4G-3",
           "4G-41"
         ],
         "China Unicom": [
-          "3G-1",
           "4G-3",
           "4G-41"
         ]
       },
-      "notSupported": {},
+      "notSupported": {
+        "*": [
+          "3G-1"
+        ],
+        "China Unicom": [
+          "3G-1"
+        ]
+      },
       "technologies": [
-        "3G",
         "4G"
       ],
       "roamingRestrictions": "warn"
@@ -59954,39 +59936,29 @@
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
-      "technologies": [
-        "2G",
-        "3G"
-      ],
-      "supported": {
+      "technologies": [],
+      "supported": {},
+      "notSupported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1"
-        ],
-        "China Mobile": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "China Unicom": [
-          "3G-1"
-        ]
-      },
-      "notSupported": {
-        "*": [
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41",
+          "3G-1",
           "4G-3"
         ],
         "China Mobile": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41"
         ],
         "China Unicom": [
+          "3G-1",
           "4G-3",
           "4G-41"
         ]
@@ -59997,39 +59969,29 @@
       "modem": "U201",
       "sim": 2,
       "recommendation": "NR",
-      "technologies": [
-        "2G",
-        "3G"
-      ],
-      "supported": {
+      "technologies": [],
+      "supported": {},
+      "notSupported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1"
-        ],
-        "China Mobile": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "China Unicom": [
-          "3G-1"
-        ]
-      },
-      "notSupported": {
-        "*": [
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41",
+          "3G-1",
           "4G-3"
         ],
         "China Mobile": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41"
         ],
         "China Unicom": [
+          "3G-1",
           "4G-3",
           "4G-41"
         ]
@@ -60042,39 +60004,29 @@
       "recommendation": "NR",
       "reason": "Permanent roaming issues",
       "roamingRestrictions": "warn",
-      "technologies": [
-        "2G",
-        "3G"
-      ],
-      "supported": {
+      "technologies": [],
+      "supported": {},
+      "notSupported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1"
-        ],
-        "China Mobile": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "China Unicom": [
-          "3G-1"
-        ]
-      },
-      "notSupported": {
-        "*": [
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41",
+          "3G-1",
           "4G-3"
         ],
         "China Mobile": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41"
         ],
         "China Unicom": [
+          "3G-1",
           "4G-3",
           "4G-41"
         ]
@@ -60119,39 +60071,29 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NR",
-      "technologies": [
-        "2G",
-        "3G"
-      ],
-      "supported": {
+      "technologies": [],
+      "supported": {},
+      "notSupported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1"
-        ],
-        "China Mobile": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "China Unicom": [
-          "3G-1"
-        ]
-      },
-      "notSupported": {
-        "*": [
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41",
+          "3G-1",
           "4G-3"
         ],
         "China Mobile": [
+          "2G-900",
+          "2G-1800",
           "4G-38",
           "4G-39",
           "4G-40",
           "4G-41"
         ],
         "China Unicom": [
+          "3G-1",
           "4G-3",
           "4G-41"
         ]
