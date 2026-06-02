@@ -1,0 +1,17 @@
+{
+  "name": "fix-tracker-hex",
+  "description": "Tool to fix hex files for tracker device",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "author": "rick@particle.io",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "yargs": "^17.6.0"
+  }
+}
