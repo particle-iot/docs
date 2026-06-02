@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker device restore 2026-06-02
+
+Fixed a bug in the Tracker Device Restore hex files for Device OS 3.1.0 to 6.4.1. The files contained an overlapping section at 0x0d4000 which caused some SWD/JTAG flashing tools to reject the hex files as invalid.
+
 ### Library updates 2026-06-01
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
