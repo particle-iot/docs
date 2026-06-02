@@ -16,6 +16,10 @@ carriers2.fromQuery = function(urlParams) {
         const regionVal = $('#' + carriers2.options.regionList + ' option').filter(function () { return $(this).html() === region; }).prop('value');
         $('#' + carriers2.options.regionList).val(regionVal);
     }
+    const showUnsupported = urlParams.get('showUnsupported');
+    if (showUnsupported) {
+        $('.byDeviceShowUnsupported').prop('checked', showUnsupported === 'true')
+    }
 
     carriers2.selectMenu();
 };
@@ -26,7 +30,24 @@ carriers2.saveQuery = function() {
     const regionVal = $('#' + carriers2.options.regionList).val();
     const region = $('#' + carriers2.options.regionList + ' option').filter(function () { return $(this).prop('value') === regionVal; }).html();
 
-    history.pushState(null, '', '?tab=ByDevice&device=' + encodeURIComponent(deviceVal) + '&region=' + encodeURIComponent(region));
+    const values = {
+        tab: 'ByDevice',
+        device: deviceVal,
+        region,
+    };
+    if ($('.byDeviceShowUnsupported').prop('checked')) {
+        values.showUnsupported = 'true';
+    }
+
+    let url = '?';
+    for(const key in values) {
+        if (url != '?') {
+            url += '&';
+        }
+        url += key + '=' + encodeURIComponent(values[key]);
+    }
+
+    history.pushState(null, '', url);
 };
 
 carriers2.generateDeviceMenu = function(options) {
@@ -143,6 +164,8 @@ carriers2.update = function() {
         regions = regionGroup.regions[regionIndex].regions;
     }
 
+    const showUnsupported = $('.byDeviceShowUnsupported').prop('checked');
+
     {
         let html = '<tr><th>Country</th><th>Carrier</th>';
 
@@ -173,8 +196,12 @@ carriers2.update = function() {
                 continue;
             }
             const cmsObj = datastore.findCountryModemSim(ccObj.country, skuFamilyInfo.groupObj.modem, skuFamilyInfo.groupObj.sim);
-            if (!cmsObj || cmsObj.recommendation == 'NR' || cmsObj.recommendation == 'POSS' ||  cmsObj.recommendation == 'NS') {
-                // console.log('no recommendation', {countryCarrierKey, cmsObj, ccObj});
+            if (!cmsObj || cmsObj.recommendation == 'NS') {
+                // console.log('no recommendation or NS', {countryCarrierKey, cmsObj, ccObj});
+                continue;
+            }
+            if (!showUnsupported && (cmsObj.recommendation == 'NR' || cmsObj.recommendation == 'POSS')) {
+                // console.log('NR or POSS with not show unsupported', {countryCarrierKey, cmsObj, ccObj});
                 continue;
             }
 
@@ -197,10 +224,12 @@ carriers2.update = function() {
             countryCarrierFiltered.push(ccObj);
         }
     }
+    // console.log('countryCarrierFiltered', countryCarrierFiltered);
 
     let warnRoaming = false;
     let warnVerizon = false;
     let warnSunset = false;
+    let byDeviceUnsupportedWarning = false;
 
     countryCarrierFiltered.forEach(function(ccObj) {
         let html = '';
@@ -229,11 +258,28 @@ carriers2.update = function() {
                 if (!ccObj[countryCarrierKey]) {
                     continue;
                 }
-
+                
                 if (ccObj[countryCarrierKey]['allow' + tech]) {
+
+                    const cmsObj = datastore.findCountryModemSim(ccObj.country, skuFamilyInfo.groupObj.modem, skuFamilyInfo.groupObj.sim);
+                    if (!cmsObj || !cmsObj.supported[ccObj.carrier]) {
+                        // Not supported by modem, or sunset
+                        continue;
+                    }
+                    let hasTech = false;
+                    for(const band of cmsObj.supported[ccObj.carrier]) {
+                        if (band.startsWith(tech)) {
+                            hasTech = true;
+                        }
+                    }
+                    if (!hasTech) {
+                        continue;
+                    }
+
                     allow = true;
 
                     const allowValue = ccObj[countryCarrierKey]['allow' + tech];
+
 
                     if (allowValue == 5) {
                         // T-Mobile  warning
@@ -248,7 +294,13 @@ carriers2.update = function() {
                     }
                     else
                     if (!ccObj[countryCarrierKey].roamingRestrictions) {
-                        cell = '&check;'; 
+                        if (cmsObj.recommendation == 'YES') {
+                            cell = '&check;'; 
+                        }
+                        else {
+                            cell = '?';
+                            byDeviceUnsupportedWarning = true;
+                        }
                     }
                     else {
                         cell = '<sup>6</sup>'; 
@@ -311,7 +363,13 @@ carriers2.update = function() {
     else {
         $('#byDeviceM404Warning').hide();
     }
-    
+    if (byDeviceUnsupportedWarning) {
+        $('#byDeviceUnsupportedWarning').show();
+    }    
+    else {
+        $('#byDeviceUnsupportedWarning').hide();
+    }
+
     if (warnRoaming) {
         $('#byDeviceRoamingWarning').show();
     }
@@ -720,7 +778,21 @@ countryDetails.saveQuery = function() {
     if (countryDetails.country) {
         const deviceVal = $(countryDetails.options.deviceList).val();
     
-        history.pushState(null, '', '?tab=CountryDetails&country=' + encodeURIComponent(countryDetails.country) + '&device=' + encodeURIComponent(deviceVal));    
+        const values = {
+            tab: 'CountryDetails',
+            country: countryDetails.country,
+            device: deviceVal,
+        };
+
+        let url = '?';
+        for(const key in values) {
+            if (url != '?') {
+                url += '&';
+            }
+            url += key + '=' + encodeURIComponent(values[key]);
+        }
+
+        history.pushState(null, '', url);    
     }
 };
 
@@ -898,7 +970,7 @@ countryDetails.generateTable = function(options) {
         },
         footnotesDiv: footnotesDivId, // countryDetails.options.footnotesDiv,
         showAllTechnologies: true,
-        showM1: modemObj.technologies.includes('M1')
+        showM1: modemObj.technologies.includes('M1'),
     }
     const countryCarrierKeys = simPlanObj.countryCarrierKeys || [simPlanObj.countryCarrierKey];
 
@@ -1830,6 +1902,11 @@ $(document).ready(function() {
                 table:'countryCarrierTable'
             },
             function() {    
+                $('.byDeviceShowUnsupported').on('click', function() {
+                    carriers2.saveQuery();
+                    carriers2.update();
+                });
+
                 carrierSelectTabs.ModelMap.init({
                     mapDiv:$('.familyMapDiv'),
                     familySelect:$('#familyMapSelect'),
