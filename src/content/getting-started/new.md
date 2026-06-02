@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Carrier list update 2026-06-02
+
+The [carrier list](/reference/cellular/cellular-carriers/) has updates for LTE Cat M1 carriers in Europe, as well as preliminary coverage information for the M635e (NTN satellite).
+
 ### Tracker device restore 2026-06-02
 
 Fixed a bug in the Tracker Device Restore hex files for Device OS 3.1.0 to 6.4.1. The files contained an overlapping section at 0x0d4000 which caused some SWD/JTAG flashing tools to reject the hex files as invalid.
