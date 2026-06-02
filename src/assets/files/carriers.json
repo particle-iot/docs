@@ -32675,86 +32675,6 @@
   ],
   "skuFamily": [
     {
-      "family": "tracker",
-      "name": "Tracker",
-      "group": [
-        {
-          "name": "Tracker T404/ONE404 LTE M1 (NorAm) EtherSIM",
-          "short": [
-            "T404",
-            "ONE404"
-          ],
-          "region": "noram",
-          "lifecycle": "GA",
-          "sim": 4,
-          "simPlan": 40,
-          "modem": "BG96-MC",
-          "mapColor": 0
-        },
-        {
-          "name": "Tracker T524/ONE524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
-          "short": [
-            "T524",
-            "ONE524"
-          ],
-          "region": "emeaa",
-          "lifecycle": "GA",
-          "sim": 4,
-          "simPlan": 40,
-          "modem": "EG91-EX",
-          "mapColor": 1
-        },
-        {
-          "name": "Monitor One MON404 LTE M1 (NorAm) EtherSIM",
-          "short": [
-            "MON404"
-          ],
-          "region": "noram",
-          "lifecycle": "In development",
-          "sim": 4,
-          "simPlan": 40,
-          "modem": "BG96-MC",
-          "mapColor": 0
-        },
-        {
-          "name": "Monitor One MON524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
-          "short": [
-            "MON524"
-          ],
-          "region": "emeaa",
-          "lifecycle": "In development",
-          "sim": 4,
-          "simPlan": 40,
-          "modem": "EG91-EX",
-          "mapColor": 1
-        },
-        {
-          "name": "Tracker T402/ONE402 LTE M1 (NorAm) (before 2021)",
-          "short": [
-            "T402",
-            "ONE402"
-          ],
-          "region": "noram",
-          "lifecycle": "NRND",
-          "sim": 3,
-          "simPlan": 30,
-          "modem": "BG96-MC"
-        },
-        {
-          "name": "Tracker T523/ONE523 LTE CAT1/3G/2G (Europe) (before 2021)",
-          "short": [
-            "T523",
-            "ONE523"
-          ],
-          "region": "emeaa",
-          "lifecycle": "NRND",
-          "sim": 2,
-          "simPlan": 20,
-          "modem": "EG91-E"
-        }
-      ]
-    },
-    {
       "family": "m series",
       "name": "M-Series SoM",
       "group": [
@@ -32965,6 +32885,86 @@
           "simPlan": 50,
           "modem": "SG560D-EM",
           "mapColor": 1
+        }
+      ]
+    },
+    {
+      "family": "tracker",
+      "name": "Tracker",
+      "group": [
+        {
+          "name": "Tracker T404/ONE404 LTE M1 (NorAm) EtherSIM",
+          "short": [
+            "T404",
+            "ONE404"
+          ],
+          "region": "noram",
+          "lifecycle": "GA",
+          "sim": 4,
+          "simPlan": 40,
+          "modem": "BG96-MC",
+          "mapColor": 0
+        },
+        {
+          "name": "Tracker T524/ONE524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
+          "short": [
+            "T524",
+            "ONE524"
+          ],
+          "region": "emeaa",
+          "lifecycle": "GA",
+          "sim": 4,
+          "simPlan": 40,
+          "modem": "EG91-EX",
+          "mapColor": 1
+        },
+        {
+          "name": "Monitor One MON404 LTE M1 (NorAm) EtherSIM",
+          "short": [
+            "MON404"
+          ],
+          "region": "noram",
+          "lifecycle": "In development",
+          "sim": 4,
+          "simPlan": 40,
+          "modem": "BG96-MC",
+          "mapColor": 0
+        },
+        {
+          "name": "Monitor One MON524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
+          "short": [
+            "MON524"
+          ],
+          "region": "emeaa",
+          "lifecycle": "In development",
+          "sim": 4,
+          "simPlan": 40,
+          "modem": "EG91-EX",
+          "mapColor": 1
+        },
+        {
+          "name": "Tracker T402/ONE402 LTE M1 (NorAm) (before 2021)",
+          "short": [
+            "T402",
+            "ONE402"
+          ],
+          "region": "noram",
+          "lifecycle": "NRND",
+          "sim": 3,
+          "simPlan": 30,
+          "modem": "BG96-MC"
+        },
+        {
+          "name": "Tracker T523/ONE523 LTE CAT1/3G/2G (Europe) (before 2021)",
+          "short": [
+            "T523",
+            "ONE523"
+          ],
+          "region": "emeaa",
+          "lifecycle": "NRND",
+          "sim": 2,
+          "simPlan": 20,
+          "modem": "EG91-E"
         }
       ]
     },
