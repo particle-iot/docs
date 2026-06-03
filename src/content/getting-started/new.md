@@ -20,6 +20,10 @@ When adding new items to this page:
 
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
+### Console add devices 2026-06-22
+
+You can now add devices to a product directly from an order, or upload files in other formats. See [console add devices](/getting-started/console/console/#adding-devices).
+
 
 ### M635e power consumption 2026-08-19
 
