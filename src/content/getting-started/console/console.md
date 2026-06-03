@@ -396,8 +396,8 @@ You can add a single device by entering its Device ID, ICCID, IMEI, or Serial nu
 
 You can add multiple devices from a file in multiple formats:
 
-- .txt file: one device per line containing the Device ID, serial number, IMEI, or ICCID.
-- .csv file: one column most contain a Device ID
+- .txt file: One device per line containing the Device ID, serial number, IMEI, or ICCID.
+- .csv file: One column must be named `DEVICEID` and contain the 24-character hexadecimal Device ID.
 
 ![Add many devices](/assets/images/console/add-devices-4.png)
 
