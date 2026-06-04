@@ -26,6 +26,10 @@
                 },
                 {
                     "dir": "cellular-usage"
+                },
+                {
+                    "dir": "ntn-troubleshooting",
+                    "title": "NTN (satellite) troubleshooting"
                 }
             ]
         },

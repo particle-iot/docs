@@ -10037,6 +10037,10 @@
         "reference/device-os/libraries/b/BluetoothManager.md": {
             "hash": "0bc344994eb6db6e0adab650173ab85008e1b038ee4c29182fb4ad800d43cbc7",
             "date": "2026-06-01"
+        },
+        "troubleshooting/connectivity/ntn-troubleshooting.md": {
+            "hash": "23196dabc69b9ef0b732f116d2bcc2e3481845e79d5485de01fc2dc9ddec9400",
+            "date": "2026-06-04"
         }
     }
 }
