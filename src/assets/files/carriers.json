@@ -26999,13 +26999,11 @@
       "manufacturer": "quectel",
       "name": "LTE Cat M1/2G/NTN Satellite",
       "globalM1": true,
-      "bandsDisabled": [
+      "bands": [
         "2G-850",
         "2G-900",
         "2G-1800",
-        "2G-1900"
-      ],
-      "bands": [
+        "2G-1900",
         "M1-1",
         "M1-2",
         "M1-3",
@@ -27028,11 +27026,9 @@
         "NTN-256"
       ],
       "technologies": [
+        "2G",
         "M1",
         "NTN"
-      ],
-      "technologiesDisabled": [
-        "2G"
       ],
       "env": [
         "PARTICLE_CELLULAR_PREFERRED_PLMN",
@@ -32703,7 +32699,7 @@
           "mapColor": 1
         },
         {
-          "name": "M-Series M635e LTE M1/NTN Satellite (Global) EtherSIM",
+          "name": "M-Series LTE M1/2G/Satellite (Global, EtherSIM), [x1]",
           "short": [
             "M635E"
           ],
@@ -33271,6 +33267,10 @@
     {
       "band": 26,
       "freq": 850
+    },
+    {
+      "band": 27,
+      "freq": 800
     },
     {
       "band": 28,
@@ -33857,24 +33857,31 @@
       "country": "Afghanistan",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "MTN": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-B1"
         ],
         "MTN": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-B1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Afghanistan",
@@ -34384,36 +34391,47 @@
       "country": "Albania",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Eagle": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Telekom": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3",
           "4G-7"
         ],
         "Eagle": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Telekom": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "4G-7"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Albania",
@@ -34970,30 +34988,39 @@
       "country": "Algeria",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Mobilis": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Ooredoo": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3"
         ],
         "Mobilis": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Ooredoo": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Algeria",
@@ -35498,7 +35525,8 @@
       "technologies": [
         "NTN"
       ],
-      "recommendation": "NR"
+      "recommendation": "YES",
+      "reason": "Has NTN (satellite) but no cellular service."
     },
     {
       "country": "American Samoa",
@@ -35750,8 +35778,7 @@
       "country": "Andorra",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
         "NTN"
       ],
@@ -35765,7 +35792,8 @@
           "NTN-256"
         ]
       },
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "Has NTN (satellite) but no cellular service."
     },
     {
       "country": "Andorra",
@@ -36060,10 +36088,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Angola",
@@ -36289,24 +36317,31 @@
       "country": "Anguilla",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-850"
+        ],
+        "Flow": [
+          "2G-850"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-2",
           "3G-5",
           "4G-13"
         ],
         "Flow": [
-          "2G-850",
           "3G-2",
           "3G-5",
           "4G-13"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Anguilla",
@@ -36791,10 +36826,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Antarctica",
@@ -37018,22 +37053,29 @@
       "country": "Antigua and Barbuda",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-850"
+        ],
+        "Flow": [
+          "2G-850"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-1",
           "4G-4"
         ],
         "Flow": [
-          "2G-850",
           "3G-1",
           "4G-4"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Antigua and Barbuda",
@@ -37571,22 +37613,31 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
+        "2G",
         "M1"
       ],
       "supported": {
         "*": [
+          "2G-850",
+          "2G-1900",
           "M1-4"
         ],
+        "Claro": [
+          "2G-850",
+          "2G-1900"
+        ],
         "Movistar": [
+          "2G-850",
+          "2G-1900",
           "M1-4"
+        ],
+        "Personal": [
+          "2G-1900"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "4G-2",
@@ -37595,8 +37646,6 @@
           "4G-28"
         ],
         "Claro": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "4G-2",
@@ -37605,19 +37654,17 @@
           "4G-28"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "4G-4"
         ],
         "Personal": [
-          "2G-1900",
           "4G-4",
           "4G-7",
           "4G-28"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Argentina",
@@ -38544,14 +38591,26 @@
       "country": "Armenia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Beeline": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Ucom": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-B3",
           "4G-B8",
@@ -38561,22 +38620,19 @@
           "4G-20"
         ],
         "Beeline": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-B3",
           "4G-B8"
         ],
         "Ucom": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
           "4G-7",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Armenia",
@@ -39249,24 +39305,31 @@
       "country": "Aruba",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1900",
+          "2G-1900"
+        ],
+        "Setar": [
+          "2G-900",
+          "2G-1900"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3"
         ],
         "Setar": [
-          "2G-900",
-          "2G-1900",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Aruba",
@@ -39963,7 +40026,8 @@
           "4G-28",
           "NB1-8"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Australia",
@@ -41344,23 +41408,29 @@
       "country": "Austria",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "M1-20",
           "NTN-255",
           "NTN-256",
           "M1-3"
         ],
         "3 (Drei)": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
         ],
         "A1": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
         ],
         "Skylo": [
@@ -41368,14 +41438,14 @@
           "NTN-256"
         ],
         "T-Mobile": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -41392,8 +41462,6 @@
           "NB1-8"
         ],
         "3 (Drei)": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -41406,8 +41474,6 @@
           "5G-78"
         ],
         "A1": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -41420,8 +41486,6 @@
           "5G-78"
         ],
         "T-Mobile": [
-          "2G-900",
-          "2G-1800",
           "3G-8",
           "4G-1",
           "4G-3",
@@ -41434,7 +41498,8 @@
           "5G-75",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Austria",
@@ -43006,33 +43071,44 @@
       "country": "Azerbaijan",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "3G-1",
-          "4G-3",
           "2G-1800"
         ],
         "Azercell": [
-          "2G-900",
+          "2G-900"
+        ],
+        "Bakcell": [
+          "2G-900"
+        ],
+        "NAR Mobile": [
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
+          "4G-3"
+        ],
+        "Azercell": [
           "3G-1",
           "4G-3"
         ],
         "Bakcell": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "NAR Mobile": [
-          "2G-1800",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Azerbaijan",
@@ -43625,33 +43701,42 @@
       "country": "Bahamas",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-850",
-          "2G-1900",
+          "2G-1900"
+        ],
+        "Aliv": [
+          "2G-850",
+          "2G-1900"
+        ],
+        "BTC Bahamas": [
+          "2G-850",
+          "2G-1900"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-5",
           "4G-4",
           "4G-13",
           "4G-17"
         ],
         "Aliv": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "4G-4",
           "4G-13"
         ],
         "BTC Bahamas": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "4G-17"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Bahamas",
@@ -44215,22 +44300,29 @@
       "country": "Bahrain",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "4G-3"
+          "2G-1800"
         ],
         "Zain": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "4G-3"
+        ],
+        "Zain": [
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Bahrain",
@@ -44740,23 +44832,31 @@
       "country": "Bangladesh",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Bangalink": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-1",
           "4G-3",
           "4G-8",
+          "2G-900",
+          "2G-1800",
           "3G-8"
         ],
         "Bangalink": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -44771,7 +44871,8 @@
           "4G-3",
           "4G-8"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Bangladesh",
@@ -45485,24 +45586,31 @@
       "country": "Barbados",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-1900"
+        ],
+        "Flow": [
+          "2G-1900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-1900",
           "3G-1",
           "4G-2",
           "4G-17"
         ],
         "Flow": [
-          "2G-1900",
           "3G-1",
           "4G-2",
           "4G-17"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Barbados",
@@ -46051,28 +46159,35 @@
       "country": "Belarus",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "A1": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "3G-8",
           "4G-3",
           "NB1-8"
         ],
         "A1": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
           "NB1-8"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Belarus",
@@ -46757,25 +46872,34 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20",
           "NTN-255",
           "NTN-256"
         ],
         "Base": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20"
         ],
         "Proximus": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
         ],
         "Skylo": [
@@ -46785,8 +46909,6 @@
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -46800,8 +46922,6 @@
           "LoRa"
         ],
         "Base": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -46811,8 +46931,6 @@
           "5G-1"
         ],
         "Orange": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -46823,8 +46941,6 @@
           "5G-78"
         ],
         "Proximus": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -46836,7 +46952,8 @@
           "5G-1",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Belgium",
@@ -48307,7 +48424,6 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -48319,7 +48435,8 @@
           "3G-5",
           "4G-13"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Belize",
@@ -48631,10 +48748,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Benin",
@@ -48918,10 +49035,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Bermuda",
@@ -49250,22 +49367,29 @@
       "country": "Bolivia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-1900"
+        ],
+        "Viva": [
+          "2G-1900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-1900",
           "3G-5",
           "4G-4"
         ],
         "Viva": [
-          "2G-1900",
           "3G-5",
           "4G-4"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Bolivia",
@@ -49700,10 +49824,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Bonaire",
@@ -49930,10 +50054,18 @@
       "country": "Bosnia and Herzegovina",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "HT Eronet": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
           "2G-900",
@@ -49944,10 +50076,10 @@
           "3G-1"
         ],
         "HT Eronet": [
-          "2G-900",
           "3G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Bosnia and Herzegovina",
@@ -50370,22 +50502,29 @@
       "country": "Botswana",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "BeMobile": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "BeMobile": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Botswana",
@@ -50827,26 +50966,33 @@
       "country": "Brazil",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "recommendation": "YES",
       "roamingRestrictions": "warn",
       "technologies": [
+        "2G",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "NTN-255",
           "NTN-256"
+        ],
+        "Claro": [
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "TIM": [
+          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-5",
           "4G-7",
@@ -50856,14 +51002,11 @@
           "NB1-28"
         ],
         "Claro": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-5",
           "4G-7"
         ],
         "TIM": [
-          "2G-1800",
           "3G-1",
           "3G-5",
           "3G-8",
@@ -50879,7 +51022,8 @@
           "4G-7",
           "4G-28"
         ]
-      }
+      },
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "Brazil",
@@ -51846,7 +51990,6 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -51858,7 +52001,8 @@
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Brunei",
@@ -52255,45 +52399,52 @@
       "country": "Bulgaria",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "NTN-255",
           "NTN-256"
+        ],
+        "A1": [
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "Telenor": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Vivacom": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8"
         ],
         "A1": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Telenor": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Vivacom": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8"
         ]
-      }
+      },
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "Bulgaria",
@@ -53068,22 +53219,29 @@
       "country": "Burkina Faso",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Orange": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Orange": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Burkina Faso",
@@ -53418,10 +53576,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Burundi",
@@ -53652,29 +53810,38 @@
       "country": "Cabo Verde",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "CVMóvel": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Unitel T+": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-20"
         ],
         "CVMóvel": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-20"
         ],
         "Unitel T+": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Cabo Verde",
@@ -54177,22 +54344,29 @@
       "country": "Cambodia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Metfone": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1"
+        ],
+        "Metfone": [
           "3G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Cambodia",
@@ -54589,10 +54763,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Cameroon",
@@ -55111,7 +55285,8 @@
           "4G-4",
           "4G-17"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Canada",
@@ -57458,24 +57633,31 @@
       "country": "Cayman Islands",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-850",
-          "2G-1900",
+          "2G-1900"
+        ],
+        "Flow": [
+          "2G-850",
+          "2G-1900"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-5",
           "4G-17"
         ],
         "Flow": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "4G-17"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Cayman Islands",
@@ -57979,10 +58161,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Central African Republic",
@@ -58231,22 +58413,29 @@
       "country": "Chad",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Airtel": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Airtel": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Chad",
@@ -58676,20 +58865,27 @@
       "country": "Chile",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-1900"
+        ],
+        "Claro": [
+          "2G-1900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-1900",
           "3G-2",
           "4G-7",
+          "2G-1900",
           "3G-8",
           "3G-5"
         ],
         "Claro": [
-          "2G-1900",
           "3G-2",
           "4G-7"
         ],
@@ -58704,7 +58900,8 @@
           "3G-5",
           "4G-7"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Chile",
@@ -59414,7 +59611,6 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "warn",
       "technologies": [],
       "supported": {},
@@ -59442,7 +59638,8 @@
           "4G-3",
           "4G-41"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "China",
@@ -60138,22 +60335,28 @@
       "country": "Colombia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-850",
-          "2G-1900",
+          "2G-1900"
+        ],
+        "Movistar": [
+          "2G-850",
+          "2G-1900"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-5",
           "4G-4",
           "3G-2",
           "4G-7"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "4G-4"
         ],
@@ -60162,7 +60365,8 @@
           "4G-4",
           "4G-7"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Colombia",
@@ -60843,22 +61047,29 @@
       "country": "Congo (Brazzaville)",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Airtel": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-7"
         ],
         "Airtel": [
-          "2G-900",
           "3G-1",
           "4G-7"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Congo (Brazzaville)",
@@ -61301,22 +61512,29 @@
       "country": "Congo (Kinshasa)",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Airtel": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Airtel": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Congo (Kinshasa)",
@@ -61770,7 +61988,6 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -61784,7 +62001,8 @@
           "3G-5",
           "4G-3"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Costa Rica",
@@ -62326,20 +62544,27 @@
       "country": "Côte d'Ivoire",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "MTN": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1"
         ],
         "MTN": [
-          "2G-900",
           "3G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Côte d'Ivoire",
@@ -62738,31 +62963,37 @@
       "country": "Croatia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
           "M1-8",
           "M1-20",
           "NTN-255",
-          "NTN-256"
+          "NTN-256",
+          "2G-1800"
         ],
         "Hrvatski Telekom": [
+          "2G-900",
           "M1-8",
           "M1-20"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "Tele2": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -62771,11 +63002,9 @@
           "5G-1",
           "5G-28",
           "5G-77",
-          "5G-78",
-          "2G-1800"
+          "5G-78"
         ],
         "Hrvatski Telekom": [
-          "2G-900",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -62787,13 +63016,12 @@
           "5G-78"
         ],
         "Tele2": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Croatia",
@@ -63817,10 +64045,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Cuba",
@@ -64035,10 +64263,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Curaçao",
@@ -64425,10 +64653,20 @@
       "country": "Cyprus",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "MTN": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
       "notSupported": {
         "*": [
           "2G-900",
@@ -64442,15 +64680,14 @@
           "3G-1"
         ],
         "MTN": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "PrimeTel": [
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Cyprus",
@@ -65104,19 +65341,29 @@
       "country": "Czechia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
-        "NTN"
+        "NTN",
+        "2G"
       ],
       "supported": {
         "*": [
           "NTN-255",
-          "NTN-256"
+          "NTN-256",
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "T-Mobile": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -65145,8 +65392,6 @@
           "5G-77"
         ],
         "T-Mobile": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -65156,8 +65401,6 @@
           "5G-28"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -65167,7 +65410,8 @@
           "5G-3",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "Czechia",
@@ -66501,12 +66745,15 @@
       "recommendation": "YES",
       "technologies": [
         "NTN",
+        "2G",
         "M1"
       ],
       "supported": {
         "*": [
           "NTN-255",
           "NTN-256",
+          "2G-900",
+          "2G-1800",
           "M1-20",
           "M1-8"
         ],
@@ -66515,13 +66762,19 @@
           "NTN-256"
         ],
         "TDC": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
         ],
         "Telenor": [
+          "2G-900",
+          "2G-1800",
           "M1-8",
           "M1-20"
         ],
         "Telia": [
+          "2G-900",
+          "2G-1800",
           "M1-8",
           "M1-20"
         ]
@@ -66532,8 +66785,6 @@
           "3G-8",
           "4G-3",
           "4G-7",
-          "2G-900",
-          "2G-1800",
           "4G-20",
           "NB1-20"
         ],
@@ -66544,29 +66795,24 @@
           "4G-7"
         ],
         "TDC": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
           "NB1-20"
         ],
         "Telenor": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
           "NB1-20"
         ],
         "Telia": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Denmark",
@@ -67764,24 +68010,31 @@
       "country": "Dominica",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-850",
-          "2G-1900",
+          "2G-1900"
+        ],
+        "Flow": [
+          "2G-850",
+          "2G-1900"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-4"
         ],
         "Flow": [
-          "2G-850",
-          "2G-1900",
           "3G-1",
           "4G-4"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Dominica",
@@ -68344,14 +68597,25 @@
       "country": "Dominican Republic",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-1800",
-          "2G-1900",
+          "2G-1900"
+        ],
+        "Altice Dominicana": [
+          "2G-1800",
+          "2G-1900"
+        ],
+        "Viva": [
+          "2G-1900"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-8",
           "4G-2",
           "4G-4",
@@ -68359,8 +68623,6 @@
           "3G-5"
         ],
         "Altice Dominicana": [
-          "2G-1800",
-          "2G-1900",
           "3G-8",
           "4G-2",
           "4G-4",
@@ -68371,10 +68633,10 @@
           "4G-4"
         ],
         "Viva": [
-          "2G-1900",
           "3G-8"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Dominican Republic",
@@ -69137,31 +69399,40 @@
       "country": "Ecuador",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-850"
+        ],
+        "Claro": [
+          "2G-850"
+        ],
+        "Movistar": [
+          "2G-850"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-2",
           "3G-5",
           "4G-4",
           "4G-2"
         ],
         "Claro": [
-          "2G-850",
           "3G-2",
           "3G-5",
           "4G-4"
         ],
         "Movistar": [
-          "2G-850",
           "3G-2",
           "3G-5",
           "4G-2"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Ecuador",
@@ -69739,20 +70010,26 @@
       "country": "Egypt",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Etisalat": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3"
         ],
         "Etisalat": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ],
@@ -69760,7 +70037,8 @@
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Egypt",
@@ -70327,10 +70605,18 @@
       "country": "El Salvador",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-850"
+        ],
+        "Telefonica": [
+          "2G-850"
+        ]
+      },
       "notSupported": {
         "*": [
           "2G-850",
@@ -70344,12 +70630,12 @@
           "4G-2"
         ],
         "Telefonica": [
-          "2G-850",
           "3G-2",
           "3G-5",
           "4G-2"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "El Salvador",
@@ -70901,10 +71187,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Equatorial Guinea",
@@ -71182,17 +71468,22 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20",
           "NTN-255",
           "NTN-256"
         ],
         "Elisa": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20"
         ],
@@ -71200,15 +71491,19 @@
           "NTN-255",
           "NTN-256"
         ],
+        "Tele2": [
+          "2G-900",
+          "2G-1800"
+        ],
         "Telia": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -71220,8 +71515,6 @@
           "NB1-20"
         ],
         "Elisa": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -71230,8 +71523,6 @@
           "M1-7"
         ],
         "Tele2": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -71240,14 +71531,13 @@
           "NB1-1"
         ],
         "Telia": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
           "NB1-20"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Estonia",
@@ -72466,22 +72756,29 @@
       "country": "eSwatini",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "MTN": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "MTN": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "eSwatini",
@@ -72891,22 +73188,29 @@
       "country": "Ethiopia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Ethio Telecom": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Ethio Telecom": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Ethiopia",
@@ -73261,37 +73565,42 @@
       "country": "Faroe Islands",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
           "NTN-255",
           "NTN-256"
+        ],
+        "Faroese Telecom": [
+          "2G-900"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "Vodafone": [
+          "2G-900"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "3G-8"
         ],
         "Faroese Telecom": [
-          "2G-900",
           "3G-1",
           "3G-8"
         ],
         "Vodafone": [
-          "2G-900",
           "3G-1"
         ]
-      }
+      },
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "Faroe Islands",
@@ -73742,10 +74051,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Fiji",
@@ -74074,12 +74383,15 @@
       "recommendation": "YES",
       "technologies": [
         "M1",
+        "2G",
         "NTN"
       ],
       "supported": {
         "*": [
           "M1-3",
           "M1-20",
+          "2G-900",
+          "2G-1800",
           "NTN-255",
           "NTN-256"
         ],
@@ -74088,6 +74400,8 @@
           "M1-20"
         ],
         "Elisa": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
         ],
         "Skylo": [
@@ -74117,8 +74431,6 @@
           "4G-20"
         ],
         "Elisa": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20"
@@ -74132,7 +74444,8 @@
           "NB1-20",
           "M1-7"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Finland",
@@ -75306,22 +75619,32 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
           "M1-20",
+          "2G-1800",
           "NTN-255",
           "NTN-256"
         ],
         "Bouygues": [
+          "2G-900",
           "M1-20"
+        ],
+        "Free Mobile": [
+          "2G-900",
+          "2G-1800"
         ],
         "Orange": [
           "M1-20"
         ],
         "SFR": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
         ],
         "Skylo": [
@@ -75331,7 +75654,6 @@
       },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -75341,11 +75663,11 @@
           "4G-28",
           "5G-1",
           "5G-78",
-          "2G-1800",
-          "5G-27"
+          "5G-27",
+          "2G-900",
+          "2G-1800"
         ],
         "Bouygues": [
-          "2G-900",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -75357,8 +75679,6 @@
           "5G-78"
         ],
         "Free Mobile": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -75383,8 +75703,6 @@
           "5G-78"
         ],
         "SFR": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -75395,7 +75713,8 @@
           "5G-1",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "France",
@@ -77037,22 +77356,29 @@
       "country": "French Guiana",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Digicel": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1"
+        ],
+        "Digicel": [
           "3G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "French Guiana",
@@ -77424,22 +77750,29 @@
       "country": "Gabon",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Airtel": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-1"
         ],
         "Airtel": [
-          "2G-900",
           "3G-1",
           "4G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Gabon",
@@ -77894,10 +78227,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Gambia",
@@ -78130,31 +78463,40 @@
       "country": "Georgia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Beeline": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Geocell": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-20",
           "4G-3"
         ],
         "Beeline": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-20"
         ],
         "Geocell": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Georgia",
@@ -78870,18 +79212,22 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-1800",
           "M1-20",
           "NTN-255",
           "NTN-256",
+          "2G-900",
           "M1-3",
           "M1-28"
         ],
         "O2": [
+          "2G-1800",
           "M1-20"
         ],
         "Skylo": [
@@ -78889,6 +79235,8 @@
           "NTN-256"
         ],
         "Telekom": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20",
           "M1-28"
@@ -78899,7 +79247,6 @@
       },
       "notSupported": {
         "*": [
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -78910,14 +79257,12 @@
           "NB1-20",
           "5G-1",
           "5G-78",
-          "2G-900",
           "4G-32",
           "NB1-8",
           "5G-3",
           "5G-28"
         ],
         "O2": [
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -78930,8 +79275,6 @@
           "5G-78"
         ],
         "Telekom": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-8",
@@ -78956,7 +79299,8 @@
           "5G-28",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Germany",
@@ -80619,37 +80963,48 @@
       "country": "Ghana",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
+          "2G-1800"
+        ],
+        "AirtelTigo": [
+          "2G-900"
+        ],
+        "MTN": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Vodafone": [
+          "2G-900"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
-          "2G-1800",
           "3G-8",
           "4G-7",
           "4G-20"
         ],
         "AirtelTigo": [
-          "2G-900",
           "3G-1"
         ],
         "MTN": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-7",
           "4G-20"
         ],
         "Vodafone": [
-          "2G-900",
           "3G-1",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Ghana",
@@ -81301,15 +81656,21 @@
       "country": "Gibraltar",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "NTN-255",
           "NTN-256"
+        ],
+        "Gibtel": [
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
@@ -81318,20 +81679,17 @@
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-7",
           "4G-20"
         ],
         "Gibtel": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-7",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "Gibraltar",
@@ -81949,38 +82307,46 @@
       "country": "Greece",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "NTN-255",
           "NTN-256"
+        ],
+        "Cosmote": [
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "Wind": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
           "5G-28",
           "5G-78",
+          "2G-900",
+          "2G-1800",
           "4G-1",
           "4G-28",
           "NB1-20",
           "5G-1"
         ],
         "Cosmote": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -82000,8 +82366,6 @@
           "5G-78"
         ],
         "Wind": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -82009,7 +82373,8 @@
           "5G-28",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "Greece",
@@ -83223,10 +83588,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Greenland",
@@ -83501,18 +83866,20 @@
       "country": "Grenada",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-850"
         ],
         "Flow": [
           "2G-850"
         ]
-      }
+      },
+      "notSupported": {},
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Grenada",
@@ -83881,13 +84248,20 @@
       "country": "Guadeloupe",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Orange": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -83895,14 +84269,14 @@
           "4G-20"
         ],
         "Orange": [
-          "2G-900",
           "3G-1",
           "4G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Guadeloupe",
@@ -84376,10 +84750,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Guam",
@@ -84659,10 +85033,18 @@
       "country": "Guatemala",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-1900"
+        ],
+        "Movistar": [
+          "2G-1900"
+        ]
+      },
       "notSupported": {
         "*": [
           "2G-900",
@@ -84677,11 +85059,11 @@
           "4G-2"
         ],
         "Movistar": [
-          "2G-1900",
           "3G-2",
           "4G-2"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Guatemala",
@@ -85239,33 +85621,36 @@
       "country": "Guernsey",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
-        "NTN"
+        "NTN",
+        "2G"
       ],
       "supported": {
         "*": [
           "NTN-255",
-          "NTN-256"
+          "NTN-256",
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Sure": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ]
-      }
+      },
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "Guernsey",
@@ -85687,24 +86072,31 @@
       "country": "Guinea",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "MTN": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3"
         ],
         "MTN": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Guinea",
@@ -86069,24 +86461,31 @@
       "country": "Guinea-Bissau",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "MTN": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3"
         ],
         "MTN": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Guinea-Bissau",
@@ -86518,18 +86917,20 @@
       "country": "Guyana",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900"
         ],
         "Digicel": [
           "2G-900"
         ]
-      }
+      },
+      "notSupported": {},
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Guyana",
@@ -86888,22 +87289,29 @@
       "country": "Haiti",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Digicel": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1"
+        ],
+        "Digicel": [
           "3G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Haiti",
@@ -87341,8 +87749,7 @@
       "country": "Holy See (Vatican City)",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
         "NTN"
       ],
@@ -87356,7 +87763,8 @@
           "NTN-256"
         ]
       },
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "Has NTN (satellite) but no cellular service."
     },
     {
       "country": "Holy See (Vatican City)",
@@ -87744,29 +88152,38 @@
       "country": "Honduras",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-1900",
+          "2G-850"
+        ],
+        "Claro": [
+          "2G-1900"
+        ],
+        "Tigo": [
+          "2G-850"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-2",
           "4G-4",
-          "2G-850",
           "3G-5"
         ],
         "Claro": [
-          "2G-1900",
           "3G-2",
           "4G-4"
         ],
         "Tigo": [
-          "2G-850",
           "3G-5",
           "4G-4"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Honduras",
@@ -88363,7 +88780,6 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -88396,7 +88812,8 @@
           "4G-3",
           "4G-8"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Hong Kong",
@@ -89285,17 +89702,19 @@
       "country": "Hungary",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
         "M1",
-        "NTN"
+        "NTN",
+        "2G"
       ],
       "supported": {
         "*": [
           "M1-20",
           "NTN-255",
-          "NTN-256"
+          "NTN-256",
+          "2G-900",
+          "2G-1800"
         ],
         "Magyar Telekom": [
           "M1-20"
@@ -89303,6 +89722,10 @@
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "Telenor": [
+          "2G-900",
+          "2G-1800"
         ],
         "Vodafone": [
           "M1-20"
@@ -89331,8 +89754,6 @@
           "4G-20"
         ],
         "Telenor": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -89351,7 +89772,8 @@
           "5G-27",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Hungary",
@@ -90650,8 +91072,7 @@
       "country": "Iceland",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
         "M1",
         "NTN"
@@ -90712,7 +91133,8 @@
           "4G-20",
           "NB1"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Iceland",
@@ -91789,22 +92211,28 @@
       "country": "India",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "recommendation": "YES",
       "roamingRestrictions": "warn",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Airtel": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "4G-40",
           "4G-3",
           "4G-5"
         ],
         "Airtel": [
-          "2G-900",
-          "2G-1800",
           "4G-40"
         ],
         "Jio": [
@@ -91812,7 +92240,8 @@
           "4G-5",
           "4G-40"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "India",
@@ -92424,40 +92853,51 @@
       "country": "Indonesia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Indosat": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Telkomsel": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "XL Axiata": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "3G-8",
           "4G-3",
           "4G-8"
         ],
         "Indosat": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
           "4G-8"
         ],
         "Telkomsel": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-8"
         ],
         "XL Axiata": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-8"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Indonesia",
@@ -93179,10 +93619,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Iran",
@@ -93396,10 +93836,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Iraq",
@@ -93662,19 +94102,25 @@
       "country": "Ireland",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
-        "NTN"
+        "NTN",
+        "2G"
       ],
       "supported": {
         "*": [
           "NTN-255",
-          "NTN-256"
+          "NTN-256",
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -93714,14 +94160,13 @@
           "4G-3"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-20",
           "NB1-20",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "Ireland",
@@ -94771,41 +95216,46 @@
       "country": "Isle of Man",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
           "NTN-255",
-          "NTN-256"
+          "NTN-256",
+          "2G-1800"
+        ],
+        "Manx Telecom": [
+          "2G-900"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-3",
-          "4G-20",
-          "2G-1800"
+          "4G-20"
         ],
         "Manx Telecom": [
-          "2G-900",
           "3G-1",
           "4G-3",
           "4G-20"
         ],
         "Sure": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ]
-      }
+      },
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "Isle of Man",
@@ -95371,22 +95821,30 @@
       "country": "Israel",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1",
-          "3G-8",
-          "4G-3",
-          "3G-5"
+          "2G-1800"
         ],
         "Hot Mobile": [
           "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
+          "3G-8",
+          "4G-3",
+          "2G-900",
           "2G-1800",
+          "3G-5"
+        ],
+        "Hot Mobile": [
           "3G-1",
           "3G-8",
           "4G-3"
@@ -95403,7 +95861,8 @@
           "3G-5",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Israel",
@@ -96239,25 +96698,37 @@
       "country": "Italy",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
-        "NTN"
+        "NTN",
+        "2G"
       ],
       "supported": {
         "*": [
           "NTN-255",
-          "NTN-256"
+          "NTN-256",
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "TIM": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Wind": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -96273,8 +96744,6 @@
           "4G-38"
         ],
         "TIM": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -96287,8 +96756,6 @@
           "5G-258"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -96300,8 +96767,6 @@
           "5G-258"
         ],
         "Wind": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -96313,7 +96778,8 @@
           "5G-78",
           "5G-258"
         ]
-      }
+      },
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "Italy",
@@ -97737,7 +98203,6 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -97761,7 +98226,8 @@
           "4G-12",
           "4G-17"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Jamaica",
@@ -98578,7 +99044,8 @@
           "5G-77",
           "5G-257"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Japan",
@@ -100224,26 +100691,34 @@
       "country": "Jersey",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "NTN-255",
           "NTN-256"
+        ],
+        "Jersey Telecom": [
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
           "3G-1",
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20"
@@ -100252,19 +100727,16 @@
           "3G-1"
         ],
         "Jersey Telecom": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Sure": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ]
-      }
+      },
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "Jersey",
@@ -100982,22 +101454,29 @@
       "country": "Jordan",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Zain": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Zain": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Jordan",
@@ -101429,32 +101908,41 @@
       "country": "Kazakhstan",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Beeline": [
+          "2G-900"
+        ],
+        "K-Cell": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-1",
           "4G-3",
           "4G-20"
         ],
         "Beeline": [
-          "2G-900",
           "3G-1",
           "4G-1",
           "4G-3",
           "4G-20"
         ],
         "K-Cell": [
-          "2G-900",
           "3G-1",
           "4G-3",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Kazakhstan",
@@ -102004,22 +102492,29 @@
       "country": "Kenya",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Airtel": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-20"
         ],
         "Airtel": [
-          "2G-900",
           "3G-1",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Kenya",
@@ -102494,10 +102989,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Kiribati",
@@ -102719,8 +103214,7 @@
       "country": "Kosovo",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
         "NTN"
       ],
@@ -102734,7 +103228,8 @@
           "NTN-256"
         ]
       },
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "Has NTN (satellite) but no cellular service."
     },
     {
       "country": "Kosovo",
@@ -103122,30 +103617,39 @@
       "country": "Kuwait",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Viva": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Zain": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3"
         ],
         "Viva": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Zain": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Kuwait",
@@ -103839,22 +104343,29 @@
       "country": "Kyrgyzstan",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Beeline": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1"
+        ],
+        "Beeline": [
           "3G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Kyrgyzstan",
@@ -104187,10 +104698,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Lao People's Democratic Republic",
@@ -104463,20 +104974,27 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "M1-20",
           "NTN-255",
           "NTN-256",
           "M1-28"
         ],
         "Bite": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
         ],
         "LMT": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
         ],
         "Skylo": [
@@ -104484,14 +105002,14 @@
           "NTN-256"
         ],
         "Tele2": [
+          "2G-900",
+          "2G-1800",
           "M1-20",
           "M1-28"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -104499,8 +105017,6 @@
           "5G-78"
         ],
         "Bite": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -104508,22 +105024,19 @@
           "5G-78"
         ],
         "LMT": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
           "5G-78"
         ],
         "Tele2": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Latvia",
@@ -105584,10 +106097,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Lebanon",
@@ -105801,10 +106314,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Lesotho",
@@ -106097,15 +106610,25 @@
       "country": "Liechtenstein",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "NTN-255",
           "NTN-256"
+        ],
+        "Mobilkom": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Orange": [
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
@@ -106114,26 +106637,21 @@
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-7",
           "4G-3"
         ],
         "Mobilkom": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-7"
         ],
         "Orange": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7"
         ]
-      }
+      },
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "Liechtenstein",
@@ -106881,32 +107399,42 @@
       "country": "Lithuania",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "NTN",
         "M1"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "NTN-255",
           "NTN-256",
           "M1-8",
           "M1-20"
+        ],
+        "Bite": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Omnitel": [
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
         ],
         "Tele2": [
+          "2G-900",
+          "2G-1800",
           "M1-8",
           "M1-20"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -106924,8 +107452,6 @@
           "5G-78"
         ],
         "Bite": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -106941,16 +107467,12 @@
           "5G-40"
         ],
         "Omnitel": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Tele2": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -106962,7 +107484,8 @@
           "5G-28",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Lithuania",
@@ -108371,52 +108894,56 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-1800",
           "M1-8",
           "M1-20",
+          "2G-900",
           "NTN-255",
           "NTN-256"
         ],
         "Orange": [
+          "2G-1800",
           "M1-8",
           "M1-20"
         ],
         "POST": [
+          "2G-900",
+          "2G-1800",
           "M1-8",
           "M1-20"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "Tango": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-1800",
           "3G-1",
-          "4G-3",
-          "2G-900"
+          "4G-3"
         ],
         "Orange": [
-          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "POST": [
-          "2G-900",
-          "2G-1800",
           "4G-3"
         ],
         "Tango": [
-          "2G-900",
-          "2G-1800",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Luxembourg",
@@ -109333,7 +109860,6 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -109347,7 +109873,8 @@
           "4G-3",
           "4G-40"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Macao",
@@ -109813,22 +110340,29 @@
       "country": "Madagascar",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Airtel": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Airtel": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Madagascar",
@@ -110301,22 +110835,29 @@
       "country": "Malawi",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Airtel": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ],
         "Airtel": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Malawi",
@@ -110766,14 +111307,30 @@
       "country": "Malaysia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Celcom": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "DiGi": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Maxis": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "4G-3",
           "4G-7",
           "3G-1",
@@ -110783,20 +111340,14 @@
           "5G-257"
         ],
         "Celcom": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7"
         ],
         "DiGi": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-7"
         ],
         "Maxis": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -110804,7 +111355,8 @@
           "5G-78",
           "5G-257"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Malaysia",
@@ -111734,10 +112286,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Maldives",
@@ -111951,10 +112503,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Mali",
@@ -112203,19 +112755,21 @@
       "country": "Malta",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-1800",
           "M1-20",
           "NTN-255",
           "NTN-256"
         ],
         "Go Mobile": [
+          "2G-1800",
           "M1-20"
         ],
         "Skylo": [
@@ -112225,7 +112779,6 @@
       },
       "notSupported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20",
@@ -112233,7 +112786,6 @@
           "2G-900"
         ],
         "Go Mobile": [
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20",
@@ -112244,7 +112796,8 @@
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Malta",
@@ -113108,10 +113661,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Martinique",
@@ -113368,10 +113921,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Mauritania",
@@ -113585,10 +114138,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Mauritius",
@@ -113828,10 +114381,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Mayotte",
@@ -114165,7 +114718,8 @@
           "M1-7",
           "5G-5"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Mexico",
@@ -115398,34 +115952,43 @@
       "country": "Moldova",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
+          "2G-1800"
+        ],
+        "Moldcell": [
+          "2G-900"
+        ],
+        "Orange": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-7",
           "4G-20",
-          "2G-1800",
           "4G-3"
         ],
         "Moldcell": [
-          "2G-900",
           "3G-1",
           "4G-7",
           "4G-20"
         ],
         "Orange": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Moldova",
@@ -115978,8 +116541,7 @@
       "country": "Monaco",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
         "NTN"
       ],
@@ -115993,7 +116555,8 @@
           "NTN-256"
         ]
       },
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "Has NTN (satellite) but no cellular service."
     },
     {
       "country": "Monaco",
@@ -116348,26 +116911,35 @@
       "country": "Mongolia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Mobicom": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Unitel": [
+          "2G-900"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1"
+        ],
+        "Mobicom": [
           "3G-1"
         ],
         "Unitel": [
-          "2G-900",
           "3G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Mongolia",
@@ -116852,10 +117424,24 @@
       "country": "Montenegro",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "T-Mobile": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Telenor": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
       "notSupported": {
         "*": [
           "2G-900",
@@ -116875,19 +117461,16 @@
           "4G-20"
         ],
         "T-Mobile": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7"
         ],
         "Telenor": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Montenegro",
@@ -117711,10 +118294,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Montserrat",
@@ -118007,36 +118590,45 @@
       "country": "Morocco",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Inwi": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Medi Telecom": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Inwi": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Medi Telecom": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Morocco",
@@ -118642,26 +119234,33 @@
       "country": "Mozambique",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Vodacom": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3",
           "4G-20"
         ],
         "Vodacom": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Mozambique",
@@ -119187,19 +119786,26 @@
       "country": "Myanmar",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "MPT": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-3",
+          "2G-900",
           "4G-1"
         ],
         "MPT": [
-          "2G-900",
           "3G-1",
           "4G-3"
         ],
@@ -119208,7 +119814,8 @@
           "3G-1",
           "4G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Myanmar",
@@ -119629,26 +120236,33 @@
       "country": "Namibia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Telecom Namibia": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3",
           "4G-38"
         ],
         "Telecom Namibia": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-38"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Namibia",
@@ -120029,10 +120643,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Nauru",
@@ -120244,10 +120858,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Nepal",
@@ -120537,14 +121151,17 @@
       "recommendation": "YES",
       "technologies": [
         "M1",
-        "NTN"
+        "NTN",
+        "2G"
       ],
       "supported": {
         "*": [
           "M1-20",
           "NTN-255",
           "NTN-256",
-          "M1-8"
+          "M1-8",
+          "2G-900",
+          "2G-1800"
         ],
         "KPN": [
           "M1-20"
@@ -120558,6 +121175,8 @@
           "M1-20"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "M1-8",
           "M1-20"
         ]
@@ -120602,8 +121221,6 @@
           "5G-28"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
@@ -120612,7 +121229,8 @@
           "5G-28",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Netherlands",
@@ -121977,10 +122595,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Netherlands Antilles",
@@ -122336,7 +122954,8 @@
           "NB1-28",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "New Zealand",
@@ -123591,22 +124210,29 @@
       "country": "Nicaragua",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-850"
+        ],
+        "Movistar": [
+          "2G-850"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-2",
           "3G-5"
         ],
         "Movistar": [
-          "2G-850",
           "3G-2",
           "3G-5"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Nicaragua",
@@ -124048,10 +124674,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Niger",
@@ -124365,35 +124991,47 @@
       "country": "Nigeria",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "9mobile": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Airtel": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Glo": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3",
           "4G-28",
+          "2G-900",
+          "2G-1800",
           "4G-7",
           "4G-20"
         ],
         "9mobile": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Airtel": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "Glo": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-28"
         ],
@@ -124404,7 +125042,8 @@
           "4G-7",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Nigeria",
@@ -125246,39 +125885,42 @@
       "country": "North Macedonia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
-        "NTN"
+        "NTN",
+        "2G"
       ],
       "supported": {
         "*": [
           "NTN-255",
-          "NTN-256"
+          "NTN-256",
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "Vip operator": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-2",
           "4G-3",
           "4G-20"
         ],
         "Vip operator": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-2",
           "4G-3",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "North Macedonia",
@@ -126005,18 +126647,25 @@
       "recommendation": "YES",
       "technologies": [
         "NTN",
+        "2G",
         "M1"
       ],
       "supported": {
         "*": [
           "NTN-255",
           "NTN-256",
+          "2G-900",
+          "2G-1800",
           "M1-8",
           "M1-20"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
+        ],
+        "TDC": [
+          "2G-900",
+          "2G-1800"
         ],
         "Telenor": [
           "M1-8",
@@ -126029,18 +126678,16 @@
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20",
+          "2G-900",
+          "2G-1800",
           "NB1-20",
           "4G-1"
         ],
         "TDC": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -126063,7 +126710,8 @@
           "4G-20",
           "NB1-20"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Norway",
@@ -127145,25 +127793,32 @@
       "country": "Oman",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "roamingRestrictions": "warn",
-      "technologies": [],
-      "supported": {},
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Ooredoo": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "3G-8",
           "4G-3"
         ],
         "Ooredoo": [
-          "2G-900",
           "3G-1",
           "3G-8",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Oman",
@@ -127682,22 +128337,38 @@
       "country": "Pakistan",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Mobilink": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Ufone": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Warid": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-5",
           "4G-1"
         ],
         "Mobilink": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Telenor": [
@@ -127708,19 +128379,16 @@
           "4G-5"
         ],
         "Ufone": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3"
         ],
         "Warid": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Pakistan",
@@ -128490,20 +129158,27 @@
       "country": "Palestine",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Jawwal": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1"
         ],
         "Jawwal": [
-          "2G-900",
           "3G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Palestine",
@@ -128872,14 +129547,21 @@
       "country": "Panama",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-850"
+        ],
+        "Movistar": [
+          "2G-850"
+        ]
+      },
       "notSupported": {
         "*": [
           "3G-2",
-          "2G-850",
           "3G-5",
           "4G-28"
         ],
@@ -128887,12 +129569,12 @@
           "3G-2"
         ],
         "Movistar": [
-          "2G-850",
           "3G-2",
           "3G-5",
           "4G-28"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Panama",
@@ -129490,20 +130172,27 @@
       "country": "Papua New Guinea",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "bmobile": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-8"
         ],
         "bmobile": [
-          "2G-900",
           "3G-8"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Papua New Guinea",
@@ -129877,17 +130566,33 @@
       "country": "Paraguay",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-850",
+          "2G-1900"
+        ],
+        "Personal": [
+          "2G-850"
+        ],
+        "Tigo": [
+          "2G-850",
+          "2G-1900"
+        ],
+        "Vox": [
+          "2G-850",
+          "2G-1900"
+        ]
+      },
       "notSupported": {
         "*": [
           "2G-1900",
           "3G-2",
           "4G-4",
           "4G-28",
-          "2G-850",
           "3G-5",
           "4G-2",
           "3G-8"
@@ -129899,25 +130604,21 @@
           "4G-28"
         ],
         "Personal": [
-          "2G-850",
           "3G-2",
           "3G-5",
           "4G-2"
         ],
         "Tigo": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "4G-4",
           "4G-28"
         ],
         "Vox": [
-          "2G-850",
-          "2G-1900",
           "3G-8",
           "4G-4"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Paraguay",
@@ -130669,10 +131370,24 @@
       "country": "Peru",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-850",
+          "2G-1900"
+        ],
+        "Entel": [
+          "2G-850",
+          "2G-1900"
+        ],
+        "Movistar": [
+          "2G-850",
+          "2G-1900"
+        ]
+      },
       "notSupported": {
         "*": [
           "2G-850",
@@ -130690,18 +131405,15 @@
           "4G-2"
         ],
         "Entel": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "4G-4"
         ],
         "Movistar": [
-          "2G-850",
-          "2G-1900",
           "3G-5",
           "4G-4"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Peru",
@@ -131401,14 +132113,26 @@
       "country": "Philippines",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Globe": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Smart": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "3G-8",
           "4G-3",
@@ -131418,8 +132142,6 @@
           "4G-5"
         ],
         "Globe": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -131427,13 +132149,12 @@
           "4G-41"
         ],
         "Smart": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-5"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Philippines",
@@ -132338,32 +133059,45 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20",
           "NTN-255",
           "NTN-256"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20"
+        ],
+        "Play": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Plus": [
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
         ],
         "T-Mobile": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -132378,8 +133112,6 @@
           "NB1-20"
         ],
         "Orange": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -132390,8 +133122,6 @@
           "5G-78"
         ],
         "Play": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -132402,8 +133132,6 @@
           "5G-78"
         ],
         "Plus": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -132414,8 +133142,6 @@
           "5G-38"
         ],
         "T-Mobile": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -132425,7 +133151,8 @@
           "5G-1",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Poland",
@@ -134110,33 +134837,41 @@
       "country": "Portugal",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "M1-20",
           "NTN-255",
           "NTN-256"
         ],
         "NOS": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
         ],
+        "TMN": [
+          "2G-900",
+          "2G-1800"
+        ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -134148,8 +134883,6 @@
           "4G-38"
         ],
         "NOS": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -134160,15 +134893,11 @@
           "5G-78"
         ],
         "TMN": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -134178,7 +134907,8 @@
           "5G-28",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Portugal",
@@ -135451,8 +136181,7 @@
       "country": "Puerto Rico",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
         "NTN"
       ],
@@ -135479,7 +136208,8 @@
           "5G-78",
           "5G-261"
         ]
-      }
+      },
+      "reason": "Has NTN (satellite) but no cellular service."
     },
     {
       "country": "Puerto Rico",
@@ -136018,36 +136748,45 @@
       "country": "Qatar",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Ooredoo": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Ooredoo": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Qatar",
@@ -136770,10 +137509,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Réunion",
@@ -137217,17 +137956,22 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "NTN-255",
           "NTN-256",
           "M1-20"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "M1-3"
         ],
         "Skylo": [
@@ -137235,17 +137979,19 @@
           "NTN-256"
         ],
         "Telekom Romania": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -137260,8 +138006,6 @@
           "NB1-20"
         ],
         "Orange": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -137273,8 +138017,6 @@
           "5G-78"
         ],
         "Telekom Romania": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "5G-1",
           "5G-3",
@@ -137282,15 +138024,14 @@
           "5G-77"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-20",
           "4G-38",
           "NB1-20",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Romania",
@@ -138736,15 +139477,35 @@
       "country": "Russia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "recommendation": "YES",
       "roamingRestrictions": "warn",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Beeline": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Megafon": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "MTS": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Tele2": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "3G-8",
           "4G-3",
@@ -138752,8 +139513,6 @@
           "4G-20"
         ],
         "Beeline": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-3",
@@ -138761,30 +139520,25 @@
           "4G-20"
         ],
         "Megafon": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-7",
           "4G-20"
         ],
         "MTS": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-7",
           "4G-20"
         ],
         "Tele2": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Russia",
@@ -139916,27 +140670,36 @@
       "country": "Rwanda",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Airtel": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "MTN": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1"
+        ],
+        "Airtel": [
+          "3G-1"
+        ],
+        "MTN": [
           "3G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Rwanda",
@@ -140455,10 +141218,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Saint Barthélemy",
@@ -140742,26 +141505,33 @@
       "country": "Saint Kitts and Nevis",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-850",
-          "2G-1900",
+          "2G-1900"
+        ],
+        "Flow": [
+          "2G-850",
+          "2G-1900"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-2",
           "3G-5",
           "4G-28"
         ],
         "Flow": [
-          "2G-850",
-          "2G-1900",
           "3G-2",
           "3G-5",
           "4G-28"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Saint Kitts and Nevis",
@@ -141334,20 +142104,27 @@
       "country": "Saint Lucia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-850"
+        ],
+        "Flow": [
+          "2G-850"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-5"
         ],
         "Flow": [
-          "2G-850",
           "3G-5"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Saint Lucia",
@@ -141764,10 +142541,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Saint Martin (French part)",
@@ -142033,7 +142810,6 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -142045,7 +142821,8 @@
           "3G-5",
           "4G-5"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Saint Vincent and the Grenadines",
@@ -142482,10 +143259,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Samoa",
@@ -142707,8 +143484,7 @@
       "country": "San Marino",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
         "NTN"
       ],
@@ -142722,7 +143498,8 @@
           "NTN-256"
         ]
       },
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "Has NTN (satellite) but no cellular service."
     },
     {
       "country": "San Marino",
@@ -143174,11 +143951,25 @@
       "country": "Saudi Arabia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "roamingRestrictions": "hide",
-      "technologies": [],
-      "supported": {},
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Mobily": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Zain": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
       "notSupported": {
         "*": [
           "2G-900",
@@ -143216,8 +144007,6 @@
           "5G-78"
         ],
         "Mobily": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20",
@@ -143230,8 +144019,6 @@
           "5G-78"
         ],
         "Zain": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -143245,7 +144032,8 @@
           "5G-41",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Saudi Arabia",
@@ -144243,10 +145031,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Senegal",
@@ -144533,30 +145321,39 @@
       "country": "Serbia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Telenor": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "VIP": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3"
         ],
         "Telenor": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ],
         "VIP": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Serbia",
@@ -145246,22 +146043,29 @@
       "country": "Seychelles",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Airtel": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-20"
         ],
         "Airtel": [
-          "2G-900",
           "3G-1",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Seychelles",
@@ -145706,10 +146510,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Sierra Leone",
@@ -145964,8 +146768,7 @@
       "country": "Singapore",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "recommendation": "YES",
       "roamingRestrictions": "warn",
       "technologies": [
         "M1"
@@ -146010,7 +146813,8 @@
           "5G-1",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Has cellular M1 service. No NTN satellite."
     },
     {
       "country": "Singapore",
@@ -146960,22 +147764,29 @@
       "country": "Sint Maarten",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "TelCell": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1"
+        ],
+        "TelCell": [
           "3G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Sint Maarten",
@@ -147347,24 +148158,30 @@
       "country": "Slovakia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20",
           "NTN-255",
           "NTN-256"
         ],
         "O2": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20"
         ],
@@ -147373,38 +148190,33 @@
           "NTN-256"
         ],
         "Telekom": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-20",
           "4G-7"
         ],
         "O2": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-20"
         ],
         "Orange": [
-          "2G-900",
-          "2G-1800",
           "4G-7",
           "4G-20"
         ],
         "Telekom": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Slovakia",
@@ -148494,14 +149306,16 @@
       "country": "Slovenia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-8",
           "M1-20",
@@ -148509,9 +149323,15 @@
           "NTN-256"
         ],
         "A1": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-8",
           "M1-20"
+        ],
+        "Mobitel": [
+          "2G-900",
+          "2G-1800"
         ],
         "Skylo": [
           "NTN-255",
@@ -148520,8 +149340,6 @@
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -148530,16 +149348,12 @@
           "5G-78"
         ],
         "A1": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
           "4G-20"
         ],
         "Mobitel": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -148547,7 +149361,8 @@
           "5G-41",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Slovenia",
@@ -149555,10 +150370,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Solomon Islands",
@@ -149812,10 +150627,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Somalia",
@@ -150066,14 +150881,30 @@
       "country": "South Africa",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Cell C": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "MTN": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Vodacom": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "3G-8",
           "4G-1",
@@ -150083,24 +150914,18 @@
           "4G-46"
         ],
         "Cell C": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
           "4G-3"
         ],
         "MTN": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-8",
           "5G-78"
         ],
         "Vodacom": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -150108,7 +150933,8 @@
           "4G-46",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "South Africa",
@@ -151106,8 +151932,7 @@
       "country": "South Korea",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
         "M1"
       ],
@@ -151163,7 +151988,8 @@
           "5G-78",
           "5G-257"
         ]
-      }
+      },
+      "reason": "Has cellular M1 service. No NTN satellite."
     },
     {
       "country": "South Korea",
@@ -152215,20 +153041,27 @@
       "country": "South Sudan",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "MTN": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1"
         ],
         "MTN": [
-          "2G-900",
           "3G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "South Sudan",
@@ -152691,11 +153524,14 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "M1-1",
           "M1-3",
           "M1-8",
@@ -152704,6 +153540,8 @@
           "NTN-256"
         ],
         "Orange": [
+          "2G-900",
+          "2G-1800",
           "M1-1",
           "M1-3",
           "M1-8",
@@ -152714,16 +153552,21 @@
           "NTN-256"
         ],
         "Telefonica": [
+          "2G-900",
+          "2G-1800",
           "M1-3"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
+        ],
+        "Yoigo": [
+          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -152743,8 +153586,6 @@
           "NB1-20"
         ],
         "Orange": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -152759,8 +153600,6 @@
           "5G-78"
         ],
         "Telefonica": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -152778,8 +153617,6 @@
           "5G-258"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -152796,7 +153633,6 @@
           "5G-78"
         ],
         "Yoigo": [
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -152806,7 +153642,8 @@
           "5G-3",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Spain",
@@ -154762,39 +155599,42 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
+        "2G",
         "M1"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "M1-3"
         ],
         "Dialog": [
+          "2G-900",
+          "2G-1800",
           "M1-3"
+        ],
+        "Mobitel": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-40"
         ],
         "Dialog": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-40"
         ],
         "Mobitel": [
-          "2G-900",
-          "2G-1800",
           "4G-3"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Sri Lanka",
@@ -155494,22 +156334,29 @@
       "country": "Suriname",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "3G-1"
+          "2G-1800"
         ],
         "Telesur": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1"
+        ],
+        "Telesur": [
           "3G-1"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Suriname",
@@ -155925,10 +156772,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Svalbard and Jan Mayen",
@@ -156273,11 +157120,14 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "M1-20",
           "NTN-255",
           "NTN-256",
@@ -156285,6 +157135,8 @@
           "M1-3"
         ],
         "3 (Tre)": [
+          "2G-900",
+          "2G-1800",
           "M1-20"
         ],
         "Skylo": [
@@ -156299,14 +157151,14 @@
           "M1-20"
         ],
         "Telia": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -156316,14 +157168,14 @@
           "5G-1",
           "5G-38",
           "5G-78",
+          "2G-900",
+          "2G-1800",
           "4G-3",
           "4G-8",
           "4G-28",
           "5G-28"
         ],
         "3 (Tre)": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-8",
           "4G-1",
@@ -156357,15 +157209,14 @@
           "5G-78"
         ],
         "Telia": [
-          "2G-900",
-          "2G-1800",
           "4G-3",
           "4G-7",
           "4G-20",
           "4G-28",
           "5G-28"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Sweden",
@@ -158070,7 +158921,8 @@
           "5G-1",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "Switzerland",
@@ -159386,8 +160238,7 @@
       "country": "Taiwan",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "YES",
       "technologies": [
         "M1"
       ],
@@ -159449,7 +160300,8 @@
           "NB1-28",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Has cellular M1 service. No NTN satellite."
     },
     {
       "country": "Taiwan",
@@ -160522,29 +161374,38 @@
       "country": "Tajikistan",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Beeline": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Tcell": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-20"
         ],
         "Beeline": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Tcell": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Tajikistan",
@@ -160954,24 +161815,31 @@
       "country": "Tanzania",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Airtel": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-28"
         ],
         "Airtel": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-28"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Tanzania",
@@ -161561,20 +162429,26 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
-        "M1"
+        "M1",
+        "2G"
       ],
       "supported": {
         "*": [
           "M1-1",
           "M1-3",
-          "M1-8"
+          "M1-8",
+          "2G-900",
+          "2G-1800"
         ],
         "AIS": [
           "M1-1",
           "M1-3",
           "M1-8"
+        ],
+        "DTAC": [
+          "2G-900",
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -161586,8 +162460,6 @@
           "4G-8",
           "4G-41",
           "5G-41",
-          "2G-900",
-          "2G-1800",
           "3G-5",
           "4G-40",
           "NB1-8"
@@ -161602,8 +162474,6 @@
           "5G-41"
         ],
         "DTAC": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "3G-5",
           "4G-1",
@@ -161619,7 +162489,8 @@
           "NB1-8",
           "5G-41"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Thailand",
@@ -162673,10 +163544,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Togo",
@@ -162915,10 +163786,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Tonga",
@@ -163194,10 +164065,18 @@
       "country": "Trinidad and Tobago",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-1800"
+        ],
+        "TSTT": [
+          "2G-1800"
+        ]
+      },
       "notSupported": {
         "*": [
           "2G-850",
@@ -163207,7 +164086,6 @@
           "4G-2",
           "4G-4",
           "4G-28",
-          "2G-1800",
           "4G-7"
         ],
         "Digicel": [
@@ -163220,12 +164098,12 @@
           "4G-28"
         ],
         "TSTT": [
-          "2G-1800",
           "3G-2",
           "3G-5",
           "4G-7"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Trinidad and Tobago",
@@ -163975,33 +164853,42 @@
       "country": "Tunisia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Orange Tunisie": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Tunisie Telecom": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-3",
           "4G-20"
         ],
         "Orange Tunisie": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20"
         ],
         "Tunisie Telecom": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-20"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Tunisia",
@@ -164614,30 +165501,38 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "hide",
       "technologies": [
+        "2G",
         "M1"
       ],
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20",
           "M1-8"
         ],
+        "Türk Telekom": [
+          "2G-900",
+          "2G-1800"
+        ],
         "Turkcell": [
+          "2G-900",
+          "2G-1800",
           "M1-3",
           "M1-20"
         ],
         "Vodafone": [
+          "2G-900",
+          "2G-1800",
           "M1-8",
           "M1-20"
         ]
       },
       "notSupported": {
         "*": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -164648,8 +165543,6 @@
           "NB1-20"
         ],
         "Türk Telekom": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -164657,8 +165550,6 @@
           "4G-38"
         ],
         "Turkcell": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -164668,8 +165559,6 @@
           "NB1-20"
         ],
         "Vodafone": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-3",
           "4G-7",
@@ -164677,7 +165566,8 @@
           "4G-20",
           "4G-38"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Turkey",
@@ -165842,22 +166732,29 @@
       "country": "Turks and Caicos Islands",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-850"
+        ],
+        "Flow": [
+          "2G-850"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-850",
           "3G-5",
           "4G-17"
         ],
         "Flow": [
-          "2G-850",
           "3G-5",
           "4G-17"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Turks and Caicos Islands",
@@ -166359,36 +167256,47 @@
       "country": "Uganda",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Africell": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Airtel": [
+          "2G-900"
+        ],
+        "MTN": [
+          "2G-900"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-20",
           "4G-7",
           "4G-38"
         ],
         "Africell": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-20"
         ],
         "Airtel": [
-          "2G-900",
           "3G-1"
         ],
         "MTN": [
-          "2G-900",
           "3G-1",
           "4G-7",
           "4G-38"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Uganda",
@@ -167060,36 +167968,47 @@
       "country": "Ukraine",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Kyivstar": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Life": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "MTS": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-7"
         ],
         "Kyivstar": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-7"
         ],
         "Life": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-7"
         ],
         "MTS": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-7"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Ukraine",
@@ -167820,8 +168739,7 @@
       "country": "United Arab Emirates",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "recommendation": "YES",
       "roamingRestrictions": "warn",
       "technologies": [
         "M1"
@@ -167858,7 +168776,8 @@
           "4G-7",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Has cellular M1 service. No NTN satellite."
     },
     {
       "country": "United Arab Emirates",
@@ -168651,17 +169570,20 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
+        "2G",
         "M1",
         "NTN"
       ],
       "supported": {
         "*": [
+          "2G-1800",
           "M1-20",
           "NTN-255",
           "NTN-256",
           "M1-8"
         ],
         "EE": [
+          "2G-1800",
           "M1-20"
         ],
         "O2": [
@@ -168700,11 +169622,11 @@
           "5G-28",
           "5G-77",
           "5G-78",
-          "2G-1800",
           "4G-7",
           "5G-3",
           "5G-7",
           "2G-900",
+          "2G-1800",
           "3G-8",
           "4G-8",
           "4G-40",
@@ -168715,7 +169637,6 @@
           "NB1-20"
         ],
         "EE": [
-          "2G-1800",
           "3G-1",
           "4G-1",
           "4G-3",
@@ -168760,7 +169681,8 @@
           "5G-8",
           "5G-78"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "United Kingdom",
@@ -170834,7 +171756,8 @@
           "5G-260",
           "5G-261"
         ]
-      }
+      },
+      "reason": "Support for both M1 (cellular) and NTN (satellite)"
     },
     {
       "country": "United States",
@@ -172984,13 +173907,20 @@
       "country": "Uruguay",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-1800"
+        ],
+        "Antel": [
+          "2G-1800"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-1800",
           "3G-1",
           "4G-4",
           "3G-2",
@@ -172998,7 +173928,6 @@
           "4G-2"
         ],
         "Antel": [
-          "2G-1800",
           "3G-1",
           "4G-4"
         ],
@@ -173011,7 +173940,8 @@
           "3G-5",
           "4G-2"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Uruguay",
@@ -173644,24 +174574,31 @@
       "country": "Uzbekistan",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
+          "2G-1800"
+        ],
+        "Beeline": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "notSupported": {
+        "*": [
           "3G-1",
           "4G-7"
         ],
         "Beeline": [
-          "2G-900",
-          "2G-1800",
           "3G-1",
           "4G-7"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Uzbekistan",
@@ -174091,10 +175028,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Vanuatu",
@@ -174319,7 +175256,6 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -174333,7 +175269,8 @@
           "3G-2",
           "4G-4"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Venezuela",
@@ -174805,7 +175742,6 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -174830,7 +175766,8 @@
           "3G-1",
           "4G-3"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Vietnam",
@@ -175407,33 +176344,42 @@
       "country": "Virgin Islands (British)",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
-      "notSupported": {
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
           "2G-850",
-          "2G-1900",
+          "2G-1900"
+        ],
+        "CCT": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Flow": [
+          "2G-850",
+          "2G-1900"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
           "4G-2",
           "4G-12"
         ],
         "CCT": [
-          "2G-900",
-          "2G-1800",
           "3G-1"
         ],
         "Flow": [
-          "2G-850",
-          "2G-1900",
           "3G-1",
           "4G-2",
           "4G-12"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Virgin Islands (British)",
@@ -176107,7 +177053,6 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
       "notSupported": {
@@ -176125,7 +177070,8 @@
           "4G-66",
           "4G-71"
         ]
-      }
+      },
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Virgin Islands (U.S.)",
@@ -176495,10 +177441,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Yemen",
@@ -176754,22 +177700,29 @@
       "country": "Zambia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
-      "technologies": [],
-      "supported": {},
+      "recommendation": "YES",
+      "technologies": [
+        "2G"
+      ],
+      "supported": {
+        "*": [
+          "2G-900"
+        ],
+        "Airtel": [
+          "2G-900"
+        ]
+      },
       "notSupported": {
         "*": [
-          "2G-900",
           "3G-1",
           "4G-8"
         ],
         "Airtel": [
-          "2G-900",
           "3G-1",
           "4G-8"
         ]
-      }
+      },
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Zambia",
@@ -177170,10 +178123,10 @@
       "modem": "BG95-S5",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [],
       "supported": {},
-      "notSupported": {}
+      "notSupported": {},
+      "reason": "No cellular or NTN service"
     },
     {
       "country": "Zimbabwe",

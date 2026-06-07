@@ -283,22 +283,22 @@ carriers2.update = function() {
 
                     if (allowValue == 5) {
                         // T-Mobile  warning
-                        cell = '<sup>' + allowValue + '</sup>'; 
+                        cell = tech + '<sup>' + allowValue + '</sup>'; 
                         warnTMobile = true;
                     }
                     else
                     if (allowValue == 7) {
                         // Verizon warning
-                        cell = '<sup>' + allowValue + '</sup>'; 
+                        cell = tech + '<sup>' + allowValue + '</sup>'; 
                         warnVerizon = true;
                     }
                     else
                     if (!ccObj[countryCarrierKey].roamingRestrictions) {
                         if (cmsObj.recommendation == 'YES') {
-                            cell = '&check;'; 
+                            cell = tech; 
                         }
                         else {
-                            cell = '?';
+                            cell = tech + '<sup>?</sup>';
                             byDeviceUnsupportedWarning = true;
                         }
                     }
@@ -446,6 +446,10 @@ const familyMapCreate = function() {
         familyMap.worldMapFill = [];
     }
 
+    familyMap.selectTab = function() {
+        familyMap.drawMap();        
+    }
+
     familyMap.selectChange = function() {
         familyMap.saveQuery();
 
@@ -586,9 +590,9 @@ const familyMapCreate = function() {
         const options = {
             labelValues: ['M1 only', 'NTN only', 'M1 and NTN'],
             colors: [
-                '85D6E5', // COLOR_Sky_700 (blue, M1 only)
-                'FFE949', // COLOR_State_Yellow_500 (yellow, NTN only)
-                '36CE7E', // COLOR_Mint_800 (green, both)
+                'url(#sky-700-hatch)', // '85D6E5', // COLOR_Sky_700 (blue, M1 only)
+                'FFE949', // COLOR_State_Yellow_500 (yellow, 2G only)
+                '36CE7E', // COLOR_Mint_800 (green NTN and M1)
             ],
             valueForCountry: function(countryObj) {
 
@@ -602,6 +606,7 @@ const familyMapCreate = function() {
                         continue;
                     }
 
+                    const has2G = cmsObj.technologies.includes('2G');
                     const hasM1 = cmsObj.technologies.includes('M1');
                     const hasNTN = cmsObj.technologies.includes('NTN');
 
@@ -610,13 +615,13 @@ const familyMapCreate = function() {
                         break;
                     }
                     else
-                    if (hasNTN) {
-                        foundValue = 2;
+                    if (hasM1) {
+                        foundValue = 1;
                         break;
                     }
                     else
-                    if (hasM1) {
-                        foundValue = 1;
+                    if (has2G) {
+                        foundValue = 2;
                         break;
                     }
                 }
@@ -673,7 +678,12 @@ const familyMapCreate = function() {
                 const className = 'country-' + countryObj.isoCode;
                 familyMap.worldMapFill.push(className);
 
-                $(svgElem).find('.' + className).css('fill', '#' + options.colors[foundValue - 1]);
+                let color = options.colors[foundValue - 1];
+                if (!color.startsWith('url')) {
+                    color = '#' + color;
+                }
+
+                $(svgElem).find('.' + className).css('fill', color);
             }
         }
 
@@ -693,11 +703,78 @@ const familyMapCreate = function() {
         }
     }    
     
+
     familyMap.initMap = async function() {
         familyMap.initMapStarted = true;
 
+        const worldMapInstance = initWorldMap({
+            styles: [
+                {
+                    title: 'M1',
+                    color: 'Sky_700',
+                },
+                {
+                    title: 'M1 + NTN',
+                    color: 'Sky_700',
+                    hatch: 'backward',
+                },
+                {
+                    title: '2G',
+                    color: 'COLOR_State_Yellow_500',
+                },
+            ],
+        });
+
         const fetchRes = await fetch('/assets/images/world-map.svg');
         familyMap.worldMapSvg = await fetchRes.text();
+
+        // Inject definitions for hatch patterns
+        let insertLoc = familyMap.worldMapSvg.indexOf('>\n');
+        if (insertLoc > 1) {
+            insertLoc += 2;
+            const patterns = [
+                {
+                    name: 'sky-700-hatch',
+                    backgroundColor: '#85D6E5', // blue
+                    strokeColor: '#202020',                    
+                },
+            ];
+            
+            const patternDefaults = {
+                width: 20,
+                height: 20,
+                strokeWidth: 1,
+            };
+
+            let defs = '  <defs>\n';
+
+            for(const pattern of patterns) {
+                const p = Object.assign({}, patternDefaults, pattern);
+
+                defs += '    <pattern id="' + p.name + '" width="' + p.width + '" height="' + p.height + '" patternUnits="userSpaceOnUse">\n';
+                defs += '      <rect width="' + p.width+ '" height="' + p.height + '" fill="' + p.backgroundColor + '" />\n';
+                defs += '      <line x1="0" y1="0" x2="' + p.width+ '" y2="' + p.height + '" stroke="' + p.strokeColor + '" stroke-width="' + p.strokeWidth + '" />\n';
+                defs += '    </pattern>\n';
+            }
+
+            defs += '  </defs>\n';
+
+            familyMap.worldMapSvg = familyMap.worldMapSvg.substring(0, insertLoc) + defs + familyMap.worldMapSvg.substring(insertLoc);
+/*
+                '85D6E5', // COLOR_Sky_700 (blue, M1 only)
+                'FFE949', // COLOR_State_Yellow_500 (yellow, 2G only)
+                '36CE7E', // COLOR_Mint_800 (green NTN and M1)
+
+<pattern id="color-hatch" width="20" height="20" patternUnits="userSpaceOnUse">
+      <!-- Background Color of the Pattern -->
+      <rect width="20" height="20" fill="#d9edf7" />
+      <!-- Hatch Line -->
+      <line x1="0" y1="0" x2="20" y2="20" stroke="#31708f" stroke-width="2" />
+    </pattern>
+*/
+
+        }
+
 
         $('.familyMapDiv').html(familyMap.worldMapSvg);
 
@@ -1852,6 +1929,9 @@ function carrierSelectTab(which) {
             $('#carrier' + tab + 'Div').hide();
         }
     });
+    if (typeof carrierSelectTabs[which].selectTab == 'function') {
+        carrierSelectTabs[which].selectTab();
+    }
     carrierSelectTabs[which].saveQuery();
 }
 
@@ -1871,7 +1951,7 @@ function carrierLoadQuery(urlParams) {
 
 
 
-$(document).ready(function() {
+$(document).ready(async function() {
     Object.keys(carrierSelectTabs).forEach(function(tab) {
         $('#carrierTab' + tab).on('click touchend', function(ev) {
             carrierSelectTab(tab);
@@ -1889,70 +1969,69 @@ $(document).ready(function() {
     // Remember the search parameters before they are replaced
     const urlParams = new URLSearchParams(window.location.search);
 
-    datastore.init({path:'/assets/files/carriers.json'}, function() {
+    await datastore.init();
 
-        if ($('#carrierTabs').length) {
-            // Full carriers page
-            dataui.populateRegionSelectors();
+    if ($('#carrierTabs').length) {
+        // Full carriers page
+        dataui.populateRegionSelectors();
 
-            carriers2.init({
-                deviceList: $('#deviceList'),
-                regionList:'regionList',
-                regionGroup:'region6',
-                table:'countryCarrierTable'
-            },
-            function() {    
-                $('.byDeviceShowUnsupported').on('click', function() {
-                    carriers2.saveQuery();
-                    carriers2.update();
-                });
-
-                carrierSelectTabs.ModelMap.init({
-                    mapDiv:$('.familyMapDiv'),
-                    familySelect:$('#familyMapSelect'),
-                    skusDiv:$('#familyMapSkusDiv')
-                },
-                function() {
-                    countryDetails.init({
-                        deviceList: $('#countryDetailDeviceList'),
-                        countryField:'countryDetailText',
-                        popupClass:'countryPopup',
-                        resultDiv:'countryDetailsResultsDiv',
-                        footnotesDiv:'countryDetailsFootnotesDiv'
-                    },
-                    function() {                            
-                        if (showBandFit) {
-                            bandFit.init(function() {
-                                carrierLoadQuery(urlParams);
-                            });    
-                        }
-                        else {
-                            carrierLoadQuery(urlParams);
-                        }
-                    });
-                });   
-    
-        
-            });   
-    
-        }
-        else {
-            // For now, the only special case is family map
-            $('.carrierFamilyMap').each(function() {
-                const thisElem = $(this);
-
-                carriers2.familyMap = familyMapCreate();
-
-                carriers2.familyMap.init({
-                    mapDiv:$(thisElem).find('.familyMapDiv'),
-                    skusDiv:$(thisElem).find('.familyMapSkusDiv'),
-                    family:$(thisElem).data('family'),
-                    noHistory: true,
-                    clickToShow: true
-                }, function() {
-    
-                });    
+        carriers2.init({
+            deviceList: $('#deviceList'),
+            regionList:'regionList',
+            regionGroup:'region6',
+            table:'countryCarrierTable'
+        },
+        function() {    
+            $('.byDeviceShowUnsupported').on('click', function() {
+                carriers2.saveQuery();
+                carriers2.update();
             });
-        }
-    });
+
+            carrierSelectTabs.ModelMap.init({
+                mapDiv:$('.familyMapDiv'),
+                familySelect:$('#familyMapSelect'),
+                skusDiv:$('#familyMapSkusDiv')
+            },
+            function() {
+                countryDetails.init({
+                    deviceList: $('#countryDetailDeviceList'),
+                    countryField:'countryDetailText',
+                    popupClass:'countryPopup',
+                    resultDiv:'countryDetailsResultsDiv',
+                    footnotesDiv:'countryDetailsFootnotesDiv'
+                },
+                function() {                            
+                    if (showBandFit) {
+                        bandFit.init(function() {
+                            carrierLoadQuery(urlParams);
+                        });    
+                    }
+                    else {
+                        carrierLoadQuery(urlParams);
+                    }
+                });
+            });   
+
+    
+        });   
+
+    }
+    else {
+        // For now, the only special case is family map
+        $('.carrierFamilyMap').each(function() {
+            const thisElem = $(this);
+
+            carriers2.familyMap = familyMapCreate();
+
+            carriers2.familyMap.init({
+                mapDiv:$(thisElem).find('.familyMapDiv'),
+                skusDiv:$(thisElem).find('.familyMapSkusDiv'),
+                family:$(thisElem).data('family'),
+                noHistory: true,
+                clickToShow: true
+            }, function() {
+
+            });    
+        });
+    }
 });

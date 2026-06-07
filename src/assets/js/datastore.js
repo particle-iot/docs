@@ -1,19 +1,34 @@
 
-let datastore = {};
-
-datastore.data = {};
-
-datastore.init = function(options, callback) {
-    datastore.options = options;
-    
-    $.getJSON(datastore.options.path, function(data) {
-        datastore.data = data;
-
-        if (callback) {
-            callback();
-        }
-    });
+datastore = {
+    url: '/assets/files/carriers.json',
+    data: {},
 };
+
+datastore.init = async function (options = {}) {
+    for(const key in options) {
+        datastore[key] = options[key];
+    }
+
+    if (!datastore.initPromise) {
+        datastore.initPromise = new Promise(function(resolve, reject) {
+            datastore.initPromiseResolve = resolve;
+            datastore.initPromiseReject = reject;
+
+            datastore.initInternal();
+        });        
+    }
+
+    await Promise.all([datastore.initPromise]);
+        
+};
+
+datastore.initInternal = async function() {
+    const fetchRes = await fetch(datastore.url);
+
+    datastore.data = await fetchRes.json();
+
+    datastore.initPromiseResolve();    
+}
 
 datastore.countryInList = function(country, countryList) {
     let found = false;
