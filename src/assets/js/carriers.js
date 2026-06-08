@@ -491,9 +491,14 @@ const familyMapCreate = function() {
         familyMap.drawMap();
     }
 
-    familyMap.drawMap = function() {
+    familyMap.drawMap = async function() {
         let family;
 
+        if (familyMap.options.family == 'cat1expansion') {
+            await familyMap.drawMapCat1Expansion();
+            return;
+        }
+        else
         if (familyMap.options.familySelect) {
             family = $(familyMap.options.familySelect).val();
         }
@@ -502,7 +507,7 @@ const familyMapCreate = function() {
         }
 
         if (family == 'ntn') {
-            familyMap.drawMapNTN();
+            await familyMap.drawMapNTN();
             return;
         }
 
@@ -586,85 +591,91 @@ const familyMapCreate = function() {
 
     }
 
-    familyMap.drawMapNTN = function() {
-        const options = {
-            labelValues: ['M1 only', 'NTN only', 'M1 and NTN'],
-            colors: [
-                'url(#sky-700-hatch)', // '85D6E5', // COLOR_Sky_700 (blue, M1 only)
-                'FFE949', // COLOR_State_Yellow_500 (yellow, 2G only)
-                '36CE7E', // COLOR_Mint_800 (green NTN and M1)
+    familyMap.drawMapNTN = async function() {
+        const worldMapInstance = await initWorldMap({
+            styles: [
+                { // 0
+                    title: '2G',
+                    color: 'State_Yellow_500', // Yellow
+                },
+                {
+                    color: 'State_Yellow_500', // Yellow
+                    hatch: 'backward',
+                },
+                { // 2
+                    title: 'M1',
+                    color: 'Sky_700', // Blue
+                },
+                {
+                    color: 'Sky_700', // Blue
+                    hatch: 'backward',
+                },
+                { // 4
+                    title: 'M1 & 2G',
+                    color: 'Mint_800', // Green
+                },
+                {
+                    color: 'Mint_800', // Green
+                    hatch: 'backward',
+                },
+                { // 5
+                    title: 'NTN',
+                    hatch: 'backward'
+                },
             ],
-            valueForCountry: function(countryObj) {
+            containerElem: $('.familyMapDiv'),
+        });
+        
+        for(const countryObj of datastore.data.countries) {
+            let foundValue = -1;
 
-                let foundValue = 0;
-
-                for(const cmsObj of datastore.data.countryModemSim) {
-                   if (countryObj.name != cmsObj.country) {
-                        continue;
-                    }
-                    if (cmsObj.modem != 'BG95-S5' || cmsObj.sim != 4) {
-                        continue;
-                    }
-
-                    const has2G = cmsObj.technologies.includes('2G');
-                    const hasM1 = cmsObj.technologies.includes('M1');
-                    const hasNTN = cmsObj.technologies.includes('NTN');
-
-                    if (hasM1 && hasNTN) {
-                        foundValue = 3;
-                        break;
-                    }
-                    else
-                    if (hasM1) {
-                        foundValue = 1;
-                        break;
-                    }
-                    else
-                    if (has2G) {
-                        foundValue = 2;
-                        break;
-                    }
+            for(const cmsObj of datastore.data.countryModemSim) {
+                if (countryObj.name != cmsObj.country) {
+                    continue;
+                }
+                if (cmsObj.modem != 'BG95-S5' || cmsObj.sim != 4) {
+                    continue;
                 }
 
-                return foundValue;            },
-        };
 
-        familyMap.drawMapCustom(options);
-    }
+                let has2G = cmsObj.technologies.includes('2G');
+                let hasM1 = cmsObj.technologies.includes('M1');
+                let hasNTN = cmsObj.technologies.includes('NTN');
 
-    familyMap.drawMapCat1Expansion = function() {
-        const options = {
-            labelValues: ['Original Coverage', 'Expanded Coverage'],
-            colors: ['AFE4EE', '2BB1CA'],
-            valueForCountry: function(countryObj) {
+                if (cmsObj.roamingRestrictions == 'hide' || cmsObj.roamingRestrictions == 'warn') {
+                    // Possibly illustrate warn differently here
+                    has2G = hasM1 = false;    
+                }
 
-                let foundValue = 0;
 
-                for(const cmsObj of datastore.data.countryModemSim) {
-                   if (countryObj.name != cmsObj.country || cmsObj.recommendation != 'YES') {
-                        continue;
-                    }
-                    if (!cmsObj.modem.startsWith('EG91-E') || cmsObj.sim != 4) {
-                        continue;
-                    }
-
-                    if (cmsObj.expansion) {
-                        foundValue = 2;
-                        break;
+                if (hasM1 & has2G) {
+                    foundValue = 4;
+                }
+                else
+                if (hasM1) {
+                    foundValue = 2;
+                }
+                else
+                if (has2G) {
+                    foundValue = 0;
+                }
+                if (hasNTN) {
+                    if (foundValue >= 0) {
+                        foundValue++;
                     }
                     else {
-                        foundValue = 1;
-                        break;
+                        foundValue = 5;
                     }
                 }
+            }
 
-                return foundValue;
-            },
-        };
-
-        familyMap.drawMapCustom(options);
+            if (foundValue >= 0) {
+                worldMapInstance.setCountryColor(countryObj.isoCode, foundValue);
+            }
+        }        
 
     }
+
 
     familyMap.drawMapCustom = function(options) {
         // let countryDataArray = [['Country', 'Coverage']];
@@ -688,6 +699,7 @@ const familyMapCreate = function() {
         }
 
         // Legend
+        /*
         {
             let html = '<div><table><tbody>';
 
@@ -716,56 +728,51 @@ const familyMapCreate = function() {
 
             $(familyMap.options.skusDiv).html(html);
         }
+        */
     }    
     
 
-    familyMap.initMap = async function() {
-        familyMap.initMapStarted = true;
-
+    familyMap.drawMapCat1Expansion = async function() {
         const worldMapInstance = await initWorldMap({
             styles: [
                 {
-                    title: 'M1',
-                    color: 'Sky_700',
+                    title: 'Original',
+                    color: 'Sky_600',
                 },
                 {
-                    // M1 + NTN. No title to omit from legend but include so the pattern is generated in defs.
-                    color: 'Sky_700',
-                    hatch: 'backward',
+                    title: 'Expanded',
+                    color: 'Sky_900',
                 },
-                {
-                    title: '2G',
-                    color: 'State_Yellow_500',
-                },
-                {
-                    // 2G + NTN. No title to omit from legend but include so the pattern is generated in defs.
-                    color: 'State_Yellow_500',
-                    hatch: 'backward',
-                },
-                {
-                    // No color so background fill color is used.
-                    title: 'NTN',
-                    hatch: 'backward',
-                }
             ],
+            containerElem: $('.familyMapDiv'),
         });
         
-        $('.familyMapDiv').append(worldMapInstance.getSvgText());
+        for(const countryObj of datastore.data.countries) {
+            let foundValue = -1;
 
-        familyMap.worldMapFill = [];
+            for(const cmsObj of datastore.data.countryModemSim) {
+                if (countryObj.name != cmsObj.country || cmsObj.recommendation != 'YES') {
+                    continue;
+                }
+                if (!cmsObj.modem.startsWith('EG91-E') || cmsObj.sim != 4) {
+                    continue;
+                }
 
-        familyMap.drawMap();
+                if (cmsObj.expansion) {
+                    foundValue = 1;
+                    break;
+                }
+                else {
+                    foundValue = 0;
+                    break;
+                }
+            }
+            if (foundValue >= 0) {
+                worldMapInstance.setCountryColor(countryObj.isoCode, foundValue);
+            }
+        }        
     }
 
-    familyMap.clickToShow = function() {
-
-        if (!familyMap.initMapStarted) {
-            $(familyMap.options.mapDiv).find('.clickToShow').hide();
-            $(familyMap.options.mapDiv).off('click');
-            
-            familyMap.initMap();    
-        }
-    };
 
     familyMap.init = function(options, callback) {
         // options: 
@@ -775,32 +782,18 @@ const familyMapCreate = function() {
         // noHistory - don't update page history
         familyMap.options = options;
 
-        if (familyMap.options.family == 'cat1expansion') {
-            // Not really a family
-            familyMap.options.clickToShow = false;
-            familyMap.drawMap = familyMap.drawMapCat1Expansion;
+        const run = async function() {
+            await familyMap.drawMap();
+            
+            if (familyMap.options.familySelect) {
+                $(familyMap.options.familySelect).on('change', familyMap.selectChange);
+            }
+            familyMaps.push(familyMap);
+
+            callback();
         }
 
-        if (familyMap.options.clickToShow) {
-            $(familyMap.options.mapDiv).find('.clickToShow').show();
-
-            $(familyMap.options.mapDiv).on('click', function() {
-                for(const m of familyMaps) {
-                    m.clickToShow();
-                }
-            });
-        }
-        else {
-            familyMap.initMap();
-        }
-
-        if (familyMap.options.familySelect) {
-            $(familyMap.options.familySelect).on('change', familyMap.selectChange);
-        }
-
-        familyMaps.push(familyMap);
-
-        callback();
+        run();
     };
 
     return familyMap;
@@ -2002,7 +1995,6 @@ $(document).ready(async function() {
                 skusDiv:$(thisElem).find('.familyMapSkusDiv'),
                 family:$(thisElem).data('family'),
                 noHistory: true,
-                clickToShow: true
             }, function() {
 
             });    

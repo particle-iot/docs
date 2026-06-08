@@ -72,7 +72,7 @@ const worldMapGlobal = {
         height: 15,
         patternUnits: 'userSpaceOnUse',
         hatchStrokeColor: '#000000',
-        hatchStrokeWidth: 3,
+        hatchStrokeWidth: 2,
     },
 };
 	
@@ -172,6 +172,7 @@ async function initWorldMap(options) {
         const rectElem = document.createElement('rect');
         rectElem.setAttribute('width', style.width); // Default: 20
         rectElem.setAttribute('height', style.height); // Default: 20
+        rectElem.setAttribute('stroke-width', 0);
         rectElem.setAttribute('fill', worldMapInstance.getColor(style.color)); 
 
         patternElem.append(rectElem);
@@ -184,7 +185,7 @@ async function initWorldMap(options) {
             lineElem.setAttribute('x2', x2);
             lineElem.setAttribute('y2', y2);
             lineElem.setAttribute('stroke', style.hatchStrokeColor);
-            lineElem.setAttribute('strokeWidth', style.hatchStrokeWidth);
+            lineElem.setAttribute('stroke-width', style.hatchStrokeWidth);
 
             patternElem.append(lineElem);
         }
@@ -218,6 +219,13 @@ async function initWorldMap(options) {
             }
         }
         worldMapInstance.fillOverrides = [];
+    }
+
+    worldMapInstance.setCountryColor = function(isoCode, styleIndex) {
+        const className = 'country-' + isoCode;
+        worldMapInstance.fillOverrides.push(className);
+
+        $(options.containerElem).find('.' + className).css('fill', worldMapInstance.getDefsId(options.styles[styleIndex]));        
     }
 
     worldMapInstance.getSvgText = function() {
@@ -303,35 +311,9 @@ async function initWorldMap(options) {
         worldMapInstance.worldMapSvg.append(gElem);
 
     }
+
+    $(options.containerElem).append(worldMapInstance.getSvgText());
         
-
-    console.log('worldMapInstance.worldMapSvg', worldMapInstance.worldMapSvg);
-
-    // Generate hatch swatches for the legend, if necessary
-    /*
-        for(const style of worldMapInstance.extraStyles) {
-            const styleId = worldMapInstance.generateId(style);
-            const swatchId = 'swatch-' + styleId;
-            console.log('swatchId=' + swatchId);
-
-            // TODO: Restrict this to a container element
-            $('.' + swatchId).each(function() {
-                console.log('swatch element', this);
-            });
-
-            const svgElem = document.createElement('svg');
-            svgElem.setAttribute('width', options.swatchWidth);
-            svgElem.setAttribute('height', options.swatchHeight);
-            svgElem.append(defsElem);
-
-            const rectElem = document.createElement('rect');
-            rectElem.setAttribute('width', options.swatchWidth);
-            rectElem.setAttribute('height', options.swatchHeight);
-            rectElem.setAttribute('fill', 'url(#' + worldMapInstance.generateId(style) + ')' );
-            
-
-        }
-    */
 
     return worldMapInstance;
 }
