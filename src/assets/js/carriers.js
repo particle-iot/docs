@@ -537,6 +537,8 @@ const familyMapCreate = function() {
 
         const skuFamilyObj = datastore.findSkuFamily(family);
 
+        console.log('skuFamilyObj', skuFamilyObj);
+
         let models = [];
         skuFamilyObj.group.forEach(function(obj) {
             if (obj.lifecycle == 'GA' || obj.lifecycle == 'In development' || obj.lifecycle == 'Sampling') {
@@ -667,6 +669,7 @@ const familyMapCreate = function() {
                 if (has2G) {
                     foundValue = 0;
                 }
+
                 if (hasNTN) {
                     if (foundValue >= 0) {
                         foundValue++;
@@ -684,61 +687,6 @@ const familyMapCreate = function() {
 
     }
 
-
-    familyMap.drawMapCustom = function(options) {
-        // let countryDataArray = [['Country', 'Coverage']];
-
-        const svgElem = $('.familyMapDiv > svg ');
-        familyMap.removeFill();
-
-        for(const countryObj of datastore.data.countries) {
-            let foundValue = options.valueForCountry(countryObj);
-            if (foundValue) {
-                const className = 'country-' + countryObj.isoCode;
-                familyMap.worldMapFill.push(className);
-
-                let color = options.colors[foundValue - 1];
-                if (!color.startsWith('url')) {
-                    color = '#' + color;
-                }
-
-                $(svgElem).find('.' + className).css('fill', color);
-            }
-        }
-
-        // Legend
-        /*
-        {
-            let html = '<div><table><tbody>';
-
-            for(let ii = 0; ii < options.labelValues.length; ii++) {
-                const style = 'background-color:#' + options.colors[ii];
-
-                // html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + options.labelValues[ii] + '</td></tr>';
-
-                let svgClass = options.colors[ii];
-                if (svgClass.startsWith('url')) {
-                    svgClass = 'Gray_200-backward'; // TESTING
-                }
-                else {
-                    svgClass = 'color-' + svgClass;
-                }
-                svgClass = 'swatch-' + svgClass;
-
-                html += '<tr><td>';
-
-                html += '<svg width="20" height="20" class="' + svgClass + '"></svg>';
-
-                html += '</td><td>' + options.labelValues[ii] + '</td></tr>';
-            }
-
-            html += '</tbody></table></div>';
-
-            $(familyMap.options.skusDiv).html(html);
-        }
-        */
-    }    
-    
 
     familyMap.drawMapCat1Expansion = async function() {
         const worldMapInstance = await initWorldMap({

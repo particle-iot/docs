@@ -32521,6 +32521,10 @@
       "family": "tachyon",
       "skuRegion": "noram",
       "modem": "SG560D-NA",
+      "sim": 5,
+      "simPlans": [
+        50
+      ],
       "enterprise": false,
       "wholesale": false,
       "retail": true,
@@ -32547,6 +32551,10 @@
       "skuRegion": "emeaa",
       "family": "tachyon",
       "modem": "SG560D-EM",
+      "sim": 5,
+      "simPlans": [
+        50
+      ],
       "enterprise": false,
       "wholesale": false,
       "retail": true,
@@ -32570,6 +32578,10 @@
       "family": "tachyon",
       "skuRegion": "noram",
       "modem": "SG560D-NA",
+      "sim": 5,
+      "simPlans": [
+        50
+      ],
       "enterprise": false,
       "wholesale": false,
       "retail": true,
@@ -32592,6 +32604,10 @@
       "lifecycle": "In development",
       "family": "tachyon",
       "modem": "SG560D-EM",
+      "sim": 5,
+      "simPlans": [
+        50
+      ],
       "skuRegion": "emeaa",
       "enterprise": false,
       "wholesale": false,
