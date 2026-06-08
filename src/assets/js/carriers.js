@@ -749,8 +749,8 @@ const familyMapCreate = function() {
                 }
             ],
         });
-
-        $('.familyMapDiv').html(worldMapInstance.worldMapSvg);
+        
+        $('.familyMapDiv').append(worldMapInstance.worldMapSvg);
 
         familyMap.worldMapFill = [];
 

@@ -217,14 +217,47 @@ async function initWorldMap(options) {
     // Update the map SVG
     worldMapInstance.worldMapSvg = worldMapGlobal.worldMapSvgElem.cloneNode(true);
 
+    worldMapInstance.worldMapSvg.classList.add('world-map');
+
     const defsElem = worldMapInstance.generateDefs();
     worldMapInstance.worldMapSvg.prepend(defsElem.cloneNode(true));
     
     // Generate legend TODO: refactor this
-    /*
+    
     {
         const viewbox = worldMapInstance.worldMapSvg.getAttribute('viewbox');
+
+        const svgWidth = parseFloat(viewbox.split(' ')[2]);
         const svgHeight = parseFloat(viewbox.split(' ')[3]);
+
+        // This should not be necessary
+        // This displays at full size, and does not clip to the bounding box
+        // worldMapInstance.worldMapSvg.setAttribute('width', svgWidth);
+        // worldMapInstance.worldMapSvg.setAttribute('height', svgHeight);
+
+        // Not setting a width and height on the svg sets the size to 300x150 if there are no other settings
+
+        // Setting the svg element's css class' style sheet to width: 100%; height: 100%; 
+        // This displays at the correct aspect ratio and clips, but does not scale so it only shows North America
+        // This does not seem right, it seems like it should scale since there is a viewbox but
+        // no width and height set on the svg itself
+
+        // This displays at the correct aspect ratio and clips, but does not scale so it only shows North America
+        // Appears to be the same as directly setting the attributes
+        // worldMapInstance.worldMapSvg.setAttribute('style', 'width: 100%; height: 100%;');
+
+        // This displays at the correct aspect ratio and clips, but does not scale so it only shows North America
+        worldMapInstance.worldMapSvg.setAttribute('width', '100%');
+        worldMapInstance.worldMapSvg.setAttribute('height', '100%');
+
+        // This displays at the correct aspect ratio and clips, but does not scale so it only shows North America
+        // This works the same with px values, like 950px
+        // worldMapInstance.worldMapSvg.setAttribute('width', '950');
+        // worldMapInstance.worldMapSvg.setAttribute('height', '412');
+
+
+        // Where does 950x154 come from?
+
         console.log('svgHeight=' + svgHeight);
 
         const gElem = document.createElement('g');
@@ -245,7 +278,7 @@ async function initWorldMap(options) {
         }
         worldMapInstance.worldMapSvg.append(gElem);
     }
-        */
+        
 
     console.log('worldMapInstance.worldMapSvg', worldMapInstance.worldMapSvg);
 
@@ -283,9 +316,9 @@ worldMapGlobal.init = async function() {
     const svgText = await fetchRes.text();
 
     const parser = new DOMParser();
-    const worldMapSvgDoc = parser.parseFromString(svgText, 'image/svg+xml');
+    worldMapGlobal.worldMapSvgDoc = parser.parseFromString(svgText, 'image/svg+xml');
 
-    worldMapGlobal.worldMapSvgElem = worldMapSvgDoc.querySelector('svg');
+    worldMapGlobal.worldMapSvgElem = worldMapGlobal.worldMapSvgDoc.querySelector('svg');
 
     worldMapGlobal.initPromiseResolve();
 }
