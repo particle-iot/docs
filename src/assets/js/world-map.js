@@ -60,19 +60,19 @@ const worldMapGlobal = {
 	},
     optionDefaults: {
         fillColor: 'Gray_200',
-        swatchWidth: 16,
-        swatchHeight: 16,
+        swatchWidth: 40,
+        swatchHeight: 40,
         legendFont: 'Arial',
-        legendFontSize: '24',
-        legendFontY: -2,
+        legendFontSize: '30',
+        legendFontY: -6,
+        legendItemSeparation: 20,
     },
     styleDefaults: {
-        width: 20,
-        height: 20,
-        strokeWidth: 1,
+        width: 15,
+        height: 15,
         patternUnits: 'userSpaceOnUse',
-        hatchStrokeColor: '#404040',
-        hatchStrokeWidth: 1,
+        hatchStrokeColor: '#000000',
+        hatchStrokeWidth: 3,
     },
 };
 	
@@ -140,6 +140,10 @@ async function initWorldMap(options) {
             id += '-' + style.hatch;
         }
         return id;
+    }
+
+    worldMapInstance.getDefsId = function(style) {
+        return 'url(#' + worldMapInstance.generateId(style) + ')';
     }
 
     worldMapInstance.getColor = function(color) {
@@ -223,6 +227,27 @@ async function initWorldMap(options) {
 
         return containerElem.getHTML();
     }
+
+    worldMapInstance.measureText = function(text) {
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.style.position = "absolute";
+        svg.style.visibility = "hidden";
+        svg.style.top = "-9999px";
+
+        const textElem = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        textElem.setAttribute('font-family', options.legendFont);
+        textElem.setAttribute('font-size', options.legendFontSize);
+        textElem.textContent = text;
+
+        svg.appendChild(textElem);
+        document.body.appendChild(svg);
+
+        const { width, height } = textElem.getBBox();
+
+        document.body.removeChild(svg);
+
+        return { width, height };        
+    }
     
     const parser = new DOMParser();
     worldMapInstance.worldMapSvgDoc = parser.parseFromString(worldMapGlobal.svgText, 'image/svg+xml');
@@ -256,22 +281,27 @@ async function initWorldMap(options) {
                 rectElem.setAttribute('y', svgHeight - options.swatchHeight);
                 rectElem.setAttribute('width', options.swatchWidth);
                 rectElem.setAttribute('height', options.swatchHeight);
-                rectElem.setAttribute('fill', worldMapInstance.getColor(style.color)); 
+                rectElem.setAttribute('fill', worldMapInstance.getDefsId(style)); 
 
                 gElem.append(rectElem);
-                x += 20;
+                x += options.swatchWidth + 4;
+
+                const dims = worldMapInstance.measureText(style.title);
+                
+                const textElem = document.createElement('text');
+                textElem.setAttribute('x', x);
+                textElem.setAttribute('y', svgHeight + options.legendFontY );
+                textElem.setAttribute('font-family', options.legendFont);
+                textElem.setAttribute('font-size', options.legendFontSize);
+                textElem.classList.add('worldMapLegendText');
+                textElem.textContent = style.title;
+                worldMapInstance.worldMapSvg.append(textElem);
+
+                x += dims.width + options.legendItemSeparation;
             }
         }
         worldMapInstance.worldMapSvg.append(gElem);
 
-        const textElem = document.createElement('text');
-        textElem.setAttribute('x', x);
-        textElem.setAttribute('y', svgHeight + options.legendFontY );
-        textElem.setAttribute('font-family', options.legendFont);
-        textElem.setAttribute('font-size', options.legendFontSize);
-        textElem.classList.add('worldMapLegendText');
-        textElem.textContent = 'This is a test';
-        worldMapInstance.worldMapSvg.append(textElem);
     }
         
 

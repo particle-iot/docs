@@ -735,11 +735,11 @@ const familyMapCreate = function() {
                 },
                 {
                     title: '2G',
-                    color: 'COLOR_State_Yellow_500',
+                    color: 'State_Yellow_500',
                 },
                 {
                     // 2G + NTN. No title to omit from legend but include so the pattern is generated in defs.
-                    color: 'COLOR_State_Yellow_500',
+                    color: 'State_Yellow_500',
                     hatch: 'backward',
                 },
                 {
