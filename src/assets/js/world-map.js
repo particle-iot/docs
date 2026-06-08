@@ -60,6 +60,8 @@ const worldMapGlobal = {
 	},
     optionDefaults: {
         fillColor: 'Gray_200',
+        swatchWidth: 16,
+        swatchHeight: 16,
     },
     styleDefaults: {
         width: 20,
@@ -77,6 +79,7 @@ async function initWorldMap(options) {
         options,
         worldMapGlobal,
         fillOverrides: [],
+        extraStyles: [],
     };
 
     // options
@@ -123,6 +126,11 @@ async function initWorldMap(options) {
 
     worldMapInstance.generateId = function(style) {
         let id = style.color;
+        if (typeof id != 'string' || id == '') {
+            // Most commonly this will be undefined, but the test above will catch that and other edge cases
+            id = worldMapInstance.options.fillColor;
+        }
+        
         if (id.startsWith('#')) {
             id = 'color-' + id.substring(1);
         }
@@ -130,6 +138,21 @@ async function initWorldMap(options) {
             id += '-' + style.hatch;
         }
         return id;
+    }
+
+    worldMapInstance.getColor = function(color) {
+        if (typeof color != 'string' || color == '') {
+            // Most commonly this will be undefined, but the test above will catch that and other edge cases
+            color = worldMapInstance.options.fillColor;
+        }
+        else
+        if (!color.startsWith('#')) {
+            // Named color like ParticleBlue_500
+            color = worldMapGlobal.colorNames[color];
+        }
+        // else css hex color like #00E1FF
+        
+        return color;
     }
 
     worldMapInstance.generatePatternElem = function(style) {
@@ -143,13 +166,7 @@ async function initWorldMap(options) {
         const rectElem = document.createElement('rect');
         rectElem.setAttribute('width', style.width); // Default: 20
         rectElem.setAttribute('height', style.height); // Default: 20
-
-        let color = style.color;
-        if (!color.startsWith('#')) {
-            color = worldMapGlobal.colorNames[color];
-        }
-
-        rectElem.setAttribute('fill', color); 
+        rectElem.setAttribute('fill', worldMapInstance.getColor(style.color)); 
 
         patternElem.append(rectElem);
 
@@ -175,33 +192,48 @@ async function initWorldMap(options) {
 
         return patternElem;
     }
-    
-    worldMapInstance.generateDefsString = function() {
 
-        const rootElem = document.createElement('root');
-        
+    worldMapInstance.generateDefs = function() {
         const defsElem = document.createElement('defs');
 
-        console.log('options.styles', options.styles);
-
-        const extraStyles = [];
+        // extraStyles contains hatch patterns on fillColor so it can be in the legend
         for(const style of options.styles) {
             if (style.hatch) {
-                if (!extraStyles.find(e => e.hatch == style.hatch)) {
-                    extraStyles.push(Object.assign({}, worldMapGlobal.styleDefaults, { color: options.fillColor, hatch: style.hatch, }));
+                if (!worldMapInstance.extraStyles.find(e => e.hatch == style.hatch)) {
+                    const newStyle = Object.assign({}, worldMapGlobal.styleDefaults, { 
+                        color: options.fillColor, 
+                        hatch: style.hatch, 
+                    });
+                    newStyle.id = worldMapInstance.generateId(newStyle);
+
+                    worldMapInstance.extraStyles.push(newStyle);                    
                 }
             }
         }
 
-        for(const style of options.styles.concat(extraStyles)) {
+        for(const style of options.styles.concat(worldMapInstance.extraStyles)) {
             const patternElem = worldMapInstance.generatePatternElem(style);
             $(defsElem).append(patternElem)
         }
+        return defsElem;
+    }
 
+    worldMapInstance.insertDefs = function(svg, defsElem) {
+        const rootElem = document.createElement('root');
         $(rootElem).append(defsElem);
 
         // getHTML returns the innerHTML, so we create a fake root container 
-        return rootElem.getHTML();
+        const defsString = rootElem.getHTML();
+
+        let ii = svg.indexOf('>');
+        if (ii >= 0) {
+            if (svg.charAt(++ii) == '\n') {
+                ii++;
+            }
+            svg = svg.substring(0, ii) + defsString + svg.substring(ii);
+        }
+
+        return svg;
     }
 
     worldMapInstance.removeFill = function() {
@@ -214,10 +246,54 @@ async function initWorldMap(options) {
         worldMapInstance.fillOverrides = [];
     }
 
-    const defs = worldMapInstance.generateDefsString();
-    console.log('defs', defs);
+    worldMapInstance.generateLegend = function() {
+        const outerDivElem = document.createElement('div');
 
-    worldMapInstance.worldMapSvg = worldMapGlobal.worldMapSvg.substring(0, worldMapGlobal.insertLoc) + defs + worldMapGlobal.worldMapSvg.substring(worldMapGlobal.insertLoc);
+        for(const style of options.styles) {
+            if (!style.title) {
+                // Omit from legend
+                continue;
+            }
+            const styleDivElem = document.createElement('div');
+
+
+            $(outerDivElem).append(styleDivElem);
+        }
+
+
+        return outerDivElem;
+    }
+
+    // Update the map SVG
+    const defsElem = worldMapInstance.generateDefs();
+    worldMapInstance.worldMapSvg = worldMapInstance.insertDefs(worldMapGlobal.worldMapSvg, defsElem);
+    
+    // Generate hatch swatches for the legend, if necessary
+    if (worldMapInstance.extraStyles.length) {
+
+        for(const style of worldMapInstance.extraStyles) {
+            const styleId = worldMapInstance.generateId(style);
+            const swatchId = 'swatch-' + styleId;
+            console.log('swatchId=' + swatchId);
+
+            // TODO: Restrict this to a container element
+            $('.' + swatchId).each(function() {
+                console.log('swatch element', this);
+            });
+
+            const svgElem = document.createElement('svg');
+            svgElem.setAttribute('width', options.swatchWidth);
+            svgElem.setAttribute('height', options.swatchHeight);
+            svgElem.append(defsElem);
+
+            const rectElem = document.createElement('rect');
+            rectElem.setAttribute('width', options.swatchWidth);
+            rectElem.setAttribute('height', options.swatchHeight);
+            rectElem.setAttribute('fill', 'url(#' + worldMapInstance.generateId(style) + ')' );
+            
+
+        }
+    }
 
     return worldMapInstance;
 }
@@ -225,8 +301,6 @@ async function initWorldMap(options) {
 worldMapGlobal.init = async function() {
     const fetchRes = await fetch('/assets/images/world-map.svg');
     worldMapGlobal.worldMapSvg = await fetchRes.text();
-
-    worldMapGlobal.insertLoc = worldMapGlobal.worldMapSvg.indexOf('>\n') + 2;
 
     worldMapGlobal.initPromiseResolve();
 }

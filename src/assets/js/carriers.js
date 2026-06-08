@@ -687,14 +687,29 @@ const familyMapCreate = function() {
             }
         }
 
-        // 
+        // Legend
         {
             let html = '<div><table><tbody>';
 
             for(let ii = 0; ii < options.labelValues.length; ii++) {
                 const style = 'background-color:#' + options.colors[ii];
 
-                html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + options.labelValues[ii] + '</td></tr>';
+                // html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + options.labelValues[ii] + '</td></tr>';
+
+                let svgClass = options.colors[ii];
+                if (svgClass.startsWith('url')) {
+                    svgClass = 'Gray_200-backward'; // TESTING
+                }
+                else {
+                    svgClass = 'color-' + svgClass;
+                }
+                svgClass = 'swatch-' + svgClass;
+
+                html += '<tr><td>';
+
+                html += '<svg width="20" height="20" class="' + svgClass + '"></svg>';
+
+                html += '</td><td>' + options.labelValues[ii] + '</td></tr>';
             }
 
             html += '</tbody></table></div>';
@@ -714,7 +729,7 @@ const familyMapCreate = function() {
                     color: 'Sky_700',
                 },
                 {
-                    title: 'M1 + NTN',
+                    // M1 + NTN. No title to omit from legend but include so the pattern is generated in defs.
                     color: 'Sky_700',
                     hatch: 'backward',
                 },
@@ -722,6 +737,16 @@ const familyMapCreate = function() {
                     title: '2G',
                     color: 'COLOR_State_Yellow_500',
                 },
+                {
+                    // 2G + NTN. No title to omit from legend but include so the pattern is generated in defs.
+                    color: 'COLOR_State_Yellow_500',
+                    hatch: 'backward',
+                },
+                {
+                    // No color so background fill color is used.
+                    title: 'NTN',
+                    hatch: 'backward',
+                }
             ],
         });
 
