@@ -722,7 +722,7 @@ const familyMapCreate = function() {
     familyMap.initMap = async function() {
         familyMap.initMapStarted = true;
 
-        const worldMapInstance = initWorldMap({
+        const worldMapInstance = await initWorldMap({
             styles: [
                 {
                     title: 'M1',
@@ -750,58 +750,7 @@ const familyMapCreate = function() {
             ],
         });
 
-        const fetchRes = await fetch('/assets/images/world-map.svg');
-        familyMap.worldMapSvg = await fetchRes.text();
-
-        // Inject definitions for hatch patterns
-        let insertLoc = familyMap.worldMapSvg.indexOf('>\n');
-        if (insertLoc > 1) {
-            insertLoc += 2;
-            const patterns = [
-                {
-                    name: 'sky-700-hatch',
-                    backgroundColor: '#85D6E5', // blue
-                    strokeColor: '#202020',                    
-                },
-            ];
-            
-            const patternDefaults = {
-                width: 20,
-                height: 20,
-                strokeWidth: 1,
-            };
-
-            let defs = '  <defs>\n';
-
-            for(const pattern of patterns) {
-                const p = Object.assign({}, patternDefaults, pattern);
-
-                defs += '    <pattern id="' + p.name + '" width="' + p.width + '" height="' + p.height + '" patternUnits="userSpaceOnUse">\n';
-                defs += '      <rect width="' + p.width+ '" height="' + p.height + '" fill="' + p.backgroundColor + '" />\n';
-                defs += '      <line x1="0" y1="0" x2="' + p.width+ '" y2="' + p.height + '" stroke="' + p.strokeColor + '" stroke-width="' + p.strokeWidth + '" />\n';
-                defs += '    </pattern>\n';
-            }
-
-            defs += '  </defs>\n';
-
-            familyMap.worldMapSvg = familyMap.worldMapSvg.substring(0, insertLoc) + defs + familyMap.worldMapSvg.substring(insertLoc);
-/*
-                '85D6E5', // COLOR_Sky_700 (blue, M1 only)
-                'FFE949', // COLOR_State_Yellow_500 (yellow, 2G only)
-                '36CE7E', // COLOR_Mint_800 (green NTN and M1)
-
-<pattern id="color-hatch" width="20" height="20" patternUnits="userSpaceOnUse">
-      <!-- Background Color of the Pattern -->
-      <rect width="20" height="20" fill="#d9edf7" />
-      <!-- Hatch Line -->
-      <line x1="0" y1="0" x2="20" y2="20" stroke="#31708f" stroke-width="2" />
-    </pattern>
-*/
-
-        }
-
-
-        $('.familyMapDiv').html(familyMap.worldMapSvg);
+        $('.familyMapDiv').html(worldMapInstance.worldMapSvg);
 
         familyMap.worldMapFill = [];
 

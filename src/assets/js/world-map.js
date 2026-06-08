@@ -79,7 +79,6 @@ async function initWorldMap(options) {
         options,
         worldMapGlobal,
         fillOverrides: [],
-        extraStyles: [],
     };
 
     // options
@@ -196,45 +195,13 @@ async function initWorldMap(options) {
     worldMapInstance.generateDefs = function() {
         const defsElem = document.createElement('defs');
 
-        // extraStyles contains hatch patterns on fillColor so it can be in the legend
         for(const style of options.styles) {
-            if (style.hatch) {
-                if (!worldMapInstance.extraStyles.find(e => e.hatch == style.hatch)) {
-                    const newStyle = Object.assign({}, worldMapGlobal.styleDefaults, { 
-                        color: options.fillColor, 
-                        hatch: style.hatch, 
-                    });
-                    newStyle.id = worldMapInstance.generateId(newStyle);
-
-                    worldMapInstance.extraStyles.push(newStyle);                    
-                }
-            }
-        }
-
-        for(const style of options.styles.concat(worldMapInstance.extraStyles)) {
             const patternElem = worldMapInstance.generatePatternElem(style);
             $(defsElem).append(patternElem)
         }
         return defsElem;
     }
 
-    worldMapInstance.insertDefs = function(svg, defsElem) {
-        const rootElem = document.createElement('root');
-        $(rootElem).append(defsElem);
-
-        // getHTML returns the innerHTML, so we create a fake root container 
-        const defsString = rootElem.getHTML();
-
-        let ii = svg.indexOf('>');
-        if (ii >= 0) {
-            if (svg.charAt(++ii) == '\n') {
-                ii++;
-            }
-            svg = svg.substring(0, ii) + defsString + svg.substring(ii);
-        }
-
-        return svg;
-    }
 
     worldMapInstance.removeFill = function() {
         if (worldMapInstance.fillOverrides) {
@@ -246,31 +213,44 @@ async function initWorldMap(options) {
         worldMapInstance.fillOverrides = [];
     }
 
-    worldMapInstance.generateLegend = function() {
-        const outerDivElem = document.createElement('div');
-
-        for(const style of options.styles) {
-            if (!style.title) {
-                // Omit from legend
-                continue;
-            }
-            const styleDivElem = document.createElement('div');
-
-
-            $(outerDivElem).append(styleDivElem);
-        }
-
-
-        return outerDivElem;
-    }
 
     // Update the map SVG
-    const defsElem = worldMapInstance.generateDefs();
-    worldMapInstance.worldMapSvg = worldMapInstance.insertDefs(worldMapGlobal.worldMapSvg, defsElem);
-    
-    // Generate hatch swatches for the legend, if necessary
-    if (worldMapInstance.extraStyles.length) {
+    worldMapInstance.worldMapSvg = worldMapGlobal.worldMapSvgElem.cloneNode(true);
 
+    const defsElem = worldMapInstance.generateDefs();
+    worldMapInstance.worldMapSvg.prepend(defsElem.cloneNode(true));
+    
+    // Generate legend TODO: refactor this
+    /*
+    {
+        const viewbox = worldMapInstance.worldMapSvg.getAttribute('viewbox');
+        const svgHeight = parseFloat(viewbox.split(' ')[3]);
+        console.log('svgHeight=' + svgHeight);
+
+        const gElem = document.createElement('g');
+
+        let x = 10;
+
+        for(const style of options.styles) {
+            const rectElem = document.createElement('rect');
+
+            rectElem.setAttribute('x', x);
+            rectElem.setAttribute('y', 0); // svgHeight - options.swatchHeight
+            rectElem.setAttribute('width', options.swatchWidth);
+            rectElem.setAttribute('height', options.swatchHeight);
+            rectElem.setAttribute('fill', worldMapInstance.getColor(style.color)); 
+
+            gElem.append(rectElem);
+            x += 20;
+        }
+        worldMapInstance.worldMapSvg.append(gElem);
+    }
+        */
+
+    console.log('worldMapInstance.worldMapSvg', worldMapInstance.worldMapSvg);
+
+    // Generate hatch swatches for the legend, if necessary
+    /*
         for(const style of worldMapInstance.extraStyles) {
             const styleId = worldMapInstance.generateId(style);
             const swatchId = 'swatch-' + styleId;
@@ -293,59 +273,20 @@ async function initWorldMap(options) {
             
 
         }
-    }
+    */
 
     return worldMapInstance;
 }
 
 worldMapGlobal.init = async function() {
     const fetchRes = await fetch('/assets/images/world-map.svg');
-    worldMapGlobal.worldMapSvg = await fetchRes.text();
+    const svgText = await fetchRes.text();
+
+    const parser = new DOMParser();
+    const worldMapSvgDoc = parser.parseFromString(svgText, 'image/svg+xml');
+
+    worldMapGlobal.worldMapSvgElem = worldMapSvgDoc.querySelector('svg');
 
     worldMapGlobal.initPromiseResolve();
 }
 
-
-/*
-
-        const fetchRes = await fetch('/assets/images/world-map.svg');
-        familyMap.worldMapSvg = await fetchRes.text();
-
-        // Inject definitions for hatch patterns
-        let insertLoc = familyMap.worldMapSvg.indexOf('>\n');
-        if (insertLoc > 1) {
-            insertLoc += 2;
-            const patterns = [
-                {
-                    name: 'sky-700-hatch',
-                    backgroundColor: '#85D6E5', // blue
-                    strokeColor: '#202020',                    
-                },
-            ];
-            
-            const patternDefaults = {
-                width: 20,
-                height: 20,
-                strokeWidth: 1,
-            };
-
-            let defs = '  <defs>\n';
-
-            for(const pattern of patterns) {
-                const p = Object.assign({}, patternDefaults, pattern);
-
-                defs += '    <pattern id="' + p.name + '" width="' + p.width + '" height="' + p.height + '" patternUnits="userSpaceOnUse">\n';
-                defs += '      <rect width="' + p.width+ '" height="' + p.height + '" fill="' + p.backgroundColor + '" />\n';
-                defs += '      <line x1="0" y1="0" x2="' + p.width+ '" y2="' + p.height + '" stroke="' + p.strokeColor + '" stroke-width="' + p.strokeWidth + '" />\n';
-                defs += '    </pattern>\n';
-            }
-
-            defs += '  </defs>\n';
-
-            console.log('defs', defs);
-
-            familyMap.worldMapSvg = familyMap.worldMapSvg.substring(0, insertLoc) + defs + familyMap.worldMapSvg.substring(insertLoc);
-
-        }
-
-*/
