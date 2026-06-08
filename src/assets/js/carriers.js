@@ -494,6 +494,8 @@ const familyMapCreate = function() {
     familyMap.drawMap = async function() {
         let family;
 
+        $('.familyMapDiv').empty();
+
         if (familyMap.options.family == 'cat1expansion') {
             await familyMap.drawMapCat1Expansion();
             return;
@@ -518,6 +520,21 @@ const familyMapCreate = function() {
         }
         */
 
+        const colors = ['#86E2D5', '#00AEEF'];
+
+        const worldMapInstance = await initWorldMap({
+            styles: [
+                { // 0
+                    color: colors[0],
+                },
+                {
+                    color: colors[1],
+                }
+            ],
+            containerElem: $('.familyMapDiv'),
+        });
+        
+
         const skuFamilyObj = datastore.findSkuFamily(family);
 
         let models = [];
@@ -526,11 +543,6 @@ const familyMapCreate = function() {
                 models.push(obj);
             }
         });
-
-        // let countryModelArray = [['Country', 'Model']];
-        familyMap.removeFill();
-        const svgElem = $('.familyMapDiv > svg ');
-        const colors = ['86E2D5', '00AEEF'];
 
         datastore.data.countries.forEach(function(countryObj) {
 
@@ -553,11 +565,7 @@ const familyMapCreate = function() {
                 });
             });    
             if (typeof foundModel != 'undefined') {
-                const className = 'country-' + countryObj.isoCode;
-                familyMap.worldMapFill.push(className);
-
-                $(svgElem).find('.' + className).css('fill', '#' + colors[foundModel]);
-                // console.log('drawMap', {className, color: colors[foundModel], foundModel})
+                worldMapInstance.setCountryColor(countryObj.isoCode, foundModel);
             }
         });
 
@@ -571,7 +579,7 @@ const familyMapCreate = function() {
                 if (typeof skuFamilyObj['mapColor'] != 'undefined') {
                     mapColor = skuFamilyObj.mapColor;
                 }
-                const style = 'background-color:#' + colors[mapColor];
+                const style = 'background-color:' + colors[mapColor];
                 if (!colors[mapColor]) {
                     return;
                 }
