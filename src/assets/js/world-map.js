@@ -62,6 +62,9 @@ const worldMapGlobal = {
         fillColor: 'Gray_200',
         swatchWidth: 16,
         swatchHeight: 16,
+        legendFont: 'Arial',
+        legendFontSize: '24',
+        legendFontY: -2,
     },
     styleDefaults: {
         width: 20,
@@ -213,9 +216,19 @@ async function initWorldMap(options) {
         worldMapInstance.fillOverrides = [];
     }
 
+    worldMapInstance.getSvgText = function() {
+        const containerElem = document.createElement('root');
+
+        containerElem.append(worldMapInstance.worldMapSvg);
+
+        return containerElem.getHTML();
+    }
+    
+    const parser = new DOMParser();
+    worldMapInstance.worldMapSvgDoc = parser.parseFromString(worldMapGlobal.svgText, 'image/svg+xml');
 
     // Update the map SVG
-    worldMapInstance.worldMapSvg = worldMapGlobal.worldMapSvgElem.cloneNode(true);
+    worldMapInstance.worldMapSvg = worldMapInstance.worldMapSvgDoc.querySelector('svg');
 
     worldMapInstance.worldMapSvg.classList.add('world-map');
 
@@ -230,53 +243,35 @@ async function initWorldMap(options) {
         const svgWidth = parseFloat(viewbox.split(' ')[2]);
         const svgHeight = parseFloat(viewbox.split(' ')[3]);
 
-        // This should not be necessary
-        // This displays at full size, and does not clip to the bounding box
-        // worldMapInstance.worldMapSvg.setAttribute('width', svgWidth);
-        // worldMapInstance.worldMapSvg.setAttribute('height', svgHeight);
-
-        // Not setting a width and height on the svg sets the size to 300x150 if there are no other settings
-
-        // Setting the svg element's css class' style sheet to width: 100%; height: 100%; 
-        // This displays at the correct aspect ratio and clips, but does not scale so it only shows North America
-        // This does not seem right, it seems like it should scale since there is a viewbox but
-        // no width and height set on the svg itself
-
-        // This displays at the correct aspect ratio and clips, but does not scale so it only shows North America
-        // Appears to be the same as directly setting the attributes
-        // worldMapInstance.worldMapSvg.setAttribute('style', 'width: 100%; height: 100%;');
-
-        // This displays at the correct aspect ratio and clips, but does not scale so it only shows North America
-        worldMapInstance.worldMapSvg.setAttribute('width', '100%');
-        worldMapInstance.worldMapSvg.setAttribute('height', '100%');
-
-        // This displays at the correct aspect ratio and clips, but does not scale so it only shows North America
-        // This works the same with px values, like 950px
-        // worldMapInstance.worldMapSvg.setAttribute('width', '950');
-        // worldMapInstance.worldMapSvg.setAttribute('height', '412');
-
-
-        // Where does 950x154 come from?
-
-        console.log('svgHeight=' + svgHeight);
-
         const gElem = document.createElement('g');
+
 
         let x = 10;
 
         for(const style of options.styles) {
-            const rectElem = document.createElement('rect');
+            if (style.title) {
+                const rectElem = document.createElement('rect');
 
-            rectElem.setAttribute('x', x);
-            rectElem.setAttribute('y', 0); // svgHeight - options.swatchHeight
-            rectElem.setAttribute('width', options.swatchWidth);
-            rectElem.setAttribute('height', options.swatchHeight);
-            rectElem.setAttribute('fill', worldMapInstance.getColor(style.color)); 
+                rectElem.setAttribute('x', x);
+                rectElem.setAttribute('y', svgHeight - options.swatchHeight);
+                rectElem.setAttribute('width', options.swatchWidth);
+                rectElem.setAttribute('height', options.swatchHeight);
+                rectElem.setAttribute('fill', worldMapInstance.getColor(style.color)); 
 
-            gElem.append(rectElem);
-            x += 20;
+                gElem.append(rectElem);
+                x += 20;
+            }
         }
         worldMapInstance.worldMapSvg.append(gElem);
+
+        const textElem = document.createElement('text');
+        textElem.setAttribute('x', x);
+        textElem.setAttribute('y', svgHeight + options.legendFontY );
+        textElem.setAttribute('font-family', options.legendFont);
+        textElem.setAttribute('font-size', options.legendFontSize);
+        textElem.classList.add('worldMapLegendText');
+        textElem.textContent = 'This is a test';
+        worldMapInstance.worldMapSvg.append(textElem);
     }
         
 
@@ -313,12 +308,7 @@ async function initWorldMap(options) {
 
 worldMapGlobal.init = async function() {
     const fetchRes = await fetch('/assets/images/world-map.svg');
-    const svgText = await fetchRes.text();
-
-    const parser = new DOMParser();
-    worldMapGlobal.worldMapSvgDoc = parser.parseFromString(svgText, 'image/svg+xml');
-
-    worldMapGlobal.worldMapSvgElem = worldMapGlobal.worldMapSvgDoc.querySelector('svg');
+    worldMapGlobal.svgText = await fetchRes.text();
 
     worldMapGlobal.initPromiseResolve();
 }

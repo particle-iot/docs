@@ -750,7 +750,7 @@ const familyMapCreate = function() {
             ],
         });
         
-        $('.familyMapDiv').append(worldMapInstance.worldMapSvg);
+        $('.familyMapDiv').append(worldMapInstance.getSvgText());
 
         familyMap.worldMapFill = [];
 
