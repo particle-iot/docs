@@ -450,6 +450,7 @@ carriers2.init = function(options, callback) {
     $('#' + carriers2.options.regionList).on('change', carriers2.selectMenu);
 
     // carriers2.selectMenu();
+    carriers2.update();
 
     callback();
 };
