@@ -1253,9 +1253,9 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Hong Kong | T524 | 3G, 4G | CMHK, CSL, SmarTone |
 | Hungary | T524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | T524 | 4G | Nova, Siminn, Vodafone |
-| Indonesia | T524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
+| Indonesia | T524 | 2G, 4G | Indosat, Telkomsel, XL Axiata |
 | Ireland | T524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
-| Israel | T524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
+| Israel | T524 | 4G | Hot Mobile, Orange, Pelephone |
 | Italy | T524 | 2G, 4G | TIM, Vodafone, Wind |
 | Jordan | T524 | 2G, 3G, 4G | Zain |
 | Kazakhstan | T524 | 2G, 3G, 4G | Beeline, K-Cell |
@@ -1268,7 +1268,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Macao | T524 | 3G, 4G | CTM |
 | Madagascar | T524 | 2G, 3G, 4G | Airtel |
 | Malawi | T524 | 2G, 3G, 4G | Airtel |
-| Malaysia | T524 | 2G, 3G, 4G | Celcom, DiGi, Maxis |
+| Malaysia | T524 | 2G, 4G | Celcom, DiGi, Maxis |
 | Malta | T524 | 2G, 3G, 4G | Go Mobile, Vodafone |
 | Mexico | T404 | M1 | AT&T, Telcel |
 | Moldova | T524 | 2G, 3G, 4G | Moldcell, Orange |
@@ -1287,7 +1287,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Papua New Guinea | T524 | 2G, 3G | bmobile |
 | Poland | T524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | T524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
-| Qatar | T524 | 2G, 3G, 4G | Ooredoo, Vodafone |
+| Qatar | T524 | 2G, 4G | Ooredoo, Vodafone |
 | Romania | T524 | 2G, 4G | Orange, Telekom Romania, Vodafone |
 | Rwanda | T524 | 2G, 3G | Airtel, MTN |
 | Serbia | T524 | 2G, 3G, 4G | Telenor, VIP |
@@ -1299,11 +1299,11 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | South Korea | T524 | 3G, 4G | KT, LG U+, SK Telecom |
 | South Sudan | T524 | 2G, 3G | MTN |
 | Spain | T524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
-| Sri Lanka | T524 | 2G, 3G, 4G | Dialog, Mobitel |
+| Sri Lanka | T524 | 2G, 4G | Dialog, Mobitel |
 | Suriname | T524 | 2G, 3G | Telesur |
 | Sweden | T524 | 2G, 4G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | T524 | 3G, 4G | Salt, Sunrise, Swisscom |
-| Taiwan | T524 | 3G, 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Taiwan | T524 | 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tanzania | T524 | 2G, 3G, 4G | Airtel |
 | Thailand | T524 | 2G, 3G, 4G | AIS, DTAC, True Move |
 | Tunisia | T524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |

@@ -1371,9 +1371,9 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Hong Kong | M524 | 3G, 4G | CMHK, CSL, SmarTone |
 | Hungary | M524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | M524 | 4G | Nova, Siminn, Vodafone |
-| Indonesia | M524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
+| Indonesia | M524 | 2G, 4G | Indosat, Telkomsel, XL Axiata |
 | Ireland | M524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
-| Israel | M524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
+| Israel | M524 | 4G | Hot Mobile, Orange, Pelephone |
 | Italy | M524 | 2G, 4G | TIM, Vodafone, Wind |
 | Jordan | M524 | 2G, 3G, 4G | Zain |
 | Kazakhstan | M524 | 2G, 3G, 4G | Beeline, K-Cell |
@@ -1386,7 +1386,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Macao | M524 | 3G, 4G | CTM |
 | Madagascar | M524 | 2G, 3G, 4G | Airtel |
 | Malawi | M524 | 2G, 3G, 4G | Airtel |
-| Malaysia | M524 | 2G, 3G, 4G | Celcom, DiGi, Maxis |
+| Malaysia | M524 | 2G, 4G | Celcom, DiGi, Maxis |
 | Malta | M524 | 2G, 3G, 4G | Go Mobile, Vodafone |
 | Moldova | M524 | 2G, 3G, 4G | Moldcell, Orange |
 | Mongolia | M524 | 2G, 3G | Mobicom, Unitel |
@@ -1404,7 +1404,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Papua New Guinea | M524 | 2G, 3G | bmobile |
 | Poland | M524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | M524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
-| Qatar | M524 | 2G, 3G, 4G | Ooredoo, Vodafone |
+| Qatar | M524 | 2G, 4G | Ooredoo, Vodafone |
 | Romania | M524 | 2G, 4G | Orange, Telekom Romania, Vodafone |
 | Rwanda | M524 | 2G, 3G | Airtel, MTN |
 | Serbia | M524 | 2G, 3G, 4G | Telenor, VIP |
@@ -1416,11 +1416,11 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | South Korea | M524 | 3G, 4G | KT, LG U+, SK Telecom |
 | South Sudan | M524 | 2G, 3G | MTN |
 | Spain | M524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
-| Sri Lanka | M524 | 2G, 3G, 4G | Dialog, Mobitel |
+| Sri Lanka | M524 | 2G, 4G | Dialog, Mobitel |
 | Suriname | M524 | 2G, 3G | Telesur |
 | Sweden | M524 | 2G, 4G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | M524 | 3G, 4G | Salt, Sunrise, Swisscom |
-| Taiwan | M524 | 3G, 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Taiwan | M524 | 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tanzania | M524 | 2G, 3G, 4G | Airtel |
 | Thailand | M524 | 2G, 3G, 4G | AIS, DTAC, True Move |
 | Tunisia | M524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |

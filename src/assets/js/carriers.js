@@ -25,18 +25,23 @@ carriers2.fromQuery = function(urlParams) {
 };
 
 carriers2.saveQuery = function() {
-    const deviceVal = $(carriers2.options.deviceList).val();
+    const deviceShortName = $(carriers2.options.deviceList).val();
+    
+    const skuFamilyInfo = datastore.findSkuFamilyInfoByShortName(deviceShortName); 
 
     const regionVal = $('#' + carriers2.options.regionList).val();
     const region = $('#' + carriers2.options.regionList + ' option').filter(function () { return $(this).prop('value') === regionVal; }).html();
 
     const values = {
         tab: 'ByDevice',
-        device: deviceVal,
+        device: deviceShortName,
         region,
     };
     if ($('.byDeviceShowUnsupported').prop('checked')) {
         values.showUnsupported = 'true';
+    }
+    if (skuFamilyInfo && skuFamilyInfo.modemObj && skuFamilyInfo.modemObj.technologies.includes('NTN') && $('.byDeviceShowNTN').prop('checked')) {
+        values.showNTN = 'true';
     }
 
     let url = '?';
@@ -149,7 +154,9 @@ carriers2.selectMenu = function() {
 };
 
 carriers2.update = function() {
-    const skuFamilyInfo = datastore.findSkuFamilyInfoByShortName($(carriers2.options.deviceList).val()); 
+    const deviceShortName = $(carriers2.options.deviceList).val();
+    
+    const skuFamilyInfo = datastore.findSkuFamilyInfoByShortName(deviceShortName); 
 
     const simPlanObj = datastore.findSimPlanById(skuFamilyInfo.groupObj.simPlan);
     const countryCarrierKeys = simPlanObj.countryCarrierKeys || [simPlanObj.countryCarrierKey];
@@ -165,6 +172,8 @@ carriers2.update = function() {
     }
 
     const showUnsupported = $('.byDeviceShowUnsupported').prop('checked');
+
+    const showNTN = modemObj.technologies.includes('NTN') && $('.byDeviceShowNTN').prop('checked'); // This is really only show NTN if true
 
     {
         let html = '<tr><th>Country</th><th>Carrier</th>';
@@ -187,6 +196,7 @@ carriers2.update = function() {
 
     let countryHasSecondaryOrBackup = {};
     let countryCarrierFiltered = [];
+    let hasUnsupported = false;
 
     for(const ccObj of datastore.data.countryCarrier) {
 
@@ -196,13 +206,31 @@ carriers2.update = function() {
                 continue;
             }
             const cmsObj = datastore.findCountryModemSim(ccObj.country, skuFamilyInfo.groupObj.modem, skuFamilyInfo.groupObj.sim);
-            if (!cmsObj || cmsObj.recommendation == 'NS') {
-                // console.log('no recommendation or NS', {countryCarrierKey, cmsObj, ccObj});
+            if (!cmsObj || cmsObj.recommendation == 'NR') {
+                // console.log('no recommendation or NR', {countryCarrierKey, cmsObj, ccObj});
                 continue;
             }
-            if (!showUnsupported && (cmsObj.recommendation == 'NR' || cmsObj.recommendation == 'POSS')) {
-                // console.log('NR or POSS with not show unsupported', {countryCarrierKey, cmsObj, ccObj});
-                continue;
+
+            if (cmsObj.recommendation == 'NS' || cmsObj.recommendation == 'POSS') {
+                hasUnsupported = true;
+
+                if (!showUnsupported) {
+                    // console.log('NS or POSS with not show unsupported', {countryCarrierKey, cmsObj, ccObj});
+                    continue;
+                }
+            }
+
+            if (showNTN) {
+                // Only show NTN
+                let carrierHasNTN = false;
+                for(const b of ccObj.bands) {
+                    if (b.startsWith('NTN-')) {
+                        carrierHasNTN = true;
+                    }
+                }
+                if (!carrierHasNTN) {
+                    continue;
+                }
             }
 
             if (regions && !datastore.countryInRegionArray(ccObj.country, regions)) {
@@ -225,6 +253,20 @@ carriers2.update = function() {
         }
     }
     // console.log('countryCarrierFiltered', countryCarrierFiltered);
+
+    if (hasUnsupported) {
+        $('.byDeviceShowUnsupportedRow').show();
+    }
+    else {
+        $('.byDeviceShowUnsupportedRow').hide();
+    }
+
+    if (modemObj.technologies.includes('NTN')) {
+        $('.byDeviceShowNTNRow').show();
+    }
+    else {
+        $('.byDeviceShowNTNRow').hide();
+    }
 
     let warnRoaming = false;
     let warnVerizon = false;
@@ -1675,7 +1717,7 @@ bandFit.init = function(callback) {
 
     bandFit.tests = {
         'msom': {
-            title: 'M-Series (M404 vs. M524)',
+            title: 'M-Series (M404 vs. M524 vs. M635e)',
             sim: 4, // EtherSIM
             tests: [
                 {
@@ -1687,8 +1729,14 @@ bandFit.init = function(callback) {
                 {
                     title: 'M524',
                     modemObj: datastore.data.modems.find(e => e.model == 'EG91-EX'),
-                    borderRight: false,
+                    borderRight: true,
                     backgroundColor: '#89E2B3', // COLOR_Mint_600
+                },
+                {
+                    title: 'M635e',
+                    modemObj: datastore.data.modems.find(e => e.model == 'BG95-S5'),
+                    borderRight: true,
+                    backgroundColor: '#FF9F61', // @COLOR_Tangerine_400
                 },
             ],
         },
@@ -1905,7 +1953,7 @@ $(document).ready(async function() {
             table:'countryCarrierTable'
         },
         function() {    
-            $('.byDeviceShowUnsupported').on('click', function() {
+            $('.byDeviceShowUnsupported,.byDeviceShowNTN').on('click', function() {
                 carriers2.saveQuery();
                 carriers2.update();
             });

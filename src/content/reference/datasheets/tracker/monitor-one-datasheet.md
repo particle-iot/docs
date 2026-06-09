@@ -920,9 +920,9 @@ To be provided at a later date.
 | Hong Kong | MON524 | 3G, 4G | CMHK, CSL, SmarTone |
 | Hungary | MON524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | MON524 | 4G | Nova, Siminn, Vodafone |
-| Indonesia | MON524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
+| Indonesia | MON524 | 2G, 4G | Indosat, Telkomsel, XL Axiata |
 | Ireland | MON524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
-| Israel | MON524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
+| Israel | MON524 | 4G | Hot Mobile, Orange, Pelephone |
 | Italy | MON524 | 2G, 4G | TIM, Vodafone, Wind |
 | Jordan | MON524 | 2G, 3G, 4G | Zain |
 | Kazakhstan | MON524 | 2G, 3G, 4G | Beeline, K-Cell |
@@ -935,7 +935,7 @@ To be provided at a later date.
 | Macao | MON524 | 3G, 4G | CTM |
 | Madagascar | MON524 | 2G, 3G, 4G | Airtel |
 | Malawi | MON524 | 2G, 3G, 4G | Airtel |
-| Malaysia | MON524 | 2G, 3G, 4G | Celcom, DiGi, Maxis |
+| Malaysia | MON524 | 2G, 4G | Celcom, DiGi, Maxis |
 | Malta | MON524 | 2G, 3G, 4G | Go Mobile, Vodafone |
 | Mexico | MON404 | M1 | AT&T, Telcel |
 | Moldova | MON524 | 2G, 3G, 4G | Moldcell, Orange |
@@ -954,7 +954,7 @@ To be provided at a later date.
 | Papua New Guinea | MON524 | 2G, 3G | bmobile |
 | Poland | MON524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | MON524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
-| Qatar | MON524 | 2G, 3G, 4G | Ooredoo, Vodafone |
+| Qatar | MON524 | 2G, 4G | Ooredoo, Vodafone |
 | Romania | MON524 | 2G, 4G | Orange, Telekom Romania, Vodafone |
 | Rwanda | MON524 | 2G, 3G | Airtel, MTN |
 | Serbia | MON524 | 2G, 3G, 4G | Telenor, VIP |
@@ -966,11 +966,11 @@ To be provided at a later date.
 | South Korea | MON524 | 3G, 4G | KT, LG U+, SK Telecom |
 | South Sudan | MON524 | 2G, 3G | MTN |
 | Spain | MON524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
-| Sri Lanka | MON524 | 2G, 3G, 4G | Dialog, Mobitel |
+| Sri Lanka | MON524 | 2G, 4G | Dialog, Mobitel |
 | Suriname | MON524 | 2G, 3G | Telesur |
 | Sweden | MON524 | 2G, 4G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | MON524 | 3G, 4G | Salt, Sunrise, Swisscom |
-| Taiwan | MON524 | 3G, 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Taiwan | MON524 | 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tanzania | MON524 | 2G, 3G, 4G | Airtel |
 | Thailand | MON524 | 2G, 3G, 4G | AIS, DTAC, True Move |
 | Tunisia | MON524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |

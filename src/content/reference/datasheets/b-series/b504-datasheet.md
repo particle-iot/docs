@@ -2124,7 +2124,7 @@ The following countries are not officially supported at this time, but may be co
 | Belize | 3G, 4G | Smart |
 | Bolivia | 3G, 4G | Viva |
 | Cayman Islands | 3G | Flow |
-| Chile | 3G | Claro, Entel, Movistar |
+| Chile | 3G | Entel, Movistar |
 | Colombia | 3G, 4G | Movistar, Tigo |
 | Costa Rica | 3G | Movistar |
 | Dominica | 4G | Flow |
