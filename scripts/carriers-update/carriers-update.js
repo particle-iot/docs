@@ -302,6 +302,15 @@ const generatorConfig = require('./generator-config');
         }
         const simObj = updater.datastore.data.sims.find(e => e.id == options.sim);
 
+        let countryCarrierKeys = [simObj.simPlanKey];
+
+        if (options.simPlan) {
+            const simPlanObj =  updater.datastore.data.simPlans.find(e => e.id == options.simPlan);
+            if (simPlanObj) {
+                countryCarrierKeys = simPlanObj.countryCarrierKeys;
+            }
+        }
+
         let modems = [];
         let shortModelForModem = {};
 
@@ -395,7 +404,7 @@ const generatorConfig = require('./generator-config');
 
         let tableData = [];
 
-        const technologies = ['2G', '3G', '4G', '5G', 'M1'];
+        const technologies = ['2G', '3G', '4G', '5G', 'M1', 'NTN'];
 
         countryModemSimFiltered.forEach(function(cmsObj) {
             let showTechnologies = [];
@@ -403,48 +412,59 @@ const generatorConfig = require('./generator-config');
             
             const modemObj = updater.datastore.findModemByModel(cmsObj.modem);
 
+            let simPlanKeys = [simObj.simPlanKey];
+            
+
             updater.datastore.data.countryCarrier.forEach(function(ccObj) {
                 if (ccObj.country != cmsObj.country) {
                     return;
                 }
-                if (!ccObj[simObj.simPlanKey] || ccObj[simObj.simPlanKey].prohibited || ccObj[simObj.simPlanKey].roamingRestrictions == 'hide') {
-                    return;
-                }   
+                
+                let hasTech = false;
 
                 let carrier = ccObj.carrier;
                 if (!cmsObj.supported[carrier]) {
                     return;
                 }
 
-                let hasTech = false;
 
-                technologies.forEach(function(tech) {                    
-                    if (!modemObj.technologies.includes(tech)) {
-                        return;
-                    }
+                for(const simPlanKey of countryCarrierKeys) {
+                    if (!ccObj[simPlanKey] || ccObj[simPlanKey].prohibited || ccObj[simPlanKey].roamingRestrictions == 'hide') {
+                        continue;
+                    }   
 
-                    const allowFlag = ccObj[simObj.simPlanKey]['allow' + tech];
-                    if (!allowFlag) {
-                        return;
-                    }
+                    technologies.forEach(function(tech) {                    
+                        if (!modemObj.technologies.includes(tech)) {
+                            return;
+                        }
 
-                    if (tech == 'M1' && allowFlag == 5) {
-                        // T-Mobile unofficial support (no longer hiding)
-                        // return;
-                    }
-                    if (options.noVerizon && tech == 'M1' && allowFlag == 7) {
-                        // Verizon on Electron LTE and E404 is not supported
-                        return;
-                    }
-                    if (!cmsObj.technologies.includes(tech)) {
-                        return;
-                    }
+                        const allowFlag = ccObj[simPlanKey]['allow' + tech];
+                        if (!allowFlag) {
+                            return;
+                        }
 
-                    if (!showTechnologies.includes(tech)) {
-                        showTechnologies.push(tech);
+                        if (tech == 'M1' && allowFlag == 5) {
+                            // T-Mobile unofficial support (no longer hiding)
+                            // return;
+                        }
+                        if (options.noVerizon && tech == 'M1' && allowFlag == 7) {
+                            // Verizon on Electron LTE and E404 is not supported
+                            return;
+                        }
+                        if (!cmsObj.technologies.includes(tech)) {
+                            return;
+                        }
+
+                        if (!showTechnologies.includes(tech)) {
+                            showTechnologies.push(tech);
+                        }
+                        hasTech = allowFlag;
+                    });
+
+                    if (hasTech) {
+                        break;
                     }
-                    hasTech = allowFlag;
-                });
+                }
                 if (!hasTech) {
                     return;
                 }

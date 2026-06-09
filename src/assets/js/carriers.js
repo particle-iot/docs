@@ -25,18 +25,24 @@ carriers2.fromQuery = function(urlParams) {
 };
 
 carriers2.saveQuery = function() {
-    const deviceVal = $(carriers2.options.deviceList).val();
+
+    const deviceShortName = $(carriers2.options.deviceList).val();
+    
+    const skuFamilyInfo = datastore.findSkuFamilyInfoByShortName(deviceShortName); 
 
     const regionVal = $('#' + carriers2.options.regionList).val();
     const region = $('#' + carriers2.options.regionList + ' option').filter(function () { return $(this).prop('value') === regionVal; }).html();
 
     const values = {
         tab: 'ByDevice',
-        device: deviceVal,
+        device: deviceShortName,
         region,
     };
     if ($('.byDeviceShowUnsupported').prop('checked')) {
         values.showUnsupported = 'true';
+    }
+    if (skuFamilyInfo && skuFamilyInfo.modemObj && skuFamilyInfo.modemObj.technologies.includes('NTN') && $('.byDeviceShowNTN').prop('checked')) {
+        values.showNTN = 'true';
     }
 
     let url = '?';
@@ -149,7 +155,9 @@ carriers2.selectMenu = function() {
 };
 
 carriers2.update = function() {
-    const skuFamilyInfo = datastore.findSkuFamilyInfoByShortName($(carriers2.options.deviceList).val()); 
+    const deviceShortName = $(carriers2.options.deviceList).val();
+    
+    const skuFamilyInfo = datastore.findSkuFamilyInfoByShortName(deviceShortName); 
 
     const simPlanObj = datastore.findSimPlanById(skuFamilyInfo.groupObj.simPlan);
     const countryCarrierKeys = simPlanObj.countryCarrierKeys || [simPlanObj.countryCarrierKey];
@@ -165,6 +173,8 @@ carriers2.update = function() {
     }
 
     const showUnsupported = $('.byDeviceShowUnsupported').prop('checked');
+
+    const showNTN = modemObj.technologies.includes('NTN') && $('.byDeviceShowNTN').prop('checked'); // This is really only show NTN if true
 
     {
         let html = '<tr><th>Country</th><th>Carrier</th>';
@@ -187,6 +197,7 @@ carriers2.update = function() {
 
     let countryHasSecondaryOrBackup = {};
     let countryCarrierFiltered = [];
+    let hasUnsupported = false;
 
     for(const ccObj of datastore.data.countryCarrier) {
 
@@ -196,13 +207,31 @@ carriers2.update = function() {
                 continue;
             }
             const cmsObj = datastore.findCountryModemSim(ccObj.country, skuFamilyInfo.groupObj.modem, skuFamilyInfo.groupObj.sim);
-            if (!cmsObj || cmsObj.recommendation == 'NS') {
-                // console.log('no recommendation or NS', {countryCarrierKey, cmsObj, ccObj});
+            if (!cmsObj || cmsObj.recommendation == 'NR') {
+                // console.log('no recommendation or NR', {countryCarrierKey, cmsObj, ccObj});
                 continue;
             }
-            if (!showUnsupported && (cmsObj.recommendation == 'NR' || cmsObj.recommendation == 'POSS')) {
-                // console.log('NR or POSS with not show unsupported', {countryCarrierKey, cmsObj, ccObj});
-                continue;
+
+            if (cmsObj.recommendation == 'NS' || cmsObj.recommendation == 'POSS') {
+                hasUnsupported = true;
+
+                if (!showUnsupported) {
+                    // console.log('NS or POSS with not show unsupported', {countryCarrierKey, cmsObj, ccObj});
+                    continue;
+                }
+            }
+
+            if (showNTN) {
+                // Only show NTN
+                let carrierHasNTN = false;
+                for(const b of ccObj.bands) {
+                    if (b.startsWith('NTN-')) {
+                        carrierHasNTN = true;
+                    }
+                }
+                if (!carrierHasNTN) {
+                    continue;
+                }
             }
 
             if (regions && !datastore.countryInRegionArray(ccObj.country, regions)) {
@@ -225,6 +254,20 @@ carriers2.update = function() {
         }
     }
     // console.log('countryCarrierFiltered', countryCarrierFiltered);
+
+    if (hasUnsupported) {
+        $('.byDeviceShowUnsupportedRow').show();
+    }
+    else {
+        $('.byDeviceShowUnsupportedRow').hide();
+    }
+
+    if (modemObj.technologies.includes('NTN')) {
+        $('.byDeviceShowNTNRow').show();
+    }
+    else {
+        $('.byDeviceShowNTNRow').hide();
+    }
 
     let warnRoaming = false;
     let warnVerizon = false;
@@ -283,22 +326,22 @@ carriers2.update = function() {
 
                     if (allowValue == 5) {
                         // T-Mobile  warning
-                        cell = '<sup>' + allowValue + '</sup>'; 
+                        cell = tech + '<sup>' + allowValue + '</sup>'; 
                         warnTMobile = true;
                     }
                     else
                     if (allowValue == 7) {
                         // Verizon warning
-                        cell = '<sup>' + allowValue + '</sup>'; 
+                        cell = tech + '<sup>' + allowValue + '</sup>'; 
                         warnVerizon = true;
                     }
                     else
                     if (!ccObj[countryCarrierKey].roamingRestrictions) {
                         if (cmsObj.recommendation == 'YES') {
-                            cell = '&check;'; 
+                            cell = tech; 
                         }
                         else {
-                            cell = '?';
+                            cell = tech + '<sup>?</sup>';
                             byDeviceUnsupportedWarning = true;
                         }
                     }
@@ -383,7 +426,6 @@ carriers2.update = function() {
     else {
         $('#byDeviceVerizonWarning').hide();        
     }
-
     if (warnSunset) {
         $('.byDeviceSunsetWarning').show();
     }
@@ -407,7 +449,7 @@ carriers2.init = function(options, callback) {
 
     $('#' + carriers2.options.regionList).on('change', carriers2.selectMenu);
 
-    carriers2.selectMenu();
+    // carriers2.selectMenu();
 
     callback();
 };
@@ -427,6 +469,7 @@ const familyMapCreate = function() {
         const family = urlParams.get('family');
         if (family) {
             $(familyMap.options.familySelect).val(family);
+            familyMap.drawMap();        
         }
     };
 
@@ -444,6 +487,10 @@ const familyMapCreate = function() {
             }
         }
         familyMap.worldMapFill = [];
+    }
+
+    familyMap.selectTab = function() {
+        // familyMap.drawMap();        
     }
 
     familyMap.selectChange = function() {
@@ -487,9 +534,17 @@ const familyMapCreate = function() {
         familyMap.drawMap();
     }
 
-    familyMap.drawMap = function() {
+    familyMap.drawMap = async function() {
         let family;
 
+        $('.familyMapDiv').empty();
+        $('.familyMapSkusDiv').empty();
+
+        if (familyMap.options.family == 'cat1expansion') {
+            await familyMap.drawMapCat1Expansion();
+            return;
+        }
+        else
         if (familyMap.options.familySelect) {
             family = $(familyMap.options.familySelect).val();
         }
@@ -498,7 +553,7 @@ const familyMapCreate = function() {
         }
 
         if (family == 'ntn') {
-            familyMap.drawMapNTN();
+            await familyMap.drawMapNTN();
             return;
         }
 
@@ -509,6 +564,21 @@ const familyMapCreate = function() {
         }
         */
 
+        const colors = ['#86E2D5', '#00AEEF'];
+
+        const worldMapInstance = await initWorldMap({
+            styles: [
+                { // 0
+                    color: colors[0],
+                },
+                {
+                    color: colors[1],
+                }
+            ],
+            containerElem: $('.familyMapDiv'),
+        });
+        
+
         const skuFamilyObj = datastore.findSkuFamily(family);
 
         let models = [];
@@ -517,11 +587,6 @@ const familyMapCreate = function() {
                 models.push(obj);
             }
         });
-
-        // let countryModelArray = [['Country', 'Model']];
-        familyMap.removeFill();
-        const svgElem = $('.familyMapDiv > svg ');
-        const colors = ['86E2D5', '00AEEF'];
 
         datastore.data.countries.forEach(function(countryObj) {
 
@@ -544,11 +609,7 @@ const familyMapCreate = function() {
                 });
             });    
             if (typeof foundModel != 'undefined') {
-                const className = 'country-' + countryObj.isoCode;
-                familyMap.worldMapFill.push(className);
-
-                $(svgElem).find('.' + className).css('fill', '#' + colors[foundModel]);
-                // console.log('drawMap', {className, color: colors[foundModel], foundModel})
+                worldMapInstance.setCountryColor(countryObj.isoCode, foundModel);
             }
         });
 
@@ -562,7 +623,7 @@ const familyMapCreate = function() {
                 if (typeof skuFamilyObj['mapColor'] != 'undefined') {
                     mapColor = skuFamilyObj.mapColor;
                 }
-                const style = 'background-color:#' + colors[mapColor];
+                const style = 'background-color:' + colors[mapColor];
                 if (!colors[mapColor]) {
                     return;
                 }
@@ -582,139 +643,134 @@ const familyMapCreate = function() {
 
     }
 
-    familyMap.drawMapNTN = function() {
-        const options = {
-            labelValues: ['M1 only', 'NTN only', 'M1 and NTN'],
-            colors: [
-                '85D6E5', // COLOR_Sky_700 (blue, M1 only)
-                'FFE949', // COLOR_State_Yellow_500 (yellow, NTN only)
-                '36CE7E', // COLOR_Mint_800 (green, both)
+    familyMap.drawMapNTN = async function() {
+        const worldMapInstance = await initWorldMap({
+            styles: [
+                { // 0
+                    title: '2G',
+                    color: 'State_Yellow_500', // Yellow
+                },
+                {
+                    color: 'State_Yellow_500', // Yellow
+                    hatch: 'backward',
+                },
+                { // 2
+                    title: 'M1',
+                    color: 'Sky_700', // Blue
+                },
+                {
+                    color: 'Sky_700', // Blue
+                    hatch: 'backward',
+                },
+                { // 4
+                    title: 'M1 & 2G',
+                    color: 'Mint_800', // Green
+                },
+                {
+                    color: 'Mint_800', // Green
+                    hatch: 'backward',
+                },
+                { // 5
+                    title: 'NTN',
+                    hatch: 'backward'
+                },
             ],
-            valueForCountry: function(countryObj) {
+            containerElem: $('.familyMapDiv'),
+        });
+        
+        for(const countryObj of datastore.data.countries) {
+            let foundValue = -1;
 
-                let foundValue = 0;
-
-                for(const cmsObj of datastore.data.countryModemSim) {
-                   if (countryObj.name != cmsObj.country) {
-                        continue;
-                    }
-                    if (cmsObj.modem != 'BG95-S5' || cmsObj.sim != 4) {
-                        continue;
-                    }
-
-                    const hasM1 = cmsObj.technologies.includes('M1');
-                    const hasNTN = cmsObj.technologies.includes('NTN');
-
-                    if (hasM1 && hasNTN) {
-                        foundValue = 3;
-                        break;
-                    }
-                    else
-                    if (hasNTN) {
-                        foundValue = 2;
-                        break;
-                    }
-                    else
-                    if (hasM1) {
-                        foundValue = 1;
-                        break;
-                    }
+            for(const cmsObj of datastore.data.countryModemSim) {
+                if (countryObj.name != cmsObj.country) {
+                    continue;
+                }
+                if (cmsObj.modem != 'BG95-S5' || cmsObj.sim != 4) {
+                    continue;
                 }
 
-                return foundValue;            },
-        };
 
-        familyMap.drawMapCustom(options);
-    }
+                let has2G = cmsObj.technologies.includes('2G');
+                let hasM1 = cmsObj.technologies.includes('M1');
+                let hasNTN = cmsObj.technologies.includes('NTN');
 
-    familyMap.drawMapCat1Expansion = function() {
-        const options = {
-            labelValues: ['Original Coverage', 'Expanded Coverage'],
-            colors: ['AFE4EE', '2BB1CA'],
-            valueForCountry: function(countryObj) {
+                if (cmsObj.roamingRestrictions == 'hide' || cmsObj.roamingRestrictions == 'warn') {
+                    // Possibly illustrate warn differently here
+                    has2G = hasM1 = false;    
+                }
 
-                let foundValue = 0;
 
-                for(const cmsObj of datastore.data.countryModemSim) {
-                   if (countryObj.name != cmsObj.country || cmsObj.recommendation != 'YES') {
-                        continue;
-                    }
-                    if (!cmsObj.modem.startsWith('EG91-E') || cmsObj.sim != 4) {
-                        continue;
-                    }
+                if (hasM1 & has2G) {
+                    foundValue = 4;
+                }
+                else
+                if (hasM1) {
+                    foundValue = 2;
+                }
+                else
+                if (has2G) {
+                    foundValue = 0;
+                }
 
-                    if (cmsObj.expansion) {
-                        foundValue = 2;
-                        break;
+                if (hasNTN) {
+                    if (foundValue >= 0) {
+                        foundValue++;
                     }
                     else {
-                        foundValue = 1;
-                        break;
+                        foundValue = 5;
                     }
                 }
+            }
 
-                return foundValue;
-            },
-        };
-
-        familyMap.drawMapCustom(options);
+            if (foundValue >= 0) {
+                worldMapInstance.setCountryColor(countryObj.isoCode, foundValue);
+            }
+        }        
 
     }
 
-    familyMap.drawMapCustom = function(options) {
-        // let countryDataArray = [['Country', 'Coverage']];
 
-        const svgElem = $('.familyMapDiv > svg ');
-        familyMap.removeFill();
-
+    familyMap.drawMapCat1Expansion = async function() {
+        const worldMapInstance = await initWorldMap({
+            styles: [
+                {
+                    title: 'Original',
+                    color: 'Sky_600',
+                },
+                {
+                    title: 'Expanded',
+                    color: 'Sky_900',
+                },
+            ],
+            containerElem: $('.familyMapDiv'),
+        });
+        
         for(const countryObj of datastore.data.countries) {
-            let foundValue = options.valueForCountry(countryObj);
-            if (foundValue) {
-                const className = 'country-' + countryObj.isoCode;
-                familyMap.worldMapFill.push(className);
+            let foundValue = -1;
 
-                $(svgElem).find('.' + className).css('fill', '#' + options.colors[foundValue - 1]);
+            for(const cmsObj of datastore.data.countryModemSim) {
+                if (countryObj.name != cmsObj.country || cmsObj.recommendation != 'YES') {
+                    continue;
+                }
+                if (!cmsObj.modem.startsWith('EG91-E') || cmsObj.sim != 4) {
+                    continue;
+                }
+
+                if (cmsObj.expansion) {
+                    foundValue = 1;
+                    break;
+                }
+                else {
+                    foundValue = 0;
+                    break;
+                }
             }
-        }
-
-        // 
-        {
-            let html = '<div><table><tbody>';
-
-            for(let ii = 0; ii < options.labelValues.length; ii++) {
-                const style = 'background-color:#' + options.colors[ii];
-
-                html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + options.labelValues[ii] + '</td></tr>';
+            if (foundValue >= 0) {
+                worldMapInstance.setCountryColor(countryObj.isoCode, foundValue);
             }
-
-            html += '</tbody></table></div>';
-
-            $(familyMap.options.skusDiv).html(html);
-        }
-    }    
-    
-    familyMap.initMap = async function() {
-        familyMap.initMapStarted = true;
-
-        const fetchRes = await fetch('/assets/images/world-map.svg');
-        familyMap.worldMapSvg = await fetchRes.text();
-
-        $('.familyMapDiv').html(familyMap.worldMapSvg);
-
-        familyMap.worldMapFill = [];
-
-        familyMap.drawMap();
+        }        
     }
 
-    familyMap.clickToShow = function() {
-
-        if (!familyMap.initMapStarted) {
-            $(familyMap.options.mapDiv).find('.clickToShow').hide();
-            $(familyMap.options.mapDiv).off('click');
-            
-            familyMap.initMap();    
-        }
-    };
 
     familyMap.init = function(options, callback) {
         // options: 
@@ -724,32 +780,18 @@ const familyMapCreate = function() {
         // noHistory - don't update page history
         familyMap.options = options;
 
-        if (familyMap.options.family == 'cat1expansion') {
-            // Not really a family
-            familyMap.options.clickToShow = false;
-            familyMap.drawMap = familyMap.drawMapCat1Expansion;
+        const run = async function() {            
+            if (familyMap.options.familySelect) {
+                $(familyMap.options.familySelect).on('change', familyMap.selectChange);
+            }
+            familyMaps.push(familyMap);
+
+            await familyMap.drawMap();
+
+            callback();
         }
 
-        if (familyMap.options.clickToShow) {
-            $(familyMap.options.mapDiv).find('.clickToShow').show();
-
-            $(familyMap.options.mapDiv).on('click', function() {
-                for(const m of familyMaps) {
-                    m.clickToShow();
-                }
-            });
-        }
-        else {
-            familyMap.initMap();
-        }
-
-        if (familyMap.options.familySelect) {
-            $(familyMap.options.familySelect).on('change', familyMap.selectChange);
-        }
-
-        familyMaps.push(familyMap);
-
-        callback();
+        run();
     };
 
     return familyMap;
@@ -967,6 +1009,7 @@ countryDetails.generateTable = function(options) {
             noBandNoPlan:'3',
             warnM1:'4',
             warnVerizon: '7',
+            warnSunset: '8',
         },
         footnotesDiv: footnotesDivId, // countryDetails.options.footnotesDiv,
         showAllTechnologies: true,
@@ -1331,6 +1374,23 @@ bandFit.renderCountries = function(countries) {
             const sunset2G = datastore.dateParse(ccObj.sunset2G);
             const sunset3G = datastore.dateParse(ccObj.sunset3G);
 
+            const checkSunset = function(s) {
+                if (typeof s == 'string') {
+                    const m = s.match(/^([0-9]+)-([0-9]+)/);
+                    if (m) {
+                        const year = parseInt(m[1]);
+                        const month = parseInt(m[2]);
+
+                        const now = new Date();
+                        if (year < now.getFullYear() || month < (now.getMonth() + 1)) {
+                            // Sunset is in the past
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
             for(const testObj of bandFit.tests[test].tests) {
                 if (ccObj[simObj.simPlanKey].roamingRestrictions) {
                     roamingRestrictions = true;
@@ -1352,7 +1412,23 @@ bandFit.renderCountries = function(countries) {
 
                                 const msg = 'Cellular modem supports band but it is disabled in software';   
                                 footnote = addFootnote(msg); 
-                            }                    
+                            }     
+                            else
+                            if (b.startsWith('2G') && checkSunset(ccObj.sunset2G)) {
+                                value = '\u274C'; // red x
+                                testObj.counts.redX++;
+                                hasRedX = true;
+                                msg = '2G sunset completed';
+                                footnote = addFootnote(msg); 
+                            }
+                            else
+                            if (b.startsWith('3G') && checkSunset(ccObj.sunset3G)) {
+                                value = '\u274C'; // red x
+                                testObj.counts.redX++;
+                                hasRedX = true;
+                                msg = '3G sunset completed';
+                                footnote = addFootnote(msg); 
+                            }
                             else {
                                 value = '\u2705'; // green check
                                 hasGreenCheck = true;
@@ -1596,41 +1672,44 @@ bandFit.selectRegion = function() {
             regions = [bandFit.regions.find(e => e.name == region)];
         }
 
-        for(const regionObj of regions) {
-            countries = [];
+        if (regions) {
+            for(const regionObj of regions) {
+                countries = [];
 
-            for(const ccObj of datastore.data.countryCarrier) {
-                const countryObj = datastore.data.countries.find(e => e.name == ccObj.country);
-                
-                let inRegion = false;
-                for(const r1 of countryObj.regions) {
-                    if (regionObj.regions.includes(r1)) {
-                        inRegion = true;
-                        break;
+                for(const ccObj of datastore.data.countryCarrier) {
+                    const countryObj = datastore.data.countries.find(e => e.name == ccObj.country);
+                    
+                    let inRegion = false;
+                    for(const r1 of countryObj.regions) {
+                        if (regionObj.regions.includes(r1)) {
+                            inRegion = true;
+                            break;
+                        }
                     }
-                }
-                if (!inRegion) {
-                    continue;
-                }
-                if (!ccObj.supersim) {
-                    continue;
-                }
-    
-                if (!countries.includes(ccObj.country)) {
-                    countries.push(ccObj.country);
-                }
-            }   
+                    if (!inRegion) {
+                        continue;
+                    }
+                    if (!ccObj.supersim) {
+                        continue;
+                    }
+        
+                    if (!countries.includes(ccObj.country)) {
+                        countries.push(ccObj.country);
+                    }
+                }   
 
-            {
-                const headerElem = document.createElement('h2');
-                $(headerElem).text(regionObj.name);
+                {
+                    const headerElem = document.createElement('h2');
+                    $(headerElem).text(regionObj.name);
 
-                $(bandFit.bandFitResultsElem).append(headerElem);
-            }
+                    $(bandFit.bandFitResultsElem).append(headerElem);
+                }
 
 
-            bandFit.renderCountries(countries);
-        }     
+                bandFit.renderCountries(countries);
+            }     
+        }
+
     }
 
     
@@ -1675,7 +1754,7 @@ bandFit.init = function(callback) {
 
     bandFit.tests = {
         'msom': {
-            title: 'M-Series (M404 vs. M524)',
+            title: 'M-Series (M404 vs. M524 vs. M635e)',
             sim: 4, // EtherSIM
             tests: [
                 {
@@ -1687,8 +1766,14 @@ bandFit.init = function(callback) {
                 {
                     title: 'M524',
                     modemObj: datastore.data.modems.find(e => e.model == 'EG91-EX'),
-                    borderRight: false,
+                    borderRight: true,
                     backgroundColor: '#89E2B3', // COLOR_Mint_600
+                },
+                {
+                    title: 'M635e',
+                    modemObj: datastore.data.modems.find(e => e.model == 'BG95-S5'),
+                    borderRight: true,
+                    backgroundColor: '#FF9F61', // @COLOR_Tangerine_400
                 },
             ],
         },
@@ -1852,6 +1937,9 @@ function carrierSelectTab(which) {
             $('#carrier' + tab + 'Div').hide();
         }
     });
+    if (typeof carrierSelectTabs[which].selectTab == 'function') {
+        carrierSelectTabs[which].selectTab();
+    }
     carrierSelectTabs[which].saveQuery();
 }
 
@@ -1871,7 +1959,7 @@ function carrierLoadQuery(urlParams) {
 
 
 
-$(document).ready(function() {
+$(document).ready(async function() {
     Object.keys(carrierSelectTabs).forEach(function(tab) {
         $('#carrierTab' + tab).on('click touchend', function(ev) {
             carrierSelectTab(tab);
@@ -1889,70 +1977,68 @@ $(document).ready(function() {
     // Remember the search parameters before they are replaced
     const urlParams = new URLSearchParams(window.location.search);
 
-    datastore.init({path:'/assets/files/carriers.json'}, function() {
+    await datastore.init();
 
-        if ($('#carrierTabs').length) {
-            // Full carriers page
-            dataui.populateRegionSelectors();
+    if ($('#carrierTabs').length) {
+        // Full carriers page
+        dataui.populateRegionSelectors();
 
-            carriers2.init({
-                deviceList: $('#deviceList'),
-                regionList:'regionList',
-                regionGroup:'region6',
-                table:'countryCarrierTable'
-            },
-            function() {    
-                $('.byDeviceShowUnsupported').on('click', function() {
-                    carriers2.saveQuery();
-                    carriers2.update();
-                });
-
-                carrierSelectTabs.ModelMap.init({
-                    mapDiv:$('.familyMapDiv'),
-                    familySelect:$('#familyMapSelect'),
-                    skusDiv:$('#familyMapSkusDiv')
-                },
-                function() {
-                    countryDetails.init({
-                        deviceList: $('#countryDetailDeviceList'),
-                        countryField:'countryDetailText',
-                        popupClass:'countryPopup',
-                        resultDiv:'countryDetailsResultsDiv',
-                        footnotesDiv:'countryDetailsFootnotesDiv'
-                    },
-                    function() {                            
-                        if (showBandFit) {
-                            bandFit.init(function() {
-                                carrierLoadQuery(urlParams);
-                            });    
-                        }
-                        else {
-                            carrierLoadQuery(urlParams);
-                        }
-                    });
-                });   
-    
-        
-            });   
-    
-        }
-        else {
-            // For now, the only special case is family map
-            $('.carrierFamilyMap').each(function() {
-                const thisElem = $(this);
-
-                carriers2.familyMap = familyMapCreate();
-
-                carriers2.familyMap.init({
-                    mapDiv:$(thisElem).find('.familyMapDiv'),
-                    skusDiv:$(thisElem).find('.familyMapSkusDiv'),
-                    family:$(thisElem).data('family'),
-                    noHistory: true,
-                    clickToShow: true
-                }, function() {
-    
-                });    
+        carriers2.init({
+            deviceList: $('#deviceList'),
+            regionList:'regionList',
+            regionGroup:'region6',
+            table:'countryCarrierTable'
+        },
+        function() {    
+            $('.byDeviceShowUnsupported,.byDeviceShowNTN').on('click', function() {
+                carriers2.saveQuery();
+                carriers2.update();
             });
-        }
-    });
+
+            carrierSelectTabs.ModelMap.init({
+                mapDiv:$('.familyMapDiv'),
+                familySelect:$('#familyMapSelect'),
+                skusDiv:$('.familyMapSkusDiv')
+            },
+            function() {
+                countryDetails.init({
+                    deviceList: $('#countryDetailDeviceList'),
+                    countryField:'countryDetailText',
+                    popupClass:'countryPopup',
+                    resultDiv:'countryDetailsResultsDiv',
+                    footnotesDiv:'countryDetailsFootnotesDiv'
+                },
+                function() {                            
+                    if (showBandFit) {
+                        bandFit.init(function() {
+                            carrierLoadQuery(urlParams);
+                        });    
+                    }
+                    else {
+                        carrierLoadQuery(urlParams);
+                    }
+                });
+            });   
+
+    
+        });   
+
+    }
+    else {
+        // For now, the only special case is family map
+        $('.carrierFamilyMap').each(function() {
+            const thisElem = $(this);
+
+            carriers2.familyMap = familyMapCreate();
+
+            carriers2.familyMap.init({
+                mapDiv:$(thisElem).find('.familyMapDiv'),
+                skusDiv:$(thisElem).find('.familyMapSkusDiv'),
+                family:$(thisElem).data('family'),
+                noHistory: true,
+            }, function() {
+
+            });    
+        });
+    }
 });

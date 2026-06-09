@@ -1792,9 +1792,9 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Hong Kong | B524 | 3G, 4G | CMHK, CSL, SmarTone |
 | Hungary | B524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | B524 | 4G | Nova, Siminn, Vodafone |
-| Indonesia | B524 | 2G, 3G, 4G | Indosat, Telkomsel, XL Axiata |
+| Indonesia | B524 | 2G, 4G | Indosat, Telkomsel, XL Axiata |
 | Ireland | B524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
-| Israel | B524 | 2G, 3G, 4G | Hot Mobile, Orange, Pelephone |
+| Israel | B524 | 4G | Hot Mobile, Orange, Pelephone |
 | Italy | B524 | 2G, 4G | TIM, Vodafone, Wind |
 | Japan | B524 | 4G | KDDI, NTT DoCoMo, Softbank |
 | Jordan | B524 | 2G, 3G, 4G | Zain |
@@ -1808,7 +1808,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Macao | B524 | 3G, 4G | CTM |
 | Madagascar | B524 | 2G, 3G, 4G | Airtel |
 | Malawi | B524 | 2G, 3G, 4G | Airtel |
-| Malaysia | B524 | 2G, 3G, 4G | Celcom, DiGi, Maxis |
+| Malaysia | B524 | 2G, 4G | Celcom, DiGi, Maxis |
 | Malta | B524 | 2G, 3G, 4G | Go Mobile, Vodafone |
 | Moldova | B524 | 2G, 3G, 4G | Moldcell, Orange |
 | Mongolia | B524 | 2G, 3G | Mobicom, Unitel |
@@ -1826,7 +1826,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Papua New Guinea | B524 | 2G, 3G | bmobile |
 | Poland | B524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | B524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
-| Qatar | B524 | 2G, 3G, 4G | Ooredoo, Vodafone |
+| Qatar | B524 | 2G, 4G | Ooredoo, Vodafone |
 | Romania | B524 | 2G, 4G | Orange, Telekom Romania, Vodafone |
 | Rwanda | B524 | 2G, 3G | Airtel, MTN |
 | Serbia | B524 | 2G, 3G, 4G | Telenor, VIP |
@@ -1838,11 +1838,11 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | South Korea | B524 | 3G, 4G | KT, LG U+, SK Telecom |
 | South Sudan | B524 | 2G, 3G | MTN |
 | Spain | B524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
-| Sri Lanka | B524 | 2G, 3G, 4G | Dialog, Mobitel |
+| Sri Lanka | B524 | 2G, 4G | Dialog, Mobitel |
 | Suriname | B524 | 2G, 3G | Telesur |
 | Sweden | B524 | 2G, 4G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | B524 | 3G, 4G | Salt, Sunrise, Swisscom |
-| Taiwan | B524 | 3G, 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Taiwan | B524 | 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tanzania | B524 | 2G, 3G, 4G | Airtel |
 | Thailand | B524 | 2G, 3G, 4G | AIS, DTAC, True Move |
 | Tunisia | B524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |

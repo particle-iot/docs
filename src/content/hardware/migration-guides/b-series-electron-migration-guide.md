@@ -1450,7 +1450,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Gabon | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Georgia | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Germany | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| Ghana | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
+| Ghana | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Gibraltar | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Greece | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Greenland | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
@@ -1467,7 +1467,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Iceland | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Indonesia | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Ireland | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| Israel | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
+| Israel | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Italy | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Japan | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Jersey | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
@@ -1530,7 +1530,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Suriname | &check; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Sweden | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Switzerland | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| Taiwan | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
+| Taiwan | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Tanzania | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Thailand | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Trinidad and Tobago | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |

@@ -20,9 +20,14 @@
                 <td class="carrierFormLabel">Region:</td>
                 <td><select id="regionList" class="carrierListSelect"></select></td>
             </tr>
-            <tr>
+            <tr class="byDeviceShowUnsupportedRow">
                 <td colspan="2">
                   <label><input type="checkbox" class="byDeviceShowUnsupported" />Show carriers that are not officially supported but may work</label>
+                </td>
+            </tr>
+            <tr class="byDeviceShowNTNRow" style="display:none;">
+                <td colspan="2">
+                  <label><input type="checkbox" class="byDeviceShowNTN" />Only show countries with NTN support</label>
                 </td>
             </tr>
         </table>
@@ -91,7 +96,7 @@
   </form>
   <div class="familyMapDiv">
   </div>
-  <div id="familyMapSkusDiv"></div>
+  <div class="familyMapSkusDiv"></div>
   <div>
       <p class="attribution">World map from [simplemaps.com](https://simplemaps.com/resources/svg-world)</p>
   </div>

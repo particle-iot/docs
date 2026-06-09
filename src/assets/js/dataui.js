@@ -1227,6 +1227,23 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKeys, modem, op
 
             html += '<tr ' + trAttr + '><td>' + obj.country + '</td><td>' + obj.carrier + '</td>';
 
+            const checkSunset = function(s) {
+                if (typeof s == 'string') {
+                    const m = s.match(/^([0-9]+)-([0-9]+)/);
+                    if (m) {
+                        const year = parseInt(m[1]);
+                        const month = parseInt(m[2]);
+
+                        const now = new Date();
+                        if (year < now.getFullYear() || month < (now.getMonth() + 1)) {
+                            // Sunset is in the past
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
             bandsUsed.bandsAll.forEach(function(tagBand) {
                 const tag = dataui.bandGetTag(tagBand);
                 const band = dataui.bandGetBand(tagBand);
@@ -1238,7 +1255,15 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKeys, modem, op
                     if (!obj[planKey]) {
                         continue;
                     }
-
+                    if ((tag == '2G' && checkSunset(obj.sunset2G)) || (tag == '3G' && checkSunset(obj.sunset3G))) {
+                        cellContents = '\u274C'; // Red X
+                        tooltip = tag + ' sunset has been completed';                              
+                        if (options.footnotes && options.footnotes['warnSunset']) {
+                            cellContents += '<sup>' + options.footnotes['warnSunset'] + '</sup>';
+                            showFootnotes.warnSunset = true;
+                        }
+                    }
+                    else
                     if ((tag == '2G' && obj[planKey].allow2G) ||
                         (tag == '3G' && obj[planKey].allow3G) ||
                         (tag == '4G' && obj[planKey].allow4G) ||
@@ -1370,6 +1395,9 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKeys, modem, op
             }
             if (showFootnotes.warnVerizon) {
                 html += '<tr><td><sup>' + options.footnotes.warnVerizon + '</sup></td><td>Verizon is only available on enterprise plans.</td></tr>';                            
+            }
+            if (showFootnotes.warnSunset) {
+                html += '<tr><td><sup>' + options.footnotes.warnSunset + '</sup></td><td>2G/3G sunset has been completed.</td></tr>';                            
             }
 
 

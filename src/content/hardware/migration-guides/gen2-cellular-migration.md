@@ -722,7 +722,7 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Germany | Vodafone | &check; | &check; | &check; | &nbsp; |
 | Ghana | AirtelTigo | &nbsp; | &check; | &check; | &nbsp; |
 | Ghana | MTN | &nbsp; | &check; | &check; | &nbsp; |
-| Ghana | Vodafone | &check; | &check; | &check; | &nbsp; |
+| Ghana | Vodafone | &nbsp; | &check; | &check; | &nbsp; |
 | Gibraltar | Gibtel | &check; | &check; | &check; | &nbsp; |
 | Greece | Cosmote | &check; | &check; | &check; | &nbsp; |
 | Greece | Vodafone | &check; | &check; | &check; | &nbsp; |
@@ -754,11 +754,9 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Ireland | Meteor | &nbsp; | &check; | &check; | &nbsp; |
 | Ireland | O2 | &nbsp; | &check; | &check; | &nbsp; |
 | Ireland | Vodafone | &check; | &check; | &check; | &nbsp; |
-| Israel | Cellcom | &check; | &nbsp; | &nbsp; | &nbsp; |
-| Israel | Hot Mobile | &check; | &check; | &check; | &nbsp; |
-| Israel | Orange | &nbsp; | &check; | &check; | &nbsp; |
-| Israel | Partner | &check; | &nbsp; | &nbsp; | &nbsp; |
-| Israel | Pelephone | &nbsp; | &check; | &check; | &nbsp; |
+| Israel | Hot Mobile | &nbsp; | &nbsp; | &check; | &nbsp; |
+| Israel | Orange | &nbsp; | &nbsp; | &check; | &nbsp; |
+| Israel | Pelephone | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Italy | TIM | &check; | &check; | &check; | &nbsp; |
 | Italy | Vodafone | &check; | &check; | &check; | &nbsp; |
 | Italy | Wind | &check; | &check; | &check; | &nbsp; |
@@ -900,10 +898,10 @@ On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Switzerland | Salt | &check; | &check; | &check; | &nbsp; |
 | Switzerland | Sunrise | &check; | &check; | &check; | &nbsp; |
 | Switzerland | Swisscom | &nbsp; | &check; | &check; | &nbsp; |
-| Taiwan | Chunghwa | &nbsp; | &check; | &check; | &nbsp; |
-| Taiwan | FarEasTone | &nbsp; | &check; | &check; | &nbsp; |
-| Taiwan | T Star | &check; | &check; | &check; | &nbsp; |
-| Taiwan | Taiwan Mobile | &check; | &check; | &check; | &nbsp; |
+| Taiwan | Chunghwa | &nbsp; | &nbsp; | &check; | &nbsp; |
+| Taiwan | FarEasTone | &nbsp; | &nbsp; | &check; | &nbsp; |
+| Taiwan | T Star | &nbsp; | &nbsp; | &check; | &nbsp; |
+| Taiwan | Taiwan Mobile | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Tajikistan | Beeline | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Tajikistan | Tcell | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Tanzania | Airtel | &check; | &check; | &check; | &nbsp; |
