@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(async function() {
     const eventCategory = 'sunset-tool';
 
     let sunsetTool = {
@@ -190,7 +190,7 @@ $(document).ready(function() {
             $(thisPartial).show();
         });
     }
-    createSunsetMap();
+    await createSunsetMap();
 
 
 
