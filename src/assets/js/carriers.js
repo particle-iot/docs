@@ -1373,6 +1373,23 @@ bandFit.renderCountries = function(countries) {
             const sunset2G = datastore.dateParse(ccObj.sunset2G);
             const sunset3G = datastore.dateParse(ccObj.sunset3G);
 
+            const checkSunset = function(s) {
+                if (typeof s == 'string') {
+                    const m = s.match(/^([0-9]+)-([0-9]+)/);
+                    if (m) {
+                        const year = parseInt(m[1]);
+                        const month = parseInt(m[2]);
+
+                        const now = new Date();
+                        if (year < now.getFullYear() || month < (now.getMonth() + 1)) {
+                            // Sunset is in the past
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
             for(const testObj of bandFit.tests[test].tests) {
                 if (ccObj[simObj.simPlanKey].roamingRestrictions) {
                     roamingRestrictions = true;
@@ -1394,7 +1411,15 @@ bandFit.renderCountries = function(countries) {
 
                                 const msg = 'Cellular modem supports band but it is disabled in software';   
                                 footnote = addFootnote(msg); 
-                            }                    
+                            }     
+                            else
+                            if ((b.startsWith('2G') && checkSunset(ccObj.sunset2G)) || (b.startsWith('3G') && checkSunset(ccObj.sunset3G))) {
+                                value = '\u274C'; // red x
+                                testObj.counts.redX++;
+                                hasRedX = true;
+                                msg = '2G/3G sunset completed';
+                                footnote = addFootnote(msg); 
+                            }
                             else {
                                 value = '\u2705'; // green check
                                 hasGreenCheck = true;
