@@ -425,7 +425,6 @@ carriers2.update = function() {
     else {
         $('#byDeviceVerizonWarning').hide();        
     }
-
     if (warnSunset) {
         $('.byDeviceSunsetWarning').show();
     }
@@ -1009,6 +1008,7 @@ countryDetails.generateTable = function(options) {
             noBandNoPlan:'3',
             warnM1:'4',
             warnVerizon: '7',
+            warnSunset: '8',
         },
         footnotesDiv: footnotesDivId, // countryDetails.options.footnotesDiv,
         showAllTechnologies: true,
@@ -1638,41 +1638,44 @@ bandFit.selectRegion = function() {
             regions = [bandFit.regions.find(e => e.name == region)];
         }
 
-        for(const regionObj of regions) {
-            countries = [];
+        if (regions) {
+            for(const regionObj of regions) {
+                countries = [];
 
-            for(const ccObj of datastore.data.countryCarrier) {
-                const countryObj = datastore.data.countries.find(e => e.name == ccObj.country);
-                
-                let inRegion = false;
-                for(const r1 of countryObj.regions) {
-                    if (regionObj.regions.includes(r1)) {
-                        inRegion = true;
-                        break;
+                for(const ccObj of datastore.data.countryCarrier) {
+                    const countryObj = datastore.data.countries.find(e => e.name == ccObj.country);
+                    
+                    let inRegion = false;
+                    for(const r1 of countryObj.regions) {
+                        if (regionObj.regions.includes(r1)) {
+                            inRegion = true;
+                            break;
+                        }
                     }
-                }
-                if (!inRegion) {
-                    continue;
-                }
-                if (!ccObj.supersim) {
-                    continue;
-                }
-    
-                if (!countries.includes(ccObj.country)) {
-                    countries.push(ccObj.country);
-                }
-            }   
+                    if (!inRegion) {
+                        continue;
+                    }
+                    if (!ccObj.supersim) {
+                        continue;
+                    }
+        
+                    if (!countries.includes(ccObj.country)) {
+                        countries.push(ccObj.country);
+                    }
+                }   
 
-            {
-                const headerElem = document.createElement('h2');
-                $(headerElem).text(regionObj.name);
+                {
+                    const headerElem = document.createElement('h2');
+                    $(headerElem).text(regionObj.name);
 
-                $(bandFit.bandFitResultsElem).append(headerElem);
-            }
+                    $(bandFit.bandFitResultsElem).append(headerElem);
+                }
 
 
-            bandFit.renderCountries(countries);
-        }     
+                bandFit.renderCountries(countries);
+            }     
+        }
+
     }
 
     
