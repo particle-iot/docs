@@ -310,7 +310,6 @@ const generatorConfig = require('./generator-config');
                 countryCarrierKeys = simPlanObj.countryCarrierKeys;
             }
         }
-        console.log('countryCarrierKeys', countryCarrierKeys);
 
         let modems = [];
         let shortModelForModem = {};

@@ -25,6 +25,7 @@ carriers2.fromQuery = function(urlParams) {
 };
 
 carriers2.saveQuery = function() {
+
     const deviceShortName = $(carriers2.options.deviceList).val();
     
     const skuFamilyInfo = datastore.findSkuFamilyInfoByShortName(deviceShortName); 
@@ -448,7 +449,7 @@ carriers2.init = function(options, callback) {
 
     $('#' + carriers2.options.regionList).on('change', carriers2.selectMenu);
 
-    carriers2.selectMenu();
+    // carriers2.selectMenu();
 
     callback();
 };
@@ -468,6 +469,7 @@ const familyMapCreate = function() {
         const family = urlParams.get('family');
         if (family) {
             $(familyMap.options.familySelect).val(family);
+            familyMap.drawMap();        
         }
     };
 
@@ -488,7 +490,7 @@ const familyMapCreate = function() {
     }
 
     familyMap.selectTab = function() {
-        familyMap.drawMap();        
+        // familyMap.drawMap();        
     }
 
     familyMap.selectChange = function() {
@@ -536,6 +538,7 @@ const familyMapCreate = function() {
         let family;
 
         $('.familyMapDiv').empty();
+        $('.familyMapSkusDiv').empty();
 
         if (familyMap.options.family == 'cat1expansion') {
             await familyMap.drawMapCat1Expansion();
@@ -577,8 +580,6 @@ const familyMapCreate = function() {
         
 
         const skuFamilyObj = datastore.findSkuFamily(family);
-
-        console.log('skuFamilyObj', skuFamilyObj);
 
         let models = [];
         skuFamilyObj.group.forEach(function(obj) {
@@ -779,13 +780,13 @@ const familyMapCreate = function() {
         // noHistory - don't update page history
         familyMap.options = options;
 
-        const run = async function() {
-            await familyMap.drawMap();
-            
+        const run = async function() {            
             if (familyMap.options.familySelect) {
                 $(familyMap.options.familySelect).on('change', familyMap.selectChange);
             }
             familyMaps.push(familyMap);
+
+            await familyMap.drawMap();
 
             callback();
         }
@@ -1413,11 +1414,19 @@ bandFit.renderCountries = function(countries) {
                                 footnote = addFootnote(msg); 
                             }     
                             else
-                            if ((b.startsWith('2G') && checkSunset(ccObj.sunset2G)) || (b.startsWith('3G') && checkSunset(ccObj.sunset3G))) {
+                            if (b.startsWith('2G') && checkSunset(ccObj.sunset2G)) {
                                 value = '\u274C'; // red x
                                 testObj.counts.redX++;
                                 hasRedX = true;
-                                msg = '2G/3G sunset completed';
+                                msg = '2G sunset completed';
+                                footnote = addFootnote(msg); 
+                            }
+                            else
+                            if (b.startsWith('3G') && checkSunset(ccObj.sunset3G)) {
+                                value = '\u274C'; // red x
+                                testObj.counts.redX++;
+                                hasRedX = true;
+                                msg = '3G sunset completed';
                                 footnote = addFootnote(msg); 
                             }
                             else {
@@ -1989,7 +1998,7 @@ $(document).ready(async function() {
             carrierSelectTabs.ModelMap.init({
                 mapDiv:$('.familyMapDiv'),
                 familySelect:$('#familyMapSelect'),
-                skusDiv:$('#familyMapSkusDiv')
+                skusDiv:$('.familyMapSkusDiv')
             },
             function() {
                 countryDetails.init({
