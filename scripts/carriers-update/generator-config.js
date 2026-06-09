@@ -5633,6 +5633,18 @@ const schemaDocs = require('./schema-docs');
             } 
         },
         {
+            // Country compatibility - M635e
+            guid:'e3f8ce8b-b7c8-4116-9fe8-ef7970a01e5a',
+            generatorFn:function(updater) {
+                return updater.generateCountryList('m series', {
+                    groupFn:function(groupObj) {
+                        return groupObj.modem != 'BG95-S5';
+                    },
+                    simPlan: 41,
+                });                 
+            } 
+        },
+        {
             // SKU list M-SoM
             guid:'5c48836c-dced-4420-be6f-15916d265a5e', 
             generatorFn:function(updater) {

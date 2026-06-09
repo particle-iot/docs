@@ -21,7 +21,7 @@ The Particle M-SoM contains the following functional units:
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
 - Realtek RTL8722DM MCU (BLE and Wi-Fi)
 - Cellular modem 
-  - M404: Quectel BG95-M5 LTE Cat M1/2G (Global)
+  - M404: Quectel BG95-M5 LTE Cat M1/2G (NorAm)
   - M524: Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
   - M635: Quectel BG95-S5 LTE Cat M1/2G (Global with satellite)
 
@@ -1449,10 +1449,198 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 
 
 
-### M635 - Country compatibility
+### M635e - Country compatibility
 
 Global, country list to be provided a later date.
 
+{{!-- BEGIN do not edit content below, it is automatically generated e3f8ce8b-b7c8-4116-9fe8-ef7970a01e5a --}}
+
+| Country | Model | Technologies | Carriers |
+| :--- | :--- | :--- | :--- |
+| Afghanistan | M635E | 2G | MTN |
+| Albania | M635E | 2G | Eagle, Telekom, Vodafone |
+| Algeria | M635E | 2G | Mobilis, Ooredoo |
+| American Samoa | M635E | NTN | Skylo |
+| Andorra | M635E | NTN | Skylo |
+| Anguilla | M635E | 2G | Flow |
+| Antigua and Barbuda | M635E | 2G | Flow |
+| Argentina | M635E | 2G, M1 | Claro, Movistar, Personal |
+| Armenia | M635E | 2G | Beeline, Ucom |
+| Aruba | M635E | 2G | Setar |
+| Australia | M635E | M1, NTN | Optus, Skylo, Telstra, Vodafone |
+| Austria | M635E | 2G, M1, NTN | 3 (Drei), A1, Skylo, T-Mobile |
+| Azerbaijan | M635E | 2G | Azercell, Bakcell, NAR Mobile |
+| Bahamas | M635E | 2G | Aliv, BTC Bahamas |
+| Bahrain | M635E | 2G | Zain |
+| Bangladesh | M635E | 2G | Bangalink |
+| Barbados | M635E | 2G | Flow |
+| Belarus | M635E | 2G | A1 |
+| Belgium | M635E | 2G, M1, NTN | Base, Orange, Proximus, Skylo |
+| Bolivia | M635E | 2G | Viva |
+| Bosnia and Herzegovina | M635E | 2G | HT Eronet |
+| Botswana | M635E | 2G | BeMobile |
+| Brazil | M635E | 2G, NTN | Skylo, TIM |
+| Bulgaria | M635E | 2G, NTN | A1, Skylo, Telenor, Vivacom |
+| Burkina Faso | M635E | 2G | Orange |
+| Cabo Verde | M635E | 2G | CVMóvel, Unitel T+ |
+| Cambodia | M635E | 2G | Metfone |
+| Canada | M635E | M1, NTN | Bell Mobility, Rogers Wireless, Skylo, Telus |
+| Cayman Islands | M635E | 2G | Flow |
+| Chad | M635E | 2G | Airtel |
+| Colombia | M635E | 2G | Movistar |
+| Congo (Brazzaville) | M635E | 2G | Airtel |
+| Congo (Kinshasa) | M635E | 2G | Airtel |
+| Côte d'Ivoire | M635E | 2G | MTN |
+| Croatia | M635E | 2G, M1, NTN | Hrvatski Telekom, Skylo, Tele2 |
+| Cyprus | M635E | 2G | MTN |
+| Czechia | M635E | 2G, NTN | Skylo, T-Mobile, Vodafone |
+| Denmark | M635E | 2G, M1, NTN | Skylo, TDC, Telenor, Telia |
+| Dominica | M635E | 2G | Flow |
+| Dominican Republic | M635E | 2G | Altice Dominicana, Viva |
+| Ecuador | M635E | 2G | Claro, Movistar |
+| Egypt | M635E | 2G | Etisalat |
+| El Salvador | M635E | 2G | Telefonica |
+| Estonia | M635E | 2G, M1, NTN | Elisa, Skylo, Tele2, Telia |
+| eSwatini | M635E | 2G | MTN |
+| Ethiopia | M635E | 2G | Ethio Telecom |
+| Faroe Islands | M635E | 2G, NTN | Faroese Telecom, Skylo, Vodafone |
+| Finland | M635E | 2G, M1, NTN | DNA, Elisa, Skylo, Telia |
+| France | M635E | 2G, M1, NTN | Bouygues, Free Mobile, Orange, SFR, Skylo |
+| French Guiana | M635E | 2G | Digicel |
+| Gabon | M635E | 2G | Airtel |
+| Georgia | M635E | 2G | Beeline, Geocell |
+| Germany | M635E | 2G, M1, NTN | O2, Skylo, Telekom, Vodafone |
+| Ghana | M635E | 2G | AirtelTigo, MTN |
+| Gibraltar | M635E | 2G, NTN | Gibtel, Skylo |
+| Greece | M635E | 2G, NTN | Cosmote, Skylo, Wind |
+| Grenada | M635E | 2G | Flow |
+| Guadeloupe | M635E | 2G | Orange |
+| Guatemala | M635E | 2G | Movistar |
+| Guernsey | M635E | 2G, NTN | Skylo, Sure |
+| Guinea | M635E | 2G | MTN |
+| Guinea-Bissau | M635E | 2G | MTN |
+| Guyana | M635E | 2G | Digicel |
+| Haiti | M635E | 2G | Digicel |
+| Holy See (Vatican City) | M635E | NTN | Skylo |
+| Honduras | M635E | 2G | Claro, Tigo |
+| Hungary | M635E | 2G, M1, NTN | Magyar Telekom, Skylo, Telenor, Vodafone |
+| Iceland | M635E | M1, NTN | Nova, Siminn, Skylo, Vodafone |
+| India | M635E | 2G | Airtel |
+| Indonesia | M635E | 2G | Indosat, Telkomsel, XL Axiata |
+| Ireland | M635E | 2G, NTN | Skylo, Vodafone |
+| Isle of Man | M635E | 2G, NTN | Manx Telecom, Skylo, Sure |
+| Italy | M635E | 2G, NTN | Skylo, TIM, Vodafone, Wind |
+| Japan | M635E | M1, NTN | KDDI, NTT DoCoMo, Skylo, Softbank |
+| Jersey | M635E | 2G, NTN | Jersey Telecom, Skylo, Sure |
+| Jordan | M635E | 2G | Zain |
+| Kazakhstan | M635E | 2G | Beeline, K-Cell |
+| Kenya | M635E | 2G | Airtel |
+| Kosovo | M635E | NTN | Skylo |
+| Kuwait | M635E | 2G | Viva, Zain |
+| Kyrgyzstan | M635E | 2G | Beeline |
+| Latvia | M635E | 2G, M1, NTN | Bite, LMT, Skylo, Tele2 |
+| Liechtenstein | M635E | 2G, NTN | Mobilkom, Orange, Skylo |
+| Lithuania | M635E | 2G, M1, NTN | Bite, Omnitel, Skylo, Tele2 |
+| Luxembourg | M635E | 2G, M1, NTN | Orange, POST, Skylo, Tango |
+| Madagascar | M635E | 2G | Airtel |
+| Malawi | M635E | 2G | Airtel |
+| Malaysia | M635E | 2G | DiGi, Maxis |
+| Malta | M635E | 2G, M1, NTN | Go Mobile, Skylo |
+| Mexico | M635E | M1, NTN | AT&T, Skylo, Telcel |
+| Moldova | M635E | 2G | Moldcell, Orange |
+| Monaco | M635E | NTN | Skylo |
+| Mongolia | M635E | 2G | Mobicom, Unitel |
+| Montenegro | M635E | 2G | T-Mobile, Telenor |
+| Morocco | M635E | 2G | Inwi, Medi Telecom |
+| Mozambique | M635E | 2G | Vodacom |
+| Myanmar | M635E | 2G | MPT |
+| Namibia | M635E | 2G | Telecom Namibia |
+| Netherlands | M635E | 2G, M1, NTN | KPN, Skylo, T-Mobile, Vodafone |
+| New Zealand | M635E | M1, NTN | Skylo, Spark, Vodafone |
+| Nicaragua | M635E | 2G | Movistar |
+| Nigeria | M635E | 2G | 9mobile, Airtel, Glo |
+| North Macedonia | M635E | 2G, NTN | Skylo, Vip operator |
+| Norway | M635E | 2G, M1, NTN | Skylo, TDC, Telenor, Telia |
+| Oman | M635E | 2G | Ooredoo |
+| Pakistan | M635E | 2G | Mobilink, Ufone, Warid |
+| Palestine | M635E | 2G | Jawwal |
+| Panama | M635E | 2G | Movistar |
+| Papua New Guinea | M635E | 2G | bmobile |
+| Paraguay | M635E | 2G | Personal, Tigo, Vox |
+| Peru | M635E | 2G | Entel |
+| Philippines | M635E | 2G | Globe, Smart |
+| Poland | M635E | 2G, M1, NTN | Orange, Play, Plus, Skylo, T-Mobile |
+| Portugal | M635E | 2G, M1, NTN | NOS, Skylo, TMN, Vodafone |
+| Puerto Rico | M635E | NTN | Skylo |
+| Qatar | M635E | 2G | Ooredoo, Vodafone |
+| Romania | M635E | 2G, M1, NTN | Orange, Skylo, Telekom Romania, Vodafone |
+| Russia | M635E | 2G | Beeline, Megafon, MTS, Tele2 |
+| Rwanda | M635E | 2G | Airtel, MTN |
+| Saint Kitts and Nevis | M635E | 2G | Flow |
+| Saint Lucia | M635E | 2G | Flow |
+| San Marino | M635E | NTN | Skylo |
+| Serbia | M635E | 2G | Telenor, VIP |
+| Seychelles | M635E | 2G | Airtel |
+| Singapore | M635E | M1 | SingTel |
+| Sint Maarten | M635E | 2G | TelCell |
+| Slovakia | M635E | 2G, M1, NTN | O2, Orange, Skylo, Telekom |
+| Slovenia | M635E | 2G, M1, NTN | A1, Mobitel, Skylo |
+| South Africa | M635E | 2G | Cell C, MTN, Vodacom |
+| South Korea | M635E | M1 | KT, SK Telecom |
+| South Sudan | M635E | 2G | MTN |
+| Spain | M635E | 2G, M1, NTN | Orange, Skylo, Telefonica, Vodafone, Yoigo |
+| Suriname | M635E | 2G | Telesur |
+| Sweden | M635E | 2G, M1, NTN | 3 (Tre), Skylo, Tele2, Telenor, Telia |
+| Switzerland | M635E | M1, NTN | Salt, Skylo, Sunrise, Swisscom |
+| Taiwan | M635E | M1 | Chunghwa |
+| Tajikistan | M635E | 2G | Beeline, Tcell |
+| Tanzania | M635E | 2G | Airtel |
+| Trinidad and Tobago | M635E | 2G | TSTT |
+| Tunisia | M635E | 2G | Orange Tunisie, Tunisie Telecom |
+| Turks and Caicos Islands | M635E | 2G | Flow |
+| Uganda | M635E | 2G | Africell, Airtel, MTN |
+| Ukraine | M635E | 2G | Kyivstar, Life, MTS |
+| United Arab Emirates | M635E | M1 | Etisalat |
+| United Kingdom | M635E | 2G, M1, NTN | EE, O2, Skylo, Vodafone |
+| United States | M635E | M1, NTN | AT&T, Skylo, T-Mobile (USA), Verizon<sup>7</sup> |
+| Uruguay | M635E | 2G | Antel |
+| Uzbekistan | M635E | 2G | Beeline |
+| Virgin Islands (British) | M635E | 2G | CCT, Flow |
+| Zambia | M635E | 2G | Airtel |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
+### M635e - Certified bands
+
+| Technology | Band | FCC | CE |
+| :--- | :--- | :---: | :---: |
+| 2G | 850 MHz | &check; | &nbsp; |
+| 2G | 900 MHz | &nbsp; | &nbsp; |
+| 2G | 1800 MHz | &nbsp; | &nbsp; |
+| 2G | 1900 MHz | &check; | &nbsp; |
+| LTE Cat M1 | B1 (2100 MHz) | | &check;|
+| LTE Cat M1 | B2 (1900 MHz) | &check; | |
+| LTE Cat M1 | B3 (1800 MHz) | | &check;|
+| LTE Cat M1 | B4 (1700 MHz) | &check;| |
+| LTE Cat M1 | B5 (850 MHz) | &check;| |
+| LTE Cat M1 | B8 (900 MHz) | | &check;|
+| LTE Cat M1 | B12 (700 MHz) | &check;| |
+| LTE Cat M1 | B13 (700 MHz) | &check;| |
+| LTE Cat M1 | B18 (850 MHz)<sup>1</sup> | | |
+| LTE Cat M1 | B19 (850 MHz)<sup>1</sup> | | |
+| LTE Cat M1 | B20 (800 MHz) | | &check;|
+| LTE Cat M1 | B25 (1900 MHz) | &check;| |
+| LTE Cat M1 | B26 (850 MHz) | &check;| |
+| LTE Cat M1 | B27 (800 MHz) | | |
+| LTE Cat M1 | B28 (700 MHz) | | &check;|
+| LTE Cat M1 | B66 (2100 MHz) | &check;| |
+| LTE Cat M1 | B85 (700 MHz) | | |
+| IoT NTN | n255 (1.6 GHz) | &check; | &check; |
+| IoT NTN | n256 (2.0 GHz) | &check; | &check; |
+
+- <sup>1</sup>B18 and B19 are used only in Japan
 
 ---
 ## Ordering information
@@ -1501,3 +1689,4 @@ Global, country list to be provided a later date.
 | 014      | 2025-04-10 | RK | Added links to hardware-libraries and M.2 breakout board designs |
 | 015      | 2025-06-25 | RK | Clarifications for GNSS use |
 | 016      | 2026-05-18 | RK | Updated EU Declaration of Conformity |
+| 017      | 2026-06-09 | RK | Updated bands and country list for M635e |
