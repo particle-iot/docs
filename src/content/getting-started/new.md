@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### EU Declaration of Conformity Photon 2 2026-06-12
+
+Added the EU Declaration of Conformity for the Photon 2 in [certification documents](/hardware/certification/certification-documents/#ce-europe-photon-2). The document is the same as as the P2, it just wasn't listed under the Photon 2 heading.
+
 ### Carrier list update 2026-06-02
 
 The [carrier list](/reference/cellular/cellular-carriers/) has updates for LTE Cat M1 carriers in Europe, as well as preliminary coverage information for the M635e (NTN satellite).
