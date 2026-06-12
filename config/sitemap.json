@@ -1499,8 +1499,8 @@
             "hash": "6f1839fec624aef7273a1796f976193bc448932e4e8203302727e706106dba37"
         },
         "troubleshooting/connectivity/cloud-debug.md": {
-            "date": "2025-11-20",
-            "hash": "1312e2cefaa9b74bb3aa179e0f29031e7d8db452881febf9226c3a1fd46bacd6"
+            "date": "2026-06-12",
+            "hash": "3891c24227254aeb5a88cf7aa46cfbe93470be5fda0ff413ad8f9d15b8a17640"
         },
         "troubleshooting/connectivity/interpreting-cloud-debug-2.md": {
             "date": "2024-02-27",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "5ac5a162f24bf2e4dd953803f843b6862fb1ecfe4128af2019e563e70688b48c",
+            "hash": "bbd393275812c0569a83809633fdf0671d44738c6ceea89ef0d2fc2857235a06",
             "date": "2026-06-12"
         },
         "getting-started/cloud/logic.md": {
