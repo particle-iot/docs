@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### EU Declaration of Conformity Photon 2 2026-06-12
 
-Added the EU Declaration of Conformity for the Photon 2 in [certification documents](/hardware/certification/certification-documents/#ce-europe-photon-2). The document is the same as as the P2, it just wasn't listed under the Photon 2 heading.
+Added the EU Declaration of Conformity for the Photon 2 in [certification documents](/hardware/certification/certification-documents/#ce-europe-photon-2). The document is the same as the P2, it just wasn't listed under the Photon 2 heading.
 
 ### Carrier list update 2026-06-02
 
