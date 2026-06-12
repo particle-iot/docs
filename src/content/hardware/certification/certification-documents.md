@@ -1339,6 +1339,7 @@ The Photon is deprecated. The Photon 2 or P2 should be used in all new designs.
 {{!-- BEGIN shared-blurb f6f8ed58-0c5d-4fb4-a850-34ec5bcc4075 --}}
 ### CE (Europe) - Photon 2
 
+- [EU Declaration of Conformity](/assets/pdfs/particle-P2-Photon2-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
 - [Certificate of Conformity](/assets/pdfs/phn2-ce-certificate.pdf) 
 - [Attestation](/assets/pdfs/phn2-ce-attestation.pdf)
 - [EN 300-328 Bluetooth LE Test Report](/assets/pdfs/phn2-EN300-328-btle-test-report.pdf)

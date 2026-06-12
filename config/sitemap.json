@@ -935,8 +935,8 @@
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2026-06-01",
-            "hash": "5bb3aead8969433b5a1020ecc4cc6d631f7d927c9297748ca3c17f8752f3cfbf"
+            "date": "2026-06-12",
+            "hash": "f551cd9327e65f325d3a32c7ef79b83a369574711e2dbf69d9fe0279da7bb8df"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1403,8 +1403,8 @@
             "hash": "a0ac26187f6d501f15fba59520ab3e0ddb8d06fe67a1155f4a13f63b54ccbda2"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2025-10-22",
-            "hash": "6c9208aeff3fca2fa5c670b57c079cd6865a54499d7729f998d958f206139832"
+            "date": "2026-06-12",
+            "hash": "e4f8a37b22563651adc1640786e4d3a26db222577676ee1422bccb36d642c1f0"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2025-06-24",
