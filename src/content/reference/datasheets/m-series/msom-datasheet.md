@@ -166,6 +166,55 @@ Single quantity M-SoM units and developer kits include a PARANTGN1EA antenna. Tr
 - On the M404 (BG95 cellular modem), radio hardware is shared between the cellular modem and built-in GNSS which limits concurrent use.
 {{!-- END shared-blurb --}}
 
+### Certified NTN antenna
+
+Non-Terrestrial Network (NTN) is a 3GPP standard to allow devices to connect to satellites instead of earth-based cellular towers. A special antenna and a clear view of the sky outdoors is required to use NTN. 
+
+The Particle NTN antenna can be used for both NTN and traditional cellular (2G, 3G, and 4G) with M635e.
+
+{{!-- BEGIN shared-blurb 4ec47271-77e3-47be-bc6a-21212a269d68 --}}
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- |
+| NTN and LTE cell antenna, [x1] | PARANTCN1EA | |
+{{!-- END shared-blurb --}}
+
+For additional NTN antenna information, see:
+
+- [Antenna guide](/hardware/certification/antenna/)
+- [NTN troubleshooting](/troubleshooting/connectivity/ntn-troubleshooting/)
+
+
+#### NTN antenna dimensions
+
+{{imageOverlay src="/assets/images/m-series/ntn-antenna-dimensions.png"}}
+
+{{!-- BEGIN shared-blurb cb371a25-ffdc-4422-9225-3e79ae792f53 --}}
+| Label | Value | Description |
+| :---- | :--- | :--- |
+| A | 145 mm | Length (antenna) |
+| B |  29 mm | Width |
+| C |  26 mm | Length (connector)  |
+| D | 13.5 mm | Thickness (maximum) | 
+| E | 6.5 mm | Thickness (minimum) |
+| F | 12.3 mm | Connector outside diameter |
+| A + C | 172 mm | Total length |
+{{!-- END shared-blurb --}}
+
+#### NTN antenna connections
+
+The Particle NTN antenna has a SMA connector as the antenna is typically mounted on the outside of an enclosure as a clear view of the sky is needed for proper operation.
+
+{{imageOverlay src="/assets/images/m-series/antenna-sma.png" alt="Antenna"}}
+
+You will typically use a U.FL to SMA bulkhead adapter. The U.FL connector connects to the CELL connector on the M636e M-SoM.
+
+{{imageOverlay src="/assets/images/m-series/sma-adapter.jpeg" alt="SMA adapter"}}
+
+Note that there are two different styles of SMA bulkhead connectors. The PARANTCN1EA requires a standard SMA connector. Make sure you do not source a RP-SMA adapter!
+
+{{imageOverlay src="/assets/images/m-series/sma-vs-rp-sma.png" alt="SMA adapter"}}
+
+
 ### General Antenna Guidance
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
@@ -1688,3 +1737,4 @@ Global, country list to be provided a later date.
 | 015      | 2025-06-25 | RK | Clarifications for GNSS use |
 | 016      | 2026-05-18 | RK | Updated EU Declaration of Conformity |
 | 017      | 2026-06-09 | RK | Updated bands and country list for M635e |
+| 018      | 2026-06-15 | RK | Added NTN antenna information |

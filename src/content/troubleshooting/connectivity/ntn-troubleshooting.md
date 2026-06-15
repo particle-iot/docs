@@ -32,9 +32,14 @@ Even though NTN devices are based on cellular standards, there are differences t
 
 For all practical purposes, this requires the antenna being outside, and not under tree cover or obstructed by nearby tall buildings.
 
+![Clear view of sky](/assets/images/m-series/location-good.png)
+
 You will not be able to connect with the antenna inside a building, inside a vehicle, or inside an enclosure such as a trailer, shipping container, equipment cabinet, etc..
 
 In general, even putting the antenna in a window will not be sufficient to connect to NTN.
+
+![Bad locations](/assets/images/m-series/location-bad.png)
+
 
 ### Antenna requirements
 

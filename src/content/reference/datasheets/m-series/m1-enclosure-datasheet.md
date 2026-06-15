@@ -253,7 +253,7 @@ torque values for screws: 7.5 kgf*cm (42 lbf/in)
 
 | SKU | Description | Lifecycle |
 | :--- | :--- | :--- |
-| M1ENCLEA | M1 Enclosure | In development |
+| M1ENCLEA | M1 Enclosure | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
