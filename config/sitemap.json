@@ -928,7 +928,7 @@
         },
         "hardware/certification/antenna.md": {
             "date": "2026-06-15",
-            "hash": "96cd410cde763d5a22453ec6ed9123afe019562c8c030f75beae0b2357bd304e"
+            "hash": "ead7339242fcf40417c32bed6bef846808f8865d2227e4fd636d6423590c231a"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -8391,7 +8391,7 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "9b50657d47ccd4ef95a4306de32450b0a02354d667df9a245a5a9548a70a0dc3",
+            "hash": "6e5e3cac8919f21a1f17e3a881112fa5349e01369c3722145f1bf34592d3c7fa",
             "date": "2026-06-15"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
@@ -10039,8 +10039,8 @@
             "date": "2026-06-01"
         },
         "troubleshooting/connectivity/ntn-troubleshooting.md": {
-            "hash": "23196dabc69b9ef0b732f116d2bcc2e3481845e79d5485de01fc2dc9ddec9400",
-            "date": "2026-06-04"
+            "hash": "242aeb39d5f70c223a98aa81406ca1e56362fdf4a4a2c2b810b147a61a45f1c8",
+            "date": "2026-06-15"
         }
     }
 }

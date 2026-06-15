@@ -178,6 +178,12 @@ The Particle NTN antenna can be used for both NTN and traditional cellular (2G, 
 | NTN and LTE cell antenna, [x1] | PARANTCN1EA | |
 {{!-- END shared-blurb --}}
 
+For additional NTN antenna information, see:
+
+- [Antenna guide](/hardware/certification/antenna/)
+- [NTN troubleshooting](/troubleshooting/connectivity/ntn-troubleshooting/)
+
+
 #### NTN antenna dimensions
 
 {{imageOverlay src="/assets/images/m-series/ntn-antenna-dimensions.png"}}
@@ -1731,3 +1737,4 @@ Global, country list to be provided a later date.
 | 015      | 2025-06-25 | RK | Clarifications for GNSS use |
 | 016      | 2026-05-18 | RK | Updated EU Declaration of Conformity |
 | 017      | 2026-06-09 | RK | Updated bands and country list for M635e |
+| 018      | 2026-06-15 | RK | Added NTN antenna information |

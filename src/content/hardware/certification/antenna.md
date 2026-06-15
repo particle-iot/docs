@@ -273,6 +273,11 @@ The Particle NTN antenna can be used for both NTN and traditional cellular (2G, 
 | NTN and LTE cell antenna, [x1] | PARANTCN1EA | |
 {{!-- END shared-blurb --}}
 
+For additional NTN antenna information, see:
+
+- [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
+- [NTN troubleshooting](/troubleshooting/connectivity/ntn-troubleshooting/)
+
 
 ### Compatible devices (NTN)
 
