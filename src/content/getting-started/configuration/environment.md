@@ -54,9 +54,11 @@ Environment variables are only used for devices in a product. This is also the c
 
 When variables are changed at a given level, the changed are staged for delivery to devices. 
 
-Device-level environment variables that are added, removed, or changed are delivered immediately to online devices that have not disabled updates. These are delivered via an OTA update, and the device will have the new values available when the device reboots. Environment variables are never changed while the user firmware is running. 
+{{!-- BEGIN shared-blurb 28e4baca-f9e2-455b-9a10-f626eef3f1cc --}}
+Device-level environment variables that are added, removed, or changed are delivered immediately to online devices that have not disabled updates. These are delivered via an OTA update, and the device will have the new values available when the device reboots. Firmware running on the device will never see the value change while running.
 
 For devices that are offline, changes are delivered when the device connects to the cloud.
+{{!-- END shared-blurb --}}
 
 Each device has a snapshot, which is the combination of organization (or sandbox), product, and per-device environment variables specific to that device. The snapshot contains all values (not just the changed ones) and is limited to 16 kB, with the limit enforced on the JSON-encoded key–value pairs.
 
@@ -119,7 +121,11 @@ Creating a new variable does not immediately take effect. Once you have made all
 
 {{imageOverlay src="/assets/images/console/config-rollout.png" class="no-darken"}}
 
-Changes take effect immediately for online devices, and will be sent to offline devices when they next connect to the Particle cloud.
+{{!-- BEGIN shared-blurb 28e4baca-f9e2-455b-9a10-f626eef3f1cc --}}
+Device-level environment variables that are added, removed, or changed are delivered immediately to online devices that have not disabled updates. These are delivered via an OTA update, and the device will have the new values available when the device reboots. Firmware running on the device will never see the value change while running.
+
+For devices that are offline, changes are delivered when the device connects to the cloud.
+{{!-- END shared-blurb --}}
 
 When a device connects to the cloud a hash of the current environment is sent to the cloud and a new version is only sent if the device does not have the current environment snapshot for the device.
 
