@@ -261,6 +261,47 @@ Cellular boosters like the [weBoost](https://www.amazon.com/weBoost-472120-Signa
 
 Cellular micro/pico/femto cells that use the Internet to connect to a specific carrier generally do not work. For example, the AT&T MicroCell does not work with the Electron and E-Series, even though they can use AT&T in the United States. The reason is that the Particle devices are roaming on AT&T, and the MicroCell product does not allow access to roaming cellular devices.
 
+## NTN
+
+Non-Terrestrial Network (NTN) is a 3GPP standard to allow devices to connect to satellites instead of earth-based cellular towers. A special antenna and a clear view of the sky outdoors is required to use NTN. 
+
+The Particle NTN antenna can be used for both NTN and traditional cellular (2G, 3G, and 4G) on compatible devices.
+
+{{!-- BEGIN shared-blurb 4ec47271-77e3-47be-bc6a-21212a269d68 --}}
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- |
+| NTN and LTE cell antenna, [x1] | PARANTCN1EA | |
+{{!-- END shared-blurb --}}
+
+
+### Compatible devices (NTN)
+
+The following devices are compatible with NTN:
+
+{{!-- BEGIN do not edit content below, it is automatically generated ab0492af-b328-4bbe-9022-66f460c8b1ef --}}
+
+| Device | SKU  | Included | Antenna | Alternate | Lifecycle |
+| :----- | :--- | :--------: | :------: | :--------: | :-------: |
+| M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635EMEA | &nbsp; | PARANTCN1EA | &nbsp; | In development|
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+### NTN antenna dimensions
+
+{{imageOverlay src="/assets/images/m-series/ntn-antenna-dimensions.png"}}
+
+{{!-- BEGIN shared-blurb cb371a25-ffdc-4422-9225-3e79ae792f53 --}}
+| Label | Value | Description |
+| :---- | :--- | :--- |
+| A | 145 mm | Length (antenna) |
+| B |  29 mm | Width |
+| C |  26 mm | Length (connector)  |
+| D | 13.5 mm | Thickness (maximum) | 
+| E | 6.5 mm | Thickness (minimum) |
+| F | 12.3 mm | Connector outside diameter |
+| A + C | 172 mm | Total length |
+{{!-- END shared-blurb --}}
 
 ## Wi-Fi
 

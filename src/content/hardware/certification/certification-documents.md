@@ -857,7 +857,7 @@ Additional FCC Test Reports:
 
 | SKU | Description | Lifecycle |
 | :--- | :--- | :--- |
-| M1ENCLEA | M1 Enclosure | In development |
+| M1ENCLEA | M1 Enclosure | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

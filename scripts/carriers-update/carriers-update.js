@@ -1385,7 +1385,7 @@ const generatorConfig = require('./generator-config');
                 // No USB required
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.linux) {
                 // Hidden SKU
                 return;
             }
@@ -1823,6 +1823,67 @@ const generatorConfig = require('./generator-config');
                     footnote = '3';
                 }
                 md += ' | ' + updater.fixAntennaSku(skuObj, skuObj.cellAntAlt) + '<sup>' + footnote + '</sup>';
+            }
+            else {
+                md += ' | &nbsp;';
+            }
+
+            md += ' | ' + skuObj.lifecycle;
+
+            md += '|\n';
+            
+        });
+
+        return md;    
+    };
+
+
+    updater.generateAntNTN = function(options) {
+        let skus = [];
+
+        if (!options) {
+            options = {};
+        }
+
+        // Filter
+        updater.datastore.data.skus.forEach(function(skuObj) {
+            if (!skuObj.ntnAnt) {
+                return;
+            }
+            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
+                return;
+            }
+
+            if (options.filterFn) {
+                if (options.filterFn(skuObj)) {
+                    return;
+                }
+            }
+
+            skus.push(skuObj);
+        });
+
+        // Sort
+        skus.sort(function(a, b) {
+            return a.desc.localeCompare(b.desc);
+        });
+
+        // Render
+        let md = '';
+
+        md += '| Device | SKU  | Included | Antenna | Alternate | Lifecycle |\n';
+        md += '| :----- | :--- | :--------: | :------: | :--------: | :-------: |\n'; 
+        
+
+        skus.forEach(function(skuObj) {
+            md += '| ' + skuObj.desc + ' | ' + skuObj.name;
+            
+            md += ' | ' + (skuObj.ntnAntInc ? '&check;' : '&nbsp;');
+
+            md += ' | ' + updater.fixAntennaSku(skuObj, skuObj.ntnAnt);
+
+            if (skuObj.ntnAntAlt) {
+                md += ' | ' + updater.fixAntennaSku(skuObj, skuObj.ntnAntAlt) + '<sup>' + footnote + '</sup>';
             }
             else {
                 md += ' | &nbsp;';

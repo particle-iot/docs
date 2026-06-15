@@ -51,6 +51,8 @@ Most devices have a USB 2.0 Micro B receptacle, however some devices have USB C.
 | MHAT | M-HAT | USB-C |
 | MHAT504e | M-HAT with LTE CAT1 for North America | USB-C |
 | MHAT524e | M-HAT with LTE CAT1 for Rest of World | USB-C |
+| MHATB504e | M-HAT with LTE CAT1 for North America | &nbsp; |
+| MHATB524 | M-HAT with LTE CAT1 for Rest of World | &nbsp; |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Micro B |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | Micro B |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Micro B |

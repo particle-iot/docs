@@ -695,8 +695,8 @@
             "hash": "81e578c0cb9eae073f929db481418784b0befcf13c4c2f3fb7f2b17cad48df8e"
         },
         "getting-started/setup/manual-setup.md": {
-            "date": "2026-05-29",
-            "hash": "30a8b02f21c20b3eb3fa54d5ef7221d173e852516fd1cf35d1ac0eaa77b75193"
+            "date": "2026-06-15",
+            "hash": "a1cc8f3d73cac1baba92dac300370df4edd2a7343ae912082a2d438c90fb1cb9"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -927,16 +927,16 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2026-06-02",
-            "hash": "614afd28838db75b765996d05d236d0cef5947c0efe7967347b7788b51fb8639"
+            "date": "2026-06-15",
+            "hash": "96cd410cde763d5a22453ec6ed9123afe019562c8c030f75beae0b2357bd304e"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2026-06-12",
-            "hash": "f551cd9327e65f325d3a32c7ef79b83a369574711e2dbf69d9fe0279da7bb8df"
+            "date": "2026-06-15",
+            "hash": "49acbf213748c296aca10ced5e872c60303abf56cf224ec26fa5cbc4bd5d8b50"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1571,8 +1571,8 @@
             "hash": "34566de2142cf8a34c5f73d32fcc90de68d2a88a99b2d3ec3a81576d80fab9e7"
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
-            "date": "2026-03-05",
-            "hash": "a58c90a36fd37c4a5ee9b6ee28da455068cf8e939ea645d94a8015b9e3f299ff"
+            "date": "2026-06-15",
+            "hash": "ebe9f40db178e5c219e7b2c3383c719ca777eb4dc0a3890b5a16749128c32bde"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2024-11-13",
@@ -8391,8 +8391,8 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "d85b048f40711fce2d59ab7229c87ca7bad0f55945aec313d85677f1c6e85f46",
-            "date": "2026-06-09"
+            "hash": "9b50657d47ccd4ef95a4306de32450b0a02354d667df9a245a5a9548a70a0dc3",
+            "date": "2026-06-15"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "1a1b5682f3e0a49f85674d12e4958bcbf291ebd85d233c08082b2aa9b050ee88",
@@ -9459,8 +9459,8 @@
             "date": "2024-11-01"
         },
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
-            "hash": "f46ff69ca728ffb90fd93403d366e74dcf50a26282289aafd50c9d7a59e6e364",
-            "date": "2025-10-31"
+            "hash": "36abe4e76fbb648dd17b6334677c42e836bf104587b76150ebfc6b51ddf99973",
+            "date": "2026-06-15"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {
             "hash": "0d2103aed0bae02ca0b94dc8bff2c011e9c5f7c3311ba47cb535ac613e3705b4",
@@ -10015,8 +10015,8 @@
             "date": "2026-03-19"
         },
         "reference/datasheets/m-series/m-hat-datasheet.md": {
-            "hash": "8ace63bf93361dbe8bcd359f1a8c85720479baffe4a5562e99c3ca192cd77825",
-            "date": "2026-04-21"
+            "hash": "6d8d82b40a4a11c364bca3a6c3e79e04e15fbf95e17ee769219a584e136c8869",
+            "date": "2026-06-15"
         },
         "reference/device-os/libraries/p/pixeleds-library.md": {
             "hash": "ef1dee4d2cd89b7ac6dad23971ebdaf409133aaa6f5677b3554b4bad5765309f",

@@ -1744,6 +1744,7 @@ The Muon cannot be ordered with the B-SoM directly, but you can order the Muon c
 | :--- | :--- | :--- |
 | MUONCB | Muon Carrier Board (Dev Board only) | GA |
 | MUONCBKIT | Muon Carrier Board Kit | GA |
+| MUONCBTY | Muon Carrier Board, Bulk [x50] | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

@@ -27075,7 +27075,6 @@
         "M1-26",
         "M1-27",
         "M1-28",
-        "M1-31",
         "M1-66",
         "M1-85",
         "NTN-255",
@@ -27703,6 +27702,31 @@
       "hsCode": "8517.62.0090"
     },
     {
+      "name": "ACC-BAT9300",
+      "desc": "High Capacity 9300mAh Li-Ion Battery [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "usb": false,
+      "retail": false,
+      "hsCode": "8507.60.0020",
+      "skuRegion": "global"
+    },
+    {
+      "name": "ACC-BAT9300-SPLIT",
+      "desc": "",
+      "lifecycle": "GA",
+      "accessory": true,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "usb": false,
+      "hsCode": "8507.60.0020",
+      "skuRegion": "global"
+    },
+    {
       "name": "ACC-DEBUG",
       "desc": "Particle Debugger, [x1]",
       "lifecycle": "Deprecated",
@@ -27725,6 +27749,32 @@
       "prefix": "APOE",
       "usb": false,
       "batteryRequired": false
+    },
+    {
+      "name": "ACC-SMA2UFL185",
+      "desc": "M1 Enclosure SMA to U.FL Cable [x2]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": true,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "hsCode": "8544.20.0000",
+      "skuRegion": "global"
+    },
+    {
+      "name": "ACC-TACHDEBUG",
+      "desc": "Tachyon Debug Breakout, [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "usb": "c",
+      "linux": true,
+      "hsCode": "8517.62.0090",
+      "skuRegion": "global"
     },
     {
       "name": "ANT-FLXU",
@@ -28338,9 +28388,9 @@
       "name": "B504EMEA",
       "desc": "B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x1]",
       "lifecycle": "GA",
-      "enterprise": false,
-      "wholesale": false,
-      "retail": false,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": true,
       "multiple": false,
       "modem": "EG91-NAX",
       "sim": 5,
@@ -28377,8 +28427,8 @@
       "name": "B504EMTY",
       "desc": "B-Series LTE CAT-1/3G (NorAm, EtherSIM+), [x50]",
       "lifecycle": "GA",
-      "enterprise": false,
-      "wholesale": false,
+      "enterprise": true,
+      "wholesale": true,
       "retail": false,
       "multiple": true,
       "modem": "EG91-NAX",
@@ -30022,7 +30072,7 @@
     {
       "name": "M1ENCLEA",
       "desc": "M1 Enclosure",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "accessory": true,
       "enterprise": false,
       "wholesale": false,
@@ -30258,6 +30308,7 @@
       "gnss": "cellular-modem",
       "cellAnt": "PARANTCW1EA",
       "cellAntInc": true,
+      "ntnAnt": "PARANTCN1EA",
       "bleAntInt": false,
       "bleAntIntInc": false,
       "bleAntExt": "PARANTWM1EA",
@@ -30457,6 +30508,22 @@
       "batteryRequired": false,
       "skuRegion": "emeaa",
       "pmic": "bq24195"
+    },
+    {
+      "name": "MHATB504e",
+      "desc": "M-HAT with LTE CAT1 for North America",
+      "lifecycle": "In development",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false
+    },
+    {
+      "name": "MHATB524",
+      "desc": "M-HAT with LTE CAT1 for Rest of World",
+      "lifecycle": "In development",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false
     },
     {
       "name": "MON404E01C01KIT",
@@ -30913,6 +30980,16 @@
       "batteryRequired": false,
       "hsCode": "8517.62.0090",
       "pmic": "bq24195"
+    },
+    {
+      "name": "MUONCBTY",
+      "desc": "Muon Carrier Board, Bulk [x50]",
+      "lifecycle": "In development",
+      "multiple": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": true,
+      "hsCode": "8517.62.0090"
     },
     {
       "name": "ONE402MEA",
@@ -31433,6 +31510,31 @@
       "wholesale": true,
       "retail": false,
       "antenna": true,
+      "skuRegion": "global",
+      "hsCode": "8529.10.9100"
+    },
+    {
+      "name": "PARANTCN1EA",
+      "desc": "NTN and LTE cell antenna, [x1]",
+      "lifecycle": "In development",
+      "antenna": true,
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "skuRegion": "global",
+      "hsCode": "8529.10.9100"
+    },
+    {
+      "name": "PARANTCN1TY",
+      "desc": "NTN and LTE cell antenna, [x50]",
+      "lifecycle": "In development",
+      "antenna": true,
+      "multiple": true,
+      "singleSku": "PARANTCN1EA",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -33599,6 +33701,14 @@
     {
       "band": 109,
       "freq": 700
+    },
+    {
+      "band": 255,
+      "freq": 1600
+    },
+    {
+      "band": 256,
+      "freq": 2000
     },
     {
       "band": 257,

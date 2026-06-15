@@ -3721,6 +3721,12 @@ const schemaDocs = require('./schema-docs');
             }
         },
         {
+            guid:'ab0492af-b328-4bbe-9022-66f460c8b1ef', 
+            generatorFn:function(updater) {
+                return updater.generateAntNTN();
+            }
+        },
+        {
             guid:'04ed49fe-7766-11eb-9439-0242ac130002', 
             generatorFn:function(updater) {
                 return updater.generateAntWiFi();

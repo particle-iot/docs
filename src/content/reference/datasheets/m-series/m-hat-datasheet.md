@@ -658,6 +658,8 @@ The cellular carriers are dependent on the Particle M.2 SoM you have selected fo
 | MHAT | M-HAT | Global | In development |
 | MHAT504e | M-HAT with LTE CAT1 for North America | NORAM | In development |
 | MHAT524e | M-HAT with LTE CAT1 for Rest of World | EMEAA | In development |
+| MHATB504e | M-HAT with LTE CAT1 for North America | &nbsp; | In development |
+| MHATB524 | M-HAT with LTE CAT1 for Rest of World | &nbsp; | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
