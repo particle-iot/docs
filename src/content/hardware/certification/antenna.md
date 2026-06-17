@@ -345,7 +345,7 @@ The following devices are compatible with NTN:
 </tr>
 <tr>
     <td>&nbsp;</td>
-    <td style="text-align: left;">❌ NTN (satellite)</td>
+    <td style="text-align: left;">❓<sup>1</sup> NTN (satellite)</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td style="text-align: left;">✅ NTN (satellite)</td>
@@ -397,6 +397,10 @@ The following devices are compatible with NTN:
 </tr>
 <tbody>
 </table>
+
+{{!-- BEGIN shared-blurb 63e028f0-66d5-4570-bfb6-63fefb4ef8f8 --}}
+<sup>1</sup>From a certification standpoint, the flexible FPC antennas (PARANTCW1EA and PARANTCW1TY) can also be used with NTN. Because of the need for the antenna to have a clear view of the sky outside, it may be difficult to suitably mount the flexible antenna, so generally PARANTCN1EA and PARANTCN1TY are recommended for applications where the M-SoM will be used outdoors.
+{{!-- END shared-blurb --}}
 
 
 ## Wi-Fi

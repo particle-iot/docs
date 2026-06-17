@@ -170,7 +170,7 @@ Single quantity M-SoM units and developer kits include a PARANTGN1EA antenna. Tr
 
 Non-Terrestrial Network (NTN) is a 3GPP standard to allow devices to connect to satellites instead of earth-based cellular towers. A special antenna and a clear view of the sky outdoors is required to use NTN. 
 
-The Particle NTN antenna can be used for both NTN and traditional cellular (2G, 3G, and 4G) with the M635e.
+The Particle NTN antenna can be used for both NTN and traditional cellular (2G, 3G, and 4G) with the M635e<sup>1</sup>.
 
 {{!-- BEGIN shared-blurb 4ec47271-77e3-47be-bc6a-21212a269d68 --}}
 | Antenna | SKU  | Links |
@@ -191,7 +191,9 @@ For additional NTN antenna information, see:
 - [Antenna guide](/hardware/certification/antenna/)
 - [NTN troubleshooting](/troubleshooting/connectivity/ntn-troubleshooting/)
 
-The PARANTCW1EA and PARANTCW1TY can be used with the M635e as well. From a certification standpoint, the flexible FPC antenna can be used with NTN, but from a practical point, because of the need for the antenna to have a clear view of the sky outside, it may be difficult to suitably mount the flexible antenna.
+{{!-- BEGIN shared-blurb 63e028f0-66d5-4570-bfb6-63fefb4ef8f8 --}}
+<sup>1</sup>From a certification standpoint, the flexible FPC antennas (PARANTCW1EA and PARANTCW1TY) can also be used with NTN. Because of the need for the antenna to have a clear view of the sky outside, it may be difficult to suitably mount the flexible antenna, so generally PARANTCN1EA and PARANTCN1TY are recommended for applications where the M-SoM will be used outdoors.
+{{!-- END shared-blurb --}}
 
 #### NTN antenna dimensions
 
