@@ -99,11 +99,12 @@ Single quantity units and developer kits include a PARANTCW1EA antenna. Tray qua
 | Thickness | 0.2 | mm |
 | Cable Length | 189.5 | mm |
 
+| Parameter       | 617-960     | 1156 - 1496 | 1520 - 1660.5 | 1710 - 2700 | 3330 - 4200 | 4200 - 5925 |
+| :-------------- | :---------- | :---------- | :------------ | :---------- | :---------- | :---------- |
+| V.S.W.R.        | ≤ 3.5       | ≤ 3.0       | ≤ 2.0         | ≤ 2.0       | ≤ 1.5       | ≤ 2.0       |
+| Peak Gain       | 2.8 dBi     | 2.4 dBi     | 3.9 dBi       | 5.3 dBi     | 5.6 dBi     | 7.9 dBi     |
+| Eff % (max/avg) | 71/62       | 55/53       | 68/62         | 85/70       | 76/71       | 69/62       |
 
-| Parameter | 700/850/900 | 1700/1800/1900 | 2100 | 2400 | 2600 | Unit |
-| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| Peak gain | | | | | | | |
-| PARANTCW1EA | 2.8 | 5.3 | 5.3 | 5.3 | 5.3 | dBi |
 {{!-- END shared-blurb --}}
 
 
