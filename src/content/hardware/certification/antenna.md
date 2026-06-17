@@ -308,6 +308,97 @@ The following devices are compatible with NTN:
 | A + C | 172 mm | Total length |
 {{!-- END shared-blurb --}}
 
+### M635e certified antenna comparison
+
+<table>
+<tbody>
+<tr>
+    <td style="width: 100px;">&nbsp;</td>
+    <td colspan="2" style="font-size: 18px; font-weight: 700; text-align: left; width: 350px;">PARANTCW1</td>
+    <td style="width: 100px;">&nbsp;</td>
+    <td colspan="2" style="font-size: 18px; font-weight: 700; text-align: left; width: 350px;">PARANTCN1</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">PARANTCW1EA (each)</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">PARANTCN1EA (each)</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">PARANTCW1TY (tray)</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">PARANTCN1TY (tray)</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">✅ 2G, 3G, 4G LTE, Cat M1</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">✅ 2G, 3G, 4G LTE, Cat M1</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">❌ NTN (satellite)</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">✅ NTN (satellite)</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">✅ M404, M524</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">❌ M404, M524</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">✅ M635e</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">✅ M635e</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">Size: 116mm &times; 27mm &times; 0.2mm</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">Size: 172mm &times; 29mm &times; 13.5mm</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">Style: Flexible</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">Style: Rigid</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">Connector: U.FL</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td style="text-align: left;">Connector: SMA</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td colspan="3" style="width: 450px;"><img src="/assets/images/m-series/cellular-antenna-in-bag-800.png" width="450">
+    <td colspan="3" style="width: 450px;"><img src="/assets/images/m-series/ntn-antenna-in-bag-horiz-800.png" width="450">
+</tr>
+<tbody>
+</table>
+
+
 ## Wi-Fi
 
 The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) and wholesale stores. Note: The same external antenna model is used for Wi-Fi and BLE.
