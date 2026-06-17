@@ -928,7 +928,7 @@
         },
         "hardware/certification/antenna.md": {
             "date": "2026-06-17",
-            "hash": "b09858584c77e269d6f5d0512c4b7dc52c37fb4bd7733482a05b8d8b85d7ac4c"
+            "hash": "415941899bbe190d5381518052baf13eacdcdf5dabdfbb94ed8106acd443d49d"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -8391,12 +8391,12 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "74688355cf9692d68257e4cbea4de5b7147b6c94faae240db4f7715de2ec9188",
+            "hash": "16d28fc415ffbd07ae7731e0cbd09d22e5302216dd39111645dd469b60b74e1f",
             "date": "2026-06-17"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "1a1b5682f3e0a49f85674d12e4958bcbf291ebd85d233c08082b2aa9b050ee88",
-            "date": "2026-06-09"
+            "hash": "a44143246b57cabc0b68cdd1f4860bb8958f8451d60a72991b2d0d91fd75a3c5",
+            "date": "2026-06-17"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -9083,8 +9083,8 @@
             "date": "2024-08-28"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "7b719fab9642d603e45ecf53e4b5d86e101b7cb30a15adb67cbcb89321c6237a",
-            "date": "2026-06-09"
+            "hash": "e25b98879eea4fcab78f3fa8660293db64696b401d8d8d0099c6c2460d6d26b3",
+            "date": "2026-06-17"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",
@@ -9459,8 +9459,8 @@
             "date": "2024-11-01"
         },
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
-            "hash": "36abe4e76fbb648dd17b6334677c42e836bf104587b76150ebfc6b51ddf99973",
-            "date": "2026-06-15"
+            "hash": "5938ebf5061f019a0dad217829e27414b311dea497bc047abc7272cc62ecde17",
+            "date": "2026-06-17"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {
             "hash": "0d2103aed0bae02ca0b94dc8bff2c011e9c5f7c3311ba47cb535ac613e3705b4",
@@ -9707,8 +9707,8 @@
             "date": "2026-06-01"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
-            "hash": "cac5c6226004cb00f3b4fa8a832d9d7a1a1da4584cee69509f177f38c57088d9",
-            "date": "2025-06-25"
+            "hash": "f5fcc7701cc45a369e2893a82a5cc221ba5eb413cda6756d37d20cc388bbc539",
+            "date": "2026-06-17"
         },
         "hardware/migration-guides/electron-2-boron-migration-guide.md": {
             "hash": "da62ed30085cd5db0fcab898450cd3722d55548d0de0db7cd37f5aac2bb5b4d8",
