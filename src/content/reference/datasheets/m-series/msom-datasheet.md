@@ -23,7 +23,7 @@ The Particle M-SoM contains the following functional units:
 - Cellular modem 
   - M404: Quectel BG95-M5 LTE Cat M1/2G (NorAm)
   - M524: Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
-  - M635: Quectel BG95-S5 LTE Cat M1/2G (Global with NTN satellite)
+  - M635e: Quectel BG95-S5 LTE Cat M1/2G (Global with NTN satellite)
 
 ### MCU
 
@@ -124,13 +124,13 @@ Single quantity units and developer kits include a PARANTCW1EA antenna. Tray qua
 | Thickness | 0.2 | mm |
 | Cable Length | 189.5 | mm |
 
+| Parameter       | 617-960     | 1156 - 1496 | 1520 - 1660.5 | 1710 - 2700 | 3330 - 4200 | 4200 - 5925 |
+| :-------------- | :---------- | :---------- | :------------ | :---------- | :---------- | :---------- |
+| V.S.W.R.        | ≤ 3.5       | ≤ 3.0       | ≤ 2.0         | ≤ 2.0       | ≤ 1.5       | ≤ 2.0       |
+| Peak Gain       | 2.8 dBi     | 2.4 dBi     | 3.9 dBi       | 5.3 dBi     | 5.6 dBi     | 7.9 dBi     |
+| Eff % (max/avg) | 71/62       | 55/53       | 68/62         | 85/70       | 76/71       | 69/62       |
 
-| Parameter | 700/850/900 | 1700/1800/1900 | 2100 | 2400 | 2600 | Unit |
-| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| Peak gain | | | | | | | |
-| PARANTCW1EA | 2.8 | 5.3 | 5.3 | 5.3 | 5.3 | dBi |
 {{!-- END shared-blurb --}}
-
 
 ### Certified Wi-Fi/BLE antennas
 
@@ -170,7 +170,7 @@ Single quantity M-SoM units and developer kits include a PARANTGN1EA antenna. Tr
 
 Non-Terrestrial Network (NTN) is a 3GPP standard to allow devices to connect to satellites instead of earth-based cellular towers. A special antenna and a clear view of the sky outdoors is required to use NTN. 
 
-The Particle NTN antenna can be used for both NTN and traditional cellular (2G, 3G, and 4G) with M635e.
+The Particle NTN antenna can be used for both NTN and traditional cellular (2G, 3G, and 4G) with the M635e.
 
 {{!-- BEGIN shared-blurb 4ec47271-77e3-47be-bc6a-21212a269d68 --}}
 | Antenna | SKU  | Links |
@@ -178,11 +178,20 @@ The Particle NTN antenna can be used for both NTN and traditional cellular (2G, 
 | NTN and LTE cell antenna, [x1] | PARANTCN1EA | |
 {{!-- END shared-blurb --}}
 
+
+| Parameter       | 617-960     | 1450 - 1605 | 1710 - 2690 | 3330 - 4900 | 5150 - 5925 |
+| :-------------- | :---------- | :---------- | :---------- | :---------- | :---------- |
+| V.S.W.R.        | ≤ 2.5       | ≤ 2.5       | ≤ 2.3       | ≤ 2.5       | ≤ 3.0       |
+| Peak Gain       | 2.5 dBi     | 1.5 dBi     | 3.9 dBi     | 3.7 dBi     | 4.2 dBi     |
+| Eff % (max/avg) | 51/43       | 54/51       | 80/69       | 70/61       | 68/58       |
+
+
 For additional NTN antenna information, see:
 
 - [Antenna guide](/hardware/certification/antenna/)
 - [NTN troubleshooting](/troubleshooting/connectivity/ntn-troubleshooting/)
 
+The PARANTCW1EA and PARANTCW1TY can be used with the M635e as well. From a certification standpoint, the flexible FPC antenna can be used with NTN, but from a practical point, because of the need for the antenna to have a clear view of the sky outside, it may be difficult to suitably mount the flexible antenna.
 
 #### NTN antenna dimensions
 
@@ -1039,6 +1048,49 @@ To be determined at a later date. When operated on LTE Cat M1 or 2G, should be s
 | | Class 3 (23dBm ± 2dB) for LTE FDD bands |
 {{!-- END shared-blurb --}}
 
+#### Cellular characteristics for BG95-S5 (M635e)
+
+{{!-- BEGIN shared-blurb 1a84819b-1152-4c9a-93d1-01c2691b8570 --}}
+| Parameter | Value |
+| --- | --- |
+| Protocol stack | 3GPP Release 14 |
+| RAT | LTE Cat M1 |
+|     | IoT-NTN    |
+|     | EGPRS      |
+| LTE FDD Bands  | Band 71 (600 MHz) |
+| | Band 12 (700 MHz) |
+| | Band 13 (700 MHz) |
+| | Band 28 (700 MHz) |
+| | Band 85 (700 MHz) |
+| | Band 20 (800 MHz)  |
+| | Band 5 (850 MHz)  |
+| | Band 18 (850 MHz) |
+| | Band 19 (850 MHz) |
+| | Band 26 (850 MHz)  |
+| | Band 8 (900 MHz)  |
+| | Band 4 (1700 MHz)  |
+| | Band 3 (1800 MHz)  |
+| | Band 2 (1900 MHz)  |
+| | Band 25 (1900 MHz)  |
+| | Band 1 (2100 MHz)  |
+| | Band 66 (2100 MHz)  |
+| GSM Bands | GSM850 (850 MHz) |
+| | EGSM900 (900 MHz) |
+| | DCS1800 (1800 MHz) |
+| | PCS1900 (1900 MHz) |
+| IoT-NTN Bands | B23/B256 (S-Band) |
+|               | B244 (L-Band) |
+| Power class | Class 4 (33dBm ± 2dB) for GSM850 | |
+| | Class 4 (33dBm ± 2dB) for EGSM900 |
+| | Class 1 (30dBm ± 2dB) for DCS1800 |
+| | Class 1 (30dBm ± 2dB) for PCS1900 |
+| | Class E2 (27dBm ± 3dB) for GSM850 8-PSK |
+| | Class E2 (27dBm ± 3dB) for EGSM900 8-PSK |
+| | Class E2 (26dBm ± 3dB) for DCS1800 8-PSK |
+| | Class E2 (26dBm ± 3dB) for PCS1900 8-PSK |
+| | Class 3 (23dBm ± 2dB) for LTE FDD bands |
+| | Class 3 (23 dBm ± 2.7 dB) for IoT-NTN bands |
+{{!-- END shared-blurb --}}
 
 ## Mechanical specifications
 
@@ -1135,9 +1187,10 @@ This equipment complies with FCC radiation exposure limits set forth for an unco
 In the event that these conditions can not be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization.
 
 **End Product Labeling**
-The final end product must be labeled in a visible area with the following:
+The final end product must be labeled in a visible area with one of the following:
 
 * Contains FCC ID: 2AEMI-M404
+* Contains FCC ID: 2AEMI-M635
 
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
@@ -1234,6 +1287,22 @@ The operating frequency bands and the maximum transmitted power limit are listed
 - EGSM900 880-915 MHz, 33 dBm
 - DCS1800 1710-1785 MHz, 30 dBm
 
+### M635e - European Union (CE)
+
+We, Particle Industries, Inc, declare under our sole responsibility that the product, M404, to which this declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
+
+The full text of the EU declaration of conformity is available at the followingInternet address: 
+[https://www.particle.io/](https://www.particle.io/)
+
+Radiation Exposure Statement: This equipment complies with radiation exposure limits set forth for an uncontrolled environment.
+
+The operating frequency bands and the maximum transmitted power limit are listed below:
+- BLE 2402-2480MHz 10dBm
+- Wi-Fi 2.4GHz band 2412-2484MHz 20dBm
+- Wi-Fi 5GHz band 5180-5825MHz 23dBm
+- LTE B1 B3 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
+- EGSM900 880-915 MHz, 33 dBm
+- DCS1800 1710-1785 MHz, 30 dBm
 
 ### United Kingdom
 
@@ -1323,6 +1392,27 @@ SE, SI, SK, TR, UA, UK(NI).
 - [RoHS 3.0 Test Reports](/assets/pdfs/m524-rohs.pdf)
 {{!-- END shared-blurb --}}
 
+
+{{!-- BEGIN shared-blurb cefb33a6-e1c0-46df-9d67-4b6af885f944 --}}
+### FCC (United States) - M635e M-SoM M-Series LTE-M/2G/NTN
+
+- FCC ID: 2AEMI-M635
+- To be provided at a later date
+
+### ISED (Canada) - M635e M-SoM M-Series LTE-M/2G/NTN
+
+- ISED: 20127-M504
+- To be provided at a later date
+
+### CE (European Union) - M4M635e04 M-SoM M-Series LTE-M/2G/NTN
+
+- To be provided at a later date
+
+### RoHS - M635e M-SoM M-Series LTE-M/2G/NTN
+
+- To be provided at a later date
+
+{{!-- END shared-blurb --}}
 ---
 
 ## Country compatibility
@@ -1497,8 +1587,6 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 
 
 ### M635e - Country compatibility
-
-Global, country list to be provided a later date.
 
 {{!-- BEGIN do not edit content below, it is automatically generated e3f8ce8b-b7c8-4116-9fe8-ef7970a01e5a --}}
 
@@ -1738,3 +1826,4 @@ Global, country list to be provided a later date.
 | 016      | 2026-05-18 | RK | Updated EU Declaration of Conformity |
 | 017      | 2026-06-09 | RK | Updated bands and country list for M635e |
 | 018      | 2026-06-15 | RK | Added NTN antenna information |
+| 019      | 2026-06-17 | RK | Updates for M635e certification |
