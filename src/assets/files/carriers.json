@@ -37741,8 +37741,8 @@
       "country": "Argentina",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -40038,8 +40038,8 @@
       "country": "Australia",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -41495,8 +41495,8 @@
       "country": "Austria",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -46930,8 +46930,8 @@
       "country": "Belgium",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -62895,8 +62895,8 @@
       "country": "Croatia",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -66660,8 +66660,8 @@
       "country": "Denmark",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -71385,8 +71385,8 @@
       "country": "Estonia",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -74305,8 +74305,8 @@
       "country": "Finland",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -75512,8 +75512,8 @@
       "country": "France",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -79108,8 +79108,8 @@
       "country": "Germany",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -89525,8 +89525,8 @@
       "country": "Hungary",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -90899,8 +90899,8 @@
       "country": "Iceland",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -98240,8 +98240,8 @@
       "country": "Japan",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -104323,8 +104323,8 @@
       "country": "Latvia",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -106732,8 +106732,8 @@
       "country": "Lithuania",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -108258,8 +108258,8 @@
       "country": "Luxembourg",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -112022,8 +112022,8 @@
       "country": "Malta",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -120336,8 +120336,8 @@
       "country": "Netherlands",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -122074,8 +122074,8 @@
       "country": "New Zealand",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -125745,8 +125745,8 @@
       "country": "Norway",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -131825,8 +131825,8 @@
       "country": "Poland",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -133627,8 +133627,8 @@
       "country": "Portugal",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -136706,8 +136706,8 @@
       "country": "Romania",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -146909,8 +146909,8 @@
       "country": "Slovakia",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -148061,8 +148061,8 @@
       "country": "Slovenia",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -150682,8 +150682,8 @@
       "country": "South Korea",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -152212,8 +152212,8 @@
       "country": "Spain",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -154372,8 +154372,8 @@
       "country": "Sri Lanka",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -155796,8 +155796,8 @@
       "country": "Sweden",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -157543,8 +157543,8 @@
       "country": "Switzerland",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -158947,8 +158947,8 @@
       "country": "Taiwan",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -161098,8 +161098,8 @@
       "country": "Thailand",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],
@@ -168186,8 +168186,8 @@
       "country": "United Kingdom",
       "modem": "BG95-M5",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm",
+      "recommendation": "POSS",
+      "reason": "LTE Cat M1 coverage may be limited",
       "technologies": [
         "M1"
       ],

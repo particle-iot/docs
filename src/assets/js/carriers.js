@@ -172,7 +172,7 @@ carriers2.update = function() {
         regions = regionGroup.regions[regionIndex].regions;
     }
 
-    const showUnsupported = $('.byDeviceShowUnsupported').prop('checked');
+    let showUnsupported = $('.byDeviceShowUnsupported').prop('checked');
 
     const showNTN = modemObj.technologies.includes('NTN') && $('.byDeviceShowNTN').prop('checked'); // This is really only show NTN if true
 
@@ -187,6 +187,9 @@ carriers2.update = function() {
         }
         if (technologies.includes("3G")) {
             html += "<th>3G sunset</th>";
+        }
+        if (showUnsupported) {
+            html += '<th>Recommended</th>';
         }
         html += '</tr>';
 
@@ -260,6 +263,7 @@ carriers2.update = function() {
     }
     else {
         $('.byDeviceShowUnsupportedRow').hide();
+        showUnsupported = false;
     }
 
     if (modemObj.technologies.includes('NTN')) {
@@ -293,6 +297,8 @@ carriers2.update = function() {
         
         html += '</td>';        
 
+        const cmsObj = datastore.findCountryModemSim(ccObj.country, skuFamilyInfo.groupObj.modem, skuFamilyInfo.groupObj.sim);
+
         let allow = false;
         technologies.forEach(function(tech) {
             let cell = '&nbsp;';
@@ -304,7 +310,6 @@ carriers2.update = function() {
                 
                 if (ccObj[countryCarrierKey]['allow' + tech]) {
 
-                    const cmsObj = datastore.findCountryModemSim(ccObj.country, skuFamilyInfo.groupObj.modem, skuFamilyInfo.groupObj.sim);
                     if (!cmsObj || !cmsObj.supported[ccObj.carrier]) {
                         // Not supported by modem, or sunset
                         continue;
@@ -388,6 +393,35 @@ carriers2.update = function() {
             }
 
             html += '<td>' + cell + '</td>';
+        }
+
+        if (showUnsupported) {
+            let text = '';
+            let tooltip;
+
+            if (cmsObj.recommendation) {
+                const recommendationObj = datastore.data.recommendation.find(e => e.name == cmsObj.recommendation);
+                if (recommendationObj) {
+                    text = recommendationObj.short;
+                    if (text == 'Untested') {
+                        text = 'May work';
+                    }
+
+                    if (cmsObj.reason) {
+                        tooltip = cmsObj.reason;
+                    }
+                    else {
+                        tooltip = recommendationObj.desc;
+                    }
+                }
+            }                    
+
+            if (tooltip) {
+                html += '<td title="' + tooltip + '">' + text + '</td>';
+            }
+            else {
+                html += '<td>' + text + '</td>';
+            }
         }
 
         if (!allow) {
