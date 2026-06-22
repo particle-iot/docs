@@ -164,6 +164,7 @@ exports.metalsmith = function () {
     .use(troubleshooting({
         sourceDir: '../src',
         jsonFile: 'assets/files/troubleshooting.json',
+        searchIndexFile: 'assets/files/troubleshootingSearch.json',
         redirectsFile: '../config/redirects.json',
         ticketFormsFile: 'assets/files/ticketForms.json',
         pagesCsv: '../config/troubleshootingPages.csv',

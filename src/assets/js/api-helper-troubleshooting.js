@@ -2,6 +2,9 @@
 $(document).ready(function () {
 
     const decisionTreeUrl = '/assets/files/troubleshooting.json';
+    let troubleshootingJson;
+    let showPage;
+
 
     const redirectNote = async function(noteName) {
         const decisionTreeFetch = await fetch(decisionTreeUrl);
@@ -28,6 +31,64 @@ $(document).ready(function () {
         const noteName = match[1] + '.md';
         redirectNote(noteName);
     }
+
+    $('.troubleshootingSearch').each(function() {
+        const thisPartial = $(this);
+
+        const searchUrl = '/assets/files/troubleshootingSearch.json';
+
+        const run = async function() {
+            const searchFetch = await fetch(searchUrl);
+            const searchJson = await searchFetch.json();
+
+            const lunrIndex = lunr.Index.load(searchJson);
+
+            const resultsElem = $(thisPartial).find('.troubleshootingSearchResultsDiv');
+
+            $(thisPartial).find('.troubleshootingSearchInput').on('input', function() {
+                $(resultsElem).empty();
+                
+                const searchTerm = $(this).val();
+
+                const searchResults = lunrIndex.search(searchTerm);
+
+
+                if (searchResults.length) {
+                    // console.log('search', {searchTerm, searchResults, troubleshootingJson});
+
+                    const titlesAdded = [];
+
+
+                    for(const searchResult of searchResults) {
+                        const page = parseInt(searchResult.ref);
+
+                        const pageObj = troubleshootingJson.pages.find(e => e.page == page);
+                        if (pageObj && pageObj.title && !titlesAdded.includes(pageObj.title)) {
+                            // console.log('searchResult', pageObj);
+
+                            const buttonElem = document.createElement('div');
+                            $(buttonElem).addClass('apiHelperGiantButton');
+
+                            $(buttonElem).text(pageObj.title);
+                            titlesAdded.push(pageObj.title);
+
+                            $(buttonElem).on('click', function() {
+                                showPage({page: pageObj.page, clearAllPages: true,});
+                            });
+
+                            $(resultsElem).append(buttonElem);
+                        }
+                        
+                    }
+                }
+
+            });        
+        };
+
+        run();
+    });
+
+
 
     if ($('.apiHelperTroubleshooting').each(function() {
         const thisPartial = $(this);
@@ -57,7 +118,6 @@ $(document).ready(function () {
 
         // Content loaded at runtime
         let ticketForms;
-        let troubleshootingJson;
         let environmentJson;
         let ticketAttachments;
            
@@ -99,6 +159,12 @@ $(document).ready(function () {
             updateUrl();
         };
 
+        const clearAllPages = function() {
+            if (pageStack.length) {
+                clearPagesBelow(pageStack[0].page);
+            }
+        }
+
         const getParentEnvironment = function() {
             if (pageStack.length) {
                 return pageStack[pageStack.length - 1].pageObj.curEnvironment;
@@ -108,7 +174,7 @@ $(document).ready(function () {
             }
         }
 
-        const showPage = async function(pageOptions) {
+        showPage = async function(pageOptions) {
             let pageObj = troubleshootingJson.pages.find(e => e.page == pageOptions.page);
             if (!pageObj) {
                 pageObj = ticketForms.ticketForms.find(e => e.id == pageOptions.page);
@@ -123,6 +189,10 @@ $(document).ready(function () {
                     }
                 }
             }
+            if (pageOptions.clearAllPages) {
+                clearAllPages();
+            }
+
             if (pageObj.doNotRestore && pageOptions.loadPath) {
                 return false;
             }

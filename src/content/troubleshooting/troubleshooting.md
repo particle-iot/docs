@@ -2,7 +2,7 @@
 title: Support & Troubleshooting
 layout: commonTwo.hbs
 columns: two
-includeDefinitions: [api-helper, api-helper-troubleshooting, api-helper-tickets]
+includeDefinitions: [api-helper, api-helper-troubleshooting, api-helper-tickets, lunr]
 ---
 
 # {{title}}
@@ -11,3 +11,4 @@ includeDefinitions: [api-helper, api-helper-troubleshooting, api-helper-tickets]
 
 {{> troubleshooting}}
 
+{{> troubleshootingSearch}}
