@@ -931,8 +931,8 @@
             "hash": "8f7cd7c4616ea97a39765a55aba589340753e3b35277e15b74179e8cb12f1f8d"
         },
         "hardware/certification/battery-certification.md": {
-            "date": "2023-09-01",
-            "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
+            "date": "2026-06-23",
+            "hash": "4d2b11d4b14c1096d985c7b65c481c0d9eb94b25737b755d93626234f165f191"
         },
         "hardware/certification/certification-documents.md": {
             "date": "2026-06-15",
@@ -9703,8 +9703,8 @@
             "date": "2025-10-15"
         },
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
-            "hash": "2f5c7a0183867c42986bed594ceb73f060e28f0c04df7bd2d64bdc067b9a1aca",
-            "date": "2026-06-01"
+            "hash": "90435a081f88ce26d5c1054939e829ad39b194a11b6f4fd5229a608fd83410b8",
+            "date": "2026-06-23"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
             "hash": "f5fcc7701cc45a369e2893a82a5cc221ba5eb413cda6756d37d20cc388bbc539",

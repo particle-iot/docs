@@ -999,6 +999,16 @@ SE, SI, SK, TR, UA, UK(NI).
 {{!-- END shared-blurb --}}
 
 
+## Battery specifications
+
+The Tachyon can be used with the 1-cell or 3-cell battery packs. The 3-cell is recommended for situations where you are powering the Tachyon in normal operation by battery. The 1-cell is sufficient for powering during brief power outages, but may be insufficient when operating at maximum CPU utilization while actively using cellular.
+
+{{!-- BEGIN shared-blurb 8f8b8ee8-9f62-42b9-aef8-c511ab5cfc49 --}}
+- [1-cell 3100 mAh battery pack](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet)
+- [3-cell 9750 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) (manufacturer datasheet)
+- [Battery cell](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet for cells in the 1 and 3-cell battery packs)
+{{!-- END shared-blurb --}}
+
 ## Product handling
 
 ### ESD precautions
@@ -1123,3 +1133,4 @@ some cases, the device may only be compatible with some carriers, or some bands.
 | 009      | 2025-12-22 | RK | Update power requirements |
 | 010      | 2026-01-15 | RK | Updates for certification |
 | 011      | 2026-01-30 | RK | Added EU and RoHS certification document links |
+| 012      | 2026-06-23 | RK | Added battery specification links |
