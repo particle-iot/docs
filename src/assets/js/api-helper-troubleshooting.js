@@ -4,7 +4,7 @@ $(document).ready(function () {
     const decisionTreeUrl = '/assets/files/troubleshooting.json';
     let troubleshootingJson;
     let showPage;
-
+    let firstPage;
 
     const redirectNote = async function(noteName) {
         const decisionTreeFetch = await fetch(decisionTreeUrl);
@@ -47,16 +47,17 @@ $(document).ready(function () {
 
             $(thisPartial).find('.troubleshootingSearchInput').on('input', function() {
                 $(resultsElem).empty();
+                $('.apiHelperTroubleshootingPageSearch').remove();
                 
                 const searchTerm = $(this).val();
 
-                const searchResults = lunrIndex.search(searchTerm);
+                const titlesAdded = [];
+
+                if (searchTerm.length >= 3) {
+                    const searchResults = lunrIndex.search(searchTerm);
 
 
-                if (searchResults.length) {
                     // console.log('search', {searchTerm, searchResults, troubleshootingJson});
-
-                    const titlesAdded = [];
 
 
                     for(const searchResult of searchResults) {
@@ -69,19 +70,29 @@ $(document).ready(function () {
                             const buttonElem = document.createElement('div');
                             $(buttonElem).addClass('apiHelperGiantButton');
 
-                            $(buttonElem).text(pageObj.title);
+                            const checkSpanElem = document.createElement('span');
+                            $(checkSpanElem).html('&check; ');
+                            $(checkSpanElem).hide();
+                            $(buttonElem).append(checkSpanElem);
+
+                            const textSpanElem = document.createElement('span');
+                            $(textSpanElem).text(pageObj.title);
+                            $(buttonElem).append(textSpanElem);
+
                             titlesAdded.push(pageObj.title);
 
                             $(buttonElem).on('click', function() {
-                                showPage({page: pageObj.page, clearAllPages: true,});
+                                showPage({page: pageObj.page, clearAllPages: true, searchPage: true, });
+                                $(checkSpanElem).show();
                             });
 
                             $(resultsElem).append(buttonElem);
+                        }                        
+                        if (titlesAdded.length > 10) {
+                            break;
                         }
-                        
                     }
                 }
-
             });        
         };
 
@@ -160,9 +171,13 @@ $(document).ready(function () {
         };
 
         const clearAllPages = function() {
-            if (pageStack.length) {
-                clearPagesBelow(pageStack[0].page);
+            $(firstPage).hide();
+
+            for(let ii = 0; ii < pageStack.length; ii++) {
+                $(pageStack[ii].pageDivElem).remove();
             }
+            pageStack = [];
+            updateUrl();
         }
 
         const getParentEnvironment = function() {
@@ -219,6 +234,10 @@ $(document).ready(function () {
             const pageDivElem = document.createElement('div');
             $(pageDivElem).data('page', pageOptions.page);
             $(pageDivElem).addClass('apiHelperTroubleshootingPage');
+
+            if (pageOptions.searchPage) {
+                $(pageDivElem).addClass('apiHelperTroubleshootingPageSearch');
+            }
 
             let fields = [];
             let submitButton;
@@ -914,6 +933,10 @@ $(document).ready(function () {
 
 
             $(thisPartial).append(pageDivElem);
+
+            if (!firstPage) {
+                firstPage = pageDivElem;
+            }
 
             if (!pageOptions.noUpdateUrl) {
                 pageStack.push({
