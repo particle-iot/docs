@@ -21,6 +21,14 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Troubleshooting search 2026-06-23
+
+Added a search box to the [Troubleshooting decision tree](/troubleshooting/troubleshooting/) to more easily find topics.
+
+### Tachyon battery 2026-06-23
+
+Tachyon battery information including links to the manufacturer datasheets is now available in the [battery certification](/hardware/certification/battery-certification/) page and also in the Tachyon datasheet.
+
 ### Web Device Doctor 2026-06-12
 
 The [web device doctor](/tools/doctor/) has been updated to target and use Device OS 6.4.0 on Gen 3 and Gen 4 devices. It was previously using 6.3.4.
