@@ -2,6 +2,9 @@
 $(document).ready(function () {
 
     const decisionTreeUrl = '/assets/files/troubleshooting.json';
+    let troubleshootingJson;
+    let showPage;
+    let firstPage;
 
     const redirectNote = async function(noteName) {
         const decisionTreeFetch = await fetch(decisionTreeUrl);
@@ -28,6 +31,75 @@ $(document).ready(function () {
         const noteName = match[1] + '.md';
         redirectNote(noteName);
     }
+
+    $('.troubleshootingSearch').each(function() {
+        const thisPartial = $(this);
+
+        const searchUrl = '/assets/files/troubleshootingSearch.json';
+
+        const run = async function() {
+            const searchFetch = await fetch(searchUrl);
+            const searchJson = await searchFetch.json();
+
+            const lunrIndex = lunr.Index.load(searchJson);
+
+            const resultsElem = $(thisPartial).find('.troubleshootingSearchResultsDiv');
+
+            $(thisPartial).find('.troubleshootingSearchInput').on('input', function() {
+                $(resultsElem).empty();
+                $('.apiHelperTroubleshootingPageSearch').remove();
+                
+                const searchTerm = $(this).val();
+
+                const titlesAdded = [];
+
+                if (searchTerm.length >= 3) {
+                    const searchResults = lunrIndex.search(searchTerm);
+
+
+                    // console.log('search', {searchTerm, searchResults, troubleshootingJson});
+
+
+                    for(const searchResult of searchResults) {
+                        const page = parseInt(searchResult.ref);
+
+                        const pageObj = troubleshootingJson.pages.find(e => e.page == page);
+                        if (pageObj && pageObj.title && !titlesAdded.includes(pageObj.title)) {
+                            // console.log('searchResult', pageObj);
+
+                            const buttonElem = document.createElement('div');
+                            $(buttonElem).addClass('apiHelperGiantButton');
+
+                            const checkSpanElem = document.createElement('span');
+                            $(checkSpanElem).html('&check; ');
+                            $(checkSpanElem).hide();
+                            $(buttonElem).append(checkSpanElem);
+
+                            const textSpanElem = document.createElement('span');
+                            $(textSpanElem).text(pageObj.title);
+                            $(buttonElem).append(textSpanElem);
+
+                            titlesAdded.push(pageObj.title);
+
+                            $(buttonElem).on('click', function() {
+                                showPage({page: pageObj.page, clearAllPages: true, searchPage: true, });
+                                $(checkSpanElem).show();
+                            });
+
+                            $(resultsElem).append(buttonElem);
+                        }                        
+                        if (titlesAdded.length > 10) {
+                            break;
+                        }
+                    }
+                }
+            });        
+        };
+
+        run();
+    });
+
+
 
     if ($('.apiHelperTroubleshooting').each(function() {
         const thisPartial = $(this);
@@ -57,7 +129,6 @@ $(document).ready(function () {
 
         // Content loaded at runtime
         let ticketForms;
-        let troubleshootingJson;
         let environmentJson;
         let ticketAttachments;
            
@@ -99,6 +170,16 @@ $(document).ready(function () {
             updateUrl();
         };
 
+        const clearAllPages = function() {
+            $(firstPage).hide();
+
+            for(let ii = 0; ii < pageStack.length; ii++) {
+                $(pageStack[ii].pageDivElem).remove();
+            }
+            pageStack = [];
+            updateUrl();
+        }
+
         const getParentEnvironment = function() {
             if (pageStack.length) {
                 return pageStack[pageStack.length - 1].pageObj.curEnvironment;
@@ -108,7 +189,7 @@ $(document).ready(function () {
             }
         }
 
-        const showPage = async function(pageOptions) {
+        showPage = async function(pageOptions) {
             let pageObj = troubleshootingJson.pages.find(e => e.page == pageOptions.page);
             if (!pageObj) {
                 pageObj = ticketForms.ticketForms.find(e => e.id == pageOptions.page);
@@ -123,6 +204,10 @@ $(document).ready(function () {
                     }
                 }
             }
+            if (pageOptions.clearAllPages) {
+                clearAllPages();
+            }
+
             if (pageObj.doNotRestore && pageOptions.loadPath) {
                 return false;
             }
@@ -149,6 +234,10 @@ $(document).ready(function () {
             const pageDivElem = document.createElement('div');
             $(pageDivElem).data('page', pageOptions.page);
             $(pageDivElem).addClass('apiHelperTroubleshootingPage');
+
+            if (pageOptions.searchPage) {
+                $(pageDivElem).addClass('apiHelperTroubleshootingPageSearch');
+            }
 
             let fields = [];
             let submitButton;
@@ -844,6 +933,10 @@ $(document).ready(function () {
 
 
             $(thisPartial).append(pageDivElem);
+
+            if (!firstPage) {
+                firstPage = pageDivElem;
+            }
 
             if (!pageOptions.noUpdateUrl) {
                 pageStack.push({

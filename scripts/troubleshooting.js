@@ -1,6 +1,8 @@
 
 const fs = require('fs');
 const path = require('path');
+const lunr = require('lunr');
+const { markdownToTxt } = require('markdown-to-txt');
 
 function verifyTroubleshooting(options) {
     // console.log('verifyTroubleshooting', json);
@@ -177,6 +179,94 @@ module.exports = {
                 // console.log('file ' + file, files[file]);
 
             }
+
+            // Generate lunr index of pages
+            if (options.searchIndexFile) {
+                var lunrIndex = lunr(function () {
+                    this.ref('page');
+
+                    for(const field of ['title', 'description','text','type']) {
+                        this.field(field);
+                    }
+
+                    for(const pageObj of troubleshootingJson.pages) {
+                        
+                        if (!pageObj.note && !pageObj.description && !pageObj.buttons) {
+                            // Empty
+                            continue;
+                        }
+
+                        let hasNextStep = false;
+                        if (pageObj.buttons) {
+                            for(const buttonObj of pageObj.buttons) {
+                                if (buttonObj.nextStep) {
+                                    hasNextStep = true;
+                                }
+                            }
+                        }
+                        if (hasNextStep) {
+                            // If part of a multi-step, ignore this page
+                            continue;
+                        }
+
+
+                        let doc = {
+                            page: pageObj.page.toString(),
+                            type: 'page',
+                        }
+                        if (pageObj.title) {
+                            doc.title = pageObj.title;
+                        }
+                        if (pageObj.description) {
+                            doc.description = pageObj.description;
+                        }
+
+                        if (pageObj.note) {
+                            // TODO: read note md file here
+                            // doc.text = markdownToTxt()
+                        }
+
+                        if (pageObj.buttons) {
+                            for(const buttonObj of pageObj.buttons) {
+                                if (buttonObj.nonOrgRequired || buttonObj.enterpriseRequired) {
+                                    continue;
+                                }
+                                if (buttonObj.page && buttonObj.page < 9999) {
+                                    // Don't include buttons that link to a troubleshooting page
+                                    continue;
+                                }
+                                if (!buttonObj.title) {
+                                    continue;
+                                }
+
+                                let buttonDoc = {
+                                    page: pageObj.page.toString(),
+                                    title: buttonObj.title,
+                                };
+                                if (buttonObj.url) {
+                                    buttonDoc.type = 'url';
+                                }
+                                else {
+                                    buttonDoc.type =  'form';
+                                }
+                                this.add(buttonDoc);
+                            }
+                        }
+
+                        this.add(doc);
+                        // console.log('doc', doc);
+                    }
+                });
+                // console.log('lunrIndex', lunrIndex);
+
+                const lunrIndexText = JSON.stringify(lunrIndex, null, 2);
+                files[options.searchIndexFile] = {
+                    contents: Buffer.from(lunrIndexText, 'utf8'),
+                    mode: '0644',
+                    stats: fs.statSync(jsonPath)
+                };                                
+            }
+
 
             done();
         }
