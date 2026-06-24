@@ -69,6 +69,18 @@ It is expected that 6.4.2 will be declared an LTS version in the future.
 
 Note: Prior to 2025, Particle maintained separate LTS (2.x & 4.x) and mainline (3.x, 5.x) branches. With the introduction of Device OS 6, we streamlined this approach to maintain a single active line of development.
 
+### LTS release phases
+
+All LTS releases **have a support lifecycle of two years** that is broken into two distinct phases:
+
+**Year 1 - Active LTS**
+
+Active support of high-severity bugs, security vulnerabilities, and issues for a period of one (1) year.
+
+**Year 2 - ESM LTS**
+
+Beginning in the second year of availability, LTS releases enter an Extended Security Maintenance (ESM) phase. In this phase, **only emergency security fixes will be back-ported**.
+
 ## Default and Recommended Versions
 
 Each platform has:
@@ -99,6 +111,8 @@ Patch releases may be issued on top of a designated LTS version without changing
 <sup>1</sup>It is expected that the 6.4.2 will be declared LTS.
 
 **Devices that must stay on 2.x LTS**
+
+Note: Device OS 2.3.1 was released in November 2022, and therefore it is out of the support period. 
 
 | **Platform** | **Models** | **Current LTS** | **Minimum Version** |
 | --- | --- | --- | --- |
