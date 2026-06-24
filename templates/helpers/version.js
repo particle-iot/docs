@@ -32,6 +32,28 @@ module.exports = function(context) {
     //    "sys": 3005,
     //    "semVer": "3.0.0"
     // },
+
+    const deviceOsVersions = JSON.parse(fs.readFileSync(path.join(filesPath, 'deviceOsVersions.json'), 'utf8'));
+
+    // array of versions:
+    //   {
+    //     "version": "6.4.1",
+    //     "internal_version": 6401,
+    //     "release_state": "preview",
+    //     "base_url": "https://api.particle.io/v1/firmware/device-os/v6.4.1",
+    //     "supported_platforms": [
+    //       12,
+    //       25,
+    //       13,
+    //       23,
+    //       15,
+    //       35,
+    //       32,
+    //       26,
+    //       28
+    //     ],
+    //     "publishedAt": "2026-05-04T17:46:58Z"
+    //   },
   
     const parseSemVer = function(ver) {
         let result = {};
@@ -81,63 +103,81 @@ module.exports = function(context) {
 
     const mode = context.hash.mode;
 
-    if (mode == 'latest') {
-        // Return the latest in a release line
-        // "line" parameter in context is usually something like "2" (for LTS 2.x) or "2.3" (for 2.3.x).
-        // This also returns alpha, beta, and rc versions; see latestRelease for final releases only.
-        const line = context.hash.line;
+    let platform = 0;
+    if (typeof context.hash.platform == 'string') {
+        platform = parseInt(context.hash.platform);
+    }
+    if (platform == 0) {
+        console.log('version helper platform not set', context)
+    }                
 
-        for(const ver of deviceRestore.versionNames) {
-            const verParsed = parseSemVer(ver);
-            if (ver.startsWith(line)) {
-                html += ver;
+    const deviceRestorePlatformInfo = deviceRestore.platforms.find(e => e.id == platform);
+
+    let line = context.hash.line;
+    if (!line && mode == 'lts') {
+        if (deviceRestorePlatformInfo) {
+            line = deviceRestorePlatformInfo.lts;
+        }
+        else {
+            console.log('unknown platform ' + platform + ' using lts');
+        }
+    }
+
+
+    let foundVerObj;
+
+    if (mode == 'ga' || mode == 'lts') {
+        for(const verObj of deviceOsVersions) {
+            if (verObj.release_state == 'ga' && verObj.supported_platforms && verObj.supported_platforms.includes(platform)) {
+                if (!line || verObj.version.startsWith(line)) {
+                    foundVerObj = verObj;
+                    break;
+                }
+            }
+        }                
+    }
+    if (mode == 'preview') {
+        for(const verObj of deviceOsVersions) {
+            if (verObj.release_state == 'preview' && verObj.supported_platforms && verObj.supported_platforms.includes(platform)) {
+                if (!line || verObj.version.startsWith(line)) {
+                    foundVerObj = verObj;
+                    break;
+                }
+            }
+        }                
+    }
+    if (mode == 'version') { // ga or preview
+        for(const verObj of deviceOsVersions) {
+            if (verObj.supported_platforms && verObj.supported_platforms.includes(platform)) {
+                if (!line || verObj.version.startsWith(line)) {
+                    foundVerObj = verObj;
+                    break;
+                }
+            }
+        }        
+    }
+    if (mode == 'default') {
+        // line option is ignored for default
+        for(const verObj of deviceOsVersions) {
+            if (verObj.default_platforms && verObj.default_platforms.includes(platform)) {
+                foundVerObj = verObj;
                 break;
             }
         }
     }
-    if (mode == 'latestRelease') {
-        const line = context.hash.line;
 
-        for(const ver of deviceRestore.versionNames) {
-            const verParsed = parseSemVer(ver);
-            if (ver.startsWith(line) && verParsed.isFinalRelease) {
-                html += ver;
-                break;
-            }
-        }
-        if (!html && context.hash.alt) {
-            html += context.hash.alt;
-        }
+    if (foundVerObj) {
+        html = foundVerObj.version;
     }
-    if (mode == 'testWith') {
-        const line = context.hash.line;
-        const allowAlpha = context.hash.allowAlpha && context.hash.allowAlpha !== 'false' && context.hash.allowAlpha !== '0';
-
-        for(const ver of deviceRestore.versionNames) {
-            const verParsed = parseSemVer(ver);
-            if (ver.startsWith(line)) {
-                if (verParsed.isFinalRelease) {
-                    // Already final release, no betas
-                    html += ver;
-                    break;
-                }
-                if (verParsed.beta || verParsed.rc) {
-                    // Test with beta and rc releases (don't list alpha here)
-                    html += ver;
-                    break;
-                }    
-                if (verParsed.alpha && allowAlpha) {
-                    html += ver;
-                    break;
-                }
-            }
-
-        }
-        if (!html && context.hash.alt) {
-            html += context.hash.alt;
-        }
+    else
+    if (mode == 'lts') {
+        html = line;
     }
-    
+
+    if (!html && context.hash.alt) {
+        html += context.hash.alt;
+    }
+
 
 	return new Handlebars.SafeString(html);
 };

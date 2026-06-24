@@ -559,8 +559,8 @@
             "hash": "fc86887835879b290bd6172c02050d4877a02225d2cfdbe67ebd99aded819347"
         },
         "firmware/tracker-edge/tracker-edge-firmware.md": {
-            "date": "2025-11-13",
-            "hash": "45a1d435fd8cbe00a0b41aa1d3c4a156ad5190412736a19a8eb692ff19b42251"
+            "date": "2026-06-24",
+            "hash": "1b10132a3e82805bd55bd3add40cddd5ac75faabac208926941adb43484e2c57"
         },
         "getting-started/billing/cellular-data.md": {
             "date": "2025-02-03",
@@ -1303,16 +1303,16 @@
             "hash": "a4f28a66b456775211f9d273a411bf142d451e7fc07d1f018d05bda835b31346"
         },
         "reference/device-os/versions.md": {
-            "date": "2024-09-12",
-            "hash": "fcb2a16cfbeb5948605288e1c380bb7d608e5c07e0e8fcb715c392f0fd718435"
+            "date": "2026-06-24",
+            "hash": "8ee25f7a67eefff7c2a3ee90551d79cd76b655662b9a058975d739af1ec4d1c5"
         },
         "reference/device-os/wifi-setup-options.md": {
             "date": "2024-06-10",
             "hash": "83ef5c227992da08843f4f28d32e06696c2a14c618f0f1846af1bac1716ee5b5"
         },
         "reference/product-lifecycle/long-term-support-lts-releases.md": {
-            "date": "2024-02-27",
-            "hash": "8ec1d044f01f999adecac71c84569f85ddc65a79a945931264287d49eae28e81"
+            "date": "2026-06-24",
+            "hash": "d5466906712e5790407aaab44b937906f4529d67a0e78f38d24e8b4a701adf8e"
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
             "date": "2025-06-24",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "09309c3a0be1bcbe83003ea246289674dc0ea091f78bdb8883e99b1f0999b03d",
-            "date": "2026-06-23"
+            "hash": "501e148219fb73979594a530c3cc6ee2ab42ab7b047b3db6ac1275eb2ba1b311",
+            "date": "2026-06-24"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9139,8 +9139,8 @@
             "date": "2024-07-23"
         },
         "reference/cellular/verizon-faq.md": {
-            "hash": "61fd9b2d72810349103de56bdfe63a48f09b7362c688e298913b3ae5cff72811",
-            "date": "2026-03-05"
+            "hash": "36450357edfabf88ae01099bde70b9749b79d5fae83237c99ab376153a349d15",
+            "date": "2026-06-24"
         },
         "reference/device-os/libraries/a/Adafruit_ADS1X15_multi.md": {
             "hash": "8a7cc52f3debf1f8017ede9a2bd5bcb35a07758c30a5de8618c3ed452e5e17c2",

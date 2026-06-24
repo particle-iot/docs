@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated LTS 2026-06-24
+
+Updated the [Long Term Support (LTS) Releases](/reference/product-lifecycle/long-term-support-lts-releases/) page with future plans for LTS releases.
+
 ### Troubleshooting search 2026-06-23
 
 Added a search box to the [Troubleshooting decision tree](/troubleshooting/troubleshooting/) to more easily find topics.
