@@ -1315,7 +1315,8 @@
       "id": 12,
       "gen": 3,
       "mcu": "nRF52840",
-      "wifi": true
+      "wifi": true,
+      "ltsLine": "4"
     },
     {
       "name": "boron",
@@ -1323,7 +1324,8 @@
       "id": 13,
       "gen": 3,
       "mcu": "nRF52840",
-      "cellular": true
+      "cellular": true,
+      "ltsLine": "4"
     },
     {
       "name": "esomx",
@@ -1331,7 +1333,8 @@
       "id": 15,
       "gen": 3,
       "mcu": "nRF52840",
-      "cellular": true
+      "cellular": true,
+      "ltsLine": "4"
     },
     {
       "name": "bsom",
@@ -1339,7 +1342,8 @@
       "id": 23,
       "gen": 3,
       "mcu": "nRF52840",
-      "cellular": true
+      "cellular": true,
+      "ltsLine": "4"
     },
     {
       "name": "b5som",
@@ -1347,7 +1351,8 @@
       "id": 25,
       "gen": 3,
       "mcu": "nRF52840",
-      "cellular": true
+      "cellular": true,
+      "ltsLine": "4"
     },
     {
       "name": "tracker",
@@ -1355,7 +1360,8 @@
       "id": 26,
       "gen": 3,
       "mcu": "nRF52840",
-      "cellular": true
+      "cellular": true,
+      "ltsLine": "4"
     },
     {
       "name": "electron",
@@ -1363,7 +1369,8 @@
       "id": 10,
       "gen": 2,
       "mcu": "STM32F205",
-      "cellular": true
+      "cellular": true,
+      "ltsLine": "2"
     },
     {
       "name": "photon",
@@ -1371,7 +1378,8 @@
       "id": 6,
       "gen": 2,
       "mcu": "STM32F205",
-      "wifi": true
+      "wifi": true,
+      "ltsLine": "2"
     },
     {
       "name": "p1",
@@ -1379,7 +1387,8 @@
       "id": 8,
       "gen": 2,
       "mcu": "STM32F205",
-      "wifi": true
+      "wifi": true,
+      "ltsLine": "2"
     },
     {
       "name": "trackerm",
@@ -1387,7 +1396,8 @@
       "id": 28,
       "gen": 3,
       "mcu": "RTL8721",
-      "wifi": false
+      "wifi": false,
+      "ltsLine": "4"
     },
     {
       "name": "p2",
@@ -1396,7 +1406,8 @@
       "gen": 3,
       "mcu": "RTL8721",
       "wifi": true,
-      "wifiSelectAntenna": true
+      "wifiSelectAntenna": true,
+      "ltsLine": "6.4"
     },
     {
       "name": "msom",
@@ -1405,7 +1416,8 @@
       "gen": 3,
       "mcu": "RTL8722",
       "wifi": true,
-      "cellular": true
+      "cellular": true,
+      "ltsLine": "6.4"
     },
     {
       "name": "xenon",
@@ -1414,7 +1426,8 @@
       "gen": 3,
       "mcu": "nRF52840",
       "discontinued": true,
-      "mesh": true
+      "mesh": true,
+      "ltsLine": "1.5"
     }
   ],
   "versionsZipByPlatform": {

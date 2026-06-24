@@ -65,9 +65,10 @@ At this time, an upgrade of Device OS is not generally required.
 
 | Models | Device OS Version | Current recommendation |
 | :--- | :--- | :--- |
-| B404X, BRN404X, E404X | 4.x LTS | {{version mode="latestRelease" line="4"}} |
-| B404, BRN404, ONE404, T404 | 4.x LTS recommended, 2.x LTS supported | {{version mode="latestRelease" line="4"}} |
-| ELC404 | 2.x LTS | {{version mode="latestRelease" line="2"}} |
+| B404X, BRN404X, E404X | 4.x LTS | {{version mode="lts" platform="23"}} |
+| B504 | 6.3.5 | {{version mode="ga" platform="25"}} |
+| B404, BRN404, ONE404, T404 | 4.x LTS recommended, 2.x LTS supported | {{version mode="lts" platform="23"}} |
+| ELC404 | 2.x LTS | {{version mode="lts" platform="10"}} |
 
 See [Recommended Device OS versions](/reference/device-os/versions/) for the current recommended versions for specific devices.
 

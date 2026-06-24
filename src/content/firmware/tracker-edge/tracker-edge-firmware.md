@@ -136,8 +136,7 @@ After you've downloaded the source zip file:
 
 Make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
-It is recommended that Tracker fleets upgrade to the latest Device OS 4.x LTS (currently {{version mode="latestRelease" line="4"}}). 
-You can also use Device OS 3.3.0.
+It is recommended that Tracker fleets use Tracker Edge v20 and the latest 6.x GA version (currently {{version mode="ga" platform="26"}}).
 
 ### Tracker Edge v20
 

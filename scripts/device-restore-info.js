@@ -84,19 +84,19 @@ function updateDeviceRestoreInfo(sourceDir, outputFile) {
     output.versionsZip = versionsZip;
 
     output.platforms = [
-        {name:'argon', title:'Argon', id:12, gen:3, mcu:'nRF52840', wifi:true},
-        {name:'boron', title:'Boron', id:13, gen:3, mcu:'nRF52840', cellular:true},
-        {name:'esomx', title:'E SoM X', id:15, gen:3, mcu:'nRF52840', cellular:true},
-        {name:'bsom', title:'B4xx', id:23, gen:3, mcu:'nRF52840', cellular:true},
-        {name:'b5som', title:'B5xx', id:25, gen:3, mcu:'nRF52840', cellular:true},
-        {name:'tracker', title:'Tracker', id:26, gen:3, mcu:'nRF52840', cellular:true},
-        {name:'electron', title:'Electron', id:10, gen:2, mcu:'STM32F205', cellular:true},
-        {name:'photon', title:'Photon', id:6, gen:2, mcu:'STM32F205', wifi:true},
-        {name:'p1', title:'P1', id:8, gen:2, mcu:'STM32F205', wifi:true},
-        {name:'trackerm', title:'Tracker M', id:28, gen:3, mcu:'RTL8721', wifi:false},
-        {name:'p2', title:'P2', id:32, gen:3, mcu:'RTL8721', wifi:true, wifiSelectAntenna:true},
-        {name:'msom', title:'M SoM', id:35, gen:3, mcu:'RTL8722', wifi:true, cellular:true},
-        {name:'xenon', title:'Xenon', id:14, gen:3, mcu:'nRF52840', discontinued:true, mesh:true}
+        {name:'argon', title:'Argon', id:12, gen:3, mcu:'nRF52840', wifi:true, ltsLine: "4"},
+        {name:'boron', title:'Boron', id:13, gen:3, mcu:'nRF52840', cellular:true, ltsLine: "4"},
+        {name:'esomx', title:'E SoM X', id:15, gen:3, mcu:'nRF52840', cellular:true, ltsLine: "4"},
+        {name:'bsom', title:'B4xx', id:23, gen:3, mcu:'nRF52840', cellular:true, ltsLine: "4"},
+        {name:'b5som', title:'B5xx', id:25, gen:3, mcu:'nRF52840', cellular:true, ltsLine: "4"},
+        {name:'tracker', title:'Tracker', id:26, gen:3, mcu:'nRF52840', cellular:true, ltsLine: "4"},
+        {name:'electron', title:'Electron', id:10, gen:2, mcu:'STM32F205', cellular:true, ltsLine: "2"},
+        {name:'photon', title:'Photon', id:6, gen:2, mcu:'STM32F205', wifi:true, ltsLine: "2"},
+        {name:'p1', title:'P1', id:8, gen:2, mcu:'STM32F205', wifi:true, ltsLine: "2"},
+        {name:'trackerm', title:'Tracker M', id:28, gen:3, mcu:'RTL8721', wifi:false, ltsLine: "4"},
+        {name:'p2', title:'P2', id:32, gen:3, mcu:'RTL8721', wifi:true, wifiSelectAntenna:true, ltsLine: "6.4"},
+        {name:'msom', title:'M SoM', id:35, gen:3, mcu:'RTL8722', wifi:true, cellular:true, ltsLine: "6.4"},
+        {name:'xenon', title:'Xenon', id:14, gen:3, mcu:'nRF52840', discontinued:true, mesh:true, ltsLine: "1.5"}
     ];
 
 
