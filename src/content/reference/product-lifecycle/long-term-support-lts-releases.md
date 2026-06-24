@@ -8,7 +8,7 @@ columns: two
 
 Particle manages Device OS releases through defined lifecycle states that reflect a version's maturity, stability, and intended audience.
 
-This model ensures customers can choose the version that best fits their needs—whether that's early access to new capabilities, or a proven release for long-term production use.
+This model ensures customers can choose the version that best fits their needs, whether that's early access to new capabilities, or a proven release for long-term production use.
 
 Each release moves through several states as we gain confidence in its performance, based on testing, field metrics, and customer feedback.
 
@@ -45,7 +45,7 @@ When evaluating a release, Particle considers:
 - Cumulative device-hours and time-in-field metrics across multiple platforms.
 - Feedback from early-access customers, partners, and the developer community.
 
-Releases that meet the highest standards of stability and long-term reliability may earn the LTS designation — a mark that identifies them as the recommended baseline for production deployments.
+Releases that meet the highest standards of stability and long-term reliability may earn the LTS designation, a mark that identifies them as the recommended baseline for production deployments.
 
 ## Device OS Long-Term Support (LTS) designation
 
@@ -83,17 +83,18 @@ Patch releases may be issued on top of a designated LTS version without changing
 {{!-- BEGIN shared-blurb d07841d1-c7b6-4d06-b89d-f906d454d2b7 --}}
 | **Platform** | **Models** | **Current LTS** | **Minimum Version** |
 | --- | --- | --- | --- |
-| B-SoM | B404X | {{version mode="lts" platform="23"}} | 4.0.0 |
-| B-SoM | B404 | {{version mode="lts" platform="23"}} | 2.3.0 |
-| B-SoM | B402, B524, B523 | {{version mode="lts" platform="23"}} |  |
-| B-SoM | B504e | {{version mode="ga" platform="25"}} | 6.3.5 |
-| Boron | BRN404X | {{version mode="lts" platform="13"}} | 4.0.0 |
-| Boron | BRN404, BRN402, BRN314, BRN310 | {{version mode="lts" platform="13"}} |  |
-| Argon |  | {{version mode="lts" platform="12"}} |  |
-| E404X | E404X | {{version mode="lts" platform="15"}} | 4.0.0 |
-| Tracker | T404, T524, T523 ONE404, ONE402, ONE524, ONE523 | {{version mode="lts" platform="26"}} |  |
-| M-SoM | M524, M404 | {{version mode="lts" platform="35"}}<sup>1</sup> | 5.6.0 |
-| Photon 2, P2 |  | {{version mode="lts" platform="32"}}<sup>1</sup> | 5.0.0 |
+| bsom | B404X | {{version mode="lts" platform="23"}} | 4.0.0 |
+| bsom | B404 | {{version mode="lts" platform="23"}} | 2.3.0 |
+| bsom | B402, B524 | {{version mode="lts" platform="23"}} |  |
+| b5som | B524, B523 | {{version mode="lts" platform="25"}} |  |
+| b5som | B504e | {{version mode="ga" platform="25"}} | 6.3.5 |
+| boron | BRN404X | {{version mode="lts" platform="13"}} | 4.0.0 |
+| boron | BRN404, BRN402, BRN314, BRN310 | {{version mode="lts" platform="13"}} |  |
+| argon | Argon | {{version mode="lts" platform="12"}} |  |
+| e404x | E404X | {{version mode="lts" platform="15"}} | 4.0.0 |
+| tracker | T404, T524, T523, ONE404, ONE402, ONE524, ONE523 | {{version mode="lts" platform="26"}} |  |
+| msom | M524, M404, M635e | {{version mode="lts" platform="35"}}<sup>1</sup> | 5.6.0 |
+| p2 | P2, Photon 2  | {{version mode="lts" platform="32"}}<sup>1</sup> | 5.0.0 |
 
 <sup>1</sup>It is expected that the 6.4.2 will be declared LTS.
 

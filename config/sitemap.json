@@ -1312,7 +1312,7 @@
         },
         "reference/product-lifecycle/long-term-support-lts-releases.md": {
             "date": "2026-06-24",
-            "hash": "167b5697b7e3a4ca55224f20c08f7eb718264fc1a7394d289d81c94592901c4f"
+            "hash": "d5466906712e5790407aaab44b937906f4529d67a0e78f38d24e8b4a701adf8e"
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
             "date": "2025-06-24",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "09309c3a0be1bcbe83003ea246289674dc0ea091f78bdb8883e99b1f0999b03d",
-            "date": "2026-06-23"
+            "hash": "501e148219fb73979594a530c3cc6ee2ab42ab7b047b3db6ac1275eb2ba1b311",
+            "date": "2026-06-24"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
