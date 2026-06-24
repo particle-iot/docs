@@ -116,12 +116,11 @@ module.exports = function(context) {
     let line = context.hash.line;
     if (!line && mode == 'lts') {
         if (deviceRestorePlatformInfo) {
-            line = deviceRestorePlatformInfo.ltsLine;
+            line = deviceRestorePlatformInfo.lts;
         }
         else {
-            console.log('unknown platform ' + platform + ' using ltsLine');
+            console.log('unknown platform ' + platform + ' using lts');
         }
-        console.log('versions', {platform, line, mode, deviceRestorePlatformInfo});
     }
 
 
@@ -147,7 +146,7 @@ module.exports = function(context) {
             }
         }                
     }
-    if (mode == 'version' || (!foundVerObj && mode == 'lts')) { // ga or preview
+    if (mode == 'version') { // ga or preview
         for(const verObj of deviceOsVersions) {
             if (verObj.supported_platforms && verObj.supported_platforms.includes(platform)) {
                 if (!line || verObj.version.startsWith(line)) {
@@ -170,70 +169,15 @@ module.exports = function(context) {
     if (foundVerObj) {
         html = foundVerObj.version;
     }
+    else
+    if (mode == 'lts') {
+        html = line;
+    }
+
     if (!html && context.hash.alt) {
         html += context.hash.alt;
     }
 
-    /*
-    if (mode == 'latest') {
-        // Return the latest in a release line
-        // "line" parameter in context is usually something like "2" (for LTS 2.x) or "2.3" (for 2.3.x).
-        // This also returns alpha, beta, and rc versions; see latestRelease for final releases only.
-        const line = context.hash.line;
-
-        for(const ver of deviceRestore.versionNames) {
-            const verParsed = parseSemVer(ver);
-            if (ver.startsWith(line)) {
-                html += ver;
-                break;
-            }
-        }
-    }
-
-
-    if (mode == 'latestRelease') {
-        const line = context.hash.line;
-
-        for(const ver of deviceRestore.versionNames) {
-            const verParsed = parseSemVer(ver);
-            if (ver.startsWith(line) && verParsed.isFinalRelease) {
-                html += ver;
-                break;
-            }
-        }
-        if (!html && context.hash.alt) {
-            html += context.hash.alt;
-        }
-    }
-    if (mode == 'testWith') {
-        const line = context.hash.line;
-        const allowAlpha = context.hash.allowAlpha && context.hash.allowAlpha !== 'false' && context.hash.allowAlpha !== '0';
-
-        for(const ver of deviceRestore.versionNames) {
-            const verParsed = parseSemVer(ver);
-            if (ver.startsWith(line)) {
-                if (verParsed.isFinalRelease) {
-                    // Already final release, no betas
-                    html += ver;
-                    break;
-                }
-                if (verParsed.beta || verParsed.rc) {
-                    // Test with beta and rc releases (don't list alpha here)
-                    html += ver;
-                    break;
-                }    
-                if (verParsed.alpha && allowAlpha) {
-                    html += ver;
-                    break;
-                }
-            }
-
-        }
-        if (!html && context.hash.alt) {
-            html += context.hash.alt;
-        }
-    }
-    */    
 
 	return new Handlebars.SafeString(html);
 };

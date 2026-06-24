@@ -12,7 +12,7 @@ This model ensures customers can choose the version that best fits their needs�
 
 Each release moves through several states as we gain confidence in its performance, based on testing, field metrics, and customer feedback.
 
-## Device OS Release States
+## Device OS release states
 
 These states describe how widely a release is distributed across Particle's tools and which audiences it is intended for.
 
@@ -32,7 +32,9 @@ These states describe how widely a release is distributed across Particle's tool
 2. **General Availability (GA)** – promoted when the release demonstrates stability across a wide range of devices and platforms.
 3. **Archived** – older releases like release-candidates or releases that don't meet our standards for stability may be moved to Archived so they are not shown in the version selector in Workbench and Web IDE, preventing new projects from adopting it.
 
-## Criteria for Promotion Between States
+To see the current versions and release states, see [versions and upgrades](/reference/device-os/versions/).
+
+## Criteria for promotion between states
 
 Device OS releases advance through the release states based on their maturity, reliability, and field performance.
 
@@ -45,38 +47,36 @@ When evaluating a release, Particle considers:
 
 Releases that meet the highest standards of stability and long-term reliability may earn the LTS designation — a mark that identifies them as the recommended baseline for production deployments.
 
-## Device OS Long-Term Support (LTS) Designation
+## Device OS Long-Term Support (LTS) designation
 
 Particle's Long-Term Support (LTS) releases provide developers with known stable versions of Device OS suitable for production deployments, with continued support in the following point releases. This ensures that the recommended LTS version remains stable and predictable, even as development continues on newer versions.
 
-**An LTS designation is applied to a specific version (example: 6.4.2 [expected]), not to an entire major release.**
+**An LTS designation is applied to a specific version not to an entire major release.**
 
-**After an LTS version is designated, Particle may continue to:**
+After an LTS version is designated, Particle may continue to:
 
-- **Release newer versions (for example, 6.5.0) that include new features.**
-- **Release patch updates within the LTS line (for example, 6.4.3, 6.4.4) that contain only critical fixes or security improvements.**
+- Release newer versions (for example, 6.5.0) that include new features.
+- Release patch updates within the LTS line (for example, 6.4.3, 6.4.4) that contain only critical fixes or security improvements.
 
-```jsx
-6.4.2 (LTS) ──> 6.4.3 ──> 6.4.4      ← backported fixes only
-\
-\──> 6.5.0 ──> 6.5.1         ← new features + fixes
-```
+![LTS versions](/assets/images/lts-versions.svg)
 
 LTS releases are designed for:
 
 - Reliability-focused teams who prioritize stability over new features
 - Customers who need a consistent foundation to support rapid iteration of their firmware application
 
-Note: Prior to 2025, Particle maintained separate LTS ( (2.x & 4.x) and mainline (3.x, 5.x) branches. With the introduction of Device OS 6, we streamlined this approach to maintain a single active line of development.
+It is expected that 6.4.2 will be declared an LTS version in the future.
+
+Note: Prior to 2025, Particle maintained separate LTS (2.x & 4.x) and mainline (3.x, 5.x) branches. With the introduction of Device OS 6, we streamlined this approach to maintain a single active line of development.
 
 ## Default and Recommended Versions
 
 Each platform has:
 
 - A default version, automatically selected when you compile or create a new project in Workbench or the Web IDE.
-    - This is latest GA release for that platform.
 - A recommended LTS version, which represents the most stable and field-proven release for production use.
-    - Patch releases may be issued on top of a designated LTS version without changing the LTS designation (e.g., `6.4.2` → `6.4.3`) if critical fixes are required.
+    
+Patch releases may be issued on top of a designated LTS version without changing the LTS designation (e.g., `6.4.2` → `6.4.3`) if critical fixes are required.
 
 ### Recommended LTS Versions
 
@@ -95,7 +95,7 @@ Each platform has:
 | M-SoM | M524, M404 | {{version mode="lts" platform="35"}}<sup>1</sup> | 5.6.0 |
 | Photon 2, P2 |  | {{version mode="lts" platform="32"}}<sup>1</sup> | 5.0.0 |
 
-<sup>1</sup>6.4.2 has not been declared an LTS release at this time, but 6.4.x is expected to be declared the LTS line in the future.
+<sup>1</sup>It is expected that the 6.4.2 will be declared LTS.
 
 **Devices that must stay on 2.x LTS**
 
