@@ -337,7 +337,17 @@ Using your Particle device in a peripheral role allows you to do things like:
 
 There's also a special case of the peripheral role: A **broadcaster** only advertises, and does not accept any connections. 
 
+
+{{note op="start" type="gen4"}}
+On Gen 4 devices, you can have a maximum of 4 BLE links open at the same time. This includes both central and peripheral connections.
+{{note op="end"}}
+
+---
+
+{{note op="start" type="gen3"}}
 When in peripheral role the peripheral can advertise to any number of devices, but can only accept a connection from one at a time. A device can also only be a peripheral or central, not both at the same time.
+{{note op="end"}}
+
 
 ### Advertising (peripheral)
 
@@ -430,9 +440,20 @@ Using your Particle device in a central role allows you to do things like:
 
 There's also a special case of the central role: An **observer** only looks for advertisers, and does not make any connections. 
 
-You can connect to up to thee devices at a time. (With Device OS 1.3.0, you can only connect to a single devices.)
+{{note op="start" type="gen4"}}
+On Gen 4 devices, you can have a maximum of 4 BLE links open at the same time. This includes both central and peripheral connections.
 
 BLE Central Mode on the P2 and Photon 2 is only supported in Device OS 5.1.0 and later. Earlier versions only supported BLE Peripheral Mode.
+{{note op="end"}}
+
+---
+
+{{note op="start" type="gen3"}}
+On Gen 3 devices, a central device can connect to up to 3 peripheral devices at a time. It's limited to 1 in Device OS 1.3.0.
+
+Additionally, one peripheral connection can be open at the same time.
+{{note op="end"}}
+
 
 ### Pairing
 

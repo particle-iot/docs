@@ -1267,8 +1267,8 @@
             "hash": "674193bc7e074c36d62a7b5d91b887dce1988ec7a98a5cd6c54826952eef3962"
         },
         "reference/device-os/bluetooth-le.md": {
-            "date": "2025-10-15",
-            "hash": "1c0be3eefff229669353dd3822e2444490d20b9f9ac60f135d3b2ce6c44cd9aa"
+            "date": "2026-06-30",
+            "hash": "4bc7949e8585862e2029e6a6ca19b244b2561466c54f4000281aab0b76b8b49c"
         },
         "reference/device-os/eeprom.md": {
             "date": "2025-10-15",
@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-05-28",
-            "hash": "2f94c0b113a3bccf69b80dba0ed14fcb6fea30ef7b9f92dc566a3e3327a046c4"
+            "date": "2026-06-30",
+            "hash": "aea73fee738f4db278ebb382a6299e4a417857b68bf932fcbeba75b6842d90ca"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2899,8 +2899,8 @@
             "hash": "1d233659dd97a62ba8f18e80cca831e2c13ba79d7d31dcf9461739f695a6c1cc"
         },
         "reference/device-os/api/bluetooth-le-ble/ble-class.md": {
-            "date": "2026-05-08",
-            "hash": "3f390a8fa4bdd1786e9ec529b072fca1d1217d494d4325c6da0510783bcb058b"
+            "date": "2026-06-30",
+            "hash": "3403940444f4737df83f792dabc2eabc07fbfc035e4a4c17ad744d8259cffa34"
         },
         "reference/device-os/api/bluetooth-le-ble/blescanfilter.md": {
             "date": "2023-09-20",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "501e148219fb73979594a530c3cc6ee2ab42ab7b047b3db6ac1275eb2ba1b311",
-            "date": "2026-06-24"
+            "hash": "591482daa1e1817c6130fe1152449df8f65785124fc722902cdabbd23df96ad8",
+            "date": "2026-06-30"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

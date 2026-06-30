@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### BLE limits 2026-06-30
+
+Added the BLE central connection limits for Gen 4 devices to the [BLE connect](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-connect-) documentation.
+
 ### Updated LTS 2026-06-24
 
 Updated the [Long Term Support (LTS) Releases](/reference/product-lifecycle/long-term-support-lts-releases/) page with future plans for LTS releases.

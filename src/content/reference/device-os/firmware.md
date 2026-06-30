@@ -14093,9 +14093,21 @@ else {
 
 It is possible to save the address and avoid scanning, however the address could change on some BLE devices, so you should be prepared to scan again if necessary.
 
-A central device can connect to up to 3 peripheral devices at a time. (It's limited to 1 in Device OS 1.3.0.)
-
 See the next section for the use of `BleConnectionParams` as well as interval, latency, and timeout.
+
+{{note op="start" type="gen4"}}
+On Gen 4 devices, you can have a maximum of 4 BLE links open at the same time. This includes both central and peripheral connections.
+{{note op="end"}}
+
+---
+
+{{note op="start" type="gen3"}}
+On Gen 3 devices, a central device can connect to up to 3 peripheral devices at a time. It's limited to 1 in Device OS 1.3.0.
+
+A device can also only be in peripheral or central mode, not both at the same time. When in peripheral mode, only one connection from a central device is supported at the same time.
+{{note op="end"}}
+
+---
 
 #### BLE.connect(options)
 
