@@ -1311,8 +1311,8 @@
             "hash": "83ef5c227992da08843f4f28d32e06696c2a14c618f0f1846af1bac1716ee5b5"
         },
         "reference/product-lifecycle/long-term-support-lts-releases.md": {
-            "date": "2026-06-24",
-            "hash": "3a3a826f15471ece6ef147370de28ddbc2f74a69ed5ba0afb3f036c09af979a4"
+            "date": "2026-06-30",
+            "hash": "d8c548f8f9072419f88ee28a63fffc2c755bcec88a1d94ac5f55332328de365f"
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
             "date": "2025-06-24",
@@ -8391,8 +8391,8 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "c5d61ef3962ad176a5a478590b3d6756dfc209bc9dba9f1a4637cc49b7cff382",
-            "date": "2026-06-17"
+            "hash": "d97b89f09329295b2c052da47e2ab907c2709956dc08f373b6f75ca75e350722",
+            "date": "2026-06-30"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "a44143246b57cabc0b68cdd1f4860bb8958f8451d60a72991b2d0d91fd75a3c5",

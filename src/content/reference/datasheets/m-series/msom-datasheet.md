@@ -21,7 +21,7 @@ The Particle M-SoM contains the following functional units:
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
 - Realtek RTL8722DM MCU (BLE and Wi-Fi)
 - Cellular modem 
-  - M404: Quectel BG95-M5 LTE Cat M1/2G (NorAm)
+  - M404: Quectel BG95-M5 LTE Cat M1 (NorAm)
   - M524: Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
   - M635e: Quectel BG95-S5 LTE Cat M1/2G (Global with NTN satellite)
 
@@ -64,9 +64,16 @@ If you are migrating to the M-SoM from another Particle device, see also the fol
 
 #### VCC
 
-VCC is used to supply power to the cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. This can be connected directly to a 3.7V LiPo battery. Make sure that the supply can handle currents of at least 2 A.
+VCC (sometimes referred to as 3V7) is used to supply power to the cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. This can be connected directly to a 3.7V LiPo battery. Make sure that the supply can handle currents of at least 2 A.
 
 If you are not using a battery, or using a battery of a different voltage, you should use a regulator to supply 3.7V to 4.2V at 2A. You may want to add additional bulk capacitors to handle the short, high current peak usage when the cellular modem is transmitting.
+
+{{note op="start" type="note"}}
+It is highly recommended that you design your power supply to the full 2A maximum current even though the M404 (LTE Cat M1) does not use the full amount.
+
+Other models, including the M524 and M635e, support 2G cellular, which uses significantly more current than LTE Cat M1 or Cat 1, and also takes
+much longer to connect, which may affect battery life.
+{{note op="end"}}
 
 #### 3V3
 
