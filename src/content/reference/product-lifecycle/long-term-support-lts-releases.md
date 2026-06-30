@@ -95,24 +95,21 @@ Patch releases may be issued on top of a designated LTS version without changing
 {{!-- BEGIN shared-blurb d07841d1-c7b6-4d06-b89d-f906d454d2b7 --}}
 | **Platform** | **Models** | **Current LTS** | **Minimum Version** |
 | --- | --- | --- | --- |
-| bsom | B404X | {{version mode="lts" platform="23"}} | 4.0.0 |
-| bsom | B404 | {{version mode="lts" platform="23"}} | 2.3.0 |
-| bsom | B402, B524 | {{version mode="lts" platform="23"}} |  |
-| b5som | B524, B523 | {{version mode="lts" platform="25"}} |  |
-| b5som | B504e | {{version mode="ga" platform="25"}} | 6.3.5 |
-| boron | BRN404X | {{version mode="lts" platform="13"}} | 4.0.0 |
-| boron | BRN404, BRN402, BRN314, BRN310 | {{version mode="lts" platform="13"}} |  |
-| argon | Argon | {{version mode="lts" platform="12"}} |  |
-| e404x | E404X | {{version mode="lts" platform="15"}} | 4.0.0 |
-| tracker | T404, T524, T523, ONE404, ONE402, ONE524, ONE523 | {{version mode="lts" platform="26"}} |  |
-| msom | M524, M404, M635e | {{version mode="lts" platform="35"}}<sup>1</sup> | 5.6.0 |
-| p2 | P2, Photon 2  | {{version mode="lts" platform="32"}}<sup>1</sup> | 5.0.0 |
+| B-SoM | B404X | {{version mode="lts" platform="23"}} | 4.0.0 |
+| B-SoM | B404 | {{version mode="lts" platform="23"}} | 2.3.0 |
+| B-SoM | B402, B524, B523 | {{version mode="lts" platform="23"}} |  |
+| B-SoM | B504e | {{version mode="ga" platform="25"}} | 6.3.5 |
+| Boron | BRN404X | {{version mode="lts" platform="13"}} | 4.0.0 |
+| Boron | BRN404, BRN402, BRN314, BRN310 | {{version mode="lts" platform="13"}} |  |
+| Argon |  | {{version mode="lts" platform="12"}} |  |
+| E404X | E404X | {{version mode="lts" platform="15"}} | 4.0.0 |
+| Tracker | T404, T524, T523 ONE404, ONE402, ONE524, ONE523 | {{version mode="lts" platform="26"}} |  |
+| M-SoM | M524, M404 | {{version mode="lts" platform="35"}}<sup>1</sup> | 5.6.0 |
+| Photon 2, P2 |  | {{version mode="lts" platform="32"}}<sup>1</sup> | 5.0.0 |
 
-<sup>1</sup>It is expected that the 6.4.2 will be declared LTS.
+<sup>1</sup>It is expected that the 6.4.x release line will be declared LTS after the 6.4.2 release.
 
 **Devices that must stay on 2.x LTS**
-
-Note: Device OS 2.3.1 was released in November 2022, and therefore it is out of the support period. 
 
 | **Platform** | **Models** | **Current LTS** | **Minimum Version** |
 | --- | --- | --- | --- |
