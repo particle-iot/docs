@@ -160,6 +160,8 @@ an update responsibly and monitor fleet health for changes.
 - **Release by device groups**: Target a subset of your fleet to receive a new version of firmware. This is useful when your product has variants that require different device behaviors, or when wanting to phase out a single release over time to reduce risk.
 - **Intelligent firmware releases**: Instead of waiting for devices to re-connect to receive an update, push a fleet-wide update as quickly as possible while still allowing the device control over the appropriate time to update.
 
+See [OTA update control](/reference/device-os/ota-update-control/) for more information.
+
 ### The firmware stack
 
 #### Device OS

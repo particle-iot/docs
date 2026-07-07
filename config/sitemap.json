@@ -587,8 +587,8 @@
             "hash": "ded82e02e1b0f2942b863854cb9efb96fb0f09ee094fab1232ad0ac11ccc1988"
         },
         "getting-started/cloud/ota-updates.md": {
-            "date": "2025-10-15",
-            "hash": "61fbc6cd51322eae629148216875b973c3ebe17e8fffe98f28811eb1b77342c0"
+            "date": "2026-07-07",
+            "hash": "46f95a29b0a7edd657bd39e51d1497a1f3c1121ea0024912c3f86b22c276d286"
         },
         "getting-started/console/console.md": {
             "date": "2026-04-29",
@@ -815,8 +815,8 @@
             "hash": "677a994e0fea35437e019278b87d495c0c85147becf385062f61501555ec54ea"
         },
         "scaling/quick-start-guide/introduction-to-products.md": {
-            "date": "2024-03-13",
-            "hash": "54a4633bc06696ac16d7158365c238272ee3c1f818cd364ac2af31b36d984f1a"
+            "date": "2026-07-07",
+            "hash": "1c011bd01911bb4b6e3c19fdeaf50b9e83d4768060c8600668686b914b7bd72b"
         },
         "scaling/quick-start-guide/organizations.md": {
             "date": "2025-02-03",
@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-06-30",
-            "hash": "aea73fee738f4db278ebb382a6299e4a417857b68bf932fcbeba75b6842d90ca"
+            "date": "2026-07-07",
+            "hash": "8f77045ceffe1e9ac3a162dd6fd12c346759d1eb3a9c94477d083072d00b395c"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3819,8 +3819,8 @@
             "hash": "1bd4ceaabb60ba3235b66c3727779cd321b3443ff8bb2e92baab10338a642c72"
         },
         "reference/device-os/api/system-calls/disablereset.md": {
-            "date": "2026-05-08",
-            "hash": "67c9171845f0d52fd0dfea5a048e4fa29d1dd059e920a683090778eba132d55b"
+            "date": "2026-07-07",
+            "hash": "6f865aff0be4d68fe98ae884ff062764f7d6e2f72c4730fcd41fbf4a0a56705a"
         },
         "reference/device-os/api/system-calls/enablereset.md": {
             "date": "2026-05-08",
@@ -3987,8 +3987,8 @@
             "hash": "4231cdd13ed3d84dbaf970d2ee26210863f657ed33ee5a8da3d820a480fc75b6"
         },
         "reference/device-os/api/ota-updates/controlling-ota-availability.md": {
-            "date": "2023-09-20",
-            "hash": "2d0864c884c23321ddf5a28419757fe237d5c4eafddf59550148bfb395f04cbc"
+            "date": "2026-07-07",
+            "hash": "83486367130b87fe831ca9977a81a017b42b2659cab68fefe1c3936532ab54d7"
         },
         "reference/device-os/api/ota-updates/system-disableupdates.md": {
             "date": "2026-05-08",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "591482daa1e1817c6130fe1152449df8f65785124fc722902cdabbd23df96ad8",
-            "date": "2026-06-30"
+            "hash": "7107ab4c35202031da2bf191887027bf4ae272d3a05e5bf7fe90c05ef3445843",
+            "date": "2026-07-07"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -10041,6 +10041,10 @@
         "troubleshooting/connectivity/ntn-troubleshooting.md": {
             "hash": "242aeb39d5f70c223a98aa81406ca1e56362fdf4a4a2c2b810b147a61a45f1c8",
             "date": "2026-06-15"
+        },
+        "reference/device-os/ota-update-control.md": {
+            "hash": "eff78d103afb2dc5dd83a5230256c4ce13df0f5456cee8628fb563722baa59b2",
+            "date": "2026-07-07"
         }
     }
 }

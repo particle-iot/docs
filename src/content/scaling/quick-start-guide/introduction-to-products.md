@@ -27,6 +27,8 @@ Products allow a number of additional features over developer devices:
 * [Team access controls](/getting-started/console/team-access-controls/), allowing you to grant specific permissions to team members.
 * [Fleet health](/getting-started/console/fleet-health/), for monitoring the status of your fleet of devices.
 * [Intelligent OTA](/getting-started/cloud/ota-updates/#intelligent-firmware-releases), allowing fine-grained control of the fleet OTA process.
+* [OTA update control](/reference/device-os/ota-update-control/) to control precisely when updates are applied.
+
 
 You can start developing with a Product for initial prototyping and testing and later import your Products to an Organization when you scale to Enterprise quantities.
 
