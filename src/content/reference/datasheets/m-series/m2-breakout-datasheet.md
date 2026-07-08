@@ -1038,10 +1038,15 @@ Schematic page 1 is just a coversheet and is not included below.
 
 - Weight includes an M-SoM and PM-BAT power module
 
-
 ## Certification documents
 
 - [RoHS 3.0 Test Report](/assets/pdfs/m2breakout-rohs.pdf)
+
+### Battery information
+
+- [1-cell 3100 mAh battery pack](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet)
+- [Battery cell](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet for cells in the battery packs)
+- This is the same battery as the 1-cell Tachyon battery pack
 
 
 ## Revision history

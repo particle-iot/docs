@@ -931,8 +931,8 @@
             "hash": "8f7cd7c4616ea97a39765a55aba589340753e3b35277e15b74179e8cb12f1f8d"
         },
         "hardware/certification/battery-certification.md": {
-            "date": "2026-06-23",
-            "hash": "4d2b11d4b14c1096d985c7b65c481c0d9eb94b25737b755d93626234f165f191"
+            "date": "2026-07-08",
+            "hash": "651177e551351553f9be63819bb71eefa3d9da917de885c653e04eec91876782"
         },
         "hardware/certification/certification-documents.md": {
             "date": "2026-06-15",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "7107ab4c35202031da2bf191887027bf4ae272d3a05e5bf7fe90c05ef3445843",
-            "date": "2026-07-07"
+            "hash": "281c8a7bf5f1a65d7d5a5e98b8ffbeedc7a9731bd665b3a2261613fb76604898",
+            "date": "2026-07-08"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9051,8 +9051,8 @@
             "date": "2024-05-14"
         },
         "reference/datasheets/m-series/m2-breakout-datasheet.md": {
-            "hash": "b17086e406cb7598471ec16c850ab40dad7c9c948c1f438572e00c6da5972504",
-            "date": "2025-03-11"
+            "hash": "b26ad9b78c2ca9f9b9854ea4979597ac04944e152a83da79a1ea1d90e53e062d",
+            "date": "2026-07-08"
         },
         "getting-started/logic-ledger/logic-ledger-community/logic-ledger-community.md": {
             "hash": "f275a6fea2e4cfd48a721e99bef3c5777d8f6442967f7ecc58fba05d55f1a672",
@@ -10015,8 +10015,8 @@
             "date": "2026-03-19"
         },
         "reference/datasheets/m-series/m-hat-datasheet.md": {
-            "hash": "6d8d82b40a4a11c364bca3a6c3e79e04e15fbf95e17ee769219a584e136c8869",
-            "date": "2026-06-15"
+            "hash": "954e9a1057b31476847932f10d626d39488ad9f7c469f7f04e0979dbdef6bab7",
+            "date": "2026-07-08"
         },
         "reference/device-os/libraries/p/pixeleds-library.md": {
             "hash": "ef1dee4d2cd89b7ac6dad23971ebdaf409133aaa6f5677b3554b4bad5765309f",
@@ -10043,7 +10043,7 @@
             "date": "2026-06-15"
         },
         "reference/device-os/ota-update-control.md": {
-            "hash": "1dfec640719c0592ea5aace387a7f595aaacfec6b33e0a4b750a6513f4672a73",
+            "hash": "62b92a8a28776ebf8dcf30d736242a73af36dbf50208e62e3c6641b8b57fbd72",
             "date": "2026-07-08"
         }
     }

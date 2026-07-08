@@ -24,7 +24,7 @@ You can choose which kind of release you want when releasing a firmware version 
 
 ### OTA control
 
-When doing an **Intelligent update** the device may want to fine-tune when the update occurs. For example, if you are implementing firmware to control a motorized scooter, you probably do not want the device to reboot while it is being ridden. 
+When doing an **Intelligent update** the device may want to fine-tune when the update occurs. For example, if you are implementing firmware to control a motorized scooter, you probably do not want the Particle device to reboot while it is being ridden. 
 
 ### Update control
 

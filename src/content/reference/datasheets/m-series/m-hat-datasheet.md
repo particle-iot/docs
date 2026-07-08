@@ -643,12 +643,19 @@ If you are building a product with the M-HAT and are using the Particle certifie
 
 You will likely need to perform unintentional radiator testing with your compete module, however. Fortunately this is generally the least expensive and least complicated test.
 
+### Battery information
+
+- [3-cell 9750 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) (manufacturer datasheet)
+- [Battery cell](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet for cells in battery pack)
+- This is the same battery as the 3-cell Tachyon battery pack
+
 
 ## Cellular carriers
 
 The cellular carriers are dependent on the Particle M.2 SoM you have selected for your M-HAT. See the [carrier list](/reference/cellular/cellular-carriers) for more information.
 
 ---
+
 ## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 47e37393-b9c0-4b04-9da6-e54cb2227cd1 --}}

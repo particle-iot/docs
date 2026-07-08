@@ -21,9 +21,13 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Battery information 2026-07-08
+
+Added information about the M.2 breakout board and M-HAT battery to the [battery certification](/hardware/certification/battery-certification/) page.
+
 ### OTA update control 2026-07-08
 
-The new [OTA update control](/reference/device-os/ota-update-control/) discusses options for controlling when OTA updates occur.
+The new [OTA update control](/reference/device-os/ota-update-control/) page discusses options for controlling when OTA updates occur.
 
 ### BLE limits 2026-06-30
 
