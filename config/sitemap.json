@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-07-07",
-            "hash": "8f77045ceffe1e9ac3a162dd6fd12c346759d1eb3a9c94477d083072d00b395c"
+            "date": "2026-07-08",
+            "hash": "bd1ed913c44563da0ab56ebbbf511bfe086d6cd044d1ca0c06914428247f8f6f"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3987,12 +3987,12 @@
             "hash": "4231cdd13ed3d84dbaf970d2ee26210863f657ed33ee5a8da3d820a480fc75b6"
         },
         "reference/device-os/api/ota-updates/controlling-ota-availability.md": {
-            "date": "2026-07-07",
-            "hash": "83486367130b87fe831ca9977a81a017b42b2659cab68fefe1c3936532ab54d7"
+            "date": "2026-07-08",
+            "hash": "403adcf48415c8871dcff868f3969ffc3e1c1afec7602418fd86df51eb42612b"
         },
         "reference/device-os/api/ota-updates/system-disableupdates.md": {
-            "date": "2026-05-08",
-            "hash": "4297e558fa22b62bc42b8454ed9b08626db49c6a6c25b09bdcd4329c03481249"
+            "date": "2026-07-08",
+            "hash": "a33fa5ff9301b276b2b8e1a3140fc6dd88733ea98a47d3b3ecbae5d47c2ac20a"
         },
         "reference/device-os/api/ota-updates/system-enableupdates.md": {
             "date": "2026-05-08",
@@ -4003,8 +4003,8 @@
             "hash": "e890ddd575bd65ba6f0c86a40feb43412a5e71a4124254bbd44349dbfe1211a0"
         },
         "reference/device-os/api/ota-updates/system-updatespending.md": {
-            "date": "2026-05-08",
-            "hash": "f65b2107b8af01ed0ec0dae976c6377afd18f969305a9e29c95880e44eaa67ef"
+            "date": "2026-07-08",
+            "hash": "eda90851369d8e312134dfa20350055bd3b48cbb05fad851effc75025cced4ab"
         },
         "reference/device-os/api/ota-updates/system-updatesforced.md": {
             "date": "2026-05-08",
@@ -10043,8 +10043,8 @@
             "date": "2026-06-15"
         },
         "reference/device-os/ota-update-control.md": {
-            "hash": "eff78d103afb2dc5dd83a5230256c4ce13df0f5456cee8628fb563722baa59b2",
-            "date": "2026-07-07"
+            "hash": "bfeeddf893e8e15bb0e52528a3dbd7803c5be8e0866b8d2b9404e9808e5eee5b",
+            "date": "2026-07-08"
         }
     }
 }
