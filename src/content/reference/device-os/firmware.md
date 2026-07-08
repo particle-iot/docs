@@ -27141,7 +27141,9 @@ See [`ApplicationAsset`](#applicationasset) class for using the vector of applic
 
 {{api name1="System.disableReset"}}
 
-This method allows to disable automatic resetting of the device on such events as successful firmware update.
+This method allows to disable automatic resetting of the device on such events as successful firmware update. This can be used as an alternative to disableUpdates() for controlling when intelligent OTA occurs.
+
+See [OTA update control](/reference/device-os/ota-update-control/) for more information.
 
 ```cpp
 // PROTOTYPE
@@ -28641,13 +28643,14 @@ the update is delivered immediately after `System.enableUpdates()` is called.
 
 Standard Firmware Releases are delivered the next time the device connects to the cloud or when the current session expires or is revoked.
 
-**Note**: Calling `System.disableUpdates()` and `System.enableUpdates()`
-for devices running Device OS version 1.2.0 or later will result in a
-message sent to the Device Cloud. This will result in a small amount of
-additional cellular data usage each time they are called, but do not 
-count as a data operation for billing purposes.
+**Note**: Calling `System.disableUpdates()` and `System.enableUpdates()` sends an internal event to the Particle cloud which will use data, but does
+not count as a data operation.
 
-`System.disableUpdates()` should not be called from `STARTUP()`.
+`System.disableUpdates()` must not be called from `STARTUP()` and should only be called when cloud-connected.
+
+In many cases, it may be better to use `System.disableReset()` instead of `System.disableUpdates()`.
+
+See [OTA update control](/reference/device-os/ota-update-control/) for more information.
 
 ### System.disableUpdates()
 
@@ -28708,10 +28711,6 @@ only if updates were not already disabled.
 | Device OS &lt; 1.2.0 | Limited Support | Limited Support |
 | Device OS &gt;= 1.2.0 | Full support | Full Support |
 
-
-When updates are disabled, an attempt to send a firmware update to a
-device that has called `System.disableUpdates()` will result in the
-[`System.updatesPending()`](#system-updatespending-) function returning `true`.
 
 ### System.enableUpdates()
 
@@ -28824,6 +28823,14 @@ inline uint8_t updatesPending();
 ```
 <!-- spark_wiring_system.h 828 -->
 
+When a device is scheduled to receive a standard updates of device firmware, the update occurs after the device resets or handshakes with the cloud again. If the device is online when the update is released, it will receive a notification that an update is pending via a cloud event.
+
+Using `System.updatesPending()` polls the current status to see if an update is pending. The check is fast and checking does not use data or data operations. It is also possible to use the `firmware_updates` system event to register for a callback when it changes.
+
+See [OTA update control](/reference/device-os/ota-update-control/) for more information.
+
+{{collapse op="start" label="Show older information about updatesPending"}}
+
 ```cpp
 // System.updatesPending() example
 
@@ -28889,6 +28896,8 @@ OTA update is queued,
 | ------- | ---------------------- | ---------------- |
 | Device OS < 1.2.0 | N/A | N/A |
 | Device OS >= 1.2.0 | N/A | Supported |
+
+{{collapse op="end"}}
 
 ### System.updatesForced()
 

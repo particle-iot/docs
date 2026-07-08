@@ -231,6 +231,10 @@
                 {
                     "dir": "startup-behavior",
                     "title": "Startup behavior"
+                },
+                {
+                    "dir": "ota-update-control",
+                    "title": "OTA update control"
                 }
             ]
         },

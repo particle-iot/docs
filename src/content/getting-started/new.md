@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### OTA update control 2026-07-08
+
+The new [OTA update control](/reference/device-os/ota-update-control/) discusses options for controlling when OTA updates occur.
+
 ### BLE limits 2026-06-30
 
 Added the BLE central connection limits for Gen 4 devices to the [BLE connect](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-connect-) documentation.
