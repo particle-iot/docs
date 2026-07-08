@@ -2,6 +2,7 @@
 title: OTA update control
 layout: commonTwo.hbs
 columns: two
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
 ---
 
 # {{{title}}}
@@ -90,3 +91,4 @@ If you are aggressively sleeping after very short intervals online, you don't ne
 To see the events that occur during updates, you can use this example firmware. It can be used for `System.disableUpdates()` or `System.disableReset()` by changing a `#define` in the code. 
 
 
+{{> project-browser project="UpdateDemo" default-file="src/UpdateDemo.cpp" height="400" flash="false"}}
