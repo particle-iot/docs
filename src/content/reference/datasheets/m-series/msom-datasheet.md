@@ -1172,96 +1172,192 @@ The bootloader allows you to easily update the user application via several diff
 
 ---
 
-## FCC ISED CE Warnings and End Product Labeling Requirements
+## FCC Warnings and End Product Labeling Requirements
 
-**Federal Communication Commission Interference Statement**
-This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
+### Federal Communication Commission Interference Statement
+
+**This device complies with Part 15 of the FCC Rules.**
+
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
+
+(1) This device may not cause harmful interference, and <br/>
+(2) this device must accept any interference received, including interference that may cause undesired operation. 
+
+This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
 
 - Reorient or relocate the receiving antenna.
 - Increase the separation between the equipment and receiver.
 - Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
 - Consult the dealer or an experienced radio/TV technician for help.
 
-**FCC Caution:**
-Any changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to operate this equipment.
-This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions:
+Any changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to operate this equipment. This transmitter must not be co-located or operating in conjunction with any other antenna or transmitter. This device is intended only for OEM integrators under the following conditions: (For module device use)
 
-1. This device may not cause harmful interference, and
-2. This device must accept any interference received, including interference that may cause undesired operation.
+(1) The antenna must be installed such that 20 cm is maintained between the antenna and users, and<br/>
+(2) The transmitter module may not be co-located with any other transmitter or antenna.
 
-**FCC Radiation Exposure Statement:**
-This equipment complies with FCC radiation exposure limits set forth for an uncontrolled environment. This transmitter module must not be co-located or operating in conjunction with any other antenna or transmitter. This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
+As long as 2 conditions above are met, further transmitter test will not be required. However, the OEM integrator is still responsible for testing their end-product for any additional compliance requirements required with this module installed. 
 
-**IMPORTANT NOTE:**
-In the event that these conditions can not be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization.
+### Important Notice to OEM integrators - FCC 
 
-**End Product Labeling**
-The final end product must be labeled in a visible area with one of the following:
-
-* Contains FCC ID: 2AEMI-M404
-* Contains FCC ID: 2AEMI-M635
-
-**Manual Information to the End User**
-The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
-
-
-**Outdoor Use (US)**
-
-To be compliant to FCC §15.407(a) the EIRP is not allowed to exceed 125 mW
-(21 dBm) at any elevation angle above 30° (measured from the horizon) when operated as an
-outdoor access point in U-NII-1 band, 5.150-5.250 GHz. 
-
-
----
-
-**Canada Statement**
-This device complies with Industry Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
-
-1. This device may not cause interference; and
-2. This device must accept any interference, including interference that may cause undesired operation of the device.
-
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence.
-
-**L’exploitation est autorisée aux deux conditions suivantes:**
-
-1. l’appareil ne doit pas produire de brouillage;
-2. l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
-
-**Caution Exposure:**
-This device meets the exemption from the routine evaluation limits in section 2.5 of RSS102 and users can obtain Canadian information on RF exposure and compliance.
-Le dispositif répond à l'exemption des limites d'évaluation de routine dans la section 2.5 de RSS102 et les utilisateurs peuvent obtenir des renseignements canadiens sur l'exposition aux RF et le respect.
-
-**The final end product must be labelled in a visible area with the following:**
-The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-
- * Contains transmitter module ISED: 20127-M524
+1. This module is limited to OEM installation ONLY. 
+2. This module is limited to installation in mobile applications, according to Part 2.1091(b). 
+3. The separate approval is required for all other operating configurations, including portable configurations with respect to Part 2.1093 and different antenna configurations 
+4. For FCC Part 15.31 (h) and (k): The host manufacturer is responsible for additional testing to verify compliance as a composite system. When testing the host device for compliance with Part 15 Subpart B, the host manufacturer is required to show compliance with Part 15 Subpart B while the transmitter module(s) are installed and operating. The modules should be transmitting and the evaluation should confirm that the Module's intentional emissions are compliant (i.e. fundamental and out of band emissions). The host manufacturer must verify that there are no additional unintentional emissions other than what is permitted in Part 15 Subpart B or emissions are complaint with the transmitter(s) rule(s). 
+The Grantee will provide guidance to the host manufacturer for Part 15 B requirements if needed. Important Note notice that any deviation(s)from the defined parameters of the antenna trace, as described by the instructions, require that the host product manufacturer must notify to Particle that they wish to change the antenna trace design. In this case, a Class II permissive change application is required to be filed by the Particle, or the host manufacturer can take responsibility through the change in FCC ID (new application)procedure followed by a Class II permissive change application. 
+5. This device is certified as a limited module due to lack of shielding. As this device doesn't not have a shield over the radio chip over the radio chip, additional testing and a Class II filing is required for installation in all host devices.
  
-This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
-Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
+### End Product Labeling - FCC
+When the module is installed in the host device, the FCC label must be visible through a window on the final device or it must be visible when an access panel, door or cover is easily re-moved. If not, a second label must be placed on the outside of the final device that contains the following text: 
 
-> The end user manual shall include all required regulatory information/warning as shown in this manual.
+M404 for End Product Labeling: The final end product must be labeled in a visible area with the following
+
+> Contains FCC ID: 2AEMI-M404
+
+M635 for End Product Labeling: The final end product must be labeled in a visible area with the following
+
+> Contains FCC ID: 2AEMI-M635
+
+The FCC ID can be used only when all FCC compliance requirements are met.   
+
+### Antenna Installation - FCC
+(1) The antenna must be installed such that 20 cm is maintained between the antenna and users.   
+(2) The transmitter module may not be co-located with any other transmitter or antenna. 
+(3) Only antennas of the same type and with equal or less gains as shown below may be used with this module. Other types of antennas and/or higher gain antennas may require additional authorization for operation. 
+
+In the event that these conditions cannot be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID cannot be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization. 
+
+To comply with FCC regulations limiting both maximum RF output power and human exposure to RF radiation, Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device:  
+
+{{!-- BEGIN shared-blurb 08dc5141-332a-4fca-8c6c-014a814d9dc7 --}}
+- 824–849 MHz (GSM 850): 2.01 dBi
+- 1850–1910 MHz (GSM 1900): 5.3 dBi
+- 699–716 MHz (LTE B12): 2.17 dBi
+- 703–748 MHz (LTE B28): 2.5 dBi
+- 777–787 MHz (LTE B13): 5.3 dBi
+- 824–849 MHz (LTE B5): 1.94 dBi
+- 1710–1755 MHz (LTE B4): 2.74 dBi
+- 1710–1780 MHz (LTE B66): 3.74 dBi
+- 1850–1910 MHz (LTE B2): 5.3 dBi
+- 1626.5–1660.5 (IOT-NTN B255): 3.91 dBi
+- 1980–2010 MHz (IOT-NTN B256): 4.61dBi
+- 2000–2020 MHz (IOT-NTN B23): 4.37dBi
+- BLE:2400 MHz-2483.5 MHz: 3dBi
+- WiFi:2400MHz-2483.5MHz: 3dBi
+- WiFi:5150MHz-5850MHz: 6.8dBi
+{{!-- END shared-blurb --}}
+
+### Manual Information to the End User - FCC
+The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the users manual of the end product which integrates this module. The end user manual shall include all required regulatory information/warning as show in this manual. 
+Radiation Exposure Statement
+
+This equipment complies with FCC radiation exposure limits set forth for an uncontrolled environment. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
+
+### Outdoor Use - FCC
+To be compliant to FCC §15.407(a) the EIRP is not allowed to exceed 125 mW (21 dBm) at any elevation angle above 30° (measured from the horizon) when operated as an outdoor access pointin U-NII-1 band, 5.150-5.250 GHz.
+
+## ISED Warnings and End Product Labeling Requirements
+
+**Innovation, Science and Economic Development**
+
+This device contains licence-exempt transmitter(s)/receiver(s) that comply with Innovation, Science and Economic Development Canada’s licence-exempt RSS(s). 
+
+Operation is subject to the following two conditions: 
+
+(1) This device may not cause interference; <br/>
+(2) This device must accept any interference, including interference that may cause undesired operation of the device. 
+
+L’émetteur/récepteur exempt de licence contenu dans le présent 
+appareil est conforme aux CNR d’Innovation, Sciences et Développement économique Canada applicables aux appareils radio exempts de licence. 
+
+L’exploitation est autorisée aux deux conditions suivantes:
+
+1) L’appareil ne doit pas produire de brouillage;<br/>
+2) L’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fon-ctionnement.
+
+### Radiation Exposure Statement - ISED
+This equipment complies with ISED radiation exposure limits set forth for an uncontrolled environment. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
+
+**Déclaration d'exposition aux radiations**
+
+Cet équipement est conforme aux limites d'exposition aux rayonnements ISED établies pour un environnement non contrôlé. Cet équipement doit être installé et utilisé avec un minimum de 20 cm de distance entre la source de rayonnement et votre corps. 
+
+This device is intended only for OEM integrators under the following conditions:
+1) The antenna must be installed such that 20 cm is maintained between the antenna and users, and <br/>
+2) The transmitter module may not be co-located with any other transmitter or antenna. <br/>
+
+As long as 2 conditions above are met, further transmitter test will not be required. However, the OEM integrator is still responsible for testing their end-product for any additional compliance requirements required with this module installed. 
+
+Cet appareil est conçu uniquement pour les intégrateurs OEM dans les conditions suivantes:
+1) L'antenne doit être installée de telle sorte qu'une distance de 20 cm est respectée entre l'antenne et les utilisateurs, et <br/>
+2) Le module émetteur peut ne pas être coïmplanté avec un autre émetteur ou antenne. 
+
+Tant que les 2 conditions ci-dessus sont remplies, des essais supplémentaires sur l'émetteur ne seront pas nécessaires. Toutefois, l'intégrateur OEM est toujours responsable des essais sur son produit final pour toutes exigences de conformité supplémentaires requis pour ce module installé. 
+
+To comply with ISED regulations limiting both maximum RF output power and human exposure to RF radiation, Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device:  
+
+{{!-- BEGIN shared-blurb 08dc5141-332a-4fca-8c6c-014a814d9dc7 --}}
+- 824–849 MHz (GSM 850): 2.01 dBi
+- 1850–1910 MHz (GSM 1900): 5.3 dBi
+- 699–716 MHz (LTE B12): 2.17 dBi
+- 703–748 MHz (LTE B28): 2.5 dBi
+- 777–787 MHz (LTE B13): 5.3 dBi
+- 824–849 MHz (LTE B5): 1.94 dBi
+- 1710–1755 MHz (LTE B4): 2.74 dBi
+- 1710–1780 MHz (LTE B66): 3.74 dBi
+- 1850–1910 MHz (LTE B2): 5.3 dBi
+- 1626.5–1660.5 (IOT-NTN B255): 3.91 dBi
+- 1980–2010 MHz (IOT-NTN B256): 4.61dBi
+- 2000–2020 MHz (IOT-NTN B23): 4.37dBi
+- BLE:2400 MHz-2483.5 MHz: 3dBi
+- WiFi:2400MHz-2483.5MHz: 3dBi
+- WiFi:5150MHz-5850MHz: 6.8dBi
+{{!-- END shared-blurb --}}
+
+IMPORTANT NOTE: 
+
+In the event that these conditions can not be met (for example certain laptop configurations or colocation with another transmitter), then the Canada authorization is no longer considered valid and the IC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate Canada authorization. 
+
+NOTE IMPORTANTE:
+
+Dans le cas où ces conditions ne peuvent être satisfaites (par exemple pour certaines configurations d'ordinateur portable ou de certaines co-localisation avec un autre émetteur), l'autorisation du Canada n'est plus considéré comme valide et l'ID IC ne peut pas être utilisé sur le produit final. Dans ces circonstances, l'intégrateur OEM sera chargé de réévaluer le produit final (y compris l'émetteur) et l'obtention d'une autorisation distincte au Canada. 
+
+### End Product Labeling - ISED
+This transmitter module is authorized only for use in device where the antenna may be installed such that 20 cm may be maintained between the antenna and users.
+
+M524 for End Product Labeling: The final end product must be labeled in a visible area with the following:
+
+> Contains IC: 20127-M524
+
+M635 for End Product Labeling: The final end product must be labeled in a visible area with the following:
+
+> Contains IC: 20127-M635
+
+**Plaque signalétique du produit final**
+
+Ce module émetteur est autorisé uniquement pour une utilisation dans un dispositif où l'antenne peut être installée de telle sorte qu'une distance de 20cm peut être maintenue entre l'antenne et les utilisateurs. Le produit final doit être étiqueté dans un endroit visible avec l'inscription suivante: 
+
+> Contient des IC: 20127-M524 
+
+> Contient des IC: 20127-M635
+
+### Manual Information To the End User - ISED
+
+The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module. The end user manual shall include all required regulatory information/warning as show in this manual.
+
+**Manuel d'information à l'utilisateur final**
+
+L'intégrateur OEM doit être conscient de ne pas fournir des informations à l'utilisateur final quant à la façon d'installer ou de supprimer ce module RF dans le manuel de l'utilisateur du produit final qui intègre ce module. Le manuel de l'utilisateur final doit inclure toutes les informations réglementaires requises et avertissements comme indiqué dans ce manuel.
+
+### Outdoor use - ISED
+
+-	Operation in the band 5150–5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems;
+Operation in the 5600-5650 MHz band is not allowed in Canada. High-power radars are allocated as primary users (i.e., priority users) of the bands 5250-5350 MHz and 5650-5850 MHz and that these radars could cause interference and/or damage to LE-LAN devices.
+
+-	Le dispositif de fonctionnement dans la bande 5150-5250 MHz est réservé à une utilisation en intérieur pour réduire le risque d'interférences nuisibles à la co-canal systèmes mobiles par satellite
+-	Opération dans la bande 5600-5650 MHz n'est pas autorisée au Canada. Haute puissance radars sont désignés comme utilisateurs principaux (c.-àutilisateurs prioritaires) des bandes 5250-5350 MHz et 5650-5850 MHz et que ces radars pourraient causer des interférences et / ou des dommages à dispositifs LAN-EL.
 
 
-**Outdoor use (CA)**
-
-- Operation in the band 5150–5250 MHz is only for indoor use to reduce the potential for harmful
-interference to co-channel mobile satellite systems;
-- Operation in the 5600-5650 MHz band is not allowed in Canada. High-power radars are allocated
-as primary users (i.e., priority users) of the bands 5250-5350 MHz and 5650-5850 MHz and that
-these radars could cause interference and/or damage to LE-LAN devices.
-
----
-
-- Le dispositif de fonctionnement dans la bande 5150-5250 MHz est réservé à une utilisation en
-intérieur pour réduire le risque d'interférences nuisibles à la co-canal systèmes mobiles par
-satellite
-- Opération dans la bande 5600-5650 MHz n'est pas autorisée au Canada. Haute puissance radars
-sont désignés comme utilisateurs principaux (c.-àutilisateurs prioritaires) des bandes 5250-5350
-MHz et 5650-5850 MHz et que ces radars pourraient causer des interférences et / ou des
-dommages à dispositifs LAN-EL.
-
-
-### European Union (CE)
+## European Union (CE) Warnings and End Product Labeling Requirements
 
 ### M404 - European Union (CE)
 
@@ -1836,3 +1932,4 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | 017      | 2026-06-09 | RK | Updated bands and country list for M635e |
 | 018      | 2026-06-15 | RK | Added NTN antenna information |
 | 019      | 2026-06-17 | RK | Updates for M635e certification |
+| 020      | 2026-07-09 | RK | Updates for M635e certification |

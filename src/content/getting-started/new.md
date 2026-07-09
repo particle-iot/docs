@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Certification update M-SoM 2026-07-09
+
+Updated the certification statements for FCC (US) and ISED (Canada) for the M635 in the [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/).
+
 ### Battery information 2026-07-08
 
 Added information about the M.2 breakout board and M-HAT battery to the [battery certification](/hardware/certification/battery-certification/) page.
