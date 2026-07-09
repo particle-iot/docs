@@ -1045,7 +1045,7 @@ Schematic page 1 is just a coversheet and is not included below.
 ### Battery information
 
 - [1-cell 3100 mAh battery pack](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet)
-- [Battery cell](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet for cells in the battery packs)
+- [Battery cell](/assets/pdfs/tachyon-battery-cell.pdf) (manufacturer datasheet for cells in the battery packs)
 - This is the same battery as the 1-cell Tachyon battery pack
 
 

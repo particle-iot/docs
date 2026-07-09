@@ -931,8 +931,8 @@
             "hash": "8f7cd7c4616ea97a39765a55aba589340753e3b35277e15b74179e8cb12f1f8d"
         },
         "hardware/certification/battery-certification.md": {
-            "date": "2026-07-08",
-            "hash": "651177e551351553f9be63819bb71eefa3d9da917de885c653e04eec91876782"
+            "date": "2026-07-09",
+            "hash": "bc3dd38e28093defa6fc9f26bd2dd4e576da4328170e62750a3c001fae351245"
         },
         "hardware/certification/certification-documents.md": {
             "date": "2026-06-15",
@@ -9051,8 +9051,8 @@
             "date": "2024-05-14"
         },
         "reference/datasheets/m-series/m2-breakout-datasheet.md": {
-            "hash": "b26ad9b78c2ca9f9b9854ea4979597ac04944e152a83da79a1ea1d90e53e062d",
-            "date": "2026-07-08"
+            "hash": "8cfc327812b80c4e8ee4a9064d29e144e872abc159468f1ef39188c08b36f654",
+            "date": "2026-07-09"
         },
         "getting-started/logic-ledger/logic-ledger-community/logic-ledger-community.md": {
             "hash": "f275a6fea2e4cfd48a721e99bef3c5777d8f6442967f7ecc58fba05d55f1a672",
@@ -9703,8 +9703,8 @@
             "date": "2025-10-15"
         },
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
-            "hash": "90435a081f88ce26d5c1054939e829ad39b194a11b6f4fd5229a608fd83410b8",
-            "date": "2026-06-23"
+            "hash": "318cfb3d45cc23768a4d6c6587f621b393f4d39aaff26bfa8038af07a2836c5e",
+            "date": "2026-07-09"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
             "hash": "f5fcc7701cc45a369e2893a82a5cc221ba5eb413cda6756d37d20cc388bbc539",
@@ -10015,8 +10015,8 @@
             "date": "2026-03-19"
         },
         "reference/datasheets/m-series/m-hat-datasheet.md": {
-            "hash": "954e9a1057b31476847932f10d626d39488ad9f7c469f7f04e0979dbdef6bab7",
-            "date": "2026-07-08"
+            "hash": "510f4457264843ecd3a3645309d0bf96a1a731f2d6adf98be60586e19cc7dfd9",
+            "date": "2026-07-09"
         },
         "reference/device-os/libraries/p/pixeleds-library.md": {
             "hash": "ef1dee4d2cd89b7ac6dad23971ebdaf409133aaa6f5677b3554b4bad5765309f",
