@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Deactivate SIM 2026-07-10
+
+Added an option to bulk deactivate SIMs in the [Device Remove Tool](/tools/cloud-tools/device-remove/).
+
 ### Certification update M-SoM 2026-07-09
 
 Updated the certification statements for FCC (US) and ISED (Canada) for the M635 in the [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/).
