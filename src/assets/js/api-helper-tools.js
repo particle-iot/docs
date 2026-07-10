@@ -409,6 +409,7 @@ $(document).ready(function() {
         const removeFromProductElem = $(thisPartial).find('.removeFromProduct');
         const unclaimDeviceElem = $(thisPartial).find('.unclaimDevice');
         const releaseSimElem = $(thisPartial).find('.releaseSim');
+        const deactivateSimElem = $(thisPartial).find('.deactivateSim');
         const statusElem = $(thisPartial).find('.apiHelperStatus');
 
         const executeButtonElem = $(thisPartial).find('.executeButton');
@@ -480,7 +481,7 @@ $(document).ready(function() {
                         width: 10
                     },
                     {
-                        title: 'SIM Released',
+                        title: 'SIM Operation',
                         key: '_sim',
                         width: 13,
                     },
@@ -584,7 +585,7 @@ $(document).ready(function() {
                 $(thisPartial).find('.parallelRow').show();
             }
 
-            if (!options.removeFromProduct && !options.unclaimDevice && !options.releaseSim) {
+            if (!options.removeFromProduct && !options.unclaimDevice && !options.releaseSim && !options.deactivateSim) {
                 console.log('no operations');
                 return;
             }
@@ -655,6 +656,39 @@ $(document).ready(function() {
                 }
                 catch(e) {
                     console.log('exception', e);
+                    tableDeviceObj['_sim'] = '\u274C'; // Red X
+                    stats.errors++;
+                }
+
+            }
+            if (options.deactivateSim && !options.releaseSim && iccid) {
+                let success = false;
+
+                try {
+                    if (isProduct) {
+                        // Deactivate product SIM
+                        await apiHelper.particle.deactivateSIM({ iccid, product:deviceInfoCache[deviceId].product_id, auth: apiHelper.auth.access_token });
+                    }
+                    else {
+                        // Deactivate developer SIM
+                        await apiHelper.particle.deactivateSIM({ iccid, auth: apiHelper.auth.access_token });
+                    }
+                    success = true;
+                }
+                catch(e) {
+                    if (e.message.includes('202')) {                        
+                        success = true;
+                    }
+                    else {
+                        console.log('exception', e);                        
+                    }
+                }
+
+                if (success) {
+                    stats.deactivate = stats.deactivate ? stats.deactivate + 1 : 1;
+                    tableDeviceObj['_sim'] = '\u2705'; // green check
+                }
+                else {
                     tableDeviceObj['_sim'] = '\u274C'; // Red X
                     stats.errors++;
                 }
@@ -775,6 +809,7 @@ $(document).ready(function() {
             options.removeFromProduct = $(removeFromProductElem).prop('checked'),
             options.unclaimDevice = $(unclaimDeviceElem).prop('checked');
             options.releaseSim = $(releaseSimElem).prop('checked');
+            options.deactivateSim = $(deactivateSimElem).prop('checked');
             options.username = apiHelper.auth.username;
             options.accessToken = apiHelper.auth.access_token;
             options.deviceList = deviceList;
@@ -818,6 +853,15 @@ $(document).ready(function() {
             }
         });
 
+        const updateDeactivateSimState = function() {
+            if ($(releaseSimElem).prop('checked')) {
+                $(deactivateSimElem).prop('disabled', true);
+            }
+            else {
+                $(deactivateSimElem).prop('disabled', false);
+            }
+        };
+
         $(removeFromProductElem).on('click', function() {
             checkExecuteButton(getOptions());
         })
@@ -825,10 +869,16 @@ $(document).ready(function() {
             checkExecuteButton(getOptions());
         })
         $(releaseSimElem).on('click', function() {
+            updateDeactivateSimState();
+            checkExecuteButton(getOptions());
+        })
+        $(deactivateSimElem).on('click', function() {
             checkExecuteButton(getOptions());
         })
 
-    
+        updateDeactivateSimState();
+
+
         $(deviceTextAreaElem).on('input', async function() {
             await checkDeviceList();
         });
