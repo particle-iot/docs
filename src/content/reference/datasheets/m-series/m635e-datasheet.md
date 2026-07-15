@@ -1,17 +1,17 @@
 ---
-title: M-SoM datasheet
+title: M635e datasheet
 columns: two
 layout: commonTwo.hbs
 description: M-SoM datasheet
 ---
 
-# M-SoM datasheet
+# M635 datasheet
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/msom-datasheet.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/m635e-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-![M-SoM](/assets/images/m-series/msom-top.png)
+![M-SoM](/assets/images/m-series/m635e-top.png)
  
 ## Overview
 
@@ -26,6 +26,8 @@ The Particle M-SoM contains the following functional units:
   - M524: Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
   - M635e: Quectel BG95-S5 LTE Cat M1/2G (Global with NTN satellite)
 {{!-- END shared-blurb --}}
+
+For the M404 and M524, see the [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/).
 
 ### MCU
 
@@ -45,7 +47,7 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 
 ### Block diagram
 
-{{imageOverlay src="/assets/images/m-series/msom-block-diagram.png" alt="Block diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/m-series/m635e-block-diagram.png" alt="Block diagram" class="full-width"}}
 
 ### Device families
 
@@ -67,24 +69,13 @@ If you are migrating to the M-SoM from another Particle device, see also the fol
 - [M-SoM from P2](/hardware/migration-guides/msom-p2-migration-guide/)
 {{!-- END shared-blurb --}}
 
-
 ### Power
 
 #### VCC
 
-{{!-- BEGIN shared-blurb b437485d-49ee-420f-ab4a-5c447d6afb42 --}}
 VCC (sometimes referred to as 3V7) is used to supply power to the cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. This can be connected directly to a 3.7V LiPo battery. Make sure that the supply can handle currents of at least 2 A.
 
 If you are not using a battery, or using a battery of a different voltage, you should use a regulator to supply 3.7V to 4.2V at 2A. You may want to add additional bulk capacitors to handle the short, high current peak usage when the cellular modem is transmitting.
-
-{{note op="start" type="note"}}
-It is highly recommended that you design your power supply to the full 2A maximum current even though the M404 (LTE Cat M1) does not use the full amount.
-
-Other models, including the M524 and M635e, support 2G cellular, which uses significantly more current than LTE Cat M1 or Cat 1, and also takes
-much longer to connect, which may affect battery life.
-{{note op="end"}}
-
-{{!-- END shared-blurb --}}
 
 #### 3V3
 
@@ -115,7 +106,7 @@ See [supervisory reset](#supervisory-reset), below, for additional information.
 ### RF
 
 - The M-SoM includes three U.FL connectors for external antennas:
-  - Cellular 
+  - Cellular (including NTN)
   - Wi-Fi (2.4 GHz and 5 GHz) and BLE
   - GNSS (GPS)
 
@@ -873,75 +864,6 @@ breakout board, which has the cellular modem USB connector.
 | Total output drive (all pins) | | | | 200 | mA |
 {{!-- END shared-blurb --}}
 
-
-### Power consumption (M524) 
-
-| Parameter | Symbol | Min | Typ | Peak | Unit |
-| :---|:---|:---:|:---:|:---:|:---:
-| Operating current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 26.4 | 26.6 | 26.9 | mA |
-| Operating current (uC on, BLE advertising) | I<sub>ble_adv</sub> | 62.9 | 66.1 | 84.2 | mA |
-| Operating current (uC on, BLE connected but idle) | I<sub>ble_conn_idle</sub> | 62.4 | 66.7 | 74 | mA |
-| Operating current (uC on, BLE scanning) | I<sub>ble_scan</sub> | 50.5 | 57.2 | 87.7 | mA |
-| Operating current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 36.7 | 44.4 | 907 | mA |
-| Operating current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 40.2 | 97.4 | 840 | mA |
-| Operating current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | 37 | 43.1 | 132 | mA |
-| Operating current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 39.9 | 164 | 851 | mA |
-| Operating current (uC on, Wi-Fi on but not connected) | I<sub>wifi_idle</sub> | 26.1 | 26.3 | 26.6 | mA |
-| Operating current (uC on, Wi-Fi connecting to access point) | I<sub>wifi_conn_ap</sub> | 44.3 | 67.3 | 298 | mA |
-| Operating current (uC on, Wi-Fi connecting to cloud) | I<sub>wifi_conn_cloud</sub> | 61 | 68.2 | 357 | mA |
-| Operating current (uC on, Wi-Fi connected but idle) | I<sub>wifi_cloud_idle</sub> | 61.9 | 64.1 | 68.4 | mA |
-| Operating current (uC on, Wi-Fi connected and transmitting) | I<sub>wifi_cloud_tx</sub> | 60.1 | 64.8 | 309 | mA |
-| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 419 | 421 | 425 | uA |
-| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 412 | 415 | 418 | uA |
-| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 419 | 421 | 425 | uA |
-| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 412 | 415 | 418 | uA |
-| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 23.9 | 26.1 | 28.6 | uA |
-| HIBERNATE mode sleep, RTC wake-up | I<sub>hib_intrtc</sub> | 24.5 | 26.5 | 28.1 | uA |
-
-<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
-The typical (typ) values are the best indicator of overall power consumption over time. The 
-peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
-
-Current measurements taken at 3.6V via the battery input. For more information about measuring power usage, see [power measurement](/hardware/power/power-measurement/).
-
-### Power consumption (M404) 
-
-| Parameter | Symbol | Min | Typ | Peak | Unit |
-| :---|:---|:---:|:---:|:---:|:---:
-| Operating current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 27.7 | 27.9 | 28.1 | mA |
-| Operating current (uC on, BLE advertising) | I<sub>ble_adv</sub> | 65.5 | 69.5 | 85.9 | mA |
-| Operating current (uC on, BLE connected but idle) | I<sub>ble_conn_idle</sub> | 65.5 | 70.1 | 77 | mA |
-| Operating current (uC on, BLE scanning) | I<sub>ble_scan</sub> | 52.6 | 60.5 | 91.1 | mA |
-| Operating current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 36.2 | 159 | 816 | mA |
-| Operating current (uC on, cellular on but not connected using LTE Cat M1) | I<sub>cell_idle_catm1</sub> | 41.5 | 46.7 | 217 | mA |
-| Operating current (uC on, cellular connecting to tower using LTE Cat M1) | I<sub>cell_conn_twr_catm1</sub> | 39.8 | 43.9 | 131 | mA |
-| Operating current (uC on, cellular connecting to cloud using LTE Cat M1) | I<sub>cell_conn_cloud_catm1</sub> | 39.7 | 83.5 | 181 | mA |
-| Operating current (uC on, cellular connected but idle using LTE Cat M1) | I<sub>cell_cloud_idle_catm1</sub> | 41.8 | 44.5 | 155 | mA |
-| Operating current (uC on, cellular connected and transmitting using LTE Cat M1) | I<sub>cell_cloud_tx_catm1</sub> | 40.1 | 83.6 | 177 | mA |
-| Operating current (uC on, cellular on but not connected using 2G) | I<sub>cell_idle_2g</sub> | 38.9 | 44.7 | 1700 | mA |
-| Operating current (uC on, cellular connecting to tower using 2G) | I<sub>cell_conn_twr_2g</sub> | 36.9 | 128 | 1700 | mA |
-| Operating current (uC on, cellular connecting to cloud using 2G) | I<sub>cell_conn_cloud_2g</sub> | 35.9 | 98.3 | 1740 | mA |
-| Operating current (uC on, cellular connected but idle using 2G) | I<sub>cell_cloud_idle_2g</sub> | 35.8 | 40.3 | 114 | mA |
-| Operating current (uC on, cellular connected and transmitting using 2G) | I<sub>cell_cloud_tx_2g</sub> | 32 | 152 | 1720 | mA |
-| Operating current (uC on, Wi-Fi on but not connected) | I<sub>wifi_idle</sub> | 27.3 | 30.4 | 101 | mA |
-| Operating current (uC on, Wi-Fi connecting to access point) | I<sub>wifi_conn_ap</sub> | 25.4 | 68.9 | 353 | mA |
-| Operating current (uC on, Wi-Fi connecting to cloud) | I<sub>wifi_conn_cloud</sub> | 59.8 | 109 | 469 | mA |
-| Operating current (uC on, Wi-Fi connected but idle) | I<sub>wifi_cloud_idle</sub> | 61.6 | 64.5 | 184 | mA |
-| Operating current (uC on, Wi-Fi connected and transmitting) | I<sub>wifi_cloud_tx</sub> | 60.7 | 64.9 | 349 | mA |
-| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 542 | 547 | 551 | uA |
-| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 512 | 515 | 518 | uA |
-| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 542 | 547 | 551 | uA |
-| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 512 | 515 | 518 | uA |
-| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 41.9 | 44 | 45.8 | uA |
-| HIBERNATE mode sleep, RTC wake-up | I<sub>hib_intrtc</sub> | 41.1 | 43.4 | 45.3 | uA |
-
-<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
-The typical (typ) values are the best indicator of overall power consumption over time. The 
-peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
-
-Current measurements taken at 3.6V via the battery input. For more information about measuring power usage, see [power measurement](/hardware/power/power-measurement/).
-
-
 ### Power consumption (M635)
 
 To be determined at a later date. When operated on LTE Cat M1 or 2G, should be similar to M404.
@@ -1005,67 +927,6 @@ To be determined at a later date. When operated on LTE Cat M1 or 2G, should be s
 | :------ | :---------- | :------ | :------ | :------ | :--- |
 | Frequency Range |  | 2402 | - | 2480 | MHz |
 | Tx Output power |  | -10 | 4.5 |  | dBM |
-{{!-- END shared-blurb --}}
-
-#### Cellular characteristics for BG95-M5 (M404)
-
-{{!-- BEGIN shared-blurb bb8991bb-bb5f-4cd3-9966-39311448d382 --}}
-| Parameter | Value |
-| --- | --- |
-| Protocol stack | 3GPP Release 14 |
-| RAT | LTE Cat M1 |
-| LTE FDD Bands  | Band 12 (700 MHz) |
-| | Band 13 (700 MHz) |
-| | Band 28 (700 MHz) |
-| | Band 20 (800 MHz)  |
-| | Band 5 (850 MHz)  |
-| | Band 26 (850 MHz)  |
-| | Band 8 (900 MHz)  |
-| | Band 4 (1700 MHz)  |
-| | Band 3 (1800 MHz)  |
-| | Band 2 (1900 MHz)  |
-| | Band 25 (1900 MHz)  |
-| | Band 1 (2100 MHz)  |
-| | Band 66 (2100 MHz)  |
-| GSM Bands | GSM850 (850 MHz) |
-| | EGSM900 (900 MHz) |
-| | DCS1800 (1800 MHz) |
-| | PCS1900 (1900 MHz) |
-| Power class | Class 4 (33dBm ± 2dB) for GSM850 | |
-| | Class 4 (33dBm ± 2dB) for EGSM900 |
-| | Class 1 (30dBm ± 2dB) for DCS1800 |
-| | Class 1 (30dBm ± 2dB) for PCS1900 |
-| | Class E2 (27dBm ± 3dB) for GSM850 8-PSK |
-| | Class E2 (27dBm ± 3dB) for EGSM900 8-PSK |
-| | Class E2 (26dBm ± 3dB) for DCS1800 8-PSK |
-| | Class E2 (26dBm ± 3dB) for PCS1900 8-PSK |
-| | Class 3 (23dBm ± 2dB) for LTE FDD bands |
-{{!-- END shared-blurb --}}
-
-
-#### Cellular characteristics for EG91-EX (M524)
-
-{{!-- BEGIN shared-blurb 5056bd6b-9e89-4f27-a3b5-9c9b5346cbc1 --}}
-| Parameter | Value |
-| --- | --- |
-| Protocol stack | 3GPP Release 13 |
-| RAT | LTE Cat 1 |
-| LTE FDD Bands | Band 28A (700 MHz) |
-| | Band 20 (800 MHz)  |
-| | Band 8 (900 MHz)  |
-| | Band 3 (1800 MHz)  |
-| | Band 1 (2100 MHz)  |
-| | Band 7 (2600 MHz)  |
-| WCDMA Bands | Band 8 (900 MHz) | 
-| | Band 1 (2100) |
-| GSM Bands | EGSM900 (900 MHz) |
-| | DCS1800 (1800 MHz) |
-| Power class | Class 4 (33dBm ± 2dB) for EGSM900 |
-| | Class 1 (30dBm ± 2dB) for DCS1800 |
-| | Class E2 (27dBm ± 3dB) for EGSM900 8-PSK |
-| | Class E2 (26dBm ± 3dB) for DCS1800 8-PSK |
-| | Class 3 (24dBm ± 3dB) for WCDMA bands |
-| | Class 3 (23dBm ± 2dB) for LTE FDD bands |
 {{!-- END shared-blurb --}}
 
 #### Cellular characteristics for BG95-S5 (M635e)
@@ -1220,10 +1081,6 @@ The Grantee will provide guidance to the host manufacturer for Part 15 B require
 ### End Product Labeling - FCC
 When the module is installed in the host device, the FCC label must be visible through a window on the final device or it must be visible when an access panel, door or cover is easily re-moved. If not, a second label must be placed on the outside of the final device that contains the following text: 
 
-M404 for End Product Labeling: The final end product must be labeled in a visible area with the following
-
-> Contains FCC ID: 2AEMI-M404
-
 M635 for End Product Labeling: The final end product must be labeled in a visible area with the following
 
 > Contains FCC ID: 2AEMI-M635
@@ -1240,20 +1097,20 @@ In the event that these conditions cannot be met (for example certain laptop con
 To comply with FCC regulations limiting both maximum RF output power and human exposure to RF radiation, Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device:  
 
 {{!-- BEGIN shared-blurb fc04fccb-2c6a-411b-af91-d615767a8229 --}}
-814–849 MHz : 2.01 dBi
-698–716 MHz: 2.17 dBi
-703–748 MHz : 2.5 dBi
-777–787 MHz: 5.3 dBi
-824–849 MHz: 2.01 dBi
-1710–1755 MHz: 3.74 dBi
-1755–1780 MHz : 4 dBi
-1850–1915 MHz: 5.3 dBi
-1626.5–1660.5: 3.91 dBi
-1980–2010 MHz: 4.61dBi
-2000–2020 MHz:4.37dBi
-BLE:2400 MHz-2483.5 MHz:3dBi
-WiFi:2400MHz-2483.5MHz:3dBi
-WiFi:5150MHz-5850MHz:6.8dBi
+- 814–849 MHz : 2.01 dBi
+- 698–716 MHz: 2.17 dBi
+- 703–748 MHz : 2.5 dBi
+- 777–787 MHz: 5.3 dBi
+- 824–849 MHz: 2.01 dBi
+- 1710–1755 MHz: 3.74 dBi
+- 1755–1780 MHz : 4 dBi
+- 1850–1915 MHz: 5.3 dBi
+- 1626.5–1660.5: 3.91 dBi
+- 1980–2010 MHz: 4.61dBi
+- 2000–2020 MHz:4.37dBi
+- BLE:2400 MHz-2483.5 MHz:3dBi
+- WiFi:2400MHz-2483.5MHz:3dBi
+- WiFi:5150MHz-5850MHz:6.8dBi
 {{!-- END shared-blurb --}}
 
 
@@ -1306,6 +1163,18 @@ Tant que les 2 conditions ci-dessus sont remplies, des essais supplémentaires s
 
 To comply with ISED regulations limiting both maximum RF output power and human exposure to RF radiation, Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device:  
 
+This radio transmitter \[20127-M635] has been approved by Innovation, Science and Economic Development Canada to operate with the antenna types listed below, with the maximum permissible gain indicated. Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device.
+
+Cet émetteur radio \[20127-M635] a été approuvé par Innovation, Sciences et Développement économique Canada pour fonctionner avec les types d'antennes énumérés ci-dessous, avec le gain maximal permis indiqué. L'utilisation avec cet appareil de types d'antennes non inclus dans cette liste et présentant un gain supérieur au gain maximal indiqué pour l'un des types énumérés est strictement interdite.
+
+| Antenna description	| Antenna Model	| Antenna Type |
+| :--- | :--- | :--- |
+| Wi-Fi Antenna	| PARANTWM1EA	| PCB Antenna |
+| M-SoM Wide band LTE Cell Antenna	| PARANTCW1EA	| FPC Antenna |
+| NTN and LTE cell antenna (External)	| PARANTCN1EA	| External Plastic Whip Antenna with SMA Connector }
+| GNSS FPC Antenna |	PARANTGN1EA	| FPC Antenna |
+
+
 {{!-- BEGIN shared-blurb 08dc5141-332a-4fca-8c6c-014a814d9dc7 --}}
 - 824–849 MHz (GSM 850): 2.01 dBi
 - 1850–1910 MHz (GSM 1900): 5.3 dBi
@@ -1335,21 +1204,20 @@ Dans le cas où ces conditions ne peuvent être satisfaites (par exemple pour ce
 ### End Product Labeling - ISED
 This transmitter module is authorized only for use in device where the antenna may be installed such that 20 cm may be maintained between the antenna and users.
 
-M524 for End Product Labeling: The final end product must be labeled in a visible area with the following:
-
-> Contains IC: 20127-M524
-
 M635 for End Product Labeling: The final end product must be labeled in a visible area with the following:
 
 > Contains IC: 20127-M635
+> HVIN: M635e
+> PMN: M-Series LTE M1/2G/Satellite
+
 
 **Plaque signalétique du produit final**
 
 Ce module émetteur est autorisé uniquement pour une utilisation dans un dispositif où l'antenne peut être installée de telle sorte qu'une distance de 20cm peut être maintenue entre l'antenne et les utilisateurs. Le produit final doit être étiqueté dans un endroit visible avec l'inscription suivante: 
 
-> Contient des IC: 20127-M524 
-
 > Contient des IC: 20127-M635
+> HVIN: M635e
+> PMN: M-Series LTE M1/2G/Satellite
 
 ### Manual Information To the End User - ISED
 
@@ -1369,39 +1237,6 @@ Operation in the 5600-5650 MHz band is not allowed in Canada. High-power radars 
 
 
 ## European Union (CE) Warnings and End Product Labeling Requirements
-
-### M404 - European Union (CE)
-
-We, Particle Industries, Inc, declare under our sole responsibility that the product, M404, to which this declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
-
-The full text of the EU declaration of conformity is available at the followingInternet address: 
-[https://www.particle.io/](https://www.particle.io/)
-
-Radiation Exposure Statement: This equipment complies with radiation exposure limits set forth for an uncontrolled environment.
-
-The operating frequency bands and the maximum transmitted power limit are listed below:
-- BLE 2402-2480MHz 10dBm
-- Wi-Fi 2.4GHz band 2412-2484MHz 20dBm
-- Wi-Fi 5GHz band 5180-5825MHz 23dBm
-- LTE B1 B3 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
-
-### M524 - European Union (CE)
-
-We, Particle Industries, Inc, declare under our sole responsibility that the product, M524, to which this declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
-
-The full text of the EU declaration of conformity is available at the followingInternet address: 
-[https://www.particle.io/](https://www.particle.io/)
-
-Radiation Exposure Statement: This equipment complies with radiation exposure limits set forth for an uncontrolled environment.
-
-The operating frequency bands and the maximum transmitted power limit are listed below:
-- BLE 2402-2480MHz 10dBm
-- Wi-Fi 2.4GHz band 2412-2484MHz 20dBm
-- Wi-Fi 5GHz band 5180-5825MHz 23dBm
-- LTE B1 B3 B7 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
-- WCDMA 882.4-957.6 MHz 1922.6-2167.4 MHz, 25dBm
-- EGSM900 880-915 MHz, 33 dBm
-- DCS1800 1710-1785 MHz, 30 dBm
 
 ### M635e - European Union (CE)
 
@@ -1437,78 +1272,6 @@ SE, SI, SK, TR, UA, UK(NI).
 
 ## Certification documents
 
-{{!-- BEGIN shared-blurb 8d11397b-ce65-41f3-8a2a-70bad7cf18c3 --}}
-### FCC (United States) - M404 M-SoM M-Series LTE-M/2G
-
-- FCC ID: 2AEMI-M404
-- [Part 15B](/assets/pdfs/m404-fcc-part15b.pdf)
-- [Part 15C, Digital Transmission System 2.4 GHz](/assets/pdfs/m404-fcc-DTS.pdf)
-- [Part 15E, Unlicensed national information infrastructure TX, 5 GHz](/assets/pdfs/m404-fcc-part15e.pdf)
-- [Part 15B, Part 15 Class B Computing Device Peripheral](/assets/pdfs/m404-fcc-JBP.pdf)
-- [Part 22H, 24E, 27, PCS Licensed Transmitter](/assets/pdfs/m404-fcc-PCB.pdf)
-
-### ISED (Canada) - M404 M-SoM M-Series LTE-M/2G
-
-- ISED: 20127-M504
-- [Certificate](/assets/pdfs/m404-ised-certificate.pdf)
-- [Test Report RS-130](/assets/pdfs/m404-ic-rs130.pdf)
-- [Test Report RS-132](/assets/pdfs/m404-ic-rs132.pdf)
-- [Test Report RS-133](/assets/pdfs/m404-ic-rs133.pdf)
-- [Test Report RS-139](/assets/pdfs/m404-ic-rs139.pdf)
-- [ICES-003 Issue 7:2020](/assets/pdfs/m404-ic-ices003.pdf)
-- [Test Report RS-102](/assets/pdfs/m404-ic-rs102.pdf) (RF Exposure)
-
-
-### CE (European Union) - M404 M-SoM M-Series LTE-M/2G
-
-- [Summary](/assets/pdfs/m404-ce-summary.pdf)
-- [EN-62368-1 Test Report](/assets/pdfs/m404-EN-62368-1-test-report.pdf)
-- [EN 300 328 Test Report BLE](/assets/pdfs/m404-EN300-328-ble-test-report.pdf) (Bluetooth LE 2.4 GHz ISM band)
-- [EN 300 328 Test Report Wi-Fi](/assets/pdfs/m404-EN300-328-wifi-test-report.pdf) (Wi-Fi 2.4 GHz ISM band)
-- [EN 300 440 Test Report Wi-Fi](/assets/pdfs/m404-EN300-440-wifi-test-report.pdf) (Wi-Fi 5 GHz)
-- [EN 301 893 Test Report Wi-Fi](/assets/pdfs/m404-EN301-893-wifi-test-report.pdf) (Wi-Fi 5 GHz)
-- [EN 301 893 Test Report DFS](/assets/pdfs/m404-EN301-893-dfs-test-report.pdf) (Dynamic frequency selection clause 4.2.6)
-- [EN 303 413 Test Report](/assets/pdfs/m404-EN303-413-gnss-test-report.pdf) (GNSS)
-- [EN 301 489 Test Report](/assets/pdfs/m404-EN301-489-test-report.pdf)
-- [EN 301 511 Test Report](/assets/pdfs/m404-EN301-511-test-report.pdf) (GSM)
-- [EN 301 908 Test Report](/assets/pdfs/m404-EN301-908-test-report.pdf) 
-- [EN-62311 Test Report](/assets/pdfs/m404-EN62311-test-report.pdf)
-- [Test Report Photos](/assets/pdfs/m404-test-photos.pdf)
-
-
-
-### RoHS - M404 M-SoM M-Series LTE-M/2G
-
-- [RoHS 3.0 Test Reports](/assets/pdfs/m404-rohs.pdf)
-{{!-- END shared-blurb --}}
-
-{{!-- BEGIN shared-blurb 8f4d899f-2ed4-47fc-9b45-e28fd55e245c --}}
-
-### CE (European Union) - M524 M-SoM M-Series LTE Cat 1
-
-- [EU Declaration of Conformity](/assets/pdfs/particle-M524-EU-DoC-RED-Cyber.pdf) (updated 2026-05-18)
-- [Summary](/assets/pdfs/m524-ce-summary.pdf)
-- [EN-62368-1 Test Report](/assets/pdfs/m524-EN-62368-1-test-report.pdf)
-- [EN 300 328 Test Report BLE](/assets/pdfs/m524-EN300-328-ble-test-report.pdf) (Bluetooth LE 2.4 GHz ISM band)
-- [EN 300 328 Test Report Wi-Fi](/assets/pdfs/m524-EN300-328-wifi-test-report.pdf) (Wi-Fi 2.4 GHz ISM band)
-- [EN 301 893 Test Report Wi-Fi](/assets/pdfs/m524-EN301-893-wifi-test-report.pdf) (Wi-Fi 5 GHz)
-- [EN 300 440 Test Report Wi-Fi](/assets/pdfs/m524-EN300-440-wifi-test-report.pdf) (Wi-Fi 5 GHz)
-- [EN 301 893 Test Report DFS](/assets/pdfs/m524-EN301-893-dfs-test-report.pdf) (Dynamic frequency selection clause 4.2.6)
-- [EN 303 413 Test Report](/assets/pdfs/m524-EN303-413-gnss-test-report.pdf) (GNSS)
-- [EN 301 489 Test Report](/assets/pdfs/m524-EN301-489-test-report.pdf)
-- [EN 301 511 Test Report](/assets/pdfs/m524-EN301-511-test-report.pdf) (GSM)
-- [EN 301 908 Test Report](/assets/pdfs/m524-EN301-908-test-report.pdf) 
-- [EN-62311 Test Report](/assets/pdfs/m524-EN62311-test-report.pdf)
-- [Test Report Photos](/assets/pdfs/m524-test-photos.pdf)
-
-
-
-### RoHS - M524 M-SoM M-Series LTE Cat 1
-
-- [RoHS 3.0 Test Reports](/assets/pdfs/m524-rohs.pdf)
-{{!-- END shared-blurb --}}
-
-
 {{!-- BEGIN shared-blurb cefb33a6-e1c0-46df-9d67-4b6af885f944 --}}
 ### FCC (United States) - M635e M-SoM M-Series LTE-M/2G/NTN
 
@@ -1532,174 +1295,6 @@ SE, SI, SK, TR, UA, UK(NI).
 ---
 
 ## Country compatibility
-
-### M404 - Country compatibility
-
-
-{{!-- BEGIN do not edit content below, it is automatically generated 291c6e45-3647-412b-8e38-47d29d5b4a83 --}}
-
-| Country | Model | Technologies | Carriers |
-| :--- | :--- | :--- | :--- |
-| Canada | M404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Mexico | M404 | M1 | AT&T, Telcel |
-| United States | M404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
-
-
-{{!-- END do not edit content above, it is automatically generated  --}}
-
-The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations. See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=byRegion) for country compatibility information.
-
-### M404 - Certified bands
-
-| Technology | Band | FCC | CE |
-| :--- | :--- | :---: | :---: |
-| 2G | 850 MHz | &check; | &nbsp; |
-| 2G | 900 MHz | &nbsp; | &nbsp; |
-| 2G | 1800 MHz | &nbsp; | &nbsp; |
-| 2G | 1900 MHz | &check; | &nbsp; |
-| LTE Cat M1 | B1 (2100 MHz) | | &check;|
-| LTE Cat M1 | B2 (1900 MHz) | &check; | |
-| LTE Cat M1 | B3 (1800 MHz) | | &check;|
-| LTE Cat M1 | B4 (1700 MHz) | &check;| |
-| LTE Cat M1 | B5 (850 MHz) | &check;| |
-| LTE Cat M1 | B8 (900 MHz) | | &check;|
-| LTE Cat M1 | B12 (700 MHz) | &check;| |
-| LTE Cat M1 | B13 (700 MHz) | &check;| |
-| LTE Cat M1 | B20 (800 MHz) | | &check;|
-| LTE Cat M1 | B25 (1900 MHz) | &check;| |
-| LTE Cat M1 | B26 (850 MHz) | &check;| |
-| LTE Cat M1 | B28 (700 MHz) | | &check;|
-| LTE Cat M1 | B66 (2100 MHz) | &check;| |
-
-
-
-### M524 - Country compatibility
-
-
-{{!-- BEGIN do not edit content below, it is automatically generated da2ba229-df4a-4df6-a0a5-d74444b8d5c1 --}}
-
-| Country | Model | Technologies | Carriers |
-| :--- | :--- | :--- | :--- |
-| Albania | M524 | 2G, 3G, 4G | Eagle, Telekom, Vodafone |
-| Algeria | M524 | 2G, 3G, 4G | Mobilis, Ooredoo |
-| Aruba | M524 | 2G, 3G, 4G | Setar |
-| Australia | M524 | 4G | Optus, Telstra, Vodafone |
-| Austria | M524 | 2G, 4G | 3 (Drei), A1, T-Mobile |
-| Bahrain | M524 | 2G, 4G | Zain |
-| Bangladesh | M524 | 2G, 3G, 4G | Bangalink, GrameenPhone |
-| Belarus | M524 | 2G, 3G, 4G | A1 |
-| Belgium | M524 | 2G, 4G | Base, Orange, Proximus |
-| Bosnia and Herzegovina | M524 | 2G, 3G | HT Eronet |
-| Botswana | M524 | 2G, 3G, 4G | BeMobile |
-| Brunei | M524 | 3G, 4G | DST |
-| Bulgaria | M524 | 2G, 3G | A1, Telenor, Vivacom |
-| Burkina Faso | M524 | 2G, 3G, 4G | Orange |
-| Cabo Verde | M524 | 2G, 3G, 4G | CVMóvel, Unitel T+ |
-| Cambodia | M524 | 2G, 3G | Metfone |
-| Chad | M524 | 2G, 3G, 4G | Airtel |
-| Chile | M524 | 3G, 4G | Claro, Entel, Movistar |
-| Congo (Brazzaville) | M524 | 2G, 3G, 4G | Airtel |
-| Congo (Kinshasa) | M524 | 2G, 3G, 4G | Airtel |
-| Côte d'Ivoire | M524 | 2G, 3G | MTN |
-| Croatia | M524 | 2G, 3G, 4G | Hrvatski Telekom, Tele2 |
-| Cyprus | M524 | 2G, 3G, 4G | MTN, PrimeTel |
-| Czechia | M524 | 2G, 4G | O2, T-Mobile, Vodafone |
-| Denmark | M524 | 2G, 4G | 3 (Tre), TDC, Telenor, Telia |
-| Egypt | M524 | 2G, 3G, 4G | Etisalat, Orange |
-| Estonia | M524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
-| eSwatini | M524 | 2G, 3G, 4G | MTN |
-| Ethiopia | M524 | 2G, 3G, 4G | Ethio Telecom |
-| Faroe Islands | M524 | 2G, 3G | Faroese Telecom, Vodafone |
-| Finland | M524 | 2G, 4G | DNA, Elisa, Telia |
-| France | M524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
-| French Guiana | M524 | 2G, 3G | Digicel |
-| Gabon | M524 | 2G, 3G, 4G | Airtel |
-| Germany | M524 | 2G, 4G | O2, Telekom, Vodafone |
-| Ghana | M524 | 2G, 3G, 4G | AirtelTigo, MTN, Vodafone |
-| Gibraltar | M524 | 2G, 3G, 4G | Gibtel |
-| Greece | M524 | 2G, 4G | Cosmote, Vodafone, Wind |
-| Guinea | M524 | 2G, 3G, 4G | MTN |
-| Guinea-Bissau | M524 | 2G, 3G, 4G | MTN |
-| Guyana | M524 | 2G | Digicel |
-| Hong Kong | M524 | 3G, 4G | CMHK, CSL, SmarTone |
-| Hungary | M524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
-| Iceland | M524 | 4G | Nova, Siminn, Vodafone |
-| Indonesia | M524 | 2G, 4G | Indosat, Telkomsel, XL Axiata |
-| Ireland | M524 | 2G, 3G, 4G | 3 (Tre), Meteor, O2, Vodafone |
-| Israel | M524 | 4G | Hot Mobile, Orange, Pelephone |
-| Italy | M524 | 2G, 4G | TIM, Vodafone, Wind |
-| Jordan | M524 | 2G, 3G, 4G | Zain |
-| Kazakhstan | M524 | 2G, 3G, 4G | Beeline, K-Cell |
-| Kenya | M524 | 2G, 3G, 4G | Airtel |
-| Kuwait | M524 | 2G, 3G, 4G | Viva, Zain |
-| Latvia | M524 | 2G, 4G | Bite, LMT, Tele2 |
-| Liechtenstein | M524 | 2G, 3G, 4G | Mobilkom, Orange |
-| Lithuania | M524 | 2G, 4G | Bite, Omnitel, Tele2 |
-| Luxembourg | M524 | 2G, 4G | Orange, POST, Tango |
-| Macao | M524 | 3G, 4G | CTM |
-| Madagascar | M524 | 2G, 3G, 4G | Airtel |
-| Malawi | M524 | 2G, 3G, 4G | Airtel |
-| Malaysia | M524 | 2G, 4G | Celcom, DiGi, Maxis |
-| Malta | M524 | 2G, 3G, 4G | Go Mobile, Vodafone |
-| Moldova | M524 | 2G, 3G, 4G | Moldcell, Orange |
-| Mongolia | M524 | 2G, 3G | Mobicom, Unitel |
-| Montenegro | M524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
-| Morocco | M524 | 2G, 3G, 4G | Inwi, Medi Telecom |
-| Mozambique | M524 | 2G, 3G, 4G | Vodacom |
-| Myanmar | M524 | 2G, 3G, 4G | MPT, Telenor |
-| Namibia | M524 | 2G, 3G, 4G | Telecom Namibia |
-| Netherlands | M524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
-| New Zealand | M524 | 4G | 2degrees, Spark, Vodafone |
-| Nigeria | M524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
-| Norway | M524 | 2G, 3G, 4G | TDC, Telenor, Telia |
-| Pakistan | M524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
-| Palestine | M524 | 2G, 3G | Jawwal |
-| Papua New Guinea | M524 | 2G, 3G | bmobile |
-| Poland | M524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
-| Portugal | M524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
-| Qatar | M524 | 2G, 4G | Ooredoo, Vodafone |
-| Romania | M524 | 2G, 4G | Orange, Telekom Romania, Vodafone |
-| Rwanda | M524 | 2G, 3G | Airtel, MTN |
-| Serbia | M524 | 2G, 3G, 4G | Telenor, VIP |
-| Seychelles | M524 | 2G, 3G, 4G | Airtel |
-| Sint Maarten | M524 | 2G, 3G | TelCell |
-| Slovakia | M524 | 2G, 4G | O2, Orange, Telekom |
-| Slovenia | M524 | 2G, 3G, 4G | A1, Mobitel |
-| South Africa | M524 | 2G, 3G, 4G | Cell C, MTN, Vodacom |
-| South Korea | M524 | 3G, 4G | KT, LG U+, SK Telecom |
-| South Sudan | M524 | 2G, 3G | MTN |
-| Spain | M524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
-| Sri Lanka | M524 | 2G, 4G | Dialog, Mobitel |
-| Suriname | M524 | 2G, 3G | Telesur |
-| Sweden | M524 | 2G, 4G | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | M524 | 3G, 4G | Salt, Sunrise, Swisscom |
-| Taiwan | M524 | 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
-| Tanzania | M524 | 2G, 3G, 4G | Airtel |
-| Thailand | M524 | 2G, 3G, 4G | AIS, DTAC, True Move |
-| Tunisia | M524 | 2G, 3G, 4G | Orange Tunisie, Tunisie Telecom |
-| Uganda | M524 | 2G, 3G, 4G | Africell, Airtel, MTN |
-| United Kingdom | M524 | 2G, 4G | 3, EE, O2, Vodafone |
-| Vietnam | M524 | 3G, 4G | MobiFone, Viettel, Vinaphone |
-| Zambia | M524 | 2G, 3G, 4G | Airtel |
-
-
-{{!-- END do not edit content above, it is automatically generated  --}}
-
-### M524 - Certified bands
-
-| Technology | Band | CE |
-| :--- | :--- | :---: |
-| 2G | 900 MHz | &check; |
-| 2G | 1800 MHz | &check; |
-| 3G | B1 (2100 MHz) | &check;|
-| 3G | B8 (900 MHz) | &check;|
-| LTE Cat 1 | B1 (2100 MHz) | &check;|
-| LTE Cat 1 | B3 (1800 MHz) | &check;|
-| LTE Cat 1 | B7 (2600 MHz) | &check;|
-| LTE Cat 1 | B8 (900 MHz) | &check;|
-| LTE Cat 1 | B20 (800 MHz) | &check;|
-| LTE Cat 1 | B28 (700 MHz) | &check;|
-
 
 
 ### M635e - Country compatibility
@@ -1896,51 +1491,18 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 ---
 ## Ordering information
 
-{{!-- BEGIN do not edit content below, it is automatically generated 5c48836c-dced-4420-be6f-15916d265a5e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated df47809f-e391-4a0d-9773-ec1eb844a144 --}}
 
 | SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | GA | |
-| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | GA | |
-| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
-| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | GA | |
 | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | &check; | In development | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
-
-- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 
 
 ## Revision history
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre      | 2023-10-03 | RK | Initial version |
-|          | 2023-12-20 | RK | Added FCC and IC IDs. Additional notes for ADCs, D24, and D25 |
-|          | 2024-02-08 | RK | Added power consumption information |
-|          | 2024-02-20 | RK | M.2 screw assembly should be connected to ground |
-|          | 2024-02-20 | RK | Added pin drive strength |
-|          | 2024-03-14 | RK | M SoM pin 45 is not shared. Pins 43 and 53 are both connected to PB[2], but not pin 45. |
-|          | 2024-03-15 | RK | The UART baud rate 2400, 4800, 380400, 460800 are supported but were not listed |
-|          | 2024-03-26 | RK | Listed certified bands for FCC and CE |
-| 001      | 2024-04-02 | RK | General availability |
-| 002      | 2024-04-03 | RK | Additional transmitter information |
-| 003      | 2024-04-18 | RK | Add PDM microphone |
-| 004      | 2024-04-23 | RK | Added links to certification documents |
-| 005      | 2024-04-25 | RK | Added I/O characteristics |
-| 006      | 2024-04-30 | RK | Corrected SPI interface speeds |
-| 007      | 2024-07-09 | RK | Updated cellular modem on M635 to BG95-S5 |
-| 008      | 2024-08-21 | RK | Added supervisory reset information |
-| 009      | 2024-09-03 | RK | Added clarification of cellular modem USB pins |
-| 010      | 2024-09-24 | RK | Removed concurrent GNSS warning, added link to library |
-| 011      | 2024-10-02 | RK | Added warning to not use Argon (ANT-FLXV2) antenna |
-| 012      | 2025-01-06 | RK | Added note explaining reserved SoM pins |
-| 013      | 2025-01-21 | RK | Incorrect RTL pin listed in SETUP and RESET button section. It was listed as PA[4] but is PA[11]. It was correct in the pin diagram. |
-| 014      | 2025-04-10 | RK | Added links to hardware-libraries and M.2 breakout board designs |
-| 015      | 2025-06-25 | RK | Clarifications for GNSS use |
-| 016      | 2026-05-18 | RK | Updated EU Declaration of Conformity |
-| 017      | 2026-06-09 | RK | Updated bands and country list for M635e |
-| 018      | 2026-06-15 | RK | Added NTN antenna information |
-| 019      | 2026-06-17 | RK | Updates for M635e certification |
-| 020      | 2026-07-09 | RK | Updates for M635e certification |
+| 001      | 2026-07-15 | RK | Split from M-SoM datasheet for certification |

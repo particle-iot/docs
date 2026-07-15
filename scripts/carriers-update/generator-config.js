@@ -5661,6 +5661,17 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        {
+            // SKU list M635e
+            guid:'df47809f-e391-4a0d-9773-ec1eb844a144', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('m series', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('M635E');
+                    }
+                }); 
+            } 
+        },
         // M-HAT
         {
             // SKU list MHAT
