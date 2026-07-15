@@ -501,6 +501,11 @@
                             "title": "M-SoM datasheet"
                         },
                         {
+                            "dir": "m635e-datasheet",
+                            "title": "M635e datasheet",
+                            "hidden": true
+                        },
+                        {
                             "dir": "muon-datasheet",
                             "title": "Muon datasheet"
                         },
