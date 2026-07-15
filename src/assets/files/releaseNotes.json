@@ -44210,6 +44210,150 @@
             "title": "fix bootloader filesystem initialization, adds manufacturing/empty_external_flash test",
             "state": "closed",
             "created_at": "2026-04-24T19:11:23Z"
+        },
+        "2918": {
+            "url": "https://github.com/particle-iot/device-os/pull/2918",
+            "number": 2918,
+            "title": "[test] Fixes for `wiring/serial_loopback2`",
+            "state": "closed",
+            "created_at": "2026-05-07T23:03:43Z",
+            "detail": "- p2 devices can have an issue booting when a load is put on the RX pin.  The test `wiring/serial_loopback2` attempts to fix this with the use of a buffer between TX and RX for the test.  However, the `SERIAL_ZZZ_Cleanup` task that tri-stated the buffer was located within the `HAL_PLATFORM_USART_9BIT_SUPPORTED` block, which p2 does not support.\n- This leaves the device not reachable over USB for future tests"
+        },
+        "2919": {
+            "url": "https://github.com/particle-iot/device-os/pull/2919",
+            "number": 2919,
+            "title": "[test] Fixes for wiring/sleep20",
+            "state": "closed",
+            "created_at": "2026-05-13T18:01:37Z"
+        },
+        "2920": {
+            "url": "https://github.com/particle-iot/device-os/pull/2920",
+            "number": 2920,
+            "title": "[test] adds tethering usb/serial1",
+            "state": "closed",
+            "created_at": "2026-05-18T19:09:32Z"
+        },
+        "2921": {
+            "url": "https://github.com/particle-iot/device-os/pull/2921",
+            "number": 2921,
+            "title": "API for scheduling calls in system thread",
+            "state": "closed",
+            "created_at": "2026-05-21T15:10:04Z"
+        },
+        "2922": {
+            "url": "https://github.com/particle-iot/device-os/pull/2922",
+            "number": 2922,
+            "title": "[rtl872x] usb: fix control interface class driver consuming dataIn/dataOut events for unrelated endpoints",
+            "state": "closed",
+            "created_at": "2026-05-22T20:18:57Z"
+        },
+        "2923": {
+            "url": "https://github.com/particle-iot/device-os/pull/2923",
+            "number": 2923,
+            "title": "[test] fixes spurious mailbox/USB stalls during pre-sleep handshake",
+            "state": "closed",
+            "created_at": "2026-05-23T20:40:21Z"
+        },
+        "2924": {
+            "url": "https://github.com/particle-iot/device-os/pull/2924",
+            "number": 2924,
+            "title": "wiring/usartserial: add multi-byte USARTSerial write overload",
+            "state": "closed",
+            "created_at": "2026-05-24T23:40:41Z",
+            "detail": "`SerialN.write(buf, len)` on `USARTSerial` does not use a native buffer-write path. It falls back to `Print::write(const uint8_t*, size_t)`, which iterates through `write(uint8_t)` one byte at a time.\n\nOn P2 / Photon 2 this causes buffered UART writes to be fed into the HAL one byte at a time, which introduces large inter-byte gaps and makes `SerialN.write(buf, len)` take much longer than expected."
+        },
+        "2925": {
+            "url": "https://github.com/particle-iot/device-os/pull/2925",
+            "number": 2925,
+            "title": "wiring/usbserial: add multi-byte USBSerial write overload",
+            "state": "closed",
+            "created_at": "2026-05-25T22:05:31Z",
+            "detail": "Essential the same class of issue as [2924](https://github.com/particle-iot/device-os/pull/2924). `Serial.write(buf, len)` on `USBSerial` does not use a native buffer-write path. It falls back to `Print::write(const uint8_t*, size_t)`, which iterates through `write(uint8_t)` one byte at a time.\n\nOn P2 / Photon 2 this causes buffered USB Serial writes,  including writes performed through `SerialLogHandler`, to be fed into the HAL one byte at a time, which makes `Serial.write(buf, len)` take much longer than expected."
+        },
+        "2926": {
+            "url": "https://github.com/particle-iot/device-os/pull/2926",
+            "number": 2926,
+            "title": "[tests] Fix default cloud keep alives",
+            "state": "closed",
+            "created_at": "2026-06-02T19:19:23Z",
+            "detail": "Default platform keep alive values are broken for wifi platforms. Tests should also explicitly catch this.\nMSOM in wifi only mode should skip cellular tests"
+        },
+        "2927": {
+            "url": "https://github.com/particle-iot/device-os/pull/2927",
+            "number": 2927,
+            "title": "Fixes race condition on entering power off mode",
+            "state": "closed",
+            "created_at": "2026-06-04T01:36:10Z",
+            "detail": "When there is a falling/rsiing edge triggered on the AM18x5's EXTI pin and the source of the trigger has latched the level during entering the power off mode, the AM18x5 may miss the trigger, which may end up in infinite sleep state."
+        },
+        "2928": {
+            "url": "https://github.com/particle-iot/device-os/pull/2928",
+            "number": 2928,
+            "title": "Implements power manager env vars, [gen 3] reclaim >3KB flash w/`-flto-partition=one` [sc-139793]",
+            "state": "closed",
+            "created_at": "2026-06-06T20:58:30Z"
+        },
+        "2929": {
+            "url": "https://github.com/particle-iot/device-os/pull/2929",
+            "number": 2929,
+            "title": "minor renaming of env vars",
+            "state": "closed",
+            "created_at": "2026-06-10T17:08:38Z"
+        },
+        "2930": {
+            "url": "https://github.com/particle-iot/device-os/pull/2930",
+            "number": 2930,
+            "title": "Do not test network connections if no networks are ready",
+            "state": "closed",
+            "created_at": "2026-06-15T18:06:09Z",
+            "detail": "It is possible to prepare a network connection test in response to a cloud connection error and have no networks in the Ready state by the time the background connection test runs. This results in lwip errors when trying to poll when no sockets are connected."
+        },
+        "2931": {
+            "url": "https://github.com/particle-iot/device-os/pull/2931",
+            "number": 2931,
+            "title": "[test] Add OTA flash to ensure device service OTA attempts are reset",
+            "state": "closed",
+            "created_at": "2026-06-17T16:19:24Z",
+            "detail": "On repeated test-runner runs, its possible for devices to hit the device service `maxSameBinaryAttempts` threshold and no longer initiate OTA updates. This mostly affects env var tests since they generate multiple empty env var asset OTAs which are counted as identical OTA binary attempts since they are indeed the same asset being sent multiple times. \n\nOnce a device hits this count, it is not reset until a new app/asset binary is sent. In this state, the device tests will timeout waiting for OTA event completions since the server blocked the OTA attempt in the first place. This will typically manifest as failures in the `99_cleanup_XX` tests."
+        },
+        "2932": {
+            "url": "https://github.com/particle-iot/device-os/pull/2932",
+            "number": 2932,
+            "title": "Adds iperf and improves PPP (cellular / tethering performance), related bugfixes",
+            "state": "closed",
+            "created_at": "2026-06-23T16:56:05Z",
+            "detail": "The existing tethering HIL tests only validated basic setup/bind and a single HTTP download speed measurement. They needed to be improved with comprehensive bidirectional throughput testing (UDP/TCP, loss/jitter, device-direct cellular paths) to properly validate tethering performance and reliability across platforms.\n\nImproving the tests uncovered several pre-existing platform issues:\n\n1. **Gen 4 Serial1 (LP_UART) tether non-functional.** `enableEvent()` in the rtl872x USART interrupt-mode branch returned without re-asserting READABLE/WRITABLE from the current ring buffer state, unlike the DMA-mode branch. `waitEvent()` callers (PPP tether server) only progressed on the 1 s poll timeout, advancing one protocol step per second. ModemManager timed out identifying the device, PPP never came up.\n\n2. **Gen 4 RTS/CTS flow control silently broken.** Two issues: (a) flow control enable used two back-to-back `|=` RMWs on the slow-clock-domain MCR register; the second read could return the pre-first-write value and clobber the AFE bit; (b) the RX ISR drained the FIFO into the ring even when the ring was full, discarding bytes and defeating auto-RTS since the FIFO never filled to deassert RTS. Auto flow control was silently disabled, host not throttled; under RX flood, frames were silently shredded (98% PPP frame loss observed) instead of backpressured.\n\n3. **Gen 3 USART TX race condition.** `startTransmission()` was called after the TxLock released, and interrupt disable/enable around ENDTX wasn't in a critical section. A high-priority thread preempting between lock release and TX start could cause TX transmissions to never start.\n\n4. **NAT TCP MSS clamping was a complete no-op.** Upstream code parsed options into a local buffer, rewrote MSS in the local copy, and never wrote it back to the pbuf (`pbuf_take_at` missing). Checksum was computed before the intended rewrite. Match condition only covered a narrow SYN/RST flag combo. Options buffer was 20 bytes (max is 40). Full-size DF segments (1460 MSS) were not clamped to the cellular path MTU (~1400 measured), so they were black-holed over the cellular link. Curl uploads and NAT-forwarded TCP timed out.\n\n5. **PPP TX deadlock.** TX packets were sent inside the lwIP `output()` netif callback, which runs with the lwIP core lock held. The PPP TX path acquires the same lock to enqueue/forward. AB-BA deadlock between the tcpip thread and the PPP pump thread under traffic.\n\n6. **USB starvation under cellular RX flood.** The gsm0710 muxer pump thread runs at NETWORK priority; the USB deferred-ISR processing thread runs one priority below. Under sustained cellular RX traffic the pump never yielded. USB ISR processing starved, CDC endpoint stalls, control requests time out, device appears wedged.\n\n7. **Gen 4 USB CDC buffer reinitialization not possible.** `HAL_USB_USART_Init()` early-returned if the CDC driver was already enabled, so the CDC ring buffers could not be resized after first init - any caller wanting larger buffers was stuck with the 256-byte default. Additionally the default-buffer path `malloc`'d new buffers on every call (leak), and the reconfigure path did not detach/reinit/reattach the USB device.\n\n8. **`os_thread_join()` use-after-free and idle priority bump.** FreeRTOS task enumeration could dereference a potentially already freed TCB. `vApplicationIdleHook()` priority bump only applied for 1 cycle via an atomic flag, so terminated thread data wasn't reclaimed until the idle thread got CPU at the lowest priority.\n\n9. **SerialUSBStream and wiring issues.** `SerialUSBStream::write()` did not bound the write size to the available space in the CDC TX buffer; blocking write could attempt to send more data than the buffer could accept. The wiring `foreach_if_addr` macro dereferenced `i->if_addr->addr` without null-checking, crashing for interfaces without a hardware address.\n\n10. **Container MM probes all host USB devices.** The container bind-mounts `/dev/bus/usb`, so ModemManager sees every host USB device. Without a catch-all ignore rule, MM probes every USB serial it finds - including devices belonging to other concurrent test containers, causing interference.\n\n11. **Cloud connection check triggered on irrelevant interface state changes.** `forceCloudPingOrTest()` ran on every interface link/address change, including tether interfaces that can't carry the cloud connection. This caused unnecessary cloud connection checks when bringing up tethering.\n\n\nAdditionally, running iperf3 reliably on these constrained platforms required dedicated support work:\n\n- Gen 3 (nRF52840, ~22 KB free heap, 5 TCP PCBs, 16 pbufs): iperf's per-interval JSON accumulation, 128 KB default TCP block size, and control-socket churn all needed bounding to fit the resource budget without collapsing mid-test\n- Both platforms: iperf control sockets needed `SO_LINGER{1,0}` so the 5-deep TCP PCB pool isn't eaten by FIN_WAIT/TIME_WAIT across the many sequential test connections; the sync-close path needed bounding so the server thread can't wedge forever on a peer FIN that never arrives over the tether path"
+        },
+        "2933": {
+            "url": "https://github.com/particle-iot/device-os/pull/2933",
+            "number": 2933,
+            "title": "[m635] enable 2G fallback support",
+            "state": "closed",
+            "created_at": "2026-06-25T04:08:21Z",
+            "detail": "- 2G support was disabled for M-SoM temporarily, enabling only for M635 (not M404 at this time)\n- `isQuecBG95xDevice()` did not include M5 and S5, and is used for modemPower/Reset timings"
+        },
+        "2934": {
+            "url": "https://github.com/particle-iot/device-os/pull/2934",
+            "number": 2934,
+            "title": "Workaround for large APDU responses",
+            "state": "closed",
+            "created_at": "2026-06-29T14:35:30Z"
+        },
+        "2935": {
+            "url": "https://github.com/particle-iot/device-os/pull/2935",
+            "number": 2935,
+            "title": "USB Serial/UART serial buffer read/write/peek + wait event",
+            "state": "closed",
+            "created_at": "2026-07-07T15:51:56Z",
+            "detail": "> USART (rtl872x): fix interrupt-mode enableEvent to re-assert READABLE/WRITABLE from current buffer state (mirrors DMA branch). Fix FIFO overflow handling under RTS flow control (don't drain-and-discard on ring-full, let the FIFO fill so auto-RTS holds the peer). Fix slow-clock-domain MCR RMW losing AFE bits (single combined write). Add IER shadow register so interrupt config writes go through a critical-section RMW instead of a direct register RMW that loses bits on the slow clock domain. Line-status ISR now falls through to the RX drain path instead of starving RX under sustained error conditions.\n\nThis PR additionally makes a minimal set of changes to support buffered read/write/peek for UART and USB Serial."
+        },
+        "2936": {
+            "url": "https://github.com/particle-iot/device-os/pull/2936",
+            "number": 2936,
+            "title": "MSoM: fixes power leakage when devices are in STOP/ULP mode",
+            "state": "open",
+            "created_at": "2026-07-15T07:37:26Z",
+            "detail": "MSoMs will leak current on PB12 (QSPI_IO3) and SWD_DATA when the device is in STOP/ULP mode."
         }
     }
 }

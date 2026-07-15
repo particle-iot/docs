@@ -1,6 +1,17 @@
 {
     "versions": [
         {
+            "v": "v22",
+            "title": "Tracker Edge Firmware v22",
+            "releaseNotes": "## Tracker Edge Firmware v22\r\n\r\n### COMPATIBILITY\r\n\r\n- Must be built using device OS v3.2.0 or greater.\r\n\r\n### ENHANCEMENTS\r\n\r\n- Source can be built for device OS >= 6.4.1",
+            "bin": "tracker-edge-22@6.4.1.bin",
+            "version": 22,
+            "zip": "v22.zip",
+            "target": "6.4.1",
+            "schemaVersion": 22,
+            "filename": "tracker-config-schema-22.json"
+        },
+        {
             "v": "v21",
             "title": "Tracker Edge Firmware v21",
             "releaseNotes": "## Tracker Edge Firmware v21\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v3.2.0 or greater.\r\n\r\n### FEATURES\r\n\r\n- Update deprecated Watchdog APIs for Device OS 6.4.0 and above.\r\n- Expose read-only AM1805 RTC fine calibration.\r\n\r\n### ENHANCEMENTS\r\n\r\n- Source can be built for device OS >= 6.4.0.\r\n\r\n### BUGFIXES\r\n\r\n- Fixes USB ctrl_request_custom_handler return value",
