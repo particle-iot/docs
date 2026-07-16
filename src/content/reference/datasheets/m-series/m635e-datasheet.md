@@ -1163,9 +1163,11 @@ Tant que les 2 conditions ci-dessus sont remplies, des essais supplémentaires s
 
 To comply with ISED regulations limiting both maximum RF output power and human exposure to RF radiation, Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device:  
 
-This radio transmitter \[20127-M635] has been approved by Innovation, Science and Economic Development Canada to operate with the antenna types listed below, with the maximum permissible gain indicated. Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device.
+This radio transmitter \[20127-M635] has been approved by Innovation, Science and Economic Development Canada to operate with the antenna types listed below, with the maximum permissible gain indicated. Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device.<br/>
+PMN: M-Series LTE M1/2G/Satellite
 
-Cet émetteur radio \[20127-M635] a été approuvé par Innovation, Sciences et Développement économique Canada pour fonctionner avec les types d'antennes énumérés ci-dessous, avec le gain maximal permis indiqué. L'utilisation avec cet appareil de types d'antennes non inclus dans cette liste et présentant un gain supérieur au gain maximal indiqué pour l'un des types énumérés est strictement interdite.
+Cet émetteur radio \[20127-M635] a été approuvé par Innovation, Sciences et Développement économique Canada pour fonctionner avec les types d'antennes énumérés ci-dessous, avec le gain maximal permis indiqué. L'utilisation avec cet appareil de types d'antennes non inclus dans cette liste et présentant un gain supérieur au gain maximal indiqué pour l'un des types énumérés est strictement interdite.<br/>
+PMN: M-Series LTE M1/2G/Satellite
 
 | Antenna description	| Antenna Model	| Antenna Type |
 | :--- | :--- | :--- |
@@ -1206,18 +1208,13 @@ This transmitter module is authorized only for use in device where the antenna m
 
 M635 for End Product Labeling: The final end product must be labeled in a visible area with the following:
 
-> Contains IC: 20127-M635
-> HVIN: M635e
-> PMN: M-Series LTE M1/2G/Satellite
-
+> Contains IC: 20127-M635 HVIN: M635e
 
 **Plaque signalétique du produit final**
 
 Ce module émetteur est autorisé uniquement pour une utilisation dans un dispositif où l'antenne peut être installée de telle sorte qu'une distance de 20cm peut être maintenue entre l'antenne et les utilisateurs. Le produit final doit être étiqueté dans un endroit visible avec l'inscription suivante: 
 
-> Contient des IC: 20127-M635
-> HVIN: M635e
-> PMN: M-Series LTE M1/2G/Satellite
+> Contient des IC: 20127-M635 HVIN: M635e
 
 ### Manual Information To the End User - ISED
 
@@ -1506,3 +1503,4 @@ SE, SI, SK, TR, UA, UK(NI).
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | 001      | 2026-07-15 | RK | Split from M-SoM datasheet for certification |
+| 002      | 2026-07-16 | RK | Additional ISED updates |
