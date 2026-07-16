@@ -1303,16 +1303,16 @@
             "hash": "a4f28a66b456775211f9d273a411bf142d451e7fc07d1f018d05bda835b31346"
         },
         "reference/device-os/versions.md": {
-            "date": "2026-06-24",
-            "hash": "8ee25f7a67eefff7c2a3ee90551d79cd76b655662b9a058975d739af1ec4d1c5"
+            "date": "2026-07-16",
+            "hash": "a513d7c614b469cfde701ca0583a0d067883513b552d71d2750702be5cdc9d76"
         },
         "reference/device-os/wifi-setup-options.md": {
             "date": "2024-06-10",
             "hash": "83ef5c227992da08843f4f28d32e06696c2a14c618f0f1846af1bac1716ee5b5"
         },
         "reference/product-lifecycle/long-term-support-lts-releases.md": {
-            "date": "2026-06-30",
-            "hash": "d8c548f8f9072419f88ee28a63fffc2c755bcec88a1d94ac5f55332328de365f"
+            "date": "2026-07-16",
+            "hash": "cf1f652127effe895448e8505412ce9dbf38c7066050d622d18bb0c2cdad8a44"
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
             "date": "2025-06-24",
@@ -8391,8 +8391,8 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "74f4c8f48889034b1be118ad52b97ef4e414dd0a724a092384b548b6f82f72ca",
-            "date": "2026-07-15"
+            "hash": "4e3bc47777ddc6ed8345270cb2a301bb0346dfe8ac8e0c4a36fcb8fe2ee56ac7",
+            "date": "2026-07-16"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "a44143246b57cabc0b68cdd1f4860bb8958f8451d60a72991b2d0d91fd75a3c5",

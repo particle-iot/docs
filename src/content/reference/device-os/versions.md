@@ -97,7 +97,7 @@ LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.
 | M-SoM | M524, M404 | {{version mode="lts" platform="35"}}<sup>1</sup> | 5.6.0 |
 | Photon 2, P2 |  | {{version mode="lts" platform="32"}}<sup>1</sup> | 5.0.0 |
 
-<sup>1</sup>It is expected that the 6.4.x release line will be declared LTS after the 6.4.2 release.
+<sup>1</sup>It is expected that the 6.5.x release line will be declared LTS after the 6.5.1 release.
 
 **Devices that must stay on 2.x LTS**
 

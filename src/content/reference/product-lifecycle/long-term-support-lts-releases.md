@@ -55,8 +55,8 @@ Particle's Long-Term Support (LTS) releases provide developers with known stable
 
 After an LTS version is designated, Particle may continue to:
 
-- Release newer versions (for example, 6.5.0) that include new features.
-- Release patch updates within the LTS line (for example, 6.4.3, 6.4.4) that contain only critical fixes or security improvements.
+- Release newer versions (for example, 6.6.0) that include new features.
+- Release patch updates within the LTS line (for example, 6.5.2. 6.5.3) that contain only critical fixes or security improvements.
 
 ![LTS versions](/assets/images/lts-versions.svg)
 
@@ -65,7 +65,7 @@ LTS releases are designed for:
 - Reliability-focused teams who prioritize stability over new features
 - Customers who need a consistent foundation to support rapid iteration of their firmware application
 
-It is expected that 6.4.2 will be declared an LTS version in the future.
+It is expected that 6.5.1 will be declared an LTS version in the future.
 
 Note: Prior to 2025, Particle maintained separate LTS (2.x & 4.x) and mainline (3.x, 5.x) branches. With the introduction of Device OS 6, we streamlined this approach to maintain a single active line of development.
 
@@ -88,7 +88,7 @@ Each platform has:
 - A default version, automatically selected when you compile or create a new project in Workbench or the Web IDE.
 - A recommended LTS version, which represents the most stable and field-proven release for production use.
     
-Patch releases may be issued on top of a designated LTS version without changing the LTS designation (e.g., `6.4.2` → `6.4.3`) if critical fixes are required.
+Patch releases may be issued on top of a designated LTS version without changing the LTS designation (e.g., `6.5.1` → `6.5.2`) if critical fixes are required.
 
 ### Recommended LTS Versions
 
@@ -107,7 +107,7 @@ Patch releases may be issued on top of a designated LTS version without changing
 | M-SoM | M524, M404 | {{version mode="lts" platform="35"}}<sup>1</sup> | 5.6.0 |
 | Photon 2, P2 |  | {{version mode="lts" platform="32"}}<sup>1</sup> | 5.0.0 |
 
-<sup>1</sup>It is expected that the 6.4.x release line will be declared LTS after the 6.4.2 release.
+<sup>1</sup>It is expected that the 6.5.x release line will be declared LTS after the 6.5.1 release.
 
 **Devices that must stay on 2.x LTS**
 

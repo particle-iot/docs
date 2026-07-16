@@ -1240,20 +1240,20 @@ In the event that these conditions cannot be met (for example certain laptop con
 To comply with FCC regulations limiting both maximum RF output power and human exposure to RF radiation, Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device:  
 
 {{!-- BEGIN shared-blurb fc04fccb-2c6a-411b-af91-d615767a8229 --}}
-814–849 MHz : 2.01 dBi
-698–716 MHz: 2.17 dBi
-703–748 MHz : 2.5 dBi
-777–787 MHz: 5.3 dBi
-824–849 MHz: 2.01 dBi
-1710–1755 MHz: 3.74 dBi
-1755–1780 MHz : 4 dBi
-1850–1915 MHz: 5.3 dBi
-1626.5–1660.5: 3.91 dBi
-1980–2010 MHz: 4.61dBi
-2000–2020 MHz:4.37dBi
-BLE:2400 MHz-2483.5 MHz:3dBi
-WiFi:2400MHz-2483.5MHz:3dBi
-WiFi:5150MHz-5850MHz:6.8dBi
+- 814–849 MHz : 2.01 dBi
+- 698–716 MHz: 2.17 dBi
+- 703–748 MHz : 2.5 dBi
+- 777–787 MHz: 5.3 dBi
+- 824–849 MHz: 2.01 dBi
+- 1710–1755 MHz: 3.74 dBi
+- 1755–1780 MHz : 4 dBi
+- 1850–1915 MHz: 5.3 dBi
+- 1626.5–1660.5: 3.91 dBi
+- 1980–2010 MHz: 4.61dBi
+- 2000–2020 MHz:4.37dBi
+- BLE:2400 MHz-2483.5 MHz:3dBi
+- WiFi:2400MHz-2483.5MHz:3dBi
+- WiFi:5150MHz-5850MHz:6.8dBi
 {{!-- END shared-blurb --}}
 
 

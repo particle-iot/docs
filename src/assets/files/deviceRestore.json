@@ -1407,7 +1407,7 @@
       "mcu": "RTL8721",
       "wifi": true,
       "wifiSelectAntenna": true,
-      "lts": "6.4.2"
+      "lts": "6.5.1"
     },
     {
       "name": "msom",
@@ -1417,7 +1417,7 @@
       "mcu": "RTL8722",
       "wifi": true,
       "cellular": true,
-      "lts": "6.4.2"
+      "lts": "6.5.1"
     },
     {
       "name": "xenon",
