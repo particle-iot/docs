@@ -29767,6 +29767,472 @@
                 2915,
                 2917
             ]
+        },
+        "v6.5.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v6.5.0",
+            "tag_name": "v6.5.0",
+            "name": "v6.5.0 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": false,
+            "created_at": "2026-07-16T06:24:13Z",
+            "published_at": "2026-07-17T17:02:51Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2935
+                    ],
+                    "section": "FEATURES",
+                    "text": "Multi-byte `read()`/`peek()`/`write()` APIs for hardware UARTs and USB Serial"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2916
+                    ],
+                    "section": "FEATURES",
+                    "text": "Per-interface cloud keepalive environment variables (`PARTICLE_CLOUD_KEEP_ALIVE`, `PARTICLE_CELLULAR_CLOUD_KEEP_ALIVE`, `PARTICLE_WIFI_CLOUD_KEEP_ALIVE`, `PARTICLE_ETHERNET_CLOUD_KEEP_ALIVE`) and `Particle.getKeepAlive()`"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2928,
+                        2929
+                    ],
+                    "section": "FEATURES",
+                    "text": "Power manager `PARTICLE_POWER_INPUT_CURRENT` and `PARTICLE_POWER_CHARGE_CURRENT` environment variables"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Tethering and cellular (PPP) throughput and reliability improvements (adaptive LCP echo, dedicated PPP TX queue)"
+                },
+                {
+                    "tags": [
+                        "network"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "`SO_LINGER` support for faster TCP pcb/pbuf cleanup"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "network: improved TCP performance (larger windows/buffers)"
+                },
+                {
+                    "tags": [
+                        "M SoM"
+                    ],
+                    "prs": [
+                        2933
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "M635: Enable 2G fallback support"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Allow USB CDC (`Serial`) buffers to be resized with `acquireSerialBuffer()` after first initialization"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "usart: fix event handling in interrupt mode UARTs causing reads/writes through `waitEvent()` (e.g. PPP tethering) to only progress on poll timeouts"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "usart: fix RTS/CTS hardware flow control being silently disabled due to slow clock domain register access"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "usart: fix FIFO overflow behavior under RTS flow control"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [],
+                    "section": "BUGFIXES",
+                    "text": "usart: fix DMA-mode USART (NCP or Serial2 on P2/Photon2) `available()`/`peek()` not accounting for data still residing in the GDMA FIFO [e316605](https://github.com/particle-iot/device-os/commit/e31660588)"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [],
+                    "section": "BUGFIXES",
+                    "text": "usart: fix received data loss when entering sleep with DMA-mode (`Serial2`) UART [e316605](https://github.com/particle-iot/device-os/commit/e31660588)"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [],
+                    "section": "BUGFIXES",
+                    "text": "usart: fix TX buffer handling in interrupt mode [e316605](https://github.com/particle-iot/device-os/commit/e31660588)"
+                },
+                {
+                    "tags": [
+                        "Gen 3"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "usart: fix interrupt/normal context race condition causing TX transmissions to never start"
+                },
+                {
+                    "tags": [
+                        "Gen 3"
+                    ],
+                    "prs": [],
+                    "section": "BUGFIXES",
+                    "text": "usart: fix multi-byte `peek()` not seeing all the data reported by `available()` [e316605](https://github.com/particle-iot/device-os/commit/e31660588)"
+                },
+                {
+                    "tags": [
+                        "network"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "tethering: fix TCP MSS clamping in NAT"
+                },
+                {
+                    "tags": [
+                        "Gen 4",
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "muxer: prevent USB starvation and busy looping under heavy cellular traffic"
+                },
+                {
+                    "tags": [
+                        "network"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "lwip: fix `tcp_pcb` double-free in `tcp_input_delayed_close()`"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [
+                        2916
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Apply cloud keepalive based on the active network interface when the cloud connection moves between interfaces (ACM)"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2922
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "usb: fix control interface class driver consuming `dataIn`/`dataOut` events for unrelated endpoints"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "usb: distinguish between the host halting reads from USB `Serial` and a slow host"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "tethering: Fix blocking behavior on writes when tethering over USB"
+                },
+                {
+                    "tags": [
+                        "hal"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fix `os_thread_join()` accessing a stale/freed task TCB"
+                },
+                {
+                    "tags": [
+                        "hal"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fix idle hook priority bump when there are threads pending cleanup, keeping terminated thread resources from being freed"
+                },
+                {
+                    "tags": [
+                        "wiring"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "network: fix null pointer dereference for interfaces without a hardware address"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Force cloud connection checks on interface state changes only for interfaces that can carry the cloud connection"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2913
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Improve I2C driver reliability: `Wire.end()` in user application no longer breaks PMIC/FuelGauge access in system power manager"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2927
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix race condition on entering `POWER_OFF` sleep mode with AM18x5 (external RTC)"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2926
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix default cloud keepalive values"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [
+                        2930
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Do not run background network connection test if no networks are ready, avoiding LwIP errors when polling with no connected sockets"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2934
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Workaround for EG916Q returning too large APDU responses"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [
+                        2921
+                    ],
+                    "section": "INTERNAL",
+                    "text": "API for scheduling calls in the system thread"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2932,
+                        2920
+                    ],
+                    "section": "INTERNAL",
+                    "text": "iperf3 (`libiperf`) port and tethering throughput HIL test suites (UDP/TCP, bidirectional, USB and Serial1, device-direct cellular paths)"
+                },
+                {
+                    "tags": [
+                        "hal"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Coalesce serial stream implementations into a shared one"
+                },
+                {
+                    "tags": [
+                        "GCC"
+                    ],
+                    "prs": [
+                        2935
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Multi-byte serial read/write/peek support and poll()-based serial wait events, fix tinker builds"
+                },
+                {
+                    "tags": [
+                        "third_party"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "INTERNAL",
+                    "text": "`lwip`: `SO_LINGER` fixes (abort on close with zero linger timeout, do not abort sockets in LISTEN state), per-pcb RX frame counter for adaptive LCP echo, map `ERR_IF` to `EIO`, `tcp_pcb` double-free fix"
+                },
+                {
+                    "tags": [
+                        "third_party"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "INTERNAL",
+                    "text": "`freertos`: expose `uxTaskGetNumberOfTasksWaitingTermination()`"
+                },
+                {
+                    "tags": [
+                        "third_party"
+                    ],
+                    "prs": [
+                        2932
+                    ],
+                    "section": "INTERNAL",
+                    "text": "`gsm0710muxer`: add `GSM0710_COOP_YIELD_MS` and `GSM0710_MAX_TIMEOUT_ITERATIONS` to avoid busy looping and time-share CPU"
+                },
+                {
+                    "tags": [
+                        "third_party"
+                    ],
+                    "prs": [
+                        2935
+                    ],
+                    "section": "INTERNAL",
+                    "text": "`coremark`: fix builds on the GCC platform"
+                },
+                {
+                    "tags": [
+                        "build",
+                        "Gen 3"
+                    ],
+                    "prs": [
+                        2928
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Reclaim >3KB of flash on LTO-enabled platforms with `-flto-partition=one`"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2931
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Flash a dummy OTA at the start of the test runner suite to reset device service `maxSameBinaryAttempts` counter, which was blocking OTA updates on repeated test runs"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2923
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Work around spurious USB control transfer stalls (kernel `xhci_hcd` bug) during pre-sleep mailbox handshake with an explicit mailbox ACK mechanism, propagate mailbox result codes to tests"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2919
+                    ],
+                    "section": "INTERNAL",
+                    "text": "`wiring/sleep20`: make sure pending reset mailbox messages are received by the test runner before the device goes into sleep"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2918
+                    ],
+                    "section": "INTERNAL",
+                    "text": "`wiring/serial_loopback2`: always tri-state the loopback buffer in cleanup"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [],
+                    "section": "INTERNAL",
+                    "text": "`wiring/serial_loopback`/`serial_loopback2`: parameterize for `Serial1`/`Serial2`/`Serial3` use, cover multi-byte read/write/peek and `available()` consistency [538a25c](https://github.com/particle-iot/device-os/commit/538a25c6d)"
+                }
+            ],
+            "prs": [
+                2913,
+                2916,
+                2918,
+                2919,
+                2920,
+                2921,
+                2922,
+                2923,
+                2926,
+                2927,
+                2928,
+                2929,
+                2930,
+                2931,
+                2932,
+                2933,
+                2934,
+                2935
+            ]
         }
     },
     "pulls": {

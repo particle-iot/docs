@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 6.5.0 Preview 2026-07-17
+
+[Device OS 6.5.0](/reference/device-os/release-notes/?mode=rel1&ver=v6.5.0) is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc. It is a preview release.
+
+
 ### Device OS 6.4.1 GA 2026-07-15
 
 [Device OS 6.4.1](/reference/device-os/release-notes/?mode=rel1&ver=v6.4.1) is now a generally available (GA) release.
