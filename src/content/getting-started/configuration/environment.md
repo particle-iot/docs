@@ -212,7 +212,42 @@ Using the [Particle CLI](/reference/developer-tools/cli/#particle-bundle) `parti
 | `PARTICLE_BLUETOOTH_ENABLE` | Set to `false` to disable BLE | bool | 6.4.0 |
 | `PARTICLE_ETHERNET_ENABLE` | Set to `false` to disable Ethernet | bool | 6.4.0 |
 | `PARTICLE_WIFI_ENABLE` | Set to `false` to disable Wi-Fi | bool | 6.4.0 |
+| `PARTICLE_CLOUD_KEEP_ALIVE` | Default cloud keep-alive (seconds), all interfaces | int | 6.5.0 |
+| `PARTICLE_CELLULAR_CLOUD_KEEP_ALIVE` | Cloud keep-alive (seconds) when connected via cellular | int | 6.5.0 |
+| `PARTICLE_WIFI_CLOUD_KEEP_ALIVE` | Cloud keep-alive (seconds) when connected via Wi-Fi | int | 6.5.0 |
+| `PARTICLE_ETHERNET_CLOUD_KEEP_ALIVE` | Cloud keep-alive (seconds) when connected via Ethernet | int | 6.5.0 |
+| `PARTICLE_PMIC_INPUT_CURRENT` | Overrides the PMIC input current limit (mA) | int | 6.5.0 |
+| `PARTICLE_PMIC_CHARGE_CURRENT` | Overrides the PMIC battery charge current (mA) | int | 6.5.0 |
 
+### Cloud keep-alive environment variables
+
+These variables set the interval, in seconds, between cloud keep-alive messages used to maintain the connection to the Particle Device Cloud. For background on what a keep-alive is and why you might need to change it, see [`Particle.keepAlive()`](/reference/device-os/api/cloud-functions/particle-keepalive/).
+
+- Available in Device OS 6.5.0 and later
+
+The effective keep-alive for a given network interface (cellular, Wi-Fi, or Ethernet) is resolved in this order:
+
+1. A value set at runtime with `Particle.keepAlive()`.
+2. The interface-specific variable: `PARTICLE_CELLULAR_CLOUD_KEEP_ALIVE`, `PARTICLE_WIFI_CLOUD_KEEP_ALIVE`, or `PARTICLE_ETHERNET_CLOUD_KEEP_ALIVE`.
+3. The global `PARTICLE_CLOUD_KEEP_ALIVE`, which applies to any interface that doesn't have its own override.
+4. The Device OS default keep-alive for that interface.
+
+Changing one of these variables takes effect the next time a cloud connection is established on the affected interface; it does not change the keep-alive of an already-connected session.
+
+You can read the keep-alive currently in effect from your firmware with `Particle.getKeepAlive()`.
+
+### Power manager environment variables
+
+These variables override the PMIC (Power Management IC) input current limit and battery charge current on devices with a bq24195 PMIC (M-SoM, Muon, Boron, B-Series SoM, Tracker SoM, Electron, and E-Series), without changing your firmware. See [Power manager](/reference/device-os/api/power-manager/) for more information about `SystemPowerConfiguration`.
+
+- Available in Device OS 6.5.0 and later
+
+- `PARTICLE_PMIC_INPUT_CURRENT`: Valid range 500 to 1500 (mA). Overrides `powerSourceMaxCurrent()`.
+- `PARTICLE_PMIC_CHARGE_CURRENT`: Valid range 512 to 1500 (mA). Overrides `batteryChargeCurrent()`.
+
+A value outside the valid range is ignored and the configured (or default) value is used instead. If the charge current override is higher than the effective input current limit, it's applied anyway; the PMIC's VINDPM loop throttles charging at runtime rather than the value being clamped.
+
+These only override what's applied to the PMIC; they don't change the stored `SystemPowerConfiguration`, so `System.getPowerConfiguration()` still reports the values set in your firmware. Changes to these variables take effect on the next device reset, or immediately if your firmware calls `System.setPowerConfiguration()`.
 
 ## Cellular environment variables
 
