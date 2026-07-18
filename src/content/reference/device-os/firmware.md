@@ -10516,6 +10516,56 @@ void loop() {
   }
 }
 ```
+### readBytes()
+
+{{api name1="Serial.readBytes" name2="Serial1.readBytes"}}
+
+Reads multiple bytes of incoming serial data into a buffer. The function terminates if the requested number of bytes has been read, or it times out.
+
+```cpp
+// PROTOTYPE
+virtual size_t readBytes(char *buffer, size_t length);
+```
+<!-- spark_wiring_usartserial.h 57 -->
+
+```cpp
+// SYNTAX
+Serial.readBytes(buffer, length);
+Serial1.readBytes(buffer, length);
+```
+
+*Parameters:*
+
+- `buffer`: pointer to the buffer to store the bytes in (char *)
+- `length`: the number of bytes to read (size_t)
+
+`readBytes()` returns the number of bytes placed in `buffer`. This can be less than `length` if the call times out before `length` bytes have arrived; use [`setTimeout()`](#settimeout-) to change how long it waits (the default is 1000 ms).
+
+```cpp
+// EXAMPLE USAGE
+void setup() {
+  Serial.begin(9600);
+  Serial1.begin(9600);
+  Serial1.setTimeout(500);
+}
+
+void loop() {
+  char buf[32];
+  if (Serial1.available() >= (int)sizeof(buf)) {
+    size_t bytesRead = Serial1.readBytes(buf, sizeof(buf));
+    Serial.print("read ");
+    Serial.print(bytesRead);
+    Serial.println(" bytes");
+  }
+}
+```
+
+{{since when="6.5.0"}}
+
+On hardware UART ports (`Serial1`, etc.) and USB serial (`Serial`, `USBSerial1`), `readBytes()` transfers data directly from the underlying buffer instead of calling `read()` one byte at a time, which is significantly faster for larger buffers. It still honors `setTimeout()`: it returns once `length` bytes have been read or the timeout elapses, whichever comes first, so the returned count may be less than `length`.
+
+See also [`readBytesUntil()`](#readbytesuntil-), [`readString()`](#readstring-), and [`peek()`](#peek-) for other ways to consume incoming serial data.
+
 ### print()
 
 {{api name1="Serial.print" name2="Serial1.print"}}

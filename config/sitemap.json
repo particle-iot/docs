@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-07-08",
-            "hash": "bd1ed913c44563da0ab56ebbbf511bfe086d6cd044d1ca0c06914428247f8f6f"
+            "date": "2026-07-18",
+            "hash": "7f09e979a01e42ecdfbcb1b29b02741afcc5f7c84646d88e8b10e1d60ed5c3fa"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1779,8 +1779,8 @@
             "hash": "7e684bfd04af0a5ba2c9d7c5922fd7e83b6795591fc72562046ff721df84ccb9"
         },
         "reference/device-os/api/cloud-functions/particle-keepalive.md": {
-            "date": "2026-05-08",
-            "hash": "585412a3151f96bc25e5e69a74f97dcc34783a0f631756ab94f165fad1ecd471"
+            "date": "2026-07-18",
+            "hash": "44e1122e0a5c21e9c3d733de6c55d2b9d750f784a9f15342f33bab63af35b1f1"
         },
         "reference/device-os/api/cloud-functions/particle-process.md": {
             "date": "2024-10-15",
@@ -2547,12 +2547,12 @@
             "hash": "0fd6ce9235d718895a930cb66bd4c21298f15bb58e034bf922a06e8077b0dfc5"
         },
         "reference/device-os/api/serial/peek.md": {
-            "date": "2026-05-08",
-            "hash": "8c602eb50fcff3413c1481b646da7dcfe08242e648864c3c3030791aa99f2fa2"
+            "date": "2026-07-18",
+            "hash": "05289b87013d9b6c84fe28a76a48ece5ad061d3692cc48408fd0cf72c9e802e1"
         },
         "reference/device-os/api/serial/write.md": {
-            "date": "2026-05-08",
-            "hash": "2e65240ec8550bd913ff5d84d4fb3a40ce46e16eab90d0c54d2d6a2c029a4234"
+            "date": "2026-07-18",
+            "hash": "a7df2cdcd4ee5f3e8167e748f3c01f097de9bfb687f1b7812ae6ef2a23f815a0"
         },
         "reference/device-os/api/serial/read.md": {
             "date": "2026-05-08",
@@ -4187,8 +4187,8 @@
             "hash": "428791cb3c4750b1eae76aa85297d5ff9e6419262ed4105b6d5049d1a4728df1"
         },
         "reference/device-os/api/stream-class/readbytes.md": {
-            "date": "2026-05-08",
-            "hash": "57c21df8f884be9a01b3bc5b1690d940909f19fcf54daa4f3ab82ec9a62a76da"
+            "date": "2026-07-18",
+            "hash": "a0bbcb279b09b6690213e891965f0db394b2e0ee82a922c8fc8f4f8399fc71ed"
         },
         "reference/device-os/api/stream-class/readbytesuntil.md": {
             "date": "2026-05-08",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "bed63aff3cd585a3444bac6ec2558c5a4bf5ce354e2d1a77549f2f8ae695b7f3",
-            "date": "2026-07-17"
+            "hash": "3029454eddc81cc045f95b79be6eabce243fa78a10d717b7b11c66a58cd809e2",
+            "date": "2026-07-18"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -10003,8 +10003,8 @@
             "date": "2026-03-03"
         },
         "getting-started/configuration/environment.md": {
-            "hash": "5ea38c25fd93498595807c64c4549616b98c8bd82cc6304456ee4685142683fb",
-            "date": "2026-06-15"
+            "hash": "c0e116a9e798cf81899b98bb437badb8bedfc75efa3805e805840b7f0fb9dbec",
+            "date": "2026-07-18"
         },
         "reference/device-os/startup-behavior.md": {
             "hash": "9bcddbe1a4bfeecbd20c04b8439f6452b9aeabedbef2b77729f7bab1113255dd",
@@ -10045,6 +10045,14 @@
         "reference/device-os/ota-update-control.md": {
             "hash": "62b92a8a28776ebf8dcf30d736242a73af36dbf50208e62e3c6641b8b57fbd72",
             "date": "2026-07-08"
+        },
+        "reference/device-os/api/power-manager/power-manager-environment-variables.md": {
+            "hash": "20ea8708faac2c3ab5761bc2adc0658a4524f10fa3aee99b0dfa59840e0d91c1",
+            "date": "2026-07-18"
+        },
+        "reference/device-os/api/serial/readbytes.md": {
+            "hash": "714cddea02f8795344b67bc835d4a987c6fc94fe33ae21ffd06986bfec098727",
+            "date": "2026-07-18"
         }
     }
 }
