@@ -659,8 +659,8 @@
             "hash": "9dc8ea992cc75770a1f0327c6b14b655aee5806feeb8715876c2a0fba6a7c30b"
         },
         "getting-started/hardware-tutorials/hardware-examples.md": {
-            "date": "2025-10-15",
-            "hash": "2c43488d647105d0dbef624dc85e582ad16fd008476d69531191b8a0e55f7e52"
+            "date": "2026-07-20",
+            "hash": "5edbb463e91c69a530eab69c76f3be751f69625df4e9309a1591f7481f48ff22"
         },
         "getting-started/machine-learning/doorbell.md": {
             "date": "2024-04-22",
@@ -1280,7 +1280,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2026-07-20",
-            "hash": "006dfcb9de443a286a347c8dee8f0fa8a88fe325d37d31968f91dd07b0ec4a01"
+            "hash": "6169f6f546a32d8db542dbe147edee5797ddf37e06c237bb7f1cca758181dc27"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1291,8 +1291,8 @@
             "hash": "fd30e34c959ef5594fc3845d4465feab7fb7ba60ecde7b79aeb86e385d831d6b"
         },
         "reference/device-os/real-time-clocks.md": {
-            "date": "2024-12-02",
-            "hash": "8ebf4177147019f57b4cbc31e514fadc8b6037d06b87efb78dafd936e2c04e39"
+            "date": "2026-07-20",
+            "hash": "0a69da6160a190fc2c9c09bd757fa21c1612e668f954329ecb9e9e3976a6f03f"
         },
         "reference/device-os/release-notes.md": {
             "date": "2022-10-14",
@@ -2444,7 +2444,7 @@
         },
         "reference/device-os/api/pmic-power-management-ic/pmic-power-management-ic.md": {
             "date": "2026-07-20",
-            "hash": "fa8028d47ece3460b786ba2b110fadcf4e63c66ae5b968d2c28b8ddcc8cfb131"
+            "hash": "0e0ace89afe566a19bdaea7f4f7437426aba6251378a054124e39a230127e0c8"
         },
         "reference/device-os/api/pmic-power-management-ic/pmic-constructor.md": {
             "date": "2023-09-20",
@@ -2480,7 +2480,7 @@
         },
         "reference/device-os/api/pmic-power-management-ic/power-on-configuration-reg.md": {
             "date": "2026-07-20",
-            "hash": "4d123d5a01a3dcc00c7ee84558de76c15b88857bcbd5d59cb9692adb43795a6a"
+            "hash": "1dc96c97f23f26d2debf3aa5c3a1aaeb192d0cb4a712a0695101365050ef1ccc"
         },
         "reference/device-os/api/pmic-power-management-ic/charge-current-control-reg.md": {
             "date": "2026-07-20",
@@ -2504,7 +2504,7 @@
         },
         "reference/device-os/api/pmic-power-management-ic/misc-operation-control-reg.md": {
             "date": "2026-07-20",
-            "hash": "ef13592df87bc3764bbda50e3f381164499ae66d8d7629485ae20a68aad215f7"
+            "hash": "1ed89a5d245546c52fd74a8c140a1a03984df9aa694073863bce2fedd0e2c101"
         },
         "reference/device-os/api/pmic-power-management-ic/system-status-register.md": {
             "date": "2026-07-20",
@@ -2927,8 +2927,8 @@
             "hash": "d7d5a5c1021a89e9b4a3a537ea246710272f9281779583fce9a84b61e995edf0"
         },
         "reference/device-os/api/bluetooth-le-ble/bleadvertisingdatatype.md": {
-            "date": "2025-12-16",
-            "hash": "76128b4bd134e132f0a8b20cdb10063189484f5c62d8bfcb1f9b219a7a70ef0a"
+            "date": "2026-07-20",
+            "hash": "986a7b54648525bf75f387458153cab1bc0797f9b35959619ef3cd7bd306a8d7"
         },
         "reference/device-os/api/bluetooth-le-ble/bleadvertisingdatatype-flags.md": {
             "date": "2023-09-20",

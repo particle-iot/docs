@@ -9316,7 +9316,7 @@ System.setPowerConfiguration(SystemPowerConfiguration());
 The `PMIC` class provides direct, register-level access to the bq24195 (or bq24195L) Power Management IC used on devices with an external PMIC. It exposes every setting and status bit of the chip, including several that have no equivalent in the higher-level [Power Manager](/reference/device-os/api/power-manager/power-manager/) API, such as OTG (boost) mode, shipping mode (BATFET disable), the I2C watchdog timer, and individual fault flags.
 
 {{note op="start" type="warning"}}
-You should generally prefer the [Power Manager API](/reference/device-os/api/power-manager/power-manager/), above, to set input voltage limit, input current limit, charge current, and charge termination voltage, rather than setting these through the `PMIC` class directly.
+You should generally use the [Power Manager API](/reference/device-os/api/power-manager/power-manager/), to set input voltage limit, input current limit, charge current, and charge termination voltage, rather than setting these through the `PMIC` class directly.
 
 The Power Manager re-applies its `SystemPowerConfiguration` settings to the PMIC at boot, and again whenever `System.setPowerConfiguration()` is called. Any setting you change directly with the `PMIC` class that overlaps with a Power Manager setting (see the "See also" links on each method below) will be silently overwritten the next time the Power Manager runs, typically on the next reset. Settings made directly on the PMIC that have no Power Manager equivalent (like `disableBATFET()` or `setWatchdog()`) are not persistent and must be reapplied by your firmware after every reset.
 {{note op="end"}}
@@ -9535,7 +9535,9 @@ Returns `true` if charging is enabled (`CHG_CONFIG` = 01).
 
 `bool enableOTG(void);`
 
-Enables OTG (On-The-Go) boost mode (`CHG_CONFIG` = 10/11, REG01 bits 5:4), which uses the battery to boost 5.1V out on the PMID pin, for example to power an external USB device. This has no equivalent in the Power Manager API.
+Enables OTG (On-The-Go) boost mode (`CHG_CONFIG` = 10/11, REG01 bits 5:4), which uses the battery to boost 5.1V out on the PMID pin. This has no equivalent in the Power Manager API.
+
+Particle devices do not have the necessary external hardware to support USB OTG and you should never enable OTG boost mode in the PMIC.
 
 #### disableOTG()
 
@@ -9830,6 +9832,8 @@ Returns the raw thermal regulation threshold bits (`TREG`).
 ### Misc operation control reg
 
 This is register REG07. It forces D+/D- (DPDM) detection, allows the BATFET (battery FET) to be forced off for [shipping mode](/hardware/power/power-supply-guide/#shipping-mode), controls whether the safety timer is slowed during input DPM or thermal regulation, and masks the CHRG_FAULT and BAT_FAULT interrupts.
+
+Devices using the PM_BAT module, including the Muon and M.2 breakout board, do not use DPDM in the bq24195 to control maximum power used from USB. The Muon uses a separate USB-C charge controller chip to negotiate current and voltage.
 
 #### readOpControlRegister()
 
@@ -16274,7 +16278,7 @@ You would typically use these constants like this: `BleAdvertisingDataType::FLAG
 
 You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If you do not include it, one will be inserted automatically. 
 
-Similarly, you typically use [`appendCustomData()`](#appendcustomdata) instead of directly using `MANUFACTURER_SPECIFIC_DATA`. The [`appendLocalName`()](#appendlocalname-) and [`appendServiceUUID()`](#appendserviceuuid-) functions of the [`BleAdvertisingData`](#bleadvertisingdata) also set the appropriate advertising data type.
+Similarly, you typically use [`appendCustomData()`](#appendcustomdata-bleadvertisingdata) instead of directly using `MANUFACTURER_SPECIFIC_DATA`. The [`appendLocalName`()](#appendlocalname-bleadvertisingdata) and [`appendServiceUUID()`](#appendserviceuuid-bleadvertisingdata) functions of the [`BleAdvertisingData`](#bleadvertisingdata) also set the appropriate advertising data type.
 
 - `FLAGS`
 - `SERVICE_UUID_16BIT_MORE_AVAILABLE`
