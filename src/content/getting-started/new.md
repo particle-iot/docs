@@ -25,7 +25,7 @@ The header format must be exactly that because the search feature uses that to d
 
 Documentation is now available for new Device OS 6.5.0 features, including:
 - Environment variables for [cloud keep-alive](/getting-started/configuration/environment/#cloud-keep-alive-environment-variables) and [PMIC input current and charge current](/getting-started/configuration/environment/#power-manager-environment-variables).
-- [Per-interface cloud keep-alive](/device-os/api/cloud-functions/particle-setdisconnectoptions/#particle-keepalive-) including environment override behavior in the Device OS API.
+- [Per-interface cloud keep-alive](/reference/device-os/api/cloud-functions/particle-keepalive/) including environment override behavior in the Device OS API.
 - [Power manager](/reference/device-os/api/power-manager/power-manager-environment-variables/) environment override behavior in the Device OS API.
 - [Multi-byte read/write/peek](/reference/device-os/api/serial/readbytes/#readbytes-) for USB and UART serial. 
 
