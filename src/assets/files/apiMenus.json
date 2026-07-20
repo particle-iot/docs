@@ -4089,6 +4089,10 @@
           ]
         },
         {
+          "title": "Power manager environment variables - Power manager",
+          "dir": "power-manager-environment-variables"
+        },
+        {
           "title": "B-Series SoM - Power manager",
           "dir": "b-series-som"
         }
@@ -4313,6 +4317,10 @@
         {
           "title": "read() - Serial",
           "dir": "read"
+        },
+        {
+          "title": "readBytes() - Serial",
+          "dir": "readbytes"
         },
         {
           "title": "print() - Serial",

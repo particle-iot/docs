@@ -21,7 +21,15 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### Device OS 6.5.0 Preview 2026-07-17
+### Device OS 6.5.0 new features 2026-07-20
+
+Documentation is now available for new Device OS 6.5.0 features, including:
+- Environment variables for [cloud keep-alive](/getting-started/configuration/environment/#cloud-keep-alive-environment-variables) and [PMIC input current and charge current](/getting-started/configuration/environment/#power-manager-environment-variables).
+- [Per-interface cloud keep-alive](/reference/device-os/api/cloud-functions/particle-keepalive/) including environment override behavior in the Device OS API.
+- [Power manager](/reference/device-os/api/power-manager/power-manager-environment-variables/) environment override behavior in the Device OS API.
+- [Multi-byte read/write/peek](/reference/device-os/api/serial/readbytes/#readbytes-) for USB and UART serial. 
+
+### Device OS 6.5.0 preview 2026-07-17
 
 [Device OS 6.5.0](/reference/device-os/release-notes/?mode=rel1&ver=v6.5.0) is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc. It is a preview release.
 

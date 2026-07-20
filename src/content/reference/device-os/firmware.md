@@ -965,6 +965,47 @@ Keep-alives do not use Data Operations from your monthly or yearly quota. Howeve
 
 You can also specify a value using [chrono literals](#chrono-literals), for example: `Particle.keepAlive(2min)` for 2 minutes.
 
+{{since when="6.5.0"}}
+
+On devices with more than one network interface (such as the M-SoM, which can connect via cellular or Wi-Fi), you can set a keep-alive that only applies to a specific interface:
+
+```cpp
+// PROTOTYPES
+static void keepAlive(unsigned sec, network_interface_t network);
+static void keepAlive(std::chrono::seconds s, network_interface_t network);
+```
+<!-- spark_wiring_cloud.h 490 -->
+
+```cpp
+// SYNTAX
+Particle.keepAlive(30, Cellular);
+Particle.keepAlive(25, WiFi);
+Particle.keepAlive(25, Ethernet);
+```
+
+Use `Particle.getKeepAlive()` to read back the keep-alive currently in effect, in seconds. With no argument, it returns the value for whichever interface the device is currently connected to the cloud on; you can also pass a specific interface:
+
+```cpp
+// PROTOTYPES
+static int getKeepAlive();
+static int getKeepAlive(network_interface_t network);
+```
+<!-- spark_wiring_cloud.h 479 -->
+
+```cpp
+// SYNTAX
+int currentKeepAlive = Particle.getKeepAlive();
+int cellularKeepAlive = Particle.getKeepAlive(Cellular);
+```
+
+The effective keep-alive for an interface is determined in this order:
+
+1. A value set at runtime with `Particle.keepAlive(sec, network)` (or `Particle.keepAlive(sec)` for the currently connected interface).
+2. The interface-specific environment variable: `PARTICLE_CELLULAR_CLOUD_KEEP_ALIVE`, `PARTICLE_WIFI_CLOUD_KEEP_ALIVE`, or `PARTICLE_ETHERNET_CLOUD_KEEP_ALIVE`.
+3. The global `PARTICLE_CLOUD_KEEP_ALIVE` environment variable, which applies to any interface without its own override.
+4. The Device OS default keep-alive for the interface, shown in the table above.
+
+A value set with `Particle.keepAlive()` takes effect the next time a cloud connection is established on that interface. Environment variable changes also take effect on the next cloud (re)connection to that interface, not immediately. See [Environment variables](/getting-started/configuration/environment/#cloud-keep-alive-environment-variables) for more information on setting these variables.
 
 
 ### Particle.process()
@@ -9218,6 +9259,21 @@ void setup() {
 }
 ```
 
+### Power manager environment variables
+
+{{since when="6.5.0"}}
+
+On devices with a bq24195 PMIC (M-SoM, Muon, Boron, B-Series SoM, Tracker SoM, Electron, and E-Series), the input current limit and battery charge current can be overridden using environment variables, without changing your firmware:
+
+- `PARTICLE_PMIC_INPUT_CURRENT`: overrides `powerSourceMaxCurrent()`, in mA. Valid range: 500 to 1500.
+- `PARTICLE_PMIC_CHARGE_CURRENT`: overrides `batteryChargeCurrent()`, in mA. Valid range: 512 to 1500.
+
+A value outside the valid range is ignored, and the value from `SystemPowerConfiguration` (or its default) is used instead. `PARTICLE_PMIC_CHARGE_CURRENT` is applied even if it's set higher than the effective input current limit; in that case the PMIC's VINDPM loop will throttle charging at runtime rather than the device enforcing the limit itself.
+
+These overrides only affect what's applied to the PMIC. They do not change the stored `SystemPowerConfiguration`, so `System.getPowerConfiguration()` continues to report the values set (or defaulted) in your firmware. The overrides are applied when the Power Manager initializes at boot and whenever `System.setPowerConfiguration()` is called; changing the environment variables while running does not take effect until the next reset.
+
+See [Environment variables](/getting-started/configuration/environment/#power-manager-environment-variables) for more information on setting these variables.
+
 ### B-Series SoM
 
 By default, on the **B-Series SoM**, the Tinker application firmware enables the use of the bq24195 PMIC and MAX17043 fuel gauge. This in turn uses I2C (D0 and D1) and pin A6 (PM_INT). If you are not using the PMIC and fuel gauge and with to use these pins for other purposes, be sure to disable system power configuration. This setting is persistent, so you may want to disable it with your manufacturing firmware only.
@@ -10353,6 +10409,24 @@ Serial1.peek();
 ```
 `peek()` returns the first byte of incoming serial data available (or `-1` if no data is available) - *int*
 
+{{since when="6.5.0"}}
+
+On hardware UART ports (`Serial1`, etc.) and USB serial (`Serial`, `USBSerial1`), you can also peek at more than one byte at a time:
+
+```cpp
+// PROTOTYPE
+int peek(char *buffer, size_t size);
+```
+<!-- spark_wiring_usartserial.h 55 -->
+
+```cpp
+// SYNTAX
+char buf[16];
+int bytesPeeked = Serial1.peek(buf, sizeof(buf));
+```
+
+Copies up to `size` bytes of the incoming data currently in the internal serial buffer into `buffer`, without removing them, so a subsequent `read()`, `readBytes()`, or `peek()` call will see the same data. Unlike `readBytes()`, this call does not wait for more data to arrive: it returns immediately with however many bytes (up to `size`) are already buffered. Use `available()` beforehand if you need to know how much data is ready. Returns the number of bytes copied into `buffer`, or a negative value on error.
+
 ### write()
 
 {{api name1="Serial.write" name2="Serial1.write"}}
@@ -10363,6 +10437,7 @@ Writes binary data to the serial port. This data is sent as a byte or series of 
 // PROTOTYPES
 virtual size_t write(uint8_t);
 size_t write(uint16_t);
+virtual size_t write(const uint8_t *buffer, size_t size);
 ```
 <!-- spark_wiring_usartserial.h 54 -->
 
@@ -10398,6 +10473,9 @@ void loop()
 
 `write()` will return the number of bytes written, though reading that number is optional.
 
+{{since when="6.5.0"}}
+
+On hardware UART ports (`Serial1`, etc.) and USB serial (`Serial`, `USBSerial1`), the `Serial.write(buf, len)` form transfers the buffer directly instead of writing it one byte at a time, which is significantly faster for larger buffers. It honors [`blockOnOverrun()`](#blockonoverrun-): with blocking enabled (the default), the call waits for room in the buffer as needed until all of `len` bytes have been written; with blocking disabled, it writes as many bytes as currently fit and returns immediately, so the returned count may be less than `len`.
 
 ### read()
 
@@ -10438,6 +10516,56 @@ void loop() {
   }
 }
 ```
+### readBytes()
+
+{{api name1="Serial.readBytes" name2="Serial1.readBytes"}}
+
+Reads multiple bytes of incoming serial data into a buffer. The function terminates if the requested number of bytes has been read, or it times out.
+
+```cpp
+// PROTOTYPE
+virtual size_t readBytes(char *buffer, size_t length);
+```
+<!-- spark_wiring_usartserial.h 57 -->
+
+```cpp
+// SYNTAX
+Serial.readBytes(buffer, length);
+Serial1.readBytes(buffer, length);
+```
+
+*Parameters:*
+
+- `buffer`: pointer to the buffer to store the bytes in (char *)
+- `length`: the number of bytes to read (size_t)
+
+`readBytes()` returns the number of bytes placed in `buffer`. This can be less than `length` if the call times out before `length` bytes have arrived; use [`setTimeout()`](#settimeout-) to change how long it waits (the default is 1000 ms).
+
+```cpp
+// EXAMPLE USAGE
+void setup() {
+  Serial.begin(9600);
+  Serial1.begin(9600);
+  Serial1.setTimeout(500);
+}
+
+void loop() {
+  char buf[32];
+  if (Serial1.available() >= (int)sizeof(buf)) {
+    size_t bytesRead = Serial1.readBytes(buf, sizeof(buf));
+    Serial.print("read ");
+    Serial.print(bytesRead);
+    Serial.println(" bytes");
+  }
+}
+```
+
+{{since when="6.5.0"}}
+
+On hardware UART ports (`Serial1`, etc.) and USB serial (`Serial`, `USBSerial1`), `readBytes()` transfers data directly from the underlying buffer instead of calling `read()` one byte at a time, which is significantly faster for larger buffers. It still honors `setTimeout()`: it returns once `length` bytes have been read or the timeout elapses, whichever comes first, so the returned count may be less than `length`.
+
+See also [`readBytesUntil()`](#readbytesuntil-), [`readString()`](#readstring-), and [`peek()`](#peek-) for other ways to consume incoming serial data.
+
 ### print()
 
 {{api name1="Serial.print" name2="Serial1.print"}}
@@ -30287,6 +30415,10 @@ Parameters:
   * length : the number of bytes to read (size_t)
 
 Returns: returns the number of characters placed in the buffer (0 means no valid data found)
+
+{{since when="6.5.0"}}
+
+On hardware UART ports (`Serial1`, etc.) and USB serial (`Serial`, `USBSerial1`), `readBytes()` transfers data directly from the underlying buffer instead of calling `read()` one byte at a time, which is significantly faster for larger buffers. It still honors [`setTimeout()`](#settimeout-): it returns once `length` bytes have been read or the timeout elapses, whichever comes first, so the returned count may be less than `length`.
 
 ### readBytesUntil()
 
