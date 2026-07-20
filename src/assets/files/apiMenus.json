@@ -3764,6 +3764,11 @@
               "isContent": true
             },
             {
+              "anchor": "isbuckenabled-",
+              "title": "isBuckEnabled()",
+              "isContent": true
+            },
+            {
               "anchor": "setinputcurrentlimit-",
               "title": "setInputCurrentLimit()",
               "isContent": true
@@ -3800,6 +3805,11 @@
               "isContent": true
             },
             {
+              "anchor": "ischargingenabled-",
+              "title": "isChargingEnabled()",
+              "isContent": true
+            },
+            {
               "anchor": "enableotg-",
               "title": "enableOTG()",
               "isContent": true
@@ -3828,6 +3838,11 @@
               "anchor": "readpoweronregister-",
               "title": "readPowerONRegister()",
               "isContent": true
+            },
+            {
+              "anchor": "reset--1",
+              "title": "reset()",
+              "isContent": true
             }
           ]
         },
@@ -3843,6 +3858,11 @@
             {
               "anchor": "getchargecurrent-",
               "title": "getChargeCurrent()",
+              "isContent": true
+            },
+            {
+              "anchor": "getchargecurrentvalue-",
+              "title": "getChargeCurrentValue()",
               "isContent": true
             }
           ]
@@ -3891,6 +3911,16 @@
               "anchor": "getchargevoltage-",
               "title": "getChargeVoltage()",
               "isContent": true
+            },
+            {
+              "anchor": "getrechargethreshold-",
+              "title": "getRechargeThreshold()",
+              "isContent": true
+            },
+            {
+              "anchor": "setrechargethreshold-",
+              "title": "setRechargeThreshold()",
+              "isContent": true
             }
           ]
         },
@@ -3911,6 +3941,16 @@
             {
               "anchor": "setwatchdog-",
               "title": "setWatchdog()",
+              "isContent": true
+            },
+            {
+              "anchor": "enablesafetytimer-",
+              "title": "enableSafetyTimer()",
+              "isContent": true
+            },
+            {
+              "anchor": "disablesafetytimer-",
+              "title": "disableSafetyTimer()",
               "isContent": true
             }
           ]
@@ -3951,6 +3991,11 @@
               "isContent": true
             },
             {
+              "anchor": "isindpdm-",
+              "title": "isInDPDM()",
+              "isContent": true
+            },
+            {
               "anchor": "enablebatfet-",
               "title": "enableBATFET()",
               "isContent": true
@@ -3958,6 +4003,11 @@
             {
               "anchor": "disablebatfet-",
               "title": "disableBATFET()",
+              "isContent": true
+            },
+            {
+              "anchor": "isbatfetenabled-",
+              "title": "isBATFETEnabled()",
               "isContent": true
             },
             {
@@ -4019,6 +4069,32 @@
             {
               "anchor": "getvsysstat-",
               "title": "getVsysStat()",
+              "isContent": true
+            }
+          ]
+        },
+        {
+          "title": "Fault register - PMIC (Power Management IC)",
+          "dir": "fault-register",
+          "subsections": [
+            {
+              "anchor": "iswatchdogfault-",
+              "title": "isWatchdogFault()",
+              "isContent": true
+            },
+            {
+              "anchor": "getchargefault-",
+              "title": "getChargeFault()",
+              "isContent": true
+            },
+            {
+              "anchor": "isbatfault-",
+              "title": "isBatFault()",
+              "isContent": true
+            },
+            {
+              "anchor": "getntcfault-",
+              "title": "getNTCFault()",
               "isContent": true
             }
           ]

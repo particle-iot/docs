@@ -8980,6 +8980,10 @@ For full sample code sample code for logging power settings to USB serial debug,
 
 To set the Power Manager configuration, create a `SystemPowerConfiguration` object and use the methods below to adjust the settings:
 
+{{note op="start" type="note"}}
+The Power Manager API is the recommended way to configure charging and input power settings. It's a small, curated subset of the settings available on the underlying [`PMIC`](/reference/device-os/api/pmic-power-management-ic/pmic-power-management-ic/) (bq24195) class, below. The Power Manager settings are re-applied to the PMIC at boot and whenever `System.setPowerConfiguration()` is called, so directly changing a PMIC register that also has a Power Manager equivalent will be overwritten the next time the Power Manager runs. See the note at the top of the [PMIC](/reference/device-os/api/pmic-power-management-ic/pmic-power-management-ic/) section, below, for more information.
+{{note op="end"}}
+
 ---
 
 {{note op="start" type="note"}}
@@ -9009,6 +9013,8 @@ When powering by a USB power adapter that implements DPDM (USB current limit dis
 
 The default is 900 mA.
 
+This sets the input current limit (`IINLIM`) bits in the PMIC input source control register. See [`PMIC::setInputCurrentLimit()`](/reference/device-os/api/pmic-power-management-ic/input-source-control-register/#setinputcurrentlimit-) and [`PMIC::getInputCurrentLimit()`](/reference/device-os/api/pmic-power-management-ic/input-source-control-register/#getinputcurrentlimit-) for the equivalent low-level PMIC methods.
+
 ```cpp
 // PROTOTYPES
 SystemPowerConfiguration& powerSourceMinVoltage(uint16_t voltage)
@@ -9023,6 +9029,8 @@ uint16_t powerSourceMinVoltage()
 Set minimum voltage required for VIN to be used. This applies only when powered through VIN. The value is in millivolts or 1000ths of a volt, so 3880 is 3.880 volts.
 
 The default is 3880 (3.88 volts).
+
+This sets the input voltage limit (`VINDPM`) bits in the PMIC input source control register. See [`PMIC::setInputVoltageLimit()`](/reference/device-os/api/pmic-power-management-ic/input-source-control-register/#setinputvoltagelimit-) and [`PMIC::getInputVoltageLimit()`](/reference/device-os/api/pmic-power-management-ic/input-source-control-register/#getinputvoltagelimit-) for the equivalent low-level PMIC methods.
 
 ```cpp
 // PROTOTYPES
@@ -9039,6 +9047,8 @@ Sets the battery charge current. The actual charge current is the lesser of powe
 
 The default is 896 mA.
 
+This sets the fast charge current limit (`ICHG`) bits in the PMIC charge current control register. See [`PMIC::setChargeCurrent()`](/reference/device-os/api/pmic-power-management-ic/charge-current-control-reg/#setchargecurrent-) and [`PMIC::getChargeCurrentValue()`](/reference/device-os/api/pmic-power-management-ic/charge-current-control-reg/#getchargecurrentvalue-) for the equivalent low-level PMIC methods.
+
 ```cpp
 // PROTOTYPES
 SystemPowerConfiguration& batteryChargeCurrent(uint16_t current)
@@ -9052,6 +9062,8 @@ uint16_t batteryChargeCurrent() const
 Sets the battery charge termination voltage. The value is in millivolts or 1000ths of a volt, so 3880 is 3.880 volts. When the battery reaches this voltage, charging is stopped.
 
 The default is 4112 (4.112V).
+
+This sets the charge voltage limit (`VREG`) bits in the PMIC charge voltage control register. See [`PMIC::setChargeVoltage()`](/reference/device-os/api/pmic-power-management-ic/charge-voltage-control-reg/#setchargevoltage-) and [`PMIC::getChargeVoltageValue()`](/reference/device-os/api/pmic-power-management-ic/charge-voltage-control-reg/#getchargevoltagevalue-) for the equivalent low-level PMIC methods.
 
 ```cpp
 // PROTOTYPES
@@ -9168,6 +9180,8 @@ For full sample code sample code for logging power settings to USB serial debug,
 
 For devices with an external PMIC and Fuel Gauge like the B-Series SoM, enables detection of the bq24195 PMIC connected by I2C to the primary I2C interface (Wire). Since this requires the use of I2C, you should not use pins D0 and D1 for GPIO when using PMIC_DETECTION.
 
+This feature controls whether the system probes for and initializes the PMIC at boot; it corresponds to whether [`PMIC::begin()`](/reference/device-os/api/pmic-power-management-ic/begin/) succeeds and [`PMIC::getVersion()`](/reference/device-os/api/pmic-power-management-ic/getversion/) returns a valid part revision.
+
 #### SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST
 
 {{api name1="SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST"}}
@@ -9186,12 +9200,18 @@ Disables LiPo battery charging. This may be useful if:
 - You are using a non-rechargeable battery
 - You are powering the device from a power supply connected to the Li+ pin instead of VIN
 
+This is equivalent to calling [`PMIC::disableCharging()`](/reference/device-os/api/pmic-power-management-ic/power-on-configuration-reg/#disablecharging-) directly, except that it is persistent and is reapplied every time the Power Manager initializes, whereas a direct `PMIC::disableCharging()` call only lasts until the next time the Power Manager runs (for example, at the next reset).
+
 
 #### SystemPowerFeature::DISABLE
 
 {{api name1="SystemPowerFeature::DISABLE"}}
 
 Disables the system power management features. If you set this mode you must manually set the values in the PMIC directly.
+
+{{note op="start" type="warning"}}
+With this feature set, Device OS no longer applies any `SystemPowerConfiguration` settings or reconfigures the PMIC. All other Power Manager settings in this configuration (`powerSourceMaxCurrent`, `batteryChargeCurrent`, etc.) are ignored, and you are responsible for initializing and maintaining every PMIC setting yourself using the [`PMIC`](/reference/device-os/api/pmic-power-management-ic/pmic-power-management-ic/) class, including resetting the I2C watchdog timer if it is enabled. This is rarely necessary; most use cases are better served by leaving the Power Manager enabled and only setting the specific features (like `DISABLE_CHARGING`) that you need.
+{{note op="end"}}
 
 ```cpp
 // EXAMPLE
@@ -9265,8 +9285,8 @@ void setup() {
 
 On devices with a bq24195 PMIC (M-SoM, Muon, Boron, B-Series SoM, Tracker SoM, Electron, and E-Series), the input current limit and battery charge current can be overridden using environment variables, without changing your firmware:
 
-- `PARTICLE_PMIC_INPUT_CURRENT`: overrides `powerSourceMaxCurrent()`, in mA. Valid range: 500 to 1500.
-- `PARTICLE_PMIC_CHARGE_CURRENT`: overrides `batteryChargeCurrent()`, in mA. Valid range: 512 to 1500.
+- `PARTICLE_PMIC_INPUT_CURRENT`: overrides [`powerSourceMaxCurrent()`](/reference/device-os/api/power-manager/powersourcemaxcurrent-systempowerconfiguration/), in mA. Valid range: 500 to 1500. This is the same setting as [`PMIC::setInputCurrentLimit()`](/reference/device-os/api/pmic-power-management-ic/input-source-control-register/#setinputcurrentlimit-).
+- `PARTICLE_PMIC_CHARGE_CURRENT`: overrides [`batteryChargeCurrent()`](/reference/device-os/api/power-manager/batterychargecurrent-systempowerconfiguration/), in mA. Valid range: 512 to 1500. This is the same setting as [`PMIC::setChargeCurrent()`](/reference/device-os/api/pmic-power-management-ic/charge-current-control-reg/#setchargecurrent-).
 
 A value outside the valid range is ignored, and the value from `SystemPowerConfiguration` (or its default) is used instead. `PARTICLE_PMIC_CHARGE_CURRENT` is applied even if it's set higher than the effective input current limit; in that case the PMIC's VINDPM loop will throttle charging at runtime rather than the device enforcing the limit itself.
 
@@ -9293,9 +9313,15 @@ System.setPowerConfiguration(SystemPowerConfiguration());
 
 {{api name1="PMIC"}}
 
-You should generally set the PMIC settings such as input volage, input current limit, charge current, and charge termination voltage using the Power Manager API, above. If you directly set the PMIC, the settings will likely be overridden by the system.
+The `PMIC` class provides direct, register-level access to the bq24195 (or bq24195L) Power Management IC used on devices with an external PMIC. It exposes every setting and status bit of the chip, including several that have no equivalent in the higher-level [Power Manager](/reference/device-os/api/power-manager/power-manager/) API, such as OTG (boost) mode, shipping mode (BATFET disable), the I2C watchdog timer, and individual fault flags.
 
-To find out the current power source (battery, VIN, USB), see [`System.powerSource()`](#powersource-). To find out if the battery is charging, discharging, disconnected, etc., see [`System.batteryState()`](#batterystate-).
+{{note op="start" type="warning"}}
+You should generally prefer the [Power Manager API](/reference/device-os/api/power-manager/power-manager/), above, to set input voltage limit, input current limit, charge current, and charge termination voltage, rather than setting these through the `PMIC` class directly.
+
+The Power Manager re-applies its `SystemPowerConfiguration` settings to the PMIC at boot, and again whenever `System.setPowerConfiguration()` is called. Any setting you change directly with the `PMIC` class that overlaps with a Power Manager setting (see the "See also" links on each method below) will be silently overwritten the next time the Power Manager runs, typically on the next reset. Settings made directly on the PMIC that have no Power Manager equivalent (like `disableBATFET()` or `setWatchdog()`) are not persistent and must be reapplied by your firmware after every reset.
+{{note op="end"}}
+
+To find out the current power source (battery, VIN, USB), see [`System.powerSource()`](/reference/device-os/api/system-calls/powersource/). To find out if the battery is charging, discharging, disconnected, etc., see [`System.batteryState()`](/reference/device-os/api/system-calls/batterystate/).
 
 For full sample code sample code for logging power settings to USB serial debug, see the [power supply guide](/hardware/power/power-supply-guide/#power-settings-example).
 
@@ -9334,11 +9360,15 @@ You can declare the PMIC object either as a global variable, or a stack-allocate
 
 `bool begin();`
 
+Initializes I2C (`Wire`) if it has not already been initialized. This is called automatically by Device OS when the Power Manager is enabled, so user firmware normally does not need to call this directly unless the Power Manager has been disabled ([`SystemPowerFeature::DISABLE`](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-disable)).
+
 ### getVersion()
 
 {{api name1="PMIC::getVersion"}}
 
 `byte getVersion();`
+
+Returns the value of the read-only Vendor/Part/Revision register (REG0A). For the bq24195/bq24195L this is 0x23 (35 decimal).
 
 ### getSystemStatus()
 
@@ -9346,11 +9376,29 @@ You can declare the PMIC object either as a global variable, or a stack-allocate
 
 `byte getSystemStatus();`
 
+Returns the raw value of the read-only system status register (REG08). This register reports the power source (VBUS), charging state, DPM/thermal regulation status, and power-good status all at once. The individual bits can be decoded with the following methods, described in more detail in the [System status register](/reference/device-os/api/pmic-power-management-ic/system-status-register/) section, below:
+
+- [`getVbusStat()`](/reference/device-os/api/pmic-power-management-ic/system-status-register/#getvbusstat-) &mdash; bits 7:6, power source (unknown, USB host, adapter, OTG)
+- [`getChargingStat()`](/reference/device-os/api/pmic-power-management-ic/system-status-register/#getchargingstat-) &mdash; bits 5:4, charging state
+- [`getDPMStat()`](/reference/device-os/api/pmic-power-management-ic/system-status-register/#getdpmstat-) &mdash; bit 3, in dynamic power management (VINDPM or IINDPM)
+- [`isPowerGood()`](/reference/device-os/api/pmic-power-management-ic/system-status-register/#ispowergood-) &mdash; bit 2, power good
+- [`isHot()`](/reference/device-os/api/pmic-power-management-ic/system-status-register/#ishot-) &mdash; bit 1, in thermal regulation
+- [`getVsysStat()`](/reference/device-os/api/pmic-power-management-ic/system-status-register/#getvsysstat-) &mdash; bit 0, in minimum system voltage regulation
+
 ### getFault()
 
 {{api name1="PMIC::getFault"}}
 
 `byte getFault();`
+
+Returns the raw value of the read-only fault register (REG09). This register latches watchdog, charge, battery, and NTC (thermistor) faults. Reading this register clears it, so to get the current fault state (as opposed to the latched fault since the last read) you must read it twice in a row, as shown in the [shipping mode example](/hardware/power/power-supply-guide/#shipping-mode) in the power supply guide.
+
+The individual bits can be decoded with the following methods, described in more detail in the [Fault register](/reference/device-os/api/pmic-power-management-ic/fault-register/) section, below:
+
+- [`isWatchdogFault()`](/reference/device-os/api/pmic-power-management-ic/fault-register/#iswatchdogfault-) &mdash; bit 7, I2C watchdog timer expired
+- [`getChargeFault()`](/reference/device-os/api/pmic-power-management-ic/fault-register/#getchargefault-) &mdash; bits 5:4, charge fault (input fault, thermal shutdown, safety timer expiration)
+- [`isBatFault()`](/reference/device-os/api/pmic-power-management-ic/fault-register/#isbatfault-) &mdash; bit 3, battery over-voltage (BATOVP)
+- [`getNTCFault()`](/reference/device-os/api/pmic-power-management-ic/fault-register/#getntcfault-) &mdash; bits 2:0, thermistor (NTC) fault (cold or hot)
 
 
 ### lock()
@@ -9373,11 +9421,15 @@ Since the PMIC can be accessed from both the system and user threads, locking it
 
 ### Input source control register
 
+This is register REG00. It controls whether the buck (step-down) converter is enabled, and sets the input voltage and input current limits used to detect an overloaded input source.
+
 #### readInputSourceRegister()
 
 {{api name1="PMIC::readInputSourceRegister"}}
 
 `byte readInputSourceRegister(void);`
+
+Returns the raw value of REG00.
 
 #### enableBuck()
 
@@ -9385,11 +9437,23 @@ Since the PMIC can be accessed from both the system and user threads, locking it
 
 `bool enableBuck(void);`
 
+Enables the buck (step-down) converter (REG00 bit 7 = 0), so the system can be powered from VBUS or VIN. This is the default state.
+
 #### disableBuck()
 
 {{api name1="PMIC::disableBuck"}}
 
 `bool disableBuck(void);`
+
+Disables the buck converter (REG00 bit 7 = 1), so the system is powered only from the LiPo battery, even if VBUS or VIN is present.
+
+#### isBuckEnabled()
+
+{{api name1="PMIC::isBuckEnabled"}}
+
+`bool isBuckEnabled();`
+
+Returns `true` if the buck converter is enabled (REG00 bit 7 = 0).
 
 #### setInputCurrentLimit()
 
@@ -9397,11 +9461,19 @@ Since the PMIC can be accessed from both the system and user threads, locking it
 
 `bool setInputCurrentLimit(uint16_t current);`
 
+Sets the input current limit (`IINLIM`, REG00 bits 2:0). Valid values are 100, 150, 500, 900, 1200, 1500, 2000, or 3000 (mA); the closest valid value at or below the value passed in is used. Note that most Particle devices further limit the maximum current with a hardware ILIM resistor (typically around 1500 mA, up to 3000 mA on the Muon and PM-BAT), so the actual input current limit is the lower of this setting and the hardware limit.
+
+**See also:** [`powerSourceMaxCurrent()`](/reference/device-os/api/power-manager/powersourcemaxcurrent-systempowerconfiguration/) in the Power Manager API is the recommended way to set this value, since it also persists the setting and reapplies it at every boot.
+
 #### getInputCurrentLimit()
 
 {{api name1="PMIC::getInputCurrentLimit"}}
 
-`byte getInputCurrentLimit(void);`
+`uint16_t getInputCurrentLimit(void);`
+
+Returns the currently configured input current limit, in mA (one of 100, 150, 500, 900, 1200, 1500, 2000, or 3000), decoded from the `IINLIM` bits.
+
+**See also:** [`powerSourceMaxCurrent()`](/reference/device-os/api/power-manager/powersourcemaxcurrent-systempowerconfiguration/).
 
 #### setInputVoltageLimit()
 
@@ -9409,15 +9481,25 @@ Since the PMIC can be accessed from both the system and user threads, locking it
 
 `bool setInputVoltageLimit(uint16_t voltage);`
 
+Sets the input voltage limit (`VINDPM`, REG00 bits 6:3), also known as VINDPM, in millivolts. Valid values are 3880 to 5080, in 80 mV steps (the value passed in is rounded down to the nearest valid step); the default is 4360 mV. If the input voltage sags below this value under load, the PMIC reduces the charge current to prevent the input source from being overloaded.
+
+**See also:** [`powerSourceMinVoltage()`](/reference/device-os/api/power-manager/powersourceminvoltage/) in the Power Manager API is the recommended way to set this value, since it also persists the setting and reapplies it at every boot.
+
 #### getInputVoltageLimit()
 
 {{api name1="PMIC::getInputVoltageLimit"}}
 
-`byte getInputVoltageLimit(void);`
+`uint16_t getInputVoltageLimit(void);`
+
+Returns the currently configured input voltage limit (VINDPM), in millivolts.
+
+**See also:** [`powerSourceMinVoltage()`](/reference/device-os/api/power-manager/powersourceminvoltage/).
 
 ---
 
 ### Power on configuration reg
+
+This is register REG01. It controls whether charging or OTG (boost) mode is enabled, the minimum system voltage, and the I2C watchdog timer reset bit.
 
 #### enableCharging()
 
@@ -9425,11 +9507,27 @@ Since the PMIC can be accessed from both the system and user threads, locking it
 
 `bool enableCharging(void);`
 
+Enables battery charging (`CHG_CONFIG` = 01, REG01 bits 5:4). This is the default state when a battery is detected.
+
+**See also:** [`SystemPowerFeature::DISABLE_CHARGING`](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-disable_charging) in the Power Manager API is the recommended way to control charging, since it also persists the setting and reapplies it at every boot. A direct call to `enableCharging()` only lasts until the Power Manager next re-applies its configuration.
+
 #### disableCharging()
 
 {{api name1="PMIC::disableCharging"}}
 
 `bool disableCharging(void);`
+
+Disables battery charging (`CHG_CONFIG` = 00, REG01 bits 5:4).
+
+**See also:** [`SystemPowerFeature::DISABLE_CHARGING`](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-disable_charging).
+
+#### isChargingEnabled()
+
+{{api name1="PMIC::isChargingEnabled"}}
+
+`bool isChargingEnabled(void);`
+
+Returns `true` if charging is enabled (`CHG_CONFIG` = 01).
 
 #### enableOTG()
 
@@ -9437,11 +9535,15 @@ Since the PMIC can be accessed from both the system and user threads, locking it
 
 `bool enableOTG(void);`
 
+Enables OTG (On-The-Go) boost mode (`CHG_CONFIG` = 10/11, REG01 bits 5:4), which uses the battery to boost 5.1V out on the PMID pin, for example to power an external USB device. This has no equivalent in the Power Manager API.
+
 #### disableOTG()
 
 {{api name1="PMIC::disableOTG"}}
 
 `bool disableOTG(void);`
+
+Disables OTG boost mode.
 
 #### resetWatchdog()
 
@@ -9449,11 +9551,15 @@ Since the PMIC can be accessed from both the system and user threads, locking it
 
 `bool resetWatchdog(void);`
 
+Resets (feeds) the I2C watchdog timer (REG01 bit 6). The bq24195 has a watchdog timer, described in more detail under [`setWatchdog()`](/reference/device-os/api/pmic-power-management-ic/charge-timer-control-reg/#setwatchdog-), below, that resets **all** PMIC registers to their power-on defaults if it is not fed periodically. If you are changing PMIC settings directly rather than through the Power Manager, and the watchdog timer is enabled (the default is 40 seconds), you must call `resetWatchdog()` at least that often or your settings will silently revert.
+
 #### setMinimumSystemVoltage()
 
 {{api name1="PMIC::setMinimumSystemVoltage"}}
 
 `bool setMinimumSystemVoltage(uint16_t voltage);`
+
+Sets the minimum system voltage (`SYS_MIN`, REG01 bits 3:1), in millivolts. This is the minimum voltage the PMIC will provide to the system rail (SYS) even when the battery is deeply discharged or removed. Valid values are 3000 to 3700, in 100 mV steps; the default is 3500 mV. This has no equivalent in the Power Manager API.
 
 #### getMinimumSystemVoltage()
 
@@ -9461,21 +9567,41 @@ Since the PMIC can be accessed from both the system and user threads, locking it
 
 `uint16_t getMinimumSystemVoltage();`
 
+Returns the currently configured minimum system voltage, in millivolts.
+
 #### readPowerONRegister()
 
 {{api name1="PMIC::readPowerONRegister"}}
 
 `byte readPowerONRegister(void);`
 
+Returns the raw value of REG01.
+
+#### reset()
+
+{{api name1="PMIC::reset"}}
+
+`void reset();`
+
+Resets all PMIC registers to their power-on default values (REG01 bit 7). Since the Power Manager reapplies its `SystemPowerConfiguration` settings at every boot and whenever `System.setPowerConfiguration()` is called, calling `reset()` while the Power Manager is enabled only has a lasting effect on settings that have no Power Manager equivalent.
+
 ---
 
 ### Charge current control reg
+
+This is register REG02. It sets the fast charge current limit (`ICHG`).
+
+**See also:** [`batteryChargeCurrent()`](/reference/device-os/api/power-manager/batterychargecurrent-systempowerconfiguration/) in the Power Manager API is the recommended way to set the charge current, since it also persists the setting and reapplies it at every boot.
 
 #### setChargeCurrent()
 
 {{api name1="PMIC::setChargeCurrent"}}
 
-`bool setChargeCurrent(bool bit7, bool bit6, bool bit5, bool bit4, bool bit3, bool bit2);`
+```cpp
+// PROTOTYPES
+bool setChargeCurrent(bool bit7, bool bit6, bool bit5, bool bit4, bool bit3, bool bit2);
+bool setChargeCurrent(uint16_t current);
+```
 
 The total charge current is the 512mA + the combination of the current that the following bits represent
                      
@@ -9494,8 +9620,15 @@ pmic.setChargeCurrent(0,0,1,1,1,0);
 ```
 
 - 512mA + (0+0+512mA+256mA+128mA+0) = 1408mA
-                    
-                    
+
+There is also an overload that takes the desired charge current directly in milliamps, which rounds down to the nearest valid 64 mA step:
+
+```
+PMIC pmic;
+pmic.setChargeCurrent(1408);
+```
+
+The valid range is 512 to 4544 mA (bq24195) or 512 to 2496 mA (bq24195L), though in practice it's rarely useful to charge at a current higher than the input current limit allows.
 
 #### getChargeCurrent()
 
@@ -9508,9 +9641,21 @@ Returns the charge current register. This is the direct register value from the 
 - bit7 is the MSB, value 0x80
 - bit2 is the LSB, value 0x04
 
+#### getChargeCurrentValue()
+
+{{api name1="PMIC::getChargeCurrentValue"}}
+
+`uint16_t getChargeCurrentValue();`
+
+Returns the currently configured fast charge current limit, decoded to milliamps, unlike `getChargeCurrent()` which returns the raw register value.
+
+**See also:** [`batteryChargeCurrent()`](/reference/device-os/api/power-manager/batterychargecurrent-systempowerconfiguration/).
+
 ---
 
 ### Precharge/termination current control reg
+
+This is register REG03. It sets the pre-charge current limit (`IPRECHG`), used for a deeply-discharged battery below the BATLOWV threshold, and the termination current (`ITERM`), the current level at which the PMIC considers the battery fully charged and stops charging. Both fields have a valid range of 128 to 2048 mA, default 256 mA, and have no equivalent in the Power Manager API.
 
 #### setPreChargeCurrent()
 
@@ -9518,17 +9663,23 @@ Returns the charge current register. This is the direct register value from the 
 
 `bool setPreChargeCurrent();`
 
+Sets the pre-charge current limit (`IPRECHG`, REG03 bits 7:4) to the PMIC default (256 mA). This method does not currently take a parameter to select a different value; see [`setChargeCurrent()`](/reference/device-os/api/pmic-power-management-ic/charge-current-control-reg/#setchargecurrent-) if you need to change the fast-charge current instead.
+
 #### getPreChargeCurrent()
 
 {{api name1="PMIC::getPreChargeCurrent"}}
 
 `byte getPreChargeCurrent();`
 
+Returns the raw pre-charge current register bits (`IPRECHG`).
+
 #### setTermChargeCurrent()
 
 {{api name1="PMIC::setTermChargeCurrent"}}
 
-`bool setTermChargeCurrent();`
+`bool setTermChargeCurrent(uint16_t current);`
+
+Sets the termination current (`ITERM`, REG03 bits 3:0), in mA. Valid values are 128 to 2048, in 128 mA steps; the default is 256 mA. When the charge current tapers below this value during the constant-voltage phase, the PMIC considers charging complete and stops.
 
 #### getTermChargeCurrent()
 
@@ -9536,9 +9687,15 @@ Returns the charge current register. This is the direct register value from the 
 
 `byte getTermChargeCurrent();`
 
+Returns the raw termination current register bits (`ITERM`).
+
 ---
 
 ### Charge voltage control reg
+
+This is register REG04. It sets the charge voltage limit (`VREG`), the battery pre-charge to fast-charge threshold (`BATLOWV`), and the recharge threshold (`VRECHG`).
+
+**See also:** [`batteryChargeVoltage()`](/reference/device-os/api/power-manager/batterychargevoltage-systempowerconfiguration/) in the Power Manager API is the recommended way to set the charge voltage, since it also persists the setting and reapplies it at every boot.
 
 #### setChargeVoltage()
 
@@ -9584,9 +9741,27 @@ Returns the charge voltage register. This is the direct register value from the 
 - 155, 0x9b, 0b10011011, corresponds to 4112
 - 179, 0xb3, 0b10110011, corresponds to 4208
 
+#### getRechargeThreshold()
+
+{{api name1="PMIC::getRechargeThreshold"}}
+
+`uint16_t getRechargeThreshold();`
+
+Returns the recharge threshold (`VRECHG`, REG04 bit 0), in millivolts below the charge voltage limit at which the PMIC automatically starts a new charge cycle after the battery has been discharged from a full charge. This has no equivalent in the Power Manager API.
+
+#### setRechargeThreshold()
+
+{{api name1="PMIC::setRechargeThreshold"}}
+
+`bool setRechargeThreshold(uint16_t voltage);`
+
+Sets the recharge threshold. Valid values are 100 (the default) or 300 (millivolts below the charge voltage limit).
+
 ---
 
 ### Charge timer control reg
+
+This is register REG05. It controls charge termination, the I2C watchdog timer, and the fast-charge safety timer.
 
 #### readChargeTermRegister()
 
@@ -9594,11 +9769,15 @@ Returns the charge voltage register. This is the direct register value from the 
 
 `byte readChargeTermRegister();`
 
+Returns the raw value of REG05.
+
 #### disableWatchdog()
 
 {{api name1="PMIC::disableWatchdog"}}
 
 `bool disableWatchdog(void);`
+
+Disables the I2C watchdog timer (`WATCHDOG` = 00, REG05 bits 5:4). While the watchdog is enabled (the default, 40 seconds), if the host does not write to the PMIC via I2C within the timeout period, the PMIC resets all of its registers to their power-on defaults, undoing any settings you configured directly through the `PMIC` class. Since the Power Manager already resets and reconfigures the watchdog whenever it applies `SystemPowerConfiguration`, this normally is not an issue unless you have disabled the Power Manager ([`SystemPowerFeature::DISABLE`](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-disable)) or you need to hold specific PMIC settings (such as in [shipping mode](/hardware/power/power-supply-guide/#shipping-mode)) without the watchdog reverting them.
 
 #### setWatchdog()
 
@@ -9606,9 +9785,29 @@ Returns the charge voltage register. This is the direct register value from the 
 
 `bool setWatchdog(byte time);`
 
+Sets the I2C watchdog timeout (`WATCHDOG`, REG05 bits 5:4). Valid values are 0 (disable), 1 (40 seconds, the default), 2 (80 seconds), or 3 (160 seconds). See [`disableWatchdog()`](#disablewatchdog-), above, for why this matters. Use [`resetWatchdog()`](/reference/device-os/api/pmic-power-management-ic/power-on-configuration-reg/#resetwatchdog-) to feed the timer without changing the timeout.
+
+#### enableSafetyTimer()
+
+{{api name1="PMIC::enableSafetyTimer"}}
+
+`bool enableSafetyTimer();`
+
+Enables the fast-charge safety timer (`EN_TIMER`, REG05 bit 3). This is the default. The safety timer stops charging if a full charge cycle takes longer than expected (see [`getFault()`](/reference/device-os/api/pmic-power-management-ic/getfault/)), which protects against a battery or thermistor fault causing an indefinitely long charge cycle. The timer duration is set with `CHG_TIMER` (default 8 hours) and is not currently exposed as a separate method; see the register map in the [bq24195 datasheet](http://www.ti.com/lit/ds/symlink/bq24195.pdf) for details.
+
+#### disableSafetyTimer()
+
+{{api name1="PMIC::disableSafetyTimer"}}
+
+`bool disableSafetyTimer();`
+
+Disables the fast-charge safety timer.
+
 ---
 
 ### Thermal regulation control reg
+
+This is register REG06. It sets the junction temperature threshold (`TREG`) above which the PMIC begins reducing charge current to protect itself from overheating.
 
 #### setThermalRegulation()
 
@@ -9616,15 +9815,21 @@ Returns the charge voltage register. This is the direct register value from the 
 
 `bool setThermalRegulation();`
 
+Sets the thermal regulation threshold (`TREG`, REG06 bits 1:0) to its default value, 120°C. This method does not currently take a parameter to select one of the other valid thresholds (60°C, 80°C, or 100°C).
+
 #### getThermalRegulation()
 
 {{api name1="PMIC::getThermalRegulation"}}
 
 `byte getThermalRegulation();`
 
+Returns the raw thermal regulation threshold bits (`TREG`).
+
 ---
 
 ### Misc operation control reg
+
+This is register REG07. It forces D+/D- (DPDM) detection, allows the BATFET (battery FET) to be forced off for [shipping mode](/hardware/power/power-supply-guide/#shipping-mode), controls whether the safety timer is slowed during input DPM or thermal regulation, and masks the CHRG_FAULT and BAT_FAULT interrupts.
 
 #### readOpControlRegister()
 
@@ -9632,11 +9837,15 @@ Returns the charge voltage register. This is the direct register value from the 
 
 `byte readOpControlRegister();`
 
+Returns the raw value of REG07.
+
 #### enableDPDM()
 
 {{api name1="PMIC::enableDPDM"}}
 
 `bool enableDPDM(void);`
+
+Forces the PMIC to run D+/D- (DPDM) detection (`DPDM_EN`, REG07 bit 7 = 1) to determine the current capability of the USB source. This bit automatically clears itself when detection completes; poll [`isInDPDM()`](#isindpdm-) to wait for that to happen.
 
 #### disableDPDM()
 
@@ -9644,11 +9853,23 @@ Returns the charge voltage register. This is the direct register value from the 
 
 `bool disableDPDM(void);`
 
+Clears the force-DPDM-detection bit. Since the bit clears itself automatically when detection completes, this is rarely needed.
+
+#### isInDPDM()
+
+{{api name1="PMIC::isInDPDM"}}
+
+`bool isInDPDM();`
+
+Returns `true` while the PMIC is actively performing D+/D- detection (`DPDM_EN`, REG07 bit 7). Used after [`enableDPDM()`](#enabledpdm-), or before entering shipping mode, to wait until detection has completed before proceeding &mdash; see the [shipping mode example](/hardware/power/power-supply-guide/#shipping-mode) in the power supply guide.
+
 #### enableBATFET()
 
 {{api name1="PMIC::enableBATFET"}}
 
 `bool enableBATFET(void);`
+
+Turns the BATFET back on (`BATFET_Disable` = 0, REG07 bit 5), reconnecting the battery to the system. This is the default state.
 
 #### disableBATFET()
 
@@ -9656,11 +9877,23 @@ Returns the charge voltage register. This is the direct register value from the 
 
 `bool disableBATFET(void);`
 
+Forces the BATFET off (`BATFET_Disable` = 1, REG07 bit 5), disconnecting the battery from the system entirely, so there is no path to charge or discharge it. This is the basis of [shipping mode](/hardware/power/power-supply-guide/#shipping-mode) on bq24195 devices. If no other power source is present, the device will power off immediately when this is called; the only way to bring it back is to apply external power (USB or VIN).
+
+#### isBATFETEnabled()
+
+{{api name1="PMIC::isBATFETEnabled"}}
+
+`bool isBATFETEnabled();`
+
+Returns `true` if the BATFET is enabled (`BATFET_Disable` = 0), meaning the battery is connected to the system.
+
 #### safetyTimer()
 
 {{api name1="PMIC::safetyTimer"}}
 
 `bool safetyTimer();`
+
+Sets the 2x safety timer slowdown bit (`TMR2X_EN`, REG07 bit 6). When set (the default), the fast-charge safety timer counts at half the normal rate while the PMIC is in input DPM (dynamic power management) or thermal regulation, since the actual charge current &mdash; and therefore the time to charge &mdash; is reduced in those conditions. This is unrelated to [`enableSafetyTimer()`](/reference/device-os/api/pmic-power-management-ic/charge-timer-control-reg/#enablesafetytimer-)/[`disableSafetyTimer()`](/reference/device-os/api/pmic-power-management-ic/charge-timer-control-reg/#disablesafetytimer-), which enable or disable the safety timer entirely.
 
 #### enableChargeFaultINT()
 
@@ -9668,11 +9901,15 @@ Returns the charge voltage register. This is the direct register value from the 
 
 `bool enableChargeFaultINT();`
 
+Enables the PMIC's `INT` pin to be asserted when a charge fault occurs (`INT_MASK[1]` = 1, REG07 bit 1). This is the default. The interrupt pin used is set by [`interruptPin()`](/reference/device-os/api/power-manager/interruptpin-systempowerconfiguration/) in the Power Manager API (`PM_INT` on most devices).
+
 #### disableChargeFaultINT()
 
 {{api name1="PMIC::disableChargeFaultINT"}}
 
 `bool disableChargeFaultINT();`
+
+Disables the `INT` pin assertion on charge faults.
 
 #### enableBatFaultINT()
 
@@ -9680,21 +9917,31 @@ Returns the charge voltage register. This is the direct register value from the 
 
 `bool enableBatFaultINT();`
 
+Enables the PMIC's `INT` pin to be asserted when a battery fault occurs (`INT_MASK[0]` = 1, REG07 bit 0). This is the default.
+
 #### disableBatFaultINT()
 
 {{api name1="PMIC::disableBatFaultINT"}}
 
 `bool disableBatFaultINT();`
 
+Disables the `INT` pin assertion on battery faults.
+
 ---
 
 ### System status register
 
+This is the read-only system status register, REG08. It's decoded in one call by [`getSystemStatus()`](/reference/device-os/api/pmic-power-management-ic/getsystemstatus/), above, or one bit at a time with the methods below.
+
 #### getVbusStat()
 
-{{api name1="PMIC::getVsysStat"}}
+{{api name1="PMIC::getVbusStat"}}
 
 `byte getVbusStat();`
+
+Returns the power source (`VBUS_STAT`, REG08 bits 7:6): 0 = unknown (no input, or DPDM detection incomplete), 1 = USB host, 2 = adapter port, 3 = OTG (boost mode).
+
+**See also:** [`System.powerSource()`](/reference/device-os/api/system-calls/powersource/) reports similar information in a higher-level, cross-platform form.
 
 #### getChargingStat()
 
@@ -9702,11 +9949,17 @@ Returns the charge voltage register. This is the direct register value from the 
 
 `byte getChargingStat();`
 
+Returns the charging state (`CHRG_STAT`, REG08 bits 5:4): 0 = not charging, 1 = pre-charge (below `BATLOWV`), 2 = fast charging, 3 = charge termination done.
+
+**See also:** [`System.batteryState()`](/reference/device-os/api/system-calls/batterystate/) reports similar information in a higher-level, cross-platform form.
+
 #### getDPMStat()
 
 {{api name1="PMIC::getDPMStat"}}
 
 `bool getDPMStat();`
+
+Returns `true` if the PMIC is currently in dynamic power management (DPM), meaning either the input voltage (VINDPM) or input current (IINDPM) limit has been reached and the charge current is being reduced to compensate.
 
 #### isPowerGood()
 
@@ -9714,11 +9967,15 @@ Returns the charge voltage register. This is the direct register value from the 
 
 `bool isPowerGood(void);`
 
+Returns `true` if the input source (VBUS) is present and passing the PMIC's input qualification checks (`PG_STAT`, REG08 bit 2).
+
 #### isHot()
 
 {{api name1="PMIC::isHot"}}
 
 `bool isHot(void);`
+
+Returns `true` if the PMIC is currently in thermal regulation (`THERM_STAT`, REG08 bit 1), meaning its internal junction temperature has exceeded the threshold set by [`setThermalRegulation()`](/reference/device-os/api/pmic-power-management-ic/thermal-regulation-control-reg/#setthermalregulation-) and it is reducing charge current to cool down.
 
 #### getVsysStat()
 
@@ -9731,6 +9988,46 @@ bool getVsysStat();
 <!-- spark_wiring_power.h 139 -->
 
 `bool getVsysStat();`
+
+Returns `true` if the system voltage (SYS) is being held at the minimum system voltage regulation point (`VSYS_STAT`, REG08 bit 0) because the battery voltage has dropped below it.
+
+---
+
+### Fault register
+
+This is the read-only fault register, REG09. It's decoded in one call by [`getFault()`](/reference/device-os/api/pmic-power-management-ic/getfault/), above, or one bit at a time with the methods below. Like `getFault()`, reading any of these methods clears the underlying register, so read it twice in a row to get the current fault state rather than the latched fault since the last read.
+
+#### isWatchdogFault()
+
+{{api name1="PMIC::isWatchdogFault"}}
+
+`bool isWatchdogFault();`
+
+Returns `true` if the I2C watchdog timer expired (`WATCHDOG_FAULT`, REG09 bit 7), which resets all PMIC registers to their power-on defaults. See [`setWatchdog()`](/reference/device-os/api/pmic-power-management-ic/charge-timer-control-reg/#setwatchdog-) for more information.
+
+#### getChargeFault()
+
+{{api name1="PMIC::getChargeFault"}}
+
+`byte getChargeFault();`
+
+Returns the charge fault code (`CHRG_FAULT`, REG09 bits 5:4): 0 = normal, 1 = input fault (VBUS over-voltage, or battery voltage below VBUS by less than 3.8V), 2 = thermal shutdown, 3 = charge safety timer expired.
+
+#### isBatFault()
+
+{{api name1="PMIC::isBatFault"}}
+
+`bool isBatFault();`
+
+Returns `true` if the battery over-voltage protection has tripped (`BAT_FAULT`, REG09 bit 3).
+
+#### getNTCFault()
+
+{{api name1="PMIC::getNTCFault"}}
+
+`byte getNTCFault();`
+
+Returns the thermistor (NTC) fault code (`NTC_FAULT`, REG09 bits 2:0): 0 = normal, 5 = cold, 6 = hot. This only applies to devices with a battery temperature sensor connected to the TS pin, such as the 3-pin LiPo connector on the PM-BAT, Muon, and M.2 breakout board.
 
 ---
 

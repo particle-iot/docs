@@ -1035,8 +1035,8 @@
             "hash": "4b2951755549f4c80c265d749a1fb5b33fa6d1d077fefcd503ac762973854543"
         },
         "hardware/power/power-supply-guide.md": {
-            "date": "2026-04-01",
-            "hash": "4f3a2653c912d4c04f46bf4c5076d2997dc2efc6a629723f9aeaaa1f435d5027"
+            "date": "2026-07-20",
+            "hash": "0135ad02d127f952bf574615d20bee9a938aa6ef6f28a0f201fb28fe628a5585"
         },
         "hardware/power/vehicle-power.md": {
             "date": "2024-02-27",
@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-07-18",
-            "hash": "7f09e979a01e42ecdfbcb1b29b02741afcc5f7c84646d88e8b10e1d60ed5c3fa"
+            "date": "2026-07-20",
+            "hash": "006dfcb9de443a286a347c8dee8f0fa8a88fe325d37d31968f91dd07b0ec4a01"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1347,12 +1347,12 @@
             "hash": "f9de04990600228425707f35f075cffece7c3236fb4e9ef33ebe4d86d148264d"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
-            "date": "2026-06-09",
-            "hash": "178ac4f159c4eee31929fd6eea06f4bb05ceedec27c383f93c16ca5ef0a462dc"
+            "date": "2026-07-20",
+            "hash": "57bc4337b1971dffc43ec98d6ded0a23d78e3f441d5033ba790f9057807e7672"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
-            "date": "2025-09-03",
-            "hash": "fcfb66b191a35d624eddca57e7fd14e784165a4662d18446270865284dcdfb4b"
+            "date": "2026-07-20",
+            "hash": "bb129696987f480ff0872bbfbf0757dc63ac35934cca5f98fb99b27ebca72ca9"
         },
         "reference/datasheets/accessories/debugger.md": {
             "date": "2025-09-23",
@@ -1387,8 +1387,8 @@
             "hash": "450e78aff263a664b847e3a7b5f66f9a15f9b9e6bc6605d0e237d373c459b6e3"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
-            "date": "2026-06-09",
-            "hash": "ad53c4ce32d44422b51fb01324af06e26ffbfd67abe679d7a8207843b5c07e73"
+            "date": "2026-07-20",
+            "hash": "61b7237663f8d0b8ae6da5a181673daabd266af79c8691fbf680ad953fbc691c"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
             "date": "2025-09-03",
@@ -2415,16 +2415,16 @@
             "hash": "989e51c02f8d961b83ff26b416341b9725b1005cc8a3ae46bee542ea3b825d79"
         },
         "reference/device-os/api/power-manager/power-manager.md": {
-            "date": "2026-03-19",
-            "hash": "65982e059d8e723411488047ed28e4e1ab698dc9295d864c5a1e60b9ecd42991"
+            "date": "2026-07-20",
+            "hash": "2df69cf39d103a3ff3b6adc88e5627d52b271f33d49920a6b0cbe1cb03911c41"
         },
         "reference/device-os/api/power-manager/powersourcemaxcurrent.md": {
             "date": "2023-09-20",
             "hash": "e68e6118abc0cfb03042e31ae886faca06e594c27eaf39591586a8680fe5d7df"
         },
         "reference/device-os/api/power-manager/powersourceminvoltage.md": {
-            "date": "2024-09-17",
-            "hash": "f1204596309dd9ace4b4f7cb79b4626447e072093a056a0cf611cfaa06810c0c"
+            "date": "2026-07-20",
+            "hash": "9a779cf1ebcf89c1443f6898efe6a2168a8f2707c12e45aa14bf3f831c0eb0f0"
         },
         "reference/device-os/api/power-manager/batterychargecurrent.md": {
             "date": "2023-09-20",
@@ -2435,36 +2435,36 @@
             "hash": "7b703fe4a07173d9a3527623532cc6ba4abb64b5a6bc000c5cf0b509df7cfd0c"
         },
         "reference/device-os/api/power-manager/systempowerfeature.md": {
-            "date": "2026-03-19",
-            "hash": "bc44b4f1b468f8cb8783b6642983fa780eb4da3a477afd5e8f668ab8c8cf4a55"
+            "date": "2026-07-20",
+            "hash": "8cb31989d7759efcd41dd0f1d8ebe78be6a591cbc6d8ea6c4809e5a327ba4fb0"
         },
         "reference/device-os/api/power-manager/b-series-som.md": {
             "date": "2024-02-27",
             "hash": "8c4d10289798236f2269ed50188a577a4d0b6f67dad519de8885780675538095"
         },
         "reference/device-os/api/pmic-power-management-ic/pmic-power-management-ic.md": {
-            "date": "2026-03-19",
-            "hash": "184c27ad36ba5288818d40b01a0c21649d46c4af6f3536c558fc504ea547b4c2"
+            "date": "2026-07-20",
+            "hash": "fa8028d47ece3460b786ba2b110fadcf4e63c66ae5b968d2c28b8ddcc8cfb131"
         },
         "reference/device-os/api/pmic-power-management-ic/pmic-constructor.md": {
             "date": "2023-09-20",
             "hash": "35d0d00e190d634b855699ec657a7498a35f1960e8cecf25bfe5d1629bf3d62f"
         },
         "reference/device-os/api/pmic-power-management-ic/begin.md": {
-            "date": "2023-09-20",
-            "hash": "2228b923075492e8fbe5dd1951f2044c98f38f560fb4c09ac42c9ef902b23bbf"
+            "date": "2026-07-20",
+            "hash": "7af1814559de1e437aa71c4367bb24c15bcebd98e875d0b51eba565d40d9b11e"
         },
         "reference/device-os/api/pmic-power-management-ic/getversion.md": {
-            "date": "2023-09-20",
-            "hash": "3cc89c50724a5539af40fe794e78322ad3ceb17866993ed26611f6490e039ec1"
+            "date": "2026-07-20",
+            "hash": "560e96aebf1d9cbdb2515f13367ad96ac14b97d353d48d7ba523cf9968218957"
         },
         "reference/device-os/api/pmic-power-management-ic/getsystemstatus.md": {
-            "date": "2023-09-20",
-            "hash": "d6900719cf8d31ba39acb8d605c290ff4d6aa76a7cf1dbe03bb1338784981392"
+            "date": "2026-07-20",
+            "hash": "40828afb23735595b3a85088e3822a802169e12a8898bad42f5b412c2c0949ce"
         },
         "reference/device-os/api/pmic-power-management-ic/getfault.md": {
-            "date": "2023-09-20",
-            "hash": "f76f5ddfd6e7960c0ffa5c7e2a6c329f4e27734cc450996631ea0b963ebf0293"
+            "date": "2026-07-20",
+            "hash": "d431c59164883a7a2c8648b1ae7ec8183975b43a54d6f082932cbb4298c1b770"
         },
         "reference/device-os/api/pmic-power-management-ic/lock.md": {
             "date": "2023-09-20",
@@ -2475,40 +2475,40 @@
             "hash": "3bc49291b9b51e241964d1838e6ed7f4c60f8224c3f681324da85dd55b7e1eb0"
         },
         "reference/device-os/api/pmic-power-management-ic/input-source-control-register.md": {
-            "date": "2023-09-20",
-            "hash": "8510d8c20e96a2fb5a0ab2aac1b8b80d46ff6d81a2fb2171e2a183b80e250eee"
+            "date": "2026-07-20",
+            "hash": "b53f53630e6fa551d0f67184a840e0e1ad0ee7217d946ecadc2dab321de9a0b7"
         },
         "reference/device-os/api/pmic-power-management-ic/power-on-configuration-reg.md": {
-            "date": "2023-09-20",
-            "hash": "29604646c1badaf5d795eaf3af0f153c18bdcb67147b2b6da83477c811ab0be6"
+            "date": "2026-07-20",
+            "hash": "4d123d5a01a3dcc00c7ee84558de76c15b88857bcbd5d59cb9692adb43795a6a"
         },
         "reference/device-os/api/pmic-power-management-ic/charge-current-control-reg.md": {
-            "date": "2023-09-20",
-            "hash": "843fa3fcc39a6e5cf4df3881d2f7d653469ed6a66f94709ff65cba6d382169f7"
+            "date": "2026-07-20",
+            "hash": "575405c1c2ead7f9fd9e2a135220704d8f38c8241ccce4f86a0ce78983c9fe62"
         },
         "reference/device-os/api/pmic-power-management-ic/precharge-termination-current-control-reg.md": {
-            "date": "2023-09-20",
-            "hash": "ba80b5417d1bb389e4d495fb2759a77c40587a7044c02b4f7ddc60222502e32c"
+            "date": "2026-07-20",
+            "hash": "db1c6f0b3416380486c9222df46a222928367e4556b4dce7b3e05f9a0de53107"
         },
         "reference/device-os/api/pmic-power-management-ic/charge-voltage-control-reg.md": {
-            "date": "2023-09-20",
-            "hash": "9456163d7949af67aa3062058038cc95d8d4196c8ab2cf6f5d60942c40bb3d1f"
+            "date": "2026-07-20",
+            "hash": "62f15b739312838ea98019bd4cae493d9cc6f458dec4ae87b79ea7c7ed3010fb"
         },
         "reference/device-os/api/pmic-power-management-ic/charge-timer-control-reg.md": {
-            "date": "2023-09-20",
-            "hash": "51fdd710ac6c9954c5870b1892cc6c4aeb1cd3eb2fdf5504234226ba29060c89"
+            "date": "2026-07-20",
+            "hash": "7e0c4e1cfeff4dac76fcb828ae53e074a2556325764c5f9f92b2f44c51da4b89"
         },
         "reference/device-os/api/pmic-power-management-ic/thermal-regulation-control-reg.md": {
-            "date": "2023-09-20",
-            "hash": "9f3f37837e50dc7185623feb2c413e79597340869b265ba36f4eeb4d6844946f"
+            "date": "2026-07-20",
+            "hash": "7aa3f6ed2df72192a3dfbf1eb52d3cb7d5b90ac175c1db3ba402b80cc2a4d66c"
         },
         "reference/device-os/api/pmic-power-management-ic/misc-operation-control-reg.md": {
-            "date": "2023-09-20",
-            "hash": "60a7e34f43a0c927dc0c60e327d93cc8cb454b94c9f4a8e94943f5c5d44a79f1"
+            "date": "2026-07-20",
+            "hash": "ef13592df87bc3764bbda50e3f381164499ae66d8d7629485ae20a68aad215f7"
         },
         "reference/device-os/api/pmic-power-management-ic/system-status-register.md": {
-            "date": "2026-05-08",
-            "hash": "643ad7fa5efba32691b186b923c9d2c4dc470826f88c46c64d6b595d50d0815a"
+            "date": "2026-07-20",
+            "hash": "09b4ee6823a5f47b8b84a5d86a9f88f83d5dba0e7e253e1fde270c912875d803"
         },
         "reference/device-os/api/serial/serial.md": {
             "date": "2026-03-19",
@@ -9191,16 +9191,16 @@
             "date": "2024-09-17"
         },
         "reference/device-os/api/power-manager/powersourcemaxcurrent-systempowerconfiguration.md": {
-            "hash": "e052709fefbef711d723ddaa941403e718388ef3645943372a3e3583587c3b27",
-            "date": "2024-09-17"
+            "hash": "27042593cbf2f5ad4eb6566d77a318adadc034ee2be7d47e7e36a858a87bb76e",
+            "date": "2026-07-20"
         },
         "reference/device-os/api/power-manager/batterychargecurrent-systempowerconfiguration.md": {
-            "hash": "04e6c533480654a38ac37df34250cb9540e0c48743ba8e8c95cd2a1bf0040215",
-            "date": "2024-09-17"
+            "hash": "2c7893aa70d6026eca1d25d624a15ba4c5e5177e5ce70fdb1a078f5816c07a0f",
+            "date": "2026-07-20"
         },
         "reference/device-os/api/power-manager/batterychargevoltage-systempowerconfiguration.md": {
-            "hash": "113238e33feb9d8018798d2d9ef4bab8e95d54b1f3ae4e10e472b068daaa9865",
-            "date": "2024-09-17"
+            "hash": "d65f7d2983e9f47b79d1d5404d1bdedbb52cf5a5c7a7101dd8f04428410b11a8",
+            "date": "2026-07-20"
         },
         "reference/device-os/api/power-manager/socbitprecision-systempowerconfiguration.md": {
             "hash": "92f274a51c9852fd0c31f59e356b09b47bcd7c2bd0753bcc5f362c594c7c3ce8",
@@ -10047,12 +10047,16 @@
             "date": "2026-07-08"
         },
         "reference/device-os/api/power-manager/power-manager-environment-variables.md": {
-            "hash": "20ea8708faac2c3ab5761bc2adc0658a4524f10fa3aee99b0dfa59840e0d91c1",
-            "date": "2026-07-18"
+            "hash": "41e3861f3e1216d1581cff7e9298f3bc6081059c02ffe73d47e1f935939f0d64",
+            "date": "2026-07-20"
         },
         "reference/device-os/api/serial/readbytes.md": {
             "hash": "714cddea02f8795344b67bc835d4a987c6fc94fe33ae21ffd06986bfec098727",
             "date": "2026-07-18"
+        },
+        "reference/device-os/api/pmic-power-management-ic/fault-register.md": {
+            "hash": "97a2d823940d613f8e211d78f9feea6e9763e73ce5d5095b6f4a2ce0f1fa5c6f",
+            "date": "2026-07-20"
         }
     }
 }

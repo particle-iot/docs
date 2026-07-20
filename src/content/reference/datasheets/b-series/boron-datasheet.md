@@ -269,7 +269,7 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 <sup>[1]</sup> A fault condition can occur due to several reasons, for example, battery over/under voltage, temperature fault or safety timer fault. You can find the root cause by reading the fault register of the power management IC in firmware.
 
-<sup>[2]</sup> You can stop this behavior by either plugging in the LiPo battery or by disabling charging using firmware command: `PMIC().disableCharging();`.
+<sup>[2]</sup> You can stop this behavior by either plugging in the LiPo battery, or by disabling charging in firmware. The recommended way is [`SystemPowerFeature::DISABLE_CHARGING`](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-disable_charging) in the Power Manager API, since it persists across resets; calling `PMIC().disableCharging();` directly on the [`PMIC`](/reference/device-os/api/pmic-power-management-ic/power-on-configuration-reg/#disablecharging-) class also works, but only until the Power Manager next reapplies its configuration.
 
 ## Technical specifications
 
