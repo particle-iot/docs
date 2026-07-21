@@ -1208,7 +1208,6 @@ $(document).ready(function() {
                 deviceInfo.platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
 
                 analytics.track('Selected', {category:gaCategory, label:deviceInfo.platformId});
-                console.log('checkDevice', deviceInfo);
 
                 if (!deviceInfo.targetVersion) {
                     deviceInfo.targetVersion = minimumDeviceOsVersion;
@@ -1221,10 +1220,24 @@ $(document).ready(function() {
                     case 25: // b5som
                     case 26: // tracker
                     case 28: // trackerm
-                    case 35: // electron2
+                    case 35: // msom (technically the M-SoM doesn't have a PMIC, the base board does, but it's OK for the purposes of this test)
+                    case 37: // electron2
                         deviceInfo.hasPMIC = true;
                         break;
                 }
+
+                deviceInfo.supportsHiddenWifi = false;
+                switch(deviceInfo.platformId) {
+                    case 32: // P2 (and Photon 2)
+                    case 35: // msom                    
+                        if (apiHelper.versionSort(deviceInfo.firmwareVersion, '5.7.0') <= 0) {
+                            // versionSort sorts newest first, so the test looks backwards
+                            deviceInfo.supportsHiddenWifi = true;
+                        }
+                        break;
+                }
+
+                console.log('checkDevice', deviceInfo);
 
                 if (mode == 'doctor' || mode == 'setup') {
                     if (deviceInfo.platformId == 26 || deviceInfo.platformId == 28) {
@@ -3934,29 +3947,13 @@ $(document).ready(function() {
             }
 
 
-            // RTL872x allow use of hidden SSIDs on Device OS 5.5.0 and later BUT this does not currently work with control requests
-            // Hidden SSIDs are supported on P1 and Photon 1, but not implemented here
-            // Hidden SSIDs are not supported on Argon but this techique can be used to connect to a network while offline
+            // RTL872x allow use of hidden SSIDs on Device OS 5.5.0 and later but this does not currently work with control requests
+            // until 5.7.0. The deviceInfo.supportsHiddenWifi checks this.
+            // Hidden SSIDs are supported on P1 and Photon 1, but not implemented here as it uses different control requests
             if (deviceModuleInfo) {
-                const v = deviceModuleInfo.getSystemVersion();
-                let showHiddenOptions = false;
-                /*
-                if (deviceInfo.platformVersionInfo.isRTL872x) {
-                    if (v >= 5500) { // 5.5.0-rc.1 or later
-                        showHiddenOptions = true;
-                    }
-                }
-                */
                 $(wifiHiddenSsidWarningDivElem).hide();
 
-                if (deviceInfo.platformVersionInfo.isnRF52) {
-                    // Configuring a network that's offline isn't working on nRF52 either, so this is turned
-                    // off as well now. I tested it incorrectly and it looked like it was working, but it wasn't.
-                    // showHiddenOptions = true;
-                    // $(wifiHiddenSsidWarningDivElem).show();
-                }
-
-                if (showHiddenOptions) {
+                if (deviceInfo.supportsHiddenWifi) {
                     $(wifiHiddenSsidDivElem).show();
                     $(wifiHiddenSsidCheckboxElem).on('click', radioSelectionUpdate);
                     $(wifiHiddenSsidTextElem).on('input', radioSelectionUpdate);
@@ -4144,6 +4141,9 @@ $(document).ready(function() {
                         ssid: selectedNet.ssid, 
                         password
                     };
+                    if (selectedNet.isHiddenSsid) {
+                        reqObj.hidden = true;
+                    }
                     console.log('setCredentials reqObj', reqObj);
                 
                     try {
