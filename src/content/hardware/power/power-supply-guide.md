@@ -313,6 +313,8 @@ Only the Tracker One has built-in support for shipping mode, but all bq24195 dev
 
 An important consideration is that the only way to exit shipping mode is to supply external power, either by USB or VIN. It's not possible to exit shipping mode by time, button press, etc..
 
+**Note:** Shipping mode requires directly accessing the [`PMIC`](/reference/device-os/api/pmic-power-management-ic/pmic-power-management-ic/) class, below, because disabling the BATFET and the I2C watchdog timer have no equivalent in the Power Manager API. In general, you should prefer the [Power Manager API](/reference/device-os/api/power-manager/power-manager/) over directly setting PMIC values, since the Power Manager may overwrite settings you change directly on the PMIC (input current/voltage limit, charge current, and charge voltage) the next time it runs, typically at the next reset. That doesn't apply here, since the device is about to enter hibernate/shutdown, but keep it in mind if you reuse `PMIC` calls from this example elsewhere in your firmware.
+
 This is code, slightly modified from Tracker Edge so you can perform a similar function on other devices. 
 
 You could leave out the RGB LED code if you do not need or want it.

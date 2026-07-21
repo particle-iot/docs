@@ -87,7 +87,7 @@ The E-Series module has a VBAT pad, and you can connect it as you wish:
 ## Particle.connected vs. Time.isValid
 
 The RTC is synchronized with the cloud shortly after cloud handshake (within a second or two). Because they are two separate events, 
-[`Particle.connected()`](/reference/device-os/api/cloud-functions/particle-connected/) will become true before [`Time.isValid()`](/reference/device-os/api/time/isvalid/) becomes true.
+[`Particle.connected()`](/reference/device-os/api/cloud-functions/particle-connected/) will become true before [`Time.isValid()`](/reference/device-os/api/time/isvalid-time/) becomes true.
 
 If you wake from [STOP](/reference/device-os/api/sleep-sleep/stop-systemsleepmode/) or [`ULTRA_LOW_POWER`](/reference/device-os/api/sleep-sleep/ultra_low_power-systemsleepmode/) sleep modes, the RTC will continue to be set from before sleep, and `Time.isValid()` will be true immediately.
 

@@ -82,7 +82,7 @@ void setup() {
 
 The `loop()` function is called repeatedly while your device is running. In this case, we turn the LED on (`HIGH`), wait one second, 
 turn it off, wait one second, and repeat. You can learn more about [`digitalWrite()`](/reference/device-os/api/input-output/digitalwrite/) 
-and [`delay()`](/reference/device-os/api/time/delay/) in the firmware API reference.
+and [`delay()`](/reference/device-os/api/time/delay-time/) in the firmware API reference.
 
 
 ```cpp
