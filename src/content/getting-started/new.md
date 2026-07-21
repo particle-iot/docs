@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### System power manager and PMIC documentation updates 2026-07-21
+
+Updates for the [system power manager](/reference/device-os/api/power-manager/#power-manager) and [PMIC](/reference/device-os/api/pmic-power-management-ic/) documentation to include additional information and clarifications.
+
 ### Device OS 6.5.0 new features 2026-07-20
 
 Documentation is now available for new Device OS 6.5.0 features, including:
