@@ -1509,7 +1509,6 @@ SE, SI, SK, TR, UA, UK(NI).
 {{!-- END shared-blurb --}}
 
 
-{{!-- BEGIN shared-blurb cefb33a6-e1c0-46df-9d67-4b6af885f944 --}}
 ### FCC (United States) - M635e M-SoM M-Series LTE-M/2G/NTN
 
 - FCC ID: 2AEMI-M635
@@ -1520,15 +1519,33 @@ SE, SI, SK, TR, UA, UK(NI).
 - ISED: 20127-M504
 - To be provided at a later date
 
-### CE (European Union) - M4M635e04 M-SoM M-Series LTE-M/2G/NTN
+{{!-- BEGIN shared-blurb b8d5df0f-a691-4bdd-accf-20dd7e1861b8 --}}
+### CE (European Union) - M635e M-SoM M-Series LTE Cat M1/2G/NTN
 
-- To be provided at a later date
+- [RED Evaluation](/assets/pdfs/m635e-red-evaluation.pdf)
+- [EMC Test Report](/assets/pdfs/m635e-ce-emc-test-report.pdf)
+- [EN-62368-1 Test Report](/assets/pdfs/m635e-EN62368-1-test-report.pdf) (safety)
+- [EN 301 511 Test Report](/assets/pdfs/m635e-EN301-511-test-report.pdf) (2G GSM)
+- [EN 301 908-1 Test Report](/assets/pdfs/m635e-EN301-908-1-test-report.pdf)
+- [EN 301 908-13 Test Report](/assets/pdfs/m635e-EN301-908-13-test-report.pdf) (4G)
+- [EN 301 681 Test Report](/assets/pdfs/m635e-EN301-681-test-report.pdf) (satellite)
+- [EN 302 574-3 Test Report](/assets/pdfs/m635e-EN302-574-3-test-report.pdf) (satellite)
+- [EN 300 328 Test Report - BLE](/assets/pdfs/m635e-EN300-328-ble-test-report.pdf)
+- [EN 300 328 Test Report - Wi-Fi 2.4 GHz](/assets/pdfs/m635e-EN300-328-wifi-2-4-test-report.pdf)
+- [EN 301 893 Test Report - Wi-Fi 5 GHz](/assets/pdfs/m635e-EN301-893-wifi-test-report.pdf)
+- [EN 300 440 Test Report - Wi-Fi 5.8 GHz](/assets/pdfs/m635e-EN300-440-wifi-test-report.pdf)
+- [EN 303 413 Test Report](/assets/pdfs/m635e-EN303-413-test-report.pdf) (GNSS)
+- [EN-62311 Test Report](/assets/pdfs/m635e-EN62311-test-report.pdf)
 
-### RoHS - M635e M-SoM M-Series LTE-M/2G/NTN
+### RoHS - M635e M-SoM M-Series LTE Cat M1/2G/NTN
 
-- To be provided at a later date
+- [RoHS Certificate](/assets/pdfs/m635e-rohs-certificate.pdf)
+- [RoHS Test Reports](/assets/pdfs/m635e-rohs-test-report.pdf)
+
 
 {{!-- END shared-blurb --}}
+
+
 ---
 
 ## Country compatibility
