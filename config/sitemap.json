@@ -935,8 +935,8 @@
             "hash": "bc3dd38e28093defa6fc9f26bd2dd4e576da4328170e62750a3c001fae351245"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2026-06-15",
-            "hash": "49acbf213748c296aca10ced5e872c60303abf56cf224ec26fa5cbc4bd5d8b50"
+            "date": "2026-07-21",
+            "hash": "63da9a44267fb30c8d0b668ea33056598cb2517b3fdabbcf483136fd3d4476e6"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -8391,8 +8391,8 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "4e3bc47777ddc6ed8345270cb2a301bb0346dfe8ac8e0c4a36fcb8fe2ee56ac7",
-            "date": "2026-07-16"
+            "hash": "93a23866a4beebd8c1657054dd9d49fe8d0b12e3286de112a87411942c694faa",
+            "date": "2026-07-21"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "a44143246b57cabc0b68cdd1f4860bb8958f8451d60a72991b2d0d91fd75a3c5",
