@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Configure Wi-Fi 2026-07-22
+
+The [Configure Wi-Fi](/tools/developer-tools/configure-wi-fi/) tool and [web device doctor](/tools/doctor/) now allow configuration of a Wi-Fi network with a hidden SSID on the P2, Photon 2, and M-SoM when the device is running Device OS 5.7.0 or later. The Use manually entered SSID option is hidden in other cases.
+
 ### System power manager and PMIC documentation updates 2026-07-21
 
 Updates for the [system power manager](/reference/device-os/api/power-manager/#power-manager) and [PMIC](/reference/device-os/api/pmic-power-management-ic/) documentation to include additional information and clarifications.
