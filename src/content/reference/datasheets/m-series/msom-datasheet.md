@@ -1509,16 +1509,6 @@ SE, SI, SK, TR, UA, UK(NI).
 {{!-- END shared-blurb --}}
 
 
-### FCC (United States) - M635e M-SoM M-Series LTE-M/2G/NTN
-
-- FCC ID: 2AEMI-M635
-- To be provided at a later date
-
-### ISED (Canada) - M635e M-SoM M-Series LTE-M/2G/NTN
-
-- ISED: 20127-M504
-- To be provided at a later date
-
 {{!-- BEGIN shared-blurb b8d5df0f-a691-4bdd-accf-20dd7e1861b8 --}}
 ### FCC (United States) - M635e M-SoM M-Series LTE Cat M1/2G/NTN
 
@@ -1983,3 +1973,4 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | 018      | 2026-06-15 | RK | Added NTN antenna information |
 | 019      | 2026-06-17 | RK | Updates for M635e certification |
 | 020      | 2026-07-09 | RK | Updates for M635e certification |
+| 021      | 2026-07-27 | RK | FCC, ISED, and EU certification document links |

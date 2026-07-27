@@ -1532,3 +1532,4 @@ SE, SI, SK, TR, UA, UK(NI).
 |:---------|:-----|:-------|:---------|
 | 001      | 2026-07-15 | RK | Split from M-SoM datasheet for certification |
 | 002      | 2026-07-16 | RK | Additional ISED updates |
+| 003      | 2026-07-27 | RK | FCC and ISED certification document links |
