@@ -1269,17 +1269,29 @@ SE, SI, SK, TR, UA, UK(NI).
 
 ## Certification documents
 
-### FCC (United States) - M635e M-SoM M-Series LTE-M/2G/NTN
+{{!-- BEGIN shared-blurb b8d5df0f-a691-4bdd-accf-20dd7e1861b8 --}}
+### FCC (United States) - M635e M-SoM M-Series LTE Cat M1/2G/NTN
 
 - FCC ID: 2AEMI-M635
-- To be provided at a later date
+- [Test report FCC - Cellular](/assets/pdfs/m635e-fcc-cellular-test-report.pdf)
+- [Test report FCC - BLE](/assets/pdfs/m635e-fcc-ble-test-report.pdf)
+- [Test report FCC - 2.4 GHz Wi-Fi](/assets/pdfs/m635e-fcc-2-4g-wifi-test-report.pdf)
+- [Test report FCC - 5 GHz Wi-Fi](/assets/pdfs/m635e-fcc-5g-wifi-test-report.pdf)
+- [Test report FCC - DFS](/assets/pdfs/m635e-fcc-dfs-test-report.pdf)
+- [Test report FCC - MPE](/assets/pdfs/m635e-fcc-mpe-test-report.pdf)
+- [Test report FCC Part 15 Subpart B](/assets/pdfs/m635e-fcc-15b-test-report.pdf)
 
-### ISED (Canada) - M635e M-SoM M-Series LTE-M/2G/NTN
+### ISED (Canada) - M635e M-SoM M-Series LTE Cat M1/2G/NTN
 
-- ISED: 20127-M504
-- To be provided at a later date
+- ISED ID: 20127-M635
+- [Test report ISED - Cellular](/assets/pdfs/m635e-ised-cellular-test-report.pdf)
+- [Test report ISED - BLE](/assets/pdfs/m635e-ised-ble-test-report.pdf)
+- [Test report ISED - 2.4 GHz Wi-Fi](/assets/pdfs/m635e-ised-2-4g-wifi-test-report.pdf)
+- [Test report ISED - 5 GHz Wi-Fi](/assets/pdfs/m635e-ised-5g-wifi-test-report.pdf)
+- [Test report ISED - DFS](/assets/pdfs/m635e-ised-dfs-test-report.pdf)
+- [Test report ISED - MPE](/assets/pdfs/m635e-ised-mpe-test-report.pdf)
+- [ICES-003 Test Report](/assets/pdfs/m635e-ices-003-test-report.pdf)
 
-{{!-- BEGIN shared-blurb b8d5df0f-a691-4bdd-accf-20dd7e1861b8 --}}
 ### CE (European Union) - M635e M-SoM M-Series LTE Cat M1/2G/NTN
 
 - [RED Evaluation](/assets/pdfs/m635e-red-evaluation.pdf)
