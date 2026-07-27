@@ -10057,6 +10057,10 @@
         "reference/device-os/api/pmic-power-management-ic/fault-register.md": {
             "hash": "97a2d823940d613f8e211d78f9feea6e9763e73ce5d5095b6f4a2ce0f1fa5c6f",
             "date": "2026-07-20"
+        },
+        "reference/datasheets/m-series/m635e-datasheet.md": {
+            "hash": "586af562272ab8460a3bd4101b708b83dc5ab33f58401cc1a140a4d3056b9957",
+            "date": "2026-07-27"
         }
     }
 }
