@@ -13,6 +13,8 @@ description: M-SoM datasheet
 
 ![M-SoM](/assets/images/m-series/m635e-top.png)
  
+This datasheet is for the M635e. For the M404 and M524, see [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/).
+
 ## Overview
 
 {{!-- BEGIN shared-blurb 444d0715-def6-4883-b6a7-f6b7484663ac --}}
@@ -26,8 +28,6 @@ The Particle M-SoM contains the following functional units:
   - M524: Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
   - M635e: Quectel BG95-S5 LTE Cat M1/2G (Global with NTN satellite)
 {{!-- END shared-blurb --}}
-
-For the M404 and M524, see the [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/).
 
 ### MCU
 

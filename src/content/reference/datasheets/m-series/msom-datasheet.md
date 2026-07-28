@@ -13,6 +13,8 @@ description: M-SoM datasheet
 
 ![M-SoM](/assets/images/m-series/msom-top.png)
  
+This datasheet is for the M404 and M524 M-SoM. For the M635e, see [M635e datasheet](/reference/datasheets/m-series/m635e-datasheet/).
+
 ## Overview
 
 {{!-- BEGIN shared-blurb 444d0715-def6-4883-b6a7-f6b7484663ac --}}
@@ -183,66 +185,6 @@ Single quantity M-SoM units and developer kits include a PARANTGN1EA antenna. Tr
 - Features such of high-precision, dead-reckoning, and high updates rates will require an external GNSS chip.
 - On the M404 (BG95 cellular modem), radio hardware is shared between the cellular modem and built-in GNSS which limits concurrent use.
 {{!-- END shared-blurb --}}
-
-### Certified NTN antenna
-
-Non-Terrestrial Network (NTN) is a 3GPP standard to allow devices to connect to satellites instead of earth-based cellular towers. A special antenna and a clear view of the sky outdoors is required to use NTN. 
-
-The Particle NTN antenna can be used for both NTN and traditional cellular (2G, 3G, and 4G) with the M635e<sup>1</sup>.
-
-{{!-- BEGIN shared-blurb 4ec47271-77e3-47be-bc6a-21212a269d68 --}}
-| Antenna | SKU  | Links |
-| :------ | :--- | :---- |
-| NTN and LTE cell antenna, [x1] | PARANTCN1EA | [Datasheet](/assets/pdfs/PARANTCN1EA.pdf) |
-{{!-- END shared-blurb --}}
-
-
-| Parameter       | 617-960     | 1450 - 1605 | 1710 - 2690 | 3330 - 4900 | 5150 - 5925 |
-| :-------------- | :---------- | :---------- | :---------- | :---------- | :---------- |
-| V.S.W.R.        | ≤ 2.5       | ≤ 2.5       | ≤ 2.3       | ≤ 2.5       | ≤ 3.0       |
-| Peak Gain       | 2.5 dBi     | 1.5 dBi     | 3.9 dBi     | 3.7 dBi     | 4.2 dBi     |
-| Eff % (max/avg) | 51/43       | 54/51       | 80/69       | 70/61       | 68/58       |
-
-
-For additional NTN antenna information, see:
-
-- [Antenna guide](/hardware/certification/antenna/)
-- [NTN troubleshooting](/troubleshooting/connectivity/ntn-troubleshooting/)
-
-{{!-- BEGIN shared-blurb 63e028f0-66d5-4570-bfb6-63fefb4ef8f8 --}}
-<sup>1</sup>From a certification standpoint, the flexible FPC antennas (PARANTCW1EA and PARANTCW1TY) can also be used with NTN. Because of the need for the antenna to have a clear view of the sky outside, it may be difficult to suitably mount the flexible antenna, so generally PARANTCN1EA and PARANTCN1TY are recommended for applications where the M-SoM will be used outdoors.
-{{!-- END shared-blurb --}}
-
-#### NTN antenna dimensions
-
-{{imageOverlay src="/assets/images/m-series/ntn-antenna-dimensions.png"}}
-
-{{!-- BEGIN shared-blurb cb371a25-ffdc-4422-9225-3e79ae792f53 --}}
-| Label | Value | Description |
-| :---- | :--- | :--- |
-| A | 145 mm | Length (antenna) |
-| B |  29 mm | Width |
-| C |  26 mm | Length (connector)  |
-| D | 13.5 mm | Thickness (maximum) | 
-| E | 6.5 mm | Thickness (minimum) |
-| F | 12.3 mm | Connector outside diameter |
-| A + C | 172 mm | Total length |
-{{!-- END shared-blurb --}}
-
-#### NTN antenna connections
-
-The Particle NTN antenna has a SMA connector as the antenna is typically mounted on the outside of an enclosure as a clear view of the sky is needed for proper operation.
-
-{{imageOverlay src="/assets/images/m-series/antenna-sma.png" alt="Antenna"}}
-
-You will typically use a U.FL to SMA bulkhead adapter. The U.FL connector connects to the CELL connector on the M636e M-SoM.
-
-{{imageOverlay src="/assets/images/m-series/sma-adapter.jpeg" alt="SMA adapter"}}
-
-Note that there are two different styles of SMA bulkhead connectors. The PARANTCN1EA requires a standard SMA connector. Make sure you do not source a RP-SMA adapter!
-
-{{imageOverlay src="/assets/images/m-series/sma-vs-rp-sma.png" alt="SMA adapter"}}
-
 
 ### General Antenna Guidance
 
@@ -942,10 +884,6 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 Current measurements taken at 3.6V via the battery input. For more information about measuring power usage, see [power measurement](/hardware/power/power-measurement/).
 
 
-### Power consumption (M635)
-
-To be determined at a later date. When operated on LTE Cat M1 or 2G, should be similar to M404.
-
 
 ### Radio specifications
 
@@ -1068,49 +1006,6 @@ To be determined at a later date. When operated on LTE Cat M1 or 2G, should be s
 | | Class 3 (23dBm ± 2dB) for LTE FDD bands |
 {{!-- END shared-blurb --}}
 
-#### Cellular characteristics for BG95-S5 (M635e)
-
-{{!-- BEGIN shared-blurb 1a84819b-1152-4c9a-93d1-01c2691b8570 --}}
-| Parameter | Value |
-| --- | --- |
-| Protocol stack | 3GPP Release 14 |
-| RAT | LTE Cat M1 |
-|     | IoT-NTN    |
-|     | EGPRS      |
-| LTE FDD Bands  | Band 71 (600 MHz) |
-| | Band 12 (700 MHz) |
-| | Band 13 (700 MHz) |
-| | Band 28 (700 MHz) |
-| | Band 85 (700 MHz) |
-| | Band 20 (800 MHz)  |
-| | Band 5 (850 MHz)  |
-| | Band 18 (850 MHz) |
-| | Band 19 (850 MHz) |
-| | Band 26 (850 MHz)  |
-| | Band 8 (900 MHz)  |
-| | Band 4 (1700 MHz)  |
-| | Band 3 (1800 MHz)  |
-| | Band 2 (1900 MHz)  |
-| | Band 25 (1900 MHz)  |
-| | Band 1 (2100 MHz)  |
-| | Band 66 (2100 MHz)  |
-| GSM Bands | GSM850 (850 MHz) |
-| | EGSM900 (900 MHz) |
-| | DCS1800 (1800 MHz) |
-| | PCS1900 (1900 MHz) |
-| IoT-NTN Bands | B23/B256 (S-Band) |
-|               | B244 (L-Band) |
-| Power class | Class 4 (33dBm ± 2dB) for GSM850 | |
-| | Class 4 (33dBm ± 2dB) for EGSM900 |
-| | Class 1 (30dBm ± 2dB) for DCS1800 |
-| | Class 1 (30dBm ± 2dB) for PCS1900 |
-| | Class E2 (27dBm ± 3dB) for GSM850 8-PSK |
-| | Class E2 (27dBm ± 3dB) for EGSM900 8-PSK |
-| | Class E2 (26dBm ± 3dB) for DCS1800 8-PSK |
-| | Class E2 (26dBm ± 3dB) for PCS1900 8-PSK |
-| | Class 3 (23dBm ± 2dB) for LTE FDD bands |
-| | Class 3 (23 dBm ± 2.7 dB) for IoT-NTN bands |
-{{!-- END shared-blurb --}}
 
 ## Mechanical specifications
 
@@ -1220,13 +1115,7 @@ The Grantee will provide guidance to the host manufacturer for Part 15 B require
 ### End Product Labeling - FCC
 When the module is installed in the host device, the FCC label must be visible through a window on the final device or it must be visible when an access panel, door or cover is easily re-moved. If not, a second label must be placed on the outside of the final device that contains the following text: 
 
-M404 for End Product Labeling: The final end product must be labeled in a visible area with the following
-
 > Contains FCC ID: 2AEMI-M404
-
-M635 for End Product Labeling: The final end product must be labeled in a visible area with the following
-
-> Contains FCC ID: 2AEMI-M635
 
 The FCC ID can be used only when all FCC compliance requirements are met.   
 
@@ -1306,7 +1195,6 @@ Tant que les 2 conditions ci-dessus sont remplies, des essais supplémentaires s
 
 To comply with ISED regulations limiting both maximum RF output power and human exposure to RF radiation, Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device:  
 
-{{!-- BEGIN shared-blurb 08dc5141-332a-4fca-8c6c-014a814d9dc7 --}}
 - 824–849 MHz (GSM 850): 2.01 dBi
 - 1850–1910 MHz (GSM 1900): 5.3 dBi
 - 699–716 MHz (LTE B12): 2.17 dBi
@@ -1316,13 +1204,9 @@ To comply with ISED regulations limiting both maximum RF output power and human 
 - 1710–1755 MHz (LTE B4): 2.74 dBi
 - 1710–1780 MHz (LTE B66): 3.74 dBi
 - 1850–1910 MHz (LTE B2): 5.3 dBi
-- 1626.5–1660.5 (IOT-NTN B255): 3.91 dBi
-- 1980–2010 MHz (IOT-NTN B256): 4.61dBi
-- 2000–2020 MHz (IOT-NTN B23): 4.37dBi
 - BLE:2400 MHz-2483.5 MHz: 3dBi
 - WiFi:2400MHz-2483.5MHz: 3dBi
 - WiFi:5150MHz-5850MHz: 6.8dBi
-{{!-- END shared-blurb --}}
 
 IMPORTANT NOTE: 
 
@@ -1335,21 +1219,13 @@ Dans le cas où ces conditions ne peuvent être satisfaites (par exemple pour ce
 ### End Product Labeling - ISED
 This transmitter module is authorized only for use in device where the antenna may be installed such that 20 cm may be maintained between the antenna and users.
 
-M524 for End Product Labeling: The final end product must be labeled in a visible area with the following:
-
 > Contains IC: 20127-M524
-
-M635 for End Product Labeling: The final end product must be labeled in a visible area with the following:
-
-> Contains IC: 20127-M635
 
 **Plaque signalétique du produit final**
 
 Ce module émetteur est autorisé uniquement pour une utilisation dans un dispositif où l'antenne peut être installée de telle sorte qu'une distance de 20cm peut être maintenue entre l'antenne et les utilisateurs. Le produit final doit être étiqueté dans un endroit visible avec l'inscription suivante: 
 
 > Contient des IC: 20127-M524 
-
-> Contient des IC: 20127-M635
 
 ### Manual Information To the End User - ISED
 
@@ -1403,22 +1279,6 @@ The operating frequency bands and the maximum transmitted power limit are listed
 - EGSM900 880-915 MHz, 33 dBm
 - DCS1800 1710-1785 MHz, 30 dBm
 
-### M635e - European Union (CE)
-
-We, Particle Industries, Inc, declare under our sole responsibility that the product, M404, to which this declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
-
-The full text of the EU declaration of conformity is available at the followingInternet address: 
-[https://www.particle.io/](https://www.particle.io/)
-
-Radiation Exposure Statement: This equipment complies with radiation exposure limits set forth for an uncontrolled environment.
-
-The operating frequency bands and the maximum transmitted power limit are listed below:
-- BLE 2402-2480MHz 10dBm
-- Wi-Fi 2.4GHz band 2412-2484MHz 20dBm
-- Wi-Fi 5GHz band 5180-5825MHz 23dBm
-- LTE B1 B3 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
-- EGSM900 880-915 MHz, 33 dBm
-- DCS1800 1710-1785 MHz, 30 dBm
 
 ### United Kingdom
 
@@ -1506,55 +1366,6 @@ SE, SI, SK, TR, UA, UK(NI).
 ### RoHS - M524 M-SoM M-Series LTE Cat 1
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/m524-rohs.pdf)
-{{!-- END shared-blurb --}}
-
-
-{{!-- BEGIN shared-blurb b8d5df0f-a691-4bdd-accf-20dd7e1861b8 --}}
-### FCC (United States) - M635e M-SoM M-Series LTE Cat M1/2G/NTN
-
-- FCC ID: 2AEMI-M635
-- [Test report FCC - Cellular](/assets/pdfs/m635e-fcc-cellular-test-report.pdf)
-- [Test report FCC - BLE](/assets/pdfs/m635e-fcc-ble-test-report.pdf)
-- [Test report FCC - 2.4 GHz Wi-Fi](/assets/pdfs/m635e-fcc-2-4g-wifi-test-report.pdf)
-- [Test report FCC - 5 GHz Wi-Fi](/assets/pdfs/m635e-fcc-5g-wifi-test-report.pdf)
-- [Test report FCC - DFS](/assets/pdfs/m635e-fcc-dfs-test-report.pdf)
-- [Test report FCC - MPE](/assets/pdfs/m635e-fcc-mpe-test-report.pdf)
-- [Test report FCC Part 15 Subpart B](/assets/pdfs/m635e-fcc-15b-test-report.pdf)
-
-### ISED (Canada) - M635e M-SoM M-Series LTE Cat M1/2G/NTN
-
-- ISED ID: 20127-M635
-- [Test report ISED - Cellular](/assets/pdfs/m635e-ised-cellular-test-report.pdf)
-- [Test report ISED - BLE](/assets/pdfs/m635e-ised-ble-test-report.pdf)
-- [Test report ISED - 2.4 GHz Wi-Fi](/assets/pdfs/m635e-ised-2-4g-wifi-test-report.pdf)
-- [Test report ISED - 5 GHz Wi-Fi](/assets/pdfs/m635e-ised-5g-wifi-test-report.pdf)
-- [Test report ISED - DFS](/assets/pdfs/m635e-ised-dfs-test-report.pdf)
-- [Test report ISED - MPE](/assets/pdfs/m635e-ised-mpe-test-report.pdf)
-- [ICES-003 Test Report](/assets/pdfs/m635e-ices-003-test-report.pdf)
-
-### CE (European Union) - M635e M-SoM M-Series LTE Cat M1/2G/NTN
-
-- [RED Evaluation](/assets/pdfs/m635e-red-evaluation.pdf)
-- [EMC Test Report](/assets/pdfs/m635e-ce-emc-test-report.pdf)
-- [EN-62368-1 Test Report](/assets/pdfs/m635e-EN62368-1-test-report.pdf) (safety)
-- [EN 301 511 Test Report](/assets/pdfs/m635e-EN301-511-test-report.pdf) (2G GSM)
-- [EN 301 908-1 Test Report](/assets/pdfs/m635e-EN301-908-1-test-report.pdf)
-- [EN 301 908-13 Test Report](/assets/pdfs/m635e-EN301-908-13-test-report.pdf) (4G)
-- [EN 301 681 Test Report](/assets/pdfs/m635e-EN301-681-test-report.pdf) (satellite)
-- [EN 302 574-3 Test Report](/assets/pdfs/m635e-EN302-574-3-test-report.pdf) (satellite)
-- [EN 300 328 Test Report - BLE](/assets/pdfs/m635e-EN300-328-ble-test-report.pdf)
-- [EN 300 328 Test Report - Wi-Fi 2.4 GHz](/assets/pdfs/m635e-EN300-328-wifi-2-4-test-report.pdf)
-- [EN 301 893 Test Report - Wi-Fi 5 GHz](/assets/pdfs/m635e-EN301-893-wifi-test-report.pdf)
-- [EN 300 440 Test Report - Wi-Fi 5.8 GHz](/assets/pdfs/m635e-EN300-440-wifi-test-report.pdf)
-- [EN 303 413 Test Report](/assets/pdfs/m635e-EN303-413-test-report.pdf) (GNSS)
-- [EN-62311 Test Report](/assets/pdfs/m635e-EN62311-test-report.pdf)
-
-### RoHS - M635e M-SoM M-Series LTE Cat M1/2G/NTN
-
-- [RoHS Certificate](/assets/pdfs/m635e-rohs-certificate.pdf)
-- [RoHS Test Reports](/assets/pdfs/m635e-rohs-test-report.pdf)
-
-
 {{!-- END shared-blurb --}}
 
 
@@ -1730,198 +1541,6 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | LTE Cat 1 | B28 (700 MHz) | &check;|
 
 
-
-### M635e - Country compatibility
-
-{{!-- BEGIN do not edit content below, it is automatically generated e3f8ce8b-b7c8-4116-9fe8-ef7970a01e5a --}}
-
-| Country | Model | Technologies | Carriers |
-| :--- | :--- | :--- | :--- |
-| Afghanistan | M635E | 2G | MTN |
-| Albania | M635E | 2G | Eagle, Telekom, Vodafone |
-| Algeria | M635E | 2G | Mobilis, Ooredoo |
-| American Samoa | M635E | NTN | Skylo |
-| Andorra | M635E | NTN | Skylo |
-| Anguilla | M635E | 2G | Flow |
-| Antigua and Barbuda | M635E | 2G | Flow |
-| Argentina | M635E | 2G, M1 | Claro, Movistar, Personal |
-| Armenia | M635E | 2G | Beeline, Ucom |
-| Aruba | M635E | 2G | Setar |
-| Australia | M635E | M1, NTN | Optus, Skylo, Telstra, Vodafone |
-| Austria | M635E | 2G, M1, NTN | 3 (Drei), A1, Skylo, T-Mobile |
-| Azerbaijan | M635E | 2G | Azercell, Bakcell, NAR Mobile |
-| Bahamas | M635E | 2G | Aliv, BTC Bahamas |
-| Bahrain | M635E | 2G | Zain |
-| Bangladesh | M635E | 2G | Bangalink |
-| Barbados | M635E | 2G | Flow |
-| Belarus | M635E | 2G | A1 |
-| Belgium | M635E | 2G, M1, NTN | Base, Orange, Proximus, Skylo |
-| Bolivia | M635E | 2G | Viva |
-| Bosnia and Herzegovina | M635E | 2G | HT Eronet |
-| Botswana | M635E | 2G | BeMobile |
-| Brazil | M635E | 2G, NTN | Skylo, TIM |
-| Bulgaria | M635E | 2G, NTN | A1, Skylo, Telenor, Vivacom |
-| Burkina Faso | M635E | 2G | Orange |
-| Cabo Verde | M635E | 2G | CVMóvel, Unitel T+ |
-| Cambodia | M635E | 2G | Metfone |
-| Canada | M635E | M1, NTN | Bell Mobility, Rogers Wireless, Skylo, Telus |
-| Cayman Islands | M635E | 2G | Flow |
-| Chad | M635E | 2G | Airtel |
-| Colombia | M635E | 2G | Movistar |
-| Congo (Brazzaville) | M635E | 2G | Airtel |
-| Congo (Kinshasa) | M635E | 2G | Airtel |
-| Côte d'Ivoire | M635E | 2G | MTN |
-| Croatia | M635E | 2G, M1, NTN | Hrvatski Telekom, Skylo, Tele2 |
-| Cyprus | M635E | 2G | MTN |
-| Czechia | M635E | 2G, NTN | Skylo, T-Mobile, Vodafone |
-| Denmark | M635E | 2G, M1, NTN | Skylo, TDC, Telenor, Telia |
-| Dominica | M635E | 2G | Flow |
-| Dominican Republic | M635E | 2G | Altice Dominicana, Viva |
-| Ecuador | M635E | 2G | Claro, Movistar |
-| Egypt | M635E | 2G | Etisalat |
-| El Salvador | M635E | 2G | Telefonica |
-| Estonia | M635E | 2G, M1, NTN | Elisa, Skylo, Tele2, Telia |
-| eSwatini | M635E | 2G | MTN |
-| Ethiopia | M635E | 2G | Ethio Telecom |
-| Faroe Islands | M635E | 2G, NTN | Faroese Telecom, Skylo, Vodafone |
-| Finland | M635E | 2G, M1, NTN | DNA, Elisa, Skylo, Telia |
-| France | M635E | 2G, M1, NTN | Bouygues, Free Mobile, Orange, SFR, Skylo |
-| French Guiana | M635E | 2G | Digicel |
-| Gabon | M635E | 2G | Airtel |
-| Georgia | M635E | 2G | Beeline, Geocell |
-| Germany | M635E | 2G, M1, NTN | O2, Skylo, Telekom, Vodafone |
-| Ghana | M635E | 2G | AirtelTigo, MTN |
-| Gibraltar | M635E | 2G, NTN | Gibtel, Skylo |
-| Greece | M635E | 2G, NTN | Cosmote, Skylo, Wind |
-| Grenada | M635E | 2G | Flow |
-| Guadeloupe | M635E | 2G | Orange |
-| Guatemala | M635E | 2G | Movistar |
-| Guernsey | M635E | 2G, NTN | Skylo, Sure |
-| Guinea | M635E | 2G | MTN |
-| Guinea-Bissau | M635E | 2G | MTN |
-| Guyana | M635E | 2G | Digicel |
-| Haiti | M635E | 2G | Digicel |
-| Holy See (Vatican City) | M635E | NTN | Skylo |
-| Honduras | M635E | 2G | Claro, Tigo |
-| Hungary | M635E | 2G, M1, NTN | Magyar Telekom, Skylo, Telenor, Vodafone |
-| Iceland | M635E | M1, NTN | Nova, Siminn, Skylo, Vodafone |
-| India | M635E | 2G | Airtel |
-| Indonesia | M635E | 2G | Indosat, Telkomsel, XL Axiata |
-| Ireland | M635E | 2G, NTN | Skylo, Vodafone |
-| Isle of Man | M635E | 2G, NTN | Manx Telecom, Skylo, Sure |
-| Italy | M635E | 2G, NTN | Skylo, TIM, Vodafone, Wind |
-| Japan | M635E | M1, NTN | KDDI, NTT DoCoMo, Skylo, Softbank |
-| Jersey | M635E | 2G, NTN | Jersey Telecom, Skylo, Sure |
-| Jordan | M635E | 2G | Zain |
-| Kazakhstan | M635E | 2G | Beeline, K-Cell |
-| Kenya | M635E | 2G | Airtel |
-| Kosovo | M635E | NTN | Skylo |
-| Kuwait | M635E | 2G | Viva, Zain |
-| Kyrgyzstan | M635E | 2G | Beeline |
-| Latvia | M635E | 2G, M1, NTN | Bite, LMT, Skylo, Tele2 |
-| Liechtenstein | M635E | 2G, NTN | Mobilkom, Orange, Skylo |
-| Lithuania | M635E | 2G, M1, NTN | Bite, Omnitel, Skylo, Tele2 |
-| Luxembourg | M635E | 2G, M1, NTN | Orange, POST, Skylo, Tango |
-| Madagascar | M635E | 2G | Airtel |
-| Malawi | M635E | 2G | Airtel |
-| Malaysia | M635E | 2G | DiGi, Maxis |
-| Malta | M635E | 2G, M1, NTN | Go Mobile, Skylo |
-| Mexico | M635E | M1, NTN | AT&T, Skylo, Telcel |
-| Moldova | M635E | 2G | Moldcell, Orange |
-| Monaco | M635E | NTN | Skylo |
-| Mongolia | M635E | 2G | Mobicom, Unitel |
-| Montenegro | M635E | 2G | T-Mobile, Telenor |
-| Morocco | M635E | 2G | Inwi, Medi Telecom |
-| Mozambique | M635E | 2G | Vodacom |
-| Myanmar | M635E | 2G | MPT |
-| Namibia | M635E | 2G | Telecom Namibia |
-| Netherlands | M635E | 2G, M1, NTN | KPN, Skylo, T-Mobile, Vodafone |
-| New Zealand | M635E | M1, NTN | Skylo, Spark, Vodafone |
-| Nicaragua | M635E | 2G | Movistar |
-| Nigeria | M635E | 2G | 9mobile, Airtel, Glo |
-| North Macedonia | M635E | 2G, NTN | Skylo, Vip operator |
-| Norway | M635E | 2G, M1, NTN | Skylo, TDC, Telenor, Telia |
-| Oman | M635E | 2G | Ooredoo |
-| Pakistan | M635E | 2G | Mobilink, Ufone, Warid |
-| Palestine | M635E | 2G | Jawwal |
-| Panama | M635E | 2G | Movistar |
-| Papua New Guinea | M635E | 2G | bmobile |
-| Paraguay | M635E | 2G | Personal, Tigo, Vox |
-| Peru | M635E | 2G | Entel |
-| Philippines | M635E | 2G | Globe, Smart |
-| Poland | M635E | 2G, M1, NTN | Orange, Play, Plus, Skylo, T-Mobile |
-| Portugal | M635E | 2G, M1, NTN | NOS, Skylo, TMN, Vodafone |
-| Puerto Rico | M635E | NTN | Skylo |
-| Qatar | M635E | 2G | Ooredoo, Vodafone |
-| Romania | M635E | 2G, M1, NTN | Orange, Skylo, Telekom Romania, Vodafone |
-| Russia | M635E | 2G | Beeline, Megafon, MTS, Tele2 |
-| Rwanda | M635E | 2G | Airtel, MTN |
-| Saint Kitts and Nevis | M635E | 2G | Flow |
-| Saint Lucia | M635E | 2G | Flow |
-| San Marino | M635E | NTN | Skylo |
-| Serbia | M635E | 2G | Telenor, VIP |
-| Seychelles | M635E | 2G | Airtel |
-| Singapore | M635E | M1 | SingTel |
-| Sint Maarten | M635E | 2G | TelCell |
-| Slovakia | M635E | 2G, M1, NTN | O2, Orange, Skylo, Telekom |
-| Slovenia | M635E | 2G, M1, NTN | A1, Mobitel, Skylo |
-| South Africa | M635E | 2G | Cell C, MTN, Vodacom |
-| South Korea | M635E | M1 | KT, SK Telecom |
-| South Sudan | M635E | 2G | MTN |
-| Spain | M635E | 2G, M1, NTN | Orange, Skylo, Telefonica, Vodafone, Yoigo |
-| Suriname | M635E | 2G | Telesur |
-| Sweden | M635E | 2G, M1, NTN | 3 (Tre), Skylo, Tele2, Telenor, Telia |
-| Switzerland | M635E | M1, NTN | Salt, Skylo, Sunrise, Swisscom |
-| Taiwan | M635E | M1 | Chunghwa |
-| Tajikistan | M635E | 2G | Beeline, Tcell |
-| Tanzania | M635E | 2G | Airtel |
-| Trinidad and Tobago | M635E | 2G | TSTT |
-| Tunisia | M635E | 2G | Orange Tunisie, Tunisie Telecom |
-| Turks and Caicos Islands | M635E | 2G | Flow |
-| Uganda | M635E | 2G | Africell, Airtel, MTN |
-| Ukraine | M635E | 2G | Kyivstar, Life, MTS |
-| United Arab Emirates | M635E | M1 | Etisalat |
-| United Kingdom | M635E | 2G, M1, NTN | EE, O2, Skylo, Vodafone |
-| United States | M635E | M1, NTN | AT&T, Skylo, T-Mobile (USA), Verizon<sup>7</sup> |
-| Uruguay | M635E | 2G | Antel |
-| Uzbekistan | M635E | 2G | Beeline |
-| Virgin Islands (British) | M635E | 2G | CCT, Flow |
-| Zambia | M635E | 2G | Airtel |
-
-
-{{!-- END do not edit content above, it is automatically generated  --}}
-
-
-### M635e - Certified bands
-
-| Technology | Band | FCC | CE |
-| :--- | :--- | :---: | :---: |
-| 2G | 850 MHz | &check; | &nbsp; |
-| 2G | 900 MHz | &nbsp; | &nbsp; |
-| 2G | 1800 MHz | &nbsp; | &nbsp; |
-| 2G | 1900 MHz | &check; | &nbsp; |
-| LTE Cat M1 | B1 (2100 MHz) | | &check;|
-| LTE Cat M1 | B2 (1900 MHz) | &check; | |
-| LTE Cat M1 | B3 (1800 MHz) | | &check;|
-| LTE Cat M1 | B4 (1700 MHz) | &check;| |
-| LTE Cat M1 | B5 (850 MHz) | &check;| |
-| LTE Cat M1 | B8 (900 MHz) | | &check;|
-| LTE Cat M1 | B12 (700 MHz) | &check;| |
-| LTE Cat M1 | B13 (700 MHz) | &check;| |
-| LTE Cat M1 | B18 (850 MHz)<sup>1</sup> | | |
-| LTE Cat M1 | B19 (850 MHz)<sup>1</sup> | | |
-| LTE Cat M1 | B20 (800 MHz) | | &check;|
-| LTE Cat M1 | B25 (1900 MHz) | &check;| |
-| LTE Cat M1 | B26 (850 MHz) | &check;| |
-| LTE Cat M1 | B27 (800 MHz) | | |
-| LTE Cat M1 | B28 (700 MHz) | | &check;|
-| LTE Cat M1 | B66 (2100 MHz) | &check;| |
-| LTE Cat M1 | B85 (700 MHz) | | |
-| IoT NTN | n255 (1.6 GHz) | &check; | &check; |
-| IoT NTN | n256 (2.0 GHz) | &check; | &check; |
-
-- <sup>1</sup>B18 and B19 are used only in Japan
-
 ---
 ## Ordering information
 
@@ -1974,3 +1593,4 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | 019      | 2026-06-17 | RK | Updates for M635e certification |
 | 020      | 2026-07-09 | RK | Updates for M635e certification |
 | 021      | 2026-07-27 | RK | FCC, ISED, and EU certification document links |
+| 022      | 2026-07-28 | RK | Separated the M635e datasheet |
