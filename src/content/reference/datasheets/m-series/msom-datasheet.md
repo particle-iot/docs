@@ -1320,7 +1320,8 @@ SE, SI, SK, TR, UA, UK(NI).
 - [Test Report RS-102](/assets/pdfs/m404-ic-rs102.pdf) (RF Exposure)
 
 
-### CE (European Union) - M404 M-SoM M-Series LTE-M/2G
+{{!-- 
+CE (European Union) - M404 M-SoM M-Series LTE-M/2G
 
 - [Summary](/assets/pdfs/m404-ce-summary.pdf)
 - [EN-62368-1 Test Report](/assets/pdfs/m404-EN-62368-1-test-report.pdf)
@@ -1335,7 +1336,7 @@ SE, SI, SK, TR, UA, UK(NI).
 - [EN 301 908 Test Report](/assets/pdfs/m404-EN301-908-test-report.pdf) 
 - [EN-62311 Test Report](/assets/pdfs/m404-EN62311-test-report.pdf)
 - [Test Report Photos](/assets/pdfs/m404-test-photos.pdf)
-
+--}}
 
 
 ### RoHS - M404 M-SoM M-Series LTE-M/2G
