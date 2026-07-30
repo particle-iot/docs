@@ -51,10 +51,10 @@ There are currently five data types, including the following:
 
 The `TEXT` format is what was used prior to Device OS 6.2.
 
-The image data types are not particularly useful in Device OS 6.2.0, as the publish is limited to 1024 bytes still,
-and those would be very small images. However, they will become more useful with large publish payloads in the 
-future. By specifying the data type, it allows the receiver to better handle the data. It also allows the console
-to render the data within the console.
+The image data types are not particularly useful in Device OS 6.2.0, as the publish is limited to 1K bytes,
+and those would be very small images. In Device OS 6.3.0 the limit is 16K, but this is still a small size for an image. 
+By specifying the data type, it allows the receiver to better handle the data. It also allows the console
+to render the data within the console, however.
 
 For the first time, you can now send binary data! This is sent in binary format over the air (in the CoAP packet), so it does not
 expand the data as encoding with Base64 and Base85 would. Once the data is received by the cloud, it is then encoded in 

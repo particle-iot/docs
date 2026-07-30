@@ -727,8 +727,8 @@
             "hash": "79544fe82b6ff8f4ce196599abb70c06ddff51b40697654c4a192c14c028c5d8"
         },
         "integrations/webhooks.md": {
-            "date": "2026-04-29",
-            "hash": "4b24e91302d957ff28171e1b8b58e20833dad2da09d2679729719cbf9028a64e"
+            "date": "2026-07-30",
+            "hash": "519587c363fef9b77bcfd9bb72c0adae2b3b625ae613a607b9e37a07422d1253"
         },
         "integrations/community-integrations/about-community-integrations.md": {
             "date": "2026-04-21",
@@ -1159,8 +1159,8 @@
             "hash": "40f46b9083bb58fd20e3e38ce3f0a00d7d6098f579d5d6962e2821d4e41e43e9"
         },
         "reference/cloud-apis/webhooks.md": {
-            "date": "2024-11-13",
-            "hash": "b4453e56a2580505f67707080688e877b65a735d86c69638d9acee75e2ab0ab1"
+            "date": "2026-07-30",
+            "hash": "aed8a4e6f47658144fe415192451479d8683fdf0a13f519108831a18c560137a"
         },
         "reference/developer-tools/cli.md": {
             "date": "2026-03-03",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "da3459d1aee62c6f8c4588d0595c2c455720a359460ebd64db2873ebd7f1a8cc",
-            "date": "2026-07-27"
+            "hash": "4922d4cc6460a869f1c07d26c415d4fabbfe9698363587fbbbaa063944456304",
+            "date": "2026-07-30"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9447,8 +9447,8 @@
             "date": "2025-04-01"
         },
         "reference/device-os/typed-publish.md": {
-            "hash": "206685d02adffbba1b4f33e4492020fe24f56b97921c69f842af6be0b827353a",
-            "date": "2025-04-28"
+            "hash": "f5d1f95f181947c737eb18694f6c31ad113ddd91d1b83c90e71171b66d1bb7a2",
+            "date": "2026-07-30"
         },
         "troubleshooting/led.md": {
             "hash": "28e112800c4c1c1bab72d2a6bdc09b2668b732d27662a7233351b4aed813aa09",

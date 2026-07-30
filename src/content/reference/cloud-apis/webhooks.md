@@ -685,7 +685,7 @@ can also use of these convenience variables:
 
 ### Custom variables
 
-If the event data is valid JSON, it is automagically converted to variables that are available in the template.
+If the event data is valid JSON, it is automatically converted to variables that are available in the template.
 
 ```
 FIRMWARE
@@ -708,6 +708,14 @@ WEBHOOK
 ```
 
 For example, this firmware code will make variables `\{{{room}}}` and `\{{{temp}}}` available inside the webhook template.
+
+## Structured and binary data
+
+In Device OS 6.2.0 and later, structured and binary data can be published from devices efficiently. To see how these
+data types are delivered to webhooks, see:
+
+- [Typed and extended publish](/reference/device-os/typed-publish/)
+- [Integrations - Webhooks](/integrations/webhooks/#binary-data)
 
 ## Default data
 

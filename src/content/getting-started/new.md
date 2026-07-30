@@ -21,7 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### FCC and ISED Certification M635e 2026-07-09
+### Binary data in webhooks 2026-07-30
+
+Added a section to [Integrations - Webhooks](/integrations/webhooks/#binary-data) to explain how binary data is encoded. It was in [Typed and extended publish](/reference/device-os/typed-publish/) but not integrations.
+
+### FCC and ISED Certification M635e 2026-07-29
 
 Certification documents for FCC (US) and ISED (Canada) for the M635e in the [certification documents](/hardware/certification/certification-documents/#m635e-m-som-m-series-lte-cat-m1-2g-ntn).
 
