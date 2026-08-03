@@ -1399,12 +1399,12 @@
             "hash": "a25ee15997fd92068f24b92fa506611af0f0bcbae34daaa769917bec984a3de0"
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
-            "date": "2026-05-18",
-            "hash": "a0ac26187f6d501f15fba59520ab3e0ddb8d06fe67a1155f4a13f63b54ccbda2"
+            "date": "2026-08-03",
+            "hash": "446c035c64986f51ef2bc84030ccfb7a60d311f8b730e82fc6bd4c27dac49e07"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2026-06-12",
-            "hash": "e4f8a37b22563651adc1640786e4d3a26db222577676ee1422bccb36d642c1f0"
+            "date": "2026-08-03",
+            "hash": "6ffce03301a1fb4261bd3da6661de18c34e23768bcb35a0e43c451f9e0753657"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2025-06-24",
@@ -8391,12 +8391,12 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "81b3cfa131658522b0da2778635c4bbbacb43e03374f7df02d4e25aa969100c0",
-            "date": "2026-07-30"
+            "hash": "d01f7d82e7d6a3343893964080ad2163b8fdad93842b2c7ec337a8a7ffe29252",
+            "date": "2026-08-03"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "a44143246b57cabc0b68cdd1f4860bb8958f8451d60a72991b2d0d91fd75a3c5",
-            "date": "2026-06-17"
+            "hash": "2b1aac215584492c03073575da613ff7d9149addfbe6621b965620f2423111c0",
+            "date": "2026-08-03"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -10059,8 +10059,8 @@
             "date": "2026-07-20"
         },
         "reference/datasheets/m-series/m635e-datasheet.md": {
-            "hash": "829c0d88baf3adecb460880aab9b0a12777d20633550197748967f88c2345ae1",
-            "date": "2026-07-29"
+            "hash": "6d992a1f2d715c08d64908b0d1836e87f70cadf1e3f4fb38d2cb4191fbf4875e",
+            "date": "2026-08-03"
         }
     }
 }
