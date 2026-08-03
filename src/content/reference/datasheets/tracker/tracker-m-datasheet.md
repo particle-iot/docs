@@ -57,7 +57,7 @@ The following antennas are available
 
 The P2 is a SMD module with a microcontroller, 2.4 GHz and 5 GHz Wi-Fi, and BLE.
 
-- 802.11a/b/g/n Wi-Fi, 2.4 GHz and 5 GHz
+- 802.11b/g/n Wi-Fi, 2.4 GHz and 5 GHz
   - Integrated PCB antenna
   - Integrated U.FL connector for external antenna
   - Integrated RF switch

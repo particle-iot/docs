@@ -23,7 +23,7 @@ the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash 
 
 ### Features
 
-- 802.11a/b/g/n Wi-Fi, 2.4 GHz and 5 GHz
+- 802.11b/g/n Wi-Fi, 2.4 GHz and 5 GHz
   - Integrated PCB antenna
   - Integrated U.FL connector for external antenna
   - Integrated RF switch
