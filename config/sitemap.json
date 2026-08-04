@@ -1399,12 +1399,12 @@
             "hash": "a25ee15997fd92068f24b92fa506611af0f0bcbae34daaa769917bec984a3de0"
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
-            "date": "2026-08-03",
-            "hash": "446c035c64986f51ef2bc84030ccfb7a60d311f8b730e82fc6bd4c27dac49e07"
+            "date": "2026-08-04",
+            "hash": "a0ac26187f6d501f15fba59520ab3e0ddb8d06fe67a1155f4a13f63b54ccbda2"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2026-08-03",
-            "hash": "6ffce03301a1fb4261bd3da6661de18c34e23768bcb35a0e43c451f9e0753657"
+            "date": "2026-08-04",
+            "hash": "e4f8a37b22563651adc1640786e4d3a26db222577676ee1422bccb36d642c1f0"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2025-06-24",
@@ -8391,11 +8391,11 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "4afb29ee9c7801fa6cc84b799bb82f0750a26297576d67d51eff184fc1a788ab",
+            "hash": "0282c3693cac4db3242c5ed8ab874303c97a21bd226fc9750bf7f1e4162c2fe9",
             "date": "2026-08-04"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "2b763de69eb3d148653bedd0f17445cc3d48a92a1764dd2effd916201f2856cd",
+            "hash": "23e67ac5a1a708b90b3941ca5ae8cc28c47bb5a20e0b7c057bac4a970c4708bd",
             "date": "2026-08-04"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
@@ -10059,8 +10059,8 @@
             "date": "2026-07-20"
         },
         "reference/datasheets/m-series/m635e-datasheet.md": {
-            "hash": "6d992a1f2d715c08d64908b0d1836e87f70cadf1e3f4fb38d2cb4191fbf4875e",
-            "date": "2026-08-03"
+            "hash": "829c0d88baf3adecb460880aab9b0a12777d20633550197748967f88c2345ae1",
+            "date": "2026-08-04"
         }
     }
 }
