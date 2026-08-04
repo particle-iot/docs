@@ -44820,6 +44820,20 @@
             "state": "open",
             "created_at": "2026-07-15T07:37:26Z",
             "detail": "MSoMs will leak current on PB12 (QSPI_IO3) and SWD_DATA when the device is in STOP/ULP mode."
+        },
+        "2937": {
+            "url": "https://github.com/particle-iot/device-os/pull/2937",
+            "number": 2937,
+            "title": "Non-blocking handshake",
+            "state": "open",
+            "created_at": "2026-07-29T15:57:06Z"
+        },
+        "2938": {
+            "url": "https://github.com/particle-iot/device-os/pull/2938",
+            "number": 2938,
+            "title": "Boot log",
+            "state": "open",
+            "created_at": "2026-08-04T14:46:40Z"
         }
     }
 }

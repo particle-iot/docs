@@ -1,6 +1,17 @@
 {
     "versions": [
         {
+            "v": "v23",
+            "title": "Tracker Edge Firmware v23",
+            "releaseNotes": "## v23\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v3.2.0 or greater.\r\n\r\n### FEATURES\r\n\r\n- Support for the `PARTICLE_PMIC_INPUT_CURRENT` and `PARTICLE_PMIC_CHARGE_CURRENT` environment variables on device OS 6.5.0 and above, which override the PMIC input current limit and battery charge current.  See official Particle documentation for example usage.\r\n\r\n### ENHANCEMENTS\r\n\r\n- Log the PMIC configuration applied by the system power manager, along with any environment variable overrides.\r\n\r\n### BUGFIXES\r\n\r\n- Correctly select the external watchdog on device OS 6.4.0 and above, resolving premature wake from sleep when using the internal watchdog.\r\n- Work around a device OS 6.5.0 panic (SOS 10, assertion failure) that could reset the device when serial logging filled the USB CDC transmit buffer.\r\n\r\n### UUID\r\n\r\n```\r\ntracker-edge-23@6.5.0.bin has a UUID of a43250a71d1f4365a8aff0fc15a30c20a2933503fcc39115460062d955d8a7a8\r\n```",
+            "bin": "tracker-edge-23@6.5.0.bin",
+            "version": 23,
+            "zip": "v23.zip",
+            "target": "6.5.0",
+            "schemaVersion": 23,
+            "filename": "tracker-config-schema-23.json"
+        },
+        {
             "v": "v22",
             "title": "Tracker Edge Firmware v22",
             "releaseNotes": "## Tracker Edge Firmware v22\r\n\r\n### COMPATIBILITY\r\n\r\n- Must be built using device OS v3.2.0 or greater.\r\n\r\n### ENHANCEMENTS\r\n\r\n- Source can be built for device OS >= 6.4.1",

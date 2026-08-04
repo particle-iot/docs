@@ -21,6 +21,14 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker Edge v23 2026-08-04
+
+Tracker Edge v23 is now available.
+
+### Monitor Edge v3 2026-08-04
+
+Monitor Edge v3 is now available.
+
 ### Carrier updates 2026-08-04
 
 Vodafone in India on Tachyon does support 5G, it was missing from the list. In the Netherlands, all carriers have sunset 3G (but still have 2G and 4G).
