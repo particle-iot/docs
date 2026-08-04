@@ -1247,7 +1247,8 @@ Operation in the 5600-5650 MHz band is not allowed in Canada. High-power radars 
 
 ## European Union (CE) Warnings and End Product Labeling Requirements
 
-### M404 - European Union (CE)
+{{!--  
+European Union (CE)
 
 We, Particle Industries, Inc, declare under our sole responsibility that the product, M404, to which this declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
 
@@ -1261,6 +1262,7 @@ The operating frequency bands and the maximum transmitted power limit are listed
 - Wi-Fi 2.4GHz band 2412-2484MHz 20dBm
 - Wi-Fi 5GHz band 5180-5825MHz 23dBm
 - LTE B1 B3 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
+--}}
 
 ### M524 - European Union (CE)
 
