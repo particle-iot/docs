@@ -655,7 +655,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Mozambique | E314 | 2G, 3G | Vodacom |
 | Myanmar | E314 | 2G, 3G | MPT |
 | Namibia | E314 | 2G, 3G | Telecom Namibia |
-| Netherlands | E314 | 2G, 3G | T-Mobile, Vodafone |
+| Netherlands | E314 | 2G | Vodafone |
 | Nicaragua | E314 | 2G, 3G | Movistar |
 | Nigeria | E314 | 2G, 3G | 9mobile, Airtel, Glo |
 | Norway | E314 | 2G, 3G | TDC |

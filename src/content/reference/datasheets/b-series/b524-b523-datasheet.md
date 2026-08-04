@@ -1817,7 +1817,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Mozambique | B524 | 2G, 3G, 4G | Vodacom |
 | Myanmar | B524 | 2G, 3G, 4G | MPT, Telenor |
 | Namibia | B524 | 2G, 3G, 4G | Telecom Namibia |
-| Netherlands | B524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
+| Netherlands | B524 | 2G, 4G | KPN, T-Mobile, Vodafone |
 | New Zealand | B524 | 4G | 2degrees, Spark, Vodafone |
 | Nigeria | B524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
 | Norway | B524 | 2G, 3G, 4G | TDC, Telenor, Telia |

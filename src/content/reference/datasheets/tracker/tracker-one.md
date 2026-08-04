@@ -496,7 +496,7 @@ Current measurements taken at 3.6V via the battery input. For more information a
 | Mozambique | ONE524 | 2G, 3G, 4G | Vodacom |
 | Myanmar | ONE524 | 2G, 3G, 4G | MPT, Telenor |
 | Namibia | ONE524 | 2G, 3G, 4G | Telecom Namibia |
-| Netherlands | ONE524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
+| Netherlands | ONE524 | 2G, 4G | KPN, T-Mobile, Vodafone |
 | New Zealand | ONE524 | 4G | 2degrees, Spark, Vodafone |
 | Nigeria | ONE524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
 | Norway | ONE524 | 2G, 3G, 4G | TDC, Telenor, Telia |

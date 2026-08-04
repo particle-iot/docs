@@ -1278,7 +1278,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Mozambique | T524 | 2G, 3G, 4G | Vodacom |
 | Myanmar | T524 | 2G, 3G, 4G | MPT, Telenor |
 | Namibia | T524 | 2G, 3G, 4G | Telecom Namibia |
-| Netherlands | T524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
+| Netherlands | T524 | 2G, 4G | KPN, T-Mobile, Vodafone |
 | New Zealand | T524 | 4G | 2degrees, Spark, Vodafone |
 | Nigeria | T524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
 | Norway | T524 | 2G, 3G, 4G | TDC, Telenor, Telia |

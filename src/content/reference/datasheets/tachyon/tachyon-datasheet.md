@@ -1072,13 +1072,13 @@ Consumers should contact their local authority or retailer for information conce
 | Greece | 2G, 4G, 5G | Cosmote, Vodafone, Wind |
 | Hungary | 2G, 3G, 4G, 5G | T-Mobile, Telenor, Vodafone |
 | Iceland | 4G | Nova, Siminn |
-| India | 2G, 3G, 4G | Vodafone |
+| India | 2G, 3G, 4G, 5G | Vodafone |
 | Ireland | 2G, 4G, 5G | 3 (Tre), Vodafone |
 | Italy | 2G, 4G, 5G | TIM, Vodafone, Wind |
 | Japan | 4G, 5G | KDDI |
 | Lithuania | 2G, 4G, 5G | Bite |
 | Luxembourg | 2G, 4G | Orange, POST, Tango |
-| Netherlands | 2G, 3G, 4G, 5G | KPN, T-Mobile, Vodafone |
+| Netherlands | 2G, 4G, 5G | KPN, T-Mobile, Vodafone |
 | New Zealand | 4G, 5G | Spark |
 | Norway | 4G | Telenor, Telia |
 | Poland | 2G, 3G, 4G, 5G | Orange, Play, Plus, T-Mobile |

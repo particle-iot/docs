@@ -1882,7 +1882,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Mozambique | M524 | 2G, 3G, 4G | Vodacom |
 | Myanmar | M524 | 2G, 3G, 4G | MPT, Telenor |
 | Namibia | M524 | 2G, 3G, 4G | Telecom Namibia |
-| Netherlands | M524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
+| Netherlands | M524 | 2G, 4G | KPN, T-Mobile, Vodafone |
 | New Zealand | M524 | 4G | 2degrees, Spark, Vodafone |
 | Nigeria | M524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
 | Norway | M524 | 2G, 3G, 4G | TDC, Telenor, Telia |

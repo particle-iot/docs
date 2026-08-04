@@ -622,7 +622,7 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Mozambique | BRN314 | 2G, 3G | Vodacom |
 | Myanmar | BRN314 | 2G, 3G | MPT |
 | Namibia | BRN314 | 2G, 3G | Telecom Namibia |
-| Netherlands | BRN314 | 2G, 3G | T-Mobile, Vodafone |
+| Netherlands | BRN314 | 2G | Vodafone |
 | Nicaragua | BRN314 | 2G, 3G | Movistar |
 | Nigeria | BRN314 | 2G, 3G | 9mobile, Airtel, Glo |
 | Norway | BRN314 | 2G, 3G | TDC |

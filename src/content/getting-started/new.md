@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Carrier updates 2026-08-04
+
+Vodafone in India on Tachyon does support 5G, it was missing from the list. In the Netherlands, all carriers have sunset 3G (but still have 2G and 4G).
+
 ### Binary data in webhooks 2026-07-30
 
 Added a section to [Integrations - Webhooks](/integrations/webhooks/#binary-data) to explain how binary data is encoded. It was in [Typed and extended publish](/reference/device-os/typed-publish/) but not integrations.

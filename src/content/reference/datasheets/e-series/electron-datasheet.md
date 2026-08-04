@@ -721,7 +721,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Mozambique | ELC314 | 2G, 3G | Vodacom |
 | Myanmar | ELC314 | 2G, 3G | MPT |
 | Namibia | ELC314 | 2G, 3G | Telecom Namibia |
-| Netherlands | ELC314 | 2G, 3G | T-Mobile, Vodafone |
+| Netherlands | ELC314 | 2G | Vodafone |
 | Nicaragua | ELC314 | 2G, 3G | Movistar |
 | Nigeria | ELC314 | 2G, 3G | 9mobile, Airtel, Glo |
 | Norway | ELC314 | 2G, 3G | TDC |

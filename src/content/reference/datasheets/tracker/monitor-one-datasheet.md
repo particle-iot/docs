@@ -945,7 +945,7 @@ To be provided at a later date.
 | Mozambique | MON524 | 2G, 3G, 4G | Vodacom |
 | Myanmar | MON524 | 2G, 3G, 4G | MPT, Telenor |
 | Namibia | MON524 | 2G, 3G, 4G | Telecom Namibia |
-| Netherlands | MON524 | 2G, 3G, 4G | KPN, T-Mobile, Vodafone |
+| Netherlands | MON524 | 2G, 4G | KPN, T-Mobile, Vodafone |
 | New Zealand | MON524 | 4G | 2degrees, Spark, Vodafone |
 | Nigeria | MON524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
 | Norway | MON524 | 2G, 3G, 4G | TDC, Telenor, Telia |

@@ -4792,7 +4792,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -4868,7 +4869,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "h"
+        "profile": "h",
+        "allow5G": true
       }
     },
     {
@@ -4919,7 +4921,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "h"
+        "profile": "h",
+        "allow5G": true
       }
     },
     {
@@ -4958,7 +4961,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "h"
+        "profile": "h",
+        "allow5G": true
       }
     },
     {
@@ -6013,7 +6017,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -6847,7 +6852,8 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g",
-        "roamingRestrictions": "warn"
+        "roamingRestrictions": "warn",
+        "allow5G": true
       }
     },
     {
@@ -7935,7 +7941,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -8062,7 +8069,8 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g",
-        "roamingRestrictions": "warn"
+        "roamingRestrictions": "warn",
+        "allow5G": true
       }
     },
     {
@@ -8148,7 +8156,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -8189,7 +8198,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -8460,7 +8470,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -10849,7 +10860,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -12336,7 +12348,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -13676,7 +13689,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -13695,7 +13709,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -13770,7 +13785,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -13824,7 +13840,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -14379,7 +14396,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -15377,7 +15395,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -19060,7 +19079,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -19128,7 +19148,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -19751,7 +19772,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -20417,7 +20439,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -20775,7 +20798,8 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g",
-        "roamingRestrictions": "warn"
+        "roamingRestrictions": "warn",
+        "allow5G": true
       }
     },
     {
@@ -20821,7 +20845,8 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g",
-        "roamingRestrictions": "warn"
+        "roamingRestrictions": "warn",
+        "allow5G": true
       }
     },
     {
@@ -21738,7 +21763,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "h"
+        "profile": "h",
+        "allow5G": true
       }
     },
     {
@@ -21795,7 +21821,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "h"
+        "profile": "h",
+        "allow5G": true
       }
     },
     {
@@ -21814,7 +21841,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "h"
+        "profile": "h",
+        "allow5G": true
       }
     },
     {
@@ -21989,7 +22017,8 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g",
-        "roamingRestrictions": "warn"
+        "roamingRestrictions": "warn",
+        "allow5G": true
       }
     },
     {
@@ -24854,7 +24883,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -25460,7 +25490,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -25579,7 +25610,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -25598,7 +25630,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -25701,7 +25734,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -25732,7 +25766,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -25795,7 +25830,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -25826,7 +25862,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -25845,7 +25882,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -26023,7 +26061,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -26093,7 +26132,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -26165,7 +26205,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -26449,7 +26490,8 @@
         "allow4G": true,
         "allow3G": true,
         "allow2G": true,
-        "profile": "g"
+        "profile": "g",
+        "allow5G": true
       }
     },
     {
@@ -92527,7 +92569,8 @@
           "4G-3",
           "4G-8",
           "4G-40",
-          "4G-41"
+          "4G-41",
+          "5G-78"
         ],
         "Vodafone": [
           "2G-900",
@@ -92537,23 +92580,23 @@
           "4G-3",
           "4G-8",
           "4G-40",
-          "4G-41"
+          "4G-41",
+          "5G-78"
         ]
       },
       "notSupported": {
         "*": [
-          "5G-78",
           "5G-258"
         ],
         "Vodafone": [
-          "5G-78",
           "5G-258"
         ]
       },
       "technologies": [
         "2G",
         "3G",
-        "4G"
+        "4G",
+        "5G"
       ],
       "roamingRestrictions": "warn"
     },
@@ -92565,10 +92608,12 @@
       "reason": "bands not supported by modem",
       "supported": {
         "*": [
-          "4G-41"
+          "4G-41",
+          "5G-78"
         ],
         "Vodafone": [
-          "4G-41"
+          "4G-41",
+          "5G-78"
         ]
       },
       "notSupported": {
@@ -92580,7 +92625,6 @@
           "4G-3",
           "4G-8",
           "4G-40",
-          "5G-78",
           "5G-258"
         ],
         "Vodafone": [
@@ -92591,12 +92635,12 @@
           "4G-3",
           "4G-8",
           "4G-40",
-          "5G-78",
           "5G-258"
         ]
       },
       "technologies": [
-        "4G"
+        "4G",
+        "5G"
       ],
       "roamingRestrictions": "warn"
     },
@@ -120804,7 +120848,6 @@
       "recommendation": "YES",
       "technologies": [
         "4G",
-        "3G",
         "2G"
       ],
       "supported": {
@@ -120812,8 +120855,6 @@
           "4G-3",
           "4G-7",
           "4G-20",
-          "3G-1",
-          "3G-8",
           "4G-1",
           "4G-8",
           "2G-900",
@@ -120825,8 +120866,6 @@
           "4G-20"
         ],
         "T-Mobile": [
-          "3G-1",
-          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -120852,6 +120891,8 @@
           "5G-78",
           "NTN-255",
           "NTN-256",
+          "3G-1",
+          "3G-8",
           "M1-8",
           "5G-3"
         ],
@@ -120869,6 +120910,8 @@
           "NTN-256"
         ],
         "T-Mobile": [
+          "3G-1",
+          "3G-8",
           "4G-38",
           "M1-8",
           "M1-20",
@@ -120935,7 +120978,6 @@
       "recommendation": "YES",
       "technologies": [
         "4G",
-        "3G",
         "2G"
       ],
       "supported": {
@@ -120943,8 +120985,6 @@
           "4G-3",
           "4G-7",
           "4G-20",
-          "3G-1",
-          "3G-8",
           "4G-1",
           "4G-8",
           "2G-900",
@@ -120956,8 +120996,6 @@
           "4G-20"
         ],
         "T-Mobile": [
-          "3G-1",
-          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -120983,6 +121021,8 @@
           "5G-78",
           "NTN-255",
           "NTN-256",
+          "3G-1",
+          "3G-8",
           "M1-8",
           "5G-3"
         ],
@@ -121000,6 +121040,8 @@
           "NTN-256"
         ],
         "T-Mobile": [
+          "3G-1",
+          "3G-8",
           "4G-38",
           "M1-8",
           "M1-20",
@@ -121355,8 +121397,6 @@
           "5G-1",
           "5G-28",
           "5G-78",
-          "3G-1",
-          "3G-8",
           "4G-1",
           "4G-8",
           "2G-900",
@@ -121373,8 +121413,6 @@
           "5G-78"
         ],
         "T-Mobile": [
-          "3G-1",
-          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -121400,6 +121438,8 @@
           "2G-900",
           "2G-1800",
           "M1-20",
+          "3G-1",
+          "3G-8",
           "M1-8"
         ],
         "KPN": [
@@ -121408,6 +121448,8 @@
           "M1-20"
         ],
         "T-Mobile": [
+          "3G-1",
+          "3G-8",
           "M1-8",
           "M1-20"
         ],
@@ -121419,7 +121461,6 @@
       "technologies": [
         "4G",
         "5G",
-        "3G",
         "2G"
       ]
     },
@@ -121508,19 +121549,12 @@
       "sim": 1,
       "recommendation": "YES",
       "technologies": [
-        "3G",
         "2G"
       ],
       "supported": {
         "*": [
-          "3G-1",
-          "3G-8",
           "2G-900",
           "2G-1800"
-        ],
-        "T-Mobile": [
-          "3G-1",
-          "3G-8"
         ],
         "Vodafone": [
           "2G-900",
@@ -121539,6 +121573,8 @@
           "5G-1",
           "5G-28",
           "5G-78",
+          "3G-1",
+          "3G-8",
           "4G-1",
           "4G-8",
           "M1-8",
@@ -121557,6 +121593,8 @@
           "5G-78"
         ],
         "T-Mobile": [
+          "3G-1",
+          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -121629,19 +121667,12 @@
       "sim": 4,
       "recommendation": "YES",
       "technologies": [
-        "3G",
         "2G"
       ],
       "supported": {
         "*": [
-          "3G-1",
-          "3G-8",
           "2G-900",
           "2G-1800"
-        ],
-        "T-Mobile": [
-          "3G-1",
-          "3G-8"
         ],
         "Vodafone": [
           "2G-900",
@@ -121662,6 +121693,8 @@
           "5G-78",
           "NTN-255",
           "NTN-256",
+          "3G-1",
+          "3G-8",
           "4G-1",
           "4G-8",
           "M1-8",
@@ -121684,6 +121717,8 @@
           "NTN-256"
         ],
         "T-Mobile": [
+          "3G-1",
+          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -121780,19 +121815,12 @@
       "sim": 1,
       "recommendation": "NRND",
       "technologies": [
-        "3G",
         "2G"
       ],
       "supported": {
         "*": [
-          "3G-1",
-          "3G-8",
           "2G-900",
           "2G-1800"
-        ],
-        "T-Mobile": [
-          "3G-1",
-          "3G-8"
         ],
         "Vodafone": [
           "2G-900",
@@ -121811,6 +121839,8 @@
           "5G-1",
           "5G-28",
           "5G-78",
+          "3G-1",
+          "3G-8",
           "4G-1",
           "4G-8",
           "M1-8",
@@ -121829,6 +121859,8 @@
           "5G-78"
         ],
         "T-Mobile": [
+          "3G-1",
+          "3G-8",
           "4G-1",
           "4G-3",
           "4G-7",
@@ -146242,7 +146274,9 @@
           "4G-3",
           "4G-7",
           "4G-8",
-          "4G-38"
+          "4G-38",
+          "5G-1",
+          "5G-78"
         ],
         "StarHub": [
           "4G-3",
@@ -146258,16 +146292,12 @@
           "NB1-8",
           "M1-3",
           "M1-8",
-          "5G-1",
-          "5G-78",
           "3G-1"
         ],
         "SingTel": [
           "NB1-8",
           "M1-3",
-          "M1-8",
-          "5G-1",
-          "5G-78"
+          "M1-8"
         ],
         "StarHub": [
           "3G-1"
@@ -146293,7 +146323,8 @@
         ],
         "SingTel": [
           "4G-7",
-          "4G-38"
+          "4G-38",
+          "5G-78"
         ],
         "StarHub": [
           "4G-7",
@@ -146309,7 +146340,6 @@
           "M1-3",
           "M1-8",
           "5G-1",
-          "5G-78",
           "3G-1"
         ],
         "SingTel": [
@@ -146318,8 +146348,7 @@
           "NB1-8",
           "M1-3",
           "M1-8",
-          "5G-1",
-          "5G-78"
+          "5G-1"
         ],
         "StarHub": [
           "3G-1",
@@ -177206,7 +177235,7 @@
       "nfcTag": false,
       "userAppSize": "2048 KB",
       "userRam": "3072 KB",
-      "wifi": "802.11a/b/g/n"
+      "wifi": "802.11b/g/n"
     },
     {
       "id": "stm32f2xx",
