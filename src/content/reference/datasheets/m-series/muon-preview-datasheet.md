@@ -54,7 +54,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 
 The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8721DM), but has additional GPIO.
 
-- 802.11b/g/n Wi-Fi, 2.4 GHz and 5 GHz
+- 802.11a/b/g/n Wi-Fi, 2.4 GHz and 5 GHz
   - U.FL connector for external antenna
 - BLE 5 using same antenna as Wi-Fi
 - Realtek RTL8722DM MCU
