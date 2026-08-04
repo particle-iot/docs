@@ -23,11 +23,11 @@ The header format must be exactly that because the search feature uses that to d
 
 ### Tracker Edge v23 2026-08-04
 
-Tracker Edge v23 is now available.
+[Tracker Edge v23](/firmware/tracker-edge/tracker-edge-firmware/#using-off-the-shelf-releases) is now available.
 
 ### Monitor Edge v3 2026-08-04
 
-Monitor Edge v3 is now available.
+[Monitor Edge v3](/firmware/tracker-edge/monitor-edge-firmware/#using-off-the-shelf-releases) is now available.
 
 ### Carrier updates 2026-08-04
 
