@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Cellular modem firmware 2026-08-10
+
+Added an explanation of [cellular modem firmware](/reference/device-os/versions/#cellular-modem-firmware) version management.
+
 ### Tracker Edge v23 2026-08-04
 
 [Tracker Edge v23](/firmware/tracker-edge/tracker-edge-firmware/#using-off-the-shelf-releases) is now available.

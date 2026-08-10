@@ -296,6 +296,21 @@ The Argon and Tracker have a Network Coprocessor (NCP). This rarely needs to be 
 
 For more information see [Argon and Tracker NCP](/reference/developer-tools/jtag/#argon-and-tracker-ncp).
 
+### Softdevice (Gen 3)
+
+Portions of the 2.4 GHz radio used for Bluetooth on Gen 3 devices (Nordic nRF52840) are implemented in software. This is separate from Device OS itself,
+but is included within a release of Device OS as the *softdevice* binary. It can be upgraded by the standard methods (USB, OTA, SWD) and is only downloaded
+OTA when the version changes.
+
+### Cellular modem firmware
+
+Particle specifies the exact cellular module and modem firmware version through the manufacturer's ordering code, so every device we ship carries a known, qualified build rather than whatever happened to be current at the module vendor that week. That version is validated against Device OS and our network partners before it reaches production, and Device OS updates never touch modem firmware. The two are intentionally decoupled.
+
+We avoid field updates of modem firmware by design. The process is slow, fragile, and failure modes are severe: a partially updated modem can lose the ability to register on the network, which removes the only remote path you had to fix it. That risk is not unique to Particle, and it is why we do not expose it to customers.
+
+When a modem firmware change is genuinely warranted, for a critical defect or a required new capability, it goes through our formal engineering change process with full qualification testing before any devices ship with it, and we publish the change so customers can plan around it. The net effect is a fleet that behaves predictably on the network and connectivity that just works.
+
+
 ### Less common scenarios
 
 There are a few less common upgrade scenarios described in the section below. Use the disclosure triangle to view.

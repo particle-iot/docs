@@ -1303,8 +1303,8 @@
             "hash": "a4f28a66b456775211f9d273a411bf142d451e7fc07d1f018d05bda835b31346"
         },
         "reference/device-os/versions.md": {
-            "date": "2026-07-16",
-            "hash": "a513d7c614b469cfde701ca0583a0d067883513b552d71d2750702be5cdc9d76"
+            "date": "2026-08-10",
+            "hash": "cb3692ba3c0a7fd144542c19fdce85f07903c2c63d37bc095a827c3c37d295cc"
         },
         "reference/device-os/wifi-setup-options.md": {
             "date": "2024-06-10",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "cf12de3a7185b3e08f84907d9a74f51923085360fcfb230a2ffe9782f6ddeb4c",
-            "date": "2026-08-04"
+            "hash": "fa582f2c4181ecb6f81ad0786da47ad1c973cca79915a12daf83155b539d8745",
+            "date": "2026-08-10"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
