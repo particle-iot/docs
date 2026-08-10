@@ -372,6 +372,10 @@ Code snippets are templates that make it easier to enter repeating code patterns
 
 ### Debugging (3rd-generation)
 
+The Particle debugger uses an external hardware debugger and the gdb software with Particle Workbench. It can be useful for low-level debugging 
+but can be difficult and time-consuming to use. In many cases you may be able to use [USB serial debugging](/firmware/best-practices/usb-serial/) instead.
+
+
 {{!-- BEGIN shared-blurb 86b60d7d-f94f-4ca2-9d9a-e30f2a8bfb3d --}}
 
 There are two types of firmware:

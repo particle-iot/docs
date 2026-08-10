@@ -12365,6 +12365,8 @@ Things you should not do from an ISR:
 - attachInterrupt and detachInterrupt cannot be called within the ISR.
 - Mutex locks. This includes SPI transactions and I2C lock and unlock.
 - Start an SPI.transaction with DMA.
+
+Additionally you must use caution when updating values such as counters from a ISR and reading them from another thread. The `volatile` C keyword is not sufficient; in many cases you will need to use an [atomic operation](/firmware/best-practices/thread-interrupt-safety/#atomic-operations) for your code to function properly in all cases.
 {{!-- END shared-blurb --}}
 
 {{since when="3.0.0"}}
@@ -21595,6 +21597,11 @@ Before the device gets online and for short intervals, you can use the
 
 Returns the number of milliseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 49 days.
 
+{{note op="start" type="warning"}}
+To handle rollover correctly, see [scheduling](/firmware/best-practices/scheduling/) for more information.
+{{note op="end"}}
+
+
 ```cpp
 // PROTOTYPE
 system_tick_t millis(void);
@@ -21664,6 +21671,11 @@ It overflows at the maximum 32-bit unsigned long value.
 {{api name1="delay"}}
 
 Pauses the program for the amount of time (in milliseconds) specified as parameter. (There are 1000 milliseconds in a second.)
+
+{{note op="start" type="warning"}}
+There are important limitations of using `delay()` and in many cases there are other techniques that work better. See [scheduling](/firmware/best-practices/scheduling/) for more information.
+{{note op="end"}}
+
 
 ```cpp
 // PROTOTYPES
@@ -22628,7 +22640,11 @@ Things you should not do from an ISR:
 - attachInterrupt and detachInterrupt cannot be called within the ISR.
 - Mutex locks. This includes SPI transactions and I2C lock and unlock.
 - Start an SPI.transaction with DMA.
+
+Additionally you must use caution when updating values such as counters from a ISR and reading them from another thread. The `volatile` C keyword is not sufficient; in many cases you will need to use an [atomic operation](/firmware/best-practices/thread-interrupt-safety/#atomic-operations) for your code to function properly in all cases.
 {{!-- END shared-blurb --}}
+
+
 
 ### detachInterrupt()
 
@@ -22717,6 +22733,12 @@ You must enable interrupts again as quickly as possible. Never return from setup
 {{since when="0.4.7"}}
 
 Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequentially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
+
+
+{{note op="start" type="warning"}}
+There are important limitations of using `Timer` and in many cases there are other techniques that work better. See [scheduling](/firmware/best-practices/scheduling/) for more information.
+{{note op="end"}}
+
 
 ```cpp
 // PROTOTYPES

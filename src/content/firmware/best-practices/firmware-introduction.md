@@ -137,6 +137,23 @@ The loop() function is where you put your code. You should try to return as quic
 
 ## General tips
 
+### Use Particle primitives like Particle.publish
+
+When sending data from devices, it is recommended that you use built-in functionality like `Particle.publish()` and Ledger.
+
+- The built-in functionality is supported and rigorously tested
+- These features are data-efficient
+- These features utilize the authenticated and encrypted Particle cloud connection
+
+In most cases, using `TCPClient` is not recommended. If you want to export data off your device, we recommend using `Particle.publish()` and webhooks.
+
+- `TCPClient` does not itself support HTTP. HTTP requires a 3rd-party library.
+- There is no https library for Particle devices, so you cannot connect to a TLS/SSL encrypted HTTP server. This means your data could be viewed, modified, or redirected as it crosses the Internet.
+- Even if there were, doing a TLS/SSL authentication uses a large amount of data, up to 5 kilobytes per connection. The Particle cloud connection uses DTLS which is able to resume a session with much lower overhead and keep it alive for longer periods of time without having to re-authenticate.
+- It is not possible to maintain TCP connections when the device is in sleep mode.
+
+Other protocols such as MQTT are not built-in and require 3rd-party libraries. Using MQTT without TLS/SSL is not secure. Using MQTT with TLS/SSL will use large amounts of cellular data if also using sleep modes, as the MQTT connection cannot be maintained during sleep and each handshake requires 2 to 5 kilobytes of data. While the TLS client certificates used by Amazon IoT are secure, managing per-device certificates is considerably more complicated than using the built-in Particle cloud key management system which uses factory-configured RSA public-private key pairs.
+
 ### Use Log calls instead of Serial.print
 
 In many older and Arduino examples, you you may see `Serial.print()`. It's better practice to use [`Log.info()`](/reference/device-os/api/logging/logger-class/) instead.
@@ -224,8 +241,11 @@ See [Stack](/firmware/best-practices/code-size-tips/#stack) in Code Size Tips fo
 
 You should avoid blocking loop. It's best to return from loop as often as possible instead of looping within `loop()` or using long `delay` calls.
 
-See [Finite State Machines](/firmware/software-design/finite-state-machines/) for one technique to make this more manageable.
+Also avoid using lengthy `delay()` calls in loop, see [scheduling](/firmware/best-practices/scheduling/) for more information.
 
+Certain functions including Particle.function handlers, calculated Particle.variable handlers, Particle.subscribe handlers, and serial events are only dispatched between calls to loop(). Blocking the loop will prevent these from executing properly.
+
+See [Finite State Machines](/firmware/software-design/finite-state-machines/) for another technique to make this more manageable.
 
 ## Watch out for
 
@@ -362,7 +382,7 @@ Beware when using [Software Timers](/reference/device-os/api/software-timers/sof
 - Avoid blocking operations like `Particle.publish()` from timers.
 - Timers run from a thread with a small stack (1024 bytes).
 
-In many cases, it may be better to trigger periodic operations from the `millis()` counter instead of using software timers.
+See [scheduling](/firmware/best-practices/scheduling/) for more information.
 
 ### Interrupt service routines
 
@@ -391,6 +411,8 @@ A few of the locations that are **not** ISRs:
 - [Serial events](/reference/device-os/api/serial/serialevent/) are called from the loop thread.
 - [Application watchdog callback](/reference/device-os/api/watchdog-application/watchdog-application/) but the device is probably unstable when it is called.
 
+Additionally you must use caution when updating values such as counters from a ISR and reading them from another thread. The `volatile` C keyword is not sufficient; in many cases you will need to use an [atomic operation](/firmware/best-practices/thread-interrupt-safety/#atomic-operations) for your code to function properly in all cases.
+
 In old versions of Device OS, allocating memory from an ISR would proceed, except randomly corrupt memory, often causing the device to crash later for completely unrelated reasons. Newer versions of Device OS will panic immediately, which makes it seem like code that previously worked no longer works on newer versions of Device OS, but really this is an improvement over randomly failing later.
 
 For more information, see [Interrupts](/reference/device-os/api/interrupts/interrupts/) in the Device OS firmware API reference.
@@ -415,5 +437,37 @@ Using an out of memory handler, you can flag this situation, then from loop, you
 
 See [out of memory handler](/firmware/best-practices/code-size-tips/#out-of-memory-handler) in Code Size Tips for more information.
 
+
+### Periodic reset
+
+If you are not using hibernate sleep mode, the device will keep running without reset essentially forever.
+
+This normally works fine, but it is possible for memory to become fragmented when running for very long periods of time, because there is no garbage collection. 
+
+You may want to consider having the device reboot itself on some schedule, perhaps once a week. This is not necessary, but may be a good safety feature especially if the devices are remote and hard to access to manually reset in the event of a problem.
+
+Additionally, if the device runs for more than 43 days, the `millis()` counter will roll back over to 0. While Device OS handles this without issue, it can expose bugs if you to not handle this properly in your code. See [scheduling](/firmware/best-practices/scheduling/) for more information.
+
+### Aggressively managing connectivity
+
+Beware of attempting to directly control connectivity as it can have unintended consequences.
+
+For example: Its best to let Device OS manage the cellular modem including failure to reconnect. After 10 minutes of reconnecting, it will power cycle the cellular modem which can help clear certain issues. If you manually restart the connection process before 10 minutes, it will prevent the modem reset from occurring. Additionally, after a around 5 minutes of failing to connect to cellular, the SIM may rotate to a different IMSI. If you do not allow this to occur, the device may never switch, which may prevent the device from connecting. Similarly, the SIM card will only receive updates when idle for a period of time. This can cause difficulties with connecting in the future. See [Particle.connect](/reference/device-os/api/cellular/connect/) for more information.
+
+Aggressive reconnection, repeatedly reconnecting to the cellular network more than every 10 minutes, can cause your SIM to be banned by your mobile carrier.
+
+Never attempt to use [manual system mode](/reference/device-os/api/system-modes/manual-mode/#manual-mode) except in the rare case of using a device with no cloud connectivity at all, such as device using only BLE. 
+
+### Modifying Device OS
+
+Device OS is open-source and [available in Github](https://github.com/particle-iot/device-os), While it may be helpful to refer to this source for advanced development, you should resist the temptation to modify it.
+
+{{note op="start" type="warning"}}
+You should never modify Device OS for production devices.
+{{note op="end"}}
+
+- It is very difficult to upgrade a modified Device OS version OTA which will essentially lock the version of Device OS for devices in the field forever, which is not recommended.
+- Device OS is decoupled from user firmware using the HAL (hardware abstraction layer) and it is easy to break compatibility by incorrectly modifying this code.
+- Not being able to easily upgrade Device OS can potentially cause issues if an upgrade is required for security or hardware compatibility issues. 
 
 

@@ -21,6 +21,18 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Best practices 2026-08-10
+
+Added numerous best practices and added many links into other parts of the documentation.
+- [Scheduling](/firmware/best-practices/scheduling/) is linked into delay(), millis(), and software timers. Also from [avoid blocking loop](/firmware/best-practices/firmware-introduction/#avoid-blocking-loop).
+- Added a warning to [not modify Device OS](/firmware/best-practices/firmware-introduction/#modifying-device-os).
+- Added a note that [BLE persistent bonding](/reference/device-os/bluetooth-le/#bonding) is not supported.
+- Added a section on [using Particle primitives](/firmware/best-practices/firmware-introduction/#use-particle-primitives-like-particle-publish) instead of TCP or MQTT.
+- Added a link to [USB serial debugging](/firmware/best-practices/usb-serial/) to [Workbench debugger](/getting-started/developer-tools/workbench/#debugging-3rd-generation-) and the [Particle debugger](/reference/datasheets/accessories/debugger/) pages.
+- Added a warning about [aggressively managing connectivity](/firmware/best-practices/firmware-introduction/#aggressively-managing-connectivity).
+- Added warning about the [500 MB per SIM data limit](/getting-started/billing/cellular-data/#cellular-data-limit)
+
+
 ### Cellular modem firmware 2026-08-10
 
 Added an explanation of [cellular modem firmware](/reference/device-os/versions/#cellular-modem-firmware) version management.

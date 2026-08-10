@@ -495,8 +495,8 @@
             "hash": "fa06b0114321bc59e859b0cf1efa16167394ba2e237012c7784e857e03fa85b5"
         },
         "firmware/best-practices/firmware-introduction.md": {
-            "date": "2025-10-15",
-            "hash": "017b959d4ccb64674779dce20b35ea79449ffafe5f61ab6d57ad8b5940f99c27"
+            "date": "2026-08-10",
+            "hash": "b02057fc311660aa9064532d96459e4a2589e6b79fc9b331e7a2be2888f44332"
         },
         "firmware/best-practices/github-actions.md": {
             "date": "2024-08-21",
@@ -511,8 +511,8 @@
             "hash": "3c4699cfec4496e7bfd7450944cd585dddc44d7b0e20524d7ce978ecda5442a0"
         },
         "firmware/best-practices/scheduling.md": {
-            "date": "2025-10-15",
-            "hash": "765b82d8ccf9a2b0e1566d21a2b69b2e6f01727c41ee61c1be91e16165864f52"
+            "date": "2026-08-10",
+            "hash": "8192552abb79fe01c9840fe03e1e4b55872b5f7f787b51b6085c40d8f818cc06"
         },
         "firmware/best-practices/usb-serial.md": {
             "date": "2025-10-15",
@@ -563,8 +563,8 @@
             "hash": "1b10132a3e82805bd55bd3add40cddd5ac75faabac208926941adb43484e2c57"
         },
         "getting-started/billing/cellular-data.md": {
-            "date": "2025-02-03",
-            "hash": "ce829c35ace85fbc337ea2463b5aecff7f00ff3ec62aa1db89715c8b5eecd661"
+            "date": "2026-08-10",
+            "hash": "759c92063a22714a362e88766b9f038f8d208197f7e0da672748cba4fd51f316"
         },
         "getting-started/billing/data-operations.md": {
             "date": "2025-02-03",
@@ -635,8 +635,8 @@
             "hash": "d1c1af61fb3b5366e058d5c445e0ec4a79ac35780478733aade99f7fe3b03a18"
         },
         "getting-started/developer-tools/workbench.md": {
-            "date": "2025-10-15",
-            "hash": "5cb4f67c4d342b8596fa1b104e8b4c82802364d0fb4be985800b3f41f5e16dfb"
+            "date": "2026-08-10",
+            "hash": "89f91e30261e402075c1000d6a149943bbdd1fa64fd72611a148a66f67582e5e"
         },
         "getting-started/device-os/introduction-to-device-os.md": {
             "date": "2024-10-28",
@@ -1267,8 +1267,8 @@
             "hash": "674193bc7e074c36d62a7b5d91b887dce1988ec7a98a5cd6c54826952eef3962"
         },
         "reference/device-os/bluetooth-le.md": {
-            "date": "2026-06-30",
-            "hash": "4bc7949e8585862e2029e6a6ca19b244b2561466c54f4000281aab0b76b8b49c"
+            "date": "2026-08-10",
+            "hash": "c01a13e675e69a3eb8cef79cd677919be9cb701fae6d138d8de73252d1fa2dfb"
         },
         "reference/device-os/eeprom.md": {
             "date": "2025-10-15",
@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-07-20",
-            "hash": "6169f6f546a32d8db542dbe147edee5797ddf37e06c237bb7f1cca758181dc27"
+            "date": "2026-08-10",
+            "hash": "18ab0d2d3aa16103b0d32747289b5c78523075a47f2de2fc2e77666f0a42bbf5"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1355,8 +1355,8 @@
             "hash": "bb129696987f480ff0872bbfbf0757dc63ac35934cca5f98fb99b27ebca72ca9"
         },
         "reference/datasheets/accessories/debugger.md": {
-            "date": "2025-09-23",
-            "hash": "5a3b0392b4e1f020ba6dee97cea43cf66b57fb68d19ab1c2f080e5b241a2ca6d"
+            "date": "2026-08-10",
+            "hash": "c7f334a62c6076357898f97979545d199f6f9663634ce12cb90e2fbdfca751df"
         },
         "reference/datasheets/accessories/edge-ml-kit.md": {
             "date": "2024-02-27",
@@ -2731,8 +2731,8 @@
             "hash": "8eda1e04dad076549eb1ff11811fea059100c8c7a2f33b62fbf56f2c7aafbde6"
         },
         "reference/device-os/api/spi/transfer-void-void-size_t-std-function.md": {
-            "date": "2026-05-08",
-            "hash": "3742d26897c1becd6d1127c6eef6c1ae9d5e5a42976fed6a7da2242e145bafe7"
+            "date": "2026-08-10",
+            "hash": "dda7aa204e464ccb49626439b65c75d4b4ec17285aea07fe3cfd83f4423e430d"
         },
         "reference/device-os/api/spi/transfercancel.md": {
             "date": "2023-09-20",
@@ -3391,8 +3391,8 @@
             "hash": "b62153920702067ce836ca450cf66ca90c16dee9e20987cdeb6f7ca5a977ad59"
         },
         "reference/device-os/api/interrupts/attachinterrupt.md": {
-            "date": "2026-05-08",
-            "hash": "3df993060113da574b8f7aaefa5561430831b99eae41cda1584f90eebb732891"
+            "date": "2026-08-10",
+            "hash": "40a0bd526fe990c85e266c678dde21ad8f144a8c70a952863c72d54d170c863b"
         },
         "reference/device-os/api/interrupts/detachinterrupt.md": {
             "date": "2026-05-08",
@@ -3403,8 +3403,8 @@
             "hash": "b4a19f4d3825bd9eb15c08da2cc1f0542f73b0992256381167a33fe9582ec2cc"
         },
         "reference/device-os/api/software-timers/software-timers.md": {
-            "date": "2026-05-08",
-            "hash": "bcaacde3df7344c620e652f32ac24ef89ca2580e6412b223b9d182cb6c216fc2"
+            "date": "2026-08-10",
+            "hash": "c4c6407221ec8d0e926d4d280709538572c3f19804a186d90bbf5c3469e878b1"
         },
         "reference/device-os/api/software-timers/class-member-callbacks.md": {
             "date": "2023-09-20",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "fa582f2c4181ecb6f81ad0786da47ad1c973cca79915a12daf83155b539d8745",
+            "hash": "2d386146fc4e9b75c23927d72d579f7825a03c0c534827e1cfb228b731dec70a",
             "date": "2026-08-10"
         },
         "getting-started/cloud/logic.md": {
@@ -9451,8 +9451,8 @@
             "date": "2026-07-30"
         },
         "troubleshooting/led.md": {
-            "hash": "28e112800c4c1c1bab72d2a6bdc09b2668b732d27662a7233351b4aed813aa09",
-            "date": "2025-10-15"
+            "hash": "37ae0e93ce0824c573782ca6bf0d62c2a6eda2432387f59312ac76a829e66272",
+            "date": "2026-08-10"
         },
         "troubleshooting/guides/device-troubleshooting/muon-usb-power.md": {
             "hash": "5e971b61c9fc895f846d18ef8e2537d5c692c172c27c5d921d5ab347fb77b0af",
@@ -9699,8 +9699,8 @@
             "date": "2026-02-06"
         },
         "firmware/best-practices/thread-interrupt-safety.md": {
-            "hash": "df83bd969de97f0e388c49294ce7c3168cb66057c3a37bcd5e8e99a7a070cd10",
-            "date": "2025-10-15"
+            "hash": "d082d076fbe7ee3d91d98a4307f9c13e63677e2874e1c9b951f842019ff30158",
+            "date": "2026-08-10"
         },
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
             "hash": "58f3eb754388827e0d6c8a327b9bb1a36f7343a232980349da694fccdeaac488",
@@ -9767,16 +9767,16 @@
             "date": "2025-08-06"
         },
         "reference/device-os/api/time/millis-time.md": {
-            "hash": "12aaab32ebe27452c53fdc34b72c94f55090bd44f7cd02ee4e9ab92a95714976",
-            "date": "2026-05-08"
+            "hash": "68a294f675fd902bfe820bb13512f13cce58d1febbb97adb52c7d0abaef851a1",
+            "date": "2026-08-10"
         },
         "reference/device-os/api/time/micros-time.md": {
             "hash": "0b4dd24c6cfc533095c51674b90adbe6cc6fbdd6c78e1e5277b830bc5062e611",
             "date": "2026-05-08"
         },
         "reference/device-os/api/time/delay-time.md": {
-            "hash": "7f70cac91264e3709d672a769b55ad843bfcf814436a24fc14d804b90dbfa07a",
-            "date": "2026-05-08"
+            "hash": "536b86ad9060c06d0e8b4f202ec2ee4c56e518d6f388fdc1376069b21791ab49",
+            "date": "2026-08-10"
         },
         "reference/device-os/api/time/delaymicroseconds-time.md": {
             "hash": "35b176b8a3be286a10274e2d0987c633cb4f1fed7569df07f64be1211b0f9b15",

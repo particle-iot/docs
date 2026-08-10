@@ -97,6 +97,8 @@ For cellular devices, there is a data limit depending on your tier. For the Free
 
 In the basic plan, {{basicTierDataOperationsCellularData}} of cellular data per month is included for each block purchased, per month.
 
+On most devices, there is an additional 500 MB per SIM per month limit. This limit cannot be overridden.
+
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 
 ### What consumes data?

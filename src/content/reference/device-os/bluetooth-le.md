@@ -461,7 +461,6 @@ Additionally, one peripheral connection can be open at the same time.
 - Device OS 3.0.0 and later: Support for "Legacy Pairing" passkey display or input modes (both central and peripheral).
 - Prior to Device OS 3.0.0: No support for secure pairing.
 - Out-of-band authentication (such as by NFC) is not built-in.
-- The P2 and Photon 2 do not support secure pairing (legacy or LESC) at this time.
 
 When pairing, there are two different things going on:
 
@@ -495,6 +494,12 @@ If you have a display, and the other side has a keyboard, your pairing event cal
 If you have a keyboard and the other side has a display, you may be requested to prompt the user to enter the passkey via the `BlePairingEventType::PASSKEY_INPUT` event. After the passkey is entered, you call [`BLE.setPairingPasskey()`](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-setpairingpasskey-) to tell the other side what passkey was entered.
 
 Finally, you can use either pairing status messages or functions such as [`BLE.isPaired()`](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-ispaired-) to see if the pairing has been completed.
+
+### Bonding
+
+After pairing, some BLE peripheral devices use BLE bonding to securely store encryption credentials on the BLE central. This allows a secure persistent connection without having to reauthenticate each time.
+
+**BLE persistent bonding is not supported** on Gen 3 and Gen 4 Particle devices.
 
 ## Examples
 

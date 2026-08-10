@@ -28,7 +28,7 @@ Also, is certain modes this can affect OTA transfers, and it's generally bad pra
 
 ### Using millis
 
-The recommended way is to calculate intervals is using the [`millis()`](/reference/device-os/api/time/millis/) counter, which increments 1000 times per second (millis = milliseconds).
+The recommended way is to calculate intervals is using the [`millis()`](/reference/device-os/api/time/millis-time/) counter, which increments 1000 times per second (millis = milliseconds).
 
 Here's a full code example that also publishes once a minute, but using millis:
 
@@ -167,7 +167,7 @@ if (Time.isValid() && Time.now() >= nextPublishTime)
 
 - Be sure to check that you have a valid time. It doesn't always have to be right before Time.now, as the time will never become un-valid except on cold boot, reset, or in some cases, right after wake.
 - You can compare against the last time + interval, or next time, since you don't have to worry about rollover.
-- [`Time.now()`](/reference/device-os/api/time/now/) is fast as it just reads a variable and can be called frequently. Same for [`Time.isValid()`](/reference/device-os/api/time/now/).
+- [`Time.now()`](/reference/device-os/api/time/now-time/) is fast as it just reads a variable and can be called frequently. Same for [`Time.isValid()`](/reference/device-os/api/time/isvalid-time/).
 
 ### Clock synchronization
 
@@ -199,7 +199,7 @@ There are several options if your search for "NTP" in [library search](/referenc
 
 ## Time in local timezone
 
-While the `Time` object in Device OS has useful sounding functions like [`Time.zone()`](/reference/device-os/api/time/zone/) and [`Time.isDST()`](/reference/device-os/api/time/isdst/) these functions are completely manual! You must manually set the zone to the correct zone, and turn DST on and off yourself. This severely limits their usefulness.
+While the `Time` object in Device OS has useful sounding functions like [`Time.zone()`](/reference/device-os/api/time/zone-time/) and [`Time.isDST()`](/reference/device-os/api/time/isdst-time/) these functions are completely manual! You must manually set the zone to the correct zone, and turn DST on and off yourself. This severely limits their usefulness.
 
 There are various techniques for determining your local timezone, such as using Wi-Fi or cellular geolocation and an external time database or service.
 

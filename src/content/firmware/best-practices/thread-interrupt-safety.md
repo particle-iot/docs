@@ -51,6 +51,8 @@ Things you should not do from an ISR:
 - attachInterrupt and detachInterrupt cannot be called within the ISR.
 - Mutex locks. This includes SPI transactions and I2C lock and unlock.
 - Start an SPI.transaction with DMA.
+
+Additionally you must use caution when updating values such as counters from a ISR and reading them from another thread. The `volatile` C keyword is not sufficient; in many cases you will need to use an [atomic operation](/firmware/best-practices/thread-interrupt-safety/#atomic-operations) for your code to function properly in all cases.
 {{!-- END shared-blurb --}}
 
 

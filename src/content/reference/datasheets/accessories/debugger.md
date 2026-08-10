@@ -13,6 +13,8 @@ description: Particle Debugger
 The Particle Debugger is deprecated.
 {{box op="end"}}
 
+In many cases you may be able to use [USB serial debugging](/firmware/best-practices/usb-serial/) instead of the hardware debugger.
+
 The Particle Debugger is no longer sold, however you can use a generic CMSIS/DAP debugger available on Amazon, eBay, or AliExpress.
 
 - Get one that has support for drag-and-drop mode.
