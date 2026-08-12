@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### Tachyon battery datasheet 2026-08-12
 
-Updated The Tachyon [3-cell 9750 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) manufacturer datasheet to the correct version.
+Updated The Tachyon [3-cell 9450 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) manufacturer datasheet to the correct version.
 
 ### Best practices 2026-08-10
 

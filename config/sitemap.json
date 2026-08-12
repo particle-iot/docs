@@ -931,8 +931,8 @@
             "hash": "8f7cd7c4616ea97a39765a55aba589340753e3b35277e15b74179e8cb12f1f8d"
         },
         "hardware/certification/battery-certification.md": {
-            "date": "2026-07-09",
-            "hash": "bc3dd38e28093defa6fc9f26bd2dd4e576da4328170e62750a3c001fae351245"
+            "date": "2026-08-12",
+            "hash": "9a20cf8df64d2247ccecba53f59fa08857dd64a16fdb65fdd64af73c185fa960"
         },
         "hardware/certification/certification-documents.md": {
             "date": "2026-07-30",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "a85ddc2cc1d38be4df8d92111e892b66ea31caf190d93099e8bd6c1fa7ba773f",
+            "hash": "ef9330f78ff373046b2f54ef9f338729aee53dee8d8d1bd526b535e3f1c8ac0c",
             "date": "2026-08-12"
         },
         "getting-started/cloud/logic.md": {
@@ -9703,8 +9703,8 @@
             "date": "2026-08-10"
         },
         "reference/datasheets/tachyon/tachyon-datasheet.md": {
-            "hash": "58f3eb754388827e0d6c8a327b9bb1a36f7343a232980349da694fccdeaac488",
-            "date": "2026-08-04"
+            "hash": "14a5ce2cd47fbe9f3881b9495831423f67252a6b4072c02fb501998966b6b48e",
+            "date": "2026-08-12"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
             "hash": "f5fcc7701cc45a369e2893a82a5cc221ba5eb413cda6756d37d20cc388bbc539",
@@ -10015,8 +10015,8 @@
             "date": "2026-03-19"
         },
         "reference/datasheets/m-series/m-hat-datasheet.md": {
-            "hash": "510f4457264843ecd3a3645309d0bf96a1a731f2d6adf98be60586e19cc7dfd9",
-            "date": "2026-07-09"
+            "hash": "f0d640346306e32f59bf9258dee5b05f7691b5759cbc45c9ab31bb9e2529c569",
+            "date": "2026-08-12"
         },
         "reference/device-os/libraries/p/pixeleds-library.md": {
             "hash": "ef1dee4d2cd89b7ac6dad23971ebdaf409133aaa6f5677b3554b4bad5765309f",

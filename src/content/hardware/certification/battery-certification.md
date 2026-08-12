@@ -46,7 +46,7 @@ You can find more battery information in the [battery tutorial](/hardware/power/
 
 ## M-HAT
 
-- [3-cell 9750 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) (manufacturer datasheet)
+- [3-cell 9450 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) (manufacturer datasheet)
 - [Battery cell](/assets/pdfs/tachyon-battery-cell.pdf) (manufacturer datasheet for cells in battery pack)
 - This is the same battery as the 3-cell Tachyon battery pack
 
@@ -55,6 +55,6 @@ You can find more battery information in the [battery tutorial](/hardware/power/
 
 {{!-- BEGIN shared-blurb 8f8b8ee8-9f62-42b9-aef8-c511ab5cfc49 --}}
 - [1-cell 3100 mAh battery pack](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet)
-- [3-cell 9750 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) (manufacturer datasheet)
+- [3-cell 9450 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) (manufacturer datasheet)
 - [Battery cell](/assets/pdfs/tachyon-battery-cell.pdf) (manufacturer datasheet for cells in the 1 and 3-cell battery packs)
 {{!-- END shared-blurb --}}
