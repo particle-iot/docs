@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tachyon battery datasheet 2026-08-12
+
+Updated The Tachyon [3-cell 9750 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) manufacturer datasheet to the correct version.
+
 ### Best practices 2026-08-10
 
 Added numerous best practices and added many links into other parts of the documentation.

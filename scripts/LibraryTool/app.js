@@ -520,6 +520,55 @@ async function generate() {
 }
 
 
+async function generateIndex() {
+    const generatedDir = path.join(__dirname, '../../generated');
+
+    const libraryIndexPath = path.join(generatedDir, 'libraryIndex.json');
+
+    const libraryIndex = {
+        libraries: [],
+    };
+
+    const librariesDir = path.join(__dirname, '../../src/assets/files/libraries');
+
+    const libraryUsagePath = path.join(__dirname, '../../src/assets/files/libraryUsage.json'); 
+    const usageJson = JSON.parse(fs.readFileSync(libraryUsagePath, 'utf8'));
+
+
+    for (const lib of libraryList) {
+        const libSourceDir = path.join(dataLibrariesDir, lib.id);
+
+        const libInfoPath = path.join(librariesDir, lib.id + '.json');
+        if (!fs.existsSync(libInfoPath)) {
+            continue;
+        }
+
+        const libInfo = JSON.parse(fs.readFileSync(libInfoPath, 'utf8'));
+
+        delete libInfo.type;
+        delete libInfo.letter;
+        delete libInfo.cardUrl;
+        delete libInfo.versions;
+        delete libInfo.allVersions;
+        libInfo.usage = usageJson[libInfo.id] || 0;
+
+        if (libInfo.attributes) {
+            delete libInfo.attributes.mine;
+            delete libInfo.attributes.visibility;
+        }
+
+        libraryIndex.libraries.push(libInfo);
+    }
+    
+    libraryIndex.libraries.sort(function(a, b) {
+        return b.usage - a.usage;
+    });
+
+    fs.writeFileSync(libraryIndexPath, JSON.stringify(libraryIndex, null, 2));
+
+}
+
+
 function saveLibraryData() {
     // Remove libraryData for excluded libraries
     for(const libName of excludeLibraries) {
@@ -553,6 +602,10 @@ async function run() {
 
     if (argv.generate) {
         await generate();
+    }
+
+    if (argv.generateIndex) {
+        await generateIndex();
     }
 
     saveLibraryData();
