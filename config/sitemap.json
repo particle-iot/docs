@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "625c4af191327fd23d75de6ead12850cf0aa981bd0f3e3bb6b3e9beac6724daa",
-            "date": "2026-08-12"
+            "hash": "5d24a98e0026584e5069ac7ab9bfa2e9e3106299486774972e9bbe16a3c458d0",
+            "date": "2026-08-13"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9459,8 +9459,8 @@
             "date": "2024-11-01"
         },
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
-            "hash": "5938ebf5061f019a0dad217829e27414b311dea497bc047abc7272cc62ecde17",
-            "date": "2026-06-17"
+            "hash": "e5329950be6ea278bf1b1b20d7c0d14d2bb76c6befbb97aca818fa9570250c26",
+            "date": "2026-08-13"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {
             "hash": "0d2103aed0bae02ca0b94dc8bff2c011e9c5f7c3311ba47cb535ac613e3705b4",

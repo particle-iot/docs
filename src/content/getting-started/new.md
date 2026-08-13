@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated M1 Enclosure schematic 2026-08-13
+
+Updated the schematic for the M1 Enclosure carrier board to the correct version in the [M1 Enclosure datasheet](/reference/datasheets/m-series/m1-enclosure-datasheet/#schematic).
+
 ### Tachyon battery datasheet 2026-08-12
 
 Updated The Tachyon [3-cell 9300 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) manufacturer datasheet to the correct version.

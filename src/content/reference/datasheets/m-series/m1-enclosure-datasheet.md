@@ -212,9 +212,7 @@ A jumper located on the bottom side of the Muon selects the direction of expansi
 
 ## Schematic
 
-This is the schematic for the v0.5 of the M1 Enclosure carrier board. Changes are possible before general availability.
-
-{{imageOverlay src="/assets/images/monitor-one/monitor_pi_v0.5_p1.svg" alt="Schematic" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/monitor_pi_v1.1.png" alt="Schematic" class="full-width"}}
 
 ### Dimensions and weight
 
