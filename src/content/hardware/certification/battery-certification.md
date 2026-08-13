@@ -45,7 +45,7 @@ You can find more battery information in the [battery tutorial](/hardware/power/
 
 ## M.2 breakout board
 
-- [1-cell 3100 mAh battery pack](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet)
+- [1-cell 3100 mAh battery pack](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet), [UN 38.3](/assets/pdfs/tachyon-battery-1-un.pdf)
 - [Battery cell](/assets/pdfs/tachyon-battery-cell.pdf) (manufacturer datasheet for cells in battery pack)
 - This is the same battery as the 1-cell Tachyon battery pack
 
