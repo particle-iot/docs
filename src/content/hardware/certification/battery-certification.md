@@ -38,6 +38,11 @@ You can find more battery information in the [battery tutorial](/hardware/power/
 - Manufacturer: Guangdong Zhaoeng Technology Co., Ltd. (Guangdong, China)
 - [Datasheet](/assets/datasheets/ZN18650-4P.pdf)
 
+## M1 Enclosure
+
+- 2+1 Cell battery pack
+- [UN 38.3](/assets/pdfs/m1-enclosure-battery-un.pdf)
+
 ## M.2 breakout board
 
 - [1-cell 3100 mAh battery pack](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet)
@@ -46,7 +51,7 @@ You can find more battery information in the [battery tutorial](/hardware/power/
 
 ## M-HAT
 
-- [3-cell 9300 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) (manufacturer datasheet)
+- [3-cell 9300 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) (manufacturer datasheet), [UN 38.3](/assets/pdfs/tachyon-battery-3-un.pdf)
 - [Battery cell](/assets/pdfs/tachyon-battery-cell.pdf) (manufacturer datasheet for cells in battery pack)
 - This is the same battery as the 3-cell Tachyon battery pack
 
@@ -55,6 +60,6 @@ You can find more battery information in the [battery tutorial](/hardware/power/
 
 {{!-- BEGIN shared-blurb 8f8b8ee8-9f62-42b9-aef8-c511ab5cfc49 --}}
 - [1-cell 3100 mAh battery pack](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet)
-- [3-cell 9300 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) (manufacturer datasheet)
+- [3-cell 9300 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) (manufacturer datasheet), [UN 38.3](/assets/pdfs/tachyon-battery-3-un.pdf)
 - [Battery cell](/assets/pdfs/tachyon-battery-cell.pdf) (manufacturer datasheet for cells in the 1 and 3-cell battery packs)
 {{!-- END shared-blurb --}}

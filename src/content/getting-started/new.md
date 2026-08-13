@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Added UN 38.3 2026-08-13
+
+Added UN 38.8 for the Tachyon 3-battery pack and the M1 Enclosure 2+1 battery pack to the [battery certification](/hardware/certification/battery-certification/) page.
+
 ### Updated M1 Enclosure schematic 2026-08-13
 
 Updated the schematic for the M1 Enclosure carrier board to the correct version in the [M1 Enclosure datasheet](/reference/datasheets/m-series/m1-enclosure-datasheet/#schematic).
