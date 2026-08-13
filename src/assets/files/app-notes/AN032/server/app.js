@@ -24,9 +24,9 @@ const argv = require('yargs')
     .argv;
 
 
-const token = process.env.AUTH_TOKEN || argv.authToken;
+const token = process.env.AUTH_TOKEN;
 if (!token) {
-    console.log("AUTH_TOKEN must be set in the environment or command line --auth-token");
+    console.log("AUTH_TOKEN must be set in the environment");
     return 1;
 }
 
