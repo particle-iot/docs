@@ -59,7 +59,7 @@ You can find more battery information in the [battery tutorial](/hardware/power/
 ## Tachyon
 
 {{!-- BEGIN shared-blurb 8f8b8ee8-9f62-42b9-aef8-c511ab5cfc49 --}}
-- [1-cell 3100 mAh battery pack](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet)
+- [1-cell 3100 mAh battery pack](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet), [UN 38.3](/assets/pdfs/tachyon-battery-1-un.pdf)
 - [3-cell 9300 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) (manufacturer datasheet), [UN 38.3](/assets/pdfs/tachyon-battery-3-un.pdf)
 - [Battery cell](/assets/pdfs/tachyon-battery-cell.pdf) (manufacturer datasheet for cells in the 1 and 3-cell battery packs)
 {{!-- END shared-blurb --}}

@@ -1004,7 +1004,7 @@ SE, SI, SK, TR, UA, UK(NI).
 The Tachyon can be used with the 1-cell or 3-cell battery packs. The 3-cell is recommended for situations where you are powering the Tachyon in normal operation by battery. The 1-cell is sufficient for powering during brief power outages, but may be insufficient when operating at maximum CPU utilization while actively using cellular.
 
 {{!-- BEGIN shared-blurb 8f8b8ee8-9f62-42b9-aef8-c511ab5cfc49 --}}
-- [1-cell 3100 mAh battery pack](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet)
+- [1-cell 3100 mAh battery pack](/assets/pdfs/tachyon-battery-1.pdf) (manufacturer datasheet), [UN 38.3](/assets/pdfs/tachyon-battery-1-un.pdf)
 - [3-cell 9300 mAh battery pack](/assets/pdfs/tachyon-battery-3.pdf) (manufacturer datasheet), [UN 38.3](/assets/pdfs/tachyon-battery-3-un.pdf)
 - [Battery cell](/assets/pdfs/tachyon-battery-cell.pdf) (manufacturer datasheet for cells in the 1 and 3-cell battery packs)
 {{!-- END shared-blurb --}}
