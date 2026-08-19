@@ -1,63 +1,4 @@
 {
-    "info": {
-        "devices": {
-            "B404X B-SoM": "B404X",
-            "B404/B402 B-SoM": "B402",
-            "B504e B-SoM": "B523",
-            "B524/B523 B-SoM": "B523",
-            "Boron LTE (BRN404X)": "BRN404X",
-            "Boron LTE (BRN404/BRN402)": "BRN402",
-            "Boron 2G/3G": "BRN310",
-            "MSoM 404(BG95 CAT-M1)": "M404",
-            "MSoM 524 (EG91 CAT1)": "M524",
-            "Tracker EVB T402M (BG96-NA)": "T402",
-            "Tracker EVB T523M (EG91-EX)": "T523",
-            "Tracker One (T402M)": "ONE402",
-            "Tracker One (T523M)": "ONE523",
-            "E404X": "E404X",
-            "Argon": "ARGN-H",
-            "P2": "P2",
-            "Photon 2": "PHN2"
-        },
-        "modes": {
-            "STOP Mode": "stop",
-            "ULP Mode": "ulp",
-            "Hibernate Mode": "hibernate",
-            "Normal Mode": "normal"
-        },
-        "labels": {
-            "Iidle": "uC on, peripherals and radio disabled",
-            "Ible_adv": "uC on, BLE advertising",
-            "Ible_conn_idle": "uC on, BLE connected but idle",
-            "Ible_scan": "uC on, BLE scanning",
-            "Icell_idle": "uC on, cellular on but not connected",
-            "Icell_conn_twr": "uC on, cellular connecting to tower",
-            "Icell_conn_cloud": "uC on, cellular connecting to cloud",
-            "Icell_cloud_idle": "uC on, cellular connected but idle",
-            "Icell_cloud_tx": "uC on, cellular connected and transmitting",
-            "Icell_idle_catm1": "uC on, cellular on but not connected (Cat  M1)",
-            "Icell_conn_twr_catm1": "uC on, cellular connecting to tower (Cat  M1)",
-            "Icell_conn_cloud_catm1": "uC on, cellular connecting to cloud (Cat  M1)",
-            "Icell_cloud_idle_catm1": "uC on, cellular connected but idle (Cat  M1)",
-            "Icell_cloud_tx_catm1": "uC on, cellular connected and transmitting (Cat  M1)",
-            "Icell_idle_2g": "uC on, cellular on but not connected (2G)",
-            "Icell_conn_twr_2g": "uC on, cellular connecting to tower (2G)",
-            "Icell_conn_cloud_2g": "uC on, cellular connecting to cloud (2G)",
-            "Icell_cloud_idle_2g": "uC on, cellular connected but idle (2G)",
-            "Icell_cloud_tx_2g": "uC on, cellular connected and transmitting (2G)",
-            "Iwifi_idle": "uC on, Wi-Fi on but not connected",
-            "Iwifi_conn_ap": "uC on, Wi-Fi connecting to access point",
-            "Iwifi_conn_cloud": "uC on, Wi-Fi connecting to cloud",
-            "Iwifi_cloud_idle": "uC on, Wi-Fi connected but idle",
-            "Iwifi_cloud_tx": "uC on, Wi-Fi connected and transmitting",
-            "Istop_gpio": "STOP mode sleep, GPIO wake-up",
-            "Istop_intrtc": "STOP mode sleep, RTC wake-up",
-            "Iulp_gpio": "ULP mode sleep, GPIO wake-up",
-            "Iulp_intrtc": "ULP mode sleep, RTC wake-up",
-            "Ihib_gpio": "HIBERNATE mode sleep, GPIO wake-up",
-            "Ihib_intrtc": "HIBERNATE mode sleep, RTC wake-up"
-        }
-    },    
     "devices": {
         "T523": {
             "sku": "T523",
@@ -3744,6 +3685,215 @@
                         "typ": 515,
                         "max": 518,
                         "unit": "uA"
+                    }
+                }
+            }
+        },
+        "M635": {
+            "sku": "M635",
+            "modes": {
+                "stop": {
+                    "Ignss_loc": {
+                        "min": 76.5,
+                        "typ": 82,
+                        "max": 107,
+                        "unit": "mA"
+                    },
+                    "Istop_gpio": {
+                        "min": 337,
+                        "typ": 340,
+                        "max": 343,
+                        "unit": "uA"
+                    },
+                    "Istop_intrtc": {
+                        "min": 338,
+                        "typ": 347,
+                        "max": 361,
+                        "unit": "uA"
+                    }
+                },
+                "hibernate": {
+                    "Ihib_gpio": {
+                        "min": 37.3,
+                        "typ": 39.8,
+                        "max": 42.1,
+                        "unit": "uA"
+                    },
+                    "Ihib_intrtc": {
+                        "min": 38.2,
+                        "typ": 40,
+                        "max": 42,
+                        "unit": "uA"
+                    }
+                },
+                "normal": {
+                    "Iidle": {
+                        "min": 24,
+                        "typ": 27.6,
+                        "max": 31.3,
+                        "unit": "mA"
+                    },
+                    "Irgb_r": {
+                        "min": 27.3,
+                        "typ": 28.3,
+                        "max": 29.3,
+                        "unit": "mA"
+                    },
+                    "Irgb_g": {
+                        "min": 27.3,
+                        "typ": 27.9,
+                        "max": 28.8,
+                        "unit": "mA"
+                    },
+                    "Irgb_b": {
+                        "min": 27.3,
+                        "typ": 27.9,
+                        "max": 28.7,
+                        "unit": "mA"
+                    },
+                    "Irgb_w": {
+                        "min": 26.3,
+                        "typ": 27.8,
+                        "max": 29.2,
+                        "unit": "mA"
+                    },
+                    "Ible_adv": {
+                        "min": 63.4,
+                        "typ": 66.5,
+                        "max": 77.6,
+                        "unit": "mA"
+                    },
+                    "Ible_conn_tx": {
+                        "min": 62.4,
+                        "typ": 69.2,
+                        "max": 91.2,
+                        "unit": "mA"
+                    },
+                    "Ible_conn_idle": {
+                        "min": 62,
+                        "typ": 67,
+                        "max": 72.5,
+                        "unit": "mA"
+                    },
+                    "Ible_scan": {
+                        "min": 63,
+                        "typ": 66.5,
+                        "max": 82.3,
+                        "unit": "mA"
+                    },
+                    "Iwifi_idle": {
+                        "min": 28.3,
+                        "typ": 28.6,
+                        "max": 29.2,
+                        "unit": "mA"
+                    },
+                    "Iwifi_scan": {
+                        "min": 68.4,
+                        "typ": 75.7,
+                        "max": 333,
+                        "unit": "mA"
+                    },
+                    "Iwifi_conn_ap": {
+                        "min": 64.8,
+                        "typ": 70.8,
+                        "max": 348,
+                        "unit": "mA"
+                    },
+                    "Iwifi_ap_idle": {
+                        "min": 34.4,
+                        "typ": 35.3,
+                        "max": 67.1,
+                        "unit": "mA"
+                    },
+                    "Iwifi_conn_cloud": {
+                        "min": 35.3,
+                        "typ": 65.9,
+                        "max": 85.6,
+                        "unit": "mA"
+                    },
+                    "Iwifi_cloud_idle": {
+                        "min": 36.2,
+                        "typ": 38,
+                        "max": 70.9,
+                        "unit": "mA"
+                    },
+                    "Iwifi_cloud_tx": {
+                        "min": 36.3,
+                        "typ": 56.7,
+                        "max": 105,
+                        "unit": "mA"
+                    },
+                    "Icell_idle": {
+                        "min": 40.2,
+                        "typ": 78.2,
+                        "max": 161,
+                        "unit": "mA"
+                    },
+                    "Icell_conn_twr": {
+                        "min": 40,
+                        "typ": 96.1,
+                        "max": 497,
+                        "unit": "mA"
+                    },
+                    "Icell_twr_idle": {
+                        "min": 39.6,
+                        "typ": 44.2,
+                        "max": 148,
+                        "unit": "mA"
+                    },
+                    "Icell_conn_cloud": {
+                        "min": 36.9,
+                        "typ": 105,
+                        "max": 472,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_idle": {
+                        "min": 39.6,
+                        "typ": 43.5,
+                        "max": 118,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_tx_ltem": {
+                        "min": 39.8,
+                        "typ": 93,
+                        "max": 558,
+                        "unit": "mA"
+                    },
+                    "Icell_ntn_idle": {
+                        "min": 33.1,
+                        "typ": 47.5,
+                        "max": 110,
+                        "unit": "mA"
+                    },
+                    "Icell_ntn_conn_sat": {
+                        "min": 37.7,
+                        "typ": 147,
+                        "max": 591,
+                        "unit": "mA"
+                    },
+                    "Icell_ntn_sat_idle": {
+                        "min": 38.1,
+                        "typ": 41.1,
+                        "max": 101,
+                        "unit": "mA"
+                    },
+                    "Icell_ntn_tx_rx": {
+                        "min": 38.8,
+                        "typ": 269,
+                        "max": 684,
+                        "unit": "mA"
+                    },
+                    "Ignss_idle": {
+                        "min": 37.9,
+                        "typ": 79.9,
+                        "max": 188,
+                        "unit": "mA"
+                    },
+                    "Ignss_loc": {
+                        "min": 37.7,
+                        "typ": 93,
+                        "max": 198,
+                        "unit": "mA"
                     }
                 }
             }

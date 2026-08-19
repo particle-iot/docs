@@ -44,6 +44,7 @@ async function run() {
             'Photon 2': 'PHN2',
             'MSoM (EG91, EVT)': 'M524',
             'MSoM (BG95 (2G/CAT-M1), EVT)': 'M404',
+            'M635 (BG95-S5, DVT)': 'M635',
             'Electron2': 'ELC2',
         };
 
@@ -75,6 +76,10 @@ async function run() {
             'Icell_conn_cloud_2g': 'Operating current (uC on, cellular connecting to cloud using 2G)',
             'Icell_cloud_idle_2g': 'Operating current (uC on, cellular connected but idle using 2G)',
             'Icell_cloud_tx_2g': 'Operating current (uC on, cellular connected and transmitting using 2G)',
+            'Icell_ntn_idle': 'Operating current (uC on, cellular on but not connected using NTN)',
+            'Icell_ntn_conn_sat': 'Operating current (uC on, connecting to NTN)',
+            'Icell_ntn_sat_idle': 'Operating current (uC on, connected to NTN, no data transmission)',
+            'Icell_ntn_tx_rx': 'Operating current (uC on, connected to NTN, publishing data to the cloud over NTN)',
             'Iwifi_idle': 'Operating current (uC on, Wi-Fi on but not connected)',
             'Iwifi_conn_ap': 'Operating current (uC on, Wi-Fi connecting to access point)',
             'Iwifi_conn_cloud': 'Operating current (uC on, Wi-Fi connecting to cloud)',
@@ -85,7 +90,7 @@ async function run() {
             'Iulp_gpio': 'ULP mode sleep, GPIO wake-up',
             'Iulp_intrtc': 'ULP mode sleep, RTC wake-up',
             'Ihib_gpio': 'HIBERNATE mode sleep, GPIO wake-up',
-            'Ihib_intrtc': 'HIBERNATE mode sleep, RTC wake-up'
+            'Ihib_intrtc': 'HIBERNATE mode sleep, RTC wake-up',
         };
 
        
