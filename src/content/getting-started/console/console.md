@@ -372,33 +372,44 @@ When working with devices that belong to your Product, it is important to note t
 
 ### Adding devices
 
-Now that you have your Product, it's time to import devices. Importing devices will assign them to your Product and allow you to start viewing and managing these devices within your Product Console.
+Now that you have your Product, it's time to add devices. Adding devices will assign them to your Product and allow you to start viewing and managing these devices within your Product Console.
 
 For any product you may be developing, you likely have one or more Particle development kits (i.e. a Photon) that you have been using internally for prototyping purposes. We strongly recommend importing these devices into your Product, and using them as your *development group*.
 
 In addition, you'll want to have a *test group* of devices to serve as the guinea pigs for new versions of product firmware. You should get into the habit of uploading a new version of firmware to your product, and flashing it to your test group to ensure your code is working as expected. This too will be covered more in-depth in the [rollout firmware](#rollout-firmware) section below.
 
-To import devices, click on the Devices icon in your product sidebar, then click on the "Import" button.
+To add devices, click on the Devices icon in your product sidebar, then click on the **Add Devices** button.
 
-![Your product's devices](/assets/images/devices-page.png)
+![Product device list](/assets/images/console/add-devices-1.png)
 
-To allow you to import devices in bulk, we allow you to upload a file containing multiple device IDs. Create a `.txt` file that contains all of the IDs of devices that you would like to import into your product, one on each line. [Not sure what your device ID is?](/getting-started/developer-tools/cli/#running-from-source-advanced-particle-identify) *You cannot register devices that have already been 'claimed' by someone outside of your team; all of these devices must either belong to a team member or belong to no one*. The file should look something like this:
+You will then have several options for what to import:
 
-```
-55ff6d04498b49XXXXXXXXXX
-45f96d06492949XXXXXXXXXX
-35ee6d064989a9XXXXXXXXXX
-```
+![Add devices with order](/assets/images/console/add-devices-2.png)
 
-Where each line is one Device ID. Once you have your file ready, drop it onto the file selector in the import devices dialog box.
+#### Add one device - Adding devices
 
-![Import devices modal](/assets/images/import-devices.png)
+You can add a single device by entering its Device ID, ICCID, IMEI, or Serial number. For more information about unique identifiers for devices, see [serial number management](/hardware/best-practices/serial-number/).
 
-As noted at the bottom of the dialog box, if you previously rolled out
-firmware, those newly imported devices will be updated over the air to
-that firmware next time they connect to the Particle Device Cloud.
+![Add one device](/assets/images/console/add-devices-6.png)
 
-The [Import Devices Tool](/tools/cloud-tools/import-devices/) can be used to simplify the process of doing multiple operations such as adding the device, claiming, naming, etc. for multiple devices.
+#### Add many devices - Adding devices
+
+You can add multiple devices from a file in multiple formats:
+
+- .txt file: One device per line containing the Device ID, serial number, IMEI, or ICCID.
+- .csv file: One column must be named `DEVICEID` and contain the 24-character hexadecimal Device ID.
+
+![Add many devices](/assets/images/console/add-devices-4.png)
+
+#### Add from order - Adding devices
+
+If you've ordered devices in bulk, you can add all of the devices in the order.
+
+![Add from order](/assets/images/console/add-devices-3.png)
+
+If no orders can be found, this message will be displayed. Orders of "each" devices placed on the Particle store cannot be automatically imported.
+
+![No orders available](/assets/images/console/add-devices-5.png)
 
 
 ### Rollout firmware
