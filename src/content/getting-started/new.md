@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### M635e power consumption 2026-08-19
 
-Added power consumption to the datasheet [M635e datasheet](/reference/datasheets/m-series/m635e-datasheet/#power-consumption).
+Added power consumption to the [M635e datasheet](/reference/datasheets/m-series/m635e-datasheet/#power-consumption).
 
 ### Added UN 38.3 2026-08-13
 
