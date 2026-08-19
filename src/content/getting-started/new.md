@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M635e power consumption 2026-08-19
+
+Added power consumption to the datasheet [M635e datasheet](/reference/datasheets/m-series/m635e-datasheet/#power-consumption).
+
 ### Added UN 38.3 2026-08-13
 
 Added UN 38.8 for the Tachyon 3-battery pack and the M1 Enclosure 2+1 battery pack to the [battery certification](/hardware/certification/battery-certification/) page.

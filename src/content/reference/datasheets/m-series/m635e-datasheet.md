@@ -864,48 +864,37 @@ breakout board, which has the cellular modem USB connector.
 | Total output drive (all pins) | | | | 200 | mA |
 {{!-- END shared-blurb --}}
 
-### Power consumption (M635)
+### Power consumption
 
-To be determined at a later date.
-
-The power consumption will be very similar to the M404, shown here:
-
-{{!-- BEGIN shared-blurb 8385016b-a581-441c-a63e-92c4357e6d4d --}}
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
-| Operating current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 27.7 | 27.9 | 28.1 | mA |
-| Operating current (uC on, BLE advertising) | I<sub>ble_adv</sub> | 65.5 | 69.5 | 85.9 | mA |
-| Operating current (uC on, BLE connected but idle) | I<sub>ble_conn_idle</sub> | 65.5 | 70.1 | 77 | mA |
-| Operating current (uC on, BLE scanning) | I<sub>ble_scan</sub> | 52.6 | 60.5 | 91.1 | mA |
-| Operating current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 36.2 | 159 | 816 | mA |
-| Operating current (uC on, cellular on but not connected using LTE Cat M1) | I<sub>cell_idle_catm1</sub> | 41.5 | 46.7 | 217 | mA |
-| Operating current (uC on, cellular connecting to tower using LTE Cat M1) | I<sub>cell_conn_twr_catm1</sub> | 39.8 | 43.9 | 131 | mA |
-| Operating current (uC on, cellular connecting to cloud using LTE Cat M1) | I<sub>cell_conn_cloud_catm1</sub> | 39.7 | 83.5 | 181 | mA |
-| Operating current (uC on, cellular connected but idle using LTE Cat M1) | I<sub>cell_cloud_idle_catm1</sub> | 41.8 | 44.5 | 155 | mA |
-| Operating current (uC on, cellular connected and transmitting using LTE Cat M1) | I<sub>cell_cloud_tx_catm1</sub> | 40.1 | 83.6 | 177 | mA |
-| Operating current (uC on, cellular on but not connected using 2G) | I<sub>cell_idle_2g</sub> | 38.9 | 44.7 | 1700 | mA |
-| Operating current (uC on, cellular connecting to tower using 2G) | I<sub>cell_conn_twr_2g</sub> | 36.9 | 128 | 1700 | mA |
-| Operating current (uC on, cellular connecting to cloud using 2G) | I<sub>cell_conn_cloud_2g</sub> | 35.9 | 98.3 | 1740 | mA |
-| Operating current (uC on, cellular connected but idle using 2G) | I<sub>cell_cloud_idle_2g</sub> | 35.8 | 40.3 | 114 | mA |
-| Operating current (uC on, cellular connected and transmitting using 2G) | I<sub>cell_cloud_tx_2g</sub> | 32 | 152 | 1720 | mA |
-| Operating current (uC on, Wi-Fi on but not connected) | I<sub>wifi_idle</sub> | 27.3 | 30.4 | 101 | mA |
-| Operating current (uC on, Wi-Fi connecting to access point) | I<sub>wifi_conn_ap</sub> | 25.4 | 68.9 | 353 | mA |
-| Operating current (uC on, Wi-Fi connecting to cloud) | I<sub>wifi_conn_cloud</sub> | 59.8 | 109 | 469 | mA |
-| Operating current (uC on, Wi-Fi connected but idle) | I<sub>wifi_cloud_idle</sub> | 61.6 | 64.5 | 184 | mA |
-| Operating current (uC on, Wi-Fi connected and transmitting) | I<sub>wifi_cloud_tx</sub> | 60.7 | 64.9 | 349 | mA |
-| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 542 | 547 | 551 | uA |
-| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 512 | 515 | 518 | uA |
-| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 542 | 547 | 551 | uA |
-| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 512 | 515 | 518 | uA |
-| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 41.9 | 44 | 45.8 | uA |
-| HIBERNATE mode sleep, RTC wake-up | I<sub>hib_intrtc</sub> | 41.1 | 43.4 | 45.3 | uA |
+| Operating current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 24 | 27.6 | 31.3 | mA |
+| Operating current (uC on, BLE advertising) | I<sub>ble_adv</sub> | 63.4 | 66.5 | 77.6 | mA |
+| Operating current (uC on, BLE connected but idle) | I<sub>ble_conn_idle</sub> | 62 | 67 | 72.5 | mA |
+| Operating current (uC on, BLE scanning) | I<sub>ble_scan</sub> | 63 | 66.5 | 82.3 | mA |
+| Operating current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 40.2 | 78.2 | 161 | mA |
+| Operating current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 40 | 96.1 | 497 | mA |
+| Operating current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 36.9 | 105 | 472 | mA |
+| Operating current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | 39.6 | 43.5 | 118 | mA |
+| Operating current (uC on, cellular on but not connected using NTN) | I<sub>cell_ntn_idle</sub> | 33.1 | 47.5 | 110 | mA |
+| Operating current (uC on, connecting to NTN) | I<sub>cell_ntn_conn_sat</sub> | 37.7 | 147 | 591 | mA |
+| Operating current (uC on, connected to NTN, no data transmission) | I<sub>cell_ntn_sat_idle</sub> | 38.1 | 41.1 | 101 | mA |
+| Operating current (uC on, connected to NTN, publishing data to the cloud over NTN) | I<sub>cell_ntn_tx_rx</sub> | 38.8 | 269 | 684 | mA |
+| Operating current (uC on, Wi-Fi on but not connected) | I<sub>wifi_idle</sub> | 28.3 | 28.6 | 29.2 | mA |
+| Operating current (uC on, Wi-Fi connecting to access point) | I<sub>wifi_conn_ap</sub> | 64.8 | 70.8 | 348 | mA |
+| Operating current (uC on, Wi-Fi connecting to cloud) | I<sub>wifi_conn_cloud</sub> | 35.3 | 65.9 | 85.6 | mA |
+| Operating current (uC on, Wi-Fi connected but idle) | I<sub>wifi_cloud_idle</sub> | 36.2 | 38 | 70.9 | mA |
+| Operating current (uC on, Wi-Fi connected and transmitting) | I<sub>wifi_cloud_tx</sub> | 36.3 | 56.7 | 105 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 337 | 340 | 343 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 338 | 347 | 361 | uA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 37.3 | 39.8 | 42.1 | uA |
+| HIBERNATE mode sleep, RTC wake-up | I<sub>hib_intrtc</sub> | 38.2 | 40 | 42 | uA |
 
 <sup>1</sup>The min, and particularly peak, values may consist of very short transients.
 The typical (typ) values are the best indicator of overall power consumption over time. The 
 peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 Current measurements taken at 3.6V via the battery input. For more information about measuring power usage, see [power measurement](/hardware/power/power-measurement/).
-{{!-- END shared-blurb --}}
 
 ### Radio specifications
 
@@ -1571,3 +1560,4 @@ SE, SI, SK, TR, UA, UK(NI).
 | 001      | 2026-07-15 | RK | Split from M-SoM datasheet for certification |
 | 002      | 2026-07-16 | RK | Additional ISED updates |
 | 003      | 2026-07-27 | RK | FCC and ISED certification document links |
+| 004      | 2026-08-19 | RK | Power consumption |
