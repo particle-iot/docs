@@ -521,13 +521,11 @@ async function generate() {
 
 
 async function generateIndex() {
-    const generatedDir = path.join(__dirname, '../../generated');
-
-    const libraryIndexPath = path.join(generatedDir, 'libraryIndex.json');
 
     const libraryIndex = {
         libraries: [],
     };
+    const libraryIndexPath = path.join(__dirname, '../../src/assets/files/libraryIndex.json');
 
     const librariesDir = path.join(__dirname, '../../src/assets/files/libraries');
 
@@ -604,7 +602,7 @@ async function run() {
         await generate();
     }
 
-    if (argv.generateIndex) {
+    if (argv.generate || argv.generateIndex) {
         await generateIndex();
     }
 
