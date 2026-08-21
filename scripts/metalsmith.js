@@ -358,23 +358,34 @@ exports.metalsmith = function () {
       },
       move: true
     }))
-    // For select files, stash a copy of the fully processed Markdown (frontmatter stripped,
+    // For every Markdown page, stash a copy of the fully processed Markdown (frontmatter stripped,
     // handlebars rendered, auto-generated content inserted) before it's rendered into HTML below.
     // The stashed copy uses a temporary .raw extension so none of the following plugins
     // (markdown, autotoc, layouts, permalinks) mistake it for a page to render; it's restored to
     // a plain .md file near the end of the pipeline so it ends up one level up from the rendered
     // index.html, e.g. reference/cloud-apis/api.md alongside reference/cloud-apis/api/index.html.
     .use(function saveRawMarkdown(files, metalsmith, done) {
-      [
-        { source: 'reference/device-os/firmware.md', dest: 'reference/device-os/firmware.md.raw' },
-        { source: 'reference/cloud-apis/api.md', dest: 'reference/cloud-apis/api.md.raw' }
-      ].forEach(function (item) {
-        var file = files[item.source];
-        if (file) {
-          files[item.dest] = {
-            contents: Buffer.from(file.contents)
-          };
-        }
+      var pages = Object.keys(files).filter(function (source) {
+        return source.endsWith('.md');
+      });
+      var pageSet = new Set(pages);
+      pages.forEach(function (source) {
+        // In the stashed copy, point internal links at the Markdown mirror when one exists
+        // for the target page, e.g. ](/reference/device-os/sleep/) becomes
+        // ](/reference/device-os/sleep.md). Links to assets, external URLs, and pages
+        // without a Markdown twin are left untouched.
+        var contents = files[source].contents.toString().replace(
+          /\]\(\/([^)#?\s]+)\/(#[^)]*)?\)/g,
+          function (match, target, anchor) {
+            if (!pageSet.has(target + '.md')) {
+              return match;
+            }
+            return '](/' + target + '.md' + (anchor || '') + ')';
+          }
+        );
+        files[source + '.raw'] = {
+          contents: Buffer.from(contents)
+        };
       });
       done();
     })
