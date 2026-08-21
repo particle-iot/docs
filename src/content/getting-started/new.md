@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### llms.txt 2026-08-21
+
+Added a [llms.txt](/llms.txt) file that contains hints for LLM code generators like Claude Code and ChatGPT Codex.
+
 ### Skylo carrier update 2026-08-21
 
 Added Colombia and Singapore to the Skylo NTN (M635e) supported countries list.

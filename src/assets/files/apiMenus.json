@@ -12,6 +12,10 @@
         {
           "title": "Navigation - Introduction",
           "dir": "navigation"
+        },
+        {
+          "title": "Device programming summary - Introduction",
+          "dir": "device-programming-summary"
         }
       ]
     },

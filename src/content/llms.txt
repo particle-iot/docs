@@ -2,3 +2,9 @@
 
 > This site contains documentation for Particle IoT devices such as the M-SoM, B-SoM, Boron, P2, and Photon 2.
 
+
+## Documentation
+
+- [Device OS API](https://docs.particle.io/reference/device-os/firmware.md): The C++ on-device API
+- [Cloud API](https://docs.particle.io/reference/cloud-apis/api.md): The REST API for interacting with the Particle cloud
+- [Library Index](https://docs.particle.io/assets/files/libraryIndex.json): A JSON file containing information about public community libraries available for the platform

@@ -341,6 +341,26 @@ exports.metalsmith = function () {
       },
       move: true
     }))
+    // For select files, stash a copy of the fully processed Markdown (frontmatter stripped,
+    // handlebars rendered, auto-generated content inserted) before it's rendered into HTML below.
+    // The stashed copy uses a temporary .raw extension so none of the following plugins
+    // (markdown, autotoc, layouts, permalinks) mistake it for a page to render; it's restored to
+    // a plain .md file near the end of the pipeline so it ends up one level up from the rendered
+    // index.html, e.g. reference/cloud-apis/api.md alongside reference/cloud-apis/api/index.html.
+    .use(function saveRawMarkdown(files, metalsmith, done) {
+      [
+        { source: 'reference/device-os/firmware.md', dest: 'reference/device-os/firmware.md.raw' },
+        { source: 'reference/cloud-apis/api.md', dest: 'reference/cloud-apis/api.md.raw' }
+      ].forEach(function (item) {
+        var file = files[item.source];
+        if (file) {
+          files[item.dest] = {
+            contents: Buffer.from(file.contents)
+          };
+        }
+      });
+      done();
+    })
     // THIS IS IT!
     // Render the main docs files into HTML
     .use(markdown())
@@ -363,6 +383,15 @@ exports.metalsmith = function () {
       pattern: '**/google*.txt',
       directory: '../build',
       extension: '.html',
+    }))
+    // Restore the raw Markdown copies stashed above (see saveRawMarkdown) to plain .md files,
+    // now that permalinks has finished creating their sibling index.html files.
+    .use(copy({
+      pattern: '**/*.md.raw',
+      transform: function restoreMarkdownExtension(file) {
+        return file.slice(0, -('.raw'.length));
+      },
+      move: true
     }))
   ;
   return metalsmith;
