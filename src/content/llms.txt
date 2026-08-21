@@ -2,9 +2,44 @@
 
 > This site contains documentation for Particle IoT devices such as the M-SoM, B-SoM, Boron, P2, and Photon 2.
 
+Markdown versions of all documentation pages are available by replacing the trailing slash of a page URL with `.md`, for example https://docs.particle.io/reference/device-os/sleep/ becomes https://docs.particle.io/reference/device-os/sleep.md.
+
 
 ## Documentation
 
 - [Device OS API](https://docs.particle.io/reference/device-os/firmware.md): The C++ on-device API
 - [Cloud API](https://docs.particle.io/reference/cloud-apis/api.md): The REST API for interacting with the Particle cloud
 - [Library Index](https://docs.particle.io/assets/files/libraryIndex.json): A JSON file containing information about public community libraries available for the platform
+
+## Device OS references
+
+- [Pin Info](https://docs.particle.io/reference/device-os/pin-info.md): Pin mappings and pin functions for each device
+- [Device OS Versions](https://docs.particle.io/reference/device-os/versions.md): Which Device OS versions exist and which features and devices each version supports
+- [BLE](https://docs.particle.io/reference/device-os/bluetooth-le.md): Bluetooth LE (BLE) API
+- [Sleep](https://docs.particle.io/reference/device-os/sleep.md): Sleep modes for conserving power
+- [EEPROM](https://docs.particle.io/reference/device-os/eeprom.md): Emulated EEPROM API for persistent storage
+- [File System](https://docs.particle.io/reference/device-os/file-system.md): POSIX-style flash file system API
+- [Typed Publish](https://docs.particle.io/reference/device-os/typed-publish.md): Publishing typed and structured data to the cloud
+- [Real Time Clocks](https://docs.particle.io/reference/device-os/real-time-clocks.md): Using the real-time clock and external RTC chips
+
+## Firmware best practices
+
+- [Firmware Template](https://docs.particle.io/firmware/best-practices/firmware-template.md): Structure of the recommended firmware project template
+- [Libraries](https://docs.particle.io/firmware/best-practices/libraries.md): Finding, using, and writing firmware libraries
+- [Scheduling](https://docs.particle.io/firmware/best-practices/scheduling.md): Scheduling work in non-blocking firmware
+- [JSON](https://docs.particle.io/firmware/best-practices/json.md): Generating and parsing JSON on-device
+- [Thread and Interrupt Safety](https://docs.particle.io/firmware/best-practices/thread-interrupt-safety.md): Writing thread-safe and interrupt-safe firmware
+- [Code Size Tips](https://docs.particle.io/firmware/best-practices/code-size-tips.md): Reducing the size of firmware binaries
+
+## Device datasheets
+
+- [M-SoM Datasheet](https://docs.particle.io/reference/datasheets/m-series/msom-datasheet.md): M-SoM cellular + Wi-Fi system-on-module
+- [B-Series B404X Datasheet](https://docs.particle.io/reference/datasheets/b-series/b404x-datasheet.md): B-SoM cellular system-on-module
+- [Boron BRN404X Datasheet](https://docs.particle.io/reference/datasheets/b-series/brn404x-datasheet.md): Boron cellular development board
+- [P2 Datasheet](https://docs.particle.io/reference/datasheets/wi-fi/p2-datasheet.md): P2 Wi-Fi module
+- [Photon 2 Datasheet](https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet.md): Photon 2 Wi-Fi development board
+
+## Optional
+
+- [Webhooks](https://docs.particle.io/reference/cloud-apis/webhooks.md): Sending device data to external services via webhooks
+- [Cloud API Authentication](https://docs.particle.io/reference/cloud-apis/authentication.md): OAuth clients and access tokens for the Cloud API
