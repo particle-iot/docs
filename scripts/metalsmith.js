@@ -77,6 +77,23 @@ noop.exec = noop;
 var marked = require('marked');
 marked.InlineLexer.rules.gfm.url = noop;
 
+// marked turns <email@example.com> autolinks into randomized HTML entities (mangling).
+// Node 20+ legacy url.parse() reports a truthy host for those mangled mailto: hrefs where
+// Node 16 reported '', which made metalsmith-markdown add target="_blank" rel="noopener noreferrer"
+// to them. Strip those attributes so the output is the same as on older Node versions.
+// metalsmith-markdown assigns its module-private renderer onto the options object passed in,
+// which is the only way to get a reference to it.
+var markdownOptions = {};
+markdown(markdownOptions);
+var markdownLink = markdownOptions.renderer.link;
+markdownOptions.renderer.link = function (href, title, text) {
+  var out = markdownLink.call(this, href, title, text);
+  if (href.indexOf('mailto:&#') === 0) {
+    out = out.replace(' target="_blank" rel="noopener noreferrer"', '');
+  }
+  return out;
+};
+
 var environment;
 
 var gitBranch;

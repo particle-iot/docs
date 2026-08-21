@@ -1,5 +1,5 @@
 # Base image
-FROM node:10.14.1-slim
+FROM node:24.12.0-slim
 
 # Setup Build Environment
 ARG DEBIAN_FRONTEND=noninteractive
