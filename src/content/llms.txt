@@ -1,0 +1,4 @@
+# Particle
+
+> This site contains documentation for Particle IoT devices such as the M-SoM, B-SoM, Boron, P2, and Photon 2.
+

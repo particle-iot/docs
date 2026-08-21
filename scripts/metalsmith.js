@@ -238,6 +238,14 @@ exports.metalsmith = function () {
         'if': true
       }
     }))
+    // Copy src/content/llms.txt to the top level of the build directory
+    .use(copy({
+      pattern: 'content/llms.txt',
+      transform: function (file) {
+        return path.basename(file);
+      },
+      move: true
+    }))
     // Move files like contents/reference/firmware.md to reference/firmware.md
     .use(moveUp(['content/**/*']))
     // Add a path key to each file, with sub-keys base, dir, ext, name
