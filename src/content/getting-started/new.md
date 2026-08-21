@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Skylo carrier update 2026-08-21
+
+Added Colombia and Singapore to the Skylo NTN (M635e) supported countries list.
+
 ### Console add devices 2026-08-19
 
 You can now add devices to a product directly from an order, or upload files in other formats. See [console add devices](/getting-started/console/console/#adding-devices).

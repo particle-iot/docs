@@ -1385,7 +1385,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | Canada | M635E | M1, NTN | Bell Mobility, Rogers Wireless, Skylo, Telus |
 | Cayman Islands | M635E | 2G | Flow |
 | Chad | M635E | 2G | Airtel |
-| Colombia | M635E | 2G | Movistar |
+| Colombia | M635E | 2G, NTN | Movistar, Skylo |
 | Congo (Brazzaville) | M635E | 2G | Airtel |
 | Congo (Kinshasa) | M635E | 2G | Airtel |
 | Côte d'Ivoire | M635E | 2G | MTN |
@@ -1479,7 +1479,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | San Marino | M635E | NTN | Skylo |
 | Serbia | M635E | 2G | Telenor, VIP |
 | Seychelles | M635E | 2G | Airtel |
-| Singapore | M635E | M1 | SingTel |
+| Singapore | M635E | M1, NTN | SingTel, Skylo |
 | Sint Maarten | M635E | 2G | TelCell |
 | Slovakia | M635E | 2G, M1, NTN | O2, Orange, Skylo, Telekom |
 | Slovenia | M635E | 2G, M1, NTN | A1, Mobitel, Skylo |
