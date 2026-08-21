@@ -47,6 +47,20 @@ It is also available [as a single large document](/reference/device-os/firmware/
 - Hamburger menu lists all sections
 {{/if}}
 
+
+### Device programming summary
+
+- Devices are programmed using C++17 (some older devices use C++11).
+- The devices contain an operating system known as Device OS that provides a standard API for system and hardware services.
+- Each device only runs a single firmware binary that implements all of the desired functionality.
+- There are functions to interact with cloud services in the `Cloud` class.
+- Devices have connectivity to the cloud using the `Cellular`, `Wifi`, or `Ethernet` classes.
+- In most cases, the devices will be pre-configured with things such as network credentials so it is not necessary to add this code to applications.
+- Startup code is generally placed in the `setup()` function.
+- Operational code is placed in the `loop()` function. It should minimize blocking and return as quickly as possible.
+- There are many similarities to the Wiring API used on Arduino devices.
+
+
 ## Cloud functions
 
 ### Overview of API field limits

@@ -1279,8 +1279,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-08-10",
-            "hash": "18ab0d2d3aa16103b0d32747289b5c78523075a47f2de2fc2e77666f0a42bbf5"
+            "date": "2026-08-21",
+            "hash": "e1dac866a2d2d40eab9a3675a765caa446f50386fc97e227e98a95693406a00b"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1707,8 +1707,8 @@
             "hash": "2a57af0ef14ba319fe9db27ca9221c4f26d7882f18a1b0dfe431faf015b56b60"
         },
         "reference/device-os/api/introduction/navigation.md": {
-            "date": "2023-09-20",
-            "hash": "6de7b802e71b476e9049425a01072a7268a9594b752f196bc0a84494fb002ab6"
+            "date": "2026-08-21",
+            "hash": "ed780b4e568b801c4a3a076b2ddbc5db28e989cb1e5b5ff99d2f889e81e85269"
         },
         "reference/device-os/api/cloud-functions/overview-of-api-field-limits.md": {
             "date": "2025-02-11",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "79bf385bfd2dde9cabb887c7cb22f904ff8fe3660393699a93e3bff6247e1e88",
+            "hash": "0213583dd9e3b0fa00da503f75bed6ddb0d97a74ec6b305cc9dbbb835a33e5c4",
             "date": "2026-08-21"
         },
         "getting-started/cloud/logic.md": {
@@ -10059,7 +10059,11 @@
             "date": "2026-07-20"
         },
         "reference/datasheets/m-series/m635e-datasheet.md": {
-            "hash": "933860d99310332a48a708dd4ff3e7e7312ae4ee30d1c5512d1a2b578c945deb",
+            "hash": "2341a3edcf18ceae10e81d5b12c00ed36774b958830567219fc5c35ffeb48955",
+            "date": "2026-08-21"
+        },
+        "reference/device-os/api/introduction/device-programming-summary.md": {
+            "hash": "0fb58d421f8ab72358645d102c04e0538ef290693e6ca99349df32bc8e335103",
             "date": "2026-08-21"
         }
     }
