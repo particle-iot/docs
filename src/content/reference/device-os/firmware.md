@@ -28091,6 +28091,148 @@ Additional information can be found in:
 - [particle-usb library](https://github.com/particle-iot/particle-usb) which implements control requests for node.js (also available in npm) and browser-based WebUSB.
 
 
+### System - Boot log
+
+{{since when="6.5.1"}}
+
+The boot log feature stores the messages logged by the system and the application in a file so they can be retrieved later. This is particularly useful for retrieving the messages logged while the device is booting, or while it's in safe mode, which the application cannot otherwise see since its own log handlers are not yet active at that point.
+
+Messages are captured by the logging service independently of the log handlers registered by the application, such as `Serial` or `Log`. A ring buffer in RAM (2048 bytes, by default) temporarily holds the messages, and the system thread drains this buffer to a file on the filesystem approximately once per second. The log data rotates between two files (`/sys/log.1` and `/sys/log.2`) so that only the most recent `maxSize` bytes of log data (50000 bytes, by default) are retained. If messages are logged faster than they can be written to the file and the buffer overflows, the number of dropped bytes is reported in the log itself.
+
+If enabled persistently, the log configuration is saved to the device so the log is automatically enabled again the next time the device boots, which is what allows the early boot and safe mode messages to be captured. The log can also be enabled for the current session only, in which case it stops capturing messages when the device resets.
+
+{{note op="start" type="gen4"}}
+This feature is available only on Gen 4 platforms in Device OS 6.5.1 and later. It is not avaiable on Gen 3 platforms due to insufficient memory for the feature.
+{{note op="end"}}
+
+#### System.enableLogFile
+
+{{api name1="System.enableLogFile"}}
+
+{{since when="6.5.1"}}
+
+Enables logging to a file. The log starts capturing messages immediately. This method can be called again to reconfigure the log while it is running.
+
+```cpp
+// PROTOTYPE
+static int enableLogFile(const particle::LogFileOptions& opts = particle::LogFileOptions())
+static int enableLogFile(bool persist, const particle::LogFileOptions& opts = particle::LogFileOptions())
+
+// EXAMPLE - enable with the default options
+System.enableLogFile();
+
+// EXAMPLE - only log the "app" category, at WARN level and above
+particle::LogFileOptions opts;
+opts.category("app").level(LOG_LEVEL_WARN);
+System.enableLogFile(opts);
+```
+
+- `persist`: If `true` (the default), saves the logging configuration persistently, so the log is enabled automatically the next time the device boots. This is what allows capturing the early boot messages, as well as the messages logged while the device is in safe mode. If `false`, the log is only enabled for the current session, that is, until the device is reset.
+- `opts`: A `particle::LogFileOptions` object (see below) used to configure the log. If omitted, the default options are used.
+- Returns 0 on success, otherwise a negative system error code as defined by `Error::Type`.
+
+The `particle::LogFileOptions` class uses a builder pattern, so calls to its setter methods can be chained together:
+
+| Method | Description |
+| :--- | :--- |
+| `LogFileOptions& category(const char* category)` | Only messages logged for a category starting with this string are stored in the log. If not set, messages for all categories are stored. |
+| `LogFileOptions& maxSize(size_t size)` | The maximum size, in bytes, of the retained log data. Up to twice this amount of filesystem storage may be used internally. If 0 or not set, a default size (50000 bytes) is used. |
+| `LogFileOptions& bufferSize(size_t size)` | The size, in bytes, of the RAM buffer used to hold messages before they are written to the file. A larger buffer makes it less likely that messages will be dropped when they are logged faster than they can be written to the file. If 0 or not set, a default size (2048 bytes) is used. |
+| `LogFileOptions& level(int level)` | The minimum logging level, as defined by the `LogLevel` enum, to store in the log. If not set, messages at all levels are logged. |
+
+Each setter also has a corresponding getter (`category()`, `maxSize()`, `bufferSize()`, and `level()`) that returns the currently configured value.
+
+#### System.disableLogFile
+
+{{api name1="System.disableLogFile"}}
+
+{{since when="6.5.1"}}
+
+Disables logging to a file, stopping the capture of messages.
+
+```cpp
+// PROTOTYPE
+static void disableLogFile(bool persist = true, bool clear = true)
+
+// EXAMPLE - disable and delete the log
+System.disableLogFile();
+
+// EXAMPLE - disable for this session only, keeping the existing log contents
+System.disableLogFile(false, false);
+```
+
+- `persist`: If `true` (the default), saves the logging configuration persistently, so the log is not enabled automatically the next time the device boots. If `false`, the log is only disabled for the current session, that is, until the device is reset.
+- `clear`: If `true` (the default), deletes the current contents of the log. If `false`, keeps the existing contents of the log.
+
+#### System.printLogFile
+
+{{api name1="System.printLogFile"}}
+
+{{since when="6.5.1"}}
+
+Prints the contents of the log file via the application's own logger, that is, through the log handlers registered by the application, such as `Serial` or `Log`.
+
+```cpp
+// PROTOTYPE
+static int printLogFile(LogLevel level = LOG_LEVEL_INFO, const char* category = LOG_THIS_CATEGORY())
+static int printLogFile(size_t size, LogLevel level = LOG_LEVEL_INFO, const char* category = LOG_THIS_CATEGORY())
+
+// EXAMPLE - print the entire log
+System.printLogFile();
+
+// EXAMPLE - print only the last 4096 bytes of the log
+System.printLogFile(4096);
+```
+
+- `size`: The maximum size, in bytes, of the log data to print. If the log contains more data than this, only the most recent `size` bytes are printed. If omitted or 0, the entire log is printed.
+- `level`: The level at which the contents of the log are printed. Default is `LOG_LEVEL_INFO`.
+- `category`: The category with which the contents of the log are printed. Default is the category of the calling code.
+- Returns the number of bytes printed on success, otherwise a negative system error code as defined by `Error::Type`.
+
+#### System.readLogFile
+
+{{api name1="System.readLogFile"}}
+
+{{since when="6.5.1"}}
+
+Reads the contents of the log file into a buffer provided by the application.
+
+```cpp
+// PROTOTYPE
+static int readLogFile(const std::function<int(const char*, size_t)>& fn)
+static int readLogFile(size_t size, const std::function<int(const char*, size_t)>& fn)
+
+// EXAMPLE - read the entire log in chunks
+System.readLogFile([](const char* data, size_t size) -> int {
+    // Do something with this chunk of the log data
+    Serial.write((const uint8_t*)data, size);
+    return 0; // Return a negative error code to abort reading
+});
+```
+
+- `size`: The maximum size, in bytes, of the log data to read. If the log contains more data than this, only the most recent `size` bytes are read. If omitted or 0, the entire log is read.
+- `fn`: A function invoked for each chunk of the log data as it is read. It must return 0 on success, or a negative error code to abort reading.
+- Returns the number of bytes read on success, otherwise a negative system error code as defined by `Error::Type`.
+
+#### System.clearLogFile
+
+{{api name1="System.clearLogFile"}}
+
+{{since when="6.5.1"}}
+
+Deletes the current contents of the log file. The log keeps capturing new messages.
+
+```cpp
+// PROTOTYPE
+static int clearLogFile()
+
+// EXAMPLE
+System.clearLogFile();
+```
+
+- Returns 0 on success, otherwise a negative system error code as defined by `Error::Type`.
+
+
 ## Control requests
 
 USB control requests work for devices connected by USB to a computer. You can use a command line tool or web browser to send the requests.
