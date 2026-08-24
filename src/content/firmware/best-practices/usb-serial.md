@@ -440,7 +440,7 @@ SerialLogHandler logHandler(115200, LOG_LEVEL_INFO, {
 
 Normally you'll only see output from `Serial`, `SerialLogHandler`, or `Log` while your computer happens to be connected to the USB serial port at the time the message is logged. If your device resets, is updating firmware, or is in safe mode, messages logged before your application's log handler starts running are lost, even if you have `particle serial monitor --follow` running.
 
-Device OS 6.5.1 and later includes a boot log feature that captures system and application log messages to a file on the device, independently of the log handlers registered by your application, so you can retrieve them afterwards. Once enabled, the log continues capturing across resets, so it can retain messages logged very early in the boot process or while the device is in safe mode, which are otherwise not visible to your code.
+Device OS 6.6.0 and later includes a boot log feature that captures system and application log messages to a file on the device, independently of the log handlers registered by your application, so you can retrieve them afterwards. Once enabled, the log continues capturing across resets, so it can retain messages logged very early in the boot process or while the device is in safe mode, which are otherwise not visible to your code.
 
 ```cpp
 // Call this once, for example in setup(), to begin capturing the log persistently
@@ -449,7 +449,11 @@ System.enableLogFile();
 
 You can then print the captured log over USB serial, or any other log handler, with `System.printLogFile()`, or read it into your own buffer with `System.readLogFile()`.
 
-This feature requires Device OS 6.5.1 or later and is only available on Gen 4 platforms (Gen 3 platforms do not have enough flash memory available for it).
+This feature requires Device OS 6.6.0 or later and is only available on Gen 4 platforms (Gen 3 platforms do not have enough flash memory available for it).
+
+{{note op="start" type="warning"}}
+This feature is intended for debugging. It should not be left enabled all the time on production firmware, because writing the log to flash continuously causes flash wear, and can impact the timing of the system thread.
+{{note op="end"}}
 
 For the full API and more information, see [System - Boot log](/reference/device-os/api/system-calls/system-boot-log/) in the Device OS firmware API reference.
 
