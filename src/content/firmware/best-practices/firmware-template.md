@@ -166,3 +166,42 @@ particle flash my-device-name .
 - Replace `my-devce-name` with the name or Device ID (24 character hex) of your device.
 - Note the period `.` by itself, separated by spaces. This means build the current directory and its subdirectories.
 
+## AI agents
+
+If you are using an AI code generator like Claude Code or ChatGPT Codex, you can improve the performance by creating your project
+by adding the `--ai` flag. This generates an `AGENTS.md` file in your project that contains hints to to AI agents.
+
+```sh
+$ particle project create --ai
+```
+
+The AGENTS.md file contains:
+
+- Basic coding instructions
+- Pointer to the machine-readable Device OS firmware API manual
+- Pointer to C++ header files
+- Pointer to index of community software libraries in a machine-readable format
+- Instructions for test compiling software
+
+### AI agent prompt examples
+
+#### Simple publish project
+
+> Add a global `counter` variable that starts at 0. Every 60 seconds while cloud connected, it should increment the counter and publish the value using `Particle.publish` with the event name `test-counter`.
+
+#### Analog read and publish
+
+> Read analog pin A0. If the value changes by more than 10 units, it's been more than 1 second since the last publish, and the device is cloud connected, publish the value using `Particle.publish` with the event name `test-value`.
+
+Then later:
+
+> Instead of publishing the raw value of A0, assume that A0 is connected to a TMP36 analog temperature sensor. Convert the ADC value to a temperature in degrees C. Include a connection diagram in the directory.
+
+#### Using libraries
+
+> Use a DS18B20 1-Wire temperature sensor connected to a DS2482 1-Wire to I2C bridge, connected to the I2C interface of the Particle device.
+> 
+> Every 15 minutes while cloud connected the firmware should query the temperature sensor value in degrees Celsius. Publish the value using `Particle.publish` with the event name `test-temp`. The value should be formatted in JSON with the key "temp" and value of temperature in °C.
+
+
+
