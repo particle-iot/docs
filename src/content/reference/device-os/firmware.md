@@ -28203,11 +28203,13 @@ static int readLogFile(const std::function<int(const char*, size_t)>& fn)
 static int readLogFile(size_t size, const std::function<int(const char*, size_t)>& fn)
 
 // EXAMPLE - read the entire log in chunks
-System.readLogFile([](const char* data, size_t size) -> int {
+int onLogData(const char* data, size_t size) {
     // Do something with this chunk of the log data
     Serial.write((const uint8_t*)data, size);
     return 0; // Return a negative error code to abort reading
-});
+}
+
+System.readLogFile(onLogData);
 ```
 
 - `size`: The maximum size, in bytes, of the log data to read. If the log contains more data than this, only the most recent `size` bytes are read. If omitted or 0, the entire log is read.
