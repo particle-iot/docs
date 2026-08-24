@@ -516,7 +516,7 @@
         },
         "firmware/best-practices/usb-serial.md": {
             "date": "2026-08-24",
-            "hash": "741f61c0aa9b9151ad4a0effde34760150c5c7dd890c956605f56c550d4b4409"
+            "hash": "b2726bfbd77ae0ba172fa9d8cbe79d168a2384490e8a3cf40f32b70ab797f5a9"
         },
         "firmware/low-power/device-powerdown.md": {
             "date": "2024-02-27",
@@ -1280,7 +1280,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2026-08-24",
-            "hash": "7c6b359e54b9f95e32f3730460e05a0c2e80d6852640cf3242b4e43bd8c1a68d"
+            "hash": "bbf4702dbfcbc43efcfb5980fe7468ff91af41f6df08165590f5b7cb40a8d43f"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -10067,7 +10067,7 @@
             "date": "2026-08-21"
         },
         "reference/device-os/api/system-calls/system-boot-log.md": {
-            "hash": "dd671df47bd57fdb457cdc6bf6160c7b153e2a49fca8953c0852c3a1c53d61d4",
+            "hash": "cd6778b50cab7a1874b7989ad3427a733fde6c43bb023ef2c1011d88a3f51cd0",
             "date": "2026-08-24"
         }
     }

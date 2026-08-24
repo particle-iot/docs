@@ -28093,7 +28093,7 @@ Additional information can be found in:
 
 ### System - Boot log
 
-{{since when="6.5.1"}}
+{{since when="6.6.0"}}
 
 The boot log feature stores the messages logged by the system and the application in a file so they can be retrieved later. This is particularly useful for retrieving the messages logged while the device is booting, or while it's in safe mode, which the application cannot otherwise see since its own log handlers are not yet active at that point.
 
@@ -28102,14 +28102,18 @@ Messages are captured by the logging service independently of the log handlers r
 If enabled persistently, the log configuration is saved to the device so the log is automatically enabled again the next time the device boots, which is what allows the early boot and safe mode messages to be captured. The log can also be enabled for the current session only, in which case it stops capturing messages when the device resets.
 
 {{note op="start" type="gen4"}}
-This feature is available only on Gen 4 platforms in Device OS 6.5.1 and later. It is not avaiable on Gen 3 platforms due to insufficient memory for the feature.
+This feature is available only on Gen 4 platforms in Device OS 6.6.0 and later. It is not avaiable on Gen 3 platforms due to insufficient memory for the feature.
+{{note op="end"}}
+
+{{note op="start" type="warning"}}
+This feature is intended for debugging. It should not be left enabled all the time on production firmware, because writing the log to flash continuously causes flash wear, and can impact the timing of the system thread.
 {{note op="end"}}
 
 #### System.enableLogFile
 
 {{api name1="System.enableLogFile"}}
 
-{{since when="6.5.1"}}
+{{since when="6.6.0"}}
 
 Enables logging to a file. The log starts capturing messages immediately. This method can be called again to reconfigure the log while it is running.
 
@@ -28146,7 +28150,7 @@ Each setter also has a corresponding getter (`category()`, `maxSize()`, `bufferS
 
 {{api name1="System.disableLogFile"}}
 
-{{since when="6.5.1"}}
+{{since when="6.6.0"}}
 
 Disables logging to a file, stopping the capture of messages.
 
@@ -28168,7 +28172,7 @@ System.disableLogFile(false, false);
 
 {{api name1="System.printLogFile"}}
 
-{{since when="6.5.1"}}
+{{since when="6.6.0"}}
 
 Prints the contents of the log file via the application's own logger, that is, through the log handlers registered by the application, such as `Serial` or `Log`.
 
@@ -28193,7 +28197,7 @@ System.printLogFile(4096);
 
 {{api name1="System.readLogFile"}}
 
-{{since when="6.5.1"}}
+{{since when="6.6.0"}}
 
 Reads the contents of the log file into a buffer provided by the application.
 
@@ -28220,7 +28224,7 @@ System.readLogFile(onLogData);
 
 {{api name1="System.clearLogFile"}}
 
-{{since when="6.5.1"}}
+{{since when="6.6.0"}}
 
 Deletes the current contents of the log file. The log keeps capturing new messages.
 
