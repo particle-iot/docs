@@ -1163,8 +1163,8 @@
             "hash": "aed8a4e6f47658144fe415192451479d8683fdf0a13f519108831a18c560137a"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2026-03-03",
-            "hash": "072b39b5b7ed88abc4551d8ce2c51576ad01f453b79b937c4ed471c71fc1c52b"
+            "date": "2026-08-25",
+            "hash": "e73cd418ca08e967a0039c0fb75e7a42b2e25fa62f5061c44a9996fdfecb72be"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-11-06",
@@ -8159,8 +8159,8 @@
             "date": "2023-09-22"
         },
         "firmware/best-practices/firmware-template.md": {
-            "hash": "8abd242865b139a5c36df4d3901516d2b232a7c37451f04323d3f4e22ea6441b",
-            "date": "2023-10-17"
+            "hash": "bab510bb2886228bcc575754c14653eeaf861f875f2b74220b95bace0e144cc9",
+            "date": "2026-08-25"
         },
         "hardware/best-practices/serial-number.md": {
             "hash": "3a639863bb475eed4d4b52902581b5c8dbd2fbb6d24d3f26541fa732487c480c",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "0213583dd9e3b0fa00da503f75bed6ddb0d97a74ec6b305cc9dbbb835a33e5c4",
-            "date": "2026-08-21"
+            "hash": "04bd5c1eda7660fdc1845b2e25335cbd419e5d7420481f7d04c4dd6b1b6a05b4",
+            "date": "2026-08-24"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

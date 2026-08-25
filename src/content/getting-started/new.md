@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### CLI AI agents 2026-08-25
+
+The Particle CLI can now generate hints for [AI agents](/firmware/best-practices/firmware-template/#ai-agents) when creating new projects.
+
 ### llms.txt 2026-08-21
 
 Added a [llms.txt](/llms.txt) file that contains hints for LLM code generators like Claude Code and ChatGPT Codex.

@@ -641,6 +641,24 @@ Initializing project in directory /home/user/Particle/projects/doorbell...
 The meta data about the project is stored in the `project.properties` file. It includes the project name and what libraries are used by the project.
 
 
+#### AI agents
+
+If you are using an AI code generator like Claude Code or ChatGPT Codex, you can improve the performance by creating your project
+with the `--ai` flag. This generates an `AGENTS.md` file in your project that contains hints to to AI agents.
+
+```sh
+$ particle project create --ai
+```
+
+You can also add AI agent information to an existing project using:
+
+```sh
+$ particle project ai
+```
+
+See [AI agents](/firmware/best-practices/firmware-template/#ai-agents) for more information.
+
+
 ### compiling a project
 
 Compile or flash a project like you would another directory.
