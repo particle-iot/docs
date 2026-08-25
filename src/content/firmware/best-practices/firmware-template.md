@@ -169,10 +169,14 @@ particle flash my-device-name .
 ## AI agents
 
 If you are using an AI code generator like Claude Code or ChatGPT Codex, you can improve the performance by creating your project
-by adding the `--ai` flag. This generates an `AGENTS.md` file in your project that contains hints to to AI agents.
+with the `--ai` flag. This generates an `AGENTS.md` file in your project that contains hints to to AI agents.
 
 ```sh
+# Create a mew project with AI agent support
 $ particle project create --ai
+
+# Adding AI agent support to an existing project
+$ particle project ai
 ```
 
 The AGENTS.md file contains:

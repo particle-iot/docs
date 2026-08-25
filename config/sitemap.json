@@ -1163,8 +1163,8 @@
             "hash": "aed8a4e6f47658144fe415192451479d8683fdf0a13f519108831a18c560137a"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2026-08-24",
-            "hash": "3d59480e7392c9c09eec2f6cc83e291d74c87bd1eb4978715adc00e7c6369533"
+            "date": "2026-08-25",
+            "hash": "e73cd418ca08e967a0039c0fb75e7a42b2e25fa62f5061c44a9996fdfecb72be"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-11-06",
@@ -8159,8 +8159,8 @@
             "date": "2023-09-22"
         },
         "firmware/best-practices/firmware-template.md": {
-            "hash": "4ca5df15d49f9f1a6fc0959587d5ce5690541c5f708f76a0920580a5e5756e87",
-            "date": "2026-08-24"
+            "hash": "bab510bb2886228bcc575754c14653eeaf861f875f2b74220b95bace0e144cc9",
+            "date": "2026-08-25"
         },
         "hardware/best-practices/serial-number.md": {
             "hash": "3a639863bb475eed4d4b52902581b5c8dbd2fbb6d24d3f26541fa732487c480c",
