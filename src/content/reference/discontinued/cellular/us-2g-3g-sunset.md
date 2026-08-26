@@ -37,7 +37,7 @@ The mobile operators used by Particle cellular devices in the United States are 
 
 ### Boron 2G/3G (BRN310)
 
-- **This devices can no longer connect in the United States**
+- **These devices can no longer connect in the United States**
 - The Boron 2G/3G only has ever connected to T-Mobile. It will likely revert to 2G only by October 2021, may stop working entirely in April 2024, and did stop working in August 2026.
 - After the T-Mobile 3G shutdown in October 2021, there may be reduced T-Mobile coverage in some areas.
 - T-Mobile 2G shutdown is complete as of August 2026. It was possible any time after April 2024.
@@ -45,14 +45,14 @@ The mobile operators used by Particle cellular devices in the United States are 
 
 ### E-Series E310
 
-- **This devices can no longer connect in the United States**
+- **These devices can no longer connect in the United States**
 - The E-Series 2G/3G Global can connect to AT&T or T-Mobile.
 - After February 2022 it will not be able to connect to AT&T and will only be able to use T-Mobile 2G.
 - T-Mobile 2G shutdown is complete as of August 2026. It was possible any time after April 2024.
 
 ### Electron 2G/3G (ELC314, E260)
 
-- **This devices can no longer connect in the United States**
+- **These devices can no longer connect in the United States**
 - The E-Series 2G/3G Global can connect to AT&T or T-Mobile.
 - After February 2022 it will not be able to connect to AT&T and will only be able to use T-Mobile 2G.
 - T-Mobile 2G shutdown is complete as of August 2026. It was possible any time after April 2024.
@@ -60,7 +60,7 @@ The mobile operators used by Particle cellular devices in the United States are 
 
 ### Electron 2G (E350)
 
-- **This devices can no longer connect in the United States**
+- **These devices can no longer connect in the United States**
 - The Electron 2G has only connected to T-Mobile since 2016.
 - T-Mobile 2G shutdown is complete as of August 2026. It was possible any time after April 2024.
 - Of the nationwide US mobile carriers, this model is only compatible with T-Mobile and AT&T, and using a 3rd-party SIM card will not help. This device is not compatible with Verizon.
