@@ -918,6 +918,7 @@ $(document).ready(function() {
 
         const markDevelopmentCheckboxElem = $(thisPartial).find('.markDevelopmentCheckbox');
         const nameDevicePrefixElem = $(thisPartial).find('.nameDevicePrefix');
+        const sequentialStartElem = $(thisPartial).find('.sequentialStart');
 
         const importButtonElem = $(thisPartial).find('.importButton');
         const downloadButtonElem = $(thisPartial).find('.downloadButton');
@@ -942,7 +943,18 @@ $(document).ready(function() {
             $(thisPartial).find('input[name="nameDevices"]').prop('checked', false);
             $(thisPartial).find('input[name="nameDevices"][value="' + value + '"]').prop('checked', true);
         }
-        
+
+        const getSequentialModeRadio = function() {
+            return $(thisPartial).find('input[name="sequentialMode"]:checked').val();
+        }
+        const setSequentialModeRadio = function(value) {
+            $(thisPartial).find('input[name="sequentialMode"]').prop('checked', false);
+            $(thisPartial).find('input[name="sequentialMode"][value="' + value + '"]').prop('checked', true);
+        }
+        const updateSequentialModeEnabled = function() {
+            $(thisPartial).find('input[name="sequentialMode"]').prop('disabled', getNameRadio() != 'sequential');
+        }
+
         if (!apiHelper.auth) {
             // Not logged in
             $(thisPartial).hide();
@@ -1041,6 +1053,10 @@ $(document).ready(function() {
             options.name = getNameRadio();
             if (options.name == 'sequential') {
                 options.namePrefix = $(nameDevicePrefixElem).val();
+                options.sequentialMode = getSequentialModeRadio();
+                if (options.sequentialMode == 'starting') {
+                    options.sequentialStart = $(sequentialStartElem).val();
+                }
             }
 
             // options.username = apiHelper.auth.username;
@@ -1063,16 +1079,34 @@ $(document).ready(function() {
         });
 
         $(thisPartial).find('input[name="nameDevices"]').on('click', function() {
+            updateSequentialModeEnabled();
             $(thisPartial).trigger('updateSearchParam');
         });
 
 
         $(nameDevicePrefixElem).on('input', function() {
+            if ($(nameDevicePrefixElem).val().length > 0) {
+                setNameRadio('sequential');
+                updateSequentialModeEnabled();
+            }
             $(thisPartial).trigger('updateSearchParam');
         });
-        
 
-        const urlConfigFields = ['name', 'namePrefix', 'development'];
+        $(thisPartial).find('input[name="sequentialMode"]').on('click', function() {
+            $(thisPartial).trigger('updateSearchParam');
+        });
+
+        $(sequentialStartElem).on('input', function() {
+            if ($(sequentialStartElem).val().length > 0) {
+                setNameRadio('sequential');
+                setSequentialModeRadio('starting');
+                updateSequentialModeEnabled();
+            }
+            $(thisPartial).trigger('updateSearchParam');
+        });
+
+
+        const urlConfigFields = ['name', 'namePrefix', 'development', 'sequentialMode', 'sequentialStart'];
 
         {
             let value = urlParams.get('claim');
@@ -1093,13 +1127,23 @@ $(document).ready(function() {
                     if (value) {
                         $(nameDevicePrefixElem).val(value);
                     }
+                    value = urlParams.get('sequentialMode');
+                    if (value) {
+                        setSequentialModeRadio(value);
+                    }
+                    value = urlParams.get('sequentialStart');
+                    if (value) {
+                        $(sequentialStartElem).val(value);
+                    }
                 }
-    
+
             }
 
 
             deviceGroup.loadUrlParams(urlParams);
         }
+
+        updateSequentialModeEnabled();
 
         // This is triggered to update the URL search parameters when settings change
         $(document).on('updateSearchParam', async function() {
@@ -1335,11 +1379,23 @@ $(document).ready(function() {
                 // options.productId
     
                 // Get sequence number in case that option is used
-                let lastSeqNum = 0;
-                for(const dev of deviceList) {
-                    const seqNum = isNamePrefix(dev.name, options.namePrefix);
-                    if (seqNum > lastSeqNum) {
-                        lastSeqNum = seqNum;
+                let startSeqNum = 0;
+                if (options.name == 'sequential') {
+                    if (options.sequentialMode == 'starting' && options.sequentialStart) {
+                        startSeqNum = parseInt(options.sequentialStart, 10) - 1;
+                        if (isNaN(startSeqNum)) {
+                            startSeqNum = 0;
+                        }
+                    }
+                    else {
+                        // Next available: start after the highest existing sequence number with this prefix
+                        for(const dev of deviceList) {
+                            const seqNum = isNamePrefix(dev.name, options.namePrefix);
+                            if (seqNum > startSeqNum) {
+                                startSeqNum = seqNum;
+                            }
+                        }
+                        startSeqNum++;
                     }
                 }
                 // Import devices into product
@@ -1442,7 +1498,7 @@ $(document).ready(function() {
                             case 'sequential':
                                 const seqNum = isNamePrefix(tableDeviceObj.deviceObj.name, options.namePrefix);
                                 if (seqNum == 0) {
-                                    newName = options.namePrefix + (++lastSeqNum);
+                                    newName = options.namePrefix + (startSeqNum++);
                                 }
                                 break;
     

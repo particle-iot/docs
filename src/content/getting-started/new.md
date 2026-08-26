@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Import devices 2026-08-26
+
+The [import devices tool](/tools/cloud-tools/import-devices/) now has an option to manually select the starting number to use when using the sequentially with prefix instead of always using the next available.
+
 ### CLI AI agents 2026-08-25
 
 The Particle CLI can now generate hints for [AI agents](/firmware/best-practices/firmware-template/#ai-agents) when creating new projects.

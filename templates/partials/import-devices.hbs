@@ -18,7 +18,10 @@
                     <div><label><input type="radio" name="nameDevices" value="none" checked/>Do not set name</label></div>
                     <!-- <div><label><input type="radio" name="nameDevices" value="manual"/>Set manually below</label></div> -->
                     <div><label><input type="radio" name="nameDevices" value="sequential"/>Sequentially with prefix </label> &nbsp;
-                        <input type="text" size="15" class="nameDevicePrefix" /></div>
+                        <input type="text" size="15" class="nameDevicePrefix" /><br/>
+                        &nbsp;&nbsp;&nbsp;<label><input type="radio" name="sequentialMode" value="auto" checked/>Next available number</label><br/>
+                        &nbsp;&nbsp;&nbsp;<label><input type="radio" name="sequentialMode" value="starting"/>Starting with number</label>&nbsp;
+                            <input type="text" size="6" class="sequentialStart" name="sequentialStart" /></div>
                     <div><label><input type="radio" name="nameDevices" value="serial" />Use serial number for name</label></div>
                     <div><label><input type="radio" name="nameDevices" value="random" />Random words</label></div>
                 </div>
