@@ -1487,8 +1487,8 @@
             "hash": "96a94ec7cc9b4bd1fcf6927dee54b6d4b9f3c641d78388b1cfd943eb89681687"
         },
         "reference/discontinued/cellular/us-2g-3g-sunset.md": {
-            "date": "2025-04-09",
-            "hash": "38912ea38768bff0755c64f2a3d9d5809f4bc7e7e410264378c873818d94a4fe"
+            "date": "2026-08-26",
+            "hash": "0609392574c521d7dddf76d687aa43879c4e4a070cfa1fed90425935c077b1db"
         },
         "troubleshooting/troubleshooting.md": {
             "date": "2026-06-22",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "5268cc9bc8ab096036416c449b4384cb94bc9219a101c35781fa39c0f98a88ed",
+            "hash": "a31be1e4f854e126ebbf4cd0a2943bf36f86606283143b3f84dec6b6f925ec24",
             "date": "2026-08-26"
         },
         "getting-started/cloud/logic.md": {
