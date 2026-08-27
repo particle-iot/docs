@@ -5212,6 +5212,37 @@
               "isContent": true
             }
           ]
+        },
+        {
+          "title": "System - Boot log - System calls",
+          "dir": "system-boot-log",
+          "subsections": [
+            {
+              "anchor": "system-enablelogfile",
+              "title": "System.enableLogFile",
+              "isContent": true
+            },
+            {
+              "anchor": "system-disablelogfile",
+              "title": "System.disableLogFile",
+              "isContent": true
+            },
+            {
+              "anchor": "system-printlogfile",
+              "title": "System.printLogFile",
+              "isContent": true
+            },
+            {
+              "anchor": "system-readlogfile",
+              "title": "System.readLogFile",
+              "isContent": true
+            },
+            {
+              "anchor": "system-clearlogfile",
+              "title": "System.clearLogFile",
+              "isContent": true
+            }
+          ]
         }
       ]
     },
