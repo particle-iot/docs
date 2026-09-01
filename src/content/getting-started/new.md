@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2026-09-01
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
+
 ### T-Mobile US 3G shutdown 2026-08-26
 
 Updated the [US 2G/3G sunset](/reference/discontinued/cellular/us-2g-3g-sunset/) page to indicate that the T-Mobile 2G shutdown is now complete. 2G/3G devices can not longer connect in the United States.
