@@ -70,6 +70,17 @@ module.exports = function(options) {
       return thisData ? data.concat(thisData) : data;
     }, []);
 
+    // Copy generated/api-service.json into the build as a downloadable asset. By the time we get
+    // here it's either just been regenerated above (if the api-service sibling directory is
+    // present) or is the previously committed version (if not), so this works during 'npm start'
+    // either way.
+    const apiServiceSavePath = path.join(__dirname, '..', 'generated', 'api-service.json');
+    if (fs.existsSync(apiServiceSavePath)) {
+      files['assets/files/api-service.json'] = {
+        contents: fs.readFileSync(apiServiceSavePath)
+      };
+    }
+
     // Don't continue if directory is missing
     if (apiData.length === 0) {
       return done();
