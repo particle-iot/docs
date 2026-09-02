@@ -21,10 +21,13 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Cloud API AI agents 2026-09-02
+
+The [Cloud API reference](/reference/cloud-apis/api/#ai-agents) now includes a section with hints for generating cloud API calls using AI agents.
+
 ### Library updates 2026-09-01
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
-
 
 ### T-Mobile US 3G shutdown 2026-08-26
 

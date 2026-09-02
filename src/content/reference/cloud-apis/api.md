@@ -134,6 +134,23 @@ In this case, we're using the Blink and LED firmware on the device, so it will r
 
 - Click **Send**. It will also show some output in the bottom pane if the device is online and is running the appropriate firmware.
 
+## AI Agents
+
+You can use AI agents to help write your server-side code; this is especially useful for scripting operations. To help 
+the code generation, you can include an additional instruction:
+
+> using the Particle cloud REST API described here: https://docs.particle.io/assets/files/api-service.json
+
+Examples:
+
+> write code to print the device id, name, and serial number for all devices in a product in node.js using the Particle cloud REST API described here: https://docs.particle.io/assets/files/api-service.json
+
+> write a script using bash and curl to print the device id, name, and serial number for all devices in a product using the Particle cloud REST API described here: https://docs.particle.io/assets/files/api-service.json
+
+> write python code to generate a csv of device id, name for all devices with online = false in a product using the Particle cloud REST API described here: https://docs.particle.io/assets/files/api-service.json
+
+These examples were tested using Claude and ChatGPT, but should work with any AI code generator tools.
+
 
 ## Authentication
 
