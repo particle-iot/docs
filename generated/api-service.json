@@ -7208,6 +7208,80 @@
     "groupTitle": "Events.4"
   },
   {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/events/:eventPrefix",
+    "title": "Organization event stream",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgIdOrSlug",
+            "isArray": false,
+            "description": "<p>Organization ID or slug</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "eventPrefix",
+            "isArray": false,
+            "description": "<p>Filters the stream to only events starting with the specified prefix</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "events:get"
+      }
+    ],
+    "name": "GetOrgEvents",
+    "group": "Events.5",
+    "description": "<p>Open a stream of <a href=\"http://www.w3.org/TR/eventsource/\">Server Sent Events</a> for all events for every product in an organization. Products added to or removed from the organization are reflected in the stream without reconnecting.</p>",
+    "examples": [
+      {
+        "title": "$ curl https://api.particle.io/v1/orgs/acme/events \\",
+        "content": "$ curl https://api.particle.io/v1/orgs/acme/events \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "event",
+            "isArray": false,
+            "description": "<p>event name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data",
+            "isArray": false,
+            "description": "<p>event data in JSON format</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/orgs/acme/events",
+          "content": "GET /v1/orgs/acme/events\nHTTP/1.1 200 OK\n:ok\n\nevent: temperature\ndata: {\"data\":\"25.34\",\"ttl\":\"60\",\"published_at\":\"2015-07-18T00:12:18.174Z\",\"coreid\":\"0123456789abcdef01234567\",\"productID\":1234}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/product.js",
+    "groupTitle": "Events.5"
+  },
+  {
     "type": "post",
     "url": "/v1/devices/events",
     "title": "Publish an event",
@@ -7344,6 +7418,78 @@
     "version": "0.0.0",
     "filename": "src/views/product.js",
     "groupTitle": "Events.7"
+  },
+  {
+    "type": "post",
+    "url": "/v1/orgs/:orgIdOrSlug/events",
+    "title": "Publish an organization event",
+    "description": "<p>Publish an event that is sent to the event stream of every product in the organization</p>",
+    "group": "Events.8",
+    "name": "PublishOrgEvent",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgIdOrSlug",
+            "isArray": false,
+            "description": "<p>Organization ID or slug</p>"
+          }
+        ]
+      }
+    },
+    "body": [
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "name",
+        "isArray": false,
+        "description": "<p>Event name</p>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": true,
+        "field": "data",
+        "isArray": false,
+        "description": "<p>Event data</p>"
+      },
+      {
+        "group": "Body",
+        "type": "Number",
+        "optional": true,
+        "field": "ttl",
+        "isArray": false,
+        "description": "<p>How long the event should persist</p>"
+      }
+    ],
+    "permission": [
+      {
+        "name": "events:send"
+      }
+    ],
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/events\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/events\" \\\n       -d \"name=myevent\" \\\n       -d \"data=Hello World\" \\\n       -d \"ttl=60\" \\\n       -H \"Authorization: Bearer :access_token\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "POST /v1/orgs/:orgIdOrSlug/events",
+          "content": "POST /v1/orgs/:orgIdOrSlug/events\nHTTP/1.1 200 OK\n{\n  \"ok\": true\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/views/product.js",
+    "groupTitle": "Events.8"
   },
   {
     "type": "put",
@@ -14080,10 +14226,10 @@
       {
         "group": "Body",
         "type": "Boolean",
-        "optional": false,
+        "optional": true,
         "field": "mandatory",
         "isArray": false,
-        "description": "<p>[Enterprise only] Flag this firmware release as a mandatory release so that product upgrades and downgrades apply this version of firmware before flashing the targeted version.</p>",
+        "description": "<p>[Enterprise only] Flag this firmware release as a mandatory release so that product upgrades and downgrades apply this version of firmware before flashing the targeted version. Omit to leave the current value unchanged.</p>",
         "checked": false
       }
     ],
@@ -15409,13 +15555,53 @@
             "field": "secrets.logic_functions",
             "isArray": true,
             "description": "<p>List of Logic Functions that use this secret</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets.logic_functions",
+              "parentNode": {
+                "path": "secrets",
+                "field": "secrets",
+                "type": "Object[]",
+                "isArray": true
+              },
+              "field": "secrets.logic_functions",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.logic_functions.id",
+            "isArray": false,
+            "description": "<p>ID of the Logic Function</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "secrets.logic_functions",
+              "parentNode": {
+                "path": "secrets",
+                "field": "secrets",
+                "type": "Object[]",
+                "isArray": true
+              },
+              "field": "secrets.logic_functions",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secrets.logic_functions.name",
+            "isArray": false,
+            "description": "<p>Name of the Logic Function</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "GET /v1/secrets",
-          "content": "GET /v1/secrets\nHTTP/1.1 200 OK\n{\n  \"secrets\": [{\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"name\": \"my integration\",\n         \"id\": \"654346685db1b2cc1905d499\"\n       }\n    ],\n    \"logic_functions\": []\n  }]\n}",
+          "content": "GET /v1/secrets\nHTTP/1.1 200 OK\n{\n  \"secrets\": [{\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"id\": \"654346685db1b2cc1905d499\",\n         \"name\": \"my integration\"\n       }\n    ],\n    \"logic_functions\": [\n       {\n         \"id\": \"0193b4a8-5e66-7d99-b127-e675a7de5d16\",\n         \"name\": \"my logic function\"\n       }\n    ]\n  }]\n}",
           "type": "json"
         }
       ]
@@ -15556,13 +15742,53 @@
             "field": "secret.logic_functions",
             "isArray": true,
             "description": "<p>List of Logic Functions that use this secret</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "secret.logic_functions",
+              "parentNode": {
+                "path": "secret",
+                "field": "secret",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "secret.logic_functions",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secret.logic_functions.id",
+            "isArray": false,
+            "description": "<p>ID of the Logic Function</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "secret.logic_functions",
+              "parentNode": {
+                "path": "secret",
+                "field": "secret",
+                "type": "Object",
+                "isArray": false
+              },
+              "field": "secret.logic_functions",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "secret.logic_functions.name",
+            "isArray": false,
+            "description": "<p>Name of the Logic Function</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "GET /v1/secrets/MY_API_KEY",
-          "content": "GET /v1/secrets/MY_API_KEY\nHTTP/1.1 200 OK\n{\n  \"secret\": {\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"name\": \"my integration\",\n         \"id\": \"654346685db1b2cc1905d499\"\n       }\n    ],\n    \"logic_functions\": []\n  }\n}",
+          "content": "GET /v1/secrets/MY_API_KEY\nHTTP/1.1 200 OK\n{\n  \"secret\": {\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"name\": \"my integration\",\n         \"id\": \"654346685db1b2cc1905d499\"\n       }\n    ],\n    \"logic_functions\": [\n       {\n         \"id\": \"0193b4a8-5e66-7d99-b127-e675a7de5d16\",\n         \"name\": \"my logic function\"\n       }\n    ]\n  }\n}",
           "type": "json"
         }
       ]

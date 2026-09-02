@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Cloud API updates 2026-09-02
+
+Updated the [Cloud API reference](/reference/cloud-apis/api/) with updates to the organization endpoints. This also updates the Postman definition files.
+
 ### Cloud API AI agents 2026-09-02
 
 The [Cloud API reference](/reference/cloud-apis/api/#ai-agents) now includes a section with hints for generating cloud API calls using AI agents.

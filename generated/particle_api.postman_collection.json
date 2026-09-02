@@ -134,7 +134,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2026-05-13T07:54:59.312Z",
+                  "value": "2026-09-02T14:20:52.264Z",
                   "disabled": true
                 }
               ]
@@ -199,7 +199,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2026-05-13T07:54:59.314Z",
+                      "value": "2026-09-02T14:20:52.268Z",
                       "disabled": true
                     }
                   ]
@@ -1596,7 +1596,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2026-05-13T07:54:59.329Z",
+                  "value": "2026-09-02T14:20:52.284Z",
                   "disabled": true
                 },
                 {
@@ -1656,7 +1656,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2026-05-13T07:54:59.329Z",
+                      "value": "2026-09-02T14:20:52.284Z",
                       "disabled": true
                     },
                     {
@@ -3278,13 +3278,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-05-13T07:54:59.344Z",
+                  "value": "2026-09-02T14:20:52.296Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-05-13T07:54:59.345Z",
+                  "value": "2026-09-02T14:20:52.296Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -4271,6 +4271,82 @@
           ]
         },
         {
+          "name": "Organization event stream",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/orgs/:orgIdOrSlug/events/:eventPrefix",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "orgs",
+                ":orgIdOrSlug",
+                "events",
+                ":eventPrefix"
+              ],
+              "query": [],
+              "variables": [
+                {
+                  "key": "orgIdOrSlug",
+                  "value": "string",
+                  "description": "Organization ID or slug",
+                  "disabled": false
+                },
+                {
+                  "key": "eventPrefix",
+                  "value": "string",
+                  "description": "Filters the stream to only events starting with the specified prefix",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Open a stream of Server Sent Events for all events for every product in an organization. Products added to or removed from the organization are reflected in the stream without reconnecting."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": null,
+                "url": {
+                  "raw": "{{url}}/v1/orgs/:orgIdOrSlug/events/:eventPrefix",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "orgs",
+                    ":orgIdOrSlug",
+                    "events",
+                    ":eventPrefix"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "GET /v1/orgs/acme/events\nHTTP/1.1 200 OK\n:ok\n\nevent: temperature\ndata: {\"data\":\"25.34\",\"ttl\":\"60\",\"published_at\":\"2015-07-18T00:12:18.174Z\",\"coreid\":\"0123456789abcdef01234567\",\"productID\":1234}"
+            }
+          ]
+        },
+        {
           "name": "Publish an event",
           "request": {
             "auth": null,
@@ -4412,6 +4488,83 @@
                 }
               ],
               "body": "POST /v1/products/:productIdOrSlug/events\nHTTP/1.1 200 OK\n{\n  \"ok\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Publish an organization event",
+          "request": {
+            "auth": null,
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"string\",\n  \"data\": \"string\",\n  \"ttl\": 0\n}"
+            },
+            "url": {
+              "raw": "{{url}}/v1/orgs/:orgIdOrSlug/events",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "orgs",
+                ":orgIdOrSlug",
+                "events"
+              ],
+              "query": [],
+              "variables": [
+                {
+                  "key": "orgIdOrSlug",
+                  "value": "string",
+                  "description": "Organization ID or slug",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Publish an event that is sent to the event stream of every product in the organization"
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"data\": \"string\",\n  \"ttl\": 0\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/v1/orgs/:orgIdOrSlug/events",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "orgs",
+                    ":orgIdOrSlug",
+                    "events"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "POST /v1/orgs/:orgIdOrSlug/events\nHTTP/1.1 200 OK\n{\n  \"ok\": true\n}"
             }
           ]
         }
@@ -5152,13 +5305,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-05-13T07:54:59.359Z",
+                  "value": "2026-09-02T14:20:52.305Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-05-13T07:54:59.359Z",
+                  "value": "2026-09-02T14:20:52.305Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5259,13 +5412,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-05-13T07:54:59.360Z",
+                  "value": "2026-09-02T14:20:52.307Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-05-13T07:54:59.360Z",
+                  "value": "2026-09-02T14:20:52.307Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5366,13 +5519,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-05-13T07:54:59.361Z",
+                  "value": "2026-09-02T14:20:52.308Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-05-13T07:54:59.361Z",
+                  "value": "2026-09-02T14:20:52.308Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5473,13 +5626,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-05-13T07:54:59.364Z",
+                  "value": "2026-09-02T14:20:52.310Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-05-13T07:54:59.365Z",
+                  "value": "2026-09-02T14:20:52.310Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5580,13 +5733,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-05-13T07:54:59.366Z",
+                  "value": "2026-09-02T14:20:52.312Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-05-13T07:54:59.366Z",
+                  "value": "2026-09-02T14:20:52.312Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -11183,7 +11336,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/secrets\nHTTP/1.1 200 OK\n{\n  \"secrets\": [{\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"name\": \"my integration\",\n         \"id\": \"654346685db1b2cc1905d499\"\n       }\n    ],\n    \"logic_functions\": []\n  }]\n}"
+              "body": "GET /v1/secrets\nHTTP/1.1 200 OK\n{\n  \"secrets\": [{\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"id\": \"654346685db1b2cc1905d499\",\n         \"name\": \"my integration\"\n       }\n    ],\n    \"logic_functions\": [\n       {\n         \"id\": \"0193b4a8-5e66-7d99-b127-e675a7de5d16\",\n         \"name\": \"my logic function\"\n       }\n    ]\n  }]\n}"
             }
           ]
         },
@@ -11249,7 +11402,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "GET /v1/secrets/MY_API_KEY\nHTTP/1.1 200 OK\n{\n  \"secret\": {\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"name\": \"my integration\",\n         \"id\": \"654346685db1b2cc1905d499\"\n       }\n    ],\n    \"logic_functions\": []\n  }\n}"
+              "body": "GET /v1/secrets/MY_API_KEY\nHTTP/1.1 200 OK\n{\n  \"secret\": {\n    \"name\": \"MY_API_KEY\",\n    \"created_at\": \"2024-05-22T19:24:25.789Z\",\n    \"updated_at\": \"2024-05-22T19:24:25.789Z\",\n    \"last_accessed_at\": null,\n    \"integrations\": [\n       {\n         \"name\": \"my integration\",\n         \"id\": \"654346685db1b2cc1905d499\"\n       }\n    ],\n    \"logic_functions\": [\n       {\n         \"id\": \"0193b4a8-5e66-7d99-b127-e675a7de5d16\",\n         \"name\": \"my logic function\"\n       }\n    ]\n  }\n}"
             }
           ]
         },
