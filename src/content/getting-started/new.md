@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Muon PoE 2026-09-04
+
+Added a recommended [PoE adapter](/reference/datasheets/m-series/muon-datasheet/#poe-power) for use in the Muon.
+
 ### Cloud API updates 2026-09-02
 
 Updated the [Cloud API reference](/reference/cloud-apis/api/) with updates to the organization endpoints. This also updates the Postman definition files.

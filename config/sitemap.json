@@ -515,7 +515,7 @@
             "hash": "8192552abb79fe01c9840fe03e1e4b55872b5f7f787b51b6085c40d8f818cc06"
         },
         "firmware/best-practices/usb-serial.md": {
-            "date": "2025-10-15",
+            "date": "2026-09-04",
             "hash": "96b5594309629890d005916171dafaa09e4db542e8c7f9dc9794ac894a00b2de"
         },
         "firmware/low-power/device-powerdown.md": {
@@ -1279,7 +1279,7 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-08-21",
+            "date": "2026-09-04",
             "hash": "e1dac866a2d2d40eab9a3675a765caa446f50386fc97e227e98a95693406a00b"
         },
         "reference/device-os/pin-info.md": {
@@ -8224,7 +8224,7 @@
         },
         "getting-started/new.md": {
             "hash": "fb05e8e209a5dc625f085ebc5ab66ef8abd10ba9fb264a623a413e69a79aa169",
-            "date": "2026-09-02"
+            "date": "2026-09-04"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8396,7 +8396,7 @@
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "23e67ac5a1a708b90b3941ca5ae8cc28c47bb5a20e0b7c057bac4a970c4708bd",
-            "date": "2026-08-04"
+            "date": "2026-09-04"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -10065,6 +10065,10 @@
         "reference/device-os/api/introduction/device-programming-summary.md": {
             "hash": "0fb58d421f8ab72358645d102c04e0538ef290693e6ca99349df32bc8e335103",
             "date": "2026-08-21"
+        },
+        "reference/device-os/api/system-calls/system-boot-log.md": {
+            "hash": "cd6778b50cab7a1874b7989ad3427a733fde6c43bb023ef2c1011d88a3f51cd0",
+            "date": "2026-08-24"
         }
     }
 }
