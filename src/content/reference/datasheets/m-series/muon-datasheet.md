@@ -199,6 +199,8 @@ This allows a PoE HAT to get power from the Ethernet jack, convert it to 5VDC 2A
 
 Be sure the J15 jumper is connecting pins 1 & 2 to allow the expansion connector 5V to power the Muon.
 
+{{imageOverlay src="/assets/images/muon-hats/poe-hat-5v-in.png" alt="5V IN"}}
+
 **Make sure you get a PoE adapter for the Raspberry Pi 5**
 
 On all Raspberry Pi models with PoE support, there is a 4-pin plug next to the RJ45 Ethernet jack. However,
@@ -208,7 +210,14 @@ the Ethernet jack is on the Muon, as well.
 If your PoE adapter has the 4-pin power jack is next to the 40-pin expansion header, you have the wrong adapter 
 and it will not fit on the Muon.
 
-Not all PoE HATs for the Raspberry Pi 5 fit! The [Waveshare (G)](https://www.waveshare.com/product/raspberry-pi/hats/interface-power/poe-hat-g.htm) does not fit as there are components on the bottom that interfere when seated flush against the Muon. Some PoE HATs include optional header extensions should allow them to fit.
+
+Not all PoE HATs for the Raspberry Pi 5 fit! The [Waveshare (G)](https://www.waveshare.com/product/raspberry-pi/hats/interface-power/poe-hat-g.htm) does not fit as there are components on the bottom that interfere when seated flush against the Muon. 
+
+The [Waveshare Power over Ethernet (H)](https://www.waveshare.com/product/raspberry-pi/hats/interface-power/poe-hat-h.htm) works and fits properly on the Muon and is recommended as it includes the riser header so it will clear the components on the Muon board. Note that this will significantly increase the height of the assembly! You will still be able to add additional HATs on top but make sure the assembly will still fit in your enclosure.
+
+{{imageOverlay src="/assets/images/muon-hats/poe-hat-top.png" alt="PoE HAT top"}}
+
+{{imageOverlay src="/assets/images/muon-hats/poe-hat-side.jpeg" alt="PoE HAT side"}}
 
 
 #### LiPo battery connector
@@ -1983,3 +1992,4 @@ Global, country list to be provided a later date.
 |   5      | 2025-06-17 | RK | Added link to 3D models |
 |   6      | 2025-06-25 | RK | Clarifications for GNSS use |
 |   7      | 2026-02-19 | RK | D6 is not an I2C pin |
+|   8      | 2026-09-04 | RK | Added recommended PoE adapter |
