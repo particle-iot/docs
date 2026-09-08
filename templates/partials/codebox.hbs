@@ -1,4 +1,5 @@
 <div class="codebox" data-content="{{content}}">
+    {{#unless pdf-generation}}
     <div class="codeboxBanner">
         <div class="codeboxBannerBox">
             {{#if configSchema}}
@@ -33,8 +34,13 @@
             <div class="codeboxFlashStatus"></div>
         </div>
     </div>
-    <div {{#if height}}style="height:{{height}}px; overflow:scroll;"{{/if}}>
+    {{/unless}} {{!-- pdf-generation --}}
+    <div {{#unless pdf-generation}}{{#if height}}style="height:{{height}}px; overflow:scroll;"{{/if}}{{/unless}}>
+        {{#if pdf-generation}}
+        <pre class="codeboxPre"><code class="codebox lang-{{format}}">{{codebox-file-content content=content}}</code></pre>
+        {{else}}
         <pre class="codeboxPre"><code class="codebox lang-{{format}}" data-content="{{content}}"></code></pre>
+        {{/if}}
     </div>
 </div>
 
