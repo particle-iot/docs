@@ -66,6 +66,7 @@ const troubleshooting = require('./troubleshooting.js').metalsmith;
 const autoInclude = require('./auto-include.js').metalsmith;
 const postman = require('./postman.js').metalsmith;
 const copyFiles = require('./copy-files.js').metalsmith;
+const pdfGeneration = require('./pdf-generation.js');
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -97,6 +98,22 @@ markdownOptions.renderer.link = function (href, title, text) {
 var environment;
 
 var gitBranch;
+
+// Datasheet-style pages that should also be built into a downloadable PDF (see pdf-generation.js).
+// Paths are matched against the file's path within the pipeline, e.g. 'reference/datasheets/b-series/boron-datasheet.md'.
+var pdfGenerationOptions = {
+  patterns: [
+    'reference/datasheets/**/*.md',
+    'reference/technical-advisory-notices/*.md'
+  ],
+  hashesFile: path.join(__dirname, 'pdf-generation/hashes.json'),
+  distribDir: path.join(__dirname, '../src/assets/pdfs/datasheets'),
+  distribAssetPrefix: 'assets/pdfs/datasheets',
+  coversDir: path.join(__dirname, '../src/content/reference/datasheets/covers'),
+  stylesEntry: path.join(__dirname, 'pdf-generation/styles/datasheets.less'),
+  xslFile: path.join(__dirname, 'pdf-generation/styles/toc.xsl'),
+  assetsDir: path.join(__dirname, '../src/assets')
+};
 
 var generateSearch = process.env.SEARCH_INDEX !== '0';
 
@@ -344,12 +361,21 @@ exports.metalsmith = function () {
       omitExtensions: ['.md'],
       omitTrailingSlashes: false
     }))
+    // For files matching pdfGenerationOptions.patterns, clone the file with pdf-generation: true
+    // set in its metadata so that the inPlace step below renders a PDF-specific version alongside
+    // the normal page (see the comment at the top of pdf-generation.js for why).
+    .use(pdfGeneration.preRender(pdfGenerationOptions))
     // Replace the {{handlebar}} markers inside Markdown files before they are rendered into HTML and
     // any other files with a .hbs extension in the src folder
     .use(inPlace({
       engine: 'handlebars',
       pattern: ['**/*.md', '**/*.hbs']
     }))
+    // Pull the fully-rendered Markdown back out of the clones added above, remove them from the
+    // pipeline (they must never be turned into pages of their own), and regenerate any datasheet
+    // PDF whose rendered Markdown has changed since the last build. Skips everything if wkhtmltopdf
+    // isn't installed on this machine.
+    .use(pdfGeneration.postRender(pdfGenerationOptions))
     // Remove the .hbs extension from generated files that contained handlebar markers
     .use(copy({
       pattern: '**/*.hbs',

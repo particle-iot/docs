@@ -1,69 +1,54 @@
-# How to generate PDFs from datasheets
+# How datasheet PDFs are generated
 
-To generate PDF from all the datasheets just run (it should work on macOS and Linux at least):
+PDF versions of the datasheets and technical advisory notices are generated as part of the
+normal site build (`npm run build`, `npm start`) by `scripts/pdf-generation.js`, which is wired
+into `scripts/metalsmith.js`. There's no separate `npm run pdf-generation` step anymore.
 
-```
-npm run pdf-generation
-```
-
-**But make sure that you've done following things before:**
+**Make sure you've done the following first:**
 - Install all the **dependencies** with `npm install`
-- Install **wkhtmltopdf** tool (0.12.4 is used here) for your system from https://wkhtmltopdf.org/downloads.html
+- Install **wkhtmltopdf** tool (0.12.4+) for your system from https://wkhtmltopdf.org/downloads.html.
+  If it isn't installed, PDF generation is silently skipped and the rest of the site still builds
+  normally.
 - Have **[Montserrat](https://github.com/JulietaUla/Montserrat) and [Fira Mono](https://github.com/mozilla/Fira) fonts** installed in your system (alternative links on Font Squirrel: [Montserrat](https://www.fontsquirrel.com/fonts/montserrat), [Fira Mono](https://www.fontsquirrel.com/fonts/fira-mono); on Google Fonts: [Montserrat](https://fonts.google.com/specimen/Montserrat), [Fira Mono](https://fonts.google.com/specimen/Fira+Mono))
 
+## How it fits into the Metalsmith build
 
-## What Script Does
+Which files are candidates for PDF generation is configured in `scripts/metalsmith.js`
+(`pdfGenerationOptions.patterns`). Right now that's:
 
-The script is just a gulp file (`scripts/pdf-generation/pdf-generation-gulpfile.js`) which calls `wkhtmltopdf`.
+- `src/content/reference/datasheets/**/*.md`
+- `src/content/reference/technical-advisory-notices/*.md`
 
-1. **Copy assets** from `src/assets/`
-2. **Prepare styles** (from LESS) for the pages (not for cover and TOC)
-3. For each datasheet (markdown file in `src/content/datasheets/`):
-    1. **Strips frontmatter** in datasheets. These are the lines between 2 `---` at the top of the markdown.
-    2. **Strips web-only sections** in datasheets. Lines between `{{#unless pdf-generation}}` and `{{/unless}} {{!-- pdf-generation --}}` won't be in the PDF.
-    3. **Fix relative paths** to assets: `/assets/…` and `{{assets}}/…` → `./assets/…`
-    4. **Compile** datasheets **from markdown to HTML**
-    5. **Add** general **HTML5 header and footer** around that HTML
-    6. **Run `wkhtmltopdf`** to make PDFs of such HTMLs, cover pages, and generate TOC
+Two small plugins from `scripts/pdf-generation.js` are installed immediately around the existing
+`inPlace` (Handlebars) step:
 
-## Files Structure
+1. **preRender** (just before `inPlace`) clones each matching file and sets `pdf-generation: true`
+   on the clone's metadata. When `inPlace` runs immediately afterwards, the clone is rendered
+   through the exact same Handlebars helpers and partials as the real page - including
+   `{{#unless pdf-generation}}...{{/unless}}`, which datasheet content uses to hide web-only
+   sections (like the "Download PDF" button) from the PDF.
+2. **postRender** (just after `inPlace`) pulls the fully-rendered Markdown back out of each clone,
+   deletes the clone from the pipeline (so it never turns into a page on the website), and, if
+   that Markdown has changed since the last build, regenerates the datasheet's PDF with
+   `wkhtmltopdf`.
 
-```
-docs
-├── _pdf-datasheets-build    ← temporary folder for compiled datasheets, styles, and copied assets
-…
-├── scripts
-│   ├── pdf-generation
-│   │   ├── styles
-│   │   │   ├── datasheets.less           ← styles for datasheets' pages
-│   │   │   ├── toc.xsl                   ← TOC style and outline
-│   │   ├── pdf-generation-gulpfile.js    ← script file
-│   │   ├── README.md
-│   …
-├── src
-│   ├── assets
-│   │   ├── pdfs
-│   │   │   ├── datasheets    ← folder for PDF results
-│   ├── content
-│   │   ├── datasheets
-│   │   │   ├── covers
-│   │   │   │   ├── *.html    ← cover pages
-│   │   │   │   ├── …         ← resources for cover pages
-│   │   │   ├── *.md          ← the datasheets
-│   │   …
-│   …
-…
-```
+Because generation happens from the same processed Markdown Metalsmith already produces for the
+website, none of the old gulp task's regex-based reimplementations of `imageOverlay`, `box`,
+`since`, `note`, etc. are needed - they're just real Handlebars helpers now.
+
+## Change detection
+
+An MD5 hash of each file's fully-rendered Markdown is kept in `hashes.json`. If a datasheet's
+rendered Markdown hasn't changed and its PDF already exists, generation is skipped. The hash is
+of the *rendered* Markdown, not the source file on disk, so a PDF is also regenerated when
+something upstream of Handlebars changes its output (e.g. shared blurbs, device feature flags).
 
 ## Datasheets
 
-All content for datasheets is in markdown files in `src/content/datasheets/`. Those markdowns are shared for both web version and PDFs.
+All content for datasheets is in Markdown files in `src/content/reference/datasheets/`. Those
+Markdown files are shared for both the web version and the PDF.
 
-**To add a new datasheet**, just add a markdown file to `src/content/datasheets/`.
-
-**To edit a datasheet**, just edit the corresponding markdown file in `src/content/datasheets/`.
-
-Mark sections for the web version only **using special comments**:
+Mark sections for the web version only **using `{{#unless pdf-generation}}`**:
 
 ```
 {{#unless pdf-generation}}
@@ -73,45 +58,26 @@ Only web content!
 
 ## Page Breaks
 
-To add a page break, just add a line  with `---` (markdown's for `<hr>`). Like that:
-
-```
-Some content.
-
----
-
-Content on new page.
-
-```
+To add a page break, just add a line with `---` (Markdown's syntax for `<hr>`).
 
 ## Cover Pages
 
-For each datasheet markdown file (in `src/content/datasheets/`) script will use for a cover page the html-file with the same name in `src/content/datasheets/covers/`.
-
-**To add a cover page**, just add an html-file for it with the same name as datasheet's file.
-
-**To modify the cover page**, just modify the html-file with the same name.
-
-**To add resources** for a cover page, just drop them in the same folder `src/content/datasheets/covers/` and use relative paths.
-
-For now, there is no unified style, so feel free to copy the inlined styles from the existing covers.
+For each datasheet Markdown file, an HTML cover page with the same base name in
+`src/content/reference/datasheets/covers/` is used, if present. If that directory (or a specific
+cover file) doesn't exist, the datasheet is generated without a cover page.
 
 ## Table of Contents
 
-Table of Contents is generated automatically by `wkhtmltopdf` using headers tags.
+The table of contents is generated automatically by `wkhtmltopdf` from the page's headers. To
+customize it, edit `toc.xsl` in this directory.
 
-To customize the output of TOC (like adding header, or changing styles), modify the `toc.xsl` file in `scripts/pdf-generation/styles/`.
+## Changing Page Styles
 
-## Changing Pages Styles
+The stylesheet for the PDF pages is `styles/datasheets.less` in this directory (compiled with
+`less` + `autoprefixer` and inlined into each generated PDF's HTML).
 
-Main stylesheet for pages is in `datasheets.less` in `scripts/pdf-generation/styles/`.
+## Output
 
-Currently, all styles are in that one file, but you can import other files in it. So consider `datasheets.less` as an index file for styles.
-
-## Issues
-
-The script may not work on Windows machines (haven't tested).
-
-## Useful Links
-
-- “Docs” for `wkhtmltopdf` → https://wkhtmltopdf.org/usage/wkhtmltopdf.txt
+Generated PDFs are written to `src/assets/pdfs/datasheets/<name>.pdf`, named after the datasheet's
+Markdown filename (not its full path), matching the URLs already hard-coded via `downloadButton`
+in datasheet content.
