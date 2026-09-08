@@ -254,14 +254,20 @@ function hashBasis(contents) {
 function markdownToPdfHtml(rawMarkdown, css, assetsFileUrl) {
   let md = rawMarkdown;
 
-  // Point references to /assets/... (images, mostly) at the real assets directory on disk
-  // so wkhtmltopdf, run with --enable-local-file-access, can embed them directly - no need
-  // to copy the assets directory anywhere first.
-  md = md.replace(/\/assets\//g, assetsFileUrl + '/');
+  // Anything actually embedded into the page - <img src>, <source srcset>, and Markdown image
+  // syntax - needs to resolve to a real file at generation time so wkhtmltopdf can render it
+  // into the PDF, so point those specifically at the real assets directory on disk (no need to
+  // copy the assets directory anywhere first, since --enable-local-file-access is set below).
+  md = md.replace(/((?:src|srcset)=")\/assets\//g, '$1' + assetsFileUrl + '/');
+  md = md.replace(/(!\[[^\]]*\]\()\/assets\//g, '$1' + assetsFileUrl + '/');
 
-  // Remaining in-site links (other reference pages, etc.) won't exist next to the generated
-  // PDF, so point them at the live website instead.
+  // Everything else pointing at a site-relative path - other reference pages, but also plain
+  // links to /assets/... files like certification documents or pinout PDFs - is a link meant
+  // to be followed later, quite possibly on a different machine than the one that generated
+  // this PDF, so (unlike the embeds above) those need to keep pointing at the live website
+  // rather than a local file that won't exist there.
   md = md.replace(/\]\(\//g, '](' + SITE_BASE_URL + '/');
+  md = md.replace(/(href=")\//g, '$1' + SITE_BASE_URL + '/');
 
   // The {{collapse}} helper wraps optional/expandable content (e.g. "Show pin details") in a
   // div that's hidden by default and only revealed by front-end JS that isn't loaded here.
