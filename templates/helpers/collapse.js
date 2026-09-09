@@ -1,5 +1,3 @@
-var crypto = require('crypto');
-
 var Handlebars = require('handlebars');
 
 var collapseConfig = {
@@ -83,26 +81,27 @@ module.exports = function(context) {
 		}
 		
 		if (!hasSelector)  {
-			// Default hidden section start					
+			// Default hidden section start
 			let styleOptions = '';
 			if (context.hash['indent']) {
 				styleOptions += 'padding-left: ' + context.hash['indent'] + '; ';
 			}
 
-			var id = crypto.randomBytes(12).toString("hex");
-
+			// No id is needed here; the runtime pairs this header with its content div by
+			// DOM position (the div is always the next sibling) and finds the two icons
+			// within the clicked header by class, via jQuery.
 			let pictureSrc = '<picture />';
 			pictureSrc += '<source srcset="/assets/images/disclosure-right-dark.png" media="(prefers-color-scheme: dark)" />'
-			pictureSrc += '<img src="/assets/images/disclosure-right.png" style="display:inline; position:static; margin:0px 4px; width:14px; height:14px;" id="ir' + id + '" />'
+			pictureSrc += '<img src="/assets/images/disclosure-right.png" class="collapseIconRight" style="display:inline; position:static; margin:0px 4px; width:14px; height:14px;" />'
 			pictureSrc += '</picture>';
 			pictureSrc += '<picture />';
 			pictureSrc += '<source srcset="/assets/images/disclosure-down-dark.png" media="(prefers-color-scheme: dark)" />'
-			pictureSrc += '<img src="/assets/images/disclosure-down.png" style="display:none; position:static; margin:0px 4px; width:14px; height:14px;" id="id' + id + '"/>'
+			pictureSrc += '<img src="/assets/images/disclosure-down.png" class="collapseIconDown" style="display:none; position:static; margin:0px 4px; width:14px; height:14px;" />'
 			pictureSrc += '</picture>';
 
-			html += '</p><p onclick="collapseToggle(\'' + id + '\')" style="' + styleOptions + '">' + pictureSrc + context.hash.label + '</p>';
-			
-			html += '<div id="s' + id + '" class="collapseIndent" style="display:none">';
+			html += '</p><p onclick="collapseToggle(this)" style="' + styleOptions + '">' + pictureSrc + context.hash.label + '</p>';
+
+			html += '<div class="collapseIndent" style="display:none">';
 		}
 	}
 	else
@@ -121,17 +120,16 @@ module.exports = function(context) {
 			    		
 			    		for(var ii = 0; ii < collapseConfig[key].options.length; ii++) {
 				    		var specificClass = genericClass + collapseConfig[key].options[ii].tag;
-							
-							var id = crypto.randomBytes(12).toString("hex");
 
 							var hiddenExtra = '';
 							if (collapseConfig[key].options[ii].hideWithoutOption) {
 								hiddenExtra = 'style="display:none" class="' + genericClass + 'optionHide" ';
 							}
 
+			    			// The radio is nested inside its label instead of paired via for/id, so no id
+			    			// is needed here and clicking the label text natively activates the radio.
 			    			html += '<span onclick="collapseSelector(event, \'' + genericClass + '\', \'' + collapseConfig[key].options[ii].tag + '\')" ' + hiddenExtra + '>';
-			    			html += '<input type="radio" class="' + genericClass + ' ' + specificClass + '" id=" ' + id + '" >'; 
-			    			html += '<label for="' + id + '">' + collapseConfig[key].options[ii].title + '&nbsp;&nbsp;&nbsp;&nbsp;</label>';
+			    			html += '<label><input type="radio" class="' + genericClass + ' ' + specificClass + '">' + collapseConfig[key].options[ii].title + '&nbsp;&nbsp;&nbsp;&nbsp;</label>';
 			    			html += '</span>';
 			    			
 			    			if (collapseConfig[key].multilineSelector) {

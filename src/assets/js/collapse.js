@@ -123,29 +123,30 @@ $(document).ready(function() {
 	});
 });
 
-function collapseToggle(id) {	 
-	const isOpen = $('#id' + id).is(':visible');
-	console.log('collapseToggle isOpen=' + isOpen + ' id=' + id);
+// elem is the clicked header (or a descendant of it, such as copycode's disclosure image).
+// The header and its content are paired by DOM position rather than a shared id: the content
+// to show/hide is always the very next sibling of the header paragraph, and the two disclosure
+// icons (when present) are found within the header by class.
+function collapseToggle(elem) {
+	const $header = $(elem).closest('p');
+	const $content = $header.next();
+	const isOpen = $content.is(':visible');
+
+	// The icons are toggled with an explicit inline display (not .show()/.hide()) because
+	// ".content img" is styled display:block; jQuery's show()/hide() only restores an
+	// element's own previous inline display value (or, absent one, falls through to that
+	// stylesheet rule), which would leave the triangle on its own line instead of inline
+	// with the label.
 	if (isOpen) {
-		$('#id' + id).css('display', 'none');
-		$('#ir' + id).css('display', 'inline');
-		$('#s' + id).hide();
+		$content.hide();
+		$header.find('.collapseIconRight').css('display', 'inline');
+		$header.find('.collapseIconDown').css('display', 'none');
 	}
 	else {
-		$('#id' + id).css('display', 'inline');
-		$('#ir' + id).css('display', 'none');
-		$('#s' + id).show();
+		$content.show();
+		$header.find('.collapseIconRight').css('display', 'none');
+		$header.find('.collapseIconDown').css('display', 'inline');
 	}
-	/*
-	if ($('#i' + id).attr('src').includes('down')) {
-		$('#s' + id).hide();
-		$('#i' + id).attr('src', '/assets/images/disclosure-right.png');
-	}
-	else {	
-		$('#s' + id).show();
-		$('#i' + id).attr('src', '/assets/images/disclosure-down.png');
-	}
-	*/
 }
 
 function collapseSelector(event, genericCssClass, switchTo) {
@@ -182,16 +183,18 @@ function collapseSelector(event, genericCssClass, switchTo) {
 	localStorage.setItem(genericCssClass, switchTo);
 }
 
-function collapseCopy(id) {
-	var elem = document.getElementById(id);
-	$(elem).show();
-	elem.select();
+// elem is the clicked/dragged button; the textarea it copies from is always the next sibling
+// of that button's enclosing paragraph (see templates/helpers/copycode.js).
+function collapseCopy(elem) {
+	const $textarea = $(elem).closest('p').next();
+	$textarea.show();
+	$textarea[0].select();
 	document.execCommand("copy");
-	$(elem).hide();
+	$textarea.hide();
 }
 
-function collapseDrag(ev, id) {
-    ev.dataTransfer.setData("text", $('#' + id).text());
+function collapseDrag(ev, elem) {
+    ev.dataTransfer.setData("text", $(elem).closest('p').next().text());
 }
 
 imageOverlay.setupOverlay = function() {
