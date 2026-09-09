@@ -7,6 +7,10 @@ description: M1 Enclosure datasheet
 
 # M1 Enclosure datasheet
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/m1-enclosure-datasheet.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
+
 The M1 Enclosure makes it easy to deploy Particle Tachyon and Muon, or Raspberry Pi, projects in a IP67-rated weatherproof enclosure
 similar to the Monitor One.
 

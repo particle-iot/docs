@@ -133,7 +133,10 @@ function postRender(options) {
       if (matchesPatterns(originalKey, patterns)) {
         candidates.push({
           originalKey: originalKey,
-          contents: clone.contents.toString('utf8')
+          contents: clone.contents.toString('utf8'),
+          // Frontmatter `title:`, carried onto the clone along with the rest of the file's
+          // metadata in preRender() - used for the PDF's footer, below.
+          title: clone.title || ''
         });
       }
     });
@@ -191,7 +194,15 @@ async function generatePdfs(candidates, files, options) {
           console.warn('pdf-generation: no cover found for ' + basename + ' datasheet (' + coverPath + ')');
         }
 
-        const args = ['--enable-local-file-access', '--dpi', '300'];
+        const args = [
+          '--enable-local-file-access', '--dpi', '300',
+          // Page footer: the datasheet's title (from its Metalsmith/frontmatter metadata) on
+          // the left, page number on the right. Global options (given before any cover/toc/
+          // page object below) apply to every page of the generated PDF.
+          '--footer-left', candidate.title,
+          '--footer-right', '[page]',
+          '--footer-font-size', '8'
+        ];
         if (hasCover) {
           args.push('cover', coverPath);
         }

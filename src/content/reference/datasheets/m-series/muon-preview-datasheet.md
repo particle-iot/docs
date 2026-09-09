@@ -7,6 +7,10 @@ description: Muon datasheet
 
 # Muon datasheet
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/muon-preview-datasheet.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
+
 {{box op="start" cssClass="boxed warningBox"}}
 This is a datasheet applies to the v0.5 preview hardware only!
 {{box op="end"}}

@@ -7,6 +7,10 @@ description: Muon engineering samples
 
 # {{title}}
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/muon-samples.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
+
 {{box op="start" cssClass="boxed warningBox"}}
 This is a document applies to the v0.5 preview hardware only!
 {{box op="end"}}
