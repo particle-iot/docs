@@ -173,7 +173,7 @@ async function generatePdfs(candidates, files, options) {
   try {
     for (const candidate of candidates) {
       const basename = path.basename(candidate.originalKey, '.md');
-      const hash = crypto.createHash('md5').update(hashBasis(candidate.contents)).digest('hex');
+      const hash = crypto.createHash('md5').update(candidate.contents).digest('hex');
       const pdfPath = path.join(distribDir, basename + '.pdf');
       const assetKey = distribAssetPrefix + '/' + basename + '.pdf';
 
@@ -235,27 +235,6 @@ async function generatePdfs(candidates, files, options) {
   saveHashes(hashesFile, newHashes);
 
   console.log('pdf-generation: ' + generated + ' generated, ' + unchanged + ' unchanged, ' + failed + ' failed');
-}
-
-/*
- * The {{collapse}} helper (used for expandable "Show pin details" sections) bakes a fresh
- * crypto.randomBytes id into its output every time it renders, even when nothing about the
- * page actually changed. Normalize those out before hashing so such pages don't look
- * "changed" - and get their PDF needlessly regenerated - on every single build.
- *
- * These are matched by their literal surrounding markup rather than a bare [0-9a-f]+ scan,
- * because collapse.js embeds the id right after literal text ("...id=\"id...") that can
- * itself end in a hex digit ('d'), which would otherwise make an unanchored hex-run match
- * swallow part of that literal text instead of the id.
- */
-function hashBasis(contents) {
-  return contents
-    .replace(/id="s[0-9a-f]+"/g, 'id="s"')
-    .replace(/id="ir[0-9a-f]+"/g, 'id="ir"')
-    .replace(/id="id[0-9a-f]+"/g, 'id="id"')
-    .replace(/id=" [0-9a-f]+"/g, 'id=""')
-    .replace(/for="[0-9a-f]+"/g, 'for=""')
-    .replace(/collapseToggle\('[0-9a-f]+'\)/g, "collapseToggle('')");
 }
 
 /*
