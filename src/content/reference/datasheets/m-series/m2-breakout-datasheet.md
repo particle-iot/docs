@@ -7,6 +7,10 @@ description: M.2 breakout board
 
 # {{title}}
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/m2-breakout-datasheet.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
+
 The M.2 breakout board is a convenient way to prototype with the B-SoM and M-SoM modules.
 
 {{imageOverlay src="/assets/images/m-series/m2breakout_top.png" alt="Illustration" class="full-width"}}

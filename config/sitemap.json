@@ -1355,19 +1355,19 @@
             "hash": "bb129696987f480ff0872bbfbf0757dc63ac35934cca5f98fb99b27ebca72ca9"
         },
         "reference/datasheets/accessories/debugger.md": {
-            "date": "2026-08-10",
+            "date": "2026-09-09",
             "hash": "c7f334a62c6076357898f97979545d199f6f9663634ce12cb90e2fbdfca751df"
         },
         "reference/datasheets/accessories/edge-ml-kit.md": {
-            "date": "2024-02-27",
+            "date": "2026-09-09",
             "hash": "94ad332f7d31f9bb231bc4882df9086d92526cf9fafe481a057e890097c3f2b0"
         },
         "reference/datasheets/accessories/legacy-accessories.md": {
-            "date": "2024-11-13",
+            "date": "2026-09-09",
             "hash": "1416dec508a6ea1abe78e9235d3debd29292f964f0e4a81bb1ff2fbe29387ba3"
         },
         "reference/datasheets/accessories/gen3-accessories.md": {
-            "date": "2024-01-05",
+            "date": "2026-09-09",
             "hash": "7eb433b059bd9e25b1010294d5436b36a64dafdb8ed42d757e03f9e4a310224e"
         },
         "reference/datasheets/e-series/e-series-datasheet.md": {
@@ -9051,8 +9051,8 @@
             "date": "2024-05-14"
         },
         "reference/datasheets/m-series/m2-breakout-datasheet.md": {
-            "hash": "8cfc327812b80c4e8ee4a9064d29e144e872abc159468f1ef39188c08b36f654",
-            "date": "2026-07-09"
+            "hash": "81844092b069fa52a4dfd17604c8bd8a474ff21c775978e13b4693a4d32e5f04",
+            "date": "2026-09-09"
         },
         "getting-started/logic-ledger/logic-ledger-community/logic-ledger-community.md": {
             "hash": "f275a6fea2e4cfd48a721e99bef3c5777d8f6442967f7ecc58fba05d55f1a672",
@@ -9459,8 +9459,8 @@
             "date": "2024-11-01"
         },
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
-            "hash": "e5329950be6ea278bf1b1b20d7c0d14d2bb76c6befbb97aca818fa9570250c26",
-            "date": "2026-08-13"
+            "hash": "9683b0f234e5e88656935ecfb63e727bc1913d883d9af02005425f4972ad54c8",
+            "date": "2026-09-09"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {
             "hash": "0d2103aed0bae02ca0b94dc8bff2c011e9c5f7c3311ba47cb535ac613e3705b4",
