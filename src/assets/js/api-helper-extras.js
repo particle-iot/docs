@@ -2213,6 +2213,9 @@ $(document).ready(function() {
                     maxWidth = width;
                 }
             });
+            if (maxWidth < 200) {
+                maxWidth = 200;
+            }
 
             // Assign to widest width
             $(thisPartial).find('div').each(function() {
@@ -2248,6 +2251,7 @@ $(document).ready(function() {
         };
 
         checkboxList.addArray = function(array, options = {}) {
+            // console.log('checkboxList.addArray', array);
             for(const itemName of array) {
                 checkboxList.addItem(itemName, options);
             }

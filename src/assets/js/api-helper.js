@@ -198,8 +198,23 @@ apiHelper.isICCID = function(str) {
 
 apiHelper.parseDeviceLine = async function(line) {
     let result = null;
+    let isPossibleSerialNumber;
+
     for(let token of line.split(/[, ]/)) {
         token = token.trim();
+
+        // Strip surrounding quotes, if present (some tools export CSV fields quoted)
+        // Technically this should allow the double quotes to escape the comma, however none of the
+        // fields that we parse contain a comma so it doesn't matter in this specific use case.
+        const quotedMatch = token.match(/^"(.*)"$/);
+        if (quotedMatch) {
+            token = quotedMatch[1].trim();
+        }
+
+        if (token == 'SKU' || token == 'DEVICEID' || token == 'SERIAL_NUMBER') {
+            // This is a header row
+            break;
+        }
 
         if (apiHelper.isICCID(token)) {
             if (!result) {
@@ -225,18 +240,23 @@ apiHelper.parseDeviceLine = async function(line) {
         }
         else {
             if (token.match(/[A-Z][A-Za-z0-9]+/)) {
-                // Allow things that might be a serial instead of ignoring them
-                if (!result) {
-                    result = {};
-                }
-                if (Object.keys(result).length == 0) {
-                    result.serial = token;    
-                }
+                // Allow things that might be a serial instead of ignoring them 
+                isPossibleSerialNumber = token;
             }
         }
 
         // Possibly add support for mobile secret here
     }
+
+    if (isPossibleSerialNumber) {
+        if (!result) {
+            result = {};
+        }
+        if (Object.keys(result).length == 0) {
+            result.serial = token;    
+        }
+    }
+
     return result;
 }
 
