@@ -1393,6 +1393,10 @@ $(document).ready(function() {
         const computeNewNames = function() {
             const options = getOptions();
 
+            if (!tableObj.tableData.data) {
+                return;
+            }
+
             for(const tableDeviceObj of tableObj.tableData.data) {
                 tableDeviceObj.newName = '';
             }
@@ -1577,11 +1581,15 @@ $(document).ready(function() {
                             continue;
                         }
 
+                        console.log('setting device info', reqObj);
+
                         const setRes = await new Promise(function(resolve, reject) {
                             $.ajax({
                                 data: JSON.stringify(reqObj),
                                 contentType: 'application/json',
                                 error: function(err) {
+                                    setStatus(err.responseJSON.errors.join(' '));
+
                                     console.log('error setting device info', err);
                                     reject(err);
                                 },
