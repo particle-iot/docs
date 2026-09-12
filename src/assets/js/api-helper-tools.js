@@ -1449,9 +1449,11 @@ $(document).ready(function() {
                         break;
 
                     case 'random':
-                        do {
-                            newName = apiHelper.getRandomTrochee();
-                        } while(deviceNameExistsInProduct(newName) || proposedNames.has(newName));
+                        if (!apiHelper.isRandomTrochee(currentName)) {
+                            do {
+                                newName = apiHelper.getRandomTrochee();
+                            } while(deviceNameExistsInProduct(newName) || proposedNames.has(newName));
+                        }
                         break;
                 }
 

@@ -13,6 +13,18 @@ $(document).ready(function() {
         'wombat', 'zombie'];
 
 
+    apiHelper.isRandomTrochee = function(name) {
+        let result = false;
+
+        const parts = name.split('_');
+        if (parts.length == 2) {
+            if (trochees.includes(parts[0]) && trochees.includes(parts[1])) {
+                result = true;
+            }
+        }
+        return result;
+    }
+
     apiHelper.getRandomTrochee = function() {
         const arr = trochees;
         const parts = [];
