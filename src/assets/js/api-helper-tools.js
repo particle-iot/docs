@@ -1590,7 +1590,13 @@ $(document).ready(function() {
                                 data: JSON.stringify(reqObj),
                                 contentType: 'application/json',
                                 error: function(err) {
-                                    setStatus(err.responseJSON.errors.join(' '));
+                                    let s = tableDeviceObj.deviceId + ': ';
+                                    s += err.responseJSON.errors.join(' ');
+
+                                    if (err.responseJSON.errors.includes('Name already in use')) {
+                                        s += ' ' + reqObj.name;
+                                    }
+                                    setStatus(s);
 
                                     console.log('error setting device info', err);
                                     reject(err);
