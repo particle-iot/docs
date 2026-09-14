@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Import devices 2026-09-14
+
+The [Import devices tool](/tools/cloud-tools/import-devices) now shows the name that will be set if using the name devices feature. Fixed a bug that caused names to not be set in some cases. It's now safe to re-run the import device tool with the same csv to rename devices in the list that do not have the correct name.
+
 ### Import devices 2026-09-10
 
 Fixed a bug in the import devices tool that failed to import csv files with quoted values and wrongly assumed some fields were serial numbers. Also a display bug where group names were displayed on top of each other.

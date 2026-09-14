@@ -991,6 +991,11 @@ $(document).ready(function() {
                         width: 15
                     },
                     {
+                        title: 'New Device Name',
+                        key: 'newName',
+                        width: 15
+                    },
+                    {
                         title: 'ICCID',
                         key: 'iccid' ,
                         width: 20
@@ -1208,6 +1213,9 @@ $(document).ready(function() {
                     deviceListProductId = options.productId;
                     setStatus(deviceList.length + ' devices currently in product ' + options.productId);
                 }
+
+                computeNewNames();
+                tableObj.refreshTable();
             }
             catch(e) {
                 console.log('exception', e);
@@ -1280,9 +1288,15 @@ $(document).ready(function() {
 
                         $(importButtonElem).prop('disabled', false);
                         numAdded++;
-                    }                
+                    }
                 }
             }
+
+            if (numAdded > 0) {
+                computeNewNames();
+                tableObj.refreshTable();
+            }
+
             analytics.track('Add devices', {category:gaCategory, label:numAdded});
 
             return numAdded > 0;
@@ -1372,32 +1386,90 @@ $(document).ready(function() {
             return 0;
         }
 
+        // Compute (or clear) the proposed new device name for every row in the table, based on the
+        // current naming options. This runs any time the table contents or the naming options change,
+        // so the "New Device Name" column always reflects what would happen if Import Devices were
+        // clicked right now. The name actually used during import is read back from tableDeviceObj.newName.
+        const computeNewNames = function() {
+            const options = getOptions();
+
+            if (!tableObj.tableData.data) {
+                return;
+            }
+
+            for(const tableDeviceObj of tableObj.tableData.data) {
+                tableDeviceObj.newName = '';
+            }
+
+            if (!options.name || options.name == 'none') {
+                return;
+            }
+
+            // Get starting sequence number in case that option is used
+            let startSeqNum = 0;
+            if (options.name == 'sequential') {
+                if (options.sequentialMode == 'starting' && options.sequentialStart) {
+                    startSeqNum = parseInt(options.sequentialStart, 10) - 1;
+                    if (isNaN(startSeqNum)) {
+                        startSeqNum = 0;
+                    }
+                }
+                else if (deviceList) {
+                    // Next available: start after the highest existing sequence number with this prefix
+                    for(const dev of deviceList) {
+                        const seqNum = isNamePrefix(dev.name, options.namePrefix);
+                        if (seqNum > startSeqNum) {
+                            startSeqNum = seqNum;
+                        }
+                    }
+                    startSeqNum++;
+                }
+            }
+
+            const proposedNames = new Set();
+
+            for(const tableDeviceObj of tableObj.tableData.data) {
+                // The device's current name: from the retrieved device object if known, otherwise
+                // whatever name is shown in the table (for devices not yet in the product).
+                const currentName = tableDeviceObj.deviceObj ? tableDeviceObj.deviceObj.name : tableDeviceObj.name;
+
+                let newName;
+                switch(options.name) {
+                    case 'sequential':
+                        const seqNum = isNamePrefix(currentName, options.namePrefix);
+                        if (seqNum == 0) {
+                            newName = options.namePrefix + (startSeqNum++);
+                        }
+                        break;
+
+                    case 'serial':
+                        if (tableDeviceObj.serial) {
+                            newName = tableDeviceObj.serial;
+                        }
+                        break;
+
+                    case 'random':
+                        if (!apiHelper.isRandomTrochee(currentName)) {
+                            do {
+                                newName = apiHelper.getRandomTrochee();
+                            } while(deviceNameExistsInProduct(newName) || proposedNames.has(newName));
+                        }
+                        break;
+                }
+
+                if (newName && newName != currentName) {
+                    tableDeviceObj.newName = newName;
+                    proposedNames.add(newName);
+                }
+            }
+        };
+
         $(importButtonElem).on('click', async function() {
             try {
                 const options = getOptions();
 
                 // options.productId
-    
-                // Get sequence number in case that option is used
-                let startSeqNum = 0;
-                if (options.name == 'sequential') {
-                    if (options.sequentialMode == 'starting' && options.sequentialStart) {
-                        startSeqNum = parseInt(options.sequentialStart, 10) - 1;
-                        if (isNaN(startSeqNum)) {
-                            startSeqNum = 0;
-                        }
-                    }
-                    else {
-                        // Next available: start after the highest existing sequence number with this prefix
-                        for(const dev of deviceList) {
-                            const seqNum = isNamePrefix(dev.name, options.namePrefix);
-                            if (seqNum > startSeqNum) {
-                                startSeqNum = seqNum;
-                            }
-                        }
-                        startSeqNum++;
-                    }
-                }
+
                 // Import devices into product
                 let devicesToImport = [];
     
@@ -1482,52 +1554,50 @@ $(document).ready(function() {
                             // Was not added to the product
                             continue;
                         }
-    
+
                         const reqObj = {
-    
+
                         };
-    
+
                         if (tableDeviceObj.development) {
                             // Mark as development
                             reqObj.development = true;
                         }
-                        
-                        // Name device
-                        let newName;
-                        switch(options.name) {
-                            case 'sequential':
-                                const seqNum = isNamePrefix(tableDeviceObj.deviceObj.name, options.namePrefix);
-                                if (seqNum == 0) {
-                                    newName = options.namePrefix + (startSeqNum++);
-                                }
-                                break;
-    
-                            case 'serial':
-                                if (tableDeviceObj.deviceObj.serial_number) {
-                                    newName = tableDeviceObj.deviceObj.serial_number;
-                                }
-                                break;
-    
-                            case 'random':
-                                do {
-                                    newName = apiHelper.getRandomTrochee();
-                                } while(deviceNameExistsInProduct(newName));
-                                break;
+
+                        // Name device. The new name was already computed (and is shown to the user in
+                        // the New Device Name column) as the table was updated, so use it directly here
+                        // rather than generating it now. If it's blank, the configuration options don't
+                        // specify a name (or the name wouldn't change), so leave the device's current
+                        // name alone.
+                        if (tableDeviceObj.newName) {
+                            reqObj.name = tableDeviceObj.newName;
                         }
-                        if (newName && newName != tableDeviceObj.deviceObj.name) {
-                            reqObj.name = newName;
-                        }
-    
+
                         // Device groups
                         if (options.groups && options.groups.length) {
                             reqObj.groups = options.groups;
                         }
-    
+
+                        if (Object.keys(reqObj).length == 0) {
+                            // Nothing to update for this device
+                            continue;
+                        }
+
+                        console.log('setting device info', reqObj);
+
                         const setRes = await new Promise(function(resolve, reject) {
                             $.ajax({
                                 data: JSON.stringify(reqObj),
                                 contentType: 'application/json',
                                 error: function(err) {
+                                    let s = tableDeviceObj.deviceId + ': ';
+                                    s += err.responseJSON.errors.join(' ');
+
+                                    if (err.responseJSON.errors.includes('Name already in use')) {
+                                        s += ' ' + reqObj.name;
+                                    }
+                                    setStatus(s);
+
                                     console.log('error setting device info', err);
                                     reject(err);
                                 },
@@ -1563,10 +1633,15 @@ $(document).ready(function() {
     
                         updateDeviceInfo(tableDeviceObj);
                         tableObj.refreshTable();
-    
-                    }    
+
+                    }
+
+                    // Recompute proposed names now that some devices' names may have just been set,
+                    // clearing the New Device Name column for rows that no longer need a change.
+                    computeNewNames();
+                    tableObj.refreshTable();
                 }
-    
+
                 setStatus('Done!');
                 analytics.track('Import done', {category:gaCategory, label:devicesToImport});
             }
