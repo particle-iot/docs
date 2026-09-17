@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### B504e coverage map 2026-09-17
+
+In the [carrier list coverage map](/reference/cellular/cellular-carriers/?tab=ModelMap&family=b%20series) for the B-Series SoM, the B504e is now included.
+
 ### Import devices 2026-09-14
 
 The [Import devices tool](/tools/cloud-tools/import-devices) now shows the name that will be set if using the name devices feature. Fixed a bug that caused names to not be set in some cases. It's now safe to re-run the import device tool with the same csv to rename devices in the list that do not have the correct name.

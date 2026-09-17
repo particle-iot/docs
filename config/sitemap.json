@@ -647,8 +647,8 @@
             "hash": "4f6c0d93a3dd402078eaff079dbf2262adf03f1ca6a62e2696cc5757ba6b8924"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2026-05-29",
-            "hash": "dfc3845c1433b9370f302ad3235ce4d63151965445c3c7d879385de2fdb914d4"
+            "date": "2026-09-17",
+            "hash": "12367e387720e8616e71b933ff7fe23c0f8a75a678b530c1d90fbfbed9ae6bdc"
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2026-05-29",
@@ -1007,8 +1007,8 @@
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2026-06-09",
-            "hash": "487fec4fa2e2af6090fd50d479a7791bcb10d18dd7ddb6b77fad3323b1806537"
+            "date": "2026-09-17",
+            "hash": "d556928d8b45341921fc1d7ea17be780524dbf63e1c465169b9a65223ad49ee9"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2025-01-07",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "2006d7277f87258383008f5d11eafc397d3587cefcdf66dc3fd5a0610a664d4a",
-            "date": "2026-09-12"
+            "hash": "982eb69d46d5facd4819d726bc61826251676d392674f5bf38a301a42486557b",
+            "date": "2026-09-17"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
