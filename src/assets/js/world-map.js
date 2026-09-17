@@ -74,8 +74,43 @@ const worldMapGlobal = {
         hatchStrokeColor: '#000000',
         hatchStrokeWidth: 2,
     },
+    // Valid values for a style's .hatch (besides undefined/'' for no hatch)
+    hatchTypes: ['forward', 'backward', 'cross'],
 };
-	
+
+// Builds a styles array containing, for each color in colors, one plain (unhatched)
+// style followed by one style per worldMapGlobal.hatchTypes entry. Returns
+// { styles, getStyleIndex } where getStyleIndex(colorIndex, hatch) maps a color
+// index and a hatch value ('forward'/'backward'/'cross'/undefined/'') back to the
+// matching index into styles, for use with worldMapInstance.setCountryColor().
+worldMapGlobal.createHatchStyles = function(colors, extraOptions) {
+    const hatchVariants = [undefined, ...worldMapGlobal.hatchTypes];
+
+    const styles = [];
+    colors.forEach(function(color) {
+        hatchVariants.forEach(function(hatch) {
+            const style = Object.assign({}, extraOptions, { color });
+            if (hatch) {
+                style.hatch = hatch;
+            }
+            styles.push(style);
+        });
+    });
+
+    const getStyleIndex = function(colorIndex, hatch) {
+        let hatchOffset = 0;
+        if (hatch) {
+            const hatchIndex = worldMapGlobal.hatchTypes.indexOf(hatch);
+            if (hatchIndex >= 0) {
+                hatchOffset = hatchIndex + 1;
+            }
+        }
+        return colorIndex * hatchVariants.length + hatchOffset;
+    };
+
+    return { styles, getStyleIndex };
+}
+
 
 async function initWorldMap(options) {
     const worldMapInstance = {
@@ -151,9 +186,8 @@ async function initWorldMap(options) {
             // Most commonly this will be undefined, but the test above will catch that and other edge cases
             color = worldMapInstance.options.fillColor;
         }
-        else
         if (!color.startsWith('#')) {
-            // Named color like ParticleBlue_500
+            // Named color like ParticleBlue_500 (this also resolves options.fillColor, itself a named color)
             color = worldMapGlobal.colorNames[color];
         }
         // else css hex color like #00E1FF
@@ -194,7 +228,7 @@ async function initWorldMap(options) {
             appendLine(0, 0, style.width, style.height, style);
         }
         if (style.hatch == 'forward' || style.hatch == 'cross') {
-            appendLine(style.width, style.height, 0, 0, style);
+            appendLine(0, style.height, style.width, 0, style);
         }
 
         return patternElem;
