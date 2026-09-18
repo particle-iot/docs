@@ -401,6 +401,21 @@ You can add multiple devices from a file in multiple formats:
 
 ![Add many devices](/assets/images/console/add-devices-4.png)
 
+##### Device import CSV files
+
+The CSV file must have a header in the first row that specifies the columns. The only required column is `DEVICEID` but bulk order may include columns such as:
+
+- DEVICEID (required)
+- SKU
+- SERIAL_NUMBER	
+- ICCID	
+- IMEI
+- MAC_BLE
+- PACKAGE_SN
+- OVERPACK_SN
+
+Additionally, you can optional include a column `DEVICE_NAME` that will be used to name the device if present.
+
 #### Add from order - Adding devices
 
 If you've ordered devices in bulk, you can add all of the devices in the order.

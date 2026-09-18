@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Add device name 2026-09-18
+
+In the [console add devices csv import](/getting-started/console/console/#add-many-devices-adding-devices) you can now specify the device name.
+
 ### TAN016 Tracker One USB charging current advisory 2026-09-18
 
 [TAN016 - Tracker One USB charging current advisory](/reference/technical-advisory-notices/tan016/) is now available.
