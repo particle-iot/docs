@@ -709,6 +709,10 @@
                 {
                     "dir": "tan015",
                     "title": "TAN015 - SARA-R510 reset procedure"
+                },
+                {
+                    "dir": "tan016",
+                    "title": "TAN016 - Tracker One USB charging current advisory"
                 }
             ]
         },

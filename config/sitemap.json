@@ -648,7 +648,7 @@
         },
         "getting-started/hardware/cellular-overview.md": {
             "date": "2026-09-17",
-            "hash": "12367e387720e8616e71b933ff7fe23c0f8a75a678b530c1d90fbfbed9ae6bdc"
+            "hash": "0365e9b226c334c1428d1132da51bdff838c0464bec61ea28da07b855296e94a"
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2026-05-29",
@@ -1008,7 +1008,7 @@
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
             "date": "2026-09-17",
-            "hash": "d556928d8b45341921fc1d7ea17be780524dbf63e1c465169b9a65223ad49ee9"
+            "hash": "50a2e473f3358b863bf443db9c1f89870c63006d9aee65290f2dfef94e337eeb"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2025-01-07",
@@ -1235,8 +1235,8 @@
             "hash": "be7a4a2db2f1c35f11d97bd1f89ca91dcc473492539866f41b1f902e9e5a90a2"
         },
         "reference/technical-advisory-notices/technical-advisory-notices.md": {
-            "date": "2025-06-02",
-            "hash": "3a1a5c44a1ba0ee2c095db909e48aa18df7ebccadef7dbe61b025f27732f0e14"
+            "date": "2026-09-17",
+            "hash": "1765fe38abc5e33eb4fa4c43aa9f6d5765517622edbc0c4b6e4fe386c3f14db5"
         },
         "reference/tracker/can-bus.md": {
             "date": "2023-03-17",
@@ -8223,7 +8223,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "982eb69d46d5facd4819d726bc61826251676d392674f5bf38a301a42486557b",
+            "hash": "d037f350e00dcd9f0119e73e37f37bb08cf9a16ede342abcc12f4cc051e0f43e",
             "date": "2026-09-17"
         },
         "getting-started/cloud/logic.md": {
@@ -10069,6 +10069,10 @@
         "reference/device-os/api/system-calls/system-boot-log.md": {
             "hash": "cd6778b50cab7a1874b7989ad3427a733fde6c43bb023ef2c1011d88a3f51cd0",
             "date": "2026-08-24"
+        },
+        "reference/technical-advisory-notices/tan016.md": {
+            "hash": "183fc61d8f9a2c7389e566aa7a7d81e66af8043eab19508a830cebc6afce2342",
+            "date": "2026-09-18"
         }
     }
 }

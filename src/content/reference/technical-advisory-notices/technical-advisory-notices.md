@@ -21,6 +21,7 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN006 - Tracker SoM GNSS Interface](/reference/technical-advisory-notices/tan006-tracker-som-gnss-interface/)
 - [TAN011 - Tracker SoM default application firmware issue](/reference/technical-advisory-notices/tan011/)
 - [TAN013 - Tracker Manufacturing Firmware 3.3.0](/reference/technical-advisory-notices/tan013/)
+- [TAN016 - Tracker One USB charging current advisory](/reference/technical-advisory-notices/tan016/)
 
 ### Boron/B-Series SoM
 
@@ -63,4 +64,7 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN013 - Tracker Manufacturing Firmware 3.3.0](/reference/technical-advisory-notices/tan013/)
 - [TAN014 - SARA-R510 band selection](/reference/technical-advisory-notices/tan014/)
 - [TAN015 - SARA-R510 reset procedure](/reference/technical-advisory-notices/tan015/)
+- [TAN016 - Tracker One USB charging current advisory](/reference/technical-advisory-notices/tan016/)
+
+
 
