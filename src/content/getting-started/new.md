@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### Add device name 2026-09-18
 
-In the [console add devices csv import](/getting-started/console/console/#add-many-devices-adding-devices) you can now specify the device name.
+In the [console add devices csv import](/getting-started/console/console/#add-many-devices-adding-devices) you can optionally specify the device name and group.
 
 ### TAN016 Tracker One USB charging current advisory 2026-09-18
 

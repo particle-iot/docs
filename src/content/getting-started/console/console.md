@@ -405,16 +405,20 @@ You can add multiple devices from a file in multiple formats:
 
 The CSV file must have a header in the first row that specifies the columns. The only required column is `DEVICEID` but bulk order may include columns such as:
 
-- DEVICEID (required)
-- SKU
-- SERIAL_NUMBER	
-- ICCID	
-- IMEI
-- MAC_BLE
-- PACKAGE_SN
-- OVERPACK_SN
+- `DEVICEID` (required)
+- `SKU`
+- `SERIAL_NUMBER`
+- `ICCID`
+- `IMEI`
+- `MAC_BLE`
+- `PACKAGE_SN`
+- `OVERPACK_SN`
 
-Additionally, you can optional include a column `DEVICE_NAME` that will be used to name the device if present.
+You can also specify the following optional fields:
+
+- `DEVICE_NAME` sets the device name.
+- `GROUP` specifies a device group name to set for this device. This will overwrite any existing device groups for the device.
+
 
 #### Add from order - Adding devices
 

@@ -134,7 +134,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2026-09-02T14:20:52.264Z",
+                  "value": "2026-09-19T09:58:04.333Z",
                   "disabled": true
                 }
               ]
@@ -199,7 +199,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2026-09-02T14:20:52.268Z",
+                      "value": "2026-09-19T09:58:04.335Z",
                       "disabled": true
                     }
                   ]
@@ -1596,7 +1596,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2026-09-02T14:20:52.284Z",
+                  "value": "2026-09-19T09:58:04.349Z",
                   "disabled": true
                 },
                 {
@@ -1656,7 +1656,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2026-09-02T14:20:52.284Z",
+                      "value": "2026-09-19T09:58:04.350Z",
                       "disabled": true
                     },
                     {
@@ -2439,7 +2439,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id\": \"string\",\n  \"ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"import_sims\": false,\n  \"claim_user\": \"string\",\n  \"groups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"device_order_id\": \"string\"\n}"
+              "raw": "{\n  \"id\": \"string\",\n  \"ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"import_sims\": false,\n  \"claim_user\": \"string\",\n  \"groups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"name\": \"string\",\n  \"device_order_id\": \"string\"\n}"
             },
             "url": {
               "raw": "{{url}}/v1/products/:productIdOrSlug/devices",
@@ -2477,7 +2477,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"id\": \"string\",\n  \"ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"import_sims\": false,\n  \"claim_user\": \"string\",\n  \"groups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"device_order_id\": \"string\"\n}"
+                  "raw": "{\n  \"id\": \"string\",\n  \"ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"import_sims\": false,\n  \"claim_user\": \"string\",\n  \"groups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"name\": \"string\",\n  \"device_order_id\": \"string\"\n}"
                 },
                 "url": {
                   "raw": "{{url}}/v1/products/:productIdOrSlug/devices",
@@ -2860,6 +2860,135 @@
                 }
               ],
               "body": "PUT /v1/devices/0123456789abcdef01234567/ping\nHTTP/1.1 200 OK\n{\n  \"online\": true,\n  \"ok\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Put a device into Service Mode (unprotect)",
+          "request": {
+            "auth": null,
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"string\",\n  \"device_nonce\": \"string\",\n  \"server_nonce\": \"string\",\n  \"device_signature\": \"string\",\n  \"device_public_key_fingerprint\": \"string\"\n}"
+            },
+            "url": {
+              "raw": "{{url}}/v1/devices/:deviceId/unprotect",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "devices",
+                ":deviceId",
+                "unprotect"
+              ],
+              "query": [],
+              "variables": [
+                {
+                  "key": "deviceId",
+                  "value": "string",
+                  "description": "",
+                  "disabled": false
+                },
+                {
+                  "key": "productIdOrSlug",
+                  "value": "string",
+                  "description": "Product ID or Slug. Product endpoint only.",
+                  "disabled": true
+                },
+                {
+                  "key": "orgIdOrSlug",
+                  "value": "string",
+                  "description": "Organization ID or Slug. Organization endpoint only.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Put a Protected Device into Service Mode, temporarily disabling Device Protection to allow access to USB serial, BLE control and other features. \n\nMost commands such as flashing a device will revert back to protected mode automatically. \n\nPutting a device into Service Mode is a 2-step process. First send action: \"prepare\", pass the data to the device, then send the device response back with action: \"confirm\" to receive the authorization to enter Service Mode. \n\nThe Particle CLI (particle device-protection disable) performs both steps for you."
+          },
+          "response": [
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"string\",\n  \"device_nonce\": \"string\",\n  \"server_nonce\": \"string\",\n  \"device_signature\": \"string\",\n  \"device_public_key_fingerprint\": \"string\"\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/v1/devices/:deviceId/unprotect",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "devices",
+                    ":deviceId",
+                    "unprotect"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "PUT /v1/devices/0123456789abcdef01234567/unprotect\nHTTP/1.1 200 OK\n{\n  \"ok\": true,\n  \"server_nonce\": \"TFDkiZM0KrTTQdcAonjNMA==\"\n}"
+            },
+            {
+              "name": "Response",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"string\",\n  \"device_nonce\": \"string\",\n  \"server_nonce\": \"string\",\n  \"device_signature\": \"string\",\n  \"device_public_key_fingerprint\": \"string\"\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/v1/devices/:deviceId/unprotect",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "devices",
+                    ":deviceId",
+                    "unprotect"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": "200",
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "PUT /v1/devices/0123456789abcdef01234567/unprotect\nHTTP/1.1 200 OK\n{\n  \"ok\": true,\n  \"server_signature\": \"MEUCIQD...\",\n  \"server_public_key_fingerprint\": \"sT3sq0dLKPz2Vv0DHOuGTA==\"\n}"
             }
           ]
         },
@@ -3278,13 +3407,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-09-02T14:20:52.296Z",
+                  "value": "2026-09-19T09:58:04.364Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-09-02T14:20:52.296Z",
+                  "value": "2026-09-19T09:58:04.364Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -5305,13 +5434,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-09-02T14:20:52.305Z",
+                  "value": "2026-09-19T09:58:04.375Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-09-02T14:20:52.305Z",
+                  "value": "2026-09-19T09:58:04.375Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5412,13 +5541,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-09-02T14:20:52.307Z",
+                  "value": "2026-09-19T09:58:04.377Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-09-02T14:20:52.307Z",
+                  "value": "2026-09-19T09:58:04.377Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5519,13 +5648,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-09-02T14:20:52.308Z",
+                  "value": "2026-09-19T09:58:04.379Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-09-02T14:20:52.308Z",
+                  "value": "2026-09-19T09:58:04.379Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5626,13 +5755,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-09-02T14:20:52.310Z",
+                  "value": "2026-09-19T09:58:04.380Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-09-02T14:20:52.310Z",
+                  "value": "2026-09-19T09:58:04.380Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5733,13 +5862,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-09-02T14:20:52.312Z",
+                  "value": "2026-09-19T09:58:04.382Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-09-02T14:20:52.312Z",
+                  "value": "2026-09-19T09:58:04.382Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -11760,6 +11889,38 @@
               "body": " GET /v1/orgs/particle/service_agreements\n HTTP/1.1 200 OK\n {\n\t\t\"data\":[{\n\t\t\t\"id\":\"1\",\n\t\t\t\"type\":\"service_agreement\",\n\t\t\t\"attributes\":{\n\t\t\t\t\"owner_id\":\"abc123\",\n\t\t\t\t\"owner_type\":\"organization\",\n\t\t\t\t\"name\":\"Enterprise Plan\",\n\t\t\t\t\"agreement_type\":\"enterprise\",\n\t\t\t\t\"duration\":\"annual\",\n\t\t\t\t\"state\":\"active\",\n\t\t\t\t\"starts_on\":\"2021-01-01\",\n\t\t\t\t\"ends_on\":\"2026-01-01\",\n\t\t\t\t\"current_billing_period_start\":\"2021-01-01\",\n\t\t\t\t\"current_billing_period_end\":\"2021-12-31\",\n\t\t\t\t\"next_billing_period_start\":\"2022-01-01\",\n\t\t\t\t\"current_usage_summary\":{\n\t\t\t\t\t\"device_limit_reached\":false,\n\t\t\t\t\t\"connectivity\":{\n\t\t\t\t\t\t\"all\":{\n\t\t\t\t\t\t\t\"owned_devices\":1,\n\t\t\t\t\t\t\t\"billable_devices\":1,\n\t\t\t\t\t\t\t\"device_data\":56789012,\n\t\t\t\t\t\t\t\"device_messages\":1234567\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"wifi\":{\n\t\t\t\t\t\t\t\"owned_devices\":1,\n\t\t\t\t\t\t\t\"billable_devices\":1,\n\t\t\t\t\t\t\t\"device_data\":null,\n\t\t\t\t\t\t\t\"device_messages\":123456\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"cellular\":{\n\t\t\t\t\t\t\t\"owned_devices\":1,\n\t\t\t\t\t\t\t\"billable_devices\":1,\n\t\t\t\t\t\t\t\"device_data\":12345,\n\t\t\t\t\t\t\t\"device_messages\":123456\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"asset_tracker\":{\n\t\t\t\t\t\t\t\"owned_devices\":1,\n\t\t\t\t\t\t\t\"billable_devices\":1,\n\t\t\t\t\t\t\t\"device_data\":12345678,\n\t\t\t\t\t\t\t\"device_messages\":123456\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t\"pricing_terms\":{\n\t\t\t\t\t\"device_data\":{\n\t\t\t\t\t\t\"uom\":\"bytes\",\n\t\t\t\t\t\t\"name\":\"commercial_model:enterprise:device_data\",\n\t\t\t\t\t\t\"cellular\":{\n\t\t\t\t\t\t\t\"max_data\":12000000000\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"duration\":\"annual\",\n\t\t\t\t\t\t\"asset_tracker\":{\n\t\t\t\t\t\t\t\"max_data\":12000000000\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t\"rates\":{\n\t\t\t\t\t\t\"wifi\":{\n\t\t\t\t\t\t\t\"tier\":0,\n\t\t\t\t\t\t\t\"duration\":\"annual\",\n\t\t\t\t\t\t\t\"list_price\":1234\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"cellular\":{\n\t\t\t\t\t\t\t\"tier\":3,\n\t\t\t\t\t\t\t\"duration\":\"annual\",\n\t\t\t\t\t\t\t\"list_price\":1234\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"asset_tracker\":{\n\t\t\t\t\t\t\t\"tier\":3,\n\t\t\t\t\t\t\t\"duration\":\"annual\",\n\t\t\t\t\t\t\t\"list_price\":123456\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"pricing_model_version\":\"tier2021.1\"\n\t\t\t\t\t},\n\t\t\t\t\t\"messaging\":{\n\t\t\t\t\t\t\"name\":\"commercial_model:enterprise:messaging\",\n\t\t\t\t\t\t\"wifi\":{\n\t\t\t\t\t\t\t\"max_messages\":46800000\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"cellular\":{\n\t\t\t\t\t\t\t\"max_messages\":182400000\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"duration\":\"annual\",\n\t\t\t\t\t\t\"asset_tracker\":{\n\t\t\t\t\t\t\t\"max_messages\":237120000\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t\"device\":{\n\t\t\t\t\t\t\"name\":\"commercial_model:enterprise:device\",\n\t\t\t\t\t\t\"wifi\":{\n\t\t\t\t\t\t\t\"max_devices\":1500\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"cellular\":{\n\t\t\t\t\t\t\t\"max_devices\":1810\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"duration\":\"monthly\",\n\t\t\t\t\t\t\"asset_tracker\":{\n\t\t\t\t\t\t\t\"max_devices\":1810\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t\"support\":{\n\t\t\t\t\t\t\"account_rep\":\"support@example.com\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t]\n}"
             }
           ]
+        },
+        {
+          "name": "Get usage pools for an organization",
+          "request": {
+            "auth": null,
+            "method": "GET",
+            "header": [],
+            "body": null,
+            "url": {
+              "raw": "{{url}}/v1/orgs/:orgIdOrSlug/usage_pools",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v1",
+                "orgs",
+                ":orgIdOrSlug",
+                "usage_pools"
+              ],
+              "query": [],
+              "variables": [
+                {
+                  "key": "orgIdOrSlug",
+                  "value": "string",
+                  "description": "Org ID or Slug",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Get the organization's usage pools with consumption for the current period. Returns an empty list when the organization has no pools."
+          },
+          "response": []
         },
         {
           "name": "Get a user usage report",
