@@ -1174,7 +1174,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 ### MUON524 - Country compatibility
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated da2ba229-df4a-4df6-a0a5-d74444b8d5c1 --}}
+{{!-- not updating with da2ba229-df4a-4df6-a0a5-d74444b8d5c1 --}}
 
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
@@ -1280,8 +1280,6 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Vietnam | M524 | 3G, 4G | MobiFone, Viettel, Vinaphone |
 | Zambia | M524 | 2G, 3G, 4G | Airtel |
 
-
-{{!-- END do not edit content above, it is automatically generated  --}}
 
 ### MUON524 - Certified bands
 

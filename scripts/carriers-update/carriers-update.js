@@ -2456,6 +2456,58 @@ const generatorConfig = require('./generator-config');
         return updater.generateTable(tableOptions, tableData);
     };
 
+    updater.generateV3RemovedCarrierList = function(options) {
+        let tableData = [];
+
+        const byCountry = [];
+
+        // Build a list of countryCarrier
+        for(const ccObj of updater.datastore.data.countryCarrier) {
+            if (ccObj.supersimV2 && !ccObj.supersim) {
+                // Removed from supersim (v3)
+                if (!byCountry[ccObj.country]) {
+                    byCountry[ccObj.country] = {
+                        removed: [],
+                        remaining: [],
+                    };
+                }
+                byCountry[ccObj.country].removed.push(ccObj.carrier);
+            }
+        }
+        for(const ccObj of updater.datastore.data.countryCarrier) {
+            if (byCountry[ccObj.country] && ccObj.supersim) {
+                byCountry[ccObj.country].remaining.push(ccObj.carrier);
+            }
+        }
+
+        for(const country in byCountry) {
+            tableData.push({
+                country: country,
+                removed: byCountry[country].removed.join(', '),
+                remaining: byCountry[country].remaining.join(', '),
+            });
+        }
+
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'country',
+                    title: 'Country'
+                },
+                {
+                    key: 'removed',
+                    title: 'Carriers Removed'
+                },
+                {
+                    key: 'remaining',
+                    title: 'Carriers Remaining'
+                },
+
+            ]
+        };
+
+        return updater.generateTable(tableOptions, tableData);
+    };
 
 
     // Some fields use the format "short|a much longer description" using a vertical bar to

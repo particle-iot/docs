@@ -904,7 +904,6 @@ To be provided at a later date.
 | Egypt | MON524 | 2G, 3G, 4G | Etisalat, Orange |
 | Estonia | MON524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
 | eSwatini | MON524 | 2G, 3G, 4G | MTN |
-| Ethiopia | MON524 | 2G, 3G, 4G | Ethio Telecom |
 | Faroe Islands | MON524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | MON524 | 2G, 4G | DNA, Elisa, Telia |
 | France | MON524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
@@ -932,7 +931,6 @@ To be provided at a later date.
 | Liechtenstein | MON524 | 2G, 3G, 4G | Mobilkom, Orange |
 | Lithuania | MON524 | 2G, 4G | Bite, Omnitel, Tele2 |
 | Luxembourg | MON524 | 2G, 4G | Orange, POST, Tango |
-| Macao | MON524 | 3G, 4G | CTM |
 | Madagascar | MON524 | 2G, 3G, 4G | Airtel |
 | Malawi | MON524 | 2G, 3G, 4G | Airtel |
 | Malaysia | MON524 | 2G, 4G | Celcom, DiGi, Maxis |
@@ -947,11 +945,9 @@ To be provided at a later date.
 | Namibia | MON524 | 2G, 3G, 4G | Telecom Namibia |
 | Netherlands | MON524 | 2G, 4G | KPN, T-Mobile, Vodafone |
 | New Zealand | MON524 | 4G | 2degrees, Spark, Vodafone |
-| Nigeria | MON524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
+| Nigeria | MON524 | 2G, 3G, 4G | Airtel, MTN |
 | Norway | MON524 | 2G, 3G, 4G | TDC, Telenor, Telia |
 | Pakistan | MON524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
-| Palestine | MON524 | 2G, 3G | Jawwal |
-| Papua New Guinea | MON524 | 2G, 3G | bmobile |
 | Poland | MON524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | MON524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
 | Qatar | MON524 | 2G, 4G | Ooredoo, Vodafone |
@@ -962,14 +958,12 @@ To be provided at a later date.
 | Sint Maarten | MON524 | 2G, 3G | TelCell |
 | Slovakia | MON524 | 2G, 4G | O2, Orange, Telekom |
 | Slovenia | MON524 | 2G, 3G, 4G | A1, Mobitel |
-| South Africa | MON524 | 2G, 3G, 4G | Cell C, MTN, Vodacom |
+| South Africa | MON524 | 2G, 3G, 4G | MTN, Vodacom |
 | South Korea | MON524 | 3G, 4G | KT, LG U+, SK Telecom |
-| South Sudan | MON524 | 2G, 3G | MTN |
 | Spain | MON524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | MON524 | 2G, 4G | Dialog, Mobitel |
-| Suriname | MON524 | 2G, 3G | Telesur |
 | Sweden | MON524 | 2G, 4G | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | MON524 | 3G, 4G | Salt, Sunrise, Swisscom |
+| Switzerland | MON524 | 3G, 4G | Salt, Sunrise |
 | Taiwan | MON524 | 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tanzania | MON524 | 2G, 3G, 4G | Airtel |
 | Thailand | MON524 | 2G, 3G, 4G | AIS, DTAC, True Move |

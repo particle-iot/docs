@@ -4250,6 +4250,11 @@
           "mnc": "40",
           "tadig": "AFGAR"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -4335,6 +4340,12 @@
           "mnc": "03",
           "tadig": "ALBEM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.25
       }
     },
     {
@@ -4374,6 +4385,12 @@
           "mnc": "01",
           "tadig": "ALBAM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -4409,6 +4426,12 @@
           "mnc": "02",
           "tadig": "ALBVF"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -4461,6 +4484,12 @@
           "mnc": "01",
           "tadig": "DZAA1"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -4484,6 +4513,12 @@
           "mnc": "03",
           "tadig": "DZAWT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -4613,6 +4648,12 @@
           "mnc": "840",
           "tadig": "AIACW"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -4697,6 +4738,12 @@
           "mnc": "920",
           "tadig": "ATGCW"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -4738,6 +4785,12 @@
           "mnc": "310",
           "tadig": "ARGCM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -4794,6 +4847,13 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -4823,7 +4883,13 @@
       "bandsDisabled": [
         "3G-5",
         "3G-2"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Armenia",
@@ -4871,6 +4937,12 @@
         "allow2G": true,
         "profile": "h",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -4923,6 +4995,11 @@
         "allow2G": true,
         "profile": "h",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -5030,7 +5107,12 @@
         "allow3G": true,
         "allow4G": true
       },
-      "checked": "2024-02-13"
+      "checked": "2024-02-13",
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
+      }
     },
     {
       "country": "Australia",
@@ -5102,6 +5184,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g"
+      },
+      "supersimV2": {
+        "allow3G": false,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -5177,6 +5266,13 @@
           "mnc": "01",
           "tadig": "AUSTA"
         }
+      },
+      "supersimV2": {
+        "allow3G": false,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -5237,6 +5333,13 @@
           "mnc": "03",
           "tadig": "AUSVF"
         }
+      },
+      "supersimV2": {
+        "allow3G": false,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.25
       }
     },
     {
@@ -5298,6 +5401,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -5361,6 +5471,14 @@
           "mnc": "01",
           "tadig": "AUTPT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.25
       }
     },
     {
@@ -5460,6 +5578,14 @@
           "mnc": "03",
           "tadig": "AUTMM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -5488,6 +5614,11 @@
           "mnc": "01",
           "tadig": "AZEAC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -5533,6 +5664,11 @@
           "mnc": "02",
           "tadig": "AZEBC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -5557,6 +5693,12 @@
           "mnc": "04",
           "tadig": "AZEAF"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.3
       }
     },
     {
@@ -5590,6 +5732,12 @@
           "mnc": "49",
           "tadig": "BHSNC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.25
       }
     },
     {
@@ -5621,6 +5769,11 @@
           "mnc": "39",
           "tadig": "BHSBH"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -5721,6 +5874,12 @@
           "mnc": "02",
           "tadig": "BHRMV"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -5751,6 +5910,12 @@
           "mnc": "03",
           "tadig": "BGDBL"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -5794,6 +5959,12 @@
           "mnc": "01",
           "tadig": "BGDGP"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -5921,6 +6092,12 @@
           "mnc": "600",
           "tadig": "BRBCW"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -5970,6 +6147,12 @@
           "mnc": "01",
           "tadig": "BLRMD"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.25
       }
     },
     {
@@ -6079,6 +6262,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -6159,6 +6350,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -6227,6 +6426,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -6262,7 +6469,10 @@
     {
       "country": "Belize",
       "carrier": "Smart",
-      "supersim": {
+      "aliases": [
+        "Speednet"
+      ],
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true,
@@ -6471,6 +6681,12 @@
           "mnc": "01",
           "tadig": "BOLNT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -6549,6 +6765,11 @@
           "mnc": "90",
           "tadig": "BIHPT"
         }
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -6573,6 +6794,11 @@
           "mnc": "03",
           "tadig": "BIHER"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -6620,6 +6846,11 @@
           "mnc": "04",
           "tadig": "BWABC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -6697,6 +6928,12 @@
           "mnc": "05",
           "tadig": "BRACL"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -6779,6 +7016,13 @@
           "mnc": "04",
           "tadig": "BRACS"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -6854,6 +7098,13 @@
         "profile": "g",
         "roamingRestrictions": "warn",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -6901,6 +7152,12 @@
           "mnc": "11",
           "tadig": "BRNDS"
         }
+      },
+      "supersimV2": {
+        "allow2G": false,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -6982,6 +7239,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -7048,6 +7312,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -7102,6 +7373,12 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "preferredRate": true,
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -7132,6 +7409,12 @@
           "mnc": "02",
           "tadig": "BFACT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -7198,6 +7481,11 @@
           "mnc": "01",
           "tadig": "CPVCV"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -7228,6 +7516,11 @@
           "mnc": "02",
           "tadig": "CPVTM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -7293,6 +7586,12 @@
           "mnc": "08",
           "tadig": "KHMVC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.2
       }
     },
     {
@@ -7425,6 +7724,13 @@
           "mnc": "610",
           "tadig": "CANBM"
         }
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -7516,6 +7822,14 @@
           "mnc": "720",
           "tadig": "CANRW"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -7632,6 +7946,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "t"
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -7658,6 +7979,14 @@
           "mnc": "500",
           "tadig": "CANVT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "hideFromSunset": true
       }
     },
     {
@@ -7728,6 +8057,12 @@
           "mnc": "140",
           "tadig": "CYMCW"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -7793,6 +8128,12 @@
           "mnc": "01",
           "tadig": "TCDCT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -7852,6 +8193,12 @@
           "mnc": "03",
           "tadig": "CHLSM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -7890,6 +8237,12 @@
           "mnc": "01",
           "tadig": "CHLMV"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -7943,6 +8296,12 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -8013,6 +8372,13 @@
           "mnc": "07",
           "tadig": "CHNTD"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -8071,6 +8437,12 @@
         "profile": "g",
         "roamingRestrictions": "warn",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -8158,6 +8530,11 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -8212,6 +8589,12 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.2
       }
     },
     {
@@ -8234,6 +8617,12 @@
           "mnc": "01",
           "tadig": "COGCT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -8315,6 +8704,12 @@
           "mnc": "02",
           "tadig": "CODCT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -8484,6 +8879,12 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -8527,6 +8928,12 @@
           "mnc": "05",
           "tadig": "CIVTL"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.4
       }
     },
     {
@@ -8603,6 +9010,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -8688,6 +9103,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -8855,6 +9277,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -8899,7 +9328,14 @@
         "2G-1800",
         "3G-1",
         "4G-3"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Cyprus",
@@ -8932,6 +9368,13 @@
           "mnc": "20",
           "tadig": "CYPPT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -8988,6 +9431,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -9056,6 +9506,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -9117,6 +9574,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -9166,6 +9630,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -9228,6 +9699,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -9288,6 +9767,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -9333,6 +9820,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -9402,6 +9897,12 @@
           "mnc": "110",
           "tadig": "DMACW"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -9436,7 +9937,13 @@
         "4G-2",
         "4G-4",
         "4G-5"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Dominican Republic",
@@ -9479,6 +9986,12 @@
           "mnc": "02",
           "tadig": "DOMCL"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -9507,7 +10020,13 @@
       "bands": [
         "2G-1900",
         "3G-8"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Ecuador",
@@ -9531,6 +10050,12 @@
           "mnc": "01",
           "tadig": "ECUPG"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -9599,6 +10124,12 @@
           "mnc": "00",
           "tadig": "ECUOT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -9651,6 +10182,11 @@
           "mnc": "03",
           "tadig": "EGYEM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -9700,6 +10236,12 @@
           "mnc": "01",
           "tadig": "EGYAR"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -9747,6 +10289,12 @@
           "mnc": "01",
           "tadig": "SLVTP"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -9809,6 +10357,12 @@
           "mnc": "04",
           "tadig": "SLVTS"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -9886,6 +10440,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "preferredRate": true,
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true
       }
     },
     {
@@ -9959,6 +10520,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -10012,6 +10580,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -10047,12 +10623,18 @@
           "mnc": "10",
           "tadig": "SWZMN"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.4
       }
     },
     {
       "country": "Ethiopia",
       "carrier": "Ethio Telecom",
-      "supersim": {
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true,
@@ -10097,6 +10679,11 @@
           "mnc": "01",
           "tadig": "FROFT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -10147,7 +10734,13 @@
       "bands": [
         "2G-900",
         "3G-1"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Fiji",
@@ -10282,6 +10875,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "preferredRate": true,
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true
       }
     },
     {
@@ -10332,6 +10932,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -10401,6 +11009,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -10461,6 +11077,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -10500,6 +11124,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -10567,6 +11198,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -10627,6 +11266,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -10673,6 +11320,12 @@
           "mnc": "20",
           "tadig": "FRAF4"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.2
       }
     },
     {
@@ -10752,6 +11405,12 @@
           "mnc": "03",
           "tadig": "GABCT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -10874,6 +11533,12 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -10909,6 +11574,12 @@
           "mnc": "01",
           "tadig": "GEOGC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -11019,7 +11690,15 @@
       "bandsDisabled": [
         "3G-8",
         "3G-1"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Germany",
@@ -11118,6 +11797,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": false,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -11189,7 +11876,15 @@
       "bandsDisabled": [
         "2G-1800",
         "2G-900"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Ghana",
@@ -11223,6 +11918,12 @@
           "mnc": "06",
           "tadig": "GHAZN"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -11273,6 +11974,11 @@
           "mnc": "01",
           "tadig": "GHASC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -11323,6 +12029,12 @@
           "mnc": "02",
           "tadig": "GHAGT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -11365,6 +12077,12 @@
           "mnc": "01",
           "tadig": "GIBGT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -11432,6 +12150,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -11520,6 +12245,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -11578,6 +12310,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -11671,6 +12410,12 @@
           "mnc": "110",
           "tadig": "GRDCW"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -11732,6 +12477,12 @@
           "mnc": "01",
           "tadig": "GLP01"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -11868,6 +12619,12 @@
           "mnc": "01",
           "tadig": "GTMSC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -11891,6 +12648,12 @@
           "mnc": "03",
           "tadig": "GTMTG"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -11989,6 +12752,11 @@
         "allow2G": true,
         "allow3G": true,
         "allow4G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -12012,6 +12780,12 @@
           "mnc": "04",
           "tadig": "GINAG"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.4
       }
     },
     {
@@ -12060,6 +12834,12 @@
           "mnc": "02",
           "tadig": "GNBSB"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -12114,6 +12894,12 @@
           "mnc": "01",
           "tadig": "GUYUM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.25
       }
     },
     {
@@ -12125,7 +12911,7 @@
       "note": "Comcel Haiti, Voilà, assets sold to Digicel",
       "sunset2G": "2030-03-31",
       "sunset3G": "2027-03-31",
-      "supersim": {
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true,
@@ -12280,6 +13066,11 @@
           "mnc": "001",
           "tadig": "HNDME"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -12330,7 +13121,13 @@
         "3G-5",
         "4G-4"
       ],
-      "checked": "2024-02-13"
+      "checked": "2024-02-13",
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Hong Kong",
@@ -12426,7 +13223,13 @@
         "4G-3",
         "4G-7",
         "4G-40"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Hong Kong",
@@ -12456,7 +13259,13 @@
         "3G-8",
         "4G-3",
         "4G-7"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Hong Kong",
@@ -12543,6 +13352,12 @@
           "mnc": "06",
           "tadig": "HKGSM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -12576,7 +13391,15 @@
         "4G-7",
         "4G-20",
         "M1-20"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Hungary",
@@ -12679,6 +13502,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -12745,6 +13575,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -12793,6 +13631,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -12853,6 +13698,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -12929,6 +13781,13 @@
           "mnc": "02",
           "tadig": "ISLTL"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -13187,6 +14046,13 @@
           "mnc": "56",
           "tadig": "IND15"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.2,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -13467,6 +14333,13 @@
           "mnc": "874",
           "tadig": "INDJX"
         }
+      },
+      "supersimV2": {
+        "allow2G": false,
+        "allow3G": false,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -13799,6 +14672,12 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -13854,6 +14733,12 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -13886,6 +14771,12 @@
           "mnc": "11",
           "tadig": "IDNEX"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -14004,6 +14895,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -14046,7 +14944,14 @@
         "4G-3",
         "4G-20"
       ],
-      "checked": "2024-02-06"
+      "checked": "2024-02-06",
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Ireland",
@@ -14067,7 +14972,12 @@
         "allow3G": true,
         "allow4G": true
       },
-      "checked": "2024-02-06"
+      "checked": "2024-02-06",
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
+      }
     },
     {
       "country": "Ireland",
@@ -14136,6 +15046,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -14182,7 +15099,15 @@
         "3G-1",
         "4G-3",
         "4G-20"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "hideFromSunset": true
+      }
     },
     {
       "country": "Isle of Man",
@@ -14222,6 +15147,11 @@
         "3G-1"
       ],
       "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
+      },
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true
@@ -14296,6 +15226,12 @@
           "mnc": "07",
           "tadig": "ISRMS"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -14337,6 +15273,12 @@
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -14410,6 +15352,12 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -14535,6 +15483,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -14597,6 +15552,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -14652,6 +15614,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -14698,7 +15667,13 @@
       },
       "bandsDisabled": [
         "3G-5"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Jamaica",
@@ -14754,7 +15729,13 @@
         "2G-850",
         "3G-5",
         "3G-2"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.3
+      }
     },
     {
       "country": "Japan",
@@ -14802,6 +15783,12 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g"
+      },
+      "supersimV2": {
+        "preferredRate": true,
+        "allow4G": true,
+        "allowM1": true,
+        "ignore2G": true
       }
     },
     {
@@ -14857,6 +15844,14 @@
           "mnc": "10",
           "tadig": "JPNDO"
         }
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true,
+        "ignore2G": true
       }
     },
     {
@@ -14918,6 +15913,14 @@
           "mnc": "20",
           "tadig": "JPNJP"
         }
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true,
+        "ignore2G": true
       }
     },
     {
@@ -14944,6 +15947,11 @@
         "3G-1"
       ],
       "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
+      },
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true
@@ -15009,6 +16017,11 @@
           "mnc": "50",
           "tadig": "GBRJT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -15037,6 +16050,11 @@
         "3G-1"
       ],
       "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
+      },
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true
@@ -15122,6 +16140,12 @@
           "mnc": "01",
           "tadig": "JORFL"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -15155,6 +16179,12 @@
           "mnc": "01",
           "tadig": "KAZKT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -15186,6 +16216,12 @@
           "mnc": "02",
           "tadig": "KAZKZ"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -15240,6 +16276,12 @@
           "mnc": "03",
           "tadig": "KENKC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -15449,7 +16491,13 @@
         "2G-1800",
         "3G-1",
         "4G-3"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
+      }
     },
     {
       "country": "Kuwait",
@@ -15514,6 +16562,12 @@
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -15552,6 +16606,12 @@
           "mnc": "01",
           "tadig": "KGZ01"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -15646,6 +16706,13 @@
           "mnc": "05",
           "tadig": "LVABT"
         }
+      },
+      "supersimV2": {
+        "preferredRate": true,
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true
       }
     },
     {
@@ -15691,6 +16758,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -15760,6 +16835,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -15908,6 +16991,11 @@
         "allow2G": true,
         "allow3G": true,
         "allow4G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -15927,7 +17015,13 @@
         "3G-1",
         "4G-3",
         "4G-7"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Liechtenstein",
@@ -16024,6 +17118,12 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "preferredRate": true,
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -16051,7 +17151,14 @@
         "4G-3",
         "4G-7",
         "4G-20"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Lithuania",
@@ -16126,6 +17233,13 @@
           "mnc": "03",
           "tadig": "LTU03"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -16192,6 +17306,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -16250,6 +17372,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -16320,6 +17450,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -16339,7 +17476,7 @@
       "carrier": "CTM",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true,
@@ -16423,6 +17560,11 @@
           "mnc": "01",
           "tadig": "MDGCO"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -16483,6 +17625,12 @@
           "mnc": "10",
           "tadig": "MWICT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -16562,6 +17710,12 @@
           "mnc": "19",
           "tadig": "MYSCC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -16607,6 +17761,12 @@
           "mnc": "16",
           "tadig": "MYSMT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -16650,6 +17810,12 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -16799,6 +17965,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -16900,6 +18074,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -17135,6 +18316,12 @@
           "mnc": "090",
           "tadig": "MEXN3"
         }
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -17265,6 +18452,14 @@
           "mnc": "020",
           "tadig": "MEXTL"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -17288,6 +18483,12 @@
           "mnc": "02",
           "tadig": "MDAMC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.3
       }
     },
     {
@@ -17325,6 +18526,11 @@
           "mnc": "01",
           "tadig": "MDAVX"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -17425,6 +18631,12 @@
           "mnc": "99",
           "tadig": "MNGMC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.25
       }
     },
     {
@@ -17469,6 +18681,12 @@
           "mnc": "88",
           "tadig": "MNGMN"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -17509,6 +18727,11 @@
           "mnc": "03",
           "tadig": "MNEMT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -17538,6 +18761,11 @@
         "4G-7"
       ],
       "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
+      },
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true
@@ -17582,6 +18810,12 @@
           "mnc": "01",
           "tadig": "MNEPM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -17658,6 +18892,11 @@
           "mnc": "02",
           "tadig": "MARM3"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -17702,6 +18941,11 @@
         "4G-20"
       ],
       "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
+      },
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true
@@ -17794,6 +19038,12 @@
           "mnc": "04",
           "tadig": "MOZVC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.4
       }
     },
     {
@@ -17816,6 +19066,12 @@
           "mnc": "01",
           "tadig": "MMRPT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.2
       }
     },
     {
@@ -17859,6 +19115,12 @@
           "mnc": "06",
           "tadig": "MMRTN"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -17908,6 +19170,12 @@
           "mnc": "03",
           "tadig": "NAM03"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -18028,6 +19296,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -18101,6 +19377,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -18164,6 +19447,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -18229,6 +19520,12 @@
           "mnc": "24",
           "tadig": "NZLNH"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.2
       }
     },
     {
@@ -18317,6 +19614,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -18385,6 +19690,14 @@
           "mnc": "01",
           "tadig": "NZLBS"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -18457,7 +19770,13 @@
         "3G-2",
         "3G-5"
       ],
-      "checked": "2024-02-13"
+      "checked": "2024-02-13",
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Niger",
@@ -18533,7 +19852,7 @@
     {
       "country": "Nigeria",
       "carrier": "9mobile",
-      "supersim": {
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true,
@@ -18582,6 +19901,12 @@
           "mnc": "20",
           "tadig": "NGAET"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -18638,7 +19963,7 @@
       "carrier": "Glo",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true,
@@ -18704,6 +20029,12 @@
           "mnc": "30",
           "tadig": "NGAMN"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.25
       }
     },
     {
@@ -18803,6 +20134,11 @@
           "mnc": "03",
           "tadig": "MKDNO"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -18865,7 +20201,13 @@
         "4G-3",
         "4G-7",
         "4G-20"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Norway",
@@ -18928,6 +20270,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -18991,6 +20340,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -19068,6 +20424,12 @@
           "mnc": "03",
           "tadig": "OMNNT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -19115,7 +20477,13 @@
         "2G-900",
         "2G-1800",
         "3G-1"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Pakistan",
@@ -19162,6 +20530,12 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -19187,6 +20561,11 @@
           "mnc": "03",
           "tadig": "PAKUF"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -19205,7 +20584,13 @@
         "2G-1800",
         "3G-1",
         "4G-3"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Pakistan",
@@ -19239,7 +20624,7 @@
       "carrier": "Jawwal",
       "sunset2G": "?",
       "sunset3G": "NA",
-      "supersim": {
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true,
@@ -19368,6 +20753,12 @@
           "mnc": "04",
           "tadig": "PANDC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.25
       }
     },
     {
@@ -19414,6 +20805,12 @@
           "mnc": "020",
           "tadig": "PANMS"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -19433,7 +20830,7 @@
         "2G-900",
         "3G-8"
       ],
-      "supersim": {
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true
@@ -19508,6 +20905,12 @@
           "mnc": "02",
           "tadig": "PRYHT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -19534,6 +20937,12 @@
           "mnc": "05",
           "tadig": "PRYNP"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -19559,6 +20968,11 @@
           "mnc": "04",
           "tadig": "PRYTC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -19590,6 +21004,12 @@
           "mnc": "01",
           "tadig": "PRYVX"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.3
       }
     },
     {
@@ -19643,6 +21063,12 @@
           "mnc": "10",
           "tadig": "PERTM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.2
       }
     },
     {
@@ -19660,7 +21086,13 @@
         "3G-2",
         "4G-4"
       ],
-      "checked": "2024-02-13"
+      "checked": "2024-02-13",
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.3
+      }
     },
     {
       "country": "Peru",
@@ -19708,6 +21140,12 @@
           "mnc": "06",
           "tadig": "PERMO"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -19786,6 +21224,12 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -19833,6 +21277,12 @@
           "mnc": "03",
           "tadig": "PHLSR"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -19938,6 +21388,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -19993,6 +21450,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -20043,6 +21507,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -20105,6 +21576,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -20196,6 +21675,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -20250,7 +21737,14 @@
       "bandsDisabled": [
         "3G-8",
         "3G-1"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Portugal",
@@ -20314,6 +21808,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -20372,6 +21874,12 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -20453,6 +21961,11 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -20496,6 +22009,12 @@
           "mnc": "02",
           "tadig": "QATB1"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -20607,6 +22126,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -20698,6 +22225,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -20763,6 +22298,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -20812,6 +22355,13 @@
         "profile": "g",
         "roamingRestrictions": "warn",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -20859,6 +22409,12 @@
         "profile": "g",
         "roamingRestrictions": "warn",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -20930,6 +22486,13 @@
           "mnc": "01",
           "tadig": "RUS01"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.4,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -20998,6 +22561,13 @@
           "mnc": "20",
           "tadig": "RUST2"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -21036,6 +22606,11 @@
           "mnc": "14",
           "tadig": "RWAAR"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -21063,6 +22638,12 @@
           "mnc": "10",
           "tadig": "RWAMN"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.4
       }
     },
     {
@@ -21224,6 +22805,12 @@
           "mnc": "110",
           "tadig": "KNACW"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -21304,6 +22891,12 @@
           "mnc": "110",
           "tadig": "LCACW"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -21428,6 +23021,12 @@
           "mnc": "110",
           "tadig": "VCTCW"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -21777,6 +23376,12 @@
         "allow2G": true,
         "profile": "h",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -21835,6 +23440,11 @@
         "allow2G": true,
         "profile": "h",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -21898,6 +23508,11 @@
           "mnc": "10",
           "tadig": "SYCAT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -22031,6 +23646,13 @@
         "profile": "g",
         "roamingRestrictions": "warn",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.2,
+        "allowM1": true,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -22100,6 +23722,12 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g"
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.3,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -22134,6 +23762,12 @@
           "mnc": "51",
           "tadig": "ANTTC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -22196,6 +23830,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -22259,6 +23901,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -22339,6 +23989,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -22378,6 +24036,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -22436,6 +24102,13 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -22566,7 +24239,7 @@
       "carrier": "Cell C",
       "sunset2G": "2027-12-31",
       "sunset3G": "2027-12-31",
-      "supersim": {
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true,
@@ -22636,6 +24309,12 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -22692,6 +24371,12 @@
           "mnc": "01",
           "tadig": "ZAFVC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -22738,6 +24423,12 @@
           "mnc": "08",
           "tadig": "KORKF"
         }
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -22776,6 +24467,10 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g"
+      },
+      "supersimV2": {
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -22828,12 +24523,18 @@
           "mnc": "05",
           "tadig": "KORSK"
         }
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "paygRate": 0.1
       }
     },
     {
       "country": "South Sudan",
       "carrier": "MTN",
-      "supersim": {
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true,
@@ -22934,6 +24635,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -23017,6 +24726,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -23078,6 +24795,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -23115,6 +24840,12 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "preferredRate": true,
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -23179,6 +24910,13 @@
           "mnc": "02",
           "tadig": "LKADG"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.3,
+        "allowM1": true
       }
     },
     {
@@ -23253,6 +24991,11 @@
           "mnc": "01",
           "tadig": "LKA71"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -23298,7 +25041,7 @@
       "carrier": "Telesur",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true,
@@ -23396,6 +25139,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -23474,6 +25225,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -23542,6 +25301,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -23583,6 +25350,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -23638,6 +25413,12 @@
           "mnc": "03",
           "tadig": "CHEOR"
         }
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -23710,6 +25491,12 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true
       }
     },
     {
@@ -23718,7 +25505,7 @@
       "sunset2G": "2021-12-31",
       "sunset3G": "2025-12-31",
       "lteM1": true,
-      "supersim": {
+      "supersimV2": {
         "allow2G": false,
         "allow3G": true,
         "allow4G": true,
@@ -23798,6 +25585,12 @@
           "mnc": "92",
           "tadig": "TWNLD"
         }
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -23833,6 +25626,11 @@
           "mnc": "01",
           "tadig": "TWNFE"
         }
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -23872,6 +25670,11 @@
           "mnc": "89",
           "tadig": "TWNTG"
         }
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -23923,6 +25726,11 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g"
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -23940,7 +25748,13 @@
         "2G-900",
         "2G-1800",
         "3G-1"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
+      }
     },
     {
       "country": "Tajikistan",
@@ -23954,6 +25768,11 @@
         "4G-20"
       ],
       "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
+      },
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true
@@ -24009,6 +25828,12 @@
           "mnc": "05",
           "tadig": "TZACT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -24162,6 +25987,12 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g"
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -24214,6 +26045,12 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -24286,6 +26123,11 @@
           "mnc": "99",
           "tadig": "THACO"
         }
+      },
+      "supersimV2": {
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -24410,6 +26252,12 @@
           "mnc": "130",
           "tadig": "TTODL"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -24434,6 +26282,11 @@
         "4G-7"
       ],
       "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
+      },
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true
@@ -24496,6 +26349,11 @@
           "mnc": "01",
           "tadig": "TUNOR"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -24526,6 +26384,11 @@
         "4G-20"
       ],
       "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
+      },
+      "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true
@@ -24691,6 +26554,12 @@
           "mnc": "350",
           "tadig": "TCACW"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -24727,6 +26596,12 @@
           "mnc": "14",
           "tadig": "UGAOR"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.4
       }
     },
     {
@@ -24760,6 +26635,12 @@
           "mnc": "22",
           "tadig": "UGAWT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -24805,6 +26686,12 @@
           "mnc": "10",
           "tadig": "UGAMN"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.4
       }
     },
     {
@@ -24909,6 +26796,12 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -24938,7 +26831,13 @@
         "2G-1800",
         "3G-1",
         "4G-7"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
+      }
     },
     {
       "country": "Ukraine",
@@ -24987,6 +26886,11 @@
           "mnc": "01",
           "tadig": "UKRUM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -25040,6 +26944,13 @@
           "mnc": "03",
           "tadig": "AREDU"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.3,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -25088,6 +26999,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g",
+        "roamingRestrictions": "warn"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.25,
+        "allowM1": true,
         "roamingRestrictions": "warn"
       }
     },
@@ -25152,6 +27071,14 @@
         "allow3G": true,
         "allow2G": false,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": false,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "ignore2G": true
       }
     },
     {
@@ -25196,7 +27123,14 @@
         "5G-28",
         "5G-78",
         "M1-20"
-      ]
+      ],
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "paygRate": 0.2
+      }
     },
     {
       "country": "United Kingdom",
@@ -25295,6 +27229,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "preferredRate": true,
+        "paygRate": 0.1,
+        "allowM1": true
       }
     },
     {
@@ -25459,6 +27401,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "h"
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -25496,6 +27446,13 @@
           "mnc": "370",
           "tadig": "USAGC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1,
+        "hideFromSunset": true
       }
     },
     {
@@ -25599,6 +27556,14 @@
         "allow3G": true,
         "allow2G": true,
         "profile": "g"
+      },
+      "supersimV2": {
+        "allow2G": false,
+        "allow3G": false,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -26021,6 +27986,14 @@
           "mnc": "260",
           "tadig": "USAW6"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": false,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -26067,6 +28040,13 @@
           "mnc": "020",
           "tadig": "USAUN"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35,
+        "hideFromSunset": true
       }
     },
     {
@@ -26201,6 +28181,14 @@
           "mnc": "480",
           "tadig": "USAVZ"
         }
+      },
+      "supersimV2": {
+        "allow2G": false,
+        "allow3G": false,
+        "allow4G": 7,
+        "allowM1": 7,
+        "ignore2G": true,
+        "ignore3G": true
       }
     },
     {
@@ -26259,7 +28247,13 @@
         "3G-1",
         "4G-4"
       ],
-      "checked": "2024-02-13"
+      "checked": "2024-02-13",
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.4
+      }
     },
     {
       "country": "Uruguay",
@@ -26291,6 +28285,12 @@
           "mnc": "10",
           "tadig": "URYAM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -26337,6 +28337,12 @@
           "mnc": "07",
           "tadig": "URYTM"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -26371,6 +28377,12 @@
           "mnc": "04",
           "tadig": "UZBDU"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -26486,6 +28498,12 @@
           "mnc": "04",
           "tadig": "VENMS"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.1
       }
     },
     {
@@ -26516,6 +28534,12 @@
         "allow2G": true,
         "profile": "g",
         "allow5G": true
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.2
       }
     },
     {
@@ -26566,6 +28590,12 @@
           "mnc": "04",
           "tadig": "VNMVT"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.2
       }
     },
     {
@@ -26600,6 +28630,11 @@
           "mnc": "02",
           "tadig": "VNMVI"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true
       }
     },
     {
@@ -26633,6 +28668,12 @@
           "mnc": "570",
           "tadig": "VGBCC"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -26711,6 +28752,12 @@
           "mnc": "170",
           "tadig": "VGBCW"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.15
       }
     },
     {
@@ -26739,6 +28786,14 @@
         "4G-71"
       ],
       "supersim": {
+        "allow2G": false,
+        "allow3G": false,
+        "allow4G": true,
+        "allowM1": true,
+        "preferredRate": true,
+        "paygRate": 0.1
+      },
+      "supersimV2": {
         "allow2G": false,
         "allow3G": false,
         "allow4G": true,
@@ -26809,6 +28864,12 @@
           "mnc": "01",
           "tadig": "ZMBCE"
         }
+      },
+      "supersimV2": {
+        "allow2G": true,
+        "allow3G": true,
+        "allow4G": true,
+        "paygRate": 0.35
       }
     },
     {
@@ -27650,6 +29711,17 @@
       "countryCarrierKeys": [
         "supersim",
         "skylo"
+      ]
+    },
+    {
+      "id": 42,
+      "sims": [
+        4
+      ],
+      "description": "Twilio SuperSIM v2",
+      "countryInfoLabel": "SuperSIM (before 2026)",
+      "countryCarrierKeys": [
+        "supersimV2"
       ]
     },
     {
@@ -32937,6 +35009,17 @@
           "simPlan": 40,
           "modem": "EG91-EX",
           "mapColor": 1
+        },
+        {
+          "name": "M-Series M635e LTE M1/2G/Satellite (Global, EtherSIM), [x1]",
+          "short": [
+            "M635E"
+          ],
+          "lifecycle": "In development",
+          "sim": 4,
+          "simPlan": 41,
+          "modem": "BG95-S5",
+          "family": "ntn"
         },
         {
           "name": "M-Series M635e LTE M1/2G/Satellite (Global, EtherSIM), [x1]",
@@ -177524,18 +179607,6 @@
       "3G": []
     },
     {
-      "date": "2030-03-31",
-      "country": "Haiti",
-      "items": [
-        {
-          "carrier": "Digicel",
-          "rat": "2G"
-        }
-      ],
-      "2G": [],
-      "3G": []
-    },
-    {
       "date": "2030-01-01",
       "country": "Albania",
       "items": [
@@ -177886,14 +179957,6 @@
       "country": "South Africa",
       "items": [
         {
-          "carrier": "Cell C",
-          "rat": "2G"
-        },
-        {
-          "carrier": "Cell C",
-          "rat": "3G"
-        },
-        {
           "carrier": "MTN",
           "rat": "2G"
         },
@@ -177954,20 +180017,6 @@
       "3G": [
         "Digicel"
       ]
-    },
-    {
-      "date": "2027-03-31",
-      "country": "Haiti",
-      "items": [
-        {
-          "carrier": "Digicel",
-          "rat": "3G"
-        }
-      ],
-      "2G": [
-        "Digicel"
-      ],
-      "3G": []
     },
     {
       "date": "2026-12-31",
@@ -178769,14 +180818,10 @@
         }
       ],
       "2G": [
-        "9mobile",
-        "Airtel",
-        "Glo"
+        "Airtel"
       ],
       "3G": [
-        "9mobile",
-        "Airtel",
-        "Glo"
+        "Airtel"
       ]
     },
     {
@@ -179012,20 +181057,6 @@
     },
     {
       "date": "2025-12-31",
-      "country": "Switzerland",
-      "items": [
-        {
-          "carrier": "Swisscom",
-          "rat": "3G"
-        }
-      ],
-      "2G": [],
-      "3G": [
-        "Salt"
-      ]
-    },
-    {
-      "date": "2025-12-31",
       "country": "Thailand",
       "items": [
         {
@@ -179150,8 +181181,7 @@
       ],
       "2G": [],
       "3G": [
-        "Salt",
-        "Swisscom"
+        "Salt"
       ]
     },
     {
@@ -180465,17 +182495,12 @@
         {
           "carrier": "Sunrise",
           "rat": "2G"
-        },
-        {
-          "carrier": "Swisscom",
-          "rat": "2G"
         }
       ],
       "2G": [],
       "3G": [
         "Salt",
-        "Sunrise",
-        "Swisscom"
+        "Sunrise"
       ]
     },
     {
@@ -180546,13 +182571,11 @@
         }
       ],
       "2G": [
-        "Sunrise",
-        "Swisscom"
+        "Sunrise"
       ],
       "3G": [
         "Salt",
-        "Sunrise",
-        "Swisscom"
+        "Sunrise"
       ]
     },
     {
@@ -181064,13 +183087,6 @@
         "carrierRatCount": 3,
         "status": "full"
       },
-      "Belize": {
-        "carriers": [
-          "Smart"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Bolivia": {
         "carriers": [
           "Viva"
@@ -181291,13 +183307,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Ethiopia": {
-        "carriers": [
-          "Ethio Telecom"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Faroe Islands": {
         "carriers": [
           "Faroese Telecom",
@@ -181431,13 +183440,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Haiti": {
-        "carriers": [
-          "Digicel"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Honduras": {
         "carriers": [
           "Claro",
@@ -181560,10 +183562,9 @@
       },
       "Kenya": {
         "carriers": [
-          "Airtel",
-          "Safaricom"
+          "Airtel"
         ],
-        "carrierRatCount": 2,
+        "carrierRatCount": 1,
         "status": "full"
       },
       "Kuwait": {
@@ -181614,13 +183615,6 @@
           "Tango"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "Macao": {
-        "carriers": [
-          "CTM"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Madagascar": {
@@ -181744,12 +183738,10 @@
       },
       "Nigeria": {
         "carriers": [
-          "9mobile",
           "Airtel",
-          "Glo",
           "MTN"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "North Macedonia": {
@@ -181778,26 +183770,12 @@
         "carrierRatCount": 4,
         "status": "full"
       },
-      "Palestine": {
-        "carriers": [
-          "Jawwal"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Panama": {
         "carriers": [
           "Digicel",
           "Movistar"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Papua New Guinea": {
-        "carriers": [
-          "bmobile"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Paraguay": {
@@ -181940,11 +183918,10 @@
       },
       "South Africa": {
         "carriers": [
-          "Cell C",
           "MTN",
           "Vodacom"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "South Korea": {
@@ -181954,13 +183931,6 @@
           "SK Telecom"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "South Sudan": {
-        "carriers": [
-          "MTN"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Spain": {
@@ -181981,13 +183951,6 @@
         "carrierRatCount": 2,
         "status": "full"
       },
-      "Suriname": {
-        "carriers": [
-          "Telesur"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Sweden": {
         "carriers": [
           "3 (Tre)",
@@ -182001,10 +183964,9 @@
       "Switzerland": {
         "carriers": [
           "Salt",
-          "Sunrise",
-          "Swisscom"
+          "Sunrise"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "Taiwan": {
@@ -182292,13 +184254,6 @@
         "carrierRatCount": 3,
         "status": "full"
       },
-      "Belize": {
-        "carriers": [
-          "Smart"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Bolivia": {
         "carriers": [
           "Viva"
@@ -182519,13 +184474,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Ethiopia": {
-        "carriers": [
-          "Ethio Telecom"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Faroe Islands": {
         "carriers": [
           "Faroese Telecom",
@@ -182659,13 +184607,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Haiti": {
-        "carriers": [
-          "Digicel"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Honduras": {
         "carriers": [
           "Claro",
@@ -182788,10 +184729,9 @@
       },
       "Kenya": {
         "carriers": [
-          "Airtel",
-          "Safaricom"
+          "Airtel"
         ],
-        "carrierRatCount": 2,
+        "carrierRatCount": 1,
         "status": "full"
       },
       "Kuwait": {
@@ -182842,13 +184782,6 @@
           "Tango"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "Macao": {
-        "carriers": [
-          "CTM"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Madagascar": {
@@ -182972,12 +184905,10 @@
       },
       "Nigeria": {
         "carriers": [
-          "9mobile",
           "Airtel",
-          "Glo",
           "MTN"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "North Macedonia": {
@@ -183006,26 +184937,12 @@
         "carrierRatCount": 4,
         "status": "full"
       },
-      "Palestine": {
-        "carriers": [
-          "Jawwal"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Panama": {
         "carriers": [
           "Digicel",
           "Movistar"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Papua New Guinea": {
-        "carriers": [
-          "bmobile"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Paraguay": {
@@ -183168,11 +185085,10 @@
       },
       "South Africa": {
         "carriers": [
-          "Cell C",
           "MTN",
           "Vodacom"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "South Korea": {
@@ -183182,13 +185098,6 @@
           "SK Telecom"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "South Sudan": {
-        "carriers": [
-          "MTN"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Spain": {
@@ -183209,13 +185118,6 @@
         "carrierRatCount": 2,
         "status": "full"
       },
-      "Suriname": {
-        "carriers": [
-          "Telesur"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Sweden": {
         "carriers": [
           "3 (Tre)",
@@ -183229,10 +185131,9 @@
       "Switzerland": {
         "carriers": [
           "Salt",
-          "Sunrise",
-          "Swisscom"
+          "Sunrise"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "Taiwan": {
@@ -183520,13 +185421,6 @@
         "carrierRatCount": 3,
         "status": "full"
       },
-      "Belize": {
-        "carriers": [
-          "Smart"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Bolivia": {
         "carriers": [
           "Viva"
@@ -183747,13 +185641,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Ethiopia": {
-        "carriers": [
-          "Ethio Telecom"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Faroe Islands": {
         "carriers": [
           "Faroese Telecom",
@@ -183886,13 +185773,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Haiti": {
-        "carriers": [
-          "Digicel"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Honduras": {
         "carriers": [
           "Claro",
@@ -184015,10 +185895,9 @@
       },
       "Kenya": {
         "carriers": [
-          "Airtel",
-          "Safaricom"
+          "Airtel"
         ],
-        "carrierRatCount": 2,
+        "carrierRatCount": 1,
         "status": "full"
       },
       "Kuwait": {
@@ -184069,13 +185948,6 @@
           "Tango"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "Macao": {
-        "carriers": [
-          "CTM"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Madagascar": {
@@ -184199,12 +186071,10 @@
       },
       "Nigeria": {
         "carriers": [
-          "9mobile",
           "Airtel",
-          "Glo",
           "MTN"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "North Macedonia": {
@@ -184233,26 +186103,12 @@
         "carrierRatCount": 4,
         "status": "full"
       },
-      "Palestine": {
-        "carriers": [
-          "Jawwal"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Panama": {
         "carriers": [
           "Digicel",
           "Movistar"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Papua New Guinea": {
-        "carriers": [
-          "bmobile"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Paraguay": {
@@ -184395,11 +186251,10 @@
       },
       "South Africa": {
         "carriers": [
-          "Cell C",
           "MTN",
           "Vodacom"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "South Korea": {
@@ -184409,13 +186264,6 @@
           "SK Telecom"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "South Sudan": {
-        "carriers": [
-          "MTN"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Spain": {
@@ -184436,13 +186284,6 @@
         "carrierRatCount": 2,
         "status": "full"
       },
-      "Suriname": {
-        "carriers": [
-          "Telesur"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Sweden": {
         "carriers": [
           "3 (Tre)",
@@ -184456,10 +186297,9 @@
       "Switzerland": {
         "carriers": [
           "Salt",
-          "Sunrise",
-          "Swisscom"
+          "Sunrise"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "Taiwan": {
@@ -184746,13 +186586,6 @@
         "carrierRatCount": 3,
         "status": "full"
       },
-      "Belize": {
-        "carriers": [
-          "Smart"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Bolivia": {
         "carriers": [
           "Viva"
@@ -184973,13 +186806,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Ethiopia": {
-        "carriers": [
-          "Ethio Telecom"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Faroe Islands": {
         "carriers": [
           "Faroese Telecom",
@@ -185112,13 +186938,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Haiti": {
-        "carriers": [
-          "Digicel"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Honduras": {
         "carriers": [
           "Claro",
@@ -185241,10 +187060,9 @@
       },
       "Kenya": {
         "carriers": [
-          "Airtel",
-          "Safaricom"
+          "Airtel"
         ],
-        "carrierRatCount": 2,
+        "carrierRatCount": 1,
         "status": "full"
       },
       "Kuwait": {
@@ -185295,13 +187113,6 @@
           "Tango"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "Macao": {
-        "carriers": [
-          "CTM"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Madagascar": {
@@ -185425,12 +187236,10 @@
       },
       "Nigeria": {
         "carriers": [
-          "9mobile",
           "Airtel",
-          "Glo",
           "MTN"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "North Macedonia": {
@@ -185459,26 +187268,12 @@
         "carrierRatCount": 4,
         "status": "full"
       },
-      "Palestine": {
-        "carriers": [
-          "Jawwal"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Panama": {
         "carriers": [
           "Digicel",
           "Movistar"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Papua New Guinea": {
-        "carriers": [
-          "bmobile"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Paraguay": {
@@ -185621,11 +187416,10 @@
       },
       "South Africa": {
         "carriers": [
-          "Cell C",
           "MTN",
           "Vodacom"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "South Korea": {
@@ -185635,13 +187429,6 @@
           "SK Telecom"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "South Sudan": {
-        "carriers": [
-          "MTN"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Spain": {
@@ -185662,13 +187449,6 @@
         "carrierRatCount": 2,
         "status": "full"
       },
-      "Suriname": {
-        "carriers": [
-          "Telesur"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Sweden": {
         "carriers": [
           "3 (Tre)",
@@ -185682,10 +187462,9 @@
       "Switzerland": {
         "carriers": [
           "Salt",
-          "Sunrise",
-          "Swisscom"
+          "Sunrise"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "Taiwan": {
@@ -185971,13 +187750,6 @@
         "carrierRatCount": 3,
         "status": "full"
       },
-      "Belize": {
-        "carriers": [
-          "Smart"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Bolivia": {
         "carriers": [
           "Viva"
@@ -186198,13 +187970,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Ethiopia": {
-        "carriers": [
-          "Ethio Telecom"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Faroe Islands": {
         "carriers": [
           "Faroese Telecom",
@@ -186337,13 +188102,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Haiti": {
-        "carriers": [
-          "Digicel"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Honduras": {
         "carriers": [
           "Claro",
@@ -186466,10 +188224,9 @@
       },
       "Kenya": {
         "carriers": [
-          "Airtel",
-          "Safaricom"
+          "Airtel"
         ],
-        "carrierRatCount": 2,
+        "carrierRatCount": 1,
         "status": "full"
       },
       "Kuwait": {
@@ -186520,13 +188277,6 @@
           "Tango"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "Macao": {
-        "carriers": [
-          "CTM"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Madagascar": {
@@ -186650,12 +188400,10 @@
       },
       "Nigeria": {
         "carriers": [
-          "9mobile",
           "Airtel",
-          "Glo",
           "MTN"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "North Macedonia": {
@@ -186684,26 +188432,12 @@
         "carrierRatCount": 4,
         "status": "full"
       },
-      "Palestine": {
-        "carriers": [
-          "Jawwal"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Panama": {
         "carriers": [
           "Digicel",
           "Movistar"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Papua New Guinea": {
-        "carriers": [
-          "bmobile"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Paraguay": {
@@ -186844,11 +188578,10 @@
       },
       "South Africa": {
         "carriers": [
-          "Cell C",
           "MTN",
           "Vodacom"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "South Korea": {
@@ -186858,13 +188591,6 @@
           "SK Telecom"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "South Sudan": {
-        "carriers": [
-          "MTN"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Spain": {
@@ -186885,13 +188611,6 @@
         "carrierRatCount": 2,
         "status": "full"
       },
-      "Suriname": {
-        "carriers": [
-          "Telesur"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Sweden": {
         "carriers": [
           "3 (Tre)",
@@ -186905,10 +188624,9 @@
       "Switzerland": {
         "carriers": [
           "Salt",
-          "Sunrise",
-          "Swisscom"
+          "Sunrise"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "Taiwan": {
@@ -187191,13 +188909,6 @@
         "carrierRatCount": 3,
         "status": "full"
       },
-      "Belize": {
-        "carriers": [
-          "Smart"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Bolivia": {
         "carriers": [
           "Viva"
@@ -187418,13 +189129,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Ethiopia": {
-        "carriers": [
-          "Ethio Telecom"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Faroe Islands": {
         "carriers": [
           "Faroese Telecom",
@@ -187557,13 +189261,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Haiti": {
-        "carriers": [
-          "Digicel"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Honduras": {
         "carriers": [
           "Claro",
@@ -187682,10 +189379,9 @@
       },
       "Kenya": {
         "carriers": [
-          "Airtel",
-          "Safaricom"
+          "Airtel"
         ],
-        "carrierRatCount": 2,
+        "carrierRatCount": 1,
         "status": "full"
       },
       "Kuwait": {
@@ -187736,13 +189432,6 @@
           "Tango"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "Macao": {
-        "carriers": [
-          "CTM"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Madagascar": {
@@ -187866,12 +189555,10 @@
       },
       "Nigeria": {
         "carriers": [
-          "9mobile",
           "Airtel",
-          "Glo",
           "MTN"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "North Macedonia": {
@@ -187900,26 +189587,12 @@
         "carrierRatCount": 4,
         "status": "full"
       },
-      "Palestine": {
-        "carriers": [
-          "Jawwal"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Panama": {
         "carriers": [
           "Digicel",
           "Movistar"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Papua New Guinea": {
-        "carriers": [
-          "bmobile"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Paraguay": {
@@ -188060,11 +189733,10 @@
       },
       "South Africa": {
         "carriers": [
-          "Cell C",
           "MTN",
           "Vodacom"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "South Korea": {
@@ -188074,13 +189746,6 @@
           "SK Telecom"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "South Sudan": {
-        "carriers": [
-          "MTN"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Spain": {
@@ -188101,13 +189766,6 @@
         "carrierRatCount": 2,
         "status": "full"
       },
-      "Suriname": {
-        "carriers": [
-          "Telesur"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Sweden": {
         "carriers": [
           "3 (Tre)",
@@ -188121,10 +189779,9 @@
       "Switzerland": {
         "carriers": [
           "Salt",
-          "Sunrise",
-          "Swisscom"
+          "Sunrise"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "Taiwan": {
@@ -188404,13 +190061,6 @@
         "carrierRatCount": 3,
         "status": "full"
       },
-      "Belize": {
-        "carriers": [
-          "Smart"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Bolivia": {
         "carriers": [
           "Viva"
@@ -188627,13 +190277,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Ethiopia": {
-        "carriers": [
-          "Ethio Telecom"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Faroe Islands": {
         "carriers": [
           "Faroese Telecom",
@@ -188763,13 +190406,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Haiti": {
-        "carriers": [
-          "Digicel"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Honduras": {
         "carriers": [
           "Claro",
@@ -188883,10 +190519,9 @@
       },
       "Kenya": {
         "carriers": [
-          "Airtel",
-          "Safaricom"
+          "Airtel"
         ],
-        "carrierRatCount": 2,
+        "carrierRatCount": 1,
         "status": "full"
       },
       "Kuwait": {
@@ -188937,13 +190572,6 @@
           "Tango"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "Macao": {
-        "carriers": [
-          "CTM"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Madagascar": {
@@ -189062,12 +190690,10 @@
       },
       "Nigeria": {
         "carriers": [
-          "9mobile",
           "Airtel",
-          "Glo",
           "MTN"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "North Macedonia": {
@@ -189093,26 +190719,12 @@
         "carrierRatCount": 3,
         "status": "reduced"
       },
-      "Palestine": {
-        "carriers": [
-          "Jawwal"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Panama": {
         "carriers": [
           "Digicel",
           "Movistar"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Papua New Guinea": {
-        "carriers": [
-          "bmobile"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Paraguay": {
@@ -189253,11 +190865,10 @@
       },
       "South Africa": {
         "carriers": [
-          "Cell C",
           "MTN",
           "Vodacom"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "South Korea": {
@@ -189267,13 +190878,6 @@
           "SK Telecom"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "South Sudan": {
-        "carriers": [
-          "MTN"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Spain": {
@@ -189292,13 +190896,6 @@
           "Mobitel"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Suriname": {
-        "carriers": [
-          "Telesur"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Sweden": {
@@ -189585,13 +191182,6 @@
         "carrierRatCount": 3,
         "status": "full"
       },
-      "Belize": {
-        "carriers": [
-          "Smart"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Bolivia": {
         "carriers": [
           "Viva"
@@ -189805,13 +191395,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Ethiopia": {
-        "carriers": [
-          "Ethio Telecom"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Faroe Islands": {
         "carriers": [
           "Faroese Telecom",
@@ -189940,13 +191523,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Haiti": {
-        "carriers": [
-          "Digicel"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Honduras": {
         "carriers": [
           "Claro",
@@ -190059,10 +191635,9 @@
       },
       "Kenya": {
         "carriers": [
-          "Airtel",
-          "Safaricom"
+          "Airtel"
         ],
-        "carrierRatCount": 2,
+        "carrierRatCount": 1,
         "status": "full"
       },
       "Kuwait": {
@@ -190113,13 +191688,6 @@
         ],
         "carrierRatCount": 2,
         "status": "reduced"
-      },
-      "Macao": {
-        "carriers": [
-          "CTM"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
       },
       "Madagascar": {
         "carriers": [
@@ -190234,12 +191802,10 @@
       },
       "Nigeria": {
         "carriers": [
-          "9mobile",
           "Airtel",
-          "Glo",
           "MTN"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "North Macedonia": {
@@ -190265,26 +191831,12 @@
         "carrierRatCount": 3,
         "status": "reduced"
       },
-      "Palestine": {
-        "carriers": [
-          "Jawwal"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Panama": {
         "carriers": [
           "Digicel",
           "Movistar"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Papua New Guinea": {
-        "carriers": [
-          "bmobile"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Paraguay": {
@@ -190423,11 +191975,10 @@
       },
       "South Africa": {
         "carriers": [
-          "Cell C",
           "MTN",
           "Vodacom"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "South Korea": {
@@ -190437,13 +191988,6 @@
           "SK Telecom"
         ],
         "carrierRatCount": 3,
-        "status": "full"
-      },
-      "South Sudan": {
-        "carriers": [
-          "MTN"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Spain": {
@@ -190462,13 +192006,6 @@
           "Mobitel"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Suriname": {
-        "carriers": [
-          "Telesur"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Sweden": {
@@ -190753,13 +192290,6 @@
         "carrierRatCount": 1,
         "status": "reduced"
       },
-      "Belize": {
-        "carriers": [
-          "Smart"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Bolivia": {
         "carriers": [
           "Viva"
@@ -190973,13 +192503,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Ethiopia": {
-        "carriers": [
-          "Ethio Telecom"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Faroe Islands": {
         "carriers": [
           "Faroese Telecom",
@@ -191108,13 +192631,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Haiti": {
-        "carriers": [
-          "Digicel"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Honduras": {
         "carriers": [
           "Claro",
@@ -191227,10 +192743,9 @@
       },
       "Kenya": {
         "carriers": [
-          "Airtel",
-          "Safaricom"
+          "Airtel"
         ],
-        "carrierRatCount": 2,
+        "carrierRatCount": 1,
         "status": "full"
       },
       "Kuwait": {
@@ -191281,13 +192796,6 @@
         ],
         "carrierRatCount": 2,
         "status": "reduced"
-      },
-      "Macao": {
-        "carriers": [
-          "CTM"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
       },
       "Madagascar": {
         "carriers": [
@@ -191402,12 +192910,10 @@
       },
       "Nigeria": {
         "carriers": [
-          "9mobile",
           "Airtel",
-          "Glo",
           "MTN"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "North Macedonia": {
@@ -191433,26 +192939,12 @@
         "carrierRatCount": 3,
         "status": "reduced"
       },
-      "Palestine": {
-        "carriers": [
-          "Jawwal"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Panama": {
         "carriers": [
           "Digicel",
           "Movistar"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Papua New Guinea": {
-        "carriers": [
-          "bmobile"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Paraguay": {
@@ -191603,13 +193095,6 @@
         "carrierRatCount": 3,
         "status": "full"
       },
-      "South Sudan": {
-        "carriers": [
-          "MTN"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Spain": {
         "carriers": [
           "Orange",
@@ -191626,13 +193111,6 @@
           "Mobitel"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Suriname": {
-        "carriers": [
-          "Telesur"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Sweden": {
@@ -191915,13 +193393,6 @@
         "carrierRatCount": 1,
         "status": "reduced"
       },
-      "Belize": {
-        "carriers": [
-          "Smart"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Bolivia": {
         "carriers": [
           "Viva"
@@ -192135,13 +193606,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Ethiopia": {
-        "carriers": [
-          "Ethio Telecom"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Faroe Islands": {
         "carriers": [
           "Faroese Telecom",
@@ -192268,13 +193732,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Haiti": {
-        "carriers": [
-          "Digicel"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Honduras": {
         "carriers": [
           "Claro",
@@ -192387,10 +193844,9 @@
       },
       "Kenya": {
         "carriers": [
-          "Airtel",
-          "Safaricom"
+          "Airtel"
         ],
-        "carrierRatCount": 2,
+        "carrierRatCount": 1,
         "status": "full"
       },
       "Kuwait": {
@@ -192437,13 +193893,6 @@
         ],
         "carrierRatCount": 2,
         "status": "reduced"
-      },
-      "Macao": {
-        "carriers": [
-          "CTM"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
       },
       "Madagascar": {
         "carriers": [
@@ -192558,12 +194007,10 @@
       },
       "Nigeria": {
         "carriers": [
-          "9mobile",
           "Airtel",
-          "Glo",
           "MTN"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "North Macedonia": {
@@ -192589,26 +194036,12 @@
         "carrierRatCount": 3,
         "status": "reduced"
       },
-      "Palestine": {
-        "carriers": [
-          "Jawwal"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Panama": {
         "carriers": [
           "Digicel",
           "Movistar"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Papua New Guinea": {
-        "carriers": [
-          "bmobile"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Paraguay": {
@@ -192759,13 +194192,6 @@
         "carrierRatCount": 3,
         "status": "full"
       },
-      "South Sudan": {
-        "carriers": [
-          "MTN"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Spain": {
         "carriers": [
           "Orange",
@@ -192782,13 +194208,6 @@
           "Mobitel"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Suriname": {
-        "carriers": [
-          "Telesur"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Sweden": {
@@ -193070,13 +194489,6 @@
         "carrierRatCount": 1,
         "status": "reduced"
       },
-      "Belize": {
-        "carriers": [
-          "Smart"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Bolivia": {
         "carriers": [
           "Viva"
@@ -193290,13 +194702,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Ethiopia": {
-        "carriers": [
-          "Ethio Telecom"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Faroe Islands": {
         "carriers": [
           "Faroese Telecom",
@@ -193420,13 +194825,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Haiti": {
-        "carriers": [
-          "Digicel"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Honduras": {
         "carriers": [
           "Claro",
@@ -193538,10 +194936,9 @@
       },
       "Kenya": {
         "carriers": [
-          "Airtel",
-          "Safaricom"
+          "Airtel"
         ],
-        "carrierRatCount": 2,
+        "carrierRatCount": 1,
         "status": "full"
       },
       "Kuwait": {
@@ -193588,13 +194985,6 @@
         ],
         "carrierRatCount": 2,
         "status": "reduced"
-      },
-      "Macao": {
-        "carriers": [
-          "CTM"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
       },
       "Madagascar": {
         "carriers": [
@@ -193709,12 +195099,10 @@
       },
       "Nigeria": {
         "carriers": [
-          "9mobile",
           "Airtel",
-          "Glo",
           "MTN"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "North Macedonia": {
@@ -193740,26 +195128,12 @@
         "carrierRatCount": 3,
         "status": "reduced"
       },
-      "Palestine": {
-        "carriers": [
-          "Jawwal"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Panama": {
         "carriers": [
           "Digicel",
           "Movistar"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Papua New Guinea": {
-        "carriers": [
-          "bmobile"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Paraguay": {
@@ -193909,13 +195283,6 @@
         "carrierRatCount": 3,
         "status": "full"
       },
-      "South Sudan": {
-        "carriers": [
-          "MTN"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Spain": {
         "carriers": [
           "Orange",
@@ -193932,13 +195299,6 @@
           "Mobitel"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Suriname": {
-        "carriers": [
-          "Telesur"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Sweden": {
@@ -194214,13 +195574,6 @@
         "carrierRatCount": 0,
         "status": "none"
       },
-      "Belize": {
-        "carriers": [
-          "Smart"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Bolivia": {
         "carriers": [
           "Viva"
@@ -194433,13 +195786,6 @@
         "carrierRatCount": 1,
         "status": "full"
       },
-      "Ethiopia": {
-        "carriers": [
-          "Ethio Telecom"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Faroe Islands": {
         "carriers": [
           "Faroese Telecom",
@@ -194561,11 +195907,6 @@
         "carrierRatCount": 0,
         "status": "none"
       },
-      "Haiti": {
-        "carriers": [],
-        "carrierRatCount": 0,
-        "status": "none"
-      },
       "Honduras": {
         "carriers": [
           "Claro",
@@ -194675,10 +196016,9 @@
       },
       "Kenya": {
         "carriers": [
-          "Airtel",
-          "Safaricom"
+          "Airtel"
         ],
-        "carrierRatCount": 2,
+        "carrierRatCount": 1,
         "status": "full"
       },
       "Kuwait": {
@@ -194724,13 +196064,6 @@
         ],
         "carrierRatCount": 1,
         "status": "reduced"
-      },
-      "Macao": {
-        "carriers": [
-          "CTM"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
       },
       "Madagascar": {
         "carriers": [
@@ -194843,12 +196176,10 @@
       },
       "Nigeria": {
         "carriers": [
-          "9mobile",
           "Airtel",
-          "Glo",
           "MTN"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 2,
         "status": "full"
       },
       "North Macedonia": {
@@ -194874,26 +196205,12 @@
         "carrierRatCount": 3,
         "status": "reduced"
       },
-      "Palestine": {
-        "carriers": [
-          "Jawwal"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Panama": {
         "carriers": [
           "Digicel",
           "Movistar"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Papua New Guinea": {
-        "carriers": [
-          "bmobile"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Paraguay": {
@@ -195035,13 +196352,6 @@
         "carrierRatCount": 3,
         "status": "full"
       },
-      "South Sudan": {
-        "carriers": [
-          "MTN"
-        ],
-        "carrierRatCount": 1,
-        "status": "full"
-      },
       "Spain": {
         "carriers": [
           "Telefonica",
@@ -195056,13 +196366,6 @@
           "Mobitel"
         ],
         "carrierRatCount": 2,
-        "status": "full"
-      },
-      "Suriname": {
-        "carriers": [
-          "Telesur"
-        ],
-        "carrierRatCount": 1,
         "status": "full"
       },
       "Sweden": {

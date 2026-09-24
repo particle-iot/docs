@@ -1400,7 +1400,6 @@ SE, SI, SK, TR, UA, UK(NI).
 | El Salvador | M635E | 2G | Telefonica |
 | Estonia | M635E | 2G, M1, NTN | Elisa, Skylo, Tele2, Telia |
 | eSwatini | M635E | 2G | MTN |
-| Ethiopia | M635E | 2G | Ethio Telecom |
 | Faroe Islands | M635E | 2G, NTN | Faroese Telecom, Skylo, Vodafone |
 | Finland | M635E | 2G, M1, NTN | DNA, Elisa, Skylo, Telia |
 | France | M635E | 2G, M1, NTN | Bouygues, Free Mobile, Orange, SFR, Skylo |
@@ -1418,7 +1417,6 @@ SE, SI, SK, TR, UA, UK(NI).
 | Guinea | M635E | 2G | MTN |
 | Guinea-Bissau | M635E | 2G | MTN |
 | Guyana | M635E | 2G | Digicel |
-| Haiti | M635E | 2G | Digicel |
 | Holy See (Vatican City) | M635E | NTN | Skylo |
 | Honduras | M635E | 2G | Claro, Tigo |
 | Hungary | M635E | 2G, M1, NTN | Magyar Telekom, Skylo, Telenor, Vodafone |
@@ -1456,14 +1454,12 @@ SE, SI, SK, TR, UA, UK(NI).
 | Netherlands | M635E | 2G, M1, NTN | KPN, Skylo, T-Mobile, Vodafone |
 | New Zealand | M635E | M1, NTN | Skylo, Spark, Vodafone |
 | Nicaragua | M635E | 2G | Movistar |
-| Nigeria | M635E | 2G | 9mobile, Airtel, Glo |
+| Nigeria | M635E | 2G | Airtel |
 | North Macedonia | M635E | 2G, NTN | Skylo, Vip operator |
 | Norway | M635E | 2G, M1, NTN | Skylo, TDC, Telenor, Telia |
 | Oman | M635E | 2G | Ooredoo |
 | Pakistan | M635E | 2G | Mobilink, Ufone, Warid |
-| Palestine | M635E | 2G | Jawwal |
 | Panama | M635E | 2G | Movistar |
-| Papua New Guinea | M635E | 2G | bmobile |
 | Paraguay | M635E | 2G | Personal, Tigo, Vox |
 | Peru | M635E | 2G | Entel |
 | Philippines | M635E | 2G | Globe, Smart |
@@ -1483,13 +1479,11 @@ SE, SI, SK, TR, UA, UK(NI).
 | Sint Maarten | M635E | 2G | TelCell |
 | Slovakia | M635E | 2G, M1, NTN | O2, Orange, Skylo, Telekom |
 | Slovenia | M635E | 2G, M1, NTN | A1, Mobitel, Skylo |
-| South Africa | M635E | 2G | Cell C, MTN, Vodacom |
+| South Africa | M635E | 2G | MTN, Vodacom |
 | South Korea | M635E | M1 | KT, SK Telecom |
-| South Sudan | M635E | 2G | MTN |
 | Spain | M635E | 2G, M1, NTN | Orange, Skylo, Telefonica, Vodafone, Yoigo |
-| Suriname | M635E | 2G | Telesur |
 | Sweden | M635E | 2G, M1, NTN | 3 (Tre), Skylo, Tele2, Telenor, Telia |
-| Switzerland | M635E | M1, NTN | Salt, Skylo, Sunrise, Swisscom |
+| Switzerland | M635E | M1, NTN | Salt, Skylo, Sunrise |
 | Taiwan | M635E | M1 | Chunghwa |
 | Tajikistan | M635E | 2G | Beeline, Tcell |
 | Tanzania | M635E | 2G | Airtel |
