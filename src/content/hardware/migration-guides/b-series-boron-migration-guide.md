@@ -106,7 +106,6 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | Egypt | B524 | 2G, 3G, 4G | Etisalat, Orange |
 | Estonia | B524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
 | eSwatini | B524 | 2G, 3G, 4G | MTN |
-| Ethiopia | B524 | 2G, 3G, 4G | Ethio Telecom |
 | Faroe Islands | B524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | B524 | 2G, 4G | DNA, Elisa, Telia |
 | France | B524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
@@ -120,7 +119,6 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | Guinea | B524 | 2G, 3G, 4G | MTN |
 | Guinea-Bissau | B524 | 2G, 3G, 4G | MTN |
 | Guyana | B524 | 2G | Digicel |
-| Haiti | B524 | 2G, 3G | Digicel |
 | Hong Kong | B524 | 3G, 4G | CMHK, CSL, SmarTone |
 | Hungary | B524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | B524 | 4G | Nova, Siminn, Vodafone |
@@ -137,7 +135,6 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | Liechtenstein | B524 | 2G, 3G, 4G | Mobilkom, Orange |
 | Lithuania | B524 | 2G, 4G | Bite, Omnitel, Tele2 |
 | Luxembourg | B524 | 2G, 4G | Orange, POST, Tango |
-| Macao | B524 | 3G, 4G | CTM |
 | Madagascar | B524 | 2G, 3G, 4G | Airtel |
 | Malawi | B524 | 2G, 3G, 4G | Airtel |
 | Malaysia | B524 | 2G, 4G | Celcom, DiGi, Maxis |
@@ -151,11 +148,9 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | Namibia | B524 | 2G, 3G, 4G | Telecom Namibia |
 | Netherlands | B524 | 2G, 4G | KPN, T-Mobile, Vodafone |
 | New Zealand | B524 | 4G | 2degrees, Spark, Vodafone |
-| Nigeria | B524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
+| Nigeria | B524 | 2G, 3G, 4G | Airtel, MTN |
 | Norway | B524 | 2G, 3G, 4G | TDC, Telenor, Telia |
 | Pakistan | B524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
-| Palestine | B524 | 2G, 3G | Jawwal |
-| Papua New Guinea | B524 | 2G, 3G | bmobile |
 | Poland | B524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | B524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
 | Qatar | B524 | 2G, 4G | Ooredoo, Vodafone |
@@ -166,14 +161,12 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | Sint Maarten | B524 | 2G, 3G | TelCell |
 | Slovakia | B524 | 2G, 4G | O2, Orange, Telekom |
 | Slovenia | B524 | 2G, 3G, 4G | A1, Mobitel |
-| South Africa | B524 | 2G, 3G, 4G | Cell C, MTN, Vodacom |
+| South Africa | B524 | 2G, 3G, 4G | MTN, Vodacom |
 | South Korea | B524 | 3G, 4G | KT, LG U+, SK Telecom |
-| South Sudan | B524 | 2G, 3G | MTN |
 | Spain | B524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | B524 | 2G, 4G | Dialog, Mobitel |
-| Suriname | B524 | 2G, 3G | Telesur |
 | Sweden | B524 | 2G, 4G | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | B524 | 3G, 4G | Salt, Sunrise, Swisscom |
+| Switzerland | B524 | 3G, 4G | Salt, Sunrise |
 | Taiwan | B524 | 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tanzania | B524 | 2G, 3G, 4G | Airtel |
 | Thailand | B524 | 2G, 3G, 4G | AIS, DTAC, True Move |

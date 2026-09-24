@@ -2122,7 +2122,6 @@ The following countries are not officially supported at this time, but may be co
 | Argentina | 3G, 4G | Claro, Movistar, Personal |
 | Bahamas | 3G, 4G | Aliv, BTC Bahamas |
 | Barbados | 4G | Flow |
-| Belize | 3G, 4G | Smart |
 | Bolivia | 3G, 4G | Viva |
 | Cayman Islands | 3G | Flow |
 | Chile | 3G | Entel, Movistar |

@@ -455,7 +455,6 @@ Current measurements taken at 3.6V via the battery input. For more information a
 | Egypt | ONE524 | 2G, 3G, 4G | Etisalat, Orange |
 | Estonia | ONE524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
 | eSwatini | ONE524 | 2G, 3G, 4G | MTN |
-| Ethiopia | ONE524 | 2G, 3G, 4G | Ethio Telecom |
 | Faroe Islands | ONE524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | ONE524 | 2G, 4G | DNA, Elisa, Telia |
 | France | ONE524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
@@ -483,7 +482,6 @@ Current measurements taken at 3.6V via the battery input. For more information a
 | Liechtenstein | ONE524 | 2G, 3G, 4G | Mobilkom, Orange |
 | Lithuania | ONE524 | 2G, 4G | Bite, Omnitel, Tele2 |
 | Luxembourg | ONE524 | 2G, 4G | Orange, POST, Tango |
-| Macao | ONE524 | 3G, 4G | CTM |
 | Madagascar | ONE524 | 2G, 3G, 4G | Airtel |
 | Malawi | ONE524 | 2G, 3G, 4G | Airtel |
 | Malaysia | ONE524 | 2G, 4G | Celcom, DiGi, Maxis |
@@ -498,11 +496,9 @@ Current measurements taken at 3.6V via the battery input. For more information a
 | Namibia | ONE524 | 2G, 3G, 4G | Telecom Namibia |
 | Netherlands | ONE524 | 2G, 4G | KPN, T-Mobile, Vodafone |
 | New Zealand | ONE524 | 4G | 2degrees, Spark, Vodafone |
-| Nigeria | ONE524 | 2G, 3G, 4G | 9mobile, Airtel, Glo, MTN |
+| Nigeria | ONE524 | 2G, 3G, 4G | Airtel, MTN |
 | Norway | ONE524 | 2G, 3G, 4G | TDC, Telenor, Telia |
 | Pakistan | ONE524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
-| Palestine | ONE524 | 2G, 3G | Jawwal |
-| Papua New Guinea | ONE524 | 2G, 3G | bmobile |
 | Poland | ONE524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | ONE524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
 | Qatar | ONE524 | 2G, 4G | Ooredoo, Vodafone |
@@ -513,14 +509,12 @@ Current measurements taken at 3.6V via the battery input. For more information a
 | Sint Maarten | ONE524 | 2G, 3G | TelCell |
 | Slovakia | ONE524 | 2G, 4G | O2, Orange, Telekom |
 | Slovenia | ONE524 | 2G, 3G, 4G | A1, Mobitel |
-| South Africa | ONE524 | 2G, 3G, 4G | Cell C, MTN, Vodacom |
+| South Africa | ONE524 | 2G, 3G, 4G | MTN, Vodacom |
 | South Korea | ONE524 | 3G, 4G | KT, LG U+, SK Telecom |
-| South Sudan | ONE524 | 2G, 3G | MTN |
 | Spain | ONE524 | 2G, 3G, 4G | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | ONE524 | 2G, 4G | Dialog, Mobitel |
-| Suriname | ONE524 | 2G, 3G | Telesur |
 | Sweden | ONE524 | 2G, 4G | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | ONE524 | 3G, 4G | Salt, Sunrise, Swisscom |
+| Switzerland | ONE524 | 3G, 4G | Salt, Sunrise |
 | Taiwan | ONE524 | 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tanzania | ONE524 | 2G, 3G, 4G | Airtel |
 | Thailand | ONE524 | 2G, 3G, 4G | AIS, DTAC, True Move |

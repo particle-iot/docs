@@ -295,7 +295,7 @@ const schemaDocs = require('./schema-docs');
         {
             guid:'0ca3e34e-76e2-11eb-9439-0242ac130002',
             generatorFn:function(updater) {
-                return updater.generateCountryList('electron', {noVerizon: true}); 
+                return updater.generateCountryList('electron', {noVerizon: true, simPlan: 42}); // EtherSIM v2
             } 
         },
         // E-Series datasheet
@@ -308,7 +308,7 @@ const schemaDocs = require('./schema-docs');
         {
             guid:'2445e222-76e2-11eb-9439-0242ac130002',
             generatorFn:function(updater) {
-                return updater.generateCountryList('e series', {noVerizon: true}); 
+                return updater.generateCountryList('e series', {noVerizon: true, simPlan: 42}); // EtherSIM v2 
             } 
         },
 
@@ -636,7 +636,7 @@ const schemaDocs = require('./schema-docs');
         {
             guid:'945c4c4c-76d1-11eb-9439-0242ac130002',
             generatorFn:function(updater) {
-                return updater.generateCountryList('boron'); 
+                return updater.generateCountryList('boron', {simPlan: 42}); // EtherSIM v2
             } 
         },
         {
@@ -4008,6 +4008,42 @@ const schemaDocs = require('./schema-docs');
                 }); 
             }                 
         },
+        // EtherSIM V3 Update
+        {
+            // SKUs EtherSIM, not NorAm
+            guid:'dd001790-9562-4e2e-abcc-a799f6e52d58',
+            generatorFn:function(updater) {
+                return updater.generateSkuList({
+                    columns: ['name', 'desc', 'region', 'modem', 'gen', 'lifecycle'],
+                    filterFn: function(skuObj) {
+                        if (!skuObj.modem) {
+                            return true; // Ignore non-cellu;ar
+                        }
+                        if (!['GA', 'In development'].includes(skuObj.lifecycle)) {
+                            return true; // Ignore NRND and Deprecated devices
+                        }
+                        if (!['EG91-E', 'EG91-EX', 'EG91-NAX', 'BG95-S5'].includes(skuObj.modem)) {
+                            return true; // Ignore NorAm devices (R410, R510, BG95-M5. BG96-MC)
+                        }
+                        if (skuObj.name.startsWith('MON') && skuObj.name.includes('E01C01KIT') ) {
+                            return true; // Ignore Monitor One developer kits
+                        }
+                        if (skuObj.sim != 4) {
+                            return true; // Ignore non-EtherSIM
+                        }
+                        return false; // Include
+                    },
+                }); 
+            }                 
+        },
+        {
+            guid:'a27195d7-c6b5-4ddb-b6b1-6c5ac183487e', 
+            generatorFn:function(updater) {
+                return updater.generateV3RemovedCarrierList({
+                }); 
+            } 
+        },
+
         // tutorials/cellular-connectivity/lte-cat-1-expansion.md
         {
             guid:'2bc27d9d-f9fc-419e-8239-a4533c6cf4c6', 

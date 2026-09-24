@@ -99,7 +99,6 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | Estonia | Tele2 | &nbsp; |
 | Estonia | Telia | &nbsp; |
 | eSwatini | MTN | &check; |
-| Ethiopia | Ethio Telecom | &check; |
 | Faroe Islands | Faroese Telecom | &nbsp; |
 | Faroe Islands | Vodafone | &nbsp; |
 | Finland | DNA | &nbsp; |
@@ -125,7 +124,6 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | Guinea | MTN | &check; |
 | Guinea-Bissau | MTN | &check; |
 | Guyana | Digicel | &check; |
-| Haiti | Digicel | &check; |
 | Hong Kong | CMHK | &check; |
 | Hong Kong | CSL | &check; |
 | Hong Kong | SmarTone | &check; |
@@ -168,7 +166,6 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | Luxembourg | Orange | &nbsp; |
 | Luxembourg | POST | &nbsp; |
 | Luxembourg | Tango | &nbsp; |
-| Macao | CTM | &check; |
 | Madagascar | Airtel | &check; |
 | Malawi | Airtel | &check; |
 | Malaysia | Celcom | &check; |
@@ -195,9 +192,7 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | New Zealand | 2degrees | &nbsp; |
 | New Zealand | Spark | &nbsp; |
 | New Zealand | Vodafone | &nbsp; |
-| Nigeria | 9mobile | &check; |
 | Nigeria | Airtel | &check; |
-| Nigeria | Glo | &check; |
 | Nigeria | MTN | &check; |
 | Norway | TDC | &nbsp; |
 | Norway | Telenor | &nbsp; |
@@ -206,8 +201,6 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | Pakistan | Telenor | &check; |
 | Pakistan | Ufone | &check; |
 | Pakistan | Warid | &check; |
-| Palestine | Jawwal | &check; |
-| Papua New Guinea | bmobile | &check; |
 | Poland | Orange | &nbsp; |
 | Poland | Play | &nbsp; |
 | Poland | Plus | &nbsp; |
@@ -231,27 +224,23 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | Slovakia | Telekom | &nbsp; |
 | Slovenia | A1 | &nbsp; |
 | Slovenia | Mobitel | &nbsp; |
-| South Africa | Cell C | &check; |
 | South Africa | MTN | &check; |
 | South Africa | Vodacom | &check; |
 | South Korea | KT | &check; |
 | South Korea | LG U+ | &check; |
 | South Korea | SK Telecom | &check; |
-| South Sudan | MTN | &check; |
 | Spain | Orange | &nbsp; |
 | Spain | Telefonica | &nbsp; |
 | Spain | Vodafone | &nbsp; |
 | Spain | Yoigo | &nbsp; |
 | Sri Lanka | Dialog | &check; |
 | Sri Lanka | Mobitel | &check; |
-| Suriname | Telesur | &check; |
 | Sweden | 3 (Tre) | &nbsp; |
 | Sweden | Tele2 | &nbsp; |
 | Sweden | Telenor | &nbsp; |
 | Sweden | Telia | &nbsp; |
 | Switzerland | Salt | &nbsp; |
 | Switzerland | Sunrise | &nbsp; |
-| Switzerland | Swisscom | &nbsp; |
 | Taiwan | Chunghwa | &check; |
 | Taiwan | FarEasTone | &check; |
 | Taiwan | T Star | &check; |

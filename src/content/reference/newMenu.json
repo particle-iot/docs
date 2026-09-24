@@ -775,6 +775,11 @@
                         {
                             "dir": "r410-modem-deprecation",
                             "title": "R410 modem deprecation"
+                        },
+                        {
+                            "dir": "ethersim-2026-09",
+                            "title": "EtherSIM 2026-09",
+                            "internal": true
                         }
                     ]
                 },
