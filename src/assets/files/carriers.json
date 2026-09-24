@@ -35020,17 +35020,6 @@
           "simPlan": 41,
           "modem": "BG95-S5",
           "family": "ntn"
-        },
-        {
-          "name": "M-Series M635e LTE M1/2G/Satellite (Global, EtherSIM), [x1]",
-          "short": [
-            "M635E"
-          ],
-          "lifecycle": "In development",
-          "sim": 4,
-          "simPlan": 41,
-          "modem": "BG95-S5",
-          "family": "ntn"
         }
       ]
     },
