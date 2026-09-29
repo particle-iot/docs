@@ -840,14 +840,12 @@ breakout board, which has the cellular modem USB connector.
 {{!-- ### Absolute maximum ratings --}}
 
 
-{{!-- 
 ### Recommended operating conditions
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
 | Operating Temperature | T<sub>op</sub> | -20 |  | +70 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
---}}
 
 {{!-- ### Wi-Fi Specifications --}}
 
@@ -1555,3 +1553,4 @@ SE, SI, SK, TR, UA, UK(NI).
 | 002      | 2026-07-16 | RK | Additional ISED updates |
 | 003      | 2026-07-27 | RK | FCC and ISED certification document links |
 | 004      | 2026-08-19 | RK | Power consumption |
+| 005      | 2026-09-29 | RK | Added operating conditions |

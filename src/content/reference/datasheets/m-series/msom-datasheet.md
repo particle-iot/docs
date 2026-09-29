@@ -791,14 +791,12 @@ breakout board, which has the cellular modem USB connector.
 {{!-- ### Absolute maximum ratings --}}
 
 
-{{!-- 
 ### Recommended operating conditions
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
 | Operating Temperature | T<sub>op</sub> | -20 |  | +70 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
---}}
 
 {{!-- ### Wi-Fi Specifications --}}
 
@@ -1592,3 +1590,4 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | 020      | 2026-07-09 | RK | Updates for M635e certification |
 | 021      | 2026-07-27 | RK | FCC, ISED, and EU certification document links |
 | 022      | 2026-07-28 | RK | Separated the M635e datasheet |
+| 023      | 2026-09-29 | RK | Added operating conditions |

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M-SoM operating conditions 2026-09-29
+
+Added recommended operating conditions to the [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/#recommended-operating-conditions) and [M635e datasheet](/reference/datasheets/m-series/m635e-datasheet/#recommended-operating-conditions).
+
 ### Add device name 2026-09-18
 
 In the [console add devices csv import](/getting-started/console/console/#add-many-devices-adding-devices) you can optionally specify the device name and group.
