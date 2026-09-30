@@ -1043,8 +1043,8 @@
             "hash": "654127ce7e7b344ec647c8a4cc2ad47df11f4eb2dc9caf0d2bc914e759c80d4e"
         },
         "hardware/wi-fi/p2-first-board.md": {
-            "date": "2023-11-21",
-            "hash": "d1beeeaa885eca0d17b71d6a294e645b4792dece84ae4573c2965e690496fe97"
+            "date": "2026-09-30",
+            "hash": "c5e07c3ca53f8be97d19f3eaa843b4c34e51a62a9e835e03ea63c8114362e2b8"
         },
         "hardware/tracker/m8-temperature-humidity.md": {
             "date": "2023-03-17",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "ebd83878b340510f2685aaaadfbb9e5e40ab4b8dacf823e2a4ceb2922f5cbf89",
-            "date": "2026-09-29"
+            "hash": "87ce5668ae6cd40abbfb7801368a25fd3e207a5e1348c661e5f25d2fbf5710e4",
+            "date": "2026-09-30"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9111,8 +9111,8 @@
             "date": "2024-10-28"
         },
         "hardware/som/som-first-board.md": {
-            "hash": "b68d6d837be2b6a36a900749e8ce77ee638e03bd8e1986535b740ba6478b2490",
-            "date": "2024-06-28"
+            "hash": "567fd1eb86e57240ceb3432aedf4da9afcdc4c78b70ae8b8ac7a99c09aade99e",
+            "date": "2026-09-30"
         },
         "hardware/som/som-guide.md": {
             "hash": "f3e974f4311f62d8ea8298b02bf03f9b28f7df1cb845b72426a4ef99326e5720",
@@ -9431,8 +9431,8 @@
             "date": "2024-10-28"
         },
         "getting-started/hardware/tracking-system.md": {
-            "hash": "af118ba200df51aee08a8311d9e3b808ed16f9f854e8d6b649072fdaafc1f780",
-            "date": "2025-03-21"
+            "hash": "7c2017813670cb0d6df419109c846e35cea4de1441fc3a46b3f95e243117868d",
+            "date": "2026-09-30"
         },
         "reference/datasheets/tracker/m1-enclosure-datasheet.md": {
             "hash": "9980c274d2698ab75e9673e374a70679a7f596e8b6ea8348892b0197b2350588",

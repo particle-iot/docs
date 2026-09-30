@@ -85,24 +85,9 @@ This video covers the Tracker basics including Tracker Edge, adding custom data 
 
 ## Find out more
 
-![Docs Menu](/assets/images/tracker/docs-menu.png)
+Most of the documentation can be found in [Getting started](/getting-started/hardware/tracking-system/), [Reference](/firmware/tracker-edge/tracker-edge-api-reference/), and [Hardware](/hardware/hardware/) sections.
 
-Most of the documentation can be found in [Getting started](/getting-started/hardware/tracking-system/), [Reference](/firmware/tracker-edge/tracker-edge-api-reference/), and [Datasheets](/reference/datasheets/tracker/tracker-som-datasheet/) sections.
-
-### Tutorials
-
-In the **Asset Tracking** section in Tutorials:
-
-- [Setup guide](/getting-started/tracker/tracker-setup/) 
-- [Introduction to Tracker Edge firmware](/firmware/tracker-edge/tracker-edge-firmware/)
-- [Evaluation Board Tutorials](/getting-started/tracker/tracker-eval-tutorials/) 
-- [Expanding the Tracker One](/hardware/tracker/tracker-one-expansion/) using the external M8 connector
-- [Introduction to CAN Bus](/reference/tracker/can-bus/)
-
-Want to add temperature, pressure, and humidity data to your location publishes using the Tracker Evaluation Board? Check out this example of using a BME280 temperature, pressure, and humidity sensor connected by I2C to [add data to location publishes](/getting-started/tracker/tracker-eval-tutorials/#i2c-expansion-example).
-
-
-And other tutorial resources:
+Additionally:
 
 - The map view and settings are described in the [Console Documentation](/getting-started/console/console/#asset-tracker-features).
 - Cellular carriers for the Tracker SoM can be found in the [Carrier List](/reference/cellular/cellular-carriers/).
@@ -123,6 +108,10 @@ Here you'll find detailed technical specifications for the:
 - [Tracker One](/reference/datasheets/tracker/tracker-one/), ready-to-go and fully assembled with an IP67-rated enclosure
 
 If you're building a carrier board you'll probably want to use the Eagle CAD Tracker SoM footprint in the [Hardware Libraries](https://github.com/particle-iot/hardware-libraries). You can also import this into other CAD programs.
+
+### Expansion
+
+- [Expanding the Tracker One](/hardware/tracker/tracker-one-expansion/) using the external M8 connector
 
 
 ## Models

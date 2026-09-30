@@ -300,6 +300,30 @@ dfu-util -l
 
 Celebrate making your first working SoM base board!
 
+## Supervisory reset
+
+For simplicity, this design omits the supervisory reset circuitry. This will work fine with B-Series SoMs, but
+may not work all of the time with M-Series SoMs using the RTL872x MCU if the slew rate of your input power does not conform to the requirements of the RTL872x. 
+
+From the P2 datasheet:
+
+{{!-- BEGIN shared-blurb c57e3927-686d-4a58-9a39-cd60a1ebc0bd --}}
+
+In many cases, it may be desirable to include a supervisory reset IC in your design. The design below is from
+the Photon 2 and uses the small and inexpensive Richtec RT9818C. This chip will hold the MCU in reset until there 
+is sufficient voltage to successfully boot. This can be helpful if your power supply cannot guarantee a sufficient slew
+rate.
+
+![](/assets/images/m-series/p2-reset.png)
+
+Of note in this design, the VDD pin of the RT9818C is connected to 3V3. The design is configurable by 
+moving a zero-ohm resistor to disable supervisory reset (by connecting to GND) or to use VIN. Note that the
+RT9818C has a maximum input voltage of 6V which is compatible with the Photon 2. Keep this in mind if using VIN
+on designs that have larger VIN voltages.
+
+Of course you can simply wire VDD to 3V3 instead of including the configurable resistors.
+{{!-- END shared-blurb --}}
+
 ### Version history
 
 #### 2024-01-22 (v3)

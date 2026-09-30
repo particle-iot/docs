@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracking system links 2026-09-30
+
+Updated the find out more links in the [tracking system](/getting-started/hardware/tracking-system/#find-out-more) getting started page.
+
 ### M-SoM operating conditions 2026-09-29
 
 Added recommended operating conditions to the [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/#recommended-operating-conditions) and [M635e datasheet](/reference/datasheets/m-series/m635e-datasheet/#recommended-operating-conditions).
