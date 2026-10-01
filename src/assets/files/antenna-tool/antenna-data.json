@@ -6,6 +6,16 @@
         617,
         960
       ],
+      "gsmBands": [
+        850,
+        900
+      ],
+      "umtsBands": [
+        5,
+        6,
+        8,
+        19
+      ],
       "lteBands": [
         5,
         8,
@@ -38,6 +48,10 @@
         1150,
         1700
       ],
+      "gsmBands": [],
+      "umtsBands": [
+        11
+      ],
       "lteBands": [
         11,
         21,
@@ -58,6 +72,17 @@
       "frequencyRangeMHz": [
         1710,
         2200
+      ],
+      "gsmBands": [
+        1800,
+        1900
+      ],
+      "umtsBands": [
+        1,
+        2,
+        3,
+        4,
+        9
       ],
       "lteBands": [
         1,
@@ -93,6 +118,10 @@
         2300,
         2700
       ],
+      "gsmBands": [],
+      "umtsBands": [
+        7
+      ],
       "lteBands": [
         7,
         30,
@@ -117,6 +146,8 @@
         3300,
         4200
       ],
+      "gsmBands": [],
+      "umtsBands": [],
       "lteBands": [
         42,
         43,
@@ -135,6 +166,8 @@
         4200,
         5925
       ],
+      "gsmBands": [],
+      "umtsBands": [],
       "lteBands": [
         46,
         47

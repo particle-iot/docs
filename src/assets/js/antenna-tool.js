@@ -10,6 +10,8 @@ $(document).ready(function () {
             carriersJson: null,
             antennaData: null,
             customAntennas: {},
+            skuOptions: [],
+            skuSelect: thisElem.find('.antennaSkuSelect'),
             antennaSelects: thisElem.find('.antennaSelect'),
         };
 
@@ -25,6 +27,50 @@ $(document).ready(function () {
                 return antennaTool.customAntennas[value] || null;
             }
             return antennaTool.antennaData.antennas.find(a => a.sku === value) || null;
+        };
+
+        // Flatten skuFamily: top-level objects with a group contribute the group's contents, others are used as is.
+        // Only entries with a modem can be used for band filtering.
+        const buildSkuOptions = function() {
+            const flat = [];
+            for(const family of antennaTool.carriersJson.skuFamily) {
+                if (Array.isArray(family.group)) {
+                    flat.push(...family.group);
+                }
+                else {
+                    flat.push(family);
+                }
+            }
+            return flat.filter(item => item.modem);
+        };
+
+        // Returns true if the modem supports at least one band in the bucket. A modem value of 'any' or an 
+        // unknown modem does not filter.
+        const modemSupportsBucket = function(modemName, bucket) {
+            const modem = antennaTool.carriersJson.modems.find(m => m.model === modemName);
+            if (!modem || !modem.bands) {
+                return true;
+            }
+            return modem.bands.some(function(bandStr) {
+                // Band strings look like 4G-12, M1-12, 5G-77, NTN-255, 3G-5, 2G-850
+                const [tech, bandNum] = bandStr.split('-');
+                const band = parseInt(bandNum);
+                switch(tech) {
+                    case '4G':
+                    case 'M1':
+                        return bucket.lteBands.includes(band);
+                    case '5G':
+                    case 'NTN':
+                        return bucket.nrBands.includes(band);
+                    case '3G':
+                        return (bucket.umtsBands || []).includes(band);
+                    case '2G':
+                        // 2G "band" is a frequency in MHz (850, 900, 1800, 1900), not a band number
+                        return (bucket.gsmBands || []).includes(band);
+                    default:
+                        return false;
+                }
+            });
         };
 
         const bandParameters = [
@@ -85,8 +131,15 @@ $(document).ready(function () {
             addRow('Peak gain dBi', a => a.peakGain, true);
             addRow('Average gain dB', a => a.avgGain, true);
 
+            const skuModem = antennaTool.skuSelect.val();
+
             for(const bucketKey of Object.keys(antennaTool.antennaData.buckets)) {
                 const bucket = antennaTool.antennaData.buckets[bucketKey];
+
+                // Skip buckets the selected SKU's modem does not support
+                if (skuModem && skuModem !== 'any' && !modemSupportsBucket(skuModem, bucket)) {
+                    continue;
+                }
                 // Build the bucket's parameter rows separately so the header can be omitted if there are none
                 const bucketRows = $('<tbody>');
                 target = bucketRows;
@@ -106,6 +159,11 @@ $(document).ready(function () {
                 target = table;
 
                 if (bucketRows.children().length === 0) {
+                    if (skuModem && skuModem !== 'any') {
+                        // The modem uses this bucket (unsupported buckets were skipped above), but neither antenna covers it
+                        addSectionRow(bucket.bucketName);
+                        table.append($('<tr>').append($('<td colspan="3">').text('Band required by modem but not supported by selected antennas')));
+                    }
                     continue;
                 }
 
@@ -128,6 +186,14 @@ $(document).ready(function () {
         };
 
         const setupSelects = function() {
+            antennaTool.skuOptions = buildSkuOptions();
+            antennaTool.skuSelect.empty();
+            antennaTool.skuSelect.append($('<option>').attr('value', 'any').text('Any'));
+            for(const item of antennaTool.skuOptions) {
+                antennaTool.skuSelect.append($('<option>').attr('value', item.modem).text(item.name));
+            }
+            antennaTool.skuSelect.on('change', updateSelects);
+
             antennaTool.antennaSelects.each(function(index) {
                 const selectElem = $(this);
                 selectElem.empty();
