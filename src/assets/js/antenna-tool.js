@@ -115,8 +115,17 @@ $(document).ready(function () {
                 table.append($('<tr class="antennaToolSection">').append($('<th colspan="3">').text(title)));
             };
 
+            const skuModem = antennaTool.skuSelect.val();
+            const filterBySku = !!skuModem && skuModem !== 'any';
+
             addRow('Antenna SKU', a => a.sku);
             addRow('Name', a => a.name);
+
+            // Certified row, only when a SKU is selected and its skuFamily entry has an antennas array
+            const skuItem = filterBySku ? antennaTool.skuSelect.find('option:selected').data('skuItem') : null;
+            if (skuItem && Array.isArray(skuItem.antennas)) {
+                addRow('Certified', a => skuItem.antennas.includes(a.sku) ? 'Yes \u2705' : 'No');
+            }
 
             const datasheetRow = $('<tr>').append($('<td>').text('Datasheet link'));
             for(const antenna of antennas) {
@@ -130,9 +139,6 @@ $(document).ready(function () {
 
             addRow('Peak gain dBi', a => a.peakGain, true);
             addRow('Average gain dB', a => a.avgGain, true);
-
-            const skuModem = antennaTool.skuSelect.val();
-            const filterBySku = !!skuModem && skuModem !== 'any';
 
             // Row listing the modem's bands in the bucket, only when filtering by SKU
             const addModemBandsRow = function(bucket) {
@@ -200,7 +206,7 @@ $(document).ready(function () {
             antennaTool.skuSelect.empty();
             antennaTool.skuSelect.append($('<option>').attr('value', 'any').text('Any'));
             for(const item of antennaTool.skuOptions) {
-                antennaTool.skuSelect.append($('<option>').attr('value', item.modem).text(item.name));
+                antennaTool.skuSelect.append($('<option>').attr('value', item.modem).text(item.name).data('skuItem', item));
             }
             antennaTool.skuSelect.on('change', updateSelects);
 
