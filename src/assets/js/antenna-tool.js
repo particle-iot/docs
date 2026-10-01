@@ -115,7 +115,7 @@ $(document).ready(function () {
                 table.append($('<tr class="antennaToolSection">').append($('<th colspan="3">').text(title)));
             };
 
-            addRow('Antenna SKU:', a => a.sku);
+            addRow('Antenna SKU', a => a.sku);
             addRow('Name', a => a.name);
 
             const datasheetRow = $('<tr>').append($('<td>').text('Datasheet link'));
@@ -220,6 +220,30 @@ $(document).ready(function () {
             });
 
             antennaTool.antennaSelects.on('change', updateSelects);
+
+            thisElem.find('.antennaSwapButton').on('click', function() {
+                const oldValues = antennaTool.antennaSelects.map(function() { return $(this).val(); }).get();
+                const oldCustom = Object.assign({}, antennaTool.customAntennas);
+
+                antennaTool.antennaSelects.each(function(index) {
+                    const otherValue = oldValues[1 - index];
+                    if (customAntennas.find(c => c.value === otherValue)) {
+                        // Move the custom antenna data into this select's own custom slot (select 1 = Custom 1, select 2 = Custom 2)
+                        const slot = customAntennas[index].value;
+                        if (oldCustom[otherValue]) {
+                            antennaTool.customAntennas[slot] = oldCustom[otherValue];
+                        }
+                        else {
+                            delete antennaTool.customAntennas[slot];
+                        }
+                        $(this).val(slot);
+                    }
+                    else {
+                        $(this).val(otherValue);
+                    }
+                });
+                updateSelects();
+            });
 
             antennaTool.antennaSelects.each(function(index) {
                 const selectElem = $(this);
