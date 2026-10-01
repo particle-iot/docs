@@ -28,6 +28,6 @@ This tool should only be used for general antenna guidance and does not replace 
 the certification requirements for using a substitute antenna. There can be complex and expensive certification requirements
 for substituting an antenna.
 
-If the peak gain or average gain is higher for antenna 2, the number is shown in red. If you select a SKU and any gain
-value is red, it may preclude the use of antenna 2 as a permissive change.
+If the peak gain or average gain is higher for antenna 2, a ❌ will appear after the value. If you select a SKU and any gain
+value has a ❌, it may preclude the use of antenna 2 as a permissive change.
 

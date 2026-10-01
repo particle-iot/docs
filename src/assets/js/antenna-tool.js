@@ -98,7 +98,7 @@ $(document).ready(function () {
                 return $('<td>').text((value !== undefined && value !== null) ? value : '');
             };
 
-            // If higherIsBetter is set and antenna 2 has a higher value than antenna 1, highlight antenna 2's cell
+            // If higherIsBetter is set and antenna 2 has a higher value than antenna 1, mark antenna 2's cell with a red X
             const addRow = function(title, getValue, higherIsBetter) {
                 const tr = $('<tr>').append($('<td>').text(title));
                 const values = antennas.map(antenna => antenna ? getValue(antenna) : undefined);
@@ -106,7 +106,7 @@ $(document).ready(function () {
                     tr.append(valueCell(value));
                 }
                 if (higherIsBetter && typeof values[0] === 'number' && typeof values[1] === 'number' && values[1] > values[0]) {
-                    tr.children().eq(2).css('color', '#F45151'); // State_Red_600
+                    tr.children().eq(2).append(' \u274C');
                 }
                 target.append(tr);
             };
