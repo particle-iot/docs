@@ -34,6 +34,7 @@ Instructions for producing one antenna object (an entry for the `antennas` array
    - `name`: a readable name. Use the user's name if given, otherwise the datasheet product name.
    - `peakGain`: the highest peak gain in the datasheet's terrestrial data (dBi).
    - `avgGain`: the mean of the terrestrial band entries' `avgGainDb`, rounded to 2 decimals.
+   - `datasheet`: the relative datasheet URL beginning with `/assets` (from the README table). Ask the user for it if not provided.
    - `source`: the manufacturer part number and revision (for example `Taoglas FXUB63.07.0150C`).
    - `notes` (only if needed): merge decisions, repeated ranges, derived values, test conditions (mounting substrate, cable), and anomalies.
    - Optional extra measurements the datasheet provides (for example CAT-M1 TRP/TIS tables) go in a clearly named extra array on the antenna (for example `otaTestsCatM1`). TIS values are negative dBm even if the text shows them unsigned.

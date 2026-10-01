@@ -28,12 +28,6 @@ $(document).ready(function () {
         };
 
         const updateSelects = function() {
-            // Enable the upload button only when the select is set to a custom antenna
-            antennaTool.antennaSelects.each(function() {
-                const isCustom = !!customAntennas.find(c => c.value === $(this).val());
-                $(this).parent().find('.antennaUploadButton').prop('disabled', !isCustom);
-            });
-
             const antenna1 = getAntenna(antennaTool.antennaSelects.eq(0).val());
             const antenna2 = getAntenna(antennaTool.antennaSelects.eq(1).val());
 
@@ -59,10 +53,12 @@ $(document).ready(function () {
 
             antennaTool.antennaSelects.on('change', updateSelects);
 
-            antennaTool.antennaSelects.each(function() {
+            antennaTool.antennaSelects.each(function(index) {
                 const selectElem = $(this);
                 const buttonElem = selectElem.parent().find('.antennaUploadButton');
                 const inputElem = selectElem.parent().find('.antennaUploadInput');
+                // Upload from the first select is Custom 1, from the second is Custom 2
+                const customValue = customAntennas[index].value;
 
                 // Button opens the hidden file input
                 buttonElem.on('click', function() {
@@ -78,12 +74,14 @@ $(document).ready(function () {
                     const fileReader = new FileReader();
                     fileReader.onload = function() {
                         try {
-                            antennaTool.customAntennas[selectElem.val()] = JSON.parse(fileReader.result);
+                            antennaTool.customAntennas[customValue] = JSON.parse(fileReader.result);
                         }
                         catch(e) {
                             alert('The file could not be parsed as JSON: ' + e.message);
                             return;
                         }
+                        // Switch the select to the custom antenna that was just uploaded
+                        selectElem.val(customValue);
                         updateSelects();
                     };
                     fileReader.readAsText(file);

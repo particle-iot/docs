@@ -149,6 +149,7 @@
     {
       "name": "Wide band LTE cell antenna [x1]",
       "sku": "PARANTCW1EA",
+      "datasheet": "/assets/pdfs/PARANTCW1EA.pdf",
       "peakGain": 7.9,
       "avgGain": -1.86,
       "source": "WNC 81XPAF15.G01 rev 1.1",
@@ -258,6 +259,7 @@
     {
       "name": "Wide band LTE-CAT M1 cell antenna, [x1]",
       "sku": "PARANTC41EA",
+      "datasheet": "/assets/datasheets/PARANTC41.pdf",
       "peakGain": 3.86,
       "avgGain": 0.99,
       "source": "KBT G142-10006-A",
@@ -313,6 +315,7 @@
     {
       "name": "Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]",
       "sku": "ANTCW2EA",
+      "datasheet": "/assets/datasheets/ANTCW2EA.pdf",
       "peakGain": 4.71,
       "avgGain": -2.05,
       "source": "KBT G142-10005-A",
@@ -390,6 +393,7 @@
     {
       "name": "Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]",
       "sku": "ANT-FLXU",
+      "datasheet": "/assets/datasheets/FXUB63.07.0150C.pdf",
       "peakGain": 5.0,
       "avgGain": -2.31,
       "source": "Taoglas FXUB63.07.0150C",
@@ -467,6 +471,7 @@
     {
       "name": "Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1]",
       "sku": "ANTELEC",
+      "datasheet": "/assets/datasheets/PC104.07.0165C.pdf",
       "peakGain": 2.39,
       "avgGain": -2.29,
       "source": "Taoglas PC104.07.0165C",
@@ -517,6 +522,7 @@
     {
       "name": "NTN and LTE cell antenna, [x1]",
       "sku": "PARANTCN1EA",
+      "datasheet": "/assets/pdfs/PARANTCN1EA.pdf",
       "peakGain": 4.2,
       "avgGain": -2.39,
       "source": "WNC 81VPAG15.G01 rev 04",
