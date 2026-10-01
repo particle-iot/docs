@@ -73,6 +73,10 @@
                     "dir": "hex-generator"
                 },
                 {
+                    "dir": "antenna-tool",
+                    "title": "Antenna tool"
+                },
+                {
                     "dir": "battery-calculator",
                     "title": "Battery calculator"
                 },
