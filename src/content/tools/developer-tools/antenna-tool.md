@@ -6,9 +6,9 @@ description: Antenna comparison tool
 includeDefinitions: [api-helper, api-helper-extras, antenna-tool]
 ---
 
-# {{title}}
+# {{title}} (Beta)
 
-This tool compares antennas.
+This tool compares two antennas, typically to compare the peak gain and average gain values.
 
 {{> antenna-tool}}
 

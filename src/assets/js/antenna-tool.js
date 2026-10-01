@@ -44,14 +44,14 @@ $(document).ready(function () {
             return flat.filter(item => item.modem);
         };
 
-        // Returns true if the modem supports at least one band in the bucket. A modem value of 'any' or an 
-        // unknown modem does not filter.
-        const modemSupportsBucket = function(modemName, bucket) {
+        // Returns the modem's band strings (like 4G-12) that are part of the bucket. A modem that is not 
+        // found returns null, which means no filtering.
+        const getModemBucketBands = function(modemName, bucket) {
             const modem = antennaTool.carriersJson.modems.find(m => m.model === modemName);
             if (!modem || !modem.bands) {
-                return true;
+                return null;
             }
-            return modem.bands.some(function(bandStr) {
+            return modem.bands.filter(function(bandStr) {
                 // Band strings look like 4G-12, M1-12, 5G-77, NTN-255, 3G-5, 2G-850
                 const [tech, bandNum] = bandStr.split('-');
                 const band = parseInt(bandNum);
@@ -132,12 +132,23 @@ $(document).ready(function () {
             addRow('Average gain dB', a => a.avgGain, true);
 
             const skuModem = antennaTool.skuSelect.val();
+            const filterBySku = !!skuModem && skuModem !== 'any';
+
+            // Row listing the modem's bands in the bucket, only when filtering by SKU
+            const addModemBandsRow = function(bucket) {
+                const modemBands = filterBySku ? getModemBucketBands(skuModem, bucket) : null;
+                if (modemBands) {
+                    table.append($('<tr>')
+                        .append($('<td>').text('Bands'))
+                        .append($('<td colspan="2">').text(modemBands.join(', '))));
+                }
+            };
 
             for(const bucketKey of Object.keys(antennaTool.antennaData.buckets)) {
                 const bucket = antennaTool.antennaData.buckets[bucketKey];
 
                 // Skip buckets the selected SKU's modem does not support
-                if (skuModem && skuModem !== 'any' && !modemSupportsBucket(skuModem, bucket)) {
+                if (filterBySku && getModemBucketBands(skuModem, bucket)?.length === 0) {
                     continue;
                 }
                 // Build the bucket's parameter rows separately so the header can be omitted if there are none
@@ -159,15 +170,17 @@ $(document).ready(function () {
                 target = table;
 
                 if (bucketRows.children().length === 0) {
-                    if (skuModem && skuModem !== 'any') {
+                    if (filterBySku) {
                         // The modem uses this bucket (unsupported buckets were skipped above), but neither antenna covers it
                         addSectionRow(bucket.bucketName);
+                        addModemBandsRow(bucket);
                         table.append($('<tr>').append($('<td colspan="3">').text('Band required by modem but not supported by selected antennas')));
                     }
                     continue;
                 }
 
                 addSectionRow(bucket.bucketName);
+                addModemBandsRow(bucket);
 
                 table.append(bucketRows.children());
             }
@@ -178,9 +191,6 @@ $(document).ready(function () {
         const updateSelects = function() {
             const antenna1 = getAntenna(antennaTool.antennaSelects.eq(0).val());
             const antenna2 = getAntenna(antennaTool.antennaSelects.eq(1).val());
-
-            console.log('antenna1', antenna1);
-            console.log('antenna2', antenna2);
 
             renderComparison(antenna1, antenna2);
         };
@@ -256,8 +266,6 @@ $(document).ready(function () {
 
             setupSelects();
             updateSelects();
-
-            console.log('antennaTool', antennaTool);
         })
         .catch(function(err) {
             console.log('antenna tool initialization failed', err);
