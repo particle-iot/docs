@@ -1,0 +1,107 @@
+{
+    "name": "Wide band LTE cell antenna [x1]",
+    "peakGain": 7.9,
+    "avgGain": -1.86,
+    "bands": [
+        {
+            "bucket": "low",
+            "service": "terrestrial",
+            "measuredRangesMHz": [
+                [
+                    617,
+                    960
+                ]
+            ],
+            "peakGainDbi": 2.8,
+            "avgGainDb": -2.08,
+            "avgGainDerivedFromEfficiency": true,
+            "efficiencyMaxPercent": 71.0,
+            "efficiencyAvgPercent": 62.0,
+            "maxVswr": 3.5
+        },
+        {
+            "bucket": "lband",
+            "service": "terrestrial",
+            "measuredRangesMHz": [
+                [
+                    1156,
+                    1496
+                ],
+                [
+                    1520,
+                    1660.5
+                ]
+            ],
+            "peakGainDbi": 3.9,
+            "avgGainDb": -2.42,
+            "avgGainDerivedFromEfficiency": true,
+            "efficiencyMaxPercent": 61.5,
+            "efficiencyAvgPercent": 57.5,
+            "maxVswr": 3.0
+        },
+        {
+            "bucket": "mid",
+            "service": "terrestrial",
+            "measuredRangesMHz": [
+                [
+                    1710,
+                    2700
+                ]
+            ],
+            "peakGainDbi": 5.3,
+            "avgGainDb": -1.55,
+            "avgGainDerivedFromEfficiency": true,
+            "efficiencyMaxPercent": 85.0,
+            "efficiencyAvgPercent": 70.0,
+            "maxVswr": 2.0
+        },
+        {
+            "bucket": "high",
+            "service": "terrestrial",
+            "measuredRangesMHz": [
+                [
+                    1710,
+                    2700
+                ]
+            ],
+            "peakGainDbi": 5.3,
+            "avgGainDb": -1.55,
+            "avgGainDerivedFromEfficiency": true,
+            "efficiencyMaxPercent": 85.0,
+            "efficiencyAvgPercent": 70.0,
+            "maxVswr": 2.0
+        },
+        {
+            "bucket": "c3500",
+            "service": "terrestrial",
+            "measuredRangesMHz": [
+                [
+                    3300,
+                    4200
+                ]
+            ],
+            "peakGainDbi": 5.6,
+            "avgGainDb": -1.49,
+            "avgGainDerivedFromEfficiency": true,
+            "efficiencyMaxPercent": 76.0,
+            "efficiencyAvgPercent": 71.0,
+            "maxVswr": 1.5
+        },
+        {
+            "bucket": "c5000",
+            "service": "terrestrial",
+            "measuredRangesMHz": [
+                [
+                    4200,
+                    5925
+                ]
+            ],
+            "peakGainDbi": 7.9,
+            "avgGainDb": -2.08,
+            "avgGainDerivedFromEfficiency": true,
+            "efficiencyMaxPercent": 69.0,
+            "efficiencyAvgPercent": 62.0,
+            "maxVswr": 2.0
+        }
+    ]
+}

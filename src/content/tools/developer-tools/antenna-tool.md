@@ -11,3 +11,13 @@ includeDefinitions: [api-helper, api-helper-extras, antenna-tool]
 This tool compares antennas.
 
 {{> antenna-tool}}
+
+
+## Custom antennas
+
+You can compare your own antenna against standard antennas using this tool, however you must convert your antenna data 
+into a special JSON format. This can be done manually, or using an AI tool like Claude to parse the data out of an antenna datasheet.
+
+- [Example custom antenna JSON file](/assets/files/antenna-tool/example.json)
+- [Instructions for Claude to generate the file](/assets/files/antenna-tool/ANTENNA-INSTRUCTIONS.md)
+

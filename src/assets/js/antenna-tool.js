@@ -46,6 +46,7 @@ $(document).ready(function () {
         const renderComparison = function(antenna1, antenna2) {
             const antennas = [antenna1, antenna2];
             const table = $('<table class="antennaToolTable">');
+            let target = table; // rows added by addRow go here
 
             const valueCell = function(value) {
                 return $('<td>').text((value !== undefined && value !== null) ? value : '');
@@ -61,7 +62,7 @@ $(document).ready(function () {
                 if (higherIsBetter && typeof values[0] === 'number' && typeof values[1] === 'number' && values[1] > values[0]) {
                     tr.children().eq(2).css('color', '#F45151'); // State_Red_600
                 }
-                table.append(tr);
+                target.append(tr);
             };
 
             const addSectionRow = function(title) {
@@ -86,14 +87,10 @@ $(document).ready(function () {
 
             for(const bucketKey of Object.keys(antennaTool.antennaData.buckets)) {
                 const bucket = antennaTool.antennaData.buckets[bucketKey];
-                addSectionRow(bucket.bucketName);
+                // Build the bucket's parameter rows separately so the header can be omitted if there are none
+                const bucketRows = $('<tbody>');
+                target = bucketRows;
 
-                /*
-                table.append($('<tr>')
-                    .append($('<td>').text('Frequency range MHz'))
-                    .append($('<td colspan="2">').text(bucket.frequencyRangeMHz.join(' - '))));
-                */
-               
                 for(const param of bandParameters) {
                     const getBandValue = function(a) {
                         const band = getBand(a, bucketKey);
@@ -106,6 +103,15 @@ $(document).ready(function () {
                     }
                     addRow(param.title, getBandValue, param.higherIsBetter);
                 }
+                target = table;
+
+                if (bucketRows.children().length === 0) {
+                    continue;
+                }
+
+                addSectionRow(bucket.bucketName);
+
+                table.append(bucketRows.children());
             }
 
             $(antennaTool.thisElem).find('.antennaToolComparison').empty().append(table);
