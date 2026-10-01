@@ -10073,6 +10073,10 @@
         "reference/technical-advisory-notices/tan016.md": {
             "hash": "183fc61d8f9a2c7389e566aa7a7d81e66af8043eab19508a830cebc6afce2342",
             "date": "2026-09-18"
+        },
+        "tools/developer-tools/antenna-tool.md": {
+            "hash": "6059dbcbb42ea53927d3f4e550e9a232017d0ec048120dfac57c7347100315e1",
+            "date": "2026-10-01"
         }
     }
 }
