@@ -1,0 +1,67 @@
+{
+  "name": "Taoglas Monsoon 3-in-1 GNSS, Wi-Fi & LTE Antenna",
+  "peakGain": -2.99,
+  "avgGain": -4.01,
+  "source": "Taoglas MA172.A.LBC.001 (SPE-18-8-090/B/AW)",
+  "notes": "Only the LTE antenna of this 3-in-1 unit is included; the Wi-Fi (2.4/5.8 GHz) and active GNSS (GPS L1/GLONASS L1) elements are excluded. The datasheet gives efficiency, average gain and peak gain for free space and on a 30x30 cm ground plane at 0.3, 1, 2 and 3 m cable lengths; values here are free space with the 3 m CFD-200 cable the product ships with. Return loss is published only as a limit (< -3 dB) for all LTE bands, and no VSWR is given. Source columns merged per bucket: low = LTE700 (698-824), GSM850 (824-894), GSM900 (880-960); mid = DCS (1710-1880), PCS (1850-1990), UMTS1 (1920-2170); high = LTE2600 (2490-2690). The datasheet also lists coverage of bands as low as 617 MHz (B71) and up to 3800 MHz (B42/B43), but gives no gain or efficiency figures for them.",
+  "bands": [
+    {
+      "bucket": "low",
+      "service": "terrestrial",
+      "measuredRangesMHz": [
+        [
+          698,
+          824
+        ],
+        [
+          824,
+          894
+        ],
+        [
+          880,
+          960
+        ]
+      ],
+      "peakGainDbi": -3.37,
+      "avgGainDb": -4.06,
+      "efficiencyPercent": 39.31,
+      "maxReturnLossDb": -3
+    },
+    {
+      "bucket": "mid",
+      "service": "terrestrial",
+      "measuredRangesMHz": [
+        [
+          1710,
+          1880
+        ],
+        [
+          1850,
+          1990
+        ],
+        [
+          1920,
+          2170
+        ]
+      ],
+      "peakGainDbi": -2.99,
+      "avgGainDb": -4.65,
+      "efficiencyPercent": 38.75,
+      "maxReturnLossDb": -3
+    },
+    {
+      "bucket": "high",
+      "service": "terrestrial",
+      "measuredRangesMHz": [
+        [
+          2490,
+          2690
+        ]
+      ],
+      "peakGainDbi": -3.71,
+      "avgGainDb": -3.31,
+      "efficiencyPercent": 35.65,
+      "maxReturnLossDb": -3
+    }
+  ]
+}

@@ -1,0 +1,699 @@
+{
+  "buckets": {
+    "low": {
+      "bucketName": "Low band 617-960 MHz",
+      "frequencyRangeMHz": [
+        617,
+        960
+      ],
+      "gsmBands": [
+        850,
+        900
+      ],
+      "umtsBands": [
+        5,
+        6,
+        8,
+        19
+      ],
+      "lteBands": [
+        5,
+        8,
+        12,
+        13,
+        14,
+        17,
+        18,
+        19,
+        20,
+        26,
+        28,
+        71
+      ],
+      "nrBands": [
+        5,
+        8,
+        12,
+        14,
+        18,
+        20,
+        26,
+        28,
+        71
+      ]
+    },
+    "lband": {
+      "bucketName": "L-band / GNSS 1150-1700 MHz",
+      "frequencyRangeMHz": [
+        1150,
+        1700
+      ],
+      "gsmBands": [],
+      "umtsBands": [
+        11
+      ],
+      "lteBands": [
+        11,
+        21,
+        24,
+        32
+      ],
+      "nrBands": [
+        50,
+        51,
+        74,
+        75,
+        76,
+        255
+      ]
+    },
+    "mid": {
+      "bucketName": "Mid band 1710-2200 MHz",
+      "frequencyRangeMHz": [
+        1710,
+        2200
+      ],
+      "gsmBands": [
+        1800,
+        1900
+      ],
+      "umtsBands": [
+        1,
+        2,
+        3,
+        4,
+        9
+      ],
+      "lteBands": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        25,
+        34,
+        39,
+        65,
+        66,
+        70
+      ],
+      "nrBands": [
+        1,
+        2,
+        3,
+        23,
+        25,
+        34,
+        39,
+        65,
+        66,
+        70,
+        256
+      ]
+    },
+    "high": {
+      "bucketName": "High band 2300-2700 MHz",
+      "frequencyRangeMHz": [
+        2300,
+        2700
+      ],
+      "gsmBands": [],
+      "umtsBands": [
+        7
+      ],
+      "lteBands": [
+        7,
+        30,
+        38,
+        40,
+        41,
+        53
+      ],
+      "nrBands": [
+        7,
+        30,
+        38,
+        40,
+        41,
+        53,
+        90
+      ]
+    },
+    "c3500": {
+      "bucketName": "5G mid band 3300-4200 MHz",
+      "frequencyRangeMHz": [
+        3300,
+        4200
+      ],
+      "gsmBands": [],
+      "umtsBands": [],
+      "lteBands": [
+        42,
+        43,
+        48,
+        52
+      ],
+      "nrBands": [
+        48,
+        77,
+        78
+      ]
+    },
+    "c5000": {
+      "bucketName": "Upper mid band 4200-5925 MHz",
+      "frequencyRangeMHz": [
+        4200,
+        5925
+      ],
+      "gsmBands": [],
+      "umtsBands": [],
+      "lteBands": [
+        46,
+        47
+      ],
+      "nrBands": [
+        46,
+        79
+      ]
+    }
+  },
+  "antennas": [
+    {
+      "name": "Wide band LTE cell antenna [x1]",
+      "sku": "PARANTCW1EA",
+      "datasheet": "/assets/pdfs/PARANTCW1EA.pdf",
+      "peakGain": 7.9,
+      "avgGain": -1.86,
+      "source": "WNC 81XPAF15.G01 rev 1.1",
+      "bands": [
+        {
+          "bucket": "low",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              617,
+              960
+            ]
+          ],
+          "peakGainDbi": 2.8,
+          "avgGainDb": -2.08,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 71.0,
+          "efficiencyAvgPercent": 62.0,
+          "maxVswr": 3.5
+        },
+        {
+          "bucket": "lband",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              1156,
+              1496
+            ],
+            [
+              1520,
+              1660.5
+            ]
+          ],
+          "peakGainDbi": 3.9,
+          "avgGainDb": -2.42,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 61.5,
+          "efficiencyAvgPercent": 57.5,
+          "maxVswr": 3.0
+        },
+        {
+          "bucket": "mid",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              1710,
+              2700
+            ]
+          ],
+          "peakGainDbi": 5.3,
+          "avgGainDb": -1.55,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 85.0,
+          "efficiencyAvgPercent": 70.0,
+          "maxVswr": 2.0
+        },
+        {
+          "bucket": "high",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              1710,
+              2700
+            ]
+          ],
+          "peakGainDbi": 5.3,
+          "avgGainDb": -1.55,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 85.0,
+          "efficiencyAvgPercent": 70.0,
+          "maxVswr": 2.0
+        },
+        {
+          "bucket": "c3500",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              3300,
+              4200
+            ]
+          ],
+          "peakGainDbi": 5.6,
+          "avgGainDb": -1.49,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 76.0,
+          "efficiencyAvgPercent": 71.0,
+          "maxVswr": 1.5
+        },
+        {
+          "bucket": "c5000",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              4200,
+              5925
+            ]
+          ],
+          "peakGainDbi": 7.9,
+          "avgGainDb": -2.08,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 69.0,
+          "efficiencyAvgPercent": 62.0,
+          "maxVswr": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Wide band LTE-CAT M1 cell antenna, [x1]",
+      "sku": "PARANTC41EA",
+      "datasheet": "/assets/datasheets/PARANTC41.pdf",
+      "peakGain": 3.86,
+      "avgGain": 0.99,
+      "source": "KBT G142-10006-A",
+      "notes": "Datasheet lists a single peak/avg/efficiency figure for 1700-2690 MHz, so it is repeated for the mid and high buckets. VSWR/return loss are the worst of the listed 698/894 and 1700/2170/2690 points. Datasheet average gain is positive (+1 dB), inconsistent with the 55-65% efficiency; reported as published.",
+      "bands": [
+        {
+          "bucket": "low",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              698,
+              894
+            ]
+          ],
+          "peakGainDbi": 2.46,
+          "avgGainDb": 1.0,
+          "efficiencyPercent": 65.46,
+          "maxVswr": 1.8,
+          "maxReturnLossDb": -10
+        },
+        {
+          "bucket": "mid",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              1700,
+              2690
+            ]
+          ],
+          "peakGainDbi": 3.86,
+          "avgGainDb": 0.98,
+          "efficiencyPercent": 54.95,
+          "maxVswr": 2.8,
+          "maxReturnLossDb": -6
+        },
+        {
+          "bucket": "high",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              1700,
+              2690
+            ]
+          ],
+          "peakGainDbi": 3.86,
+          "avgGainDb": 0.98,
+          "efficiencyPercent": 54.95,
+          "maxVswr": 2.8,
+          "maxReturnLossDb": -6
+        }
+      ]
+    },
+    {
+      "name": "Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]",
+      "sku": "ANTCW2EA",
+      "datasheet": "/assets/datasheets/ANTCW2EA.pdf",
+      "peakGain": 4.71,
+      "avgGain": -2.05,
+      "source": "KBT G142-10005-A",
+      "bands": [
+        {
+          "bucket": "low",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              698,
+              960
+            ]
+          ],
+          "peakGainDbi": 1.42,
+          "avgGainDb": -2.8,
+          "efficiencyPercent": 50.23,
+          "maxVswr": 2.0,
+          "maxReturnLossDb": -10
+        },
+        {
+          "bucket": "lband",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              1575.42,
+              1575.42
+            ]
+          ],
+          "peakGainDbi": 2.61,
+          "avgGainDb": -1.0,
+          "efficiencyPercent": 60.0,
+          "maxVswr": 2.5,
+          "maxReturnLossDb": -6
+        },
+        {
+          "bucket": "mid",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              1710,
+              1990
+            ],
+            [
+              1755,
+              2170
+            ]
+          ],
+          "peakGainDbi": 4.62,
+          "avgGainDb": -2.27,
+          "efficiencyPercent": 66.0,
+          "maxVswr": 2.3,
+          "maxReturnLossDb": -9
+        },
+        {
+          "bucket": "high",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              2400,
+              2500
+            ],
+            [
+              2500,
+              2690
+            ]
+          ],
+          "peakGainDbi": 4.71,
+          "avgGainDb": -2.15,
+          "efficiencyPercent": 65.4,
+          "maxVswr": 2.0,
+          "maxReturnLossDb": -10
+        }
+      ]
+    },
+    {
+      "name": "Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]",
+      "sku": "ANT-FLXU",
+      "datasheet": "/assets/datasheets/FXUB63.07.0150C.pdf",
+      "peakGain": 5.0,
+      "avgGain": -2.31,
+      "source": "Taoglas FXUB63.07.0150C",
+      "bands": [
+        {
+          "bucket": "low",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              698,
+              960
+            ]
+          ],
+          "peakGainDbi": 1.0,
+          "avgGainDb": -3.0,
+          "efficiencyPercent": 50.0,
+          "maxVswr": 2.0,
+          "maxReturnLossDb": -10
+        },
+        {
+          "bucket": "lband",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              1575.42,
+              1575.42
+            ]
+          ],
+          "peakGainDbi": 2.5,
+          "avgGainDb": -2.0,
+          "efficiencyPercent": 75.0,
+          "maxVswr": 2.0,
+          "maxReturnLossDb": -10
+        },
+        {
+          "bucket": "mid",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              1710,
+              1990
+            ],
+            [
+              1755,
+              2170
+            ]
+          ],
+          "peakGainDbi": 5.0,
+          "avgGainDb": -2.25,
+          "efficiencyPercent": 71.5,
+          "maxVswr": 1.8,
+          "maxReturnLossDb": -11
+        },
+        {
+          "bucket": "high",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              2400,
+              2500
+            ],
+            [
+              2500,
+              2690
+            ]
+          ],
+          "peakGainDbi": 5.0,
+          "avgGainDb": -2.0,
+          "efficiencyPercent": 75.0,
+          "maxVswr": 2.3,
+          "maxReturnLossDb": -8
+        }
+      ]
+    },
+    {
+      "name": "Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1]",
+      "sku": "ANTELEC",
+      "datasheet": "/assets/datasheets/PC104.07.0165C.pdf",
+      "peakGain": 2.39,
+      "avgGain": -2.29,
+      "source": "Taoglas PC104.07.0165C",
+      "notes": "Datasheet gives return loss as '< -7', '< -5', '< -10' dB; those limits are reported. No VSWR published. Measured on 2 mm ABS.",
+      "bands": [
+        {
+          "bucket": "low",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              824,
+              896
+            ],
+            [
+              880,
+              960
+            ]
+          ],
+          "peakGainDbi": 0.99,
+          "avgGainDb": -3.09,
+          "efficiencyPercent": 49.0,
+          "maxReturnLossDb": -5
+        },
+        {
+          "bucket": "mid",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              1710,
+              1880
+            ],
+            [
+              1850,
+              1990
+            ],
+            [
+              1920,
+              2170
+            ]
+          ],
+          "peakGainDbi": 2.39,
+          "avgGainDb": -1.48,
+          "efficiencyPercent": 70.67,
+          "maxReturnLossDb": -10
+        }
+      ]
+    },
+    {
+      "name": "NTN and LTE cell antenna, [x1]",
+      "sku": "PARANTCN1EA",
+      "datasheet": "/assets/pdfs/PARANTCN1EA.pdf",
+      "peakGain": 4.2,
+      "avgGain": -2.39,
+      "source": "WNC 81VPAG15.G01 rev 04",
+      "notes": "NTN entries correspond to NR-NTN bands n255 (1525-1660.5), n23 (2000-2200) and n256 (1980-2200). The 3300-4900 MHz range is reported under the 3300-4200 bucket.",
+      "bands": [
+        {
+          "bucket": "low",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              617,
+              960
+            ]
+          ],
+          "peakGainDbi": 2.5,
+          "avgGainDb": -3.67,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 51.0,
+          "efficiencyAvgPercent": 43.0,
+          "maxVswr": 2.5
+        },
+        {
+          "bucket": "lband",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              1450,
+              1605
+            ]
+          ],
+          "peakGainDbi": 1.5,
+          "avgGainDb": -2.92,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 54.0,
+          "efficiencyAvgPercent": 51.0,
+          "maxVswr": 2.5
+        },
+        {
+          "bucket": "mid",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              1710,
+              2690
+            ]
+          ],
+          "peakGainDbi": 3.9,
+          "avgGainDb": -1.61,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 80.0,
+          "efficiencyAvgPercent": 69.0,
+          "maxVswr": 2.3
+        },
+        {
+          "bucket": "high",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              1710,
+              2690
+            ]
+          ],
+          "peakGainDbi": 3.9,
+          "avgGainDb": -1.61,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 80.0,
+          "efficiencyAvgPercent": 69.0,
+          "maxVswr": 2.3
+        },
+        {
+          "bucket": "c3500",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              3300,
+              4900
+            ]
+          ],
+          "peakGainDbi": 3.7,
+          "avgGainDb": -2.15,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 70.0,
+          "efficiencyAvgPercent": 61.0,
+          "maxVswr": 2.5
+        },
+        {
+          "bucket": "c5000",
+          "service": "terrestrial",
+          "measuredRangesMHz": [
+            [
+              5150,
+              5925
+            ]
+          ],
+          "peakGainDbi": 4.2,
+          "avgGainDb": -2.37,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 68.0,
+          "efficiencyAvgPercent": 58.0,
+          "maxVswr": 3.0
+        },
+        {
+          "bucket": "lband",
+          "service": "ntn",
+          "measuredRangesMHz": [
+            [
+              1525,
+              1660.5
+            ]
+          ],
+          "peakGainDbi": 1.2,
+          "avgGainDb": -2.92,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 52.0,
+          "efficiencyAvgPercent": 51.0,
+          "maxVswr": 2.5
+        },
+        {
+          "bucket": "mid",
+          "service": "ntn",
+          "measuredRangesMHz": [
+            [
+              2000,
+              2200
+            ],
+            [
+              1980,
+              2200
+            ]
+          ],
+          "peakGainDbi": 3.0,
+          "avgGainDb": -1.64,
+          "avgGainDerivedFromEfficiency": true,
+          "efficiencyMaxPercent": 75.0,
+          "efficiencyAvgPercent": 68.5,
+          "maxVswr": 2.0
+        }
+      ]
+    }
+  ]
+}

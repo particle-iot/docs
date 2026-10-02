@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "87ce5668ae6cd40abbfb7801368a25fd3e207a5e1348c661e5f25d2fbf5710e4",
-            "date": "2026-09-30"
+            "hash": "057a1dd93cbb7a440676e4057742703a52973e30f83b5060fa5210b607b0a707",
+            "date": "2026-10-01"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -10073,6 +10073,10 @@
         "reference/technical-advisory-notices/tan016.md": {
             "hash": "183fc61d8f9a2c7389e566aa7a7d81e66af8043eab19508a830cebc6afce2342",
             "date": "2026-09-18"
+        },
+        "tools/developer-tools/antenna-tool.md": {
+            "hash": "5396fcfaeaa7ab30ef386c40934dc5a1013194415ae14ed5edb8a966cb945d76",
+            "date": "2026-10-01"
         }
     }
 }

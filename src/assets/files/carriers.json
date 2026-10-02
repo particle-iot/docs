@@ -34996,7 +34996,10 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "BG95-M5",
-          "mapColor": 0
+          "mapColor": 0,
+          "antennas": [
+            "PARANTCW1EA"
+          ]
         },
         {
           "name": "M-Series M524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
@@ -35008,7 +35011,10 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "EG91-EX",
-          "mapColor": 1
+          "mapColor": 1,
+          "antennas": [
+            "PARANTCW1EA"
+          ]
         },
         {
           "name": "M-Series M635e LTE M1/2G/Satellite (Global, EtherSIM), [x1]",
@@ -35019,7 +35025,11 @@
           "sim": 4,
           "simPlan": 41,
           "modem": "BG95-S5",
-          "family": "ntn"
+          "family": "ntn",
+          "antennas": [
+            "PARANTCW1EA",
+            "PARANTCN1EA"
+          ]
         }
       ]
     },
@@ -35037,7 +35047,10 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "R510",
-          "mapColor": 0
+          "mapColor": 0,
+          "antennas": [
+            "PARANTC41EA"
+          ]
         },
         {
           "name": "B-Series B404 LTE M1 (NorAm) EtherSIM",
@@ -35049,7 +35062,10 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "R410",
-          "mapColor": 0
+          "mapColor": 0,
+          "antennas": [
+            "PARANTC41EA"
+          ]
         },
         {
           "name": "B-Series B504e LTE CAT1/3G (NorAm) EtherSIM",
@@ -35062,7 +35078,10 @@
           "simPlan": 40,
           "modem": "EG91-NAX",
           "mapHatch": "forward",
-          "mapShowPOSS": true
+          "mapShowPOSS": true,
+          "antennas": [
+            "PARANTCW1EA"
+          ]
         },
         {
           "name": "B-Series B524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
@@ -35074,7 +35093,10 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "EG91-E",
-          "mapColor": 1
+          "mapColor": 1,
+          "antennas": [
+            "PARANTC41EA"
+          ]
         },
         {
           "name": "B-Series B402 LTE M1 (NorAm) (before 2021)",
@@ -35086,7 +35108,10 @@
           "sim": 3,
           "simPlan": 30,
           "modem": "R410",
-          "mapColor": 0
+          "mapColor": 0,
+          "antennas": [
+            "PARANTC41EA"
+          ]
         },
         {
           "name": "B-Series B523 LTE CAT1/3G/2G (Europe) (before 2021)",
@@ -35098,7 +35123,10 @@
           "sim": 2,
           "simPlan": 20,
           "modem": "EG91-E",
-          "mapColor": 1
+          "mapColor": 1,
+          "antennas": [
+            "PARANTC41EA"
+          ]
         }
       ]
     },
@@ -35116,7 +35144,10 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "R510",
-          "mapColor": 0
+          "mapColor": 0,
+          "antennas": [
+            "ANTCW2EA"
+          ]
         },
         {
           "name": "Boron BRN404 LTE M1 (NorAm) EtherSIM",
@@ -35128,7 +35159,10 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "R410",
-          "mapColor": 0
+          "mapColor": 0,
+          "antennas": [
+            "ANT-FLXU"
+          ]
         },
         {
           "name": "Boron BRN314 2G/3G Global EtherSIM",
@@ -35140,7 +35174,10 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "U201",
-          "mapColor": 1
+          "mapColor": 1,
+          "antennas": [
+            "ANT-FLXU"
+          ]
         },
         {
           "name": "Boron BRN402 LTE M1 (NorAm) (before 2021)",
@@ -35152,7 +35189,10 @@
           "sim": 3,
           "simPlan": 30,
           "modem": "R410",
-          "mapColor": 0
+          "mapColor": 0,
+          "antennas": [
+            "ANT-FLXU"
+          ]
         },
         {
           "name": "Boron BRN310 2G/3G Global (before 2021)",
@@ -35164,7 +35204,10 @@
           "sim": 2,
           "simPlan": 20,
           "modem": "U201",
-          "mapColor": 1
+          "mapColor": 1,
+          "antennas": [
+            "ANT-FLXU"
+          ]
         }
       ]
     },
@@ -35213,7 +35256,10 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "BG96-MC",
-          "mapColor": 0
+          "mapColor": 0,
+          "antennas": [
+            "ANTCW2EA"
+          ]
         },
         {
           "name": "Tracker T524/ONE524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
@@ -35226,7 +35272,10 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "EG91-EX",
-          "mapColor": 1
+          "mapColor": 1,
+          "antennas": [
+            "ANTCW2EA"
+          ]
         },
         {
           "name": "Monitor One MON404 LTE M1 (NorAm) EtherSIM",
@@ -35262,7 +35311,10 @@
           "lifecycle": "NRND",
           "sim": 3,
           "simPlan": 30,
-          "modem": "BG96-MC"
+          "modem": "BG96-MC",
+          "antennas": [
+            "ANTCW2EA"
+          ]
         },
         {
           "name": "Tracker T523/ONE523 LTE CAT1/3G/2G (Europe) (before 2021)",
@@ -35274,7 +35326,10 @@
           "lifecycle": "NRND",
           "sim": 2,
           "simPlan": 20,
-          "modem": "EG91-E"
+          "modem": "EG91-E",
+          "antennas": [
+            "ANTCW2EA"
+          ]
         }
       ]
     },
@@ -35292,7 +35347,11 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "R410",
-          "mapColor": 0
+          "mapColor": 0,
+          "antennas": [
+            "ANT-FLXU",
+            "ANTCW2EA"
+          ]
         },
         {
           "name": "E-Series E314 2G/3G Global EtherSIM",
@@ -35304,7 +35363,11 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "U201",
-          "mapColor": 1
+          "mapColor": 1,
+          "antennas": [
+            "ANT-FLXU",
+            "ANTCW2EA"
+          ]
         },
         {
           "name": "E-Series E402 LTE M1 (NorAm) (before 2021)",
@@ -35315,7 +35378,11 @@
           "lifecycle": "NRND",
           "sim": 3,
           "simPlan": 30,
-          "modem": "R410"
+          "modem": "R410",
+          "antennas": [
+            "ANT-FLXU",
+            "ANTCW2EA"
+          ]
         },
         {
           "name": "E-Series E310 2G/3G Global (before 2021)",
@@ -35326,7 +35393,11 @@
           "lifecycle": "NRND",
           "sim": 1,
           "simPlan": 12,
-          "modem": "U201"
+          "modem": "U201",
+          "antennas": [
+            "ANT-FLXU",
+            "ANTCW2EA"
+          ]
         },
         {
           "name": "E-Series E313 2G/3G Global (Enterprise)",
@@ -35338,7 +35409,11 @@
           "sim": 2,
           "simPlan": 21,
           "modem": "U201",
-          "enterprise": true
+          "enterprise": true,
+          "antennas": [
+            "ANT-FLXU",
+            "ANTCW2EA"
+          ]
         }
       ]
     },
@@ -35356,7 +35431,10 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "R410",
-          "mapColor": 0
+          "mapColor": 0,
+          "antennas": [
+            "ANT-FLXU"
+          ]
         },
         {
           "name": "Electron ELC314 2G/3G Global EtherSIM",
@@ -35368,7 +35446,10 @@
           "sim": 4,
           "simPlan": 40,
           "modem": "U201",
-          "mapColor": 1
+          "mapColor": 1,
+          "antennas": [
+            "ANT-FLXU"
+          ]
         },
         {
           "name": "Electron ELC402 LTE M1 (NorAm) (before 2021)",
@@ -35379,7 +35460,10 @@
           "lifecycle": "NRND",
           "sim": 3,
           "simPlan": 30,
-          "modem": "R410"
+          "modem": "R410",
+          "antennas": [
+            "ANT-FLXU"
+          ]
         },
         {
           "name": "Electron U260 2G/3G Americas/Aus",
@@ -35390,7 +35474,10 @@
           "lifecycle": "End of life",
           "sim": 1,
           "simPlan": 12,
-          "modem": "U260"
+          "modem": "U260",
+          "antennas": [
+            "ANTELEC"
+          ]
         },
         {
           "name": "Electron U270 2G/3G EMEA",
@@ -35401,7 +35488,10 @@
           "lifecycle": "End of life",
           "sim": 1,
           "simPlan": 12,
-          "modem": "U270"
+          "modem": "U270",
+          "antennas": [
+            "ANTELEC"
+          ]
         },
         {
           "name": "Electron G350 2G Global",
@@ -35412,7 +35502,10 @@
           "lifecycle": "End of life",
           "sim": 1,
           "simPlan": 12,
-          "modem": "G350"
+          "modem": "G350",
+          "antennas": [
+            "ANTELEC"
+          ]
         }
       ]
     },

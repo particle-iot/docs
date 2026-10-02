@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Antenna tool 2026-10-01
+
+The new [Antenna tool](/tools/developer-tools/antenna-tool/) can be used to compare the performance of antennas.
+
 ### Tracking system links 2026-09-30
 
 Updated the find out more links in the [tracking system](/getting-started/hardware/tracking-system/#find-out-more) getting started page.
