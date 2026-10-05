@@ -3,7 +3,7 @@ title: node.js getting started
 columns: two
 layout: commonTwo.hbs
 description: node.js getting started
-includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,stackblitz,zip]
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
 ---
 
 # node.js getting started
@@ -20,33 +20,7 @@ To use the interactive examples in this page, you must be logged into your Parti
 
 ## Hello world - browser
 
-The examples in this page can be used either locally, on your computer with node.js installed, or right from your browser. 
-
-Click the **Try It!** button to open a new browser tab. This allows you to edit and run node.js scripts from your browser with no software install required. Browser-based examples work on Chrome and Edge on Mac, Windows, Linux, and Chromebook.
-
-{{> stackblitz-simple project="node-96ppvm"}}
-
-The window looks like this:
-
-![StackBlitz](/assets/images/stackblitz.png)
-
-1. You can view the code here, as well as edit it. Syntax checking, auto-completion, etc. are all included.
-
-2. The **Terminal** pane allow you to run the script and see the output. Type:
-
-```
-node index.js
-```
-
-to run the sample hello world app. Filename completion is available so you can type `i` then hit **Tab** to complete the rest of `index.js`. You can also use the **Up Arrow** or **Ctrl-P** to bring up previous commands in that you've typed in the Terminal window to repeat them.
-
-3. The **Download** icon allows you to download a zip copy of the project so you can run it on your computer's node.js instead of in a browser.
-
-The node.js scripts are run securely in your browser and no have access to files on your computer or other browser tabs. There are no browser extensions; it's all browser-based Javascript.
-
-When editing the code, don't forget to save your changes before running the script again (Command-S on the Mac and Ctrl-S on Windows and Linux). If you make changes to the file, it creates a copy ("fork") of the file and the URL changes so you don't need to worry about overwriting the public example. You can save and run the file without logging into GitHub, but changes will be lost when you close your browser window.
-
-## Installation - computer
+The examples in this page can be used locally on your Windows, Linux, or Mac computer with node.js installed. 
 
 Just go to the [nodejs.org](https://nodejs.org/) page and follow the instructions to download and install. The LTS (long-term support) version is recommended. You do not need to do this if you're going to be running the examples in your browser using the **Try It** buttons.
 
@@ -63,7 +37,7 @@ The examples here require a minimum of version 12. The LTS version at the time o
 
 Not surprisingly we'll start with a Hello World example, which is really simple:
 
-{{> codebox content="/assets/files/node-tutorial/hello.js" format="js" tryit="node-96ppvm"}}
+{{> codebox content="/assets/files/node-tutorial/hello.js" format="js"}}
 
 To run it, you create or download the hello.js file, then:
 
@@ -102,7 +76,7 @@ console.log("hello world!")
 
 The for loop construct looks like it does in C++, with three parts: initialization, test, and increment steps separated by semicolons:
 
-{{> codebox content="/assets/files/node-tutorial/for-loop.js" format="js" tryit="node-ukfnuw"}}
+{{> codebox content="/assets/files/node-tutorial/for-loop.js" format="js"}}
 
 To run it, you create or download the for-loop.js file, then:
 
@@ -192,7 +166,7 @@ You can do a `while` loop with a bottom test, like C++, too.
 
 Conditionals, `if` statements, work like C++:
 
-{{> codebox content="/assets/files/node-tutorial/if1.js" format="js" tryit="node-rui4w5"}}
+{{> codebox content="/assets/files/node-tutorial/if1.js" format="js"}}
 
 Note that this code outputs this:
 
@@ -304,7 +278,7 @@ Arrays will be familiar to C++ programmers, but there are some differences:
 - You don't need to declare the size of a Javascript array, it automatically grows as needed
 - Arrays don't have a data type. In fact, each element can have a different type of data (string, number, boolean, etc.)
 
-{{> codebox content="/assets/files/node-tutorial/array1.js" format="js" tryit="node-gypqca"}}
+{{> codebox content="/assets/files/node-tutorial/array1.js" format="js"}}
 
 This outputs:
 
@@ -480,7 +454,7 @@ const options = {
 
 Up to now things have been pretty simple syntax variations from other languages. Here's where things diverge and get more complicated.
 
-{{> codebox content="/assets/files/node-tutorial/timer1.js" format="js" tryit="node-qwhvch"}}
+{{> codebox content="/assets/files/node-tutorial/timer1.js" format="js"}}
 
 This will output a new line every second;
 
@@ -546,7 +520,7 @@ One of the advantages of node is the huge number of available packages or librar
 - You need a `package.json` file at the top level of the directory. The file is mostly boilerplate for private projects like this. It will be updated as we add libraries, however, so it's still important.
 - Your Javascript sources go in that directory as well. In this case, it's in `app.js`.
 
-{{> project-browser project="node-empty" default-file="package.json" options="stackblitz"}}
+{{> project-browser project="node-empty" default-file="package.json" }}
 
 To add a package, `cd` into the project directory (containing the package.json file), then:
 
@@ -570,7 +544,7 @@ npm install particle-api-js
 
 Now lets move on to something more useful, using the Particle cloud API to list the devices in our account.
 
-{{> project-browser project="node-list-devices3" default-file="app.js" options="stackblitz"}}
+{{> project-browser project="node-list-devices3" default-file="app.js" }}
 
 
 There are a bunch of new things in this code:
@@ -633,7 +607,7 @@ helper.close();
 
 This example uses the `last_heard` of the device object to list devices that we have not heard from since a specific date.
 
-{{> project-browser project="node-list-devices5" default-file="app.js" options="stackblitz"}}
+{{> project-browser project="node-list-devices5" default-file="app.js" }}
 
 The code uses `Date.parse()` which parses a date in various formats (including the ISO 8601 format used by the cloud) and return the time in milliseconds since January 1, 1970 UTC. This is sort of like Unix time, but Unix time is in seconds, not milliseconds.
 
@@ -643,7 +617,7 @@ If you are using the web-based **Try It!** button paste your access token in the
 
 This example generates csv (comma-separated value) data containing the device ID and the ICCID of the cellular devices in your account.
 
-{{> project-browser project="node-list-devices6" default-file="app.js" options="stackblitz"}}
+{{> project-browser project="node-list-devices6" default-file="app.js" }}
 
 The code has a check for `dev.iccid`. If this field does not exist, then the body of the if won't be executed. That will cause it to not print Wi-Fi devices.
 
@@ -672,7 +646,7 @@ Node.js programs running on your computer have access to your computer's file sy
 
 This isn't a very useful program, as your operating system can already do this (`cat` on Mac and Linux, `type` on Windows), but it shows how the file system API works.
 
-{{> project-browser project="node-file-1" default-file="app.js" options="stackblitz"}}
+{{> project-browser project="node-file-1" default-file="app.js" }}
 
 Lines like these are how you import libraries into your node.js project. Sometimes you'll see `var` used instead of `const`. 
 
@@ -713,7 +687,7 @@ A more useful thing to do is process a file of Device IDs and act on each device
 
 Sometimes instead of encoding the name of the file to process in the script, you want to pass it as command line arguments. There are multiple command line processing options, but we'll use yargs here.
 
-{{> project-browser project="node-file-2" default-file="app.js" options="stackblitz"}}
+{{> project-browser project="node-file-2" default-file="app.js" }}
 
 The yargs package is already added to this project's `package.json` file but to add it to a new project you'd just:
 
@@ -827,7 +801,7 @@ The same techniques can be used to pick out other common things like ICCIDs, IME
 
 Sometimes you'll have a comma-separated value file (csv). Resist the temptation to parse it by hand because there are good csv parsers available for node and dealing with escaped strings yourself is tedious and error-prone.
 
-{{> project-browser project="node-file-3" default-file="app.js" options="stackblitz"}}
+{{> project-browser project="node-file-3" default-file="app.js" }}
 
 Some of the code should be familiar from the last example. 
 
@@ -951,7 +925,7 @@ Copy and paste the token out of the Access Token field to use in locations where
 
 This is a starter script that you can tailor to your own purposes, but illustrates a bunch of techniques. It moves devices from one developer account to another account. 
 
-{{> project-browser project="node-device-change-owner" default-file="app.js" height="400"  options="stackblitz"}}
+{{> project-browser project="node-device-change-owner" default-file="app.js" height="400"  }}
 
 Install the dependencies when using node.js on your computer:
 

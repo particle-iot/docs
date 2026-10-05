@@ -2,7 +2,7 @@
 title: Data operations reports
 layout: commonTwo.hbs
 description: Data operations report tutorial
-includeDefinitions: [api-helper, api-helper-extras, api-helper-cloud, api-helper-projects, chart, stackblitz, zip]
+includeDefinitions: [api-helper, api-helper-extras, api-helper-cloud, api-helper-projects, chart, zip]
 ---
 
 # {{title}}
@@ -144,8 +144,6 @@ You can change whether to pull a sandbox or organization data operations report 
 {{> sandbox-or-org}}
 
 {{> project-browser project="node-data-report" default-file="app.js"}}
-
-If you are using the Chrome or Edge browser on Windows, Mac, or Linux you can open the node.js project in your browser, edit, and run it with no software install required using the **Try It** button.
 
 
 ## Request a report tool
