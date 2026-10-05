@@ -4371,41 +4371,6 @@ $(document).ready(function () {
 
     });    
 
-    $('.apiHelperProjectBrowser').each(function() {
-        const thisElem = $(this);   
-        
-        const project = $(thisElem).data('project');
-        if (project == 'node-data-report') {
-            let params = {     
-                preloadZip: true,
-                stackblitzProject: {
-                    description: 'sample script for downloading a data operations usage report',
-                },
-                stackblitzOptions: {
-                    openFile: 'app.js',
-                },
-                updateConfig: function() {
-                    let newConfigObject = {};
-
-                    const orgId = $('.apiHelperSandboxOrgSelect').val();
-                    if (orgId != 0) {
-                        newConfigObject.orgId = orgId;
-                    }
-
-                    return newConfigObject;
-                }
-            };
-    
-            $(thisElem).data('params', params);
-            $(thisElem).trigger('updateProject');
-
-            $('.apiHelperSandboxOrgSelect').on('change', function() {
-                $(thisElem).trigger('updateProject');                
-            });
-        }
-
-    });
-
 
     loadSettings();
 

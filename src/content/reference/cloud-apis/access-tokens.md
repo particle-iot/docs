@@ -4,7 +4,7 @@ shared: true
 columns: two
 layout: commonTwo.hbs
 description: Using access tokens with the Particle Cloud API
-includeDefinitions: [api-helper, api-helper-cloud,  api-helper-extras, codemirror, api-helper-projects, stackblitz, zip]
+includeDefinitions: [api-helper, api-helper-cloud,  api-helper-extras, codemirror, api-helper-projects, zip]
 
 ---
 
@@ -110,17 +110,7 @@ In some cases, it may be appropriate to store the access token in a configuratio
 
 ### Using an environment variable
 
-{{> project-browser project="node-list-devices2" default-file="app.js" options="stackblitz"}}
-
-The **Try It** button opened a new web browser which allows you to test the node.js application with no software install required on Windows, Mac, Linux, or Chromebook. The node.js Try It feature only works on Chrome browsers.
-
-To call the script, you just [get an access token](#getting-a-user-access-token) (above), and set the environment variable first. 
-
-For the Try It web-based example, enter the command in a single line in the terminal box at the bottom of the window.
-
-```
-PARTICLE_AUTH=27fdffffffffffffffffffffffffffffffff4259 node app.js
-```
+{{> project-browser project="node-list-devices2" default-file="app.js" }}
 
 For Mac or Linux, enter as two separate commands:
 
@@ -152,10 +142,7 @@ Logging in this way requires a username, password, and, if enabled in the accoun
 
 This is a simple example project for prompting for Particle authentication from a web page. Once logged in it creates a popup menu with a list of devices just an an example.
 
-The **Try It** button will open up a separate web browser window where you can try the web page, as well as edit the code. This example, which only uses HTML and Javascript, should work with all major web browsers.
-
-
-{{> project-browser project="web-login-demo" default-file="script.js" tryit="web-platform-9hmp3r"}}
+{{> project-browser project="web-login-demo" default-file="script.js"}}
 
 
 For more information, see also application note [AN032 Calling API from a web page](/reference/cloud-apis/calling-api-from-web-page/).
@@ -163,9 +150,8 @@ For more information, see also application note [AN032 Calling API from a web pa
 ### From a node.js command line tool
 
 
-{{> project-browser project="node-list-devices3" default-file="app.js" options="stackblitz"}}
+{{> project-browser project="node-list-devices3" default-file="app.js" }}
 
 An explanation of how this project works can be found in the [node.js tutorial](/reference/cloud-apis/node-js/#list-devices-particle-api-). 
 
-The **Try It** button opened a new web browser which allows you to test the node.js application with no software install required on Windows, Mac, Linux, or Chromebook. The node.js Try It feature only works on Chrome browsers.
 

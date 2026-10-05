@@ -159,19 +159,6 @@ $(document).ready(function() {
 
 
         const dataOptions = $(thisElem).data('options');
-        if (dataOptions && dataOptions.includes('stackblitz')) {
-            let params = $(thisElem).data('params');
-            if (!params) {
-                params = {};
-            }   
-            if (!params.stackblitzProject) {
-                params.stackblitzProject = {};
-            }
-            if (!params.stackblitzOptions) {
-                params.stackblitzOptions = {};
-            }
-            $(thisElem).data('params', params);    
-        }
 
         const updateProject = async function() {
             const params = $(thisElem).data('params');
@@ -222,20 +209,6 @@ $(document).ready(function() {
                 params.updateProject(zipFs);
             }
 
-            if (params.stackblitzProject) {
-                const checkFn = function() {
-                    if (apiHelper.canUseStackblitz) {
-                        if (!apiHelper.canUseStackblitz()) {
-                            $(tryItButtonElem).prop('disabled', true);
-                        }    
-                    } else {
-                        setTimeout(checkFn, 1000);
-                    }
-                }
-                checkFn();                
-
-                $(tryItButtonElem).parent('span').show();
-            }
         };
         $(thisElem).on('updateProject', updateProject);
         updateProject();
@@ -245,50 +218,6 @@ $(document).ready(function() {
             $(tryItButtonElem).parent('span').show();
         }
         
-        $(tryItButtonElem).on('click', async function() {
-            if ($(tryItButtonElem).data('project')) {
-                // Old way: launches project
-                var a = document.createElement('a');
-                a.href = 'https://stackblitz.com/edit/' + $(this).attr('data-project') + '?devtoolsheight=33&file=index.js&hideNavigation=1%3B';
-                a.target = '_blank';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                analytics.track('Try It', {category:gaCategory, label:$(tryItButtonElem).attr('data-project')});    
-            }
-            else {
-                const params = $(thisElem).data('params');
-                if (!params || !params.stackblitzProject) {
-                    return;
-                }
-
-                let fileData = {};
-
-                let zipFs = await getProjectZip();
-
-                await updateProject();
-
-                for(const ze of zipFs.root.children[0].children) {
-                    if (!ze.directory) {
-                        fileData[ze.name] = await ze.getText();
-                    }
-                }
-    
-                let stackblitzProject = Object.assign({
-                    files: fileData,
-                    title: project,
-                    description: project + ' example script',
-                    template: 'node'
-                }, params.stackblitzProject);
-    
-                let stackblitzOptions = Object.assign({
-                    openFile: 'app.js',
-                }, params.stackblitzOptions);
-    
-                StackBlitzSDK.openProject(stackblitzProject, stackblitzOptions);
-            }
-        });    
-
 
 
 

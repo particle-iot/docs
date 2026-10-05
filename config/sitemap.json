@@ -1127,8 +1127,8 @@
             "hash": "c05c434dbf8c593e73664e664db332c5007d4421353cf087caa1791c40c7ded8"
         },
         "reference/cloud-apis/access-tokens.md": {
-            "date": "2024-12-20",
-            "hash": "264776c70a5538439141848e0febae9ecf64814c88342a38137f5a27f6c676b7"
+            "date": "2026-10-05",
+            "hash": "065e92294779eae3e0fd747bfaacffd05e91e2d26ef24abe0cecfdf17938ddb8"
         },
         "reference/cloud-apis/api.md": {
             "date": "2026-09-02",
@@ -1143,16 +1143,16 @@
             "hash": "429481c485deb0b2b4299d39d5a8c4fc8773477cfe7dd45a44e960f1641b7ff2"
         },
         "reference/cloud-apis/data-report-tutorial.md": {
-            "date": "2025-02-03",
-            "hash": "a2dc293d88ca8de8ed1826ea803abcd9d39a05b39190e8b41b4428f8b05cb27d"
+            "date": "2026-10-05",
+            "hash": "1eb2699ae7302841bb3b01f8b59bc74d786d6ee12acb0499bca491673c7ad6f4"
         },
         "reference/cloud-apis/javascript.md": {
             "date": "2026-03-12",
             "hash": "d9578adfe561915c2f954a03909c3a077566e0a05a71bb883663d504090f4c45"
         },
         "reference/cloud-apis/node-js.md": {
-            "date": "2023-03-17",
-            "hash": "ce4c245df8f841096e926fc6d94325bcc73335273f819a5bc0139b87a2d6fc8f"
+            "date": "2026-10-05",
+            "hash": "73fd9719c7550037b5119e7cf9c19b4acf33b771625142e64ea1b1fcf747e9f8"
         },
         "reference/cloud-apis/node-red.md": {
             "date": "2023-10-05",
