@@ -1575,7 +1575,7 @@ D09    </text>
     <rect x="-206" y="-8" width="55" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
     <text x="-178.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-Low at boot triggers ISP flash download    </text>
+Yes    </text>
     <line x1="-206" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
@@ -1697,7 +1697,7 @@ D6    </text>
     <rect x="151" y="-8" width="55" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
     <text x="178.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-SWCLK. 40K pull-down at boot.    </text>
+Yes    </text>
     <line x1="206" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
@@ -1723,7 +1723,7 @@ Yes    </text>
     <rect x="151" y="-8" width="55" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
     <text x="178.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.    </text>
+Yes    </text>
     <line x1="206" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >

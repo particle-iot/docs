@@ -67,7 +67,6 @@
             "is5VTolerant": false,
             "isIO": true,
             "pdm": "DAT",
-            "somPin": "RESERVED",
             "tone": false
         },
         {
@@ -247,7 +246,6 @@
             "isIO": true,
             "pwmChannel": "1.0",
             "serial": "Serial1 (TX)|TX. Use Serial1 object.",
-            "somPin": "TX",
             "tone": true
         },
         {
@@ -320,7 +318,6 @@
             "is5VTolerant": false,
             "isIO": true,
             "serial": "Serial1 (CTS) |CTS. Use Serial1 object.",
-            "somPin": "CTS",
             "tone": false
         },
         {
@@ -339,7 +336,6 @@
             "is5VTolerant": false,
             "isIO": true,
             "pwmChannel": "1.13",
-            "somPin": "PWM3",
             "tone": true
         },
         {
