@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### CLI local compile 2026-10-14
+
+The Particle CLI now supports local compile using the `--compiler local` option of [`particle compile`](/getting-started/developer-tools/cli/#compile-and-flash-code-locally) and `particle flash`. It works in the same was as local compile in Particle Workbench, but Workbench does not need to be installed.
+
 ### Device OS 6.6.0 preview 2026-10-14
 
 [Device OS 6.6.0](/reference/device-os/release-notes/?mode=rel1&ver=v6.6.0) is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc. It is a preview release.

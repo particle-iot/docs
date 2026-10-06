@@ -29,6 +29,14 @@ While this option does not require the cloud compiler, it can take a very long t
 
 There is a possibility of build artifacts being left behind from a previous build as it's hard to clean the build tree without making subsequent builds take a very long time.
 
+### Particle CLI (local compile)
+
+- Use a source code control system such as Github
+- Build using `particle compile --compiler local` in the Particle CLI (version 3.52.0 and later)
+- Upload to your product manually
+
+This uses the same local toolchain as Workbench local compile but does not require Workbench to be installed. See [Compile and flash code locally](/getting-started/developer-tools/cli/#compile-and-flash-code-locally) for details. The first build can take a long time, as with Workbench local compile.
+
 ### Particle CLI (cloud compile)
 
 - Use a source code control system such as Github
