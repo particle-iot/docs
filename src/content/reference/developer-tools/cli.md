@@ -165,6 +165,15 @@ Unclaiming a cellular device removes it from your account, but does not stop bil
   Sends a firmware binary, a source file, or a directory of source files, or a known app to your device.
 
 
+### Flashing with a local compile
+
+In Particle CLI 3.52.0 and later, `particle flash` can compile your project locally instead of in the cloud by adding `--compiler local`. It can be used with `particle flash --local` (USB) or with `particle flash <device> <project>` (over the air). See [Compile and flash code locally](/getting-started/developer-tools/cli/#compile-and-flash-code-locally) for details.
+
+```sh
+$ particle flash --local --compiler local
+$ particle flash 0123456789abcdef78901234 my_project --compiler local
+```
+
 ### Flashing a directory
 
   You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.
@@ -410,6 +419,14 @@ At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.
 should always manually target 5.3.1 or later, for example, `--target 5.6.0`, instead.
 {{note op="end"}}
 
+
+### Compiling locally
+
+By default `particle compile` uses the cloud compiler. In Particle CLI 3.52.0 and later you can compile on your own computer by adding `--compiler local`. This does not require Workbench to be installed, supports community libraries and asset bundles, and can be combined with `--target` to select the Device OS version. See [Compile and flash code locally](/getting-started/developer-tools/cli/#compile-and-flash-code-locally) for details.
+
+```sh
+$ particle compile boron my_project_folder --compiler local --target 6.4.1
+```
 
 ### Compiling a directory
 

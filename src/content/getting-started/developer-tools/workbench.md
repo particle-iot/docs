@@ -124,6 +124,8 @@ It's also possible to compile in the cloud and flash over USB, as described in t
 
 Local build does all of the compiling locally on your computer, and, once installed, can be used even without an Internet connection.
 
+Local compile is also available in the Particle CLI (version 3.52.0 and later) using the `--compiler local` option, without needing to install Workbench. See [`particle compile`](/getting-started/developer-tools/cli/#compile-and-flash-code-locally) for more information. The CLI and Workbench share the same toolchain installation.
+
 Before you can build locally, you need to select the device and Device OS version you wish to build for. See [configure project](#configure-project), above.
 
 {{!-- 
