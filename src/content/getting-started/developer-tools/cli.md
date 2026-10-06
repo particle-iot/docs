@@ -237,7 +237,50 @@ flash device said  {"id":"01234567890ABCDEFGH","status":"Update started"}
 
 ## Compile and flash code locally
 
-If you prefer to compile your code locally instead of in the cloud, you can use Particle Workbench, which includes both local and cloud compiling.
+If you prefer to compile your code locally instead of in the cloud, you can use the `--compiler local` option of `particle compile` and `particle flash`. This requires Particle CLI 3.52.0 or later (October 2026).
+
+Local compile was previously only available in [Particle Workbench](/getting-started/developer-tools/workbench/). It is now built into the CLI, and Workbench does not need to be installed to use it. The CLI uses the same toolchain as Workbench: the Device OS source, the `gcc-arm` cross compiler, `buildtools`, and the build scripts. If Workbench has already installed a toolchain, the CLI will reuse it, and vice versa.
+
+```sh
+# Compile locally and save the binary
+$ particle compile argon my-project --compiler local
+
+# Compile locally and flash by USB (run from the project directory)
+$ particle flash --local --compiler local
+
+# Compile locally and flash over the air
+$ particle flash my-device my-project --compiler local
+```
+
+The default is `--compiler cloud`, which is the same behavior as in previous versions of the CLI.
+
+- **Toolchain install**: The first time you compile locally, the CLI downloads the toolchain to `~/.particle/toolchains` (the same location Workbench uses). This is about 1 GB for one version of Device OS, and shows a progress bar. It is only downloaded once for each version of Device OS used.
+- **First build**: The first compile for a given Device OS version and platform takes several minutes because the Device OS must be built. Subsequent builds of that combination take only a few seconds.
+- **Device OS version**: Use `--target` to select the Device OS version, for example `--target 6.4.1`. If you do not specify a version, the default version for the platform is used and displayed. When using `particle flash --local --compiler local`, the same Device OS version is also flashed to the device.
+- **Output**: The binary is saved in the current directory, or to the location specified by `--saveTo`. It is also saved in the project `target/<version>/<platform>/` directory, as in Workbench.
+- **Community libraries**: Libraries listed in `project.properties` (such as `dependencies.neopixel=1.0.3`) are downloaded into the `lib` directory of your project the first time you build. This requires being logged in (`particle login`). Alternatively, you can use `particle library copy` to vendor the libraries yourself. Once the libraries are in `lib`, no login is required.
+- **Asset bundles**: Projects that use [asset OTA](/getting-started/cloud/ota-updates/#asset-ota) (`assetOtaDir` in `project.properties`) generate a `.zip` bundle instead of a `.bin`. Flashing with `particle flash --local --compiler local` or `particle flash <device> --compiler local` sends both the application and the assets.
+- **Login**: A login is not required for a local compile if the toolchain is installed and the project has no library dependencies that are not already in `lib`. Flashing over the air always requires a login.
+- **USB, serial, and Tachyon**: `--compiler local` is ignored with `--usb`, `--serial`, and `--tachyon`.
+
+Local compile is supported on:
+
+| Host | Supported |
+| :--- | :---: |
+| Windows (x64) | &check; |
+| Mac OS (Intel) | &check; |
+| Mac OS (Apple Silicon), using Rosetta | &check; |
+| Linux (x64) | &check; |
+| Linux (arm64) | |
+
+The platforms that can be built locally are the ones included in the Particle toolchain manifest, for example Argon, Boron, B-Series SoM (`bsom`), M-SoM (`msom`), and P2/Photon 2. If a platform or Device OS version is not available, the CLI will list the valid choices or tell you to use `--compiler cloud`.
+
+Limitations:
+
+- The project directory is built in place, as in Workbench. The `.ino` files are preprocessed to `.cpp` files next to the source. The `particle.include` and `particle.ignore` files are not used.
+- Project paths must not contain spaces.
+
+See also [`particle compile`](/reference/developer-tools/cli/#particle-compile) and [`particle flash`](/reference/developer-tools/cli/#particle-flash) in the CLI reference.
 
 ## Working with projects and libraries
 

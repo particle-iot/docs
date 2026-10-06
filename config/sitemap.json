@@ -491,8 +491,8 @@
             "hash": "7a715964f315be091ad88873b48a642555ae1dea2dc6e1373d1930aa9244c94a"
         },
         "firmware/best-practices/firmware-build-options.md": {
-            "date": "2024-02-27",
-            "hash": "fa06b0114321bc59e859b0cf1efa16167394ba2e237012c7784e857e03fa85b5"
+            "date": "2026-10-06",
+            "hash": "d16841d6640371a6a15283e44b189a210a035c98bb101f80b24050ff9987c660"
         },
         "firmware/best-practices/firmware-introduction.md": {
             "date": "2026-08-10",
@@ -627,16 +627,16 @@
             "hash": "fe43b5964e44450e56103e97f747c646664ea83569e1ae612ef85c9a4d264f1f"
         },
         "getting-started/developer-tools/cli.md": {
-            "date": "2024-10-28",
-            "hash": "190544e46c4b5ba09acd0b894181a631852e113010853e872d5fe7db5d28dd57"
+            "date": "2026-10-06",
+            "hash": "225078ac572c63d288f10ee442f71e1d64fece018f155dc32aa59cca4dd280d1"
         },
         "getting-started/developer-tools/workbench-faq.md": {
             "date": "2026-04-29",
             "hash": "d1c1af61fb3b5366e058d5c445e0ec4a79ac35780478733aade99f7fe3b03a18"
         },
         "getting-started/developer-tools/workbench.md": {
-            "date": "2026-08-10",
-            "hash": "89f91e30261e402075c1000d6a149943bbdd1fa64fd72611a148a66f67582e5e"
+            "date": "2026-10-06",
+            "hash": "4c21fe9cee4b08c8422f9b90686c4646474fdaa11c90863b445671e9416c934d"
         },
         "getting-started/device-os/introduction-to-device-os.md": {
             "date": "2024-10-28",
@@ -1163,8 +1163,8 @@
             "hash": "aed8a4e6f47658144fe415192451479d8683fdf0a13f519108831a18c560137a"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2026-08-25",
-            "hash": "e73cd418ca08e967a0039c0fb75e7a42b2e25fa62f5061c44a9996fdfecb72be"
+            "date": "2026-10-06",
+            "hash": "6525d007130d621f413156bc7a90fde21433089e8bdc81357d7284fa02063358"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2024-11-06",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "057a1dd93cbb7a440676e4057742703a52973e30f83b5060fa5210b607b0a707",
-            "date": "2026-10-01"
+            "hash": "777814d83769acfe99a3829dff9120e637ebee0321424fd452071134bd9cbac6",
+            "date": "2026-10-06"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

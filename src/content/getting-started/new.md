@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### CLI local compile 2026-10-07
+
+The Particle CLI now supports local compile using the `--compiler local` option of [`particle compile`](/getting-started/developer-tools/cli/#compile-and-flash-code-locally) and `particle flash`. It works in the same was as local compile in Particle Workbench, but Workbench does not need to be installed.
+
 ### Antenna tool 2026-10-01
 
 The new [Antenna tool](/tools/developer-tools/antenna-tool/) can be used to compare the performance of antennas.
