@@ -1280,7 +1280,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | New Zealand | T524 | 4G | 2degrees, Spark, Vodafone |
 | Nigeria | T524 | 2G, 3G, 4G | Airtel, MTN |
 | Norway | T524 | 2G, 3G, 4G | TDC, Telenor, Telia |
-| Pakistan | T524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
+| Pakistan | T524 | 2G, 3G, 4G | Jazz, Telenor, Ufone |
 | Poland | T524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | T524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
 | Qatar | T524 | 2G, 4G | Ooredoo, Vodafone |

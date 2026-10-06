@@ -20435,7 +20435,17 @@
     {
       "country": "Pakistan",
       "carrier": "Jazz",
-      "bands": [],
+      "aliases": [
+        "Mobilink"
+      ],
+      "bands": [
+        "2G-900",
+        "2G-1800",
+        "3G-1",
+        "4G-3",
+        "4G-8",
+        "5G-28"
+      ],
       "mnc": {
         "41001": {
           "mcc": "410",
@@ -20448,20 +20458,6 @@
           "tadig": "PAKWA"
         }
       },
-      "kddi": {
-        "imsi": "EU4",
-        "allow4G": true,
-        "allow3G": true,
-        "allow2G": true,
-        "profile": "g",
-        "allow5G": true
-      }
-    },
-    {
-      "country": "Pakistan",
-      "carrier": "Mobilink",
-      "sunset2G": "?",
-      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -20473,17 +20469,33 @@
         "allow3G": true,
         "allow2G": true
       },
-      "bands": [
-        "2G-900",
-        "2G-1800",
-        "3G-1"
-      ],
+      "kddi": {
+        "imsi": "EU4",
+        "allow4G": true,
+        "allow3G": true,
+        "allow2G": true,
+        "profile": "g",
+        "allow5G": true
+      },
       "supersimV2": {
         "allow2G": true,
         "allow3G": true,
         "allow4G": true,
         "paygRate": 0.1
       }
+    },
+    {
+      "country": "Pakistan",
+      "carrier": "Mobilink",
+      "notes": "Listed under Jazz now",
+      "sunset2G": "?",
+      "sunset3G": "?",
+      "bands": [
+        "2G-900",
+        "2G-1800",
+        "3G-1",
+        "4G-3"
+      ]
     },
     {
       "country": "Pakistan",
@@ -20573,24 +20585,13 @@
       "carrier": "Warid",
       "sunset2G": "?",
       "sunset3G": "NA",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allow4G": true,
-        "paygRate": 0.1
-      },
+      "note": "Acquired by Mobilink, removed as a standalone supersim entry",
       "bands": [
         "2G-900",
         "2G-1800",
         "3G-1",
         "4G-3"
-      ],
-      "supersimV2": {
-        "allow2G": true,
-        "allow3G": true,
-        "allow4G": true,
-        "paygRate": 0.1
-      }
+      ]
     },
     {
       "country": "Pakistan",
@@ -129683,13 +129684,18 @@
           "2G-1800",
           "3G-1",
           "4G-3",
+          "4G-8",
+          "5G-28",
           "4G-5",
           "4G-1"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Telenor": [
           "4G-3",
@@ -129700,12 +129706,6 @@
           "2G-1800",
           "3G-1",
           "4G-1",
-          "4G-3"
-        ],
-        "Warid": [
-          "2G-900",
-          "2G-1800",
-          "3G-1",
           "4G-3"
         ]
       }
@@ -129723,15 +129723,11 @@
           "2G-900",
           "2G-1800"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800"
         ],
         "Ufone": [
-          "2G-900",
-          "2G-1800"
-        ],
-        "Warid": [
           "2G-900",
           "2G-1800"
         ]
@@ -129740,11 +129736,16 @@
         "*": [
           "3G-1",
           "4G-3",
+          "4G-8",
+          "5G-28",
           "4G-5",
           "4G-1"
         ],
-        "Mobilink": [
-          "3G-1"
+        "Jazz": [
+          "3G-1",
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Telenor": [
           "4G-3",
@@ -129753,10 +129754,6 @@
         "Ufone": [
           "3G-1",
           "4G-1",
-          "4G-3"
-        ],
-        "Warid": [
-          "3G-1",
           "4G-3"
         ]
       },
@@ -129786,13 +129783,18 @@
           "2G-1800",
           "3G-1",
           "4G-3",
+          "4G-8",
+          "5G-28",
           "4G-5",
           "4G-1"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Telenor": [
           "4G-3",
@@ -129803,12 +129805,6 @@
           "2G-1800",
           "3G-1",
           "4G-1",
-          "4G-3"
-        ],
-        "Warid": [
-          "2G-900",
-          "2G-1800",
-          "3G-1",
           "4G-3"
         ]
       }
@@ -129820,8 +129816,13 @@
       "supported": {
         "*": [
           "4G-3",
+          "4G-8",
           "4G-5",
           "4G-1"
+        ],
+        "Jazz": [
+          "4G-3",
+          "4G-8"
         ],
         "Telenor": [
           "4G-3",
@@ -129830,28 +129831,22 @@
         "Ufone": [
           "4G-1",
           "4G-3"
-        ],
-        "Warid": [
-          "4G-3"
         ]
       },
       "notSupported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "5G-28"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "5G-28"
         ],
         "Ufone": [
-          "2G-900",
-          "2G-1800",
-          "3G-1"
-        ],
-        "Warid": [
           "2G-900",
           "2G-1800",
           "3G-1"
@@ -129880,12 +129875,17 @@
           "2G-1800",
           "3G-1",
           "4G-3",
+          "4G-8",
+          "5G-28",
           "4G-1"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Telenor": [
           "4G-3"
@@ -129895,12 +129895,6 @@
           "2G-1800",
           "3G-1",
           "4G-1",
-          "4G-3"
-        ],
-        "Warid": [
-          "2G-900",
-          "2G-1800",
-          "3G-1",
           "4G-3"
         ]
       },
@@ -129944,12 +129938,15 @@
           "2G-1800",
           "3G-1",
           "4G-3",
+          "4G-8",
           "4G-1"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "4G-3",
+          "4G-8"
         ],
         "Telenor": [
           "4G-3"
@@ -129960,17 +129957,15 @@
           "3G-1",
           "4G-1",
           "4G-3"
-        ],
-        "Warid": [
-          "2G-900",
-          "2G-1800",
-          "3G-1",
-          "4G-3"
         ]
       },
       "notSupported": {
         "*": [
+          "5G-28",
           "4G-5"
+        ],
+        "Jazz": [
+          "5G-28"
         ],
         "Telenor": [
           "4G-5"
@@ -130012,12 +130007,15 @@
           "2G-1800",
           "3G-1",
           "4G-3",
+          "4G-8",
           "4G-1"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "4G-3",
+          "4G-8"
         ],
         "Telenor": [
           "4G-3"
@@ -130028,17 +130026,15 @@
           "3G-1",
           "4G-1",
           "4G-3"
-        ],
-        "Warid": [
-          "2G-900",
-          "2G-1800",
-          "3G-1",
-          "4G-3"
         ]
       },
       "notSupported": {
         "*": [
+          "5G-28",
           "4G-5"
+        ],
+        "Jazz": [
+          "5G-28"
         ],
         "Telenor": [
           "4G-5"
@@ -130067,12 +130063,17 @@
           "2G-1800",
           "3G-1",
           "4G-3",
+          "4G-8",
+          "5G-28",
           "4G-1"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Telenor": [
           "4G-3"
@@ -130082,12 +130083,6 @@
           "2G-1800",
           "3G-1",
           "4G-1",
-          "4G-3"
-        ],
-        "Warid": [
-          "2G-900",
-          "2G-1800",
-          "3G-1",
           "4G-3"
         ]
       }
@@ -130106,7 +130101,7 @@
           "2G-900",
           "2G-1800"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800"
         ],
@@ -130118,10 +130113,15 @@
       "notSupported": {
         "*": [
           "3G-1",
-          "4G-3"
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
-        "Mobilink": [
-          "3G-1"
+        "Jazz": [
+          "3G-1",
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Zong": [
           "3G-1",
@@ -130153,13 +130153,18 @@
           "2G-1800",
           "3G-1",
           "4G-3",
+          "4G-8",
+          "5G-28",
           "4G-5",
           "4G-1"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Telenor": [
           "4G-3",
@@ -130170,12 +130175,6 @@
           "2G-1800",
           "3G-1",
           "4G-1",
-          "4G-3"
-        ],
-        "Warid": [
-          "2G-900",
-          "2G-1800",
-          "3G-1",
           "4G-3"
         ]
       }
@@ -130194,13 +130193,18 @@
           "2G-1800",
           "3G-1",
           "4G-3",
+          "4G-8",
+          "5G-28",
           "4G-5",
           "4G-1"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Telenor": [
           "4G-3",
@@ -130211,12 +130215,6 @@
           "2G-1800",
           "3G-1",
           "4G-1",
-          "4G-3"
-        ],
-        "Warid": [
-          "2G-900",
-          "2G-1800",
-          "3G-1",
           "4G-3"
         ]
       }
@@ -130229,8 +130227,21 @@
       "reason": "Poor band fit, relies on 2G or 3G",
       "supported": {
         "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
           "4G-3",
+          "4G-8",
+          "5G-28",
           "4G-5"
+        ],
+        "Jazz": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Telenor": [
           "4G-3",
@@ -130239,7 +130250,10 @@
       },
       "notSupported": {},
       "technologies": [
-        "4G"
+        "2G",
+        "3G",
+        "4G",
+        "5G"
       ]
     },
     {
@@ -130258,7 +130272,20 @@
       },
       "notSupported": {
         "*": [
-          "4G-3"
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "4G-3",
+          "4G-8",
+          "5G-28"
+        ],
+        "Jazz": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Telenor": [
           "4G-3"
@@ -130283,7 +130310,7 @@
           "2G-1800",
           "3G-1"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800",
           "3G-1"
@@ -130296,7 +130323,14 @@
       },
       "notSupported": {
         "*": [
-          "4G-3"
+          "4G-3",
+          "4G-8",
+          "5G-28"
+        ],
+        "Jazz": [
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Zong": [
           "4G-3"
@@ -130336,17 +130370,12 @@
           "2G-1800",
           "3G-1"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800",
           "3G-1"
         ],
         "Ufone": [
-          "2G-900",
-          "2G-1800",
-          "3G-1"
-        ],
-        "Warid": [
           "2G-900",
           "2G-1800",
           "3G-1"
@@ -130355,8 +130384,15 @@
       "notSupported": {
         "*": [
           "4G-3",
+          "4G-8",
+          "5G-28",
           "4G-5",
           "4G-1"
+        ],
+        "Jazz": [
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Telenor": [
           "4G-3",
@@ -130364,9 +130400,6 @@
         ],
         "Ufone": [
           "4G-1",
-          "4G-3"
-        ],
-        "Warid": [
           "4G-3"
         ]
       }
@@ -130384,12 +130417,17 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3"
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800",
-          "3G-1"
+          "3G-1",
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Zong": [
           "2G-900",
@@ -130414,7 +130452,7 @@
           "2G-1800",
           "3G-1"
         ],
-        "Mobilink": [
+        "Jazz": [
           "2G-900",
           "2G-1800",
           "3G-1"
@@ -130427,7 +130465,14 @@
       },
       "notSupported": {
         "*": [
-          "4G-3"
+          "4G-3",
+          "4G-8",
+          "5G-28"
+        ],
+        "Jazz": [
+          "4G-3",
+          "4G-8",
+          "5G-28"
         ],
         "Zong": [
           "4G-3"
@@ -180955,14 +181000,12 @@
         }
       ],
       "2G": [
-        "Mobilink",
-        "Ufone",
-        "Warid"
+        "Jazz",
+        "Ufone"
       ],
       "3G": [
-        "Mobilink",
-        "Ufone",
-        "Warid"
+        "Jazz",
+        "Ufone"
       ]
     },
     {
@@ -183844,12 +183887,11 @@
       },
       "Pakistan": {
         "carriers": [
-          "Mobilink",
+          "Jazz",
           "Telenor",
-          "Ufone",
-          "Warid"
+          "Ufone"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 3,
         "status": "full"
       },
       "Panama": {
@@ -185011,12 +185053,11 @@
       },
       "Pakistan": {
         "carriers": [
-          "Mobilink",
+          "Jazz",
           "Telenor",
-          "Ufone",
-          "Warid"
+          "Ufone"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 3,
         "status": "full"
       },
       "Panama": {
@@ -186177,12 +186218,11 @@
       },
       "Pakistan": {
         "carriers": [
-          "Mobilink",
+          "Jazz",
           "Telenor",
-          "Ufone",
-          "Warid"
+          "Ufone"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 3,
         "status": "full"
       },
       "Panama": {
@@ -187342,12 +187382,11 @@
       },
       "Pakistan": {
         "carriers": [
-          "Mobilink",
+          "Jazz",
           "Telenor",
-          "Ufone",
-          "Warid"
+          "Ufone"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 3,
         "status": "full"
       },
       "Panama": {
@@ -188506,12 +188545,11 @@
       },
       "Pakistan": {
         "carriers": [
-          "Mobilink",
+          "Jazz",
           "Telenor",
-          "Ufone",
-          "Warid"
+          "Ufone"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 3,
         "status": "full"
       },
       "Panama": {
@@ -189661,12 +189699,11 @@
       },
       "Pakistan": {
         "carriers": [
-          "Mobilink",
+          "Jazz",
           "Telenor",
-          "Ufone",
-          "Warid"
+          "Ufone"
         ],
-        "carrierRatCount": 4,
+        "carrierRatCount": 3,
         "status": "full"
       },
       "Panama": {
@@ -190794,11 +190831,10 @@
       },
       "Pakistan": {
         "carriers": [
-          "Mobilink",
-          "Ufone",
-          "Warid"
+          "Jazz",
+          "Ufone"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "reduced"
       },
       "Panama": {
@@ -191906,11 +191942,10 @@
       },
       "Pakistan": {
         "carriers": [
-          "Mobilink",
-          "Ufone",
-          "Warid"
+          "Jazz",
+          "Ufone"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "reduced"
       },
       "Panama": {
@@ -193014,11 +193049,10 @@
       },
       "Pakistan": {
         "carriers": [
-          "Mobilink",
-          "Ufone",
-          "Warid"
+          "Jazz",
+          "Ufone"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "reduced"
       },
       "Panama": {
@@ -194111,11 +194145,10 @@
       },
       "Pakistan": {
         "carriers": [
-          "Mobilink",
-          "Ufone",
-          "Warid"
+          "Jazz",
+          "Ufone"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "reduced"
       },
       "Panama": {
@@ -195203,11 +195236,10 @@
       },
       "Pakistan": {
         "carriers": [
-          "Mobilink",
-          "Ufone",
-          "Warid"
+          "Jazz",
+          "Ufone"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "reduced"
       },
       "Panama": {
@@ -196280,11 +196312,10 @@
       },
       "Pakistan": {
         "carriers": [
-          "Mobilink",
-          "Ufone",
-          "Warid"
+          "Jazz",
+          "Ufone"
         ],
-        "carrierRatCount": 3,
+        "carrierRatCount": 2,
         "status": "reduced"
       },
       "Panama": {

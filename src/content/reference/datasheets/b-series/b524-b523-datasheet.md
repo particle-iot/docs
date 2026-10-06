@@ -1818,7 +1818,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | New Zealand | B524 | 4G | 2degrees, Spark, Vodafone |
 | Nigeria | B524 | 2G, 3G, 4G | Airtel, MTN |
 | Norway | B524 | 2G, 3G, 4G | TDC, Telenor, Telia |
-| Pakistan | B524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
+| Pakistan | B524 | 2G, 3G, 4G | Jazz, Telenor, Ufone |
 | Poland | B524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | B524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
 | Qatar | B524 | 2G, 4G | Ooredoo, Vodafone |

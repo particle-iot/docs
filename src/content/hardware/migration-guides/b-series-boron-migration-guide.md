@@ -150,7 +150,7 @@ If you want to migrate from the Electron or E-Series to the B-Series SoM, see [G
 | New Zealand | B524 | 4G | 2degrees, Spark, Vodafone |
 | Nigeria | B524 | 2G, 3G, 4G | Airtel, MTN |
 | Norway | B524 | 2G, 3G, 4G | TDC, Telenor, Telia |
-| Pakistan | B524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
+| Pakistan | B524 | 2G, 3G, 4G | Jazz, Telenor, Ufone |
 | Poland | B524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | B524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
 | Qatar | B524 | 2G, 4G | Ooredoo, Vodafone |

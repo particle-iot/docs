@@ -1456,7 +1456,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | North Macedonia | M635E | 2G, NTN | Skylo, Vip operator |
 | Norway | M635E | 2G, M1, NTN | Skylo, TDC, Telenor, Telia |
 | Oman | M635E | 2G | Ooredoo |
-| Pakistan | M635E | 2G | Mobilink, Ufone, Warid |
+| Pakistan | M635E | 2G | Jazz, Ufone |
 | Panama | M635E | 2G | Movistar |
 | Paraguay | M635E | 2G | Personal, Tigo, Vox |
 | Peru | M635E | 2G | Entel |

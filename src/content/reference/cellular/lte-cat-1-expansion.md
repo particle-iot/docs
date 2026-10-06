@@ -197,10 +197,9 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | Norway | TDC | &nbsp; |
 | Norway | Telenor | &nbsp; |
 | Norway | Telia | &nbsp; |
-| Pakistan | Mobilink | &check; |
+| Pakistan | Jazz | &check; |
 | Pakistan | Telenor | &check; |
 | Pakistan | Ufone | &check; |
-| Pakistan | Warid | &check; |
 | Poland | Orange | &nbsp; |
 | Poland | Play | &nbsp; |
 | Poland | Plus | &nbsp; |

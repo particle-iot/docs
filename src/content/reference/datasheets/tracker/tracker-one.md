@@ -498,7 +498,7 @@ Current measurements taken at 3.6V via the battery input. For more information a
 | New Zealand | ONE524 | 4G | 2degrees, Spark, Vodafone |
 | Nigeria | ONE524 | 2G, 3G, 4G | Airtel, MTN |
 | Norway | ONE524 | 2G, 3G, 4G | TDC, Telenor, Telia |
-| Pakistan | ONE524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
+| Pakistan | ONE524 | 2G, 3G, 4G | Jazz, Telenor, Ufone |
 | Poland | ONE524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | ONE524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
 | Qatar | ONE524 | 2G, 4G | Ooredoo, Vodafone |

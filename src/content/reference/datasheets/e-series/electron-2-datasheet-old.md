@@ -851,7 +851,7 @@ To be provided at a later date.
 <tr><td style="width: 2px; "></td><td>Nigeria</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>9mobile, Airtel, Glo, MTN</td></tr>
 <tr><td style="width: 2px; background-color: #89E2B3; "></td><td>North Macedonia</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>Vip operator</td></tr>
 <tr><td style="width: 2px; background-color: #89E2B3; "></td><td>Norway</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>TDC, Telenor, Telia</td></tr>
-<tr><td style="width: 2px; "></td><td>Pakistan</td><td>❓</td><td>Telenor</td><td>&nbsp;</td><td>❓</td><td>Telenor, Ufone, Warid</td></tr>
+<tr><td style="width: 2px; "></td><td>Pakistan</td><td>❓</td><td>Telenor</td><td>&nbsp;</td><td>❓</td><td>Jazz, Telenor, Ufone</td></tr>
 <tr><td style="width: 2px; "></td><td>Panama</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Movistar</td></tr>
 <tr><td style="width: 2px; "></td><td>Paraguay</td><td>❓</td><td>Claro, Personal, Tigo, Vox</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td style="width: 2px; "></td><td>Peru</td><td>❓</td><td>Claro, Entel, Movistar</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>

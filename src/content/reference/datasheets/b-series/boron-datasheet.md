@@ -626,7 +626,7 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Nicaragua | BRN314 | 2G, 3G | Movistar |
 | Nigeria | BRN314 | 2G, 3G | 9mobile, Airtel, Glo |
 | Norway | BRN314 | 2G, 3G | TDC |
-| Pakistan | BRN314 | 2G, 3G | Mobilink, Ufone, Warid |
+| Pakistan | BRN314 | 2G, 3G | Jazz, Ufone |
 | Palestine | BRN314 | 2G, 3G | Jawwal |
 | Panama | BRN314 | 2G, 3G | Digicel, Movistar |
 | Papua New Guinea | BRN314 | 2G, 3G | bmobile |

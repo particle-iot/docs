@@ -947,7 +947,7 @@ To be provided at a later date.
 | New Zealand | MON524 | 4G | 2degrees, Spark, Vodafone |
 | Nigeria | MON524 | 2G, 3G, 4G | Airtel, MTN |
 | Norway | MON524 | 2G, 3G, 4G | TDC, Telenor, Telia |
-| Pakistan | MON524 | 2G, 3G, 4G | Mobilink, Telenor, Ufone, Warid |
+| Pakistan | MON524 | 2G, 3G, 4G | Jazz, Telenor, Ufone |
 | Poland | MON524 | 2G, 3G, 4G | Orange, Play, Plus, T-Mobile |
 | Portugal | MON524 | 2G, 3G, 4G | NOS, TMN, Vodafone |
 | Qatar | MON524 | 2G, 4G | Ooredoo, Vodafone |

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Carrier update Pakistan 2026-10-06
+
+Updated the carrier entries and bands for Pakistan to fix inconsistent naming caused by Warid being acquired by Mobilink, then branded as Jazz. It is now listed as Jazz.
+
 ### Antenna tool 2026-10-01
 
 The new [Antenna tool](/tools/developer-tools/antenna-tool/) can be used to compare the performance of antennas.
