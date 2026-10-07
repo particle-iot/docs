@@ -1216,7 +1216,17 @@ const schemaDocs = require('./schema-docs');
                     noEtherSimColumn: true,
                 }); 
             } 
-        },        
+        },    
+        // Sulu
+        {
+            guid:'f82eeab1-470c-4c25-a505-3057c080fc1d', 
+            generatorFn:function(updater) {
+                return updater.generateCountryList(null, {
+                    modems: ['EG800Q-GL'],
+                    noModel: true,
+                }); 
+            } 
+        },
         // Tachyon
         {
             guid:'ae3c46e6-c970-4ceb-8e55-2adde82efb79',
