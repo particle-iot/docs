@@ -1348,13 +1348,7 @@ A2    </text>
     </rect>
     <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D17    </text>
-    <line x1="-64" y1="0" x2="-68" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-123" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
-    </rect>
-    <text x="-95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-SPI1 (SS)    </text>
-    <line x1="-123" y1="0" x2="-127" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-64" y1="0" x2="-127" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-182" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
@@ -1549,7 +1543,7 @@ TX    </text>
     <rect x="-64" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
     <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D09    </text>
+D9    </text>
     <line x1="-64" y1="0" x2="-127" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-182" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
@@ -1620,7 +1614,13 @@ PA[15]    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D4    </text>
-    <line x1="30" y1="0" x2="127" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="68" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="68" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
+    </rect>
+    <text x="95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+SPI (SS)    </text>
+    <line x1="123" y1="0" x2="127" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="127" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
@@ -1634,7 +1634,13 @@ PB[21]    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D5    </text>
-    <line x1="30" y1="0" x2="127" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="68" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="68" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
+    </rect>
+    <text x="95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+SPI1 (SS)    </text>
+    <line x1="123" y1="0" x2="127" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="127" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>

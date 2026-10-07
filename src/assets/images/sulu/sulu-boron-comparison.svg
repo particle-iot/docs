@@ -1581,7 +1581,7 @@ TX    </text>
     <rect x="-64" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
     <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D09    </text>
+D9    </text>
     <line x1="-64" y1="0" x2="-92" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-122" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
