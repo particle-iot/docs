@@ -624,5 +624,3 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 
 {{!-- END do not edit content above, it is automatically generated --}}
 {{collapse op="end"}}
-
-
