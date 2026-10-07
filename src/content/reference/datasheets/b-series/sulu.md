@@ -1,17 +1,16 @@
 ---
-title: Sulu project notes
+title: Sulu datasheet
 layout: commonTwo.hbs
 columns: two
 description: Sulu datasheet and migration guide tables
 ---
 
-# Sulu project notes
+# Sulu datasheet (preliminary)
 
-- Based on pinmap v0.1 (2026-05-27)
-- Preliminary draft, subject to change
-- Do not share externally
+{{box op="start" cssClass="boxed warningBox"}}
+This is a preliminary datasheet and is subject to change.
+{{box op="end"}}
 
-This document includes a number of diagrams and tables that will be included in the datasheet once finalized.
 
 ## Pins and button definitions
 
@@ -260,14 +259,13 @@ Sulu supports PWM (pulse-width modulation) on the following pins:
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-- PWM that share the same timer (`PMW2` for example) must share the same frequency but can have different duty cycles.
-- Pin `D7` (PWM0) share a timer with the RGB LED and you should not change its frequency but it can have a different duty cycle.
+On the RTL872x devices, all PWM pins and the RGB LED share the same PWM timer and must share the same PWM frequency, though each pin can have a separate duty cycle.
 
 #### PWM vs. Boron
 
 {{!-- imageOverlay src="/assets/images/sulu/sulu-boron-pwm-comparison.svg" alt="PWM comparison" class="full-width" --}}
 
-The pins that support PWM are different on the Argon and Photon 2.
+The pins that support PWM are different on the Boron (and Argon) and Sulu.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6026dd9c-e783-4ada-a1ed-850c5cddcd0b --}}
 
@@ -301,6 +299,7 @@ The pins that support PWM are different on the Argon and Photon 2.
 
 {{!-- imageOverlay src="/assets/images/sulu/sulu-photon2-pwm-comparison.svg" alt="PWM comparison" class="full-width" --}}
 
+The pins that support PWM are different on the Photon and Sulu.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 817332fa-3736-4879-a091-256b97e9d5c1 --}}
 
@@ -374,6 +373,13 @@ BLE long range (coded PHY) is not supported on Sulu.
 ### PMIC and Fuel Gauge
 
 Sulu contains the bq24195 PMIC and MAX17043 fuel gauge. They are on a dedicated I2C interface and will not interfere with the `Wire` interface on `D0` and `D1`.
+
+| Name       | MCU    | Description |
+| :--------- | :----- | :---------- |
+| PMIC_SDA   | PB[0]  | SDA for PMIC/Fuel Gauge |
+| PMIC_SCL   | PA[31] | SCL for PMIC/Fuel Gauge |
+| LOW_BAT_UC | PA[21] | PMIC and Fuel Gauge interrupt |
+
 
 ### SWD
 
@@ -997,3 +1003,13 @@ Sulu does not have NFC Tag support.
 
 {{collapse op="end"}}
 
+
+## Country compatibility
+
+{{!-- BEGIN do not edit content below, it is automatically generated f82eeab1-470c-4c25-a505-3057c080fc1d --}}
+
+| Country | Technologies | Carriers |
+| :--- | :--- | :--- |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}

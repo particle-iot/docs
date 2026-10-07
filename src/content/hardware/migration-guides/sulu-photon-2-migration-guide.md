@@ -132,7 +132,10 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Ph
 
 {{!-- imageOverlay src="/assets/images/sulu/sulu-photon2-boot-comparison.svg" alt="Boot mode comparison" class="full-width" --}}
 
-These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
+These pins have a special function at boot on the Photon 2. These restrictions do not exist on Sulu because:
+
+- Photon 2 uses LOG_UART for TX/RX which has boot mode restrictions on TX. Sulu uses LP_UART, which does not have restrictions.
+- Photon 2 shares SWD with D6/D7. Sulu uses dedicated pins for SWD.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5baa3b30-adfa-4fbb-a77c-0cacd12bb039 --}}
 
@@ -164,6 +167,12 @@ Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connect
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
+
+### Battery and charge monitoring
+
+The Photon 2 does not have a PMIC chip and uses `VBAT_MEAS` to measure the battery voltage and and `CHG` to determine the charge state.
+
+This is not used on Sulu, which has a full bq24195 PMIC and the battery status can be determined using the system power manager to access the PMIC and Fuel Gauge chips via I2C. This is the same chipset uses on the Boron, Tracker, Muon, and other cellular devices.
 
 
 ### Full module pin comparison - Sulu from Photon 2
