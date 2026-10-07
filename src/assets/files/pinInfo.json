@@ -8066,14 +8066,13 @@
           "is5VTolerant": false,
           "isIO": true,
           "pdm": "DAT",
-          "somPin": "RESERVED",
           "tone": false
         },
         {
           "num": 7,
           "name": "A2",
           "altName": "D17",
-          "desc": "A2 Analog in, SPI1 SS, GPIO, PWM",
+          "desc": "A2 Analog in, GPIO, PWM",
           "analogRead": true,
           "analogWriteDAC": false,
           "analogWritePWM": true,
@@ -8086,7 +8085,6 @@
           "is5VTolerant": false,
           "isIO": true,
           "pwmChannel": "1.17",
-          "spi": "SPI1 (SS)|SS. Use SPI1 object.",
           "tone": true
         },
         {
@@ -8152,7 +8150,7 @@
           "num": 11,
           "name": "SCK",
           "altName": "D13",
-          "desc": "D13 GPIO, SPI SLK, PWM, I2S CLK",
+          "desc": "D13 GPIO, SPI SCK, PWM, I2S CLK",
           "analogRead": false,
           "analogWriteDAC": false,
           "analogWritePWM": true,
@@ -8191,7 +8189,7 @@
           "num": 13,
           "name": "MISO",
           "altName": "D11",
-          "desc": "SPI MISO, D5 GPIO, PWM, I2S TX",
+          "desc": "SPI MISO, D11 GPIO, PWM, I2S TX",
           "analogRead": false,
           "analogWriteDAC": false,
           "analogWritePWM": true,
@@ -8230,7 +8228,7 @@
         {
           "num": 15,
           "name": "TX",
-          "altName": "D09",
+          "altName": "D9",
           "desc": "Serial TX, PWM, GPIO, I2S MCLK",
           "analogRead": false,
           "analogWriteDAC": false,
@@ -8246,7 +8244,6 @@
           "isIO": true,
           "pwmChannel": "1.0",
           "serial": "Serial1 (TX)|TX. Use Serial1 object.",
-          "somPin": "TX",
           "tone": true
         },
         {
@@ -8264,7 +8261,7 @@
           "internalPull": "???",
           "is5VTolerant": false,
           "isIO": true,
-          "pwmChannel": "???",
+          "pwmChannel": "1.3",
           "tone": true
         },
         {
@@ -8282,7 +8279,7 @@
           "internalPull": "???",
           "is5VTolerant": false,
           "isIO": true,
-          "pwmChannel": "???",
+          "pwmChannel": "1.2",
           "tone": true
         },
         {
@@ -8319,13 +8316,12 @@
           "is5VTolerant": false,
           "isIO": true,
           "serial": "Serial1 (CTS) |CTS. Use Serial1 object.",
-          "somPin": "CTS",
           "tone": false
         },
         {
           "num": 20,
           "name": "D4",
-          "desc": "D4 GPIO, PWM, I2S WS",
+          "desc": "D4 GPIO, SPI SS, PWM, I2S WS",
           "analogRead": false,
           "analogWriteDAC": false,
           "analogWritePWM": true,
@@ -8338,13 +8334,13 @@
           "is5VTolerant": false,
           "isIO": true,
           "pwmChannel": "1.13",
-          "somPin": "PWM3",
+          "spi": "SPI (SS)|SS. Use SPI object.",
           "tone": true
         },
         {
           "num": 21,
           "name": "D5",
-          "desc": "GPIO",
+          "desc": "D5 GPIO, SPI1 SS",
           "analogRead": false,
           "analogWriteDAC": false,
           "analogWritePWM": false,
@@ -8355,6 +8351,7 @@
           "internalPull": "???",
           "is5VTolerant": false,
           "isIO": true,
+          "spi": "SPI1 (SS)|SS. Use SPI1 object.",
           "tone": false
         },
         {
