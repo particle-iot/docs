@@ -27,7 +27,7 @@ This document includes a number of diagrams and tables that will be included in 
 | :--- | :--- | :--- | :--- | :--- | :---: | :--- |
 | A0 / D19 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[1] |
 | A1 / D18 | ADC_1 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[2] |
-| A2 / D17 | ADC_2 | &nbsp; | SPI1 (SS) | &nbsp; | &check; | PB[7] |
+| A2 / D17 | ADC_2 | &nbsp; | &nbsp; | &nbsp; | &check; | PB[7] |
 | A3 / D16 | ADC_3 | &nbsp; | SPI1 (MOSI) | &nbsp; | &check; | PB[4] |
 | A4 / D15 | ADC_4 | &nbsp; | SPI1 (MISO) | &nbsp; | &check; | PB[5] |
 | A5 / D14 | ADC_5 | &nbsp; | SPI1 (SCK) | &nbsp; | &nbsp; | PB[6] |
@@ -35,8 +35,8 @@ This document includes a number of diagrams and tables that will be included in 
 | D1 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | &check; | PA[23] |
 | D2 | &nbsp; | &nbsp; | &nbsp; | Serial1 (RTS)  | &nbsp; | PA[14] |
 | D3 | &nbsp; | &nbsp; | &nbsp; | Serial1 (CTS)  | &nbsp; | PA[15] |
-| D4 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; | PB[21] |
-| D5 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[29] |
+| D4 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | &check; | PB[21] |
+| D5 | &nbsp; | &nbsp; | SPI1 (SS) | &nbsp; | &nbsp; | PB[29] |
 | D6 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[30] |
 | D7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[31] |
 | D8 / WKP | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[20] |
@@ -44,7 +44,7 @@ This document includes a number of diagrams and tables that will be included in 
 | MOSI / D12 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | &check; | PB[18] |
 | RX / D10 | &nbsp; | &nbsp; | &nbsp; | Serial1 (RX)  | &check; | PA[13] |
 | SCK / D13 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | &check; | PB[20] |
-| TX / D09 | &nbsp; | &nbsp; | &nbsp; | Serial1 (TX) | &check; | PA[12] |
+| TX / D9 | &nbsp; | &nbsp; | &nbsp; | Serial1 (TX) | &check; | PA[12] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -61,7 +61,7 @@ Sulu supports 6 ADC inputs.
 | :--- | :--- | :--- | :--- |
 | A0 / D19 | A0 Analog in, PDM CLK, GPIO | ADC_0 | PB[1] |
 | A1 / D18 | A1 Analog in, PDM DAT, GPIO | ADC_1 | PB[2] |
-| A2 / D17 | A2 Analog in, SPI1 SS, GPIO, PWM | ADC_2 | PB[7] |
+| A2 / D17 | A2 Analog in, GPIO, PWM | ADC_2 | PB[7] |
 | A3 / D16 | A3 Analog in, SPI1 MOSI, GPIO, PWM | ADC_3 | PB[4] |
 | A4 / D15 | A4 Analog in, SPI1 MISO, GPIO, PWM | ADC_4 | PB[5] |
 | A5 / D14 | A5 Analog in, SPI1 SCK, GPIO | ADC_5 | PB[6] |
@@ -86,7 +86,7 @@ Sulu supports one UART serial interface.
 | D2 | D2 GPIO, Serial RTS flow control (optional) | Serial1 (RTS)  | PA[14] |
 | D3 | D3 GPIO, Serial1 CTS flow control (optional) | Serial1 (CTS)  | PA[15] |
 | RX / D10 | Serial RX, PWM, GPIO | Serial1 (RX)  | PA[13] |
-| TX / D09 | Serial TX, PWM, GPIO, I2S MCLK | Serial1 (TX) | PA[12] |
+| TX / D9 | Serial TX, PWM, GPIO, I2S MCLK | Serial1 (TX) | PA[12] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -108,7 +108,7 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Ph
 | MOSI / D15 | Serial3 (TX) | MOSI / D12 | &nbsp; |
 | MISO / D16 | Serial3 (RX) | MISO / D11 | &nbsp; |
 | RX / D9 | Serial1 (RX)  | RX / D10 | Serial1 (RX)  |
-| TX / D8 | Serial1 (TX) | TX / D09 | Serial1 (TX) |
+| TX / D8 | Serial1 (TX) | TX / D9 | Serial1 (TX) |
 | D2 | Serial2 (RTS) | D2 | Serial1 (RTS)  |
 | D3 | Serial2 (CTS) | D3 | Serial1 (CTS)  |
 | D4 | Serial2 (TX) | D4 | &nbsp; |
@@ -128,13 +128,14 @@ Sulu supports two SPI (serial peripheral interconnect) ports.
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| A2 / D17 | A2 Analog in, SPI1 SS, GPIO, PWM | SPI1 (SS) | PB[7] |
 | A3 / D16 | A3 Analog in, SPI1 MOSI, GPIO, PWM | SPI1 (MOSI) | PB[4] |
 | A4 / D15 | A4 Analog in, SPI1 MISO, GPIO, PWM | SPI1 (MISO) | PB[5] |
 | A5 / D14 | A5 Analog in, SPI1 SCK, GPIO | SPI1 (SCK) | PB[6] |
-| MISO / D11 | SPI MISO, D5 GPIO, PWM, I2S TX | SPI (MISO) | PB[19] |
+| D4 | D4 GPIO, SPI SS, PWM, I2S WS | SPI (SS) | PB[21] |
+| D5 | D5 GPIO, SPI1 SS | SPI1 (SS) | PB[29] |
+| MISO / D11 | SPI MISO, D11 GPIO, PWM, I2S TX | SPI (MISO) | PB[19] |
 | MOSI / D12 | SPI MOSI, D12 GPIO, PWM | SPI (MOSI) | PB[18] |
-| SCK / D13 | D13 GPIO, SPI SLK, PWM, I2S CLK | SPI (SCK) | PB[20] |
+| SCK / D13 | D13 GPIO, SPI SCK, PWM, I2S CLK | SPI (SCK) | PB[20] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -156,7 +157,6 @@ Both Sulu and the Boron support two SPI interfaces, however `SPI1` (secondary SP
 
 | Boron Pin Name | Boron SPI | Sulu Pin Name | Sulu SPI |
 | :--- | :--- | :--- | :--- |
-| A2 / D17 | &nbsp; | A2 / D17 | SPI1 (SS) |
 | A3 / D16 | &nbsp; | A3 / D16 | SPI1 (MOSI) |
 | A4 / D15 | &nbsp; | A4 / D15 | SPI1 (MISO) |
 | A5 / D14 | SPI (SS) | A5 / D14 | SPI1 (SCK) |
@@ -165,7 +165,8 @@ Both Sulu and the Boron support two SPI interfaces, however `SPI1` (secondary SP
 | MISO / D11 | SPI (MISO) | MISO / D11 | SPI (MISO) |
 | D2 | SPI1 (SCK) | D2 | &nbsp; |
 | D3 | SPI1 (MOSI) | D3 | &nbsp; |
-| D4 | SPI1 (MISO) | D4 | &nbsp; |
+| D4 | SPI1 (MISO) | D4 | SPI (SS) |
+| D5 | &nbsp; | D5 | SPI1 (SS) |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -198,7 +199,6 @@ Additionally, `SPI1` is on different pins.
 
 | Photon 2 Pin Name | Photon 2 SPI | Sulu Pin Name | Sulu SPI |
 | :--- | :--- | :--- | :--- |
-| A2 / D13 | &nbsp; | A2 / D17 | SPI1 (SS) |
 | A5 / D14 | &nbsp; | A3 / D16 | SPI1 (MOSI) |
 | S4 / D19 | &nbsp; | A4 / D15 | SPI1 (MISO) |
 | S3 / D18 | SPI (SS) | A5 / D14 | SPI1 (SCK) |
@@ -207,8 +207,8 @@ Additionally, `SPI1` is on different pins.
 | MISO / D16 | SPI (MISO) | MISO / D11 | SPI (MISO) |
 | D2 | SPI1 (MOSI) | D2 | &nbsp; |
 | D3 | SPI1 (MISO) | D3 | &nbsp; |
-| D4 | SPI1 (SCK) | D4 | &nbsp; |
-| D5 | SPI1 (SS) | D5 | &nbsp; |
+| D4 | SPI1 (SCK) | D4 | SPI (SS) |
+| D5 | SPI1 (SS) | D5 | SPI1 (SS) |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -245,17 +245,17 @@ Sulu supports PWM (pulse-width modulation) on the following pins:
 
 | Pin Name | Description | Timer | MCU |
 | :--- | :--- | :--- | :--- |
-| A2 / D17 | A2 Analog in, SPI1 SS, GPIO, PWM | &nbsp; | PB[7] |
+| A2 / D17 | A2 Analog in, GPIO, PWM | &nbsp; | PB[7] |
 | A3 / D16 | A3 Analog in, SPI1 MOSI, GPIO, PWM | &nbsp; | PB[4] |
 | A4 / D15 | A4 Analog in, SPI1 MISO, GPIO, PWM | &nbsp; | PB[5] |
 | D0 | I2C SDA, GPIO, PWM | &nbsp; | PA[24] |
 | D1 | I2C SCL, GPIO, PWM | &nbsp; | PA[23] |
-| D4 | D4 GPIO, PWM, I2S WS | &nbsp; | PB[21] |
-| MISO / D11 | SPI MISO, D5 GPIO, PWM, I2S TX | &nbsp; | PB[19] |
+| D4 | D4 GPIO, SPI SS, PWM, I2S WS | &nbsp; | PB[21] |
+| MISO / D11 | SPI MISO, D11 GPIO, PWM, I2S TX | &nbsp; | PB[19] |
 | MOSI / D12 | SPI MOSI, D12 GPIO, PWM | &nbsp; | PB[18] |
 | RX / D10 | Serial RX, PWM, GPIO | &nbsp; | PA[13] |
-| SCK / D13 | D13 GPIO, SPI SLK, PWM, I2S CLK | &nbsp; | PB[20] |
-| TX / D09 | Serial TX, PWM, GPIO, I2S MCLK | &nbsp; | PA[12] |
+| SCK / D13 | D13 GPIO, SPI SCK, PWM, I2S CLK | &nbsp; | PB[20] |
+| TX / D9 | Serial TX, PWM, GPIO, I2S MCLK | &nbsp; | PA[12] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -283,7 +283,7 @@ The pins that support PWM are different on the Argon and Photon 2.
 | MOSI / D12 | &nbsp; | MOSI / D12 | &check; |
 | MISO / D11 | &nbsp; | MISO / D11 | &check; |
 | RX / D10 | &nbsp; | RX / D10 | &check; |
-| TX / D09 | &nbsp; | TX / D09 | &check; |
+| TX / D09 | &nbsp; | TX / D9 | &check; |
 | D0 | &nbsp; | D0 | &check; |
 | D1 | &nbsp; | D1 | &check; |
 | D2 | &check; | D2 | &nbsp; |
@@ -313,7 +313,7 @@ The pins that support PWM are different on the Argon and Photon 2.
 | MOSI / D15 | &check; | MOSI / D12 | &check; |
 | MISO / D16 | &check; | MISO / D11 | &check; |
 | RX / D9 | &nbsp; | RX / D10 | &check; |
-| TX / D8 | &nbsp; | TX / D09 | &check; |
+| TX / D8 | &nbsp; | TX / D9 | &check; |
 | D0 / A3 | &nbsp; | D0 | &check; |
 | D1 / A4 | &check; | D1 | &check; |
 | D4 | &nbsp; | D4 | &check; |
@@ -357,10 +357,10 @@ The Sulu hardware supports I2S (sound), but there is no support for it in Device
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| D4 | D4 GPIO, PWM, I2S WS | I2S WS | PB[21] |
-| MISO / D11 | SPI MISO, D5 GPIO, PWM, I2S TX | I2S TX | PB[19] |
-| SCK / D13 | D13 GPIO, SPI SLK, PWM, I2S CLK | I2S CLK | PB[20] |
-| TX / D09 | Serial TX, PWM, GPIO, I2S MCLK | I2S MCLK | PA[12] |
+| D4 | D4 GPIO, SPI SS, PWM, I2S WS | I2S WS | PB[21] |
+| MISO / D11 | SPI MISO, D11 GPIO, PWM, I2S TX | I2S TX | PB[19] |
+| SCK / D13 | D13 GPIO, SPI SCK, PWM, I2S CLK | I2S CLK | PB[20] |
+| TX / D9 | Serial TX, PWM, GPIO, I2S MCLK | I2S MCLK | PA[12] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -423,7 +423,7 @@ While the D7 pin is common between Sulu and Photon 2 as a boot pin, there are fe
 
 | Photon 2 Pin Name | Photon 2 Boot | Sulu Pin Name | Sulu Boot |
 | :--- | :--- | :--- | :--- |
-| TX / D8 | Low at boot triggers ISP flash download | TX / D09 | &nbsp; |
+| TX / D8 | Low at boot triggers ISP flash download | TX / D9 | &nbsp; |
 | D6 | SWCLK. 40K pull-down at boot. | D6 | &nbsp; |
 | D7 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | D7 | Low at boot triggers MCU boot mode. |
 
@@ -453,7 +453,7 @@ Pin D10 `WKP` is the same module pin location as the Argon pin D8, which is also
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
 | 14 | RX / D10 | Serial RX, PWM, GPIO | Pin can wake from HIBERNATE sleep | PA[13] |
-| 15 | TX / D09 | Serial TX, PWM, GPIO, I2S MCLK | Pin can wake from HIBERNATE sleep | PA[12] |
+| 15 | TX / D9 | Serial TX, PWM, GPIO, I2S MCLK | Pin can wake from HIBERNATE sleep | PA[12] |
 | 18 | D2 | D2 GPIO, Serial RTS flow control (optional) | Pin can wake from HIBERNATE sleep | PA[14] |
 | 19 | D3 | D3 GPIO, Serial1 CTS flow control (optional) | Pin can wake from HIBERNATE sleep | PA[15] |
 | 24 | D8 / WKP | GPIO, WKP | Pin can wake from HIBERNATE sleep | PA[20] |
@@ -603,13 +603,12 @@ Sulu does not have NFC Tag support.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">7</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">A2</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D17</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">A2 Analog in, SPI1 SS, GPIO, PWM</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">A2 Analog in, GPIO, PWM</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">SS. Use SPI1 object.</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[7]</td></tr>
@@ -689,7 +688,7 @@ Sulu does not have NFC Tag support.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">11</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">SCK</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D13</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D13 GPIO, SPI SLK, PWM, I2S CLK</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D13 GPIO, SPI SCK, PWM, I2S CLK</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
@@ -732,7 +731,7 @@ Sulu does not have NFC Tag support.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">13</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">MISO</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D11</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">SPI MISO, D5 GPIO, PWM, I2S TX</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">SPI MISO, D11 GPIO, PWM, I2S TX</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
@@ -774,7 +773,7 @@ Sulu does not have NFC Tag support.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">15</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">TX</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D09</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D9</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Serial TX, PWM, GPIO, I2S MCLK</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
@@ -872,11 +871,12 @@ Sulu does not have NFC Tag support.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">20</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D4</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D4 GPIO, PWM, I2S WS</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D4 GPIO, SPI SS, PWM, I2S WS</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">SS. Use SPI object.</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">I2S interface</td><td class="" style="text-align: left; ">I2S WS</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
@@ -892,9 +892,10 @@ Sulu does not have NFC Tag support.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">21</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D5</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">GPIO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D5 GPIO, SPI1 SS</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">SS. Use SPI1 object.</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[29]</td></tr>
@@ -1009,7 +1010,6 @@ Sulu does not have NFC Tag support.
 
 | Boron Pin Name | Boron SPI | Sulu Pin Name | Sulu SPI |
 | :--- | :--- | :--- | :--- |
-| A2 / D17 | &nbsp; | A2 / D17 | SPI1 (SS) |
 | A3 / D16 | &nbsp; | A3 / D16 | SPI1 (MOSI) |
 | A4 / D15 | &nbsp; | A4 / D15 | SPI1 (MISO) |
 | A5 / D14 | SPI (SS) | A5 / D14 | SPI1 (SCK) |
@@ -1018,7 +1018,8 @@ Sulu does not have NFC Tag support.
 | MISO / D11 | SPI (MISO) | MISO / D11 | SPI (MISO) |
 | D2 | SPI1 (SCK) | D2 | &nbsp; |
 | D3 | SPI1 (MOSI) | D3 | &nbsp; |
-| D4 | SPI1 (MISO) | D4 | &nbsp; |
+| D4 | SPI1 (MISO) | D4 | SPI (SS) |
+| D5 | &nbsp; | D5 | SPI1 (SS) |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -1053,7 +1054,7 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Bo
 | Boron Pin Name | Boron Serial | Sulu Pin Name | Sulu Serial |
 | :--- | :--- | :--- | :--- |
 | RX / D10 | Serial1 RX | RX / D10 | Serial1 (RX)  |
-| TX / D09 | Serial1 TX | TX / D09 | Serial1 (TX) |
+| TX / D09 | Serial1 TX | TX / D9 | Serial1 (TX) |
 | D2 | Serial1 RTS | D2 | Serial1 (RTS)  |
 | D3 | Serial1 CTS | D3 | Serial1 (CTS)  |
 
@@ -1163,7 +1164,7 @@ The pins that support PWM are different on the Argon and Photon 2.
 | MOSI / D12 | &nbsp; | MOSI / D12 | &check; |
 | MISO / D11 | &nbsp; | MISO / D11 | &check; |
 | RX / D10 | &nbsp; | RX / D10 | &check; |
-| TX / D09 | &nbsp; | TX / D09 | &check; |
+| TX / D09 | &nbsp; | TX / D9 | &check; |
 | D0 | &nbsp; | D0 | &check; |
 | D1 | &nbsp; | D1 | &check; |
 | D2 | &check; | D2 | &nbsp; |
@@ -1203,10 +1204,10 @@ and Sulu, but only on specific pins. The Boron can use any pins for PDM (with th
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| D4 | D4 GPIO, PWM, I2S WS | I2S WS | PB[21] |
-| MISO / D11 | SPI MISO, D5 GPIO, PWM, I2S TX | I2S TX | PB[19] |
-| SCK / D13 | D13 GPIO, SPI SLK, PWM, I2S CLK | I2S CLK | PB[20] |
-| TX / D09 | Serial TX, PWM, GPIO, I2S MCLK | I2S MCLK | PA[12] |
+| D4 | D4 GPIO, SPI SS, PWM, I2S WS | I2S WS | PB[21] |
+| MISO / D11 | SPI MISO, D11 GPIO, PWM, I2S TX | I2S TX | PB[19] |
+| SCK / D13 | D13 GPIO, SPI SCK, PWM, I2S CLK | I2S CLK | PB[20] |
+| TX / D9 | Serial TX, PWM, GPIO, I2S MCLK | I2S MCLK | PA[12] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -1255,7 +1256,7 @@ Pin D8 `WKP` is the same module pin location as the Boron pin D8, which is also 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
 | 14 | RX / D10 | Serial RX, PWM, GPIO | Pin can wake from HIBERNATE sleep | PA[13] |
-| 15 | TX / D09 | Serial TX, PWM, GPIO, I2S MCLK | Pin can wake from HIBERNATE sleep | PA[12] |
+| 15 | TX / D9 | Serial TX, PWM, GPIO, I2S MCLK | Pin can wake from HIBERNATE sleep | PA[12] |
 | 18 | D2 | D2 GPIO, Serial RTS flow control (optional) | Pin can wake from HIBERNATE sleep | PA[14] |
 | 19 | D3 | D3 GPIO, Serial1 CTS flow control (optional) | Pin can wake from HIBERNATE sleep | PA[15] |
 | 24 | D8 / WKP | GPIO, WKP | Pin can wake from HIBERNATE sleep | PA[20] |
@@ -1365,13 +1366,12 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A2 | A2 |
 | &nbsp; | Pin Alternate Name | D17 | D17 |
-| ∆ | Description | A2 Analog in, GPIO, PWM | A2 Analog in, SPI1 SS, GPIO, PWM |
+| &nbsp; | Description | A2 Analog in, GPIO, PWM | A2 Analog in, GPIO, PWM |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
-| ∆ | SPI interface | n/a | SS. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### A3
@@ -1421,7 +1421,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | SCK | SCK |
 | &nbsp; | Pin Alternate Name | D13 | D13 |
-| ∆ | Description | SPI SCK, GPIO | D13 GPIO, SPI SLK, PWM, I2S CLK |
+| ∆ | Description | SPI SCK, GPIO | D13 GPIO, SPI SCK, PWM, I2S CLK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
@@ -1448,7 +1448,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | MISO | MISO |
 | &nbsp; | Pin Alternate Name | D11 | D11 |
-| ∆ | Description | SPI MISO, GPIO | SPI MISO, D5 GPIO, PWM, I2S TX |
+| ∆ | Description | SPI MISO, GPIO | SPI MISO, D11 GPIO, PWM, I2S TX |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
@@ -1474,7 +1474,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 |   |   | Boron | Sulu |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | TX | TX |
-| &nbsp; | Pin Alternate Name | D09 | D09 |
+| ∆ | Pin Alternate Name | D09 | D9 |
 | ∆ | Description | Serial TX, GPIO | Serial TX, PWM, GPIO, I2S MCLK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
@@ -1538,12 +1538,12 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 |   |   | Boron | Sulu |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D4 | D4 |
-| ∆ | Description | SPI1 MISO, PWM, GPIO | D4 GPIO, PWM, I2S WS |
+| ∆ | Description | SPI1 MISO, PWM, GPIO | D4 GPIO, SPI SS, PWM, I2S WS |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
-| ∆ | SPI interface | MISO. Use SPI1 object. | n/a |
+| ∆ | SPI interface | MISO. Use SPI1 object. | SS. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | I2S interface | n/a | I2S WS |
 | ∆ | Internal pull resistance | 13K | ??? |
@@ -1551,11 +1551,12 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 |   |   | Boron | Sulu |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D5 | D5 |
-| ∆ | Description | PWM, GPIO | GPIO |
+| ∆ | Description | PWM, GPIO | D5 GPIO, SPI1 SS |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | Yes | No |
 | ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
+| ∆ | SPI interface | n/a | SS. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D6
@@ -1650,7 +1651,6 @@ Additionally, `SPI1` is on different pins.
 
 | Photon 2 Pin Name | Photon 2 SPI | Sulu Pin Name | Sulu SPI |
 | :--- | :--- | :--- | :--- |
-| A2 / D13 | &nbsp; | A2 / D17 | SPI1 (SS) |
 | A5 / D14 | &nbsp; | A3 / D16 | SPI1 (MOSI) |
 | S4 / D19 | &nbsp; | A4 / D15 | SPI1 (MISO) |
 | S3 / D18 | SPI (SS) | A5 / D14 | SPI1 (SCK) |
@@ -1659,8 +1659,8 @@ Additionally, `SPI1` is on different pins.
 | MISO / D16 | SPI (MISO) | MISO / D11 | SPI (MISO) |
 | D2 | SPI1 (MOSI) | D2 | &nbsp; |
 | D3 | SPI1 (MISO) | D3 | &nbsp; |
-| D4 | SPI1 (SCK) | D4 | &nbsp; |
-| D5 | SPI1 (SS) | D5 | &nbsp; |
+| D4 | SPI1 (SCK) | D4 | SPI (SS) |
+| D5 | SPI1 (SS) | D5 | SPI1 (SS) |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -1680,7 +1680,7 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Ph
 | MOSI / D15 | Serial3 (TX) | MOSI / D12 | &nbsp; |
 | MISO / D16 | Serial3 (RX) | MISO / D11 | &nbsp; |
 | RX / D9 | Serial1 (RX)  | RX / D10 | Serial1 (RX)  |
-| TX / D8 | Serial1 (TX) | TX / D09 | Serial1 (TX) |
+| TX / D8 | Serial1 (TX) | TX / D9 | Serial1 (TX) |
 | D2 | Serial2 (RTS) | D2 | Serial1 (RTS)  |
 | D3 | Serial2 (CTS) | D3 | Serial1 (CTS)  |
 | D4 | Serial2 (TX) | D4 | &nbsp; |
@@ -1728,7 +1728,7 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Ph
 | MOSI / D15 | &check; | MOSI / D12 | &check; |
 | MISO / D16 | &check; | MISO / D11 | &check; |
 | RX / D9 | &nbsp; | RX / D10 | &check; |
-| TX / D8 | &nbsp; | TX / D09 | &check; |
+| TX / D8 | &nbsp; | TX / D9 | &check; |
 | D0 / A3 | &nbsp; | D0 | &check; |
 | D1 / A4 | &check; | D1 | &check; |
 | D4 | &nbsp; | D4 | &check; |
@@ -1746,7 +1746,7 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 | Photon 2 Pin Name | Photon 2 Boot | Sulu Pin Name | Sulu Boot |
 | :--- | :--- | :--- | :--- |
-| TX / D8 | Low at boot triggers ISP flash download | TX / D09 | &nbsp; |
+| TX / D8 | Low at boot triggers ISP flash download | TX / D9 | &nbsp; |
 | D6 | SWCLK. 40K pull-down at boot. | D6 | &nbsp; |
 | D7 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | D7 | Low at boot triggers MCU boot mode. |
 
@@ -1830,13 +1830,12 @@ Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connect
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A2 | A2 |
 | ∆ | Pin Alternate Name | D13 | D17 |
-| ∆ | Description | A2 Analog in, GPIO, PWM. | A2 Analog in, SPI1 SS, GPIO, PWM |
+| ∆ | Description | A2 Analog in, GPIO, PWM. | A2 Analog in, GPIO, PWM |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | &nbsp; | Supports tone | Yes | Yes |
-| ∆ | SPI interface | n/a | SS. Use SPI1 object. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 42K | ??? |
 #### A5 / A3
@@ -1884,7 +1883,7 @@ Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connect
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | SCK | SCK |
 | ∆ | Pin Alternate Name | D17 | D13 |
-| ∆ | Description | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | D13 GPIO, SPI SLK, PWM, I2S CLK |
+| ∆ | Description | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | D13 GPIO, SPI SCK, PWM, I2S CLK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
@@ -1913,7 +1912,7 @@ Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connect
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | MISO | MISO |
 | ∆ | Pin Alternate Name | D16 | D11 |
-| ∆ | Description | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | SPI MISO, D5 GPIO, PWM, I2S TX |
+| ∆ | Description | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | SPI MISO, D11 GPIO, PWM, I2S TX |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
@@ -1940,7 +1939,7 @@ Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connect
 |   |   | Photon 2 | Sulu |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | TX | TX |
-| ∆ | Pin Alternate Name | D8 | D09 |
+| ∆ | Pin Alternate Name | D8 | D9 |
 | ∆ | Description | Serial1 TX (transmitted data), GPIO | Serial TX, PWM, GPIO, I2S MCLK |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
@@ -2005,13 +2004,13 @@ Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connect
 |   |   | Photon 2 | Sulu |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D4 | D4 |
-| ∆ | Description | D4 GPIO, Serial2 TX, SPI1 SCK | D4 GPIO, PWM, I2S WS |
+| ∆ | Description | D4 GPIO, Serial2 TX, SPI1 SCK | D4 GPIO, SPI SS, PWM, I2S WS |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | UART serial | TX. Use Serial2 object. | n/a |
-| ∆ | SPI interface | SCK. Use SPI1 object. | n/a |
+| ∆ | SPI interface | SCK. Use SPI1 object. | SS. Use SPI object. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | I2S interface | n/a | I2S WS |
 | ∆ | Internal pull resistance | 2.1K | ??? |
@@ -2019,11 +2018,11 @@ Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connect
 |   |   | Photon 2 | Sulu |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D5 | D5 |
-| ∆ | Description | D5 GPIO, Serial2 RX, SPI1 SS | GPIO |
+| ∆ | Description | D5 GPIO, Serial2 RX, SPI1 SS | D5 GPIO, SPI1 SS |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | UART serial | RX. Use Serial2 object. | n/a |
-| ∆ | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | n/a |
+| ∆ | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | SS. Use SPI1 object. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### D6
