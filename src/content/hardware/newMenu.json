@@ -188,6 +188,16 @@
                     "internal": true
                 },
                 {
+                    "dir": "sulu-boron-migration-guide",
+                    "title": "Sulu from Boron migration guide",
+                    "internal": true
+                },
+                {
+                    "dir": "sulu-photon-2-migration-guide",
+                    "title": "Sulu from Photon 2 migration guide",
+                    "internal": true
+                },
+                {
                     "dir": "b404-b504-migration-guide",
                     "title": "B504e from B404X/B404/B402 migration Guide"
                 },
