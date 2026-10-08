@@ -887,24 +887,24 @@ To be provided at a later date.
 | Bosnia and Herzegovina | MON524 | 2G, 3G | HT Eronet |
 | Botswana | MON524 | 2G, 3G, 4G | BeMobile |
 | Brunei | MON524 | 3G, 4G | DST |
-| Bulgaria | MON524 | 2G, 3G | A1, Telenor, Vivacom |
+| Bulgaria | MON524 | 2G, 3G, 4G | A1, Telenor, Vivacom |
 | Burkina Faso | MON524 | 2G, 3G, 4G | Orange |
 | Cabo Verde | MON524 | 2G, 3G, 4G | CVMóvel, Unitel T+ |
-| Cambodia | MON524 | 2G, 3G | Metfone |
+| Cambodia | MON524 | 2G, 3G, 4G | Metfone |
 | Canada | MON404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Chad | MON524 | 2G, 3G, 4G | Airtel |
 | Chile | MON524 | 3G, 4G | Claro, Entel, Movistar |
 | Congo (Brazzaville) | MON524 | 2G, 3G, 4G | Airtel |
 | Congo (Kinshasa) | MON524 | 2G, 3G, 4G | Airtel |
-| Côte d'Ivoire | MON524 | 2G, 3G | MTN |
+| Côte d'Ivoire | MON524 | 2G, 3G, 4G | MTN |
 | Croatia | MON524 | 2G, 3G, 4G | Hrvatski Telekom, Tele2 |
-| Cyprus | MON524 | 2G, 3G, 4G | MTN, PrimeTel |
+| Cyprus | MON524 | 2G, 3G, 4G | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | MON524 | 2G, 4G | O2, T-Mobile, Vodafone |
 | Denmark | MON524 | 2G, 4G | 3 (Tre), TDC, Telenor, Telia |
 | Egypt | MON524 | 2G, 3G, 4G | Etisalat, Orange |
 | Estonia | MON524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
 | eSwatini | MON524 | 2G, 3G, 4G | MTN |
-| Faroe Islands | MON524 | 2G, 3G | Faroese Telecom, Vodafone |
+| Faroe Islands | MON524 | 2G, 3G, 4G | Faroese Telecom, Vodafone |
 | Finland | MON524 | 2G, 4G | DNA, Elisa, Telia |
 | France | MON524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | MON524 | 2G, 3G | Digicel |
@@ -915,7 +915,7 @@ To be provided at a later date.
 | Greece | MON524 | 2G, 4G | Cosmote, Vodafone, Wind |
 | Guinea | MON524 | 2G, 3G, 4G | MTN |
 | Guinea-Bissau | MON524 | 2G, 3G, 4G | MTN |
-| Guyana | MON524 | 2G | Digicel |
+| Guyana | MON524 | 2G, 4G | Digicel |
 | Hong Kong | MON524 | 3G, 4G | CMHK, CSL, SmarTone |
 | Hungary | MON524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | MON524 | 4G | Nova, Siminn, Vodafone |
@@ -937,7 +937,7 @@ To be provided at a later date.
 | Malta | MON524 | 2G, 3G, 4G | Go Mobile, Vodafone |
 | Mexico | MON404 | M1 | AT&T, Telcel |
 | Moldova | MON524 | 2G, 3G, 4G | Moldcell, Orange |
-| Mongolia | MON524 | 2G, 3G | Mobicom, Unitel |
+| Mongolia | MON524 | 2G, 3G, 4G | Mobicom, Unitel |
 | Montenegro | MON524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
 | Morocco | MON524 | 2G, 3G, 4G | Inwi, Medi Telecom |
 | Mozambique | MON524 | 2G, 3G, 4G | Vodacom |

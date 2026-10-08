@@ -2128,24 +2128,24 @@ The following countries are not officially supported at this time, but may be co
 | Colombia | 3G, 4G | Movistar, Tigo |
 | Costa Rica | 3G | Movistar |
 | Dominica | 4G | Flow |
-| Dominican Republic | 4G | Altice Dominicana, Claro |
+| Dominican Republic | 4G | Altice Dominicana, Claro, Viva |
 | Ecuador | 3G, 4G | Claro, Movistar |
 | El Salvador | 3G, 4G | Claro, Telefonica |
 | Guatemala | 3G, 4G | Claro, Movistar |
 | Honduras | 3G, 4G | Claro, Tigo |
 | Jamaica | 4G | Digicel, Flow |
-| Nicaragua | 3G | Movistar |
+| Nicaragua | 3G, 4G | Movistar |
 | Panama | 3G | Digicel, Movistar |
 | Paraguay | 3G, 4G | Claro, Personal, Tigo, Vox |
 | Peru | 3G, 4G | Claro, Entel, Movistar |
 | Saint Kitts and Nevis | 3G | Flow |
-| Saint Lucia | 3G | Flow |
+| Saint Lucia | 3G, 4G | Flow |
 | Saint Vincent and the Grenadines | 3G, 4G | Flow |
 | Trinidad and Tobago | 3G, 4G | Digicel, TSTT |
 | Turks and Caicos Islands | 3G | Flow |
 | Uruguay | 3G, 4G | Antel, Claro, Movistar |
 | Venezuela | 3G, 4G | Movistar |
-| Virgin Islands (British) | 4G | Flow |
+| Virgin Islands (British) | 4G | CCT, Flow |
 | Virgin Islands (U.S.) | 4G | T-Mobile (USA) |
 
 

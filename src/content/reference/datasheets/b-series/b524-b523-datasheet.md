@@ -1758,23 +1758,23 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Bosnia and Herzegovina | B524 | 2G, 3G | HT Eronet |
 | Botswana | B524 | 2G, 3G, 4G | BeMobile |
 | Brunei | B524 | 3G, 4G | DST |
-| Bulgaria | B524 | 2G, 3G | A1, Telenor, Vivacom |
+| Bulgaria | B524 | 2G, 3G, 4G | A1, Telenor, Vivacom |
 | Burkina Faso | B524 | 2G, 3G, 4G | Orange |
 | Cabo Verde | B524 | 2G, 3G, 4G | CVMóvel, Unitel T+ |
-| Cambodia | B524 | 2G, 3G | Metfone |
+| Cambodia | B524 | 2G, 3G, 4G | Metfone |
 | Chad | B524 | 2G, 3G, 4G | Airtel |
 | Chile | B524 | 3G, 4G | Claro, Entel, Movistar |
 | Congo (Brazzaville) | B524 | 2G, 3G, 4G | Airtel |
 | Congo (Kinshasa) | B524 | 2G, 3G, 4G | Airtel |
-| Côte d'Ivoire | B524 | 2G, 3G | MTN |
+| Côte d'Ivoire | B524 | 2G, 3G, 4G | MTN |
 | Croatia | B524 | 2G, 3G, 4G | Hrvatski Telekom, Tele2 |
-| Cyprus | B524 | 2G, 3G, 4G | MTN, PrimeTel |
+| Cyprus | B524 | 2G, 3G, 4G | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | B524 | 2G, 4G | O2, T-Mobile, Vodafone |
 | Denmark | B524 | 2G, 4G | 3 (Tre), TDC, Telenor, Telia |
 | Egypt | B524 | 2G, 3G, 4G | Etisalat, Orange |
 | Estonia | B524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
 | eSwatini | B524 | 2G, 3G, 4G | MTN |
-| Faroe Islands | B524 | 2G, 3G | Faroese Telecom, Vodafone |
+| Faroe Islands | B524 | 2G, 3G, 4G | Faroese Telecom, Vodafone |
 | Finland | B524 | 2G, 4G | DNA, Elisa, Telia |
 | France | B524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | B524 | 2G, 3G | Digicel |
@@ -1786,7 +1786,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Guadeloupe | B524 | 2G, 3G, 4G | Orange |
 | Guinea | B524 | 2G, 3G, 4G | MTN |
 | Guinea-Bissau | B524 | 2G, 3G, 4G | MTN |
-| Guyana | B524 | 2G | Digicel |
+| Guyana | B524 | 2G, 4G | Digicel |
 | Hong Kong | B524 | 3G, 4G | CMHK, CSL, SmarTone |
 | Hungary | B524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | B524 | 4G | Nova, Siminn, Vodafone |
@@ -1808,7 +1808,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 | Malaysia | B524 | 2G, 4G | Celcom, DiGi, Maxis |
 | Malta | B524 | 2G, 3G, 4G | Go Mobile, Vodafone |
 | Moldova | B524 | 2G, 3G, 4G | Moldcell, Orange |
-| Mongolia | B524 | 2G, 3G | Mobicom, Unitel |
+| Mongolia | B524 | 2G, 3G, 4G | Mobicom, Unitel |
 | Montenegro | B524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
 | Morocco | B524 | 2G, 3G, 4G | Inwi, Medi Telecom |
 | Mozambique | B524 | 2G, 3G, 4G | Vodacom |

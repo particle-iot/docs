@@ -1156,8 +1156,10 @@ Sulu does not have NFC Tag support.
 | Bolivia | 4G | Viva |
 | Botswana | 4G | BeMobile |
 | Brunei | 4G | DST |
+| Bulgaria | 4G | A1, Telenor, Vivacom |
 | Burkina Faso | 4G | Orange |
-| Cabo Verde | 4G | CVMóvel |
+| Cabo Verde | 4G | CVMóvel, Unitel T+ |
+| Cambodia | 4G | Metfone |
 | Canada | 4G | Bell Mobility, Rogers Wireless, Telus, Videotron |
 | Cayman Islands | 4G | Flow |
 | Chad | 4G | Airtel |
@@ -1166,17 +1168,19 @@ Sulu does not have NFC Tag support.
 | Congo (Brazzaville) | 4G | Airtel |
 | Congo (Kinshasa) | 4G | Airtel |
 | Costa Rica | 4G | Movistar |
+| Côte d'Ivoire | 4G | MTN |
 | Croatia | 4G | Hrvatski Telekom, Tele2 |
-| Cyprus | 4G | MTN, PrimeTel |
+| Cyprus | 4G | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | 4G | O2, T-Mobile, Vodafone |
 | Denmark | 4G | 3 (Tre), TDC, Telenor, Telia |
 | Dominica | 4G | Flow |
-| Dominican Republic | 4G | Altice Dominicana, Claro |
+| Dominican Republic | 4G | Altice Dominicana, Claro, Viva |
 | Ecuador | 4G | Claro, Movistar |
 | Egypt | 4G | Etisalat, Orange |
 | El Salvador | 4G | Claro, Telefonica |
 | Estonia | 4G | Elisa, Tele2, Telia |
 | eSwatini | 4G | MTN |
+| Faroe Islands | 4G | Faroese Telecom, Vodafone |
 | Finland | 4G | DNA, Elisa, Telia |
 | France | 4G | Bouygues, Free Mobile, Orange, SFR |
 | Gabon | 4G | Airtel |
@@ -1187,24 +1191,27 @@ Sulu does not have NFC Tag support.
 | Greece | 4G | Cosmote, Vodafone, Wind |
 | Guadeloupe | 4G | Orange |
 | Guatemala | 4G | Claro, Movistar |
+| Guernsey | 4G | Sure |
 | Guinea | 4G | MTN |
 | Guinea-Bissau | 4G | MTN |
+| Guyana | 4G | Digicel |
 | Honduras | 4G | Claro, Tigo |
 | Hong Kong | 4G | CMHK, CSL, SmarTone |
 | Hungary | 4G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | 4G | Nova, Siminn, Vodafone |
 | Indonesia | 4G | Indosat, Telkomsel, XL Axiata |
 | Ireland | 4G | 3 (Tre), Meteor, O2, Vodafone |
-| Isle of Man | 4G | Manx Telecom |
+| Isle of Man | 4G | Manx Telecom, Sure |
 | Israel | 4G | Hot Mobile, Orange, Pelephone |
 | Italy | 4G | TIM, Vodafone, Wind |
 | Jamaica | 4G | Digicel, Flow |
 | Japan | 4G | KDDI, NTT DoCoMo, Softbank |
-| Jersey | 4G | Jersey Telecom |
+| Jersey | 4G | Jersey Telecom, Sure |
 | Jordan | 4G | Zain |
 | Kazakhstan | 4G | Beeline, K-Cell |
 | Kenya | 4G | Airtel |
 | Kuwait | 4G | Viva, Zain |
+| Kyrgyzstan | 4G | Beeline |
 | Latvia | 4G | Bite, LMT, Tele2 |
 | Liechtenstein | 4G | Mobilkom, Orange |
 | Lithuania | 4G | Bite, Omnitel, Tele2 |
@@ -1215,6 +1222,7 @@ Sulu does not have NFC Tag support.
 | Malta | 4G | Go Mobile, Vodafone |
 | Mexico | 4G | AT&T, Telcel |
 | Moldova | 4G | Moldcell, Orange |
+| Mongolia | 4G | Mobicom, Unitel |
 | Montenegro | 4G | Mtel, T-Mobile, Telenor |
 | Morocco | 4G | Inwi, Medi Telecom |
 | Mozambique | 4G | Vodacom |
@@ -1222,6 +1230,7 @@ Sulu does not have NFC Tag support.
 | Namibia | 4G | Telecom Namibia |
 | Netherlands | 4G | KPN, T-Mobile, Vodafone |
 | New Zealand | 4G | 2degrees, Spark, Vodafone |
+| Nicaragua | 4G | Movistar |
 | Nigeria | 4G | Airtel, MTN |
 | North Macedonia | 4G | Vip operator |
 | Norway | 4G | TDC, Telenor, Telia |
@@ -1236,6 +1245,7 @@ Sulu does not have NFC Tag support.
 | Qatar | 4G | Ooredoo, Vodafone |
 | Romania | 4G | Orange, Telekom Romania, Vodafone |
 | Saint Kitts and Nevis | 4G | Flow |
+| Saint Lucia | 4G | Flow |
 | Saint Vincent and the Grenadines | 4G | Flow |
 | Serbia | 4G | Telenor, VIP |
 | Seychelles | 4G | Airtel |
@@ -1248,13 +1258,13 @@ Sulu does not have NFC Tag support.
 | Sweden | 4G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | 4G | Salt, Sunrise |
 | Taiwan | 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
-| Tajikistan | 4G | Tcell |
+| Tajikistan | 4G | Beeline, Tcell |
 | Tanzania | 4G | Airtel |
 | Thailand | 4G | AIS, DTAC, True Move |
 | Trinidad and Tobago | 4G | Digicel, TSTT |
 | Tunisia | 4G | Orange Tunisie, Tunisie Telecom |
 | Turks and Caicos Islands | 4G | Flow |
-| Uganda | 4G | Africell, MTN |
+| Uganda | 4G | Africell, Airtel, MTN |
 | Ukraine | 4G | Kyivstar, Life, MTS |
 | United Kingdom | 4G | 3, EE, O2, Vodafone |
 | United States | 4G | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
@@ -1262,9 +1272,182 @@ Sulu does not have NFC Tag support.
 | Uzbekistan | 4G | Beeline |
 | Venezuela | 4G | Movistar |
 | Vietnam | 4G | MobiFone, Viettel, Vinaphone |
-| Virgin Islands (British) | 4G | Flow |
+| Virgin Islands (British) | 4G | CCT, Flow |
 | Virgin Islands (U.S.) | 4G | T-Mobile (USA) |
 | Zambia | 4G | Airtel |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
+
+
+### Country comparison
+
+{{!-- BEGIN do not edit content below, it is automatically generated 896ba802-bdd8-4f9e-8f06-6d82af2289cd --}}
+
+| Country | Sulu | BRN404X | B504e | M404 | M524 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Afghanistan | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ❓ |
+| Albania | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Algeria | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Anguilla | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Antigua and Barbuda | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Argentina | ✅ | &nbsp; | ❓ | ❓ | ❓ |
+| Armenia | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
+| Aruba | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Australia | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Austria | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Azerbaijan | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
+| Bahamas | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Bahrain | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Bangladesh | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Barbados | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Belarus | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Belgium | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Belize | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Bolivia | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Bosnia and Herzegovina | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Botswana | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Brunei | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Bulgaria | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Burkina Faso | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Cabo Verde | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Cambodia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Canada | ✅ | ✅ | ✅ | ✅ | &nbsp; |
+| Cayman Islands | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Chad | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Chile | ✅ | &nbsp; | ❓ | &nbsp; | ✅ |
+| Colombia | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Congo (Brazzaville) | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Congo (Kinshasa) | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Costa Rica | ✅ | &nbsp; | ❓ | &nbsp; | ❓ |
+| Côte d'Ivoire | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Croatia | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Cyprus | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Czechia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Denmark | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Dominica | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Dominican Republic | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Ecuador | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Egypt | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| El Salvador | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Estonia | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| eSwatini | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Ethiopia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Faroe Islands | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Finland | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| France | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| French Guiana | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Gabon | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Georgia | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
+| Germany | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Ghana | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Gibraltar | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Greece | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Guadeloupe | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
+| Guatemala | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Guernsey | ✅ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Guinea | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Guinea-Bissau | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Guyana | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Haiti | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ❓ |
+| Honduras | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Hong Kong | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Hungary | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Iceland | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Indonesia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Ireland | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Isle of Man | ✅ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Israel | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Italy | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Jamaica | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Japan | ✅ | ❓ | &nbsp; | ❓ | ❓ |
+| Jersey | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
+| Jordan | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Kazakhstan | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Kenya | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Kuwait | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Kyrgyzstan | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
+| Latvia | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Liechtenstein | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Lithuania | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Luxembourg | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Macao | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Madagascar | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Malawi | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Malaysia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Malta | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Mexico | ✅ | ✅ | ✅ | ✅ | &nbsp; |
+| Moldova | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Mongolia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Montenegro | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Morocco | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Mozambique | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Myanmar | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Namibia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Netherlands | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| New Zealand | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Nicaragua | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Nigeria | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| North Macedonia | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
+| Norway | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Pakistan | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Palestine | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Panama | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Papua New Guinea | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Paraguay | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Peru | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Philippines | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
+| Poland | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Portugal | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Puerto Rico | ✅ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Qatar | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Romania | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Rwanda | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Saint Kitts and Nevis | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Saint Lucia | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Saint Vincent and the Grenadines | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Serbia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Seychelles | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Singapore | &nbsp; | ❓ | &nbsp; | &nbsp; | &nbsp; |
+| Sint Maarten | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Slovakia | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Slovenia | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| South Africa | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| South Korea | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| South Sudan | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Spain | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Sri Lanka | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Suriname | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Sweden | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Switzerland | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Taiwan | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Tajikistan | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
+| Tanzania | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Thailand | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Trinidad and Tobago | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Tunisia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Turks and Caicos Islands | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Uganda | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Ukraine | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
+| United Arab Emirates | &nbsp; | ❓ | &nbsp; | &nbsp; | &nbsp; |
+| United Kingdom | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| United States | ✅ | ✅ | ✅ | ✅ | &nbsp; |
+| Uruguay | ✅ | &nbsp; | ❓ | &nbsp; | ❓ |
+| Uzbekistan | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
+| Venezuela | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Vietnam | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+| Virgin Islands (British) | ✅ | &nbsp; | ❓ | &nbsp; | ❓ |
+| Virgin Islands (U.S.) | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
+| Zambia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+✅ Recommended and supported<br/>
+❓ Not officially supported, but may work
+
+## Revision history
+
+| Revision | Date | Author | Comments |
+|:---------|:-----|:-------|:---------|
+| pre      | 2026-10-07 | RK | Initial version |

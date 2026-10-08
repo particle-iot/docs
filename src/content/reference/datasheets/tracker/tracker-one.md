@@ -438,24 +438,24 @@ Current measurements taken at 3.6V via the battery input. For more information a
 | Bosnia and Herzegovina | ONE524 | 2G, 3G | HT Eronet |
 | Botswana | ONE524 | 2G, 3G, 4G | BeMobile |
 | Brunei | ONE524 | 3G, 4G | DST |
-| Bulgaria | ONE524 | 2G, 3G | A1, Telenor, Vivacom |
+| Bulgaria | ONE524 | 2G, 3G, 4G | A1, Telenor, Vivacom |
 | Burkina Faso | ONE524 | 2G, 3G, 4G | Orange |
 | Cabo Verde | ONE524 | 2G, 3G, 4G | CVMóvel, Unitel T+ |
-| Cambodia | ONE524 | 2G, 3G | Metfone |
+| Cambodia | ONE524 | 2G, 3G, 4G | Metfone |
 | Canada | ONE404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Chad | ONE524 | 2G, 3G, 4G | Airtel |
 | Chile | ONE524 | 3G, 4G | Claro, Entel, Movistar |
 | Congo (Brazzaville) | ONE524 | 2G, 3G, 4G | Airtel |
 | Congo (Kinshasa) | ONE524 | 2G, 3G, 4G | Airtel |
-| Côte d'Ivoire | ONE524 | 2G, 3G | MTN |
+| Côte d'Ivoire | ONE524 | 2G, 3G, 4G | MTN |
 | Croatia | ONE524 | 2G, 3G, 4G | Hrvatski Telekom, Tele2 |
-| Cyprus | ONE524 | 2G, 3G, 4G | MTN, PrimeTel |
+| Cyprus | ONE524 | 2G, 3G, 4G | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | ONE524 | 2G, 4G | O2, T-Mobile, Vodafone |
 | Denmark | ONE524 | 2G, 4G | 3 (Tre), TDC, Telenor, Telia |
 | Egypt | ONE524 | 2G, 3G, 4G | Etisalat, Orange |
 | Estonia | ONE524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
 | eSwatini | ONE524 | 2G, 3G, 4G | MTN |
-| Faroe Islands | ONE524 | 2G, 3G | Faroese Telecom, Vodafone |
+| Faroe Islands | ONE524 | 2G, 3G, 4G | Faroese Telecom, Vodafone |
 | Finland | ONE524 | 2G, 4G | DNA, Elisa, Telia |
 | France | ONE524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | ONE524 | 2G, 3G | Digicel |
@@ -466,7 +466,7 @@ Current measurements taken at 3.6V via the battery input. For more information a
 | Greece | ONE524 | 2G, 4G | Cosmote, Vodafone, Wind |
 | Guinea | ONE524 | 2G, 3G, 4G | MTN |
 | Guinea-Bissau | ONE524 | 2G, 3G, 4G | MTN |
-| Guyana | ONE524 | 2G | Digicel |
+| Guyana | ONE524 | 2G, 4G | Digicel |
 | Hong Kong | ONE524 | 3G, 4G | CMHK, CSL, SmarTone |
 | Hungary | ONE524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | ONE524 | 4G | Nova, Siminn, Vodafone |
@@ -488,7 +488,7 @@ Current measurements taken at 3.6V via the battery input. For more information a
 | Malta | ONE524 | 2G, 3G, 4G | Go Mobile, Vodafone |
 | Mexico | ONE404 | M1 | AT&T, Telcel |
 | Moldova | ONE524 | 2G, 3G, 4G | Moldcell, Orange |
-| Mongolia | ONE524 | 2G, 3G | Mobicom, Unitel |
+| Mongolia | ONE524 | 2G, 3G, 4G | Mobicom, Unitel |
 | Montenegro | ONE524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
 | Morocco | ONE524 | 2G, 3G, 4G | Inwi, Medi Telecom |
 | Mozambique | ONE524 | 2G, 3G, 4G | Vodacom |

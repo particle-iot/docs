@@ -513,7 +513,7 @@ const generatorConfig = require('./generator-config');
             });
         }
 
-        let recommendationMap = {
+        let recommendationMap = options.recommendationMap || {
             'YES': '&check;', 
             'NS': '?',
             'POSS': '',
