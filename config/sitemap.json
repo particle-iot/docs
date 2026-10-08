@@ -591,8 +591,8 @@
             "hash": "46f95a29b0a7edd657bd39e51d1497a1f3c1121ea0024912c3f86b22c276d286"
         },
         "getting-started/console/console.md": {
-            "date": "2026-10-20",
-            "hash": "187a29bca6fa9da06bf44e129f667493dc820f349b88c86de7c837d54a2be854"
+            "date": "2026-09-19",
+            "hash": "9bbad119d6cadbabfcb024cbd33562bde53875f5409846a63378b3b351ad55b8"
         },
         "getting-started/console/development-devices.md": {
             "date": "2025-03-18",
@@ -615,8 +615,8 @@
             "hash": "0bdd41b5c0ea57e91c50ea03ef254787ba258d7303531ba2a018141a737e1213"
         },
         "getting-started/console/team-access-controls.md": {
-            "date": "2026-10-16",
-            "hash": "08c104c722082a3f9987604d14b255715d96f9aea4ed1bf77c2e98355bd7b6c9"
+            "date": "2023-11-28",
+            "hash": "b6cb4fc80fcc4e5fa579dbbfb40db409f195898a63a205d2eadd342db98413a5"
         },
         "getting-started/console/two-step-authentication.md": {
             "date": "2023-03-22",
@@ -1275,11 +1275,11 @@
             "hash": "6e3c2fcb330df96b39a5c0a9af7aa9f9b5bd08240d7f17927b5fb068e130d0d2"
         },
         "reference/device-os/file-system.md": {
-            "date": "2026-10-13",
-            "hash": "40d725a4f32e4ce93385a1d96b604c71580d26b5b7f76c5d438a0fa3790a7455"
+            "date": "2024-02-27",
+            "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-10-19",
+            "date": "2026-10-14",
             "hash": "5a1ea587ac46fe8ee56ee81859a3de01e6d3a8460674de92f88eebdaf4ffa4df"
         },
         "reference/device-os/pin-info.md": {
@@ -3167,7 +3167,7 @@
             "hash": "e669bf1e59ac9b1556bc3b386bc473649dae063a8f56e2912dc0ec2a603b9be7"
         },
         "reference/device-os/api/servo/attach.md": {
-            "date": "2026-10-19",
+            "date": "2026-05-08",
             "hash": "0ba7315c3a32c960a2792ccab224797302f30e05a8ec902fda26588892df4a7f"
         },
         "reference/device-os/api/servo/write.md": {
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "81a791792d48da7a93e2b4fb298f8b6861966c0ffc085575a874fe827698eb9b",
-            "date": "2026-10-20"
+            "hash": "8aab849ceeb7e546ec227ccc0a60f0ab69442d774cf5d7ee5bb03d09e401689f",
+            "date": "2026-10-14"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8391,12 +8391,12 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "a5d688cd82d80d1322967c3f407b1b8a70009fcb76546f3ce3b299698dcd7102",
-            "date": "2026-10-13"
+            "hash": "08097dc0b47161915d736917924d45960db09362612fd91eb78ae9e07be3c94f",
+            "date": "2026-10-08"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "0add4679270f635c9990d95e4b0d22cdeb91ad8a065b8ddbb6712fc9454cabd5",
-            "date": "2026-10-13"
+            "hash": "3df41dd1897ccbd45ee0c5c914743c40f98d7f76c03268033d132af58a18ee5b",
+            "date": "2026-10-08"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -8487,8 +8487,8 @@
             "date": "2025-03-18"
         },
         "integrations/integrations/google-maps.md": {
-            "hash": "6409622485e393190a22ffc4d1b2ec41d0fb01520ff2c2a0b9eed28d824074a8",
-            "date": "2026-10-20"
+            "hash": "97565ccc265359050ccbc018d30285ec9ba45366c085c174af42cc2e7c6ac8e8",
+            "date": "2025-03-18"
         },
         "reference/device-os/api/threading/threading.md": {
             "hash": "d9e0cf50bccd8ba262c0af1b920ff662dabe18a8ee367b1f980c63612fd8c81b",
@@ -9083,8 +9083,8 @@
             "date": "2024-08-28"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "43343402f977acac08539dd419a1f10b23ad770fb410fb382d1bc421f9390fb8",
-            "date": "2026-10-13"
+            "hash": "b1e1adf6e54d0edd385a309f4c87f7b2721ecb4fa784fce274d4e03ab3f32dee",
+            "date": "2026-10-08"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",
@@ -9140,7 +9140,7 @@
         },
         "reference/cellular/verizon-faq.md": {
             "hash": "36450357edfabf88ae01099bde70b9749b79d5fae83237c99ab376153a349d15",
-            "date": "2026-10-19"
+            "date": "2026-06-24"
         },
         "reference/device-os/libraries/a/Adafruit_ADS1X15_multi.md": {
             "hash": "8a7cc52f3debf1f8017ede9a2bd5bcb35a07758c30a5de8618c3ed452e5e17c2",
@@ -9459,8 +9459,8 @@
             "date": "2024-11-01"
         },
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
-            "hash": "1a888b9bba07cfa129f9289dfdb39fba6f61b4f3fd4d2a73e9837b064e1737cb",
-            "date": "2026-10-13"
+            "hash": "9683b0f234e5e88656935ecfb63e727bc1913d883d9af02005425f4972ad54c8",
+            "date": "2026-09-09"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {
             "hash": "0d2103aed0bae02ca0b94dc8bff2c011e9c5f7c3311ba47cb535ac613e3705b4",
@@ -9707,8 +9707,8 @@
             "date": "2026-10-08"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
-            "hash": "8eded5c7c4d76b6dc2605e0a0c97233cc9359832a7553738ee1f4a5fe3542ed3",
-            "date": "2026-10-13"
+            "hash": "f5fcc7701cc45a369e2893a82a5cc221ba5eb413cda6756d37d20cc388bbc539",
+            "date": "2026-06-17"
         },
         "hardware/migration-guides/electron-2-boron-migration-guide.md": {
             "hash": "da62ed30085cd5db0fcab898450cd3722d55548d0de0db7cd37f5aac2bb5b4d8",
@@ -10059,8 +10059,8 @@
             "date": "2026-07-20"
         },
         "reference/datasheets/m-series/m635e-datasheet.md": {
-            "hash": "473eef6bb1bda6d06a25d5039c34a91c5dfe623c371d04c4f9831c4313bd9a56",
-            "date": "2026-10-13"
+            "hash": "76822b315018e3b5a299c0ca8941884d05faff79e85cc23b3d1ea2c5269a216e",
+            "date": "2026-10-06"
         },
         "reference/device-os/api/introduction/device-programming-summary.md": {
             "hash": "0fb58d421f8ab72358645d102c04e0538ef290693e6ca99349df32bc8e335103",
