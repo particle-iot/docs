@@ -28,6 +28,9 @@
  *                website), and - if the rendered Markdown changed since the last build and
  *                wkhtmltopdf is installed - regenerates that datasheet's PDF.
  *
+ * PDFs are only generated on the first build in a process. Subsequent rebuilds (for example
+ * when a file changes while the dev server is running) skip PDF generation entirely.
+ *
  * A hash of each file's rendered Markdown is kept in hashes.json so unchanged datasheets
  * are skipped on the next build. If wkhtmltopdf isn't installed, PDF generation is skipped
  * entirely (the website build itself is unaffected either way).
@@ -55,6 +58,11 @@ const CLONE_SUFFIX = '.pdf-source.md';
 const SITE_BASE_URL = 'https://docs.particle.io';
 
 let wkhtmltopdfAvailable = null;
+
+// PDFs are only generated on the initial build. When running the dev server with file watching,
+// Metalsmith re-runs the pipeline on every change, and regenerating PDFs each time is slow.
+// preRender() only creates the clones on the first run, so postRender() has nothing to do after that.
+let firstLoad = true;
 
 function isWkhtmltopdfAvailable() {
   if (wkhtmltopdfAvailable === null) {
@@ -86,6 +94,11 @@ function preRender(options) {
   const patterns = options.patterns || [];
 
   return function(files, metalsmith, done) {
+    if (!firstLoad) {
+      return done();
+    }
+    firstLoad = false;
+
     if (!isWkhtmltopdfAvailable()) {
       return done();
     }
