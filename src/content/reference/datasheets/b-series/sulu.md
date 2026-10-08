@@ -1408,7 +1408,6 @@ Sulu does not have NFC Tag support.
 | Saint Vincent and the Grenadines | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
 | Serbia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Seychelles | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
-| Singapore | &nbsp; | ❓ | &nbsp; | &nbsp; | &nbsp; |
 | Sint Maarten | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Slovakia | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
 | Slovenia | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
@@ -1429,7 +1428,6 @@ Sulu does not have NFC Tag support.
 | Turks and Caicos Islands | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
 | Uganda | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Ukraine | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
-| United Arab Emirates | &nbsp; | ❓ | &nbsp; | &nbsp; | &nbsp; |
 | United Kingdom | ✅ | ❓ | &nbsp; | ❓ | ✅ |
 | United States | ✅ | ✅ | ✅ | ✅ | &nbsp; |
 | Uruguay | ✅ | &nbsp; | ❓ | &nbsp; | ❓ |
