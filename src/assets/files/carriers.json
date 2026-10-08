@@ -40411,7 +40411,7 @@
       "country": "Argentina",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -41007,7 +41007,7 @@
       "country": "Argentina",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -42903,7 +42903,7 @@
       "country": "Australia",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -44462,7 +44462,7 @@
       "country": "Austria",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -45457,7 +45457,7 @@
       "country": "Austria",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -50190,7 +50190,7 @@
       "country": "Belgium",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -67713,7 +67713,7 @@
       "country": "Croatia",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -68343,7 +68343,7 @@
       "country": "Croatia",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -71830,7 +71830,7 @@
       "country": "Denmark",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -76853,7 +76853,7 @@
       "country": "Estonia",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -80091,7 +80091,7 @@
       "country": "Finland",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -81426,7 +81426,7 @@
       "country": "France",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -85205,7 +85205,7 @@
       "country": "Germany",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -96302,7 +96302,7 @@
       "country": "Hungary",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -97063,7 +97063,7 @@
       "country": "Hungary",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -97735,7 +97735,7 @@
       "country": "Iceland",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -98423,7 +98423,7 @@
       "country": "Iceland",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -105670,7 +105670,7 @@
       "country": "Japan",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -112150,7 +112150,7 @@
       "country": "Latvia",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -114731,7 +114731,7 @@
       "country": "Lithuania",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -115635,7 +115635,7 @@
       "country": "Lithuania",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -116278,7 +116278,7 @@
       "country": "Luxembourg",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -120228,7 +120228,7 @@
       "country": "Malta",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -120744,7 +120744,7 @@
       "country": "Malta",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -129225,7 +129225,7 @@
       "country": "Netherlands",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -131030,7 +131030,7 @@
       "country": "New Zealand",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -134953,7 +134953,7 @@
       "country": "Norway",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -141493,7 +141493,7 @@
       "country": "Poland",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -143347,7 +143347,7 @@
       "country": "Portugal",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -144096,7 +144096,7 @@
       "country": "Portugal",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -146601,7 +146601,7 @@
       "country": "Romania",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -157453,7 +157453,7 @@
       "country": "Slovakia",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -158095,7 +158095,7 @@
       "country": "Slovakia",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -158660,7 +158660,7 @@
       "country": "Slovenia",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -159283,7 +159283,7 @@
       "country": "Slovenia",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -161424,7 +161424,7 @@
       "country": "South Korea",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -163161,7 +163161,7 @@
       "country": "Spain",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -165272,7 +165272,7 @@
       "country": "Sri Lanka",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -166892,7 +166892,7 @@
       "country": "Sweden",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -168697,7 +168697,7 @@
       "country": "Switzerland",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -170154,7 +170154,7 @@
       "country": "Taiwan",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -172493,7 +172493,7 @@
       "country": "Thailand",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -180126,7 +180126,7 @@
       "country": "United Kingdom",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
