@@ -7223,11 +7223,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-1",
-        "4G-3",
-        "4G-8",
-        "4G-20"
+        "3G-1"
       ],
       "mnc": {
         "28401": {
@@ -7300,12 +7296,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-1",
-        "4G-3",
-        "4G-8",
-        "4G-20",
-        "4G-28"
+        "3G-1"
       ],
       "mnc": {
         "28405": {
@@ -7366,12 +7357,7 @@
         "2G-900",
         "2G-1800",
         "3G-1",
-        "3G-8",
-        "4G-1",
-        "4G-3",
-        "4G-8",
-        "4G-20",
-        "4G-28"
+        "3G-8"
       ],
       "mnc": {
         "28403": {
@@ -7517,9 +7503,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-3",
-        "4G-20"
+        "3G-1"
       ],
       "supersim": {
         "allow2G": true,
@@ -7594,10 +7578,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-3",
-        "4G-5",
-        "4G-7"
+        "3G-1"
       ],
       "mnc": {
         "45608": {
@@ -8939,8 +8920,7 @@
       },
       "bands": [
         "2G-900",
-        "3G-1",
-        "4G-20"
+        "3G-1"
       ],
       "mnc": {
         "61205": {
@@ -9281,10 +9261,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-3",
-        "4G-7",
-        "4G-20"
+        "3G-1"
       ],
       "mnc": {
         "28001": {
@@ -10042,8 +10019,7 @@
       },
       "bands": [
         "2G-1900",
-        "3G-8",
-        "4G-4"
+        "3G-8"
       ],
       "supersimV2": {
         "allow2G": true,
@@ -10690,11 +10666,7 @@
       "bands": [
         "2G-900",
         "3G-1",
-        "3G-8",
-        "4G-1",
-        "4G-3",
-        "4G-7",
-        "4G-20"
+        "3G-8"
       ],
       "supersim": {
         "allow2G": true,
@@ -10761,9 +10733,7 @@
       },
       "bands": [
         "2G-900",
-        "3G-1",
-        "4G-3",
-        "4G-20"
+        "3G-1"
       ],
       "supersimV2": {
         "allow2G": true,
@@ -12776,9 +12746,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-3",
-        "4G-20"
+        "3G-1"
       ],
       "supersim": {
         "allow2G": true,
@@ -12918,8 +12886,7 @@
         "allow4G": true
       },
       "bands": [
-        "2G-900",
-        "4G-28"
+        "2G-900"
       ],
       "mnc": {
         "73801": {
@@ -14145,12 +14112,7 @@
         "2G-900",
         "2G-1800",
         "3G-1",
-        "3G-8",
-        "4G-1",
-        "4G-3",
-        "4G-8",
-        "4G-40",
-        "4G-41"
+        "3G-8"
       ],
       "mnc": {
         "40404": {
@@ -14549,12 +14511,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-1",
-        "4G-3",
-        "4G-8",
-        "4G-40",
-        "4G-41"
+        "3G-1"
       ]
     },
     {
@@ -15187,9 +15144,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-3",
-        "4G-20"
+        "3G-1"
       ],
       "supersim": {
         "allow2G": true,
@@ -16092,9 +16047,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-3",
-        "4G-20"
+        "3G-1"
       ],
       "supersim": {
         "allow2G": true,
@@ -16645,11 +16598,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-1",
-        "4G-3",
-        "4G-7",
-        "4G-20"
+        "3G-1"
       ],
       "mnc": {
         "43701": {
@@ -18674,9 +18623,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-3",
-        "4G-28"
+        "3G-1"
       ],
       "mnc": {
         "42899": {
@@ -18726,9 +18673,7 @@
       },
       "bands": [
         "2G-900",
-        "3G-1",
-        "4G-3",
-        "4G-28"
+        "3G-1"
       ],
       "mnc": {
         "42888": {
@@ -19823,8 +19768,7 @@
       "bands": [
         "2G-850",
         "3G-2",
-        "3G-5",
-        "4G-2"
+        "3G-5"
       ],
       "checked": "2024-02-13",
       "supersimV2": {
@@ -22936,8 +22880,7 @@
       },
       "bands": [
         "2G-850",
-        "3G-5",
-        "4G-13"
+        "3G-5"
       ],
       "koreOneNet": {
         "allow2G": true,
@@ -23356,9 +23299,7 @@
       "sunset3G": "?",
       "bands": [
         "2G-900",
-        "3G-1",
-        "4G-3",
-        "4G-20"
+        "3G-1"
       ],
       "mnc": {
         "60802": {
@@ -24284,8 +24225,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-3"
+        "3G-1"
       ],
       "mnc": {
         "63701": {
@@ -25808,9 +25748,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-1",
-        "4G-3"
+        "3G-1"
       ],
       "supersimV2": {
         "allow2G": true,
@@ -26685,8 +26623,7 @@
       },
       "bands": [
         "2G-900",
-        "3G-1",
-        "4G-3"
+        "3G-1"
       ],
       "mnc": {
         "64101": {
@@ -28724,8 +28661,7 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "4G-2"
+        "3G-1"
       ],
       "mnc": {
         "348570": {
@@ -30394,88 +30330,6 @@
       "pmic": "bq24195"
     },
     {
-      "name": "AXN715EHEA",
-      "desc": "Axion LTE CAT 1 bis (Global, EtherSIM+), [x1]",
-      "lifecycle": "Pre development",
-      "modem": "EG800Q-GL",
-      "sim": 4,
-      "simPlans": [
-        40
-      ],
-      "sim4ff": false,
-      "simMff2": false,
-      "simEsim": true,
-      "multiple": false,
-      "family": "m series",
-      "gen": "4",
-      "skuClass": "prototyping",
-      "feather": true,
-      "skuRegion": "global",
-      "cellAnt": "PARANTCW1EA",
-      "cellAntInc": true,
-      "bleAntInt": false,
-      "bleAntIntInc": false,
-      "bleAntExt": "PARANTWM1EA",
-      "bleAntExtInc": true,
-      "nfcAntExt": false,
-      "nfcAntExtInc": false,
-      "wifiAntExt": "PARANTWM1EA",
-      "wifiAntExtInc": true,
-      "prefix": "",
-      "platformId": 38,
-      "batteryConn": "jst-ph-3",
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "usb": "c",
-      "batteryRequired": false,
-      "verizon": true,
-      "mcu": "rtl872x",
-      "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
-    },
-    {
-      "name": "AXN715EHTY",
-      "desc": "Axion LTE CAT 1 bis (Global, EtherSIM+), [x50]",
-      "lifecycle": "Pre development",
-      "modem": "EG800Q-GL",
-      "sim": 4,
-      "simPlans": [
-        40
-      ],
-      "sim4ff": false,
-      "simMff2": false,
-      "simEsim": true,
-      "multiple": false,
-      "family": "m series",
-      "gen": "4",
-      "skuClass": "prototyping",
-      "feather": true,
-      "skuRegion": "global",
-      "cellAnt": "PARANTCW1EA",
-      "cellAntInc": false,
-      "bleAntInt": false,
-      "bleAntIntInc": false,
-      "bleAntExt": "PARANTWM1EA",
-      "bleAntExtInc": false,
-      "nfcAntExt": false,
-      "nfcAntExtInc": false,
-      "wifiAntExt": "PARANTWM1EA",
-      "wifiAntExtInc": false,
-      "prefix": "",
-      "platformId": 38,
-      "batteryConn": "jst-ph-3",
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "usb": "c",
-      "batteryRequired": false,
-      "verizon": true,
-      "mcu": "rtl872x",
-      "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
-    },
-    {
       "name": "B402MEA",
       "desc": "B-Series LTE CAT-M1 (NorAm), [x1]",
       "lifecycle": "Deprecated",
@@ -30716,8 +30570,7 @@
       "simPlans": [
         40
       ],
-      "simMff2": false,
-      "simEsim": true,
+      "simMff2": true,
       "family": "b series",
       "gen": "3",
       "skuClass": "production",
@@ -30757,8 +30610,7 @@
       "simPlans": [
         40
       ],
-      "simMff2": false,
-      "simEsim": true,
+      "simMff2": true,
       "family": "b series",
       "gen": "3",
       "skuClass": "production",
@@ -32648,82 +32500,6 @@
       "m2som": true,
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/"
-    },
-    {
-      "name": "M715EMEA",
-      "desc": "M-Series LTE CAT 1 bis (Global, EtherSIM+), [x1]",
-      "lifecycle": "Pre development",
-      "multiple": false,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "modem": "EG800Q-GL",
-      "sim": 4,
-      "simPlans": [
-        40
-      ],
-      "simEsim": true,
-      "family": "m series",
-      "gen": "4",
-      "skuClass": "production",
-      "skuRegion": "emeaa",
-      "gnss": "cellular-modem",
-      "cellAnt": "PARANTCW1EA",
-      "cellAntInc": true,
-      "bleAntInt": false,
-      "bleAntIntInc": false,
-      "bleAntExt": "PARANTWM1EA",
-      "bleAntExtInc": true,
-      "nfcAntExt": false,
-      "nfcAntExtInc": false,
-      "wifiAntExt": "PARANTWM1EA",
-      "wifiAntExtInc": true,
-      "prefix": "",
-      "platformId": 38,
-      "batteryConn": false,
-      "usb": false,
-      "batteryRequired": false,
-      "m2som": true,
-      "mcu": "rtl872x",
-      "hsCode": "8517.62.0090"
-    },
-    {
-      "name": "M715EMTY",
-      "desc": "M-Series LTE CAT 1 bis (Global, EtherSIM+), Tray [x50]",
-      "lifecycle": "Pre development",
-      "multiple": true,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "modem": "EG800Q-GL",
-      "sim": 4,
-      "simPlans": [
-        40
-      ],
-      "simEsim": true,
-      "family": "m series",
-      "gen": "4",
-      "skuClass": "production",
-      "skuRegion": "emeaa",
-      "gnss": "cellular-modem",
-      "cellAnt": "PARANTCW1EA",
-      "cellAntInc": false,
-      "bleAntInt": false,
-      "bleAntIntInc": false,
-      "bleAntExt": "PARANTWM1EA",
-      "bleAntExtInc": false,
-      "nfcAntExt": false,
-      "nfcAntExtInc": false,
-      "wifiAntExt": "PARANTWM1EA",
-      "wifiAntExtInc": false,
-      "prefix": "",
-      "platformId": 38,
-      "batteryConn": false,
-      "usb": false,
-      "batteryRequired": false,
-      "m2som": true,
-      "mcu": "rtl872x",
-      "hsCode": "8517.62.0090"
     },
     {
       "name": "M8CAB3VEA",
@@ -35839,11 +35615,6 @@
       "sortOrder": 8
     },
     {
-      "name": "Pre development",
-      "desc": "Like in development, but mostly hidden",
-      "sortOrder": 9
-    },
-    {
       "name": "Hidden",
       "desc": "Crossed out in SKU Master",
       "sortOrder": 9
@@ -36465,13 +36236,6 @@
       "modem": "G350",
       "desc": "Electron 2G",
       "lifecycle": "End of life"
-    },
-    {
-      "sim": 4,
-      "simPlan": 40,
-      "modem": "EG800Q-GL",
-      "desc": "LTE Cat 1 bis Global EtherSIM",
-      "lifecycle": "Hidden"
     }
   ],
   "mapRegions": [
@@ -40583,7 +40347,7 @@
       "country": "Argentina",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -41179,7 +40943,7 @@
       "country": "Argentina",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -41690,6 +41454,7 @@
       "modem": "EG800Q-GL",
       "sim": 4,
       "recommendation": "YES",
+      "reason": "bands not supported by modem",
       "supported": {
         "*": [
           "4G-3",
@@ -43075,7 +42840,7 @@
       "country": "Australia",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -44634,7 +44399,7 @@
       "country": "Austria",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -45629,7 +45394,7 @@
       "country": "Austria",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -50362,7 +50127,7 @@
       "country": "Belgium",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -54561,7 +54326,7 @@
       "country": "Brazil",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "YES",
       "roamingRestrictions": "warn",
       "technologies": [
         "NTN",
@@ -54611,7 +54376,7 @@
           "4G-28"
         ]
       },
-      "reason": "Roaming restrictions"
+      "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
     },
     {
       "country": "Brazil",
@@ -54724,9 +54489,8 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR",
-      "roamingRestrictions": "warn",
-      "reason": "Roaming restrictions"
+      "recommendation": "POSS",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Brazil",
@@ -55264,8 +55028,8 @@
       "country": "Brazil",
       "modem": "SG560D-EM",
       "sim": 5,
-      "recommendation": "NR",
-      "reason": "Roaming restrictions",
+      "recommendation": "POSS",
+      "reason": "Incomplete band fit",
       "supported": {
         "*": [
           "3G-1",
@@ -55964,23 +55728,14 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
           "NTN-255",
           "NTN-256",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "3G-1"
         ],
         "Skylo": [
           "NTN-255",
@@ -55989,23 +55744,13 @@
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "2G-900",
           "2G-1800",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       }
     },
@@ -56045,36 +55790,17 @@
       "notSupported": {
         "*": [
           "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "3G-1"
         ],
         "Telenor": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       },
       "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
@@ -56102,23 +55828,14 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
           "NTN-255",
           "NTN-256",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "3G-1"
         ],
         "Skylo": [
           "NTN-255",
@@ -56127,23 +55844,13 @@
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "2G-900",
           "2G-1800",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       }
     },
@@ -56151,35 +55858,7 @@
       "country": "Bulgaria",
       "modem": "EG800Q-EU",
       "sim": 4,
-      "supported": {
-        "*": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
-        ],
-        "A1": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
-        ],
-        "Telenor": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
-        ],
-        "Vivacom": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
-        ]
-      },
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -56210,45 +55889,16 @@
           "3G-8"
         ]
       },
-      "technologies": [
-        "4G"
-      ],
+      "technologies": [],
       "recommendation": "NR"
     },
     {
       "country": "Bulgaria",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "YES",
-      "supported": {
-        "*": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
-        ],
-        "A1": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
-        ],
-        "Telenor": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
-        ],
-        "Vivacom": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
-        ]
-      },
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -56279,9 +55929,7 @@
           "3G-8"
         ]
       },
-      "technologies": [
-        "4G"
-      ]
+      "technologies": []
     },
     {
       "country": "Bulgaria",
@@ -56293,23 +55941,14 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
           "NTN-255",
           "NTN-256",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "3G-1"
         ],
         "Skylo": [
           "NTN-255",
@@ -56318,23 +55957,13 @@
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "2G-900",
           "2G-1800",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       },
       "technologies": [],
@@ -56347,49 +55976,29 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "4G",
         "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
           "3G-1",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
           "2G-900",
-          "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "2G-1800"
         ],
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "2G-900",
           "2G-1800",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       },
       "notSupported": {
@@ -56408,49 +56017,29 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "4G",
         "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
           "3G-1",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
           "2G-900",
-          "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "2G-1800"
         ],
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "2G-900",
           "2G-1800",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       },
       "notSupported": {
@@ -56475,49 +56064,29 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "4G",
         "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
           "3G-1",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
           "2G-900",
-          "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "2G-1800"
         ],
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "2G-900",
           "2G-1800",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       },
       "notSupported": {
@@ -56536,49 +56105,29 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "4G",
         "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
           "3G-1",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
           "2G-900",
-          "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "2G-1800"
         ],
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "2G-900",
           "2G-1800",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       },
       "notSupported": {
@@ -56608,23 +56157,14 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
           "NTN-255",
           "NTN-256",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "3G-1"
         ],
         "Skylo": [
           "NTN-255",
@@ -56633,23 +56173,13 @@
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "2G-900",
           "2G-1800",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       }
     },
@@ -56683,36 +56213,17 @@
       "notSupported": {
         "*": [
           "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "3G-1"
         ],
         "Telenor": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       }
     },
@@ -56739,23 +56250,14 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
           "NTN-255",
           "NTN-256",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "3G-1"
         ],
         "Skylo": [
           "NTN-255",
@@ -56764,23 +56266,13 @@
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "2G-900",
           "2G-1800",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       }
     },
@@ -56797,23 +56289,14 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
           "NTN-255",
           "NTN-256",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "3G-1"
         ],
         "Skylo": [
           "NTN-255",
@@ -56822,23 +56305,13 @@
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "2G-900",
           "2G-1800",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       }
     },
@@ -56851,42 +56324,23 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
           "3G-1",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
           "2G-900",
-          "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "2G-1800"
         ],
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "2G-900",
           "2G-1800",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       },
       "notSupported": {
@@ -56899,7 +56353,6 @@
       },
       "technologies": [
         "2G",
-        "4G",
         "3G"
       ]
     },
@@ -56915,42 +56368,23 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "3G-1"
         ],
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "2G-900",
           "2G-1800",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       },
       "technologies": []
@@ -56989,33 +56423,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "A1": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
-        ],
-        "Telenor": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
-        ],
-        "Vivacom": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ]
       }
     },
@@ -57053,33 +56464,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "A1": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
-        ],
-        "Telenor": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
-        ],
-        "Vivacom": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ]
       }
     },
@@ -57118,38 +56506,15 @@
       "notSupported": {
         "*": [
           "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
           "NTN-255",
-          "NTN-256",
-          "4G-28"
+          "NTN-256"
         ],
         "A1": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "3G-1"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
-        ],
-        "Telenor": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
-        ],
-        "Vivacom": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
         ]
       }
     },
@@ -57166,42 +56531,23 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28",
           "3G-8"
         ],
         "A1": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
+          "3G-1"
         ],
         "Telenor": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "Vivacom": [
           "2G-900",
           "2G-1800",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-8"
         ]
       }
     },
@@ -57239,33 +56585,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ],
         "A1": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20"
-        ],
-        "Telenor": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
-        ],
-        "Vivacom": [
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-20",
-          "4G-28"
+          "3G-1"
         ]
       }
     },
@@ -57903,8 +57226,7 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-20",
-          "4G-3"
+          "4G-20"
         ],
         "CVMóvel": [
           "2G-900",
@@ -57915,9 +57237,7 @@
         "Unitel T+": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -57946,17 +57266,14 @@
       "notSupported": {
         "*": [
           "3G-1",
-          "4G-20",
-          "4G-3"
+          "4G-20"
         ],
         "CVMóvel": [
           "3G-1",
           "4G-20"
         ],
         "Unitel T+": [
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
@@ -57984,8 +57301,7 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-20",
-          "4G-3"
+          "4G-20"
         ],
         "CVMóvel": [
           "2G-900",
@@ -57996,9 +57312,7 @@
         "Unitel T+": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -58008,14 +57322,9 @@
       "sim": 4,
       "supported": {
         "*": [
-          "4G-20",
-          "4G-3"
-        ],
-        "CVMóvel": [
           "4G-20"
         ],
-        "Unitel T+": [
-          "4G-3",
+        "CVMóvel": [
           "4G-20"
         ]
       },
@@ -58048,14 +57357,9 @@
       "recommendation": "YES",
       "supported": {
         "*": [
-          "4G-20",
-          "4G-3"
-        ],
-        "CVMóvel": [
           "4G-20"
         ],
-        "Unitel T+": [
-          "4G-3",
+        "CVMóvel": [
           "4G-20"
         ]
       },
@@ -58090,8 +57394,7 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-20",
-          "4G-3"
+          "4G-20"
         ],
         "CVMóvel": [
           "2G-900",
@@ -58102,9 +57405,7 @@
         "Unitel T+": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "technologies": [],
@@ -58136,8 +57437,7 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-20",
-          "4G-3"
+          "4G-20"
         ],
         "CVMóvel": [
           "2G-900",
@@ -58148,9 +57448,7 @@
         "Unitel T+": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {}
@@ -58181,8 +57479,7 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-20",
-          "4G-3"
+          "4G-20"
         ],
         "CVMóvel": [
           "2G-900",
@@ -58193,9 +57490,7 @@
         "Unitel T+": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {}
@@ -58212,8 +57507,7 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-20",
-          "4G-3"
+          "4G-20"
         ],
         "CVMóvel": [
           "2G-900",
@@ -58224,9 +57518,7 @@
         "Unitel T+": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -58256,17 +57548,14 @@
       "notSupported": {
         "*": [
           "3G-1",
-          "4G-20",
-          "4G-3"
+          "4G-20"
         ],
         "CVMóvel": [
           "3G-1",
           "4G-20"
         ],
         "Unitel T+": [
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -58293,8 +57582,7 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-20",
-          "4G-3"
+          "4G-20"
         ],
         "CVMóvel": [
           "2G-900",
@@ -58305,9 +57593,7 @@
         "Unitel T+": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -58324,8 +57610,7 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-20",
-          "4G-3"
+          "4G-20"
         ],
         "CVMóvel": [
           "2G-900",
@@ -58336,9 +57621,7 @@
         "Unitel T+": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -58390,14 +57673,9 @@
       },
       "notSupported": {
         "*": [
-          "4G-20",
-          "4G-3"
-        ],
-        "CVMóvel": [
           "4G-20"
         ],
-        "Unitel T+": [
-          "4G-3",
+        "CVMóvel": [
           "4G-20"
         ]
       }
@@ -58440,14 +57718,9 @@
       },
       "notSupported": {
         "*": [
-          "4G-20",
-          "4G-3"
-        ],
-        "CVMóvel": [
           "4G-20"
         ],
-        "Unitel T+": [
-          "4G-3",
+        "CVMóvel": [
           "4G-20"
         ]
       }
@@ -58465,8 +57738,7 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-20",
-          "4G-3"
+          "4G-20"
         ],
         "CVMóvel": [
           "2G-900",
@@ -58477,9 +57749,7 @@
         "Unitel T+": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -58511,14 +57781,9 @@
       },
       "notSupported": {
         "*": [
-          "4G-20",
-          "4G-3"
-        ],
-        "CVMóvel": [
           "4G-20"
         ],
-        "Unitel T+": [
-          "4G-3",
+        "CVMóvel": [
           "4G-20"
         ]
       }
@@ -58535,18 +57800,12 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-5",
-          "4G-7"
+          "3G-1"
         ],
         "Metfone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-5",
-          "4G-7"
+          "3G-1"
         ]
       }
     },
@@ -58570,16 +57829,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
-          "4G-3",
-          "4G-5",
-          "4G-7"
+          "3G-1"
         ],
         "Metfone": [
-          "3G-1",
-          "4G-3",
-          "4G-5",
-          "4G-7"
+          "3G-1"
         ]
       },
       "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
@@ -58606,18 +57859,12 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-5",
-          "4G-7"
+          "3G-1"
         ],
         "Metfone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-5",
-          "4G-7"
+          "3G-1"
         ]
       }
     },
@@ -58625,18 +57872,7 @@
       "country": "Cambodia",
       "modem": "EG800Q-EU",
       "sim": 4,
-      "supported": {
-        "*": [
-          "4G-3",
-          "4G-5",
-          "4G-7"
-        ],
-        "Metfone": [
-          "4G-3",
-          "4G-5",
-          "4G-7"
-        ]
-      },
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -58649,28 +57885,16 @@
           "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ],
+      "technologies": [],
       "recommendation": "NR"
     },
     {
       "country": "Cambodia",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "YES",
-      "supported": {
-        "*": [
-          "4G-3",
-          "4G-5",
-          "4G-7"
-        ],
-        "Metfone": [
-          "4G-3",
-          "4G-5",
-          "4G-7"
-        ]
-      },
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -58683,41 +57907,26 @@
           "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ]
+      "technologies": []
     },
     {
       "country": "Cambodia",
       "modem": "EG800Q-NA",
       "sim": 4,
-      "supported": {
-        "*": [
-          "4G-5"
-        ],
-        "Metfone": [
-          "4G-5"
-        ]
-      },
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7"
+          "3G-1"
         ],
         "Metfone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7"
+          "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ],
+      "technologies": [],
       "recommendation": "NR"
     },
     {
@@ -58762,33 +57971,21 @@
       "expansion": "2022-05-18",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7"
+          "3G-1"
         ],
         "Metfone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7"
+          "3G-1"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-5"
-        ],
-        "Metfone": [
-          "4G-5"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Cambodia",
@@ -58832,64 +58029,39 @@
       "expansion": "2022-05-18",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7"
+          "3G-1"
         ],
         "Metfone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7"
+          "3G-1"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-5"
-        ],
-        "Metfone": [
-          "4G-5"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Cambodia",
       "modem": "EG91-NAX",
       "sim": 4,
       "recommendation": "NR",
-      "technologies": [
-        "4G"
-      ],
-      "supported": {
-        "*": [
-          "4G-5"
-        ],
-        "Metfone": [
-          "4G-5"
-        ]
-      },
+      "technologies": [],
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7"
+          "3G-1"
         ],
         "Metfone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7"
+          "3G-1"
         ]
       }
     },
@@ -58925,18 +58097,12 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-5",
-          "4G-7"
+          "3G-1"
         ],
         "Metfone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-5",
-          "4G-7"
+          "3G-1"
         ]
       }
     },
@@ -58952,18 +58118,12 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-5",
-          "4G-7"
+          "3G-1"
         ],
         "Metfone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-5",
-          "4G-7"
+          "3G-1"
         ]
       }
     },
@@ -59056,18 +58216,7 @@
           "3G-1"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-3",
-          "4G-5",
-          "4G-7"
-        ],
-        "Metfone": [
-          "4G-3",
-          "4G-5",
-          "4G-7"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Cambodia",
@@ -67299,13 +66448,11 @@
       "notSupported": {
         "*": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -67327,12 +66474,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ]
       },
       "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
@@ -67358,13 +66503,11 @@
       "notSupported": {
         "*": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -67372,14 +66515,7 @@
       "country": "Côte d'Ivoire",
       "modem": "EG800Q-EU",
       "sim": 4,
-      "supported": {
-        "*": [
-          "4G-20"
-        ],
-        "MTN": [
-          "4G-20"
-        ]
-      },
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -67390,24 +66526,16 @@
           "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ],
+      "technologies": [],
       "recommendation": "NR"
     },
     {
       "country": "Côte d'Ivoire",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "YES",
-      "supported": {
-        "*": [
-          "4G-20"
-        ],
-        "MTN": [
-          "4G-20"
-        ]
-      },
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -67418,9 +66546,7 @@
           "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ]
+      "technologies": []
     },
     {
       "country": "Côte d'Ivoire",
@@ -67430,13 +66556,11 @@
       "notSupported": {
         "*": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ]
       },
       "technologies": [],
@@ -67460,19 +66584,16 @@
       "expansion": "2022-05-18",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {}
@@ -67495,19 +66616,16 @@
       "expansion": "2022-05-18",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {}
@@ -67522,13 +66640,11 @@
       "notSupported": {
         "*": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -67551,12 +66667,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -67581,13 +66695,11 @@
       "notSupported": {
         "*": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -67602,13 +66714,11 @@
       "notSupported": {
         "*": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -67651,14 +66761,7 @@
           "3G-1"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-20"
-        ],
-        "MTN": [
-          "4G-20"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Côte d'Ivoire",
@@ -67689,14 +66792,7 @@
           "3G-1"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-20"
-        ],
-        "MTN": [
-          "4G-20"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Côte d'Ivoire",
@@ -67709,13 +66805,11 @@
       "notSupported": {
         "*": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
-          "3G-1",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -67738,14 +66832,7 @@
           "3G-1"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-20"
-        ],
-        "MTN": [
-          "4G-20"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Croatia",
@@ -67885,7 +66972,7 @@
       "country": "Croatia",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -68515,7 +67602,7 @@
       "country": "Croatia",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -69560,17 +68647,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -69606,17 +68688,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "3G-1",
@@ -69651,17 +68728,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -69680,14 +68752,7 @@
       "sim": 4,
       "supported": {
         "*": [
-          "4G-3",
-          "4G-7",
-          "4G-20"
-        ],
-        "Cytamobile-Vodafone": [
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "MTN": [
           "4G-3"
@@ -69726,14 +68791,7 @@
       "reason": "bands not supported by modem",
       "supported": {
         "*": [
-          "4G-3",
-          "4G-7",
-          "4G-20"
-        ],
-        "Cytamobile-Vodafone": [
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "MTN": [
           "4G-3"
@@ -69773,17 +68831,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -69804,23 +68857,16 @@
       "sim": 2,
       "recommendation": "NR",
       "technologies": [
-        "4G",
         "2G",
-        "3G"
+        "3G",
+        "4G"
       ],
       "supported": {
         "*": [
-          "4G-3",
-          "4G-7",
-          "4G-20",
           "2G-900",
           "2G-1800",
-          "3G-1"
-        ],
-        "Cytamobile-Vodafone": [
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1",
+          "4G-3"
         ],
         "MTN": [
           "2G-900",
@@ -69849,23 +68895,16 @@
       "recommendation": "YES",
       "expansion": "2022-05-18",
       "technologies": [
-        "4G",
         "2G",
-        "3G"
+        "3G",
+        "4G"
       ],
       "supported": {
         "*": [
-          "4G-3",
-          "4G-7",
-          "4G-20",
           "2G-900",
           "2G-1800",
-          "3G-1"
-        ],
-        "Cytamobile-Vodafone": [
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1",
+          "4G-3"
         ],
         "MTN": [
           "2G-900",
@@ -69896,23 +68935,16 @@
       "sim": 2,
       "recommendation": "NR",
       "technologies": [
-        "4G",
         "2G",
-        "3G"
+        "3G",
+        "4G"
       ],
       "supported": {
         "*": [
-          "4G-3",
-          "4G-7",
-          "4G-20",
           "2G-900",
           "2G-1800",
-          "3G-1"
-        ],
-        "Cytamobile-Vodafone": [
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1",
+          "4G-3"
         ],
         "MTN": [
           "2G-900",
@@ -69941,23 +68973,16 @@
       "recommendation": "YES",
       "expansion": "2022-05-18",
       "technologies": [
-        "4G",
         "2G",
-        "3G"
+        "3G",
+        "4G"
       ],
       "supported": {
         "*": [
-          "4G-3",
-          "4G-7",
-          "4G-20",
           "2G-900",
           "2G-1800",
-          "3G-1"
-        ],
-        "Cytamobile-Vodafone": [
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1",
+          "4G-3"
         ],
         "MTN": [
           "2G-900",
@@ -69994,17 +69019,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -70030,17 +69050,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "PrimeTel": [
           "4G-3"
@@ -70070,17 +69085,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -70106,17 +69116,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -70134,18 +69139,7 @@
       "modem": "SG560D-EM",
       "sim": 5,
       "recommendation": "NR",
-      "supported": {
-        "*": [
-          "4G-3",
-          "4G-7",
-          "4G-20"
-        ],
-        "Cytamobile-Vodafone": [
-          "4G-3",
-          "4G-7",
-          "4G-20"
-        ]
-      },
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -70158,9 +69152,7 @@
           "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ]
+      "technologies": []
     },
     {
       "country": "Cyprus",
@@ -70168,33 +69160,20 @@
       "sim": 5,
       "recommendation": "NR",
       "reason": "bands not supported by modem",
-      "supported": {
-        "*": [
-          "4G-7"
-        ],
-        "Cytamobile-Vodafone": [
-          "4G-7"
-        ]
-      },
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ]
+      "technologies": []
     },
     {
       "country": "Cyprus",
@@ -70208,17 +69187,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "PrimeTel": [
           "4G-3"
@@ -70251,17 +69225,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "4G-3"
@@ -70294,17 +69263,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "MTN": [
           "4G-3"
@@ -70327,17 +69291,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "PrimeTel": [
           "4G-3"
@@ -70356,17 +69315,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "4G-3"
         ],
         "Cytamobile-Vodafone": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "PrimeTel": [
           "4G-3"
@@ -72002,7 +70956,7 @@
       "country": "Denmark",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -73867,8 +72821,7 @@
         ],
         "Viva": [
           "2G-1900",
-          "3G-8",
-          "4G-4"
+          "3G-8"
         ]
       }
     },
@@ -73912,8 +72865,7 @@
           "4G-4"
         ],
         "Viva": [
-          "3G-8",
-          "4G-4"
+          "3G-8"
         ]
       },
       "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
@@ -73960,8 +72912,7 @@
         ],
         "Viva": [
           "2G-1900",
-          "3G-8",
-          "4G-4"
+          "3G-8"
         ]
       }
     },
@@ -73999,8 +72950,7 @@
         ],
         "Viva": [
           "2G-1900",
-          "3G-8",
-          "4G-4"
+          "3G-8"
         ]
       },
       "technologies": [
@@ -74025,9 +72975,6 @@
           "4G-5"
         ],
         "Claro": [
-          "4G-4"
-        ],
-        "Viva": [
           "4G-4"
         ]
       },
@@ -74072,9 +73019,6 @@
         ],
         "Claro": [
           "4G-4"
-        ],
-        "Viva": [
-          "4G-4"
         ]
       },
       "notSupported": {
@@ -74144,8 +73088,7 @@
           "4G-4"
         ],
         "Viva": [
-          "2G-1900",
-          "4G-4"
+          "2G-1900"
         ]
       }
     },
@@ -74191,8 +73134,7 @@
           "4G-4"
         ],
         "Viva": [
-          "2G-1900",
-          "4G-4"
+          "2G-1900"
         ]
       }
     },
@@ -74238,8 +73180,7 @@
           "4G-4"
         ],
         "Viva": [
-          "2G-1900",
-          "4G-4"
+          "2G-1900"
         ]
       }
     },
@@ -74285,8 +73226,7 @@
           "4G-4"
         ],
         "Viva": [
-          "2G-1900",
-          "4G-4"
+          "2G-1900"
         ]
       }
     },
@@ -74311,9 +73251,6 @@
           "4G-5"
         ],
         "Claro": [
-          "4G-4"
-        ],
-        "Viva": [
           "4G-4"
         ]
       },
@@ -74379,8 +73316,7 @@
           "4G-4"
         ],
         "Viva": [
-          "3G-8",
-          "4G-4"
+          "3G-8"
         ]
       }
     },
@@ -74426,8 +73362,7 @@
         ],
         "Viva": [
           "2G-1900",
-          "3G-8",
-          "4G-4"
+          "3G-8"
         ]
       }
     },
@@ -74463,8 +73398,7 @@
         ],
         "Viva": [
           "2G-1900",
-          "3G-8",
-          "4G-4"
+          "3G-8"
         ]
       }
     },
@@ -74528,9 +73462,6 @@
         "Claro": [
           "3G-5",
           "4G-4"
-        ],
-        "Viva": [
-          "4G-4"
         ]
       }
     },
@@ -74573,9 +73504,6 @@
         ],
         "Claro": [
           "3G-5",
-          "4G-4"
-        ],
-        "Viva": [
           "4G-4"
         ]
       }
@@ -74620,9 +73548,6 @@
         "Claro": [
           "3G-5",
           "4G-4"
-        ],
-        "Viva": [
-          "4G-4"
         ]
       }
     },
@@ -74666,8 +73591,7 @@
           "4G-4"
         ],
         "Viva": [
-          "3G-8",
-          "4G-4"
+          "3G-8"
         ]
       }
     },
@@ -74713,8 +73637,7 @@
           "4G-4"
         ],
         "Viva": [
-          "2G-1900",
-          "4G-4"
+          "2G-1900"
         ]
       }
     },
@@ -77025,7 +75948,7 @@
       "country": "Estonia",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -78847,7 +77770,8 @@
       "country": "Ethiopia",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "YES",
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
       "supported": {
         "*": [
           "4G-3"
@@ -79143,21 +78067,13 @@
           "2G-900",
           "3G-1",
           "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20",
           "NTN-255",
           "NTN-256"
         ],
         "Faroese Telecom": [
           "2G-900",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-8"
         ],
         "Skylo": [
           "NTN-255",
@@ -79165,9 +78081,7 @@
         ],
         "Vodafone": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -79200,24 +78114,14 @@
       "notSupported": {
         "*": [
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-8"
         ],
         "Faroese Telecom": [
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-8"
         ],
         "Vodafone": [
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
@@ -79245,21 +78149,13 @@
           "2G-900",
           "3G-1",
           "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20",
           "NTN-255",
           "NTN-256"
         ],
         "Faroese Telecom": [
           "2G-900",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-8"
         ],
         "Skylo": [
           "NTN-255",
@@ -79267,9 +78163,7 @@
         ],
         "Vodafone": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -79277,24 +78171,7 @@
       "country": "Faroe Islands",
       "modem": "EG800Q-EU",
       "sim": 4,
-      "supported": {
-        "*": [
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
-        ],
-        "Faroese Telecom": [
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
-        ],
-        "Vodafone": [
-          "4G-3",
-          "4G-20"
-        ]
-      },
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -79317,34 +78194,16 @@
           "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ],
+      "technologies": [],
       "recommendation": "NR"
     },
     {
       "country": "Faroe Islands",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "YES",
-      "supported": {
-        "*": [
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
-        ],
-        "Faroese Telecom": [
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
-        ],
-        "Vodafone": [
-          "4G-3",
-          "4G-20"
-        ]
-      },
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -79367,9 +78226,7 @@
           "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ]
+      "technologies": []
     },
     {
       "country": "Faroe Islands",
@@ -79381,21 +78238,13 @@
           "2G-900",
           "3G-1",
           "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20",
           "NTN-255",
           "NTN-256"
         ],
         "Faroese Telecom": [
           "2G-900",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-8"
         ],
         "Skylo": [
           "NTN-255",
@@ -79403,9 +78252,7 @@
         ],
         "Vodafone": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "technologies": [],
@@ -79418,21 +78265,16 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ],
         "Vodafone": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {}
@@ -79444,33 +78286,22 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-8"
         ],
         "Faroese Telecom": [
           "2G-900",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-8"
         ],
         "Vodafone": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {
@@ -79491,21 +78322,16 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ],
         "Vodafone": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {}
@@ -79517,33 +78343,22 @@
       "recommendation": "YES",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-8"
         ],
         "Faroese Telecom": [
           "2G-900",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-8"
         ],
         "Vodafone": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {
@@ -79569,21 +78384,13 @@
           "2G-900",
           "3G-1",
           "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20",
           "NTN-255",
           "NTN-256"
         ],
         "Faroese Telecom": [
           "2G-900",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-8"
         ],
         "Skylo": [
           "NTN-255",
@@ -79591,9 +78398,7 @@
         ],
         "Vodafone": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -79630,21 +78435,13 @@
           "2G-900",
           "3G-1",
           "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20",
           "NTN-255",
           "NTN-256"
         ],
         "Faroese Telecom": [
           "2G-900",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-8"
         ],
         "Skylo": [
           "NTN-255",
@@ -79652,9 +78449,7 @@
         ],
         "Vodafone": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -79671,21 +78466,13 @@
           "2G-900",
           "3G-1",
           "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20",
           "NTN-255",
           "NTN-256"
         ],
         "Faroese Telecom": [
           "2G-900",
           "3G-1",
-          "3G-8",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-8"
         ],
         "Skylo": [
           "NTN-255",
@@ -79693,9 +78480,7 @@
         ],
         "Vodafone": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -79748,16 +78533,7 @@
           "3G-1"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-3",
-          "4G-20"
-        ],
-        "Vodafone": [
-          "4G-3",
-          "4G-20"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Faroe Islands",
@@ -79786,26 +78562,12 @@
       },
       "notSupported": {
         "*": [
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20",
           "NTN-255",
           "NTN-256"
-        ],
-        "Faroese Telecom": [
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
-        ],
-        "Vodafone": [
-          "4G-3",
-          "4G-20"
         ]
       }
     },
@@ -80263,7 +79025,7 @@
       "country": "Finland",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -81598,7 +80360,7 @@
       "country": "France",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -85377,7 +84139,7 @@
       "country": "Germany",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -91936,9 +90698,7 @@
           "NTN-256",
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ],
         "Skylo": [
           "NTN-255",
@@ -91947,9 +90707,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -91980,14 +90738,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ],
         "Sure": [
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
@@ -92016,9 +90770,7 @@
           "NTN-256",
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ],
         "Skylo": [
           "NTN-255",
@@ -92027,9 +90779,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -92037,16 +90787,7 @@
       "country": "Guernsey",
       "modem": "EG800Q-EU",
       "sim": 4,
-      "supported": {
-        "*": [
-          "4G-3",
-          "4G-20"
-        ],
-        "Sure": [
-          "4G-3",
-          "4G-20"
-        ]
-      },
+      "supported": {},
       "notSupported": {
         "*": [
           "NTN-255",
@@ -92065,9 +90806,7 @@
           "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ],
+      "technologies": [],
       "recommendation": "NR",
       "reason": "country not supported by SIM"
     },
@@ -92075,17 +90814,9 @@
       "country": "Guernsey",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "YES",
-      "supported": {
-        "*": [
-          "4G-3",
-          "4G-20"
-        ],
-        "Sure": [
-          "4G-3",
-          "4G-20"
-        ]
-      },
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
       "notSupported": {
         "*": [
           "NTN-255",
@@ -92104,9 +90835,7 @@
           "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ]
+      "technologies": []
     },
     {
       "country": "Guernsey",
@@ -92119,9 +90848,7 @@
           "NTN-256",
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ],
         "Skylo": [
           "NTN-255",
@@ -92130,9 +90857,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "technologies": [],
@@ -92164,23 +90889,18 @@
       "reason": "country not supported by SIM",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ],
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {
@@ -92220,23 +90940,18 @@
       "reason": "country not supported by SIM",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ],
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {
@@ -92263,9 +90978,7 @@
           "NTN-256",
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ],
         "Skylo": [
           "NTN-255",
@@ -92274,9 +90987,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -92314,9 +91025,7 @@
           "NTN-256",
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ],
         "Skylo": [
           "NTN-255",
@@ -92325,9 +91034,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -92345,9 +91052,7 @@
           "NTN-256",
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ],
         "Skylo": [
           "NTN-255",
@@ -92356,9 +91061,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -92435,17 +91138,11 @@
       "notSupported": {
         "*": [
           "NTN-255",
-          "NTN-256",
-          "4G-3",
-          "4G-20"
+          "NTN-256"
         ],
         "Skylo": [
           "NTN-255",
           "NTN-256"
-        ],
-        "Sure": [
-          "4G-3",
-          "4G-20"
         ]
       }
     },
@@ -93388,12 +92085,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ],
         "Digicel": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ]
       }
     },
@@ -93413,14 +92108,7 @@
           "2G-900"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-28"
-        ],
-        "Digicel": [
-          "4G-28"
-        ]
-      },
+      "notSupported": {},
       "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
@@ -93443,12 +92131,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ],
         "Digicel": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ]
       }
     },
@@ -93456,14 +92142,7 @@
       "country": "Guyana",
       "modem": "EG800Q-EU",
       "sim": 4,
-      "supported": {
-        "*": [
-          "4G-28"
-        ],
-        "Digicel": [
-          "4G-28"
-        ]
-      },
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900"
@@ -93472,24 +92151,16 @@
           "2G-900"
         ]
       },
-      "technologies": [
-        "4G"
-      ],
+      "technologies": [],
       "recommendation": "NR"
     },
     {
       "country": "Guyana",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "YES",
-      "supported": {
-        "*": [
-          "4G-28"
-        ],
-        "Digicel": [
-          "4G-28"
-        ]
-      },
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900"
@@ -93498,9 +92169,7 @@
           "2G-900"
         ]
       },
-      "technologies": [
-        "4G"
-      ]
+      "technologies": []
     },
     {
       "country": "Guyana",
@@ -93509,12 +92178,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ],
         "Digicel": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ]
       },
       "technologies": [],
@@ -93527,20 +92194,17 @@
       "recommendation": "POSS",
       "reason": "May work on Cellink Plus",
       "technologies": [
-        "2G",
-        "4G"
+        "2G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ],
         "Cellink Plus": [
           "2G-900"
         ],
         "Digicel": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ]
       },
       "notSupported": {}
@@ -93552,17 +92216,14 @@
       "recommendation": "YES",
       "expansion": "2022-05-18",
       "technologies": [
-        "2G",
-        "4G"
+        "2G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ],
         "Digicel": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ]
       },
       "notSupported": {}
@@ -93574,20 +92235,17 @@
       "recommendation": "POSS",
       "reason": "May work on Cellink Plus",
       "technologies": [
-        "2G",
-        "4G"
+        "2G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ],
         "Cellink Plus": [
           "2G-900"
         ],
         "Digicel": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ]
       },
       "notSupported": {}
@@ -93599,17 +92257,14 @@
       "recommendation": "YES",
       "expansion": "2022-05-18",
       "technologies": [
-        "2G",
-        "4G"
+        "2G"
       ],
       "supported": {
         "*": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ],
         "Digicel": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ]
       },
       "notSupported": {}
@@ -93623,12 +92278,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ],
         "Digicel": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ]
       }
     },
@@ -93649,14 +92302,7 @@
           "2G-900"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-28"
-        ],
-        "Digicel": [
-          "4G-28"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Guyana",
@@ -93678,12 +92324,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ],
         "Digicel": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ]
       }
     },
@@ -93697,12 +92341,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ],
         "Digicel": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ]
       }
     },
@@ -93742,14 +92384,7 @@
           "2G-900"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-28"
-        ],
-        "Digicel": [
-          "4G-28"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Guyana",
@@ -93770,14 +92405,7 @@
           "2G-900"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-28"
-        ],
-        "Digicel": [
-          "4G-28"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Guyana",
@@ -93795,14 +92423,7 @@
           "2G-900"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-28"
-        ],
-        "Digicel": [
-          "4G-28"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Guyana",
@@ -93813,12 +92434,10 @@
       "supported": {},
       "notSupported": {
         "*": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ],
         "Digicel": [
-          "2G-900",
-          "4G-28"
+          "2G-900"
         ]
       }
     },
@@ -93839,14 +92458,7 @@
           "2G-900"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-28"
-        ],
-        "Digicel": [
-          "4G-28"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Haiti",
@@ -96474,7 +95086,7 @@
       "country": "Hungary",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -97235,7 +95847,7 @@
       "country": "Hungary",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -97907,7 +96519,7 @@
       "country": "Iceland",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -98595,7 +97207,7 @@
       "country": "Iceland",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -99034,7 +97646,7 @@
       "country": "India",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "YES",
       "roamingRestrictions": "warn",
       "technologies": [
         "2G"
@@ -99064,7 +97676,7 @@
           "4G-40"
         ]
       },
-      "reason": "Roaming restrictions"
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "India",
@@ -99137,9 +97749,8 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR",
-      "roamingRestrictions": "warn",
-      "reason": "Roaming restrictions"
+      "recommendation": "POSS",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "India",
@@ -99219,44 +97830,34 @@
       "recommendation": "POSS",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8"
+          "3G-1"
         ],
         "Airtel": [
           "2G-900",
           "2G-1800"
         ],
         "VI": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8"
+          "3G-1"
         ]
       },
       "notSupported": {
         "*": [
           "4G-40",
           "2G-900",
-          "2G-1800",
-          "4G-41"
+          "2G-1800"
         ],
         "Airtel": [
           "4G-40"
         ],
         "VI": [
           "2G-900",
-          "2G-1800",
-          "4G-40",
-          "4G-41"
+          "2G-1800"
         ]
       }
     },
@@ -99306,44 +97907,34 @@
       "recommendation": "POSS",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8"
+          "3G-1"
         ],
         "Airtel": [
           "2G-900",
           "2G-1800"
         ],
         "VI": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-8"
+          "3G-1"
         ]
       },
       "notSupported": {
         "*": [
           "4G-40",
           "2G-900",
-          "2G-1800",
-          "4G-41"
+          "2G-1800"
         ],
         "Airtel": [
           "4G-40"
         ],
         "VI": [
           "2G-900",
-          "2G-1800",
-          "4G-40",
-          "4G-41"
+          "2G-1800"
         ]
       }
     },
@@ -99625,23 +98216,14 @@
         "*": [
           "4G-40",
           "2G-900",
-          "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-41"
+          "2G-1800"
         ],
         "Airtel": [
           "4G-40"
         ],
         "VI": [
           "2G-900",
-          "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-8",
-          "4G-40",
-          "4G-41"
+          "2G-1800"
         ]
       }
     },
@@ -102165,9 +100747,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -102211,9 +100791,7 @@
           "4G-20"
         ],
         "Sure": [
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
@@ -102259,9 +100837,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -102275,10 +100851,6 @@
           "4G-20"
         ],
         "Manx Telecom": [
-          "4G-3",
-          "4G-20"
-        ],
-        "Sure": [
           "4G-3",
           "4G-20"
         ]
@@ -102322,10 +100894,6 @@
           "4G-20"
         ],
         "Manx Telecom": [
-          "4G-3",
-          "4G-20"
-        ],
-        "Sure": [
           "4G-3",
           "4G-20"
         ]
@@ -102384,9 +100952,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "technologies": [],
@@ -102452,9 +101018,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {
@@ -102528,9 +101092,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {
@@ -102574,9 +101136,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -102631,9 +101191,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -102668,9 +101226,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -102780,10 +101336,6 @@
         "Skylo": [
           "NTN-255",
           "NTN-256"
-        ],
-        "Sure": [
-          "4G-3",
-          "4G-20"
         ]
       }
     },
@@ -105842,7 +104394,7 @@
       "country": "Japan",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -107580,9 +106132,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -107632,9 +106182,7 @@
           "4G-20"
         ],
         "Sure": [
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "reason": "Support for both 2G (cellular) and NTN (satellite), check 2G sunset date"
@@ -107686,9 +106234,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -107705,10 +106251,6 @@
         "Jersey Telecom": [
           "4G-3",
           "4G-7",
-          "4G-20"
-        ],
-        "Sure": [
-          "4G-3",
           "4G-20"
         ]
       },
@@ -107758,10 +106300,6 @@
         "Jersey Telecom": [
           "4G-3",
           "4G-7",
-          "4G-20"
-        ],
-        "Sure": [
-          "4G-3",
           "4G-20"
         ]
       },
@@ -107829,9 +106367,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "technologies": [],
@@ -107908,9 +106444,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {
@@ -107995,9 +106529,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       },
       "notSupported": {
@@ -108047,9 +106579,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -108137,9 +106667,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -108180,9 +106708,7 @@
         "Sure": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -108330,10 +106856,6 @@
         "Skylo": [
           "NTN-255",
           "NTN-256"
-        ],
-        "Sure": [
-          "4G-3",
-          "4G-20"
         ]
       }
     },
@@ -111458,20 +109980,12 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -111495,18 +110009,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "Beeline": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ]
       },
       "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
@@ -111533,20 +110039,12 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -111554,20 +110052,7 @@
       "country": "Kyrgyzstan",
       "modem": "EG800Q-EU",
       "sim": 4,
-      "supported": {
-        "*": [
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
-        ],
-        "Beeline": [
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
-        ]
-      },
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -111580,30 +110065,16 @@
           "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ],
+      "technologies": [],
       "recommendation": "NR"
     },
     {
       "country": "Kyrgyzstan",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "YES",
-      "supported": {
-        "*": [
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
-        ],
-        "Beeline": [
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
-        ]
-      },
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -111616,9 +110087,7 @@
           "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ]
+      "technologies": []
     },
     {
       "country": "Kyrgyzstan",
@@ -111629,20 +110098,12 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ]
       },
       "technologies": [],
@@ -111665,25 +110126,16 @@
       "recommendation": "POSS",
       "reason": "Not officially supported, may work but is untested",
       "technologies": [
-        "2G",
-        "4G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "2G-1800"
         ],
         "Beeline": [
           "2G-900",
-          "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -111712,25 +110164,16 @@
       "recommendation": "POSS",
       "reason": "Not officially supported, may work but is untested",
       "technologies": [
-        "2G",
-        "4G"
+        "2G"
       ],
       "supported": {
         "*": [
           "2G-900",
-          "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "2G-1800"
         ],
         "Beeline": [
           "2G-900",
-          "2G-1800",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "2G-1800"
         ]
       },
       "notSupported": {
@@ -111753,20 +110196,12 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -111802,20 +110237,12 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -111831,20 +110258,12 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -111908,18 +110327,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ],
         "Beeline": [
-          "3G-1",
-          "4G-1",
-          "4G-3",
-          "4G-7",
-          "4G-20"
+          "3G-1"
         ]
       }
     },
@@ -112322,7 +110733,7 @@
       "country": "Latvia",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -114903,7 +113314,7 @@
       "country": "Lithuania",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -115807,7 +114218,7 @@
       "country": "Lithuania",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -116450,7 +114861,7 @@
       "country": "Luxembourg",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -117483,7 +115894,8 @@
       "country": "Macao",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "YES",
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
       "supported": {
         "*": [
           "4G-3",
@@ -120400,7 +118812,7 @@
       "country": "Malta",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -120916,7 +119328,7 @@
       "country": "Malta",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -124694,22 +123106,16 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Mobicom": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Unitel": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ]
       }
     },
@@ -124736,19 +123142,13 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Mobicom": [
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Unitel": [
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ]
       },
       "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
@@ -124775,22 +123175,16 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Mobicom": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Unitel": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ]
       }
     },
@@ -124798,20 +123192,7 @@
       "country": "Mongolia",
       "modem": "EG800Q-EU",
       "sim": 4,
-      "supported": {
-        "*": [
-          "4G-3",
-          "4G-28"
-        ],
-        "Mobicom": [
-          "4G-3",
-          "4G-28"
-        ],
-        "Unitel": [
-          "4G-3",
-          "4G-28"
-        ]
-      },
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -124828,30 +123209,16 @@
           "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ],
+      "technologies": [],
       "recommendation": "NR"
     },
     {
       "country": "Mongolia",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "YES",
-      "supported": {
-        "*": [
-          "4G-3",
-          "4G-28"
-        ],
-        "Mobicom": [
-          "4G-3",
-          "4G-28"
-        ],
-        "Unitel": [
-          "4G-3",
-          "4G-28"
-        ]
-      },
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-900",
@@ -124868,9 +123235,7 @@
           "3G-1"
         ]
       },
-      "technologies": [
-        "4G"
-      ]
+      "technologies": []
     },
     {
       "country": "Mongolia",
@@ -124881,22 +123246,16 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Mobicom": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Unitel": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ]
       },
       "technologies": [],
@@ -124909,29 +123268,22 @@
       "recommendation": "POSS",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Mobicom": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Unitel": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ]
       },
       "notSupported": {}
@@ -124944,29 +123296,22 @@
       "expansion": "2022-05-18",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Mobicom": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Unitel": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ]
       },
       "notSupported": {}
@@ -124978,29 +123323,22 @@
       "recommendation": "POSS",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Mobicom": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Unitel": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ]
       },
       "notSupported": {}
@@ -125013,29 +123351,22 @@
       "expansion": "2022-05-18",
       "technologies": [
         "2G",
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Mobicom": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Unitel": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ]
       },
       "notSupported": {}
@@ -125051,22 +123382,16 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Mobicom": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Unitel": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ]
       }
     },
@@ -125089,14 +123414,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Unitel": [
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ]
       }
     },
@@ -125122,22 +123443,16 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Mobicom": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Unitel": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ]
       }
     },
@@ -125153,22 +123468,16 @@
         "*": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Mobicom": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Unitel": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ]
       }
     },
@@ -125211,16 +123520,7 @@
           "3G-1"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-3",
-          "4G-28"
-        ],
-        "Unitel": [
-          "4G-3",
-          "4G-28"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Mongolia",
@@ -125247,20 +123547,7 @@
           "3G-1"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-3",
-          "4G-28"
-        ],
-        "Mobicom": [
-          "4G-3",
-          "4G-28"
-        ],
-        "Unitel": [
-          "4G-3",
-          "4G-28"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Mongolia",
@@ -125287,20 +123574,7 @@
           "3G-1"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-3",
-          "4G-28"
-        ],
-        "Mobicom": [
-          "4G-3",
-          "4G-28"
-        ],
-        "Unitel": [
-          "4G-3",
-          "4G-28"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Mongolia",
@@ -125313,15 +123587,11 @@
       "notSupported": {
         "*": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ],
         "Unitel": [
           "2G-900",
-          "3G-1",
-          "4G-3",
-          "4G-28"
+          "3G-1"
         ]
       }
     },
@@ -125344,16 +123614,7 @@
           "3G-1"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-3",
-          "4G-28"
-        ],
-        "Unitel": [
-          "4G-3",
-          "4G-28"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Montenegro",
@@ -129397,7 +127658,7 @@
       "country": "Netherlands",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -131202,7 +129463,7 @@
       "country": "New Zealand",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -132508,14 +130769,12 @@
         "*": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ],
         "Movistar": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ]
       }
     },
@@ -132538,13 +130797,11 @@
       "notSupported": {
         "*": [
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ],
         "Movistar": [
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ]
       },
       "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
@@ -132571,14 +130828,12 @@
         "*": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ],
         "Movistar": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ]
       }
     },
@@ -132591,14 +130846,12 @@
         "*": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ],
         "Movistar": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ]
       },
       "technologies": [],
@@ -132608,15 +130861,9 @@
       "country": "Nicaragua",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "YES",
-      "supported": {
-        "*": [
-          "4G-2"
-        ],
-        "Movistar": [
-          "4G-2"
-        ]
-      },
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-850",
@@ -132629,22 +130876,13 @@
           "3G-5"
         ]
       },
-      "technologies": [
-        "4G"
-      ]
+      "technologies": []
     },
     {
       "country": "Nicaragua",
       "modem": "EG800Q-NA",
       "sim": 4,
-      "supported": {
-        "*": [
-          "4G-2"
-        ],
-        "Movistar": [
-          "4G-2"
-        ]
-      },
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-850",
@@ -132657,9 +130895,7 @@
           "3G-5"
         ]
       },
-      "technologies": [
-        "4G"
-      ],
+      "technologies": [],
       "recommendation": "NR"
     },
     {
@@ -132676,8 +130912,7 @@
           "3G-2",
           "3G-5",
           "4G-4",
-          "2G-850",
-          "4G-2"
+          "2G-850"
         ],
         "Claro": [
           "2G-1900",
@@ -132688,8 +130923,7 @@
         "Movistar": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ]
       }
     },
@@ -132705,14 +130939,12 @@
         "*": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ],
         "Movistar": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ]
       }
     },
@@ -132730,8 +130962,7 @@
           "3G-2",
           "3G-5",
           "4G-4",
-          "2G-850",
-          "4G-2"
+          "2G-850"
         ],
         "Claro": [
           "2G-1900",
@@ -132742,8 +130973,7 @@
         "Movistar": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ]
       }
     },
@@ -132759,14 +130989,12 @@
         "*": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ],
         "Movistar": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ]
       }
     },
@@ -132777,19 +131005,16 @@
       "recommendation": "POSS",
       "reason": "Not officially supported, may work but is untested",
       "technologies": [
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ],
         "Movistar": [
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ]
       },
       "notSupported": {
@@ -132821,13 +131046,11 @@
       "notSupported": {
         "*": [
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ],
         "Movistar": [
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ]
       }
     },
@@ -132853,14 +131076,12 @@
         "*": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ],
         "Movistar": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ]
       }
     },
@@ -132876,14 +131097,12 @@
         "*": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ],
         "Movistar": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ]
       }
     },
@@ -132928,14 +131147,7 @@
           "3G-5"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-2"
-        ],
-        "Movistar": [
-          "4G-2"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Nicaragua",
@@ -132965,15 +131177,11 @@
       "notSupported": {
         "*": [
           "2G-1900",
-          "4G-4",
-          "4G-2"
+          "4G-4"
         ],
         "Claro": [
           "2G-1900",
           "4G-4"
-        ],
-        "Movistar": [
-          "4G-2"
         ]
       }
     },
@@ -132998,14 +131206,7 @@
           "3G-5"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-2"
-        ],
-        "Movistar": [
-          "4G-2"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Nicaragua",
@@ -133028,14 +131229,7 @@
           "3G-5"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-2"
-        ],
-        "Movistar": [
-          "4G-2"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Nicaragua",
@@ -133049,14 +131243,12 @@
         "*": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ],
         "Movistar": [
           "2G-850",
           "3G-2",
-          "3G-5",
-          "4G-2"
+          "3G-5"
         ]
       }
     },
@@ -135125,7 +133317,7 @@
       "country": "Norway",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -136255,7 +134447,7 @@
       "country": "Oman",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "YES",
       "roamingRestrictions": "warn",
       "technologies": [
         "2G"
@@ -136276,7 +134468,7 @@
           "4G-3"
         ]
       },
-      "reason": "Roaming restrictions"
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Oman",
@@ -141665,7 +139857,7 @@
       "country": "Poland",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -143519,7 +141711,7 @@
       "country": "Portugal",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -144268,7 +142460,7 @@
       "country": "Portugal",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -146773,7 +144965,7 @@
       "country": "Romania",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -148283,7 +146475,7 @@
       "country": "Russia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "YES",
       "roamingRestrictions": "warn",
       "technologies": [
         "2G"
@@ -148344,7 +146536,7 @@
           "4G-20"
         ]
       },
-      "reason": "Roaming restrictions"
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Russia",
@@ -148473,9 +146665,8 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR",
-      "roamingRestrictions": "warn",
-      "reason": "Roaming restrictions"
+      "recommendation": "POSS",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Russia",
@@ -149102,8 +147293,8 @@
       "country": "Russia",
       "modem": "SG560D-EM",
       "sim": 5,
-      "recommendation": "NR",
-      "reason": "Roaming restrictions",
+      "recommendation": "POSS",
+      "reason": "Incomplete band fit",
       "supported": {
         "*": [
           "2G-900",
@@ -151033,13 +149224,11 @@
       "notSupported": {
         "*": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ],
         "Flow": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ]
       }
     },
@@ -151061,12 +149250,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ],
         "Flow": [
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ]
       },
       "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
@@ -151092,13 +149279,11 @@
       "notSupported": {
         "*": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ],
         "Flow": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ]
       }
     },
@@ -151110,13 +149295,11 @@
       "notSupported": {
         "*": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ],
         "Flow": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ]
       },
       "technologies": [],
@@ -151126,15 +149309,9 @@
       "country": "Saint Lucia",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "YES",
-      "supported": {
-        "*": [
-          "4G-13"
-        ],
-        "Flow": [
-          "4G-13"
-        ]
-      },
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-850",
@@ -151145,22 +149322,13 @@
           "3G-5"
         ]
       },
-      "technologies": [
-        "4G"
-      ]
+      "technologies": []
     },
     {
       "country": "Saint Lucia",
       "modem": "EG800Q-NA",
       "sim": 4,
-      "supported": {
-        "*": [
-          "4G-13"
-        ],
-        "Flow": [
-          "4G-13"
-        ]
-      },
+      "supported": {},
       "notSupported": {
         "*": [
           "2G-850",
@@ -151171,9 +149339,7 @@
           "3G-5"
         ]
       },
-      "technologies": [
-        "4G"
-      ],
+      "technologies": [],
       "recommendation": "NR"
     },
     {
@@ -151201,13 +149367,11 @@
       "notSupported": {
         "*": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ],
         "Flow": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ]
       }
     },
@@ -151222,13 +149386,11 @@
       "notSupported": {
         "*": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ],
         "Flow": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ]
       }
     },
@@ -151257,13 +149419,11 @@
       "notSupported": {
         "*": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ],
         "Flow": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ]
       }
     },
@@ -151278,13 +149438,11 @@
       "notSupported": {
         "*": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ],
         "Flow": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ]
       }
     },
@@ -151295,17 +149453,14 @@
       "recommendation": "POSS",
       "reason": "Not officially supported, may work but is untested",
       "technologies": [
-        "3G",
-        "4G"
+        "3G"
       ],
       "supported": {
         "*": [
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ],
         "Flow": [
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ]
       },
       "notSupported": {
@@ -151336,12 +149491,10 @@
       },
       "notSupported": {
         "*": [
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ],
         "Flow": [
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ]
       }
     },
@@ -151366,13 +149519,11 @@
       "notSupported": {
         "*": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ],
         "Flow": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ]
       }
     },
@@ -151387,13 +149538,11 @@
       "notSupported": {
         "*": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ],
         "Flow": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ]
       }
     },
@@ -151436,14 +149585,7 @@
           "3G-5"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-13"
-        ],
-        "Flow": [
-          "4G-13"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Saint Lucia",
@@ -151472,14 +149614,7 @@
           "3G-5"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-13"
-        ],
-        "Flow": [
-          "4G-13"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Saint Lucia",
@@ -151500,14 +149635,7 @@
           "3G-5"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-13"
-        ],
-        "Flow": [
-          "4G-13"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Saint Lucia",
@@ -151528,14 +149656,7 @@
           "3G-5"
         ]
       },
-      "notSupported": {
-        "*": [
-          "4G-13"
-        ],
-        "Flow": [
-          "4G-13"
-        ]
-      }
+      "notSupported": {}
     },
     {
       "country": "Saint Lucia",
@@ -151548,13 +149669,11 @@
       "notSupported": {
         "*": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ],
         "Flow": [
           "2G-850",
-          "3G-5",
-          "4G-13"
+          "3G-5"
         ]
       }
     },
@@ -153047,7 +151166,7 @@
       "country": "Saudi Arabia",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "YES",
       "roamingRestrictions": "hide",
       "technologies": [
         "2G"
@@ -153129,7 +151248,7 @@
           "5G-78"
         ]
       },
-      "reason": "Roaming restrictions"
+      "reason": "Has cellular 2G service, check 2G sunset date. No NTN satellite."
     },
     {
       "country": "Saudi Arabia",
@@ -153309,7 +151428,7 @@
       "country": "Saudi Arabia",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "YES",
       "supported": {
         "*": [
           "4G-1",
@@ -153390,8 +151509,7 @@
       "technologies": [
         "4G"
       ],
-      "roamingRestrictions": "hide",
-      "reason": "Roaming restrictions"
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Saudi Arabia",
@@ -153929,8 +152047,8 @@
       "country": "Saudi Arabia",
       "modem": "SG560D-EM",
       "sim": 5,
-      "recommendation": "NR",
-      "reason": "Roaming restrictions",
+      "recommendation": "POSS",
+      "reason": "Incomplete band fit",
       "supported": {
         "*": [
           "4G-1",
@@ -156041,7 +154159,7 @@
       "country": "Singapore",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "YES",
       "roamingRestrictions": "warn",
       "technologies": [
         "M1",
@@ -156093,7 +154211,7 @@
           "5G-78"
         ]
       },
-      "reason": "Roaming restrictions"
+      "reason": "Has cellular M1 service. No NTN satellite."
     },
     {
       "country": "Singapore",
@@ -156217,9 +154335,8 @@
       "technologies": [
         "4G"
       ],
-      "recommendation": "NR",
-      "roamingRestrictions": "warn",
-      "reason": "Roaming restrictions"
+      "recommendation": "POSS",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Singapore",
@@ -156726,8 +154843,8 @@
       "country": "Singapore",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "Roaming restrictions",
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm",
       "roamingRestrictions": "warn",
       "technologies": [
         "M1"
@@ -156783,8 +154900,8 @@
       "country": "Singapore",
       "modem": "SG560D-EM",
       "sim": 5,
-      "recommendation": "NR",
-      "reason": "Roaming restrictions",
+      "recommendation": "POSS",
+      "reason": "Incomplete band fit",
       "supported": {
         "*": [
           "4G-3",
@@ -157625,7 +155742,7 @@
       "country": "Slovakia",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -158267,7 +156384,7 @@
       "country": "Slovakia",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -158832,7 +156949,7 @@
       "country": "Slovenia",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -159455,7 +157572,7 @@
       "country": "Slovenia",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -161596,7 +159713,7 @@
       "country": "South Korea",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -163333,7 +161450,7 @@
       "country": "Spain",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -165444,7 +163561,7 @@
       "country": "Sri Lanka",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -167064,7 +165181,7 @@
       "country": "Sweden",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -168869,7 +166986,7 @@
       "country": "Switzerland",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -170326,7 +168443,7 @@
       "country": "Taiwan",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -171396,16 +169513,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
           "4G-20"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3"
+          "3G-1"
         ],
         "Tcell": [
           "2G-900",
@@ -171440,14 +169553,10 @@
       "notSupported": {
         "*": [
           "3G-1",
-          "4G-1",
-          "4G-3",
           "4G-20"
         ],
         "Beeline": [
-          "3G-1",
-          "4G-1",
-          "4G-3"
+          "3G-1"
         ],
         "Tcell": [
           "3G-1",
@@ -171479,16 +169588,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
           "4G-20"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3"
+          "3G-1"
         ],
         "Tcell": [
           "2G-900",
@@ -171504,13 +169609,7 @@
       "sim": 4,
       "supported": {
         "*": [
-          "4G-1",
-          "4G-3",
           "4G-20"
-        ],
-        "Beeline": [
-          "4G-1",
-          "4G-3"
         ],
         "Tcell": [
           "4G-20"
@@ -171546,13 +169645,7 @@
       "reason": "bands not supported by modem",
       "supported": {
         "*": [
-          "4G-1",
-          "4G-3",
           "4G-20"
-        ],
-        "Beeline": [
-          "4G-1",
-          "4G-3"
         ],
         "Tcell": [
           "4G-20"
@@ -171589,16 +169682,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
           "4G-20"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3"
+          "3G-1"
         ],
         "Tcell": [
           "2G-900",
@@ -171636,16 +169725,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
           "4G-20"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3"
+          "3G-1"
         ],
         "Tcell": [
           "2G-900",
@@ -171682,16 +169767,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
           "4G-20"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3"
+          "3G-1"
         ],
         "Tcell": [
           "2G-900",
@@ -171714,16 +169795,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
           "4G-20"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3"
+          "3G-1"
         ],
         "Tcell": [
           "2G-900",
@@ -171766,16 +169843,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
           "4G-20"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3"
+          "3G-1"
         ],
         "Tcell": [
           "2G-900",
@@ -171798,16 +169871,12 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-1",
-          "4G-3",
           "4G-20"
         ],
         "Beeline": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-1",
-          "4G-3"
+          "3G-1"
         ],
         "Tcell": [
           "2G-900",
@@ -171885,13 +169954,7 @@
       },
       "notSupported": {
         "*": [
-          "4G-1",
-          "4G-3",
           "4G-20"
-        ],
-        "Beeline": [
-          "4G-1",
-          "4G-3"
         ],
         "Tcell": [
           "4G-20"
@@ -172665,7 +170728,7 @@
       "country": "Thailand",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -176056,7 +174119,7 @@
       "country": "Turkey",
       "modem": "EG800Q-GL",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "YES",
       "supported": {
         "*": [
           "4G-3",
@@ -176121,8 +174184,7 @@
       "technologies": [
         "4G"
       ],
-      "roamingRestrictions": "hide",
-      "reason": "Roaming restrictions"
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
@@ -176645,8 +174707,8 @@
       "country": "Turkey",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "Roaming restrictions",
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm",
       "roamingRestrictions": "hide",
       "technologies": [
         "M1"
@@ -176715,8 +174777,8 @@
       "country": "Turkey",
       "modem": "SG560D-EM",
       "sim": 5,
-      "recommendation": "NR",
-      "reason": "Roaming restrictions",
+      "recommendation": "POSS",
+      "reason": "Incomplete band fit",
       "supported": {
         "*": [
           "2G-900",
@@ -177662,7 +175724,6 @@
           "2G-1800",
           "3G-1",
           "4G-20",
-          "4G-3",
           "4G-7",
           "4G-38"
         ],
@@ -177674,8 +175735,7 @@
         ],
         "Airtel": [
           "2G-900",
-          "3G-1",
-          "4G-3"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -177713,7 +175773,6 @@
         "*": [
           "3G-1",
           "4G-20",
-          "4G-3",
           "4G-7",
           "4G-38"
         ],
@@ -177722,8 +175781,7 @@
           "4G-20"
         ],
         "Airtel": [
-          "3G-1",
-          "4G-3"
+          "3G-1"
         ],
         "MTN": [
           "3G-1",
@@ -177757,7 +175815,6 @@
           "2G-1800",
           "3G-1",
           "4G-20",
-          "4G-3",
           "4G-7",
           "4G-38"
         ],
@@ -177769,8 +175826,7 @@
         ],
         "Airtel": [
           "2G-900",
-          "3G-1",
-          "4G-3"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -177787,14 +175843,10 @@
       "supported": {
         "*": [
           "4G-20",
-          "4G-3",
           "4G-7"
         ],
         "Africell": [
           "4G-20"
-        ],
-        "Airtel": [
-          "4G-3"
         ],
         "MTN": [
           "4G-7"
@@ -177835,15 +175887,11 @@
       "supported": {
         "*": [
           "4G-20",
-          "4G-3",
           "4G-7",
           "4G-38"
         ],
         "Africell": [
           "4G-20"
-        ],
-        "Airtel": [
-          "4G-3"
         ],
         "MTN": [
           "4G-7",
@@ -177885,7 +175933,6 @@
           "2G-1800",
           "3G-1",
           "4G-20",
-          "4G-3",
           "4G-7",
           "4G-38"
         ],
@@ -177897,8 +175944,7 @@
         ],
         "Airtel": [
           "2G-900",
-          "3G-1",
-          "4G-3"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -177924,14 +175970,13 @@
         "*": [
           "2G-900",
           "3G-1",
-          "4G-3",
           "4G-7",
-          "2G-1800"
+          "2G-1800",
+          "4G-3"
         ],
         "Airtel": [
           "2G-900",
-          "3G-1",
-          "4G-3"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -177971,7 +176016,6 @@
           "2G-1800",
           "3G-1",
           "4G-20",
-          "4G-3",
           "4G-7"
         ],
         "Africell": [
@@ -177982,8 +176026,7 @@
         ],
         "Airtel": [
           "2G-900",
-          "3G-1",
-          "4G-3"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -178014,14 +176057,13 @@
         "*": [
           "2G-900",
           "3G-1",
-          "4G-3",
           "4G-7",
-          "2G-1800"
+          "2G-1800",
+          "4G-3"
         ],
         "Airtel": [
           "2G-900",
-          "3G-1",
-          "4G-3"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -178061,7 +176103,6 @@
           "2G-1800",
           "3G-1",
           "4G-20",
-          "4G-3",
           "4G-7"
         ],
         "Africell": [
@@ -178072,8 +176113,7 @@
         ],
         "Airtel": [
           "2G-900",
-          "3G-1",
-          "4G-3"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -178103,7 +176143,6 @@
           "2G-1800",
           "3G-1",
           "4G-20",
-          "4G-3",
           "4G-7",
           "4G-38"
         ],
@@ -178115,8 +176154,7 @@
         ],
         "Airtel": [
           "2G-900",
-          "3G-1",
-          "4G-3"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -178180,7 +176218,6 @@
           "2G-1800",
           "3G-1",
           "4G-20",
-          "4G-3",
           "4G-7",
           "4G-38"
         ],
@@ -178192,8 +176229,7 @@
         ],
         "Airtel": [
           "2G-900",
-          "3G-1",
-          "4G-3"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -178217,7 +176253,6 @@
           "2G-1800",
           "3G-1",
           "4G-20",
-          "4G-3",
           "4G-7",
           "4G-38"
         ],
@@ -178229,8 +176264,7 @@
         ],
         "Airtel": [
           "2G-900",
-          "3G-1",
-          "4G-3"
+          "3G-1"
         ],
         "MTN": [
           "2G-900",
@@ -178321,11 +176355,8 @@
       },
       "notSupported": {
         "*": [
-          "4G-3",
           "4G-7",
-          "4G-38"
-        ],
-        "Airtel": [
+          "4G-38",
           "4G-3"
         ],
         "MTN": [
@@ -178369,15 +176400,11 @@
       "notSupported": {
         "*": [
           "4G-20",
-          "4G-3",
           "4G-7",
           "4G-38"
         ],
         "Africell": [
           "4G-20"
-        ],
-        "Airtel": [
-          "4G-3"
         ],
         "MTN": [
           "4G-7",
@@ -179293,7 +177320,7 @@
       "country": "United Arab Emirates",
       "modem": "BG95-S5",
       "sim": 4,
-      "recommendation": "NR",
+      "recommendation": "YES",
       "roamingRestrictions": "warn",
       "technologies": [
         "M1"
@@ -179331,7 +177358,7 @@
           "5G-78"
         ]
       },
-      "reason": "Roaming restrictions"
+      "reason": "Has cellular M1 service. No NTN satellite."
     },
     {
       "country": "United Arab Emirates",
@@ -179714,8 +177741,8 @@
       "country": "United Arab Emirates",
       "modem": "R410",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "Roaming restrictions",
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
       "roamingRestrictions": "warn",
       "technologies": [
         "M1"
@@ -179758,8 +177785,8 @@
       "country": "United Arab Emirates",
       "modem": "R510",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "Roaming restrictions",
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm",
       "roamingRestrictions": "warn",
       "technologies": [
         "M1"
@@ -180298,7 +178325,7 @@
       "country": "United Kingdom",
       "modem": "BG96-MC",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm",
       "technologies": [
         "M1"
@@ -187324,16 +185351,15 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-2",
           "2G-850",
           "2G-1900",
+          "4G-2",
           "4G-12"
         ],
         "CCT": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-2"
+          "3G-1"
         ],
         "Flow": [
           "2G-850",
@@ -187375,8 +185401,7 @@
           "4G-12"
         ],
         "CCT": [
-          "3G-1",
-          "4G-2"
+          "3G-1"
         ],
         "Flow": [
           "3G-1",
@@ -187409,16 +185434,15 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-2",
           "2G-850",
           "2G-1900",
+          "4G-2",
           "4G-12"
         ],
         "CCT": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-2"
+          "3G-1"
         ],
         "Flow": [
           "2G-850",
@@ -187439,16 +185463,15 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-2",
           "2G-850",
           "2G-1900",
+          "4G-2",
           "4G-12"
         ],
         "CCT": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-2"
+          "3G-1"
         ],
         "Flow": [
           "2G-850",
@@ -187471,9 +185494,6 @@
         "*": [
           "4G-2",
           "4G-12"
-        ],
-        "CCT": [
-          "4G-2"
         ],
         "Flow": [
           "4G-2",
@@ -187511,9 +185531,6 @@
         "*": [
           "4G-2",
           "4G-12"
-        ],
-        "CCT": [
-          "4G-2"
         ],
         "Flow": [
           "4G-2",
@@ -187576,15 +185593,12 @@
       },
       "notSupported": {
         "*": [
-          "4G-2",
           "4G-4",
           "4G-13",
           "2G-850",
           "2G-1900",
+          "4G-2",
           "4G-12"
-        ],
-        "CCT": [
-          "4G-2"
         ],
         "Digicel": [
           "4G-4",
@@ -187625,13 +185639,10 @@
       },
       "notSupported": {
         "*": [
-          "4G-2",
           "2G-850",
           "2G-1900",
+          "4G-2",
           "4G-12"
-        ],
-        "CCT": [
-          "4G-2"
         ],
         "Flow": [
           "2G-850",
@@ -187673,15 +185684,12 @@
       },
       "notSupported": {
         "*": [
-          "4G-2",
           "4G-4",
           "4G-13",
           "2G-850",
           "2G-1900",
+          "4G-2",
           "4G-12"
-        ],
-        "CCT": [
-          "4G-2"
         ],
         "Digicel": [
           "4G-4",
@@ -187722,13 +185730,10 @@
       },
       "notSupported": {
         "*": [
-          "4G-2",
           "2G-850",
           "2G-1900",
+          "4G-2",
           "4G-12"
-        ],
-        "CCT": [
-          "4G-2"
         ],
         "Flow": [
           "2G-850",
@@ -187751,9 +185756,6 @@
         "*": [
           "4G-2",
           "4G-12"
-        ],
-        "CCT": [
-          "4G-2"
         ],
         "Flow": [
           "4G-2",
@@ -187835,16 +185837,15 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-2",
           "2G-850",
           "2G-1900",
+          "4G-2",
           "4G-12"
         ],
         "CCT": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-2"
+          "3G-1"
         ],
         "Flow": [
           "2G-850",
@@ -187868,16 +185869,15 @@
           "2G-900",
           "2G-1800",
           "3G-1",
-          "4G-2",
           "2G-850",
           "2G-1900",
+          "4G-2",
           "4G-12"
         ],
         "CCT": [
           "2G-900",
           "2G-1800",
-          "3G-1",
-          "4G-2"
+          "3G-1"
         ],
         "Flow": [
           "2G-850",
@@ -187975,13 +185975,10 @@
       },
       "notSupported": {
         "*": [
-          "4G-2",
           "4G-4",
           "4G-13",
+          "4G-2",
           "4G-12"
-        ],
-        "CCT": [
-          "4G-2"
         ],
         "Digicel": [
           "4G-4",
@@ -188025,9 +186022,6 @@
         "*": [
           "4G-2",
           "4G-12"
-        ],
-        "CCT": [
-          "4G-2"
         ],
         "Flow": [
           "4G-2",
