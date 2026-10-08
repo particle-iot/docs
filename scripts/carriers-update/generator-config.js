@@ -1227,6 +1227,47 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        {
+            guid:'896ba802-bdd8-4f9e-8f06-6d82af2289cd', 
+            generatorFn:function(updater){
+                return updater.generateCountryComparison({
+                    models: [
+                        {
+                            title: 'Sulu',
+                            modem: 'EG800Q-GL',
+                            sim: 4,
+                        },
+                        {
+                            title: 'BRN404X',
+                            modem: 'R510',
+                            sim: 4,
+                        },
+                        {
+                            title: 'B504e',
+                            modem: 'EG91-NAX',
+                            sim: 4,
+                        },
+                        {
+                            title: 'M404',
+                            modem: 'BG95-M5',
+                            sim: 4,
+                        },
+                        {
+                            title: 'M524',
+                            modem: 'EG91-EX',
+                            sim: 4,
+                        },
+                    ],
+                    recommendationMap: {
+                        'YES': '\u2705', // green check
+                        'NS': '\u2753', // red question mark
+                        'POSS': '\u2753', // red question mark
+                        'NRND': 'NRND',
+                        'NR': '',
+                    }
+                });            
+            },     
+        },
         // Tachyon
         {
             guid:'ae3c46e6-c970-4ceb-8e55-2adde82efb79',

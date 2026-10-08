@@ -784,7 +784,7 @@ To be provided at a later date.
 <tr><td style="width: 2px; "></td><td>Brazil</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓<sup>1</sup></td><td>Claro, TIM, Vivo</td></tr>
 <tr><td style="width: 2px; "></td><td>Brunei</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>DST</td></tr>
 <tr><td style="width: 2px; "></td><td>Burkina Faso</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Orange</td></tr>
-<tr><td style="width: 2px; "></td><td>Cabo Verde</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>CVMóvel</td></tr>
+<tr><td style="width: 2px; "></td><td>Cabo Verde</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>CVMóvel, Unitel T+</td></tr>
 <tr><td style="width: 2px; background-color: #AFE4EE; "></td><td>Canada</td><td>✅</td><td>Bell Mobility, Rogers Wireless, Telus, Videotron</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td style="width: 2px; "></td><td>Chad</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Airtel</td></tr>
 <tr><td style="width: 2px; "></td><td>Chile</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Claro, Entel, Movistar</td></tr>
@@ -793,11 +793,11 @@ To be provided at a later date.
 <tr><td style="width: 2px; "></td><td>Congo (Kinshasa)</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Airtel</td></tr>
 <tr><td style="width: 2px; "></td><td>Costa Rica</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Movistar</td></tr>
 <tr><td style="width: 2px; background-color: #89E2B3; "></td><td>Croatia</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>Hrvatski Telekom, Tele2</td></tr>
-<tr><td style="width: 2px; "></td><td>Cyprus</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>MTN, PrimeTel</td></tr>
+<tr><td style="width: 2px; "></td><td>Cyprus</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Cytamobile-Vodafone, MTN, PrimeTel</td></tr>
 <tr><td style="width: 2px; background-color: #89E2B3; "></td><td>Czechia</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>O2, T-Mobile, Vodafone</td></tr>
 <tr><td style="width: 2px; background-color: #89E2B3; "></td><td>Denmark</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>3 (Tre), TDC, Telenor, Telia</td></tr>
 <tr><td style="width: 2px; "></td><td>Dominica</td><td>❓</td><td>Flow</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-<tr><td style="width: 2px; "></td><td>Dominican Republic</td><td>❓</td><td>Altice Dominicana, Claro</td><td>&nbsp;</td><td>❓</td><td>Altice Dominicana</td></tr>
+<tr><td style="width: 2px; "></td><td>Dominican Republic</td><td>❓</td><td>Altice Dominicana, Claro, Viva</td><td>&nbsp;</td><td>❓</td><td>Altice Dominicana</td></tr>
 <tr><td style="width: 2px; "></td><td>Ecuador</td><td>❓</td><td>Claro, Movistar</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td style="width: 2px; "></td><td>Egypt</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Etisalat, Orange</td></tr>
 <tr><td style="width: 2px; "></td><td>El Salvador</td><td>❓</td><td>Claro, Telefonica</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
@@ -826,7 +826,7 @@ To be provided at a later date.
 <tr><td style="width: 2px; "></td><td>Israel</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Hot Mobile, Orange, Pelephone</td></tr>
 <tr><td style="width: 2px; background-color: #89E2B3; "></td><td>Italy</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>TIM, Vodafone, Wind</td></tr>
 <tr><td style="width: 2px; "></td><td>Jamaica</td><td>❓</td><td>Digicel, Flow</td><td>&nbsp;</td><td>❓</td><td>Digicel, Flow</td></tr>
-<tr><td style="width: 2px; background-color: #89E2B3; "></td><td>Jersey</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>Jersey Telecom</td></tr>
+<tr><td style="width: 2px; background-color: #89E2B3; "></td><td>Jersey</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>Jersey Telecom, Sure</td></tr>
 <tr><td style="width: 2px; "></td><td>Jordan</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Zain</td></tr>
 <tr><td style="width: 2px; "></td><td>Kazakhstan</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Beeline, K-Cell</td></tr>
 <tr><td style="width: 2px; "></td><td>Kenya</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Airtel</td></tr>
@@ -875,12 +875,12 @@ To be provided at a later date.
 <tr><td style="width: 2px; background-color: #89E2B3; "></td><td>Sweden</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>3 (Tre), Tele2, Telenor, Telia</td></tr>
 <tr><td style="width: 2px; background-color: #89E2B3; "></td><td>Switzerland</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>Salt, Sunrise, Swisscom</td></tr>
 <tr><td style="width: 2px; "></td><td>Taiwan</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Chunghwa, FarEasTone, T Star, Taiwan Mobile</td></tr>
-<tr><td style="width: 2px; "></td><td>Tajikistan</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Tcell</td></tr>
+<tr><td style="width: 2px; "></td><td>Tajikistan</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Beeline, Tcell</td></tr>
 <tr><td style="width: 2px; "></td><td>Tanzania</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Airtel</td></tr>
 <tr><td style="width: 2px; "></td><td>Thailand</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>AIS, DTAC, True Move</td></tr>
 <tr><td style="width: 2px; "></td><td>Trinidad and Tobago</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Digicel, TSTT</td></tr>
 <tr><td style="width: 2px; "></td><td>Tunisia</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Orange Tunisie, Tunisie Telecom</td></tr>
-<tr><td style="width: 2px; "></td><td>Uganda</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Africell, MTN</td></tr>
+<tr><td style="width: 2px; "></td><td>Uganda</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Africell, Airtel, MTN</td></tr>
 <tr><td style="width: 2px; "></td><td>Ukraine</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Kyivstar, Life, MTS</td></tr>
 <tr><td style="width: 2px; background-color: #89E2B3; "></td><td>United Kingdom</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>✅</td><td>3, EE, O2, Vodafone</td></tr>
 <tr><td style="width: 2px; background-color: #AFE4EE; "></td><td>United States</td><td>✅</td><td>AT&T, Alaska Wireless, T-Mobile (USA), Verizon</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
@@ -888,7 +888,7 @@ To be provided at a later date.
 <tr><td style="width: 2px; "></td><td>Uzbekistan</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Beeline</td></tr>
 <tr><td style="width: 2px; "></td><td>Venezuela</td><td>❓</td><td>Movistar</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td style="width: 2px; "></td><td>Vietnam</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>MobiFone, Viettel, Vinaphone</td></tr>
-<tr><td style="width: 2px; "></td><td>Virgin Islands (British)</td><td>❓</td><td>Flow</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td style="width: 2px; "></td><td>Virgin Islands (British)</td><td>❓</td><td>CCT, Flow</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td style="width: 2px; "></td><td>Virgin Islands (U.S.)</td><td>❓</td><td>T-Mobile (USA)</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td style="width: 2px; "></td><td>Zambia</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>❓</td><td>Airtel</td></tr>
 </tbody>

@@ -1220,24 +1220,24 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Bosnia and Herzegovina | T524 | 2G, 3G | HT Eronet |
 | Botswana | T524 | 2G, 3G, 4G | BeMobile |
 | Brunei | T524 | 3G, 4G | DST |
-| Bulgaria | T524 | 2G, 3G | A1, Telenor, Vivacom |
+| Bulgaria | T524 | 2G, 3G, 4G | A1, Telenor, Vivacom |
 | Burkina Faso | T524 | 2G, 3G, 4G | Orange |
 | Cabo Verde | T524 | 2G, 3G, 4G | CVMóvel, Unitel T+ |
-| Cambodia | T524 | 2G, 3G | Metfone |
+| Cambodia | T524 | 2G, 3G, 4G | Metfone |
 | Canada | T404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Chad | T524 | 2G, 3G, 4G | Airtel |
 | Chile | T524 | 3G, 4G | Claro, Entel, Movistar |
 | Congo (Brazzaville) | T524 | 2G, 3G, 4G | Airtel |
 | Congo (Kinshasa) | T524 | 2G, 3G, 4G | Airtel |
-| Côte d'Ivoire | T524 | 2G, 3G | MTN |
+| Côte d'Ivoire | T524 | 2G, 3G, 4G | MTN |
 | Croatia | T524 | 2G, 3G, 4G | Hrvatski Telekom, Tele2 |
-| Cyprus | T524 | 2G, 3G, 4G | MTN, PrimeTel |
+| Cyprus | T524 | 2G, 3G, 4G | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | T524 | 2G, 4G | O2, T-Mobile, Vodafone |
 | Denmark | T524 | 2G, 4G | 3 (Tre), TDC, Telenor, Telia |
 | Egypt | T524 | 2G, 3G, 4G | Etisalat, Orange |
 | Estonia | T524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
 | eSwatini | T524 | 2G, 3G, 4G | MTN |
-| Faroe Islands | T524 | 2G, 3G | Faroese Telecom, Vodafone |
+| Faroe Islands | T524 | 2G, 3G, 4G | Faroese Telecom, Vodafone |
 | Finland | T524 | 2G, 4G | DNA, Elisa, Telia |
 | France | T524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | T524 | 2G, 3G | Digicel |
@@ -1248,7 +1248,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Greece | T524 | 2G, 4G | Cosmote, Vodafone, Wind |
 | Guinea | T524 | 2G, 3G, 4G | MTN |
 | Guinea-Bissau | T524 | 2G, 3G, 4G | MTN |
-| Guyana | T524 | 2G | Digicel |
+| Guyana | T524 | 2G, 4G | Digicel |
 | Hong Kong | T524 | 3G, 4G | CMHK, CSL, SmarTone |
 | Hungary | T524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | T524 | 4G | Nova, Siminn, Vodafone |
@@ -1270,7 +1270,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Malta | T524 | 2G, 3G, 4G | Go Mobile, Vodafone |
 | Mexico | T404 | M1 | AT&T, Telcel |
 | Moldova | T524 | 2G, 3G, 4G | Moldcell, Orange |
-| Mongolia | T524 | 2G, 3G | Mobicom, Unitel |
+| Mongolia | T524 | 2G, 3G, 4G | Mobicom, Unitel |
 | Montenegro | T524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
 | Morocco | T524 | 2G, 3G, 4G | Inwi, Medi Telecom |
 | Mozambique | T524 | 2G, 3G, 4G | Vodacom |
