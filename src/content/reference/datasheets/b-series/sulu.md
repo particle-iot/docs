@@ -45,14 +45,22 @@ Unlike the Boron 404X (LTE Cat M1), the EG800Q-GL LTE Cat 1 bis module can conne
 | USB connector | USB-C | Micro-B | Micro-B | No<sup>1</sup> | No<sup>1</sup> | No<sup>1</sup> |
 | BLE support | Yes | Yes | Yes | Yes | Yes | Yes |
 | NFC tag support | No | Yes | No | Yes | No | No |
-| GNSS support | No | No | Yes | No | Yes | 
+| GNSS support | No | No | No | Yes | Yes | Yes | 
 | SIM | e-sim | MFF2 or 4FF | None | e-sim | MFF2 | MFF2 | 
 | On-board antennas | None | BLE PCB antenna | Wi-Fi/BLE PCB antenna | None | None | None |
 
+- <sup>1</sup> not included on the M.2 SoM module, typically included on your base board.
+
+Cellular Region:
 - NorAm: United States, Canada, and Mexico. 
 - Americas: North, Central, and South America (not all countries supported). 
 - EMEAA: Europe, Middle East, Africa, and Asia (not all countries supported).
-- <sup>1</sup> not included on the M.2 SoM module, typically included on your base board.
+- See [Country comparison](#country-comparison) below for additional information.
+
+SIM:
+- e-sim: Electronic SIM included. Cannot be programmed with arbitrary 3rd-party profiles on these devices.
+- MFF2: SMD SIM included, cannot be changed.
+- 4FF: Plastic nano SIM card, can be used with 3rd-party SIM cards
 
 
 ### MCU
@@ -1291,11 +1299,11 @@ Sulu does not have NFC Tag support.
 | Algeria | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Anguilla | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
 | Antigua and Barbuda | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
-| Argentina | ✅ | &nbsp; | ❓ | ❓ | ❓ |
+| Argentina | ✅ | ❓ | ❓ | ❓ | ❓ |
 | Armenia | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
 | Aruba | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Australia | ✅ | ❓ | &nbsp; | ❓ | ✅ |
-| Austria | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Austria | ✅ | ❓ | &nbsp; | ❓ | ✅ |
 | Azerbaijan | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
 | Bahamas | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
 | Bahrain | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
@@ -1321,7 +1329,7 @@ Sulu does not have NFC Tag support.
 | Congo (Kinshasa) | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Costa Rica | ✅ | &nbsp; | ❓ | &nbsp; | ❓ |
 | Côte d'Ivoire | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
-| Croatia | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Croatia | ✅ | ❓ | &nbsp; | ❓ | ✅ |
 | Cyprus | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Czechia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Denmark | ✅ | ❓ | &nbsp; | ❓ | ✅ |
@@ -1352,8 +1360,8 @@ Sulu does not have NFC Tag support.
 | Haiti | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ❓ |
 | Honduras | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
 | Hong Kong | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
-| Hungary | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
-| Iceland | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Hungary | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Iceland | ✅ | ❓ | &nbsp; | ❓ | ✅ |
 | Indonesia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Ireland | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Isle of Man | ✅ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
@@ -1369,13 +1377,13 @@ Sulu does not have NFC Tag support.
 | Kyrgyzstan | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
 | Latvia | ✅ | ❓ | &nbsp; | ❓ | ✅ |
 | Liechtenstein | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
-| Lithuania | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Lithuania | ✅ | ❓ | &nbsp; | ❓ | ✅ |
 | Luxembourg | ✅ | ❓ | &nbsp; | ❓ | ✅ |
 | Macao | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Madagascar | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Malawi | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Malaysia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
-| Malta | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Malta | ✅ | ❓ | &nbsp; | ❓ | ✅ |
 | Mexico | ✅ | ✅ | ✅ | ✅ | &nbsp; |
 | Moldova | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Mongolia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
@@ -1398,7 +1406,7 @@ Sulu does not have NFC Tag support.
 | Peru | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
 | Philippines | ✅ | &nbsp; | &nbsp; | &nbsp; | ❓ |
 | Poland | ✅ | ❓ | &nbsp; | ❓ | ✅ |
-| Portugal | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Portugal | ✅ | ❓ | &nbsp; | ❓ | ✅ |
 | Puerto Rico | ✅ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Qatar | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Romania | ✅ | ❓ | &nbsp; | ❓ | ✅ |
@@ -1409,8 +1417,8 @@ Sulu does not have NFC Tag support.
 | Serbia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Seychelles | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | Sint Maarten | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ✅ |
-| Slovakia | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
-| Slovenia | ✅ | &nbsp; | &nbsp; | ❓ | ✅ |
+| Slovakia | ✅ | ❓ | &nbsp; | ❓ | ✅ |
+| Slovenia | ✅ | ❓ | &nbsp; | ❓ | ✅ |
 | South Africa | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
 | South Korea | ✅ | ❓ | &nbsp; | ❓ | ✅ |
 | South Sudan | &nbsp; | &nbsp; | &nbsp; | &nbsp; | ✅ |
