@@ -1062,7 +1062,7 @@ Consumers should contact their local authority or retailer for information conce
 | Australia | 4G, 5G | Optus |
 | Austria | 2G, 4G, 5G | 3 (Drei) |
 | Belgium | 2G, 4G, 5G | Base, Orange, Proximus |
-| Bulgaria | 2G, 3G | A1, Telenor, Vivacom |
+| Bulgaria | 2G, 3G, 4G | A1, Telenor, Vivacom |
 | Czechia | 2G, 4G, 5G | O2, T-Mobile, Vodafone |
 | Denmark | 2G, 4G | 3 (Tre), TDC, Telenor, Telia |
 | Estonia | 2G, 3G, 4G | Elisa, Tele2, Telia |

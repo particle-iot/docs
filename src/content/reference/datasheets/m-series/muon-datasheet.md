@@ -1835,23 +1835,23 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Bosnia and Herzegovina | M524 | 2G, 3G | HT Eronet |
 | Botswana | M524 | 2G, 3G, 4G | BeMobile |
 | Brunei | M524 | 3G, 4G | DST |
-| Bulgaria | M524 | 2G, 3G | A1, Telenor, Vivacom |
+| Bulgaria | M524 | 2G, 3G, 4G | A1, Telenor, Vivacom |
 | Burkina Faso | M524 | 2G, 3G, 4G | Orange |
 | Cabo Verde | M524 | 2G, 3G, 4G | CVMóvel, Unitel T+ |
-| Cambodia | M524 | 2G, 3G | Metfone |
+| Cambodia | M524 | 2G, 3G, 4G | Metfone |
 | Chad | M524 | 2G, 3G, 4G | Airtel |
 | Chile | M524 | 3G, 4G | Claro, Entel, Movistar |
 | Congo (Brazzaville) | M524 | 2G, 3G, 4G | Airtel |
 | Congo (Kinshasa) | M524 | 2G, 3G, 4G | Airtel |
-| Côte d'Ivoire | M524 | 2G, 3G | MTN |
+| Côte d'Ivoire | M524 | 2G, 3G, 4G | MTN |
 | Croatia | M524 | 2G, 3G, 4G | Hrvatski Telekom, Tele2 |
-| Cyprus | M524 | 2G, 3G, 4G | MTN, PrimeTel |
+| Cyprus | M524 | 2G, 3G, 4G | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | M524 | 2G, 4G | O2, T-Mobile, Vodafone |
 | Denmark | M524 | 2G, 4G | 3 (Tre), TDC, Telenor, Telia |
 | Egypt | M524 | 2G, 3G, 4G | Etisalat, Orange |
 | Estonia | M524 | 2G, 3G, 4G | Elisa, Tele2, Telia |
 | eSwatini | M524 | 2G, 3G, 4G | MTN |
-| Faroe Islands | M524 | 2G, 3G | Faroese Telecom, Vodafone |
+| Faroe Islands | M524 | 2G, 3G, 4G | Faroese Telecom, Vodafone |
 | Finland | M524 | 2G, 4G | DNA, Elisa, Telia |
 | France | M524 | 2G, 3G, 4G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | M524 | 2G, 3G | Digicel |
@@ -1862,7 +1862,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Greece | M524 | 2G, 4G | Cosmote, Vodafone, Wind |
 | Guinea | M524 | 2G, 3G, 4G | MTN |
 | Guinea-Bissau | M524 | 2G, 3G, 4G | MTN |
-| Guyana | M524 | 2G | Digicel |
+| Guyana | M524 | 2G, 4G | Digicel |
 | Hong Kong | M524 | 3G, 4G | CMHK, CSL, SmarTone |
 | Hungary | M524 | 2G, 3G, 4G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | M524 | 4G | Nova, Siminn, Vodafone |
@@ -1883,7 +1883,7 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | Malaysia | M524 | 2G, 4G | Celcom, DiGi, Maxis |
 | Malta | M524 | 2G, 3G, 4G | Go Mobile, Vodafone |
 | Moldova | M524 | 2G, 3G, 4G | Moldcell, Orange |
-| Mongolia | M524 | 2G, 3G | Mobicom, Unitel |
+| Mongolia | M524 | 2G, 3G, 4G | Mobicom, Unitel |
 | Montenegro | M524 | 2G, 3G, 4G | Mtel, T-Mobile, Telenor |
 | Morocco | M524 | 2G, 3G, 4G | Inwi, Medi Telecom |
 | Mozambique | M524 | 2G, 3G, 4G | Vodacom |
