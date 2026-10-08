@@ -12,6 +12,133 @@ This is a preliminary datasheet and is subject to change.
 {{box op="end"}}
 
 
+## Overview
+
+The Sulu is a global LTE CAT 1 bis module that supports cellular, Wi-Fi, and Bluetooth LE (BLE). It is based on the Realtek RTL8722DM
+(same as the M-SoM) and contains built-in battery charging circuitry in a convenient Feather form-factor that be 
+be used in prototyping breadboards or in production designs.
+
+- Feather form-factor, like the Boron or Photon 2
+- Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
+- Realtek RTL8722DM MCU (BLE and Wi-Fi)
+- Quectel EG800Q-GL LTE Cat 1 bis (global) cellular modem
+
+Unlike the Boron 404X (LTE Cat M1), the EG800Q-GL LTE Cat 1 bis module can connect to 4G LTE cellular networks worldwide.
+
+### Comparison
+
+|  | Sulu | Boron 404X | Photon 2 | B504e | M404 | M524 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Form factor | Feather | Feather | Feather | M.2 SoM | M.2 SoM | M.2 SoM |
+| Cellular modem | Quectel EG800Q-GL | u-blox SARA-R510S | None | Quectel EG91-NAX | Quectel BG95-M5 | Quectel EG91-EX |
+| Cellular region | Global | NorAm | N/A | Americas | NorAm | EMEAA |
+| Cellular technology | LTE Cat 1 bis | LTE Cat M1 | None | LTE Cat 1 with 3G fallback | LTE Cat M1 | LTE Cat 1 with 2G/3G fallback |
+| Wi-Fi supported | Yes (2.4 GHz and 5 GHz) | No | Yes (2.4 GHz and 5 GHz) | No | Yes (2.4 GHz and 5 GHz) | Yes (2.4 GHz and 5 GHz) |
+| Generation | Gen 4 | Gen 3 | Gen 4 | Gen 3 | Gen 4 | Gen 4 |
+| MCU | RTL8722DM | nRF52840 | RTL8721DM | nRF52840 | RTL8722DM | RTL8722DM |
+| MCU processor speed | 200 MHz Cortex-M33 | 64 MHz Cortex-M4F | 200 MHz Cortex-M33 | 64 MHz Cortex-M4F | 200 MHz Cortex-M33 | 200 MHz Cortex-M33 |
+| User RAM available | 3072 KB | ~80 KB | 3072 KB | ~80 KB | 3072 KB | 3072 KB |
+| Maximum user application size | 2048 KB | 256 KB | 2048 KB | 256 KB | 2048 KB | 2048 KB |
+| Li-Po battery connector | Yes | Yes | Yes | No | No | No |
+| RGB status LED | Yes | Yes | Yes | No<sup>1</sup> | No<sup>1</sup> | No<sup>1</sup> |
+| MODE and RESET buttons | Yes | Yes | Yes | No<sup>1</sup> | No<sup>1</sup> | No<sup>1</sup> |
+| USB connector | USB-C | Micro-B | Micro-B | No<sup>1</sup> | No<sup>1</sup> | No<sup>1</sup> |
+| BLE support | Yes | Yes | Yes | Yes | Yes | Yes |
+| NFC tag support | No | Yes | No | Yes | No | No |
+| GNSS support | No | No | Yes | No | Yes | 
+| SIM | e-sim | MFF2 or 4FF | None | e-sim | MFF2 | MFF2 | 
+| On-board antennas | None | BLE PCB antenna | Wi-Fi/BLE PCB antenna | None | None | None |
+
+- NorAm: United States, Canada, and Mexico. 
+- Americas: North, Central, and South America (not all countries supported). 
+- EMEAA: Europe, Middle East, Africa, and Asia (not all countries supported).
+- <sup>1</sup> not included on the M.2 SoM module, typically included on your base board.
+
+
+### MCU
+
+{{!-- BEGIN shared-blurb f8fe3056-dfdd-46b2-9743-207930877f29 --}}
+The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8721DM), but has additional GPIO.
+
+- 802.11a/b/g/n Wi-Fi, 2.4 GHz and 5 GHz
+  - U.FL connector for external antenna
+- BLE 5 using same antenna as Wi-Fi
+- Realtek RTL8722DM MCU
+  - ARM Cortex M33 CPU, 200 MHz
+- 2048 KB (2 MB) user application maximum size
+- 3072 KB (3 MB) of RAM available to user applications
+- 8 MB flash file system
+- FCC (United States), ISED (Canada), and CE (European Union) certified
+{{!-- END shared-blurb --}}
+
+### Block diagram
+
+{{imageOverlay src="/assets/images/sulu/sulu-block-diagram.png" alt="Block diagram" class="full-width"}}
+
+### Migration guides
+
+## Power
+
+## Antennas
+
+- Sulu includes two U.FL connectors for external antennas:
+  - Cellular 
+  - Wi-Fi (2.4 GHz and 5 GHz) and BLE
+
+- Wi-Fi operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
+
+## Approved Antennas
+
+### Certified cellular antennas
+
+Sulu is certified with the following cellular antenna:
+
+{{!-- BEGIN shared-blurb c04616f7-eede-439f-9dee-d5c9aa1bf53f --}}
+| Antenna | SKU | Details | Links |
+| :----- | :--- | :------ | :---- |
+| Wide band LTE cell antenna [x1] | PARANTCW1EA | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+| Wide band LTE cell antenna [x50] | PARANTCW1TY | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+
+Single quantity units and developer kits include a PARANTCW1EA antenna. Tray quantities of the do not include antennas.
+
+| Dimension | Value | Unit |
+| :--- | ---: | :---: |
+| Length | 116.0 | mm |
+| Width | 27.0 | mm |
+| Thickness | 0.2 | mm |
+| Cable Length | 189.5 | mm |
+
+| Parameter       | 617-960     | 1156 - 1496 | 1520 - 1660.5 | 1710 - 2700 | 3330 - 4200 | 4200 - 5925 |
+| :-------------- | :---------- | :---------- | :------------ | :---------- | :---------- | :---------- |
+| V.S.W.R.        | ≤ 3.5       | ≤ 3.0       | ≤ 2.0         | ≤ 2.0       | ≤ 1.5       | ≤ 2.0       |
+| Peak Gain       | 2.8 dBi     | 2.4 dBi     | 3.9 dBi       | 5.3 dBi     | 5.6 dBi     | 7.9 dBi     |
+| Eff % (max/avg) | 71/62       | 55/53       | 68/62         | 85/70       | 76/71       | 69/62       |
+
+{{!-- END shared-blurb --}}
+
+### Certified Wi-Fi/BLE antennas
+
+Sulu is certified for use with the same antennas as the P2/Photon 2. The same antenna is shared for Wi-Fi and BLE. Unlike the P2/Photon 2, the external antenna is required for Wi-Fi and BLE and Sulu does not include a built-in trace antenna on the module.
+
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x1] | PARANTWM1EA | [Datasheet](/assets/datasheets/PARANTWM1EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/particle-p2-photon2-wi-fi-antenna-2-4-5ghz)  |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x50] |PARANTWM1TY | [Datasheet](/assets/datasheets/PARANTWM1EA.pdf) |
+
+Single quantity M-SoM units and developer kits include a PARANTWM1EA antenna. Tray quantities of the M-SoM do not include antennas.
+
+{{!-- BEGIN shared-blurb adf4fb35-acf2-464b-8080-15e05f79006b --}}
+{{box op="start" cssClass="boxed warningBox"}}
+Do not use the Argon Wi-Fi/BLE antenna (ANT-FLXV2) on the P2, Photon 2, or M-SoM. The Argon antenna does not 
+work with 5 GHz and this will result in poor Wi-Fi performance on the P2, Photon 2, and M-SoM.
+{{box op="end"}}
+{{!-- END shared-blurb --}}
+
+### General Antenna Guidance
+
+- The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
+- Needs tuning with actual product enclosure and all components.
+ 
 ## Pins and button definitions
 
 ### Pinout diagram
@@ -1010,6 +1137,134 @@ Sulu does not have NFC Tag support.
 
 | Country | Technologies | Carriers |
 | :--- | :--- | :--- |
+| Albania | 4G | Eagle, Telekom, Vodafone |
+| Algeria | 4G | Mobilis, Ooredoo |
+| Anguilla | 4G | Flow |
+| Antigua and Barbuda | 4G | Flow |
+| Argentina | 4G | Claro, Movistar, Personal |
+| Armenia | 4G | Ucom |
+| Aruba | 4G | Setar |
+| Australia | 4G | Optus, Telstra, Vodafone |
+| Austria | 4G | 3 (Drei), A1, T-Mobile |
+| Azerbaijan | 4G | Azercell, Bakcell, NAR Mobile |
+| Bahamas | 4G | Aliv, BTC Bahamas |
+| Bahrain | 4G | Zain |
+| Bangladesh | 4G | Bangalink, GrameenPhone |
+| Barbados | 4G | Flow |
+| Belarus | 4G | A1 |
+| Belgium | 4G | Base, Orange, Proximus |
+| Bolivia | 4G | Viva |
+| Botswana | 4G | BeMobile |
+| Brunei | 4G | DST |
+| Burkina Faso | 4G | Orange |
+| Cabo Verde | 4G | CVMóvel |
+| Canada | 4G | Bell Mobility, Rogers Wireless, Telus, Videotron |
+| Cayman Islands | 4G | Flow |
+| Chad | 4G | Airtel |
+| Chile | 4G | Claro, Entel, Movistar |
+| Colombia | 4G | Movistar, Tigo |
+| Congo (Brazzaville) | 4G | Airtel |
+| Congo (Kinshasa) | 4G | Airtel |
+| Costa Rica | 4G | Movistar |
+| Croatia | 4G | Hrvatski Telekom, Tele2 |
+| Cyprus | 4G | MTN, PrimeTel |
+| Czechia | 4G | O2, T-Mobile, Vodafone |
+| Denmark | 4G | 3 (Tre), TDC, Telenor, Telia |
+| Dominica | 4G | Flow |
+| Dominican Republic | 4G | Altice Dominicana, Claro |
+| Ecuador | 4G | Claro, Movistar |
+| Egypt | 4G | Etisalat, Orange |
+| El Salvador | 4G | Claro, Telefonica |
+| Estonia | 4G | Elisa, Tele2, Telia |
+| eSwatini | 4G | MTN |
+| Finland | 4G | DNA, Elisa, Telia |
+| France | 4G | Bouygues, Free Mobile, Orange, SFR |
+| Gabon | 4G | Airtel |
+| Georgia | 4G | Beeline, Geocell |
+| Germany | 4G | O2, Telekom, Vodafone |
+| Ghana | 4G | MTN, Vodafone |
+| Gibraltar | 4G | Gibtel |
+| Greece | 4G | Cosmote, Vodafone, Wind |
+| Guadeloupe | 4G | Orange |
+| Guatemala | 4G | Claro, Movistar |
+| Guinea | 4G | MTN |
+| Guinea-Bissau | 4G | MTN |
+| Honduras | 4G | Claro, Tigo |
+| Hong Kong | 4G | CMHK, CSL, SmarTone |
+| Hungary | 4G | Magyar Telekom, Telenor, Vodafone |
+| Iceland | 4G | Nova, Siminn, Vodafone |
+| Indonesia | 4G | Indosat, Telkomsel, XL Axiata |
+| Ireland | 4G | 3 (Tre), Meteor, O2, Vodafone |
+| Isle of Man | 4G | Manx Telecom |
+| Israel | 4G | Hot Mobile, Orange, Pelephone |
+| Italy | 4G | TIM, Vodafone, Wind |
+| Jamaica | 4G | Digicel, Flow |
+| Japan | 4G | KDDI, NTT DoCoMo, Softbank |
+| Jersey | 4G | Jersey Telecom |
+| Jordan | 4G | Zain |
+| Kazakhstan | 4G | Beeline, K-Cell |
+| Kenya | 4G | Airtel |
+| Kuwait | 4G | Viva, Zain |
+| Latvia | 4G | Bite, LMT, Tele2 |
+| Liechtenstein | 4G | Mobilkom, Orange |
+| Lithuania | 4G | Bite, Omnitel, Tele2 |
+| Luxembourg | 4G | Orange, POST, Tango |
+| Madagascar | 4G | Airtel |
+| Malawi | 4G | Airtel |
+| Malaysia | 4G | Celcom, DiGi, Maxis |
+| Malta | 4G | Go Mobile, Vodafone |
+| Mexico | 4G | AT&T, Telcel |
+| Moldova | 4G | Moldcell, Orange |
+| Montenegro | 4G | Mtel, T-Mobile, Telenor |
+| Morocco | 4G | Inwi, Medi Telecom |
+| Mozambique | 4G | Vodacom |
+| Myanmar | 4G | MPT, Telenor |
+| Namibia | 4G | Telecom Namibia |
+| Netherlands | 4G | KPN, T-Mobile, Vodafone |
+| New Zealand | 4G | 2degrees, Spark, Vodafone |
+| Nigeria | 4G | Airtel, MTN |
+| North Macedonia | 4G | Vip operator |
+| Norway | 4G | TDC, Telenor, Telia |
+| Pakistan | 4G | Jazz, Telenor, Ufone |
+| Panama | 4G | Movistar |
+| Paraguay | 4G | Claro, Personal, Tigo, Vox |
+| Peru | 4G | Claro, Entel, Movistar |
+| Philippines | 4G | Globe, Smart |
+| Poland | 4G | Orange, Play, Plus, T-Mobile |
+| Portugal | 4G | NOS, TMN, Vodafone |
+| Puerto Rico | 4G | Claro |
+| Qatar | 4G | Ooredoo, Vodafone |
+| Romania | 4G | Orange, Telekom Romania, Vodafone |
+| Saint Kitts and Nevis | 4G | Flow |
+| Saint Vincent and the Grenadines | 4G | Flow |
+| Serbia | 4G | Telenor, VIP |
+| Seychelles | 4G | Airtel |
+| Slovakia | 4G | O2, Orange, Telekom |
+| Slovenia | 4G | A1, Mobitel |
+| South Africa | 4G | MTN, Vodacom |
+| South Korea | 4G | KT, LG U+, SK Telecom |
+| Spain | 4G | Orange, Telefonica, Vodafone, Yoigo |
+| Sri Lanka | 4G | Dialog, Mobitel |
+| Sweden | 4G | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | 4G | Salt, Sunrise |
+| Taiwan | 4G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Tajikistan | 4G | Tcell |
+| Tanzania | 4G | Airtel |
+| Thailand | 4G | AIS, DTAC, True Move |
+| Trinidad and Tobago | 4G | Digicel, TSTT |
+| Tunisia | 4G | Orange Tunisie, Tunisie Telecom |
+| Turks and Caicos Islands | 4G | Flow |
+| Uganda | 4G | Africell, MTN |
+| Ukraine | 4G | Kyivstar, Life, MTS |
+| United Kingdom | 4G | 3, EE, O2, Vodafone |
+| United States | 4G | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
+| Uruguay | 4G | Antel, Claro, Movistar |
+| Uzbekistan | 4G | Beeline |
+| Venezuela | 4G | Movistar |
+| Vietnam | 4G | MobiFone, Viettel, Vinaphone |
+| Virgin Islands (British) | 4G | Flow |
+| Virgin Islands (U.S.) | 4G | T-Mobile (USA) |
+| Zambia | 4G | Airtel |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

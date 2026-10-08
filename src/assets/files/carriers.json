@@ -36390,6 +36390,28 @@
     },
     {
       "country": "Afghanistan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "4G-B1"
+        ],
+        "MTN": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "4G-B1"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Afghanistan",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -36975,6 +36997,51 @@
     },
     {
       "country": "Albania",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7"
+        ],
+        "Eagle": [
+          "4G-3"
+        ],
+        "Telekom": [
+          "4G-3"
+        ],
+        "Vodafone": [
+          "4G-7"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Eagle": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Telekom": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Albania",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -37550,6 +37617,43 @@
     },
     {
       "country": "Algeria",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Mobilis": [
+          "4G-3"
+        ],
+        "Ooredoo": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Mobilis": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Ooredoo": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Algeria",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -38007,6 +38111,25 @@
     },
     {
       "country": "American Samoa",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "American Samoa",
       "modem": "EG91-E",
       "sim": 2,
       "supported": {},
@@ -38294,6 +38417,25 @@
     },
     {
       "country": "Andorra",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Andorra",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -38574,6 +38716,15 @@
     },
     {
       "country": "Angola",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Angola",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -38847,6 +38998,35 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Anguilla",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-13"
+        ],
+        "Flow": [
+          "4G-13"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "3G-2",
+          "3G-5"
+        ],
+        "Flow": [
+          "2G-850",
+          "3G-2",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Anguilla",
@@ -39312,6 +39492,16 @@
     },
     {
       "country": "Antarctica",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Antarctica",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -39577,6 +39767,33 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Antigua and Barbuda",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-4"
+        ],
+        "Flow": [
+          "4G-4"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "3G-1"
+        ],
+        "Flow": [
+          "2G-850",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Antigua and Barbuda",
@@ -40232,6 +40449,62 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Argentina",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-2",
+          "4G-4",
+          "4G-7",
+          "4G-28"
+        ],
+        "Claro": [
+          "4G-2",
+          "4G-4",
+          "4G-7",
+          "4G-28"
+        ],
+        "Movistar": [
+          "4G-4"
+        ],
+        "Personal": [
+          "4G-4",
+          "4G-7",
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "2G-1900",
+          "3G-2",
+          "3G-5",
+          "M1-4"
+        ],
+        "Claro": [
+          "2G-850",
+          "2G-1900",
+          "3G-2",
+          "3G-5"
+        ],
+        "Movistar": [
+          "2G-850",
+          "2G-1900",
+          "3G-2",
+          "3G-5",
+          "M1-4"
+        ],
+        "Personal": [
+          "2G-1900"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Argentina",
@@ -41178,6 +41451,51 @@
     },
     {
       "country": "Armenia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "reason": "bands not supported by modem",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Ucom": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "4G-B3",
+          "4G-B8",
+          "3G-8"
+        ],
+        "Beeline": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "4G-B3",
+          "4G-B8"
+        ],
+        "Ucom": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Armenia",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -41842,6 +42160,35 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Aruba",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Setar": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1900",
+          "3G-1"
+        ],
+        "Setar": [
+          "2G-900",
+          "2G-1900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Aruba",
@@ -42663,6 +43010,93 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Australia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-28",
+          "4G-40",
+          "4G-8",
+          "4G-5"
+        ],
+        "Optus": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-28",
+          "4G-40"
+        ],
+        "Telstra": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-28"
+        ],
+        "Vodafone": [
+          "4G-1",
+          "4G-3",
+          "4G-5",
+          "4G-8",
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "5G-1",
+          "5G-8",
+          "5G-40",
+          "5G-78",
+          "M1-18",
+          "M1-28",
+          "NTN-255",
+          "NTN-256",
+          "M1-3",
+          "NB1-28",
+          "5G-5",
+          "5G-7",
+          "5G-26",
+          "5G-258",
+          "M1-8",
+          "NB1-8"
+        ],
+        "Optus": [
+          "5G-1",
+          "5G-8",
+          "5G-40",
+          "5G-78",
+          "M1-18",
+          "M1-28"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Telstra": [
+          "M1-3",
+          "M1-28",
+          "NB1-28",
+          "5G-5",
+          "5G-7",
+          "5G-26",
+          "5G-78",
+          "5G-258"
+        ],
+        "Vodafone": [
+          "M1-8",
+          "NB1-8"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Australia",
@@ -44152,6 +44586,100 @@
     },
     {
       "country": "Austria",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-28",
+          "4G-38",
+          "4G-20"
+        ],
+        "3 (Drei)": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-28",
+          "4G-38"
+        ],
+        "A1": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-28",
+          "4G-38"
+        ],
+        "T-Mobile": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-28",
+          "5G-75",
+          "5G-78",
+          "M1-20",
+          "5G-1",
+          "NTN-255",
+          "NTN-256",
+          "3G-8",
+          "NB1-8",
+          "M1-3"
+        ],
+        "3 (Drei)": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-28",
+          "5G-75",
+          "5G-78",
+          "M1-20"
+        ],
+        "A1": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-1",
+          "5G-75",
+          "5G-78",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "T-Mobile": [
+          "2G-900",
+          "2G-1800",
+          "3G-8",
+          "NB1-8",
+          "5G-1",
+          "5G-28",
+          "5G-75",
+          "5G-78",
+          "M1-3",
+          "M1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Austria",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -45646,6 +46174,48 @@
     },
     {
       "country": "Azerbaijan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Azercell": [
+          "4G-3"
+        ],
+        "Bakcell": [
+          "4G-3"
+        ],
+        "NAR Mobile": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1",
+          "2G-1800"
+        ],
+        "Azercell": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Bakcell": [
+          "2G-900",
+          "3G-1"
+        ],
+        "NAR Mobile": [
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Azerbaijan",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -46263,6 +46833,46 @@
     },
     {
       "country": "Bahamas",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-4",
+          "4G-13",
+          "4G-17"
+        ],
+        "Aliv": [
+          "4G-4",
+          "4G-13"
+        ],
+        "BTC Bahamas": [
+          "4G-17"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "2G-1900",
+          "3G-5"
+        ],
+        "Aliv": [
+          "2G-850",
+          "2G-1900",
+          "3G-5"
+        ],
+        "BTC Bahamas": [
+          "2G-850",
+          "2G-1900",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Bahamas",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {
@@ -46834,6 +47444,33 @@
     },
     {
       "country": "Bahrain",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Zain": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Zain": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Bahrain",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -47390,6 +48027,50 @@
     },
     {
       "country": "Bangladesh",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-8"
+        ],
+        "Bangalink": [
+          "4G-1",
+          "4G-3",
+          "4G-8"
+        ],
+        "GrameenPhone": [
+          "4G-1",
+          "4G-3",
+          "4G-8"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ],
+        "Bangalink": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "GrameenPhone": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Bangladesh",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -48081,6 +48762,35 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Barbados",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-2",
+          "4G-17"
+        ],
+        "Flow": [
+          "4G-2",
+          "4G-17"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-1900",
+          "3G-1"
+        ],
+        "Flow": [
+          "2G-1900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Barbados",
@@ -48673,6 +49383,39 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Belarus",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "A1": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "NB1-8"
+        ],
+        "A1": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "NB1-8"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Belarus",
@@ -49552,6 +50295,92 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Belgium",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20"
+        ],
+        "Base": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20"
+        ],
+        "Orange": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Proximus": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-1",
+          "M1-3",
+          "M1-20",
+          "3G-8",
+          "5G-28",
+          "5G-78",
+          "LoRa",
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Base": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-1",
+          "M1-3",
+          "M1-20"
+        ],
+        "Orange": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-3",
+          "M1-20",
+          "5G-28",
+          "5G-78"
+        ],
+        "Proximus": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "LoRa",
+          "5G-1",
+          "5G-78",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Belgium",
@@ -50902,6 +51731,31 @@
     },
     {
       "country": "Belize",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-13"
+        ],
+        "Smart": [
+          "4G-13"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-5"
+        ],
+        "Smart": [
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Belize",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {
@@ -51200,6 +52054,15 @@
     },
     {
       "country": "Benin",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Benin",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -51483,6 +52346,16 @@
       "notSupported": {},
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Bermuda",
@@ -51859,6 +52732,33 @@
     },
     {
       "country": "Bolivia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-4"
+        ],
+        "Viva": [
+          "4G-4"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-1900",
+          "3G-5"
+        ],
+        "Viva": [
+          "2G-1900",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Bolivia",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {
@@ -52265,6 +53165,16 @@
     },
     {
       "country": "Bonaire",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Bonaire",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -52540,6 +53450,29 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "BH Telecom": [
+          "2G-900",
+          "3G-1"
+        ],
+        "HT Eronet": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": []
     },
     {
       "country": "Bosnia and Herzegovina",
@@ -52988,6 +53921,33 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Botswana",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "BeMobile": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "BeMobile": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Botswana",
@@ -53530,6 +54490,63 @@
         "4G"
       ],
       "recommendation": "POSS",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Brazil",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "roaming restrictions",
+      "supported": {
+        "*": [
+          "4G-7",
+          "4G-3",
+          "4G-28"
+        ],
+        "Claro": [
+          "4G-7"
+        ],
+        "TIM": [
+          "4G-3",
+          "4G-7",
+          "4G-28"
+        ],
+        "Vivo": [
+          "4G-3",
+          "4G-7",
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "NTN-255",
+          "NTN-256",
+          "2G-1800",
+          "3G-1",
+          "3G-5",
+          "3G-8",
+          "NB1-28"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "TIM": [
+          "2G-1800",
+          "3G-1",
+          "3G-5",
+          "3G-8",
+          "NB1-28"
+        ],
+        "Vivo": [
+          "3G-1",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ],
       "roamingRestrictions": "warn"
     },
     {
@@ -54377,6 +55394,31 @@
     },
     {
       "country": "Brunei",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "DST": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1"
+        ],
+        "DST": [
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Brunei",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -54849,6 +55891,45 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Bulgaria",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "NTN-255",
+          "NTN-256",
+          "3G-8"
+        ],
+        "A1": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Telenor": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Vivacom": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ]
+      },
+      "technologies": []
     },
     {
       "country": "Bulgaria",
@@ -55620,6 +56701,33 @@
     },
     {
       "country": "Burkina Faso",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Orange": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Orange": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Burkina Faso",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -55929,6 +57037,16 @@
     },
     {
       "country": "Burundi",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Burundi",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -56231,6 +57349,40 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Cabo Verde",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-20"
+        ],
+        "CVMóvel": [
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "CVMóvel": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Unitel T+": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Cabo Verde",
@@ -56738,6 +57890,27 @@
     },
     {
       "country": "Cambodia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Metfone": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Cambodia",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -57113,6 +58286,15 @@
       "notSupported": {},
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Cameroon",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Cameroon",
@@ -57976,6 +59158,136 @@
         "4G"
       ],
       "recommendation": "NR"
+    },
+    {
+      "country": "Canada",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-2",
+          "4G-4",
+          "4G-5",
+          "4G-7",
+          "4G-12",
+          "4G-13",
+          "4G-17",
+          "4G-66",
+          "4G-71",
+          "4G-25",
+          "4G-38",
+          "4G-26",
+          "4G-40"
+        ],
+        "Bell Mobility": [
+          "4G-2",
+          "4G-4",
+          "4G-5",
+          "4G-7",
+          "4G-12",
+          "4G-13",
+          "4G-17",
+          "4G-66",
+          "4G-71"
+        ],
+        "Rogers Wireless": [
+          "4G-2",
+          "4G-5",
+          "4G-4",
+          "4G-7",
+          "4G-12",
+          "4G-17",
+          "4G-25",
+          "4G-38",
+          "4G-66",
+          "4G-71"
+        ],
+        "Telus": [
+          "4G-2",
+          "4G-4",
+          "4G-5",
+          "4G-7",
+          "4G-12",
+          "4G-13",
+          "4G-17",
+          "4G-25",
+          "4G-26",
+          "4G-40",
+          "4G-66",
+          "4G-71"
+        ],
+        "Videotron": [
+          "4G-4",
+          "4G-17"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-2",
+          "3G-5",
+          "4G-29",
+          "4G-46",
+          "M1-12",
+          "5G-66",
+          "5G-71",
+          "5G-78",
+          "M1-4",
+          "M1-5",
+          "5G-41",
+          "NTN-255",
+          "NTN-256",
+          "NB1",
+          "M1-2",
+          "3G-4"
+        ],
+        "Bell Mobility": [
+          "3G-2",
+          "3G-5",
+          "4G-29",
+          "4G-46",
+          "M1-12",
+          "5G-66",
+          "5G-71",
+          "5G-78"
+        ],
+        "Rogers Wireless": [
+          "3G-2",
+          "3G-5",
+          "4G-46",
+          "M1-4",
+          "M1-5",
+          "M1-12",
+          "5G-41",
+          "5G-66",
+          "5G-71",
+          "5G-78"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Telus": [
+          "3G-2",
+          "3G-5",
+          "4G-29",
+          "4G-46",
+          "NB1",
+          "M1-2",
+          "M1-4",
+          "M1-5",
+          "M1-12",
+          "5G-66",
+          "5G-71",
+          "5G-78"
+        ],
+        "Videotron": [
+          "3G-4"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Canada",
@@ -60033,6 +61345,35 @@
     },
     {
       "country": "Cayman Islands",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-17"
+        ],
+        "Flow": [
+          "4G-17"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "2G-1900",
+          "3G-5"
+        ],
+        "Flow": [
+          "2G-850",
+          "2G-1900",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Cayman Islands",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -60515,6 +61856,16 @@
     },
     {
       "country": "Central African Republic",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Central African Republic",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -60811,6 +62162,33 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Chad",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Airtel": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Airtel": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Chad",
@@ -61287,6 +62665,47 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Chile",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-7"
+        ],
+        "Claro": [
+          "4G-7"
+        ],
+        "Entel": [
+          "4G-7"
+        ],
+        "Movistar": [
+          "4G-7"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-2",
+          "3G-8",
+          "3G-5"
+        ],
+        "Claro": [
+          "3G-2"
+        ],
+        "Entel": [
+          "3G-2",
+          "3G-8"
+        ],
+        "Movistar": [
+          "3G-2",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Chile",
@@ -61985,6 +63404,50 @@
         "4G"
       ],
       "recommendation": "NR",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "China",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "roaming restrictions",
+      "supported": {
+        "*": [
+          "4G-38",
+          "4G-39",
+          "4G-40",
+          "4G-41",
+          "4G-3"
+        ],
+        "China Mobile": [
+          "4G-38",
+          "4G-39",
+          "4G-40",
+          "4G-41"
+        ],
+        "China Unicom": [
+          "4G-3",
+          "4G-41"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "China Mobile": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "China Unicom": [
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ],
       "roamingRestrictions": "warn"
     },
     {
@@ -62731,6 +64194,50 @@
     },
     {
       "country": "Colombia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-4",
+          "4G-7"
+        ],
+        "Movistar": [
+          "4G-4"
+        ],
+        "Tigo": [
+          "4G-4",
+          "4G-7"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "2G-1900",
+          "3G-5",
+          "NTN-255",
+          "NTN-256",
+          "3G-2"
+        ],
+        "Movistar": [
+          "2G-850",
+          "2G-1900",
+          "3G-5"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Tigo": [
+          "3G-2"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Colombia",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {
@@ -63458,6 +64965,33 @@
     },
     {
       "country": "Congo (Brazzaville)",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-7"
+        ],
+        "Airtel": [
+          "4G-7"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Airtel": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Congo (Brazzaville)",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -63920,6 +65454,34 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Congo (Kinshasa)",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "reason": "bands not supported by modem",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Airtel": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Airtel": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Congo (Kinshasa)",
@@ -64388,6 +65950,33 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Costa Rica",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Movistar": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
+          "3G-5"
+        ],
+        "Movistar": [
+          "3G-1",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Costa Rica",
@@ -64942,6 +66531,25 @@
     },
     {
       "country": "Côte d'Ivoire",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "MTN": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Côte d'Ivoire",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -65480,6 +67088,67 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Croatia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-20"
+        ],
+        "Hrvatski Telekom": [
+          "4G-3",
+          "4G-20"
+        ],
+        "Tele2": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1",
+          "3G-8",
+          "M1-8",
+          "M1-20",
+          "NB1-20",
+          "5G-1",
+          "5G-28",
+          "5G-77",
+          "5G-78",
+          "NTN-255",
+          "NTN-256",
+          "2G-1800"
+        ],
+        "Hrvatski Telekom": [
+          "2G-900",
+          "3G-1",
+          "3G-8",
+          "M1-8",
+          "M1-20",
+          "NB1-20",
+          "5G-1",
+          "5G-28",
+          "5G-77",
+          "5G-78"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Tele2": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Croatia",
@@ -66408,6 +68077,16 @@
     },
     {
       "country": "Cuba",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Cuba",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -66624,6 +68303,16 @@
       "technologies": [],
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Curaçao",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Curaçao",
@@ -67093,6 +68782,44 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Cyprus",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "reason": "bands not supported by modem",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "MTN": [
+          "4G-3"
+        ],
+        "PrimeTel": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Cytamobile-Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "MTN": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Cyprus",
@@ -67887,6 +69614,80 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Czechia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-1",
+          "4G-8"
+        ],
+        "O2": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "T-Mobile": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Vodafone": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "5G-1",
+          "5G-3",
+          "5G-77",
+          "NTN-255",
+          "NTN-256",
+          "5G-28",
+          "5G-78"
+        ],
+        "O2": [
+          "2G-900",
+          "2G-1800",
+          "5G-1",
+          "5G-3",
+          "5G-77"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "T-Mobile": [
+          "2G-900",
+          "2G-1800",
+          "5G-1",
+          "5G-3",
+          "5G-28"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "5G-1",
+          "5G-3",
+          "5G-78"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Czechia",
@@ -69302,6 +71103,81 @@
     },
     {
       "country": "Denmark",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "3 (Tre)": [
+          "4G-3",
+          "4G-7"
+        ],
+        "TDC": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Telenor": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Telia": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
+          "3G-8",
+          "NTN-255",
+          "NTN-256",
+          "2G-900",
+          "2G-1800",
+          "M1-20",
+          "NB1-20",
+          "M1-8"
+        ],
+        "3 (Tre)": [
+          "3G-1",
+          "3G-8"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "TDC": [
+          "2G-900",
+          "2G-1800",
+          "M1-20",
+          "NB1-20"
+        ],
+        "Telenor": [
+          "2G-900",
+          "2G-1800",
+          "NB1-20",
+          "M1-8",
+          "M1-20"
+        ],
+        "Telia": [
+          "2G-900",
+          "2G-1800",
+          "M1-8",
+          "M1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Denmark",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -70420,6 +72296,35 @@
     },
     {
       "country": "Dominica",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-4"
+        ],
+        "Flow": [
+          "4G-4"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "2G-1900",
+          "3G-1"
+        ],
+        "Flow": [
+          "2G-850",
+          "2G-1900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Dominica",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {
@@ -71052,6 +72957,50 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Dominican Republic",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-2",
+          "4G-4",
+          "4G-5"
+        ],
+        "Altice Dominicana": [
+          "4G-2",
+          "4G-4",
+          "4G-5"
+        ],
+        "Claro": [
+          "4G-4"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-1800",
+          "2G-1900",
+          "3G-8",
+          "3G-5"
+        ],
+        "Altice Dominicana": [
+          "2G-1800",
+          "2G-1900",
+          "3G-8"
+        ],
+        "Claro": [
+          "3G-5"
+        ],
+        "Viva": [
+          "2G-1900",
+          "3G-8"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Dominican Republic",
@@ -71832,6 +73781,44 @@
     },
     {
       "country": "Ecuador",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-4",
+          "4G-2"
+        ],
+        "Claro": [
+          "4G-4"
+        ],
+        "Movistar": [
+          "4G-2"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "3G-2",
+          "3G-5"
+        ],
+        "Claro": [
+          "2G-850",
+          "3G-2",
+          "3G-5"
+        ],
+        "Movistar": [
+          "2G-850",
+          "3G-2",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Ecuador",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {
@@ -72438,6 +74425,41 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Egypt",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Etisalat": [
+          "4G-3"
+        ],
+        "Orange": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Etisalat": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Orange": [
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Egypt",
@@ -73028,6 +75050,42 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "El Salvador",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-2"
+        ],
+        "Claro": [
+          "4G-2"
+        ],
+        "Telefonica": [
+          "4G-2"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "3G-2",
+          "3G-5"
+        ],
+        "Claro": [
+          "2G-850",
+          "3G-2"
+        ],
+        "Telefonica": [
+          "2G-850",
+          "3G-2",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "El Salvador",
@@ -73550,6 +75608,16 @@
     },
     {
       "country": "Equatorial Guinea",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Equatorial Guinea",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -74025,6 +76093,80 @@
     },
     {
       "country": "Estonia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-1"
+        ],
+        "Elisa": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Tele2": [
+          "4G-1",
+          "4G-3",
+          "4G-20"
+        ],
+        "Telia": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-3",
+          "M1-7",
+          "M1-20",
+          "NTN-255",
+          "NTN-256",
+          "NB1-1",
+          "NB1-20"
+        ],
+        "Elisa": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-3",
+          "M1-7",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Tele2": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "NB1-1"
+        ],
+        "Telia": [
+          "2G-900",
+          "2G-1800",
+          "M1-3",
+          "M1-20",
+          "NB1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Estonia",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -75167,6 +77309,33 @@
     },
     {
       "country": "eSwatini",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "MTN": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "MTN": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "eSwatini",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -75596,6 +77765,34 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Ethiopia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Ethio Telecom": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Ethio Telecom": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Ethiopia",
@@ -75999,6 +78196,37 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Faroe Islands",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1",
+          "3G-8",
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Faroese Telecom": [
+          "2G-900",
+          "3G-1",
+          "3G-8"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": []
     },
     {
       "country": "Faroe Islands",
@@ -76415,6 +78643,15 @@
     },
     {
       "country": "Fiji",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Fiji",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -76916,6 +79153,72 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Finland",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "DNA": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Elisa": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Telia": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "M1-3",
+          "M1-20",
+          "NTN-255",
+          "NTN-256",
+          "NB1-20",
+          "M1-7"
+        ],
+        "DNA": [
+          "2G-900",
+          "2G-1800",
+          "M1-3",
+          "M1-20"
+        ],
+        "Elisa": [
+          "2G-900",
+          "2G-1800",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Telia": [
+          "2G-900",
+          "2G-1800",
+          "NB1-20",
+          "M1-3",
+          "M1-7",
+          "M1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Finland",
@@ -78247,6 +80550,104 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "France",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-28"
+        ],
+        "Bouygues": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-28"
+        ],
+        "Free Mobile": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-28"
+        ],
+        "Orange": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-28"
+        ],
+        "SFR": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1",
+          "3G-8",
+          "5G-1",
+          "5G-78",
+          "M1-20",
+          "2G-1800",
+          "5G-27",
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Bouygues": [
+          "2G-900",
+          "3G-1",
+          "3G-8",
+          "5G-1",
+          "5G-78",
+          "M1-20"
+        ],
+        "Free Mobile": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "5G-1",
+          "5G-27",
+          "5G-78"
+        ],
+        "Orange": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-20",
+          "5G-1",
+          "5G-78"
+        ],
+        "SFR": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "5G-1",
+          "5G-78",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "France",
@@ -79760,6 +82161,27 @@
     },
     {
       "country": "French Guiana",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Digicel": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "French Guiana",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -80158,6 +82580,33 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Gabon",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1"
+        ],
+        "Airtel": [
+          "4G-1"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Airtel": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Gabon",
@@ -80590,6 +83039,15 @@
     },
     {
       "country": "Gambia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Gambia",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -80902,6 +83360,44 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Georgia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-20",
+          "4G-3"
+        ],
+        "Beeline": [
+          "4G-20"
+        ],
+        "Geocell": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Beeline": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Geocell": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Georgia",
@@ -81828,6 +84324,99 @@
     },
     {
       "country": "Germany",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-28",
+          "4G-38"
+        ],
+        "O2": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-28",
+          "4G-38"
+        ],
+        "Telekom": [
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-28",
+          "4G-38"
+        ],
+        "Vodafone": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-28",
+          "4G-38"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-1800",
+          "NB1-20",
+          "M1-20",
+          "5G-1",
+          "5G-78",
+          "NTN-255",
+          "NTN-256",
+          "2G-900",
+          "4G-32",
+          "NB1-8",
+          "M1-3",
+          "M1-28",
+          "5G-3",
+          "5G-28"
+        ],
+        "O2": [
+          "2G-1800",
+          "NB1-20",
+          "M1-20",
+          "5G-1",
+          "5G-78"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Telekom": [
+          "2G-900",
+          "2G-1800",
+          "4G-32",
+          "NB1-8",
+          "M1-3",
+          "M1-20",
+          "M1-28"
+        ],
+        "Vodafone": [
+          "4G-32",
+          "NB1-20",
+          "5G-1",
+          "5G-3",
+          "5G-28",
+          "5G-78",
+          "M1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Germany",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -83413,6 +86002,47 @@
     },
     {
       "country": "Ghana",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "reason": "bands not supported by modem",
+      "supported": {
+        "*": [
+          "4G-7",
+          "4G-20"
+        ],
+        "MTN": [
+          "4G-7",
+          "4G-20"
+        ],
+        "Vodafone": [
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1",
+          "2G-1800",
+          "3G-8"
+        ],
+        "AirtelTigo": [
+          "2G-900",
+          "3G-1"
+        ],
+        "MTN": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Ghana",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -84020,6 +86650,43 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Gibraltar",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-7",
+          "4G-20"
+        ],
+        "Gibtel": [
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Gibtel": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Gibraltar",
@@ -84769,6 +87436,77 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Greece",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-1",
+          "4G-28"
+        ],
+        "Cosmote": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Vodafone": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-28"
+        ],
+        "Wind": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "5G-28",
+          "5G-78",
+          "NTN-255",
+          "NTN-256",
+          "NB1-20",
+          "5G-1"
+        ],
+        "Cosmote": [
+          "2G-900",
+          "2G-1800",
+          "5G-28",
+          "5G-78"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "NB1-20",
+          "5G-28",
+          "5G-78"
+        ],
+        "Wind": [
+          "2G-900",
+          "2G-1800",
+          "5G-1",
+          "5G-28",
+          "5G-78"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Greece",
@@ -85876,6 +88614,15 @@
     },
     {
       "country": "Greenland",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Greenland",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -86175,6 +88922,23 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Grenada",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-850"
+        ],
+        "Flow": [
+          "2G-850"
+        ]
+      },
+      "technologies": []
     },
     {
       "country": "Grenada",
@@ -86599,6 +89363,39 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Guadeloupe",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Orange": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Orange": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Guadeloupe",
@@ -87038,6 +89835,15 @@
     },
     {
       "country": "Guam",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Guam",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -87381,6 +90187,42 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Guatemala",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-2"
+        ],
+        "Claro": [
+          "4G-2"
+        ],
+        "Movistar": [
+          "4G-2"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1900",
+          "3G-2"
+        ],
+        "Claro": [
+          "2G-900",
+          "2G-1900",
+          "3G-2"
+        ],
+        "Movistar": [
+          "2G-1900",
+          "3G-2"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Guatemala",
@@ -87970,6 +90812,33 @@
     },
     {
       "country": "Guernsey",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "NTN-255",
+          "NTN-256",
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Guernsey",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -88414,6 +91283,35 @@
     },
     {
       "country": "Guinea",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "MTN": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "MTN": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Guinea",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -88803,6 +91701,35 @@
     },
     {
       "country": "Guinea-Bissau",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "MTN": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "MTN": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Guinea-Bissau",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -89229,6 +92156,23 @@
     },
     {
       "country": "Guyana",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900"
+        ],
+        "Digicel": [
+          "2G-900"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Guyana",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -89615,6 +92559,27 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Haiti",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Digicel": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": []
     },
     {
       "country": "Haiti",
@@ -90068,6 +93033,25 @@
     },
     {
       "country": "Holy See (Vatican City)",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Holy See (Vatican City)",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -90501,6 +93485,42 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Honduras",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-4"
+        ],
+        "Claro": [
+          "4G-4"
+        ],
+        "Tigo": [
+          "4G-4"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-1900",
+          "3G-2",
+          "2G-850",
+          "3G-5"
+        ],
+        "Claro": [
+          "2G-1900",
+          "3G-2"
+        ],
+        "Tigo": [
+          "2G-850",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Honduras",
@@ -91166,6 +94186,54 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Hong Kong",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-40",
+          "4G-8"
+        ],
+        "CMHK": [
+          "4G-3",
+          "4G-7",
+          "4G-40"
+        ],
+        "CSL": [
+          "4G-3",
+          "4G-7"
+        ],
+        "SmarTone": [
+          "4G-3",
+          "4G-8"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ],
+        "CSL": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ],
+        "SmarTone": [
+          "3G-1",
+          "3G-8"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Hong Kong",
@@ -92156,6 +95224,78 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Hungary",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-28"
+        ],
+        "Magyar Telekom": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Telenor": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Vodafone": [
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "M1-20",
+          "NTN-255",
+          "NTN-256",
+          "3G-1",
+          "3G-8",
+          "NB1-20",
+          "5G-1",
+          "5G-27",
+          "5G-78"
+        ],
+        "Magyar Telekom": [
+          "2G-900",
+          "2G-1800",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Telenor": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "NB1-20",
+          "5G-1",
+          "5G-27",
+          "5G-78",
+          "M1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Hungary",
@@ -93510,6 +96650,72 @@
     },
     {
       "country": "Iceland",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-20",
+          "4G-7"
+        ],
+        "Nova": [
+          "4G-1",
+          "4G-3",
+          "4G-20"
+        ],
+        "Siminn": [
+          "4G-3",
+          "4G-7"
+        ],
+        "Vodafone": [
+          "4G-1",
+          "4G-3",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
+          "M1-20",
+          "2G-900",
+          "2G-1800",
+          "3G-8",
+          "NTN-255",
+          "NTN-256",
+          "NB1"
+        ],
+        "Nova": [
+          "3G-1",
+          "M1-20"
+        ],
+        "Siminn": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-20",
+          "NB1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Iceland",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -94544,6 +97750,42 @@
         "4G"
       ],
       "recommendation": "POSS",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "India",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "roaming restrictions",
+      "supported": {
+        "*": [
+          "4G-40",
+          "4G-3",
+          "4G-5"
+        ],
+        "Airtel": [
+          "4G-40"
+        ],
+        "Jio": [
+          "4G-3",
+          "4G-5",
+          "4G-40"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Airtel": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ],
       "roamingRestrictions": "warn"
     },
     {
@@ -95214,6 +98456,51 @@
     },
     {
       "country": "Indonesia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-8"
+        ],
+        "Indosat": [
+          "4G-3",
+          "4G-8"
+        ],
+        "Telkomsel": [
+          "4G-3",
+          "4G-8"
+        ],
+        "XL Axiata": [
+          "4G-3",
+          "4G-8"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Indosat": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Telkomsel": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "XL Axiata": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Indonesia",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -95815,6 +99102,16 @@
     },
     {
       "country": "Iran",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Iran",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -96029,6 +99326,16 @@
       "notSupported": {},
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Iraq",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Iraq",
@@ -96469,6 +99776,78 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Ireland",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-28"
+        ],
+        "3 (Tre)": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-28"
+        ],
+        "Meteor": [
+          "4G-3",
+          "4G-20"
+        ],
+        "O2": [
+          "4G-3"
+        ],
+        "Vodafone": [
+          "4G-3",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "5G-3",
+          "5G-78",
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "NTN-255",
+          "NTN-256",
+          "NB1-20"
+        ],
+        "3 (Tre)": [
+          "5G-3",
+          "5G-78"
+        ],
+        "Meteor": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ],
+        "O2": [
+          "3G-1"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "NB1-20",
+          "5G-78"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Ireland",
@@ -97506,6 +100885,47 @@
     },
     {
       "country": "Isle of Man",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-20"
+        ],
+        "Manx Telecom": [
+          "4G-3",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1",
+          "NTN-255",
+          "NTN-256",
+          "2G-1800"
+        ],
+        "Manx Telecom": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Isle of Man",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -98078,6 +101498,43 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Israel",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Hot Mobile": [
+          "4G-3"
+        ],
+        "Orange": [
+          "4G-3"
+        ],
+        "Pelephone": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ],
+        "Orange": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Israel",
@@ -98869,6 +102326,91 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Italy",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-38"
+        ],
+        "TIM": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20"
+        ],
+        "Vodafone": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20"
+        ],
+        "Wind": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-38"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "NTN-255",
+          "NTN-256",
+          "2G-900",
+          "2G-1800",
+          "4G-32",
+          "NB1-20",
+          "5G-28",
+          "5G-78",
+          "5G-258",
+          "3G-1",
+          "3G-8"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "TIM": [
+          "2G-900",
+          "2G-1800",
+          "4G-32",
+          "NB1-20",
+          "5G-28",
+          "5G-78",
+          "5G-258"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "4G-32",
+          "NB1-20",
+          "5G-78",
+          "5G-258"
+        ],
+        "Wind": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "NB1-20",
+          "5G-78",
+          "5G-258"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Italy",
@@ -100197,6 +103739,36 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Jamaica",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-5"
+        ],
+        "Digicel": [
+          "4G-5"
+        ],
+        "Flow": [
+          "4G-5"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Digicel": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Jamaica",
@@ -101051,6 +104623,122 @@
       ],
       "recommendation": "NR",
       "reason": "Not certified for use in Japan."
+    },
+    {
+      "country": "Japan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-18",
+          "4G-26",
+          "4G-28",
+          "4G-19",
+          "4G-8"
+        ],
+        "KDDI": [
+          "4G-1",
+          "4G-3",
+          "4G-18",
+          "4G-26",
+          "4G-28"
+        ],
+        "NTT DoCoMo": [
+          "4G-1",
+          "4G-3",
+          "4G-19",
+          "4G-28"
+        ],
+        "Softbank": [
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "4G-11",
+          "4G-42",
+          "M1-1",
+          "M1-3",
+          "M1-18",
+          "M1-26",
+          "M1-28",
+          "5G-18",
+          "5G-28",
+          "5G-77",
+          "5G-78",
+          "5G-257",
+          "3G-1",
+          "3G-9",
+          "3G-19",
+          "4G-9",
+          "4G-21",
+          "M1-19",
+          "5G-79",
+          "NTN-255",
+          "NTN-256",
+          "M1-8",
+          "M1-9",
+          "M1-11",
+          "5G-3"
+        ],
+        "KDDI": [
+          "4G-11",
+          "4G-42",
+          "M1-1",
+          "M1-3",
+          "M1-18",
+          "M1-26",
+          "M1-28",
+          "5G-18",
+          "5G-28",
+          "5G-77",
+          "5G-78",
+          "5G-257"
+        ],
+        "NTT DoCoMo": [
+          "3G-1",
+          "3G-9",
+          "3G-19",
+          "4G-9",
+          "4G-21",
+          "4G-42",
+          "M1-1",
+          "M1-3",
+          "M1-19",
+          "M1-28",
+          "5G-78",
+          "5G-79",
+          "5G-257"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Softbank": [
+          "4G-9",
+          "4G-11",
+          "4G-42",
+          "M1-1",
+          "M1-3",
+          "M1-8",
+          "M1-9",
+          "M1-11",
+          "M1-28",
+          "5G-3",
+          "5G-28",
+          "5G-77",
+          "5G-257"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Japan",
@@ -102599,6 +106287,54 @@
     },
     {
       "country": "Jersey",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "reason": "bands not supported by modem",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Jersey Telecom": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
+          "2G-900",
+          "2G-1800",
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Airtel-Vodafone": [
+          "3G-1"
+        ],
+        "Jersey Telecom": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Sure": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Jersey",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -103299,6 +107035,33 @@
     },
     {
       "country": "Jordan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Zain": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Zain": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Jordan",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -103784,6 +107547,45 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Kazakhstan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-20"
+        ],
+        "Beeline": [
+          "4G-1",
+          "4G-3",
+          "4G-20"
+        ],
+        "K-Cell": [
+          "4G-3",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Beeline": [
+          "2G-900",
+          "3G-1"
+        ],
+        "K-Cell": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Kazakhstan",
@@ -104334,6 +108136,33 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Kenya",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-20"
+        ],
+        "Airtel": [
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Airtel": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Kenya",
@@ -104786,6 +108615,16 @@
     },
     {
       "country": "Kiribati",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Kiribati",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -105038,6 +108877,24 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Kosovo",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ]
+      },
+      "technologies": []
     },
     {
       "country": "Kosovo",
@@ -105487,6 +109344,43 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Kuwait",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Viva": [
+          "4G-3"
+        ],
+        "Zain": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Viva": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Zain": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Kuwait",
@@ -106176,6 +110070,27 @@
     },
     {
       "country": "Kyrgyzstan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Beeline": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Kyrgyzstan",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -106487,6 +110402,16 @@
       "notSupported": {},
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Lao People's Democratic Republic",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Lao People's Democratic Republic",
@@ -106938,6 +110863,73 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Latvia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Bite": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "LMT": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Tele2": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-78",
+          "M1-20",
+          "NTN-255",
+          "NTN-256",
+          "M1-28"
+        ],
+        "Bite": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-78",
+          "M1-20"
+        ],
+        "LMT": [
+          "2G-900",
+          "2G-1800",
+          "M1-20",
+          "5G-78"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Tele2": [
+          "2G-900",
+          "2G-1800",
+          "5G-78",
+          "M1-20",
+          "M1-28"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Latvia",
@@ -107889,6 +111881,16 @@
     },
     {
       "country": "Lebanon",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Lebanon",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -108104,6 +112106,16 @@
       "technologies": [],
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Lesotho",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Lesotho",
@@ -108500,6 +112512,51 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Liechtenstein",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-7",
+          "4G-3"
+        ],
+        "Mobilkom": [
+          "4G-7"
+        ],
+        "Orange": [
+          "4G-3",
+          "4G-7"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Mobilkom": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Orange": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Liechtenstein",
@@ -109430,6 +113487,95 @@
     },
     {
       "country": "Lithuania",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-28",
+          "4G-38",
+          "4G-40",
+          "4G-41"
+        ],
+        "Bite": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-28",
+          "4G-38",
+          "4G-40",
+          "4G-41"
+        ],
+        "Omnitel": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Tele2": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-28",
+          "5G-38",
+          "5G-40",
+          "NTN-255",
+          "NTN-256",
+          "3G-8",
+          "5G-78",
+          "M1-8",
+          "M1-20"
+        ],
+        "Bite": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-28",
+          "5G-38",
+          "5G-40"
+        ],
+        "Omnitel": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Tele2": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "5G-28",
+          "5G-78",
+          "M1-8",
+          "M1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Lithuania",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -110820,6 +114966,60 @@
     },
     {
       "country": "Luxembourg",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Orange": [
+          "4G-3"
+        ],
+        "POST": [
+          "4G-3"
+        ],
+        "Tango": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-1800",
+          "3G-1",
+          "M1-8",
+          "M1-20",
+          "2G-900",
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Orange": [
+          "2G-1800",
+          "3G-1",
+          "M1-8",
+          "M1-20"
+        ],
+        "POST": [
+          "2G-900",
+          "2G-1800",
+          "M1-8",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Tango": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Luxembourg",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -111692,6 +115892,34 @@
     },
     {
       "country": "Macao",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-40"
+        ],
+        "CTM": [
+          "4G-3",
+          "4G-40"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1"
+        ],
+        "CTM": [
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Macao",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -112177,6 +116405,33 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Madagascar",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Airtel": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Airtel": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Madagascar",
@@ -112675,6 +116930,33 @@
     },
     {
       "country": "Malawi",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Airtel": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Airtel": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Malawi",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -113201,6 +117483,54 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Malaysia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-1",
+          "4G-28"
+        ],
+        "Celcom": [
+          "4G-3",
+          "4G-7"
+        ],
+        "DiGi": [
+          "4G-7"
+        ],
+        "Maxis": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "5G-78",
+          "5G-257"
+        ],
+        "DiGi": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Maxis": [
+          "2G-900",
+          "2G-1800",
+          "5G-78",
+          "5G-257"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Malaysia",
@@ -113972,6 +118302,16 @@
     },
     {
       "country": "Maldives",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Maldives",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -114186,6 +118526,15 @@
       "notSupported": {},
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Mali",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Mali",
@@ -114551,6 +118900,53 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Malta",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-20"
+        ],
+        "Go Mobile": [
+          "4G-3",
+          "4G-20"
+        ],
+        "Vodafone": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-1800",
+          "3G-1",
+          "5G-78",
+          "M1-20",
+          "NTN-255",
+          "NTN-256",
+          "2G-900"
+        ],
+        "Go Mobile": [
+          "2G-1800",
+          "3G-1",
+          "5G-78",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Malta",
@@ -115348,6 +119744,16 @@
     },
     {
       "country": "Martinique",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Martinique",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -115607,6 +120013,16 @@
     },
     {
       "country": "Mauritania",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Mauritania",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -115821,6 +120237,15 @@
       "notSupported": {},
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Mauritius",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Mauritius",
@@ -116064,6 +120489,16 @@
       "notSupported": {},
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Mayotte",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Mayotte",
@@ -116548,6 +120983,74 @@
       ],
       "recommendation": "NR",
       "reason": "Poor band fit"
+    },
+    {
+      "country": "Mexico",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-2",
+          "4G-4",
+          "4G-7",
+          "4G-38",
+          "4G-66"
+        ],
+        "AT&T": [
+          "4G-2",
+          "4G-4",
+          "4G-7",
+          "4G-38"
+        ],
+        "Telcel": [
+          "4G-4",
+          "4G-7",
+          "4G-66"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-2",
+          "3G-5",
+          "M1-4",
+          "M1-5",
+          "5G-38",
+          "5G-78",
+          "NTN-255",
+          "NTN-256",
+          "2G-850",
+          "2G-1900",
+          "M1-7",
+          "M1-66",
+          "5G-5"
+        ],
+        "AT&T": [
+          "3G-2",
+          "3G-5",
+          "M1-4",
+          "M1-5",
+          "5G-38",
+          "5G-78"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Telcel": [
+          "2G-850",
+          "2G-1900",
+          "3G-2",
+          "3G-5",
+          "M1-4",
+          "M1-7",
+          "M1-66",
+          "5G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Mexico",
@@ -117723,6 +122226,47 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Moldova",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-7",
+          "4G-20",
+          "4G-3"
+        ],
+        "Moldcell": [
+          "4G-7",
+          "4G-20"
+        ],
+        "Orange": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1",
+          "2G-1800"
+        ],
+        "Moldcell": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Orange": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Moldova",
@@ -118257,6 +122801,24 @@
     },
     {
       "country": "Monaco",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Monaco",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -118649,6 +123211,31 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Mongolia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Mobicom": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Unitel": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": []
     },
     {
       "country": "Mongolia",
@@ -119226,6 +123813,57 @@
     },
     {
       "country": "Montenegro",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-8",
+          "4G-20",
+          "4G-7"
+        ],
+        "Mtel": [
+          "4G-3",
+          "4G-8",
+          "4G-20"
+        ],
+        "T-Mobile": [
+          "4G-3",
+          "4G-7"
+        ],
+        "Telenor": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Mtel": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "T-Mobile": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Telenor": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Montenegro",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -119980,6 +124618,16 @@
     },
     {
       "country": "Montserrat",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Montserrat",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -120367,6 +125015,49 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Morocco",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Inwi": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Medi Telecom": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Inwi": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Medi Telecom": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Morocco",
@@ -120977,6 +125668,37 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Mozambique",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-20"
+        ],
+        "Vodacom": [
+          "4G-3",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Vodacom": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Mozambique",
@@ -121530,6 +126252,37 @@
     },
     {
       "country": "Myanmar",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-1"
+        ],
+        "MPT": [
+          "4G-3"
+        ],
+        "Telenor": [
+          "4G-1"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "MPT": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Myanmar",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -121938,6 +126691,37 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Namibia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-38"
+        ],
+        "Telecom Namibia": [
+          "4G-3",
+          "4G-38"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Telecom Namibia": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Namibia",
@@ -122289,6 +127073,16 @@
     },
     {
       "country": "Nauru",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Nauru",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -122500,6 +127294,15 @@
       "notSupported": {},
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Nepal",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Nepal",
@@ -123017,6 +127820,89 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Netherlands",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-38",
+          "4G-1",
+          "4G-8"
+        ],
+        "KPN": [
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-38"
+        ],
+        "T-Mobile": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-38"
+        ],
+        "Vodafone": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "M1-20",
+          "5G-1",
+          "5G-28",
+          "5G-78",
+          "NTN-255",
+          "NTN-256",
+          "3G-1",
+          "3G-8",
+          "M1-8",
+          "5G-3"
+        ],
+        "KPN": [
+          "2G-900",
+          "2G-1800",
+          "M1-20",
+          "5G-1",
+          "5G-28",
+          "5G-78"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "T-Mobile": [
+          "3G-1",
+          "3G-8",
+          "M1-8",
+          "M1-20",
+          "5G-28"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "M1-8",
+          "M1-20",
+          "5G-1",
+          "5G-3",
+          "5G-28",
+          "5G-78"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Netherlands",
@@ -124228,6 +129114,15 @@
     },
     {
       "country": "Netherlands Antilles",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Netherlands Antilles",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -124722,6 +129617,86 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "New Zealand",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-28",
+          "4G-7",
+          "4G-40"
+        ],
+        "2degrees": [
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-28"
+        ],
+        "Spark": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-28",
+          "4G-40"
+        ],
+        "Vodafone": [
+          "4G-3",
+          "4G-7",
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
+          "3G-8",
+          "5G-78",
+          "NTN-255",
+          "NTN-256",
+          "3G-5",
+          "M1-3",
+          "M1-28",
+          "5G-40",
+          "2G-900",
+          "2G-1800",
+          "NB1-28"
+        ],
+        "2degrees": [
+          "3G-1",
+          "3G-8",
+          "5G-78"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Spark": [
+          "3G-1",
+          "3G-5",
+          "M1-3",
+          "M1-28",
+          "5G-78",
+          "5G-40"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-3",
+          "M1-28",
+          "NB1-28",
+          "5G-78"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "New Zealand",
@@ -125884,6 +130859,27 @@
     },
     {
       "country": "Nicaragua",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "3G-2",
+          "3G-5"
+        ],
+        "Movistar": [
+          "2G-850",
+          "3G-2",
+          "3G-5"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Nicaragua",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -126305,6 +131301,16 @@
       "technologies": [],
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Niger",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Niger",
@@ -126737,6 +131743,58 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Nigeria",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-28",
+          "4G-7",
+          "4G-20"
+        ],
+        "9mobile": [
+          "4G-3"
+        ],
+        "Airtel": [
+          "4G-3"
+        ],
+        "Glo": [
+          "4G-28"
+        ],
+        "MTN": [
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "9mobile": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Airtel": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Glo": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Nigeria",
@@ -127496,6 +132554,45 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "North Macedonia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-20"
+        ],
+        "Vip operator": [
+          "4G-3",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "NTN-255",
+          "NTN-256",
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-2"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Vip operator": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-2"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "North Macedonia",
@@ -128353,6 +133450,74 @@
     },
     {
       "country": "Norway",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-1"
+        ],
+        "TDC": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Telenor": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Telia": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "NTN-255",
+          "NTN-256",
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "NB1-20",
+          "M1-8",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "TDC": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Telenor": [
+          "2G-900",
+          "2G-1800",
+          "NB1-20",
+          "M1-8",
+          "M1-20"
+        ],
+        "Telia": [
+          "2G-900",
+          "2G-1800",
+          "NB1-20",
+          "M1-8",
+          "M1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Norway",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -129363,6 +134528,33 @@
     },
     {
       "country": "Oman",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "roaming restrictions",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Ooredoo": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900"
+        ],
+        "Ooredoo": [
+          "2G-900"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ],
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Oman",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -129890,6 +135082,54 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Pakistan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-8",
+          "4G-5",
+          "4G-1"
+        ],
+        "Jazz": [
+          "4G-3",
+          "4G-8"
+        ],
+        "Telenor": [
+          "4G-3",
+          "4G-5"
+        ],
+        "Ufone": [
+          "4G-1",
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-28"
+        ],
+        "Jazz": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-28"
+        ],
+        "Ufone": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Pakistan",
@@ -130607,6 +135847,25 @@
     },
     {
       "country": "Palestine",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Jawwal": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Palestine",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -131021,6 +136280,39 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Panama",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "reason": "bands not supported by modem",
+      "supported": {
+        "*": [
+          "4G-28"
+        ],
+        "Movistar": [
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-2",
+          "2G-850",
+          "3G-5"
+        ],
+        "Digicel": [
+          "3G-2"
+        ],
+        "Movistar": [
+          "2G-850",
+          "3G-2",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Panama",
@@ -131621,6 +136913,25 @@
     },
     {
       "country": "Papua New Guinea",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-8"
+        ],
+        "bmobile": [
+          "2G-900",
+          "3G-8"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Papua New Guinea",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -132107,6 +137418,64 @@
         "4G"
       ],
       "recommendation": "NR"
+    },
+    {
+      "country": "Paraguay",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-4",
+          "4G-28",
+          "4G-2"
+        ],
+        "Claro": [
+          "4G-4",
+          "4G-28"
+        ],
+        "Personal": [
+          "4G-2"
+        ],
+        "Tigo": [
+          "4G-4",
+          "4G-28"
+        ],
+        "Vox": [
+          "4G-4"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-1900",
+          "3G-2",
+          "2G-850",
+          "3G-5",
+          "3G-8"
+        ],
+        "Claro": [
+          "2G-1900",
+          "3G-2"
+        ],
+        "Personal": [
+          "2G-850",
+          "3G-2",
+          "3G-5"
+        ],
+        "Tigo": [
+          "2G-850",
+          "2G-1900",
+          "3G-5"
+        ],
+        "Vox": [
+          "2G-850",
+          "2G-1900",
+          "3G-8"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Paraguay",
@@ -132867,6 +138236,52 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Peru",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-2",
+          "4G-4"
+        ],
+        "Claro": [
+          "4G-2"
+        ],
+        "Entel": [
+          "4G-4"
+        ],
+        "Movistar": [
+          "4G-4"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "2G-1900",
+          "3G-2",
+          "3G-5"
+        ],
+        "Claro": [
+          "2G-850",
+          "2G-1900",
+          "3G-2",
+          "3G-5"
+        ],
+        "Entel": [
+          "2G-850",
+          "2G-1900",
+          "3G-2"
+        ],
+        "Movistar": [
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Peru",
@@ -133554,6 +138969,48 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Philippines",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-41",
+          "4G-1",
+          "4G-5"
+        ],
+        "Globe": [
+          "4G-3",
+          "4G-7",
+          "4G-41"
+        ],
+        "Smart": [
+          "4G-1",
+          "4G-3",
+          "4G-5"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Globe": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Smart": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Philippines",
@@ -134588,6 +140045,104 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Poland",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-8",
+          "4G-38"
+        ],
+        "Orange": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Play": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Plus": [
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-38"
+        ],
+        "T-Mobile": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-3",
+          "M1-20",
+          "5G-1",
+          "5G-78",
+          "5G-38",
+          "NTN-255",
+          "NTN-256",
+          "NB1-20"
+        ],
+        "Orange": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-3",
+          "M1-20",
+          "5G-1",
+          "5G-78"
+        ],
+        "Play": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "5G-1",
+          "5G-78"
+        ],
+        "Plus": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "5G-1",
+          "5G-38"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "T-Mobile": [
+          "2G-900",
+          "2G-1800",
+          "NB1-20",
+          "5G-1",
+          "5G-78",
+          "M1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Poland",
@@ -136301,6 +141856,80 @@
     },
     {
       "country": "Portugal",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-38"
+        ],
+        "NOS": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20"
+        ],
+        "TMN": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Vodafone": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-38"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-28",
+          "5G-78",
+          "M1-20",
+          "NTN-255",
+          "NTN-256"
+        ],
+        "NOS": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-28",
+          "5G-78",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "TMN": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "5G-28",
+          "5G-78",
+          "M1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Portugal",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -137512,6 +143141,41 @@
     },
     {
       "country": "Puerto Rico",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-17"
+        ],
+        "Claro": [
+          "4G-17"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "5G-66",
+          "5G-78",
+          "5G-261",
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Claro": [
+          "5G-66",
+          "5G-78",
+          "5G-261"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Puerto Rico",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -138103,6 +143767,48 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Qatar",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Ooredoo": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Vodafone": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Ooredoo": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Qatar",
@@ -138745,6 +144451,16 @@
       "technologies": [],
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Réunion",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Réunion",
@@ -139405,6 +145121,86 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Romania",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-38"
+        ],
+        "Orange": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Telekom Romania": [
+          "4G-3"
+        ],
+        "Vodafone": [
+          "4G-3",
+          "4G-20",
+          "4G-38"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-3",
+          "5G-1",
+          "5G-3",
+          "5G-77",
+          "5G-78",
+          "NTN-255",
+          "NTN-256",
+          "5G-20",
+          "M1-20",
+          "NB1-20"
+        ],
+        "Orange": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-3",
+          "5G-1",
+          "5G-3",
+          "5G-77",
+          "5G-78"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Telekom Romania": [
+          "2G-900",
+          "2G-1800",
+          "5G-1",
+          "5G-3",
+          "5G-20",
+          "5G-77",
+          "M1-3",
+          "M1-20"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "NB1-20",
+          "5G-78",
+          "M1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Romania",
@@ -140874,6 +146670,73 @@
     },
     {
       "country": "Russia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "roaming restrictions",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Beeline": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Megafon": [
+          "4G-7",
+          "4G-20"
+        ],
+        "MTS": [
+          "4G-7",
+          "4G-20"
+        ],
+        "Tele2": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ],
+        "Beeline": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ],
+        "Megafon": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ],
+        "MTS": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ],
+        "Tele2": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ],
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Russia",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -141966,6 +147829,32 @@
     },
     {
       "country": "Rwanda",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Airtel": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "MTN": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Rwanda",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -142457,6 +148346,16 @@
     },
     {
       "country": "Saint Barthélemy",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Saint Barthélemy",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -142800,6 +148699,37 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Saint Kitts and Nevis",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-28"
+        ],
+        "Flow": [
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "2G-1900",
+          "3G-2",
+          "3G-5"
+        ],
+        "Flow": [
+          "2G-850",
+          "2G-1900",
+          "3G-2",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Saint Kitts and Nevis",
@@ -143374,6 +149304,25 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Saint Lucia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "3G-5"
+        ],
+        "Flow": [
+          "2G-850",
+          "3G-5"
+        ]
+      },
+      "technologies": []
     },
     {
       "country": "Saint Lucia",
@@ -143780,6 +149729,16 @@
     },
     {
       "country": "Saint Martin (French part)",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Saint Martin (French part)",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -144079,6 +150038,31 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-5"
+        ],
+        "Flow": [
+          "4G-5"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-5"
+        ],
+        "Flow": [
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Saint Vincent and the Grenadines",
@@ -144494,6 +150478,16 @@
       "notSupported": {},
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Samoa",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Samoa",
@@ -144750,6 +150744,25 @@
       "technologies": [],
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "San Marino",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ]
+      },
+      "technologies": []
     },
     {
       "country": "San Marino",
@@ -145409,6 +151422,93 @@
         "4G"
       ],
       "recommendation": "NR",
+      "roamingRestrictions": "hide"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-40",
+          "4G-20",
+          "4G-38",
+          "4G-41",
+          "4G-8"
+        ],
+        "Al Jawal": [
+          "4G-1",
+          "4G-3",
+          "4G-40"
+        ],
+        "Mobily": [
+          "4G-3",
+          "4G-20",
+          "4G-38",
+          "4G-41"
+        ],
+        "Zain": [
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-20",
+          "4G-38"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "5G-1",
+          "5G-3",
+          "5G-8",
+          "5G-28",
+          "5G-40",
+          "5G-77",
+          "5G-78",
+          "3G-1",
+          "5G-20",
+          "5G-41"
+        ],
+        "Al Jawal": [
+          "2G-900",
+          "2G-1800",
+          "5G-1",
+          "5G-3",
+          "5G-8",
+          "5G-28",
+          "5G-40",
+          "5G-77",
+          "5G-78"
+        ],
+        "Mobily": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-1",
+          "5G-3",
+          "5G-8",
+          "5G-20",
+          "5G-78"
+        ],
+        "Zain": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-1",
+          "5G-3",
+          "5G-8",
+          "5G-20",
+          "5G-41",
+          "5G-78"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ],
       "roamingRestrictions": "hide"
     },
     {
@@ -146269,6 +152369,16 @@
     },
     {
       "country": "Senegal",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Senegal",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -146632,6 +152742,43 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Serbia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "Telenor": [
+          "4G-3"
+        ],
+        "VIP": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Telenor": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "VIP": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Serbia",
@@ -147329,6 +153476,33 @@
     },
     {
       "country": "Seychelles",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-20"
+        ],
+        "Airtel": [
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Airtel": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Seychelles",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -147748,6 +153922,16 @@
     },
     {
       "country": "Sierra Leone",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Sierra Leone",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -148152,6 +154336,65 @@
         "4G"
       ],
       "recommendation": "POSS",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Singapore",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "roaming restrictions",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-38"
+        ],
+        "SingTel": [
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-38"
+        ],
+        "StarHub": [
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-38"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "NB1-8",
+          "M1-3",
+          "M1-8",
+          "5G-1",
+          "5G-78",
+          "NTN-255",
+          "NTN-256",
+          "3G-1"
+        ],
+        "SingTel": [
+          "NB1-8",
+          "M1-3",
+          "M1-8",
+          "5G-1",
+          "5G-78"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "StarHub": [
+          "3G-1",
+          "5G-1",
+          "5G-78"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ],
       "roamingRestrictions": "warn"
     },
     {
@@ -149087,6 +155330,27 @@
     },
     {
       "country": "Sint Maarten",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "TelCell": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Sint Maarten",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -149596,6 +155860,67 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Slovakia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-20",
+          "4G-7"
+        ],
+        "O2": [
+          "4G-3",
+          "4G-20"
+        ],
+        "Orange": [
+          "4G-7",
+          "4G-20"
+        ],
+        "Telekom": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "M1-3",
+          "M1-20",
+          "NTN-255",
+          "NTN-256"
+        ],
+        "O2": [
+          "2G-900",
+          "2G-1800",
+          "M1-3",
+          "M1-20"
+        ],
+        "Orange": [
+          "2G-900",
+          "2G-1800",
+          "M1-3",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Telekom": [
+          "2G-900",
+          "2G-1800",
+          "M1-3",
+          "M1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Slovakia",
@@ -150736,6 +157061,65 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Slovenia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "A1": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Mobitel": [
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "M1-3",
+          "M1-8",
+          "M1-20",
+          "5G-41",
+          "5G-78",
+          "NTN-255",
+          "NTN-256"
+        ],
+        "A1": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "M1-3",
+          "M1-8",
+          "M1-20"
+        ],
+        "Mobitel": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-41",
+          "5G-78"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Slovenia",
@@ -151653,6 +158037,16 @@
     },
     {
       "country": "Solomon Islands",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Solomon Islands",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -151906,6 +158300,16 @@
       "notSupported": {},
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Somalia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Somalia",
@@ -152297,6 +158701,64 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "South Africa",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-8"
+        ],
+        "Cell C": [
+          "4G-1",
+          "4G-3"
+        ],
+        "MTN": [
+          "4G-3",
+          "4G-8"
+        ],
+        "Vodacom": [
+          "4G-1",
+          "4G-3",
+          "4G-8"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "5G-78",
+          "4G-46"
+        ],
+        "Cell C": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8"
+        ],
+        "MTN": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-78"
+        ],
+        "Vodacom": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "4G-46",
+          "5G-78"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "South Africa",
@@ -153376,6 +159838,70 @@
     },
     {
       "country": "South Korea",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-5",
+          "4G-7"
+        ],
+        "KT": [
+          "4G-1",
+          "4G-3",
+          "4G-8"
+        ],
+        "LG U+": [
+          "4G-1",
+          "4G-5",
+          "4G-7"
+        ],
+        "SK Telecom": [
+          "4G-1",
+          "4G-3",
+          "4G-5",
+          "4G-7"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
+          "M1-1",
+          "M1-3",
+          "M1-8",
+          "5G-78",
+          "5G-257",
+          "M1-5"
+        ],
+        "KT": [
+          "3G-1",
+          "M1-1",
+          "M1-3",
+          "M1-8",
+          "5G-78",
+          "5G-257"
+        ],
+        "LG U+": [
+          "5G-78",
+          "5G-257"
+        ],
+        "SK Telecom": [
+          "3G-1",
+          "M1-3",
+          "M1-5",
+          "5G-78",
+          "5G-257"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "South Korea",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {
@@ -154358,6 +160884,25 @@
     },
     {
       "country": "South Sudan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "MTN": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "South Sudan",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -155147,6 +161692,130 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Spain",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-28",
+          "4G-38"
+        ],
+        "Orange": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-28"
+        ],
+        "Telefonica": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-28"
+        ],
+        "Vodafone": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-28",
+          "4G-38"
+        ],
+        "Yoigo": [
+          "4G-1",
+          "4G-3",
+          "4G-28",
+          "4G-38"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-1",
+          "M1-3",
+          "M1-8",
+          "M1-20",
+          "5G-1",
+          "5G-3",
+          "5G-28",
+          "5G-78",
+          "NTN-255",
+          "NTN-256",
+          "4G-42",
+          "M1-7",
+          "5G-258",
+          "NB1-20"
+        ],
+        "Orange": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-1",
+          "M1-3",
+          "M1-8",
+          "M1-20",
+          "5G-1",
+          "5G-3",
+          "5G-28",
+          "5G-78"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Telefonica": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "4G-42",
+          "M1-3",
+          "M1-7",
+          "5G-1",
+          "5G-3",
+          "5G-28",
+          "5G-78",
+          "5G-258"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "M1-20",
+          "NB1-20",
+          "5G-1",
+          "5G-3",
+          "5G-28",
+          "5G-78"
+        ],
+        "Yoigo": [
+          "2G-1800",
+          "3G-1",
+          "5G-1",
+          "5G-3",
+          "5G-78"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Spain",
@@ -156965,6 +163634,44 @@
     },
     {
       "country": "Sri Lanka",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-40"
+        ],
+        "Dialog": [
+          "4G-3",
+          "4G-40"
+        ],
+        "Mobitel": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "M1-3"
+        ],
+        "Dialog": [
+          "2G-900",
+          "2G-1800",
+          "M1-3"
+        ],
+        "Mobitel": [
+          "2G-900",
+          "2G-1800"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Sri Lanka",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -157622,6 +164329,27 @@
     },
     {
       "country": "Suriname",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Telesur": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": []
+    },
+    {
+      "country": "Suriname",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -158017,6 +164745,16 @@
       "technologies": [],
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Svalbard and Jan Mayen",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Svalbard and Jan Mayen",
@@ -158637,6 +165375,105 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Sweden",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-7",
+          "4G-20",
+          "4G-38",
+          "4G-3",
+          "4G-8",
+          "4G-28"
+        ],
+        "3 (Tre)": [
+          "4G-1",
+          "4G-7",
+          "4G-20",
+          "4G-38"
+        ],
+        "Tele2": [
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-28"
+        ],
+        "Telenor": [
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-28"
+        ],
+        "Telia": [
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "5G-1",
+          "5G-38",
+          "5G-78",
+          "M1-20",
+          "NTN-255",
+          "NTN-256",
+          "M1-28",
+          "M1-3",
+          "5G-28"
+        ],
+        "3 (Tre)": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "5G-1",
+          "5G-38",
+          "5G-78",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Tele2": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "M1-20",
+          "M1-28",
+          "5G-78"
+        ],
+        "Telenor": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "5G-78",
+          "M1-20"
+        ],
+        "Telia": [
+          "2G-900",
+          "2G-1800",
+          "M1-3",
+          "M1-20",
+          "5G-28"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Sweden",
@@ -160305,6 +167142,86 @@
         "4G"
       ],
       "recommendation": "YES"
+    },
+    {
+      "country": "Switzerland",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-28",
+          "4G-38"
+        ],
+        "Salt": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "Sunrise": [
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-28"
+        ],
+        "Swisscom": [
+          "4G-3",
+          "4G-7",
+          "4G-20",
+          "4G-38"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
+          "3G-8",
+          "M1-20",
+          "NTN-255",
+          "NTN-256",
+          "4G-67",
+          "4G-75",
+          "5G-28",
+          "5G-78",
+          "5G-80",
+          "M1-3",
+          "5G-1"
+        ],
+        "Salt": [
+          "3G-1",
+          "3G-8",
+          "M1-20"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Sunrise": [
+          "3G-1",
+          "3G-8",
+          "4G-67",
+          "4G-75",
+          "5G-28",
+          "5G-78",
+          "5G-80",
+          "M1-20"
+        ],
+        "Swisscom": [
+          "3G-1",
+          "3G-8",
+          "M1-3",
+          "M1-20",
+          "5G-1",
+          "5G-78"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Switzerland",
@@ -161665,6 +168582,79 @@
     },
     {
       "country": "Taiwan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-28",
+          "4G-66"
+        ],
+        "Chunghwa": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8"
+        ],
+        "FarEasTone": [
+          "4G-1",
+          "4G-7",
+          "4G-3",
+          "4G-28"
+        ],
+        "T Star": [
+          "4G-1",
+          "4G-7",
+          "4G-8"
+        ],
+        "Taiwan Mobile": [
+          "4G-1",
+          "4G-3",
+          "4G-28",
+          "4G-66"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
+          "M1-1",
+          "M1-3",
+          "M1-8",
+          "5G-1",
+          "5G-78",
+          "NB1-28"
+        ],
+        "Chunghwa": [
+          "3G-1",
+          "M1-1",
+          "M1-3",
+          "M1-8",
+          "5G-1",
+          "5G-78"
+        ],
+        "FarEasTone": [
+          "5G-1",
+          "5G-78"
+        ],
+        "T Star": [
+          "5G-78"
+        ],
+        "Taiwan Mobile": [
+          "3G-1",
+          "NB1-28",
+          "5G-78"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Taiwan",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {
@@ -162649,6 +169639,41 @@
     },
     {
       "country": "Tajikistan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "reason": "bands not supported by modem",
+      "supported": {
+        "*": [
+          "4G-20"
+        ],
+        "Tcell": [
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Beeline": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Tcell": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Tajikistan",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -163070,6 +170095,35 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Tanzania",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-28"
+        ],
+        "Airtel": [
+          "4G-28"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Airtel": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Tanzania",
@@ -163802,6 +170856,74 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Thailand",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-41",
+          "4G-40"
+        ],
+        "AIS": [
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-41"
+        ],
+        "DTAC": [
+          "4G-1",
+          "4G-3",
+          "4G-40"
+        ],
+        "True Move": [
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-41"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
+          "3G-8",
+          "M1-1",
+          "M1-3",
+          "M1-8",
+          "5G-41",
+          "2G-900",
+          "2G-1800",
+          "3G-5",
+          "NB1-8"
+        ],
+        "AIS": [
+          "3G-1",
+          "3G-8",
+          "M1-1",
+          "M1-3",
+          "M1-8",
+          "5G-41"
+        ],
+        "DTAC": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-5"
+        ],
+        "True Move": [
+          "3G-1",
+          "NB1-8",
+          "5G-41"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Thailand",
@@ -164749,6 +171871,16 @@
     },
     {
       "country": "Togo",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Togo",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -164987,6 +172119,16 @@
       "notSupported": {},
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Tonga",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Tonga",
@@ -165364,6 +172506,51 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-2",
+          "4G-4",
+          "4G-28",
+          "4G-7"
+        ],
+        "Digicel": [
+          "4G-2",
+          "4G-4",
+          "4G-28"
+        ],
+        "TSTT": [
+          "4G-7"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "2G-1900",
+          "3G-2",
+          "3G-5",
+          "2G-1800"
+        ],
+        "Digicel": [
+          "2G-850",
+          "2G-1900",
+          "3G-2",
+          "3G-5"
+        ],
+        "TSTT": [
+          "2G-1800",
+          "3G-2",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Trinidad and Tobago",
@@ -166142,6 +173329,46 @@
     },
     {
       "country": "Tunisia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-20"
+        ],
+        "Orange Tunisie": [
+          "4G-3",
+          "4G-20"
+        ],
+        "Tunisie Telecom": [
+          "4G-3",
+          "4G-20"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Orange Tunisie": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Tunisie Telecom": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Tunisia",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -166886,6 +174113,77 @@
         "4G"
       ],
       "recommendation": "NR",
+      "roamingRestrictions": "hide"
+    },
+    {
+      "country": "Turkey",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-38",
+          "4G-1",
+          "4G-20"
+        ],
+        "Türk Telekom": [
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-38"
+        ],
+        "Turkcell": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20"
+        ],
+        "Vodafone": [
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-38"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "NB1-20",
+          "M1-3",
+          "M1-20",
+          "M1-8"
+        ],
+        "Türk Telekom": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Turkcell": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "NB1-20",
+          "M1-3",
+          "M1-20"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "M1-8",
+          "M1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ],
       "roamingRestrictions": "hide"
     },
     {
@@ -167977,6 +175275,33 @@
     },
     {
       "country": "Turks and Caicos Islands",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-17"
+        ],
+        "Flow": [
+          "4G-17"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "3G-5"
+        ],
+        "Flow": [
+          "2G-850",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Turks and Caicos Islands",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -168553,6 +175878,49 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Uganda",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-20",
+          "4G-7",
+          "4G-38"
+        ],
+        "Africell": [
+          "4G-20"
+        ],
+        "MTN": [
+          "4G-7",
+          "4G-38"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Africell": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Airtel": [
+          "2G-900",
+          "3G-1"
+        ],
+        "MTN": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Uganda",
@@ -169267,6 +176635,51 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Ukraine",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-7"
+        ],
+        "Kyivstar": [
+          "4G-7"
+        ],
+        "Life": [
+          "4G-7"
+        ],
+        "MTS": [
+          "4G-7"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Kyivstar": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Life": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "MTS": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Ukraine",
@@ -170044,6 +177457,52 @@
         "4G"
       ],
       "recommendation": "NR",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "United Arab Emirates",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "roaming restrictions",
+      "supported": {
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-20",
+          "4G-40",
+          "4G-7"
+        ],
+        "du": [
+          "4G-1",
+          "4G-3",
+          "4G-20",
+          "4G-40"
+        ],
+        "Etisalat": [
+          "4G-3",
+          "4G-7"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
+          "5G-78",
+          "M1-3"
+        ],
+        "du": [
+          "3G-1",
+          "5G-78"
+        ],
+        "Etisalat": [
+          "3G-1",
+          "M1-3",
+          "5G-78"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ],
       "roamingRestrictions": "warn"
     },
     {
@@ -171099,6 +178558,124 @@
     },
     {
       "country": "United Kingdom",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "3": [
+          "4G-1",
+          "4G-3",
+          "4G-20",
+          "4G-28"
+        ],
+        "*": [
+          "4G-1",
+          "4G-3",
+          "4G-20",
+          "4G-28",
+          "4G-7",
+          "4G-8",
+          "4G-40",
+          "4G-38"
+        ],
+        "EE": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-20"
+        ],
+        "O2": [
+          "4G-1",
+          "4G-3",
+          "4G-8",
+          "4G-20",
+          "4G-28",
+          "4G-40"
+        ],
+        "Vodafone": [
+          "4G-1",
+          "4G-3",
+          "4G-7",
+          "4G-8",
+          "4G-20",
+          "4G-38"
+        ]
+      },
+      "notSupported": {
+        "3": [
+          "3G-1",
+          "4G-32",
+          "5G-1",
+          "5G-28",
+          "5G-77",
+          "5G-78"
+        ],
+        "*": [
+          "3G-1",
+          "4G-32",
+          "5G-1",
+          "5G-28",
+          "5G-77",
+          "5G-78",
+          "2G-1800",
+          "5G-3",
+          "5G-7",
+          "M1-20",
+          "2G-900",
+          "3G-8",
+          "NB1",
+          "5G-8",
+          "NTN-255",
+          "NTN-256",
+          "NB1-8",
+          "NB1-20",
+          "M1-8"
+        ],
+        "EE": [
+          "2G-1800",
+          "3G-1",
+          "5G-1",
+          "5G-3",
+          "5G-7",
+          "5G-28",
+          "5G-78",
+          "M1-20"
+        ],
+        "O2": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "3G-8",
+          "NB1",
+          "M1-20",
+          "5G-1",
+          "5G-8",
+          "5G-28",
+          "5G-78"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "Vodafone": [
+          "2G-900",
+          "2G-1800",
+          "4G-32",
+          "NB1-8",
+          "NB1-20",
+          "5G-1",
+          "5G-8",
+          "5G-78",
+          "M1-8",
+          "M1-20"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "United Kingdom",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -173259,6 +180836,140 @@
         "4G"
       ],
       "recommendation": "NR"
+    },
+    {
+      "country": "United States",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-4",
+          "4G-12",
+          "4G-2",
+          "4G-5",
+          "4G-14",
+          "4G-17",
+          "4G-66",
+          "4G-71",
+          "4G-13"
+        ],
+        "Alaska Wireless": [
+          "4G-4",
+          "4G-12"
+        ],
+        "AT&T": [
+          "4G-2",
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-14",
+          "4G-17",
+          "4G-66"
+        ],
+        "T-Mobile (USA)": [
+          "4G-2",
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ],
+        "Verizon": [
+          "4G-2",
+          "4G-4",
+          "4G-5",
+          "4G-13",
+          "4G-66"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "4G-29",
+          "4G-30",
+          "4G-46",
+          "4G-48",
+          "M1-2",
+          "M1-4",
+          "M1-5",
+          "M1-12",
+          "M1-66",
+          "5G-2",
+          "5G-5",
+          "5G-66",
+          "5G-77",
+          "5G-260",
+          "5G-261",
+          "NTN-255",
+          "NTN-256",
+          "NB1-2",
+          "NB1-4",
+          "NB1-12",
+          "M1-71",
+          "5G-41",
+          "5G-71",
+          "5G-258",
+          "M1-13",
+          "NB1-13"
+        ],
+        "AT&T": [
+          "4G-29",
+          "4G-30",
+          "4G-46",
+          "4G-48",
+          "M1-2",
+          "M1-4",
+          "M1-5",
+          "M1-12",
+          "M1-66",
+          "5G-2",
+          "5G-5",
+          "5G-66",
+          "5G-77",
+          "5G-260",
+          "5G-261"
+        ],
+        "Skylo": [
+          "NTN-255",
+          "NTN-256"
+        ],
+        "T-Mobile (USA)": [
+          "NB1-2",
+          "NB1-4",
+          "NB1-12",
+          "M1-2",
+          "M1-4",
+          "M1-5",
+          "M1-12",
+          "M1-66",
+          "M1-71",
+          "5G-41",
+          "5G-71",
+          "5G-258",
+          "5G-260",
+          "5G-261"
+        ],
+        "Verizon": [
+          "4G-46",
+          "4G-48",
+          "M1-2",
+          "M1-4",
+          "M1-5",
+          "M1-13",
+          "M1-66",
+          "NB1-4",
+          "NB1-13",
+          "5G-2",
+          "5G-5",
+          "5G-66",
+          "5G-77",
+          "5G-260",
+          "5G-261"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "United States",
@@ -175188,6 +182899,49 @@
     },
     {
       "country": "Uruguay",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-4",
+          "4G-2"
+        ],
+        "Antel": [
+          "4G-4"
+        ],
+        "Claro": [
+          "4G-4"
+        ],
+        "Movistar": [
+          "4G-2"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-1800",
+          "3G-1",
+          "3G-2",
+          "3G-5"
+        ],
+        "Antel": [
+          "2G-1800",
+          "3G-1"
+        ],
+        "Claro": [
+          "3G-2"
+        ],
+        "Movistar": [
+          "3G-2",
+          "3G-5"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Uruguay",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {
@@ -175832,6 +183586,35 @@
     },
     {
       "country": "Uzbekistan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-7"
+        ],
+        "Beeline": [
+          "4G-7"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Beeline": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Uzbekistan",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -176232,6 +184015,16 @@
     },
     {
       "country": "Vanuatu",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Vanuatu",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -176490,6 +184283,33 @@
       },
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Venezuela",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-4"
+        ],
+        "Movistar": [
+          "4G-4"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-850",
+          "3G-2"
+        ],
+        "Movistar": [
+          "2G-850",
+          "3G-2"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Venezuela",
@@ -177020,6 +184840,48 @@
         "4G"
       ],
       "recommendation": "POSS"
+    },
+    {
+      "country": "Vietnam",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-3"
+        ],
+        "MobiFone": [
+          "4G-3"
+        ],
+        "Viettel": [
+          "4G-3"
+        ],
+        "Vinaphone": [
+          "4G-3"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "3G-1",
+          "2G-900",
+          "2G-1800"
+        ],
+        "MobiFone": [
+          "3G-1"
+        ],
+        "Viettel": [
+          "2G-900",
+          "2G-1800"
+        ],
+        "Vinaphone": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
     },
     {
       "country": "Vietnam",
@@ -177624,6 +185486,45 @@
     },
     {
       "country": "Virgin Islands (British)",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "reason": "bands not supported by modem",
+      "supported": {
+        "*": [
+          "4G-2",
+          "4G-12"
+        ],
+        "Flow": [
+          "4G-2",
+          "4G-12"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "2G-1800",
+          "3G-1",
+          "2G-850",
+          "2G-1900"
+        ],
+        "CCT": [
+          "2G-900",
+          "2G-1800",
+          "3G-1"
+        ],
+        "Flow": [
+          "2G-850",
+          "2G-1900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Virgin Islands (British)",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {
@@ -178309,6 +186210,32 @@
     },
     {
       "country": "Virgin Islands (U.S.)",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ],
+        "T-Mobile (USA)": [
+          "4G-4",
+          "4G-5",
+          "4G-12",
+          "4G-66",
+          "4G-71"
+        ]
+      },
+      "notSupported": {},
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Virgin Islands (U.S.)",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {
@@ -178642,6 +186569,16 @@
       "notSupported": {},
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Yemen",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Yemen",
@@ -178952,6 +186889,33 @@
     },
     {
       "country": "Zambia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "YES",
+      "supported": {
+        "*": [
+          "4G-8"
+        ],
+        "Airtel": [
+          "4G-8"
+        ]
+      },
+      "notSupported": {
+        "*": [
+          "2G-900",
+          "3G-1"
+        ],
+        "Airtel": [
+          "2G-900",
+          "3G-1"
+        ]
+      },
+      "technologies": [
+        "4G"
+      ]
+    },
+    {
+      "country": "Zambia",
       "modem": "EG800Q-NA",
       "sim": 4,
       "supported": {},
@@ -179324,6 +187288,15 @@
       "notSupported": {},
       "technologies": [],
       "recommendation": "NR"
+    },
+    {
+      "country": "Zimbabwe",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
     },
     {
       "country": "Zimbabwe",
