@@ -828,11 +828,11 @@
 RST    </text>
     <text x="-30" y="-16" text-anchor="middle" dominant-baseline="bottom" font-family="Arial, Helvetica, sans-serif" font-size="10px" fill="black" >
 Sulu    </text>
-    <line x1="-30" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RST    </text>
   </g>
   <g transform="translate(370,94.6) " >
@@ -842,11 +842,11 @@ RST    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 3V3    </text>
-    <line x1="-30" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 3V3    </text>
   </g>
   <g transform="translate(370,119.19999999999999) " >
@@ -856,11 +856,11 @@ RST    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 MODE    </text>
-    <line x1="-30" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 MODE    </text>
   </g>
   <g transform="translate(370,143.79999999999998) " >
@@ -870,11 +870,11 @@ MODE    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
-    <line x1="-30" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
   </g>
   <g transform="translate(370,168.39999999999998) " >
@@ -884,24 +884,12 @@ GND    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A0    </text>
-    <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-64" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D19    </text>
-    <line x1="-64" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A0    </text>
-    <line x1="-240" y1="0" x2="-244" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-274" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-259" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D11    </text>
   </g>
   <g transform="translate(370,192.99999999999997) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -910,24 +898,12 @@ D11    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A1    </text>
-    <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-64" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D18    </text>
-    <line x1="-64" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A1    </text>
-    <line x1="-240" y1="0" x2="-244" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-274" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-259" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D12    </text>
   </g>
   <g transform="translate(370,217.59999999999997) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -936,24 +912,12 @@ D12    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A2    </text>
-    <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-64" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D17    </text>
-    <line x1="-64" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A2    </text>
-    <line x1="-240" y1="0" x2="-244" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-274" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-259" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D13    </text>
   </g>
   <g transform="translate(370,242.19999999999996) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -962,17 +926,11 @@ D13    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A3    </text>
-    <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-64" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D16    </text>
-    <line x1="-64" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A3    </text>
   </g>
   <g transform="translate(370,266.79999999999995) " >
@@ -982,17 +940,11 @@ A3    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A4    </text>
-    <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-64" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D15    </text>
-    <line x1="-64" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A4    </text>
   </g>
   <g transform="translate(370,291.4) " >
@@ -1002,24 +954,12 @@ A4    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A5    </text>
-    <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-64" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D14    </text>
-    <line x1="-64" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A5    </text>
-    <line x1="-240" y1="0" x2="-244" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-274" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-259" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D14    </text>
   </g>
   <g transform="translate(370,316) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -1028,24 +968,12 @@ D14    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SCK    </text>
-    <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-64" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D13    </text>
-    <line x1="-64" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SCK    </text>
-    <line x1="-240" y1="0" x2="-244" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-274" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-259" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D17    </text>
   </g>
   <g transform="translate(370,340.6) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -1054,24 +982,12 @@ D17    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 MOSI    </text>
-    <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-64" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D12    </text>
-    <line x1="-64" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 MOSI    </text>
-    <line x1="-240" y1="0" x2="-244" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-274" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-259" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D15    </text>
   </g>
   <g transform="translate(370,365.20000000000005) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -1080,24 +996,12 @@ D15    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 MISO    </text>
-    <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-64" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D11    </text>
-    <line x1="-64" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 MISO    </text>
-    <line x1="-240" y1="0" x2="-244" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-274" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-259" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D16    </text>
   </g>
   <g transform="translate(370,389.80000000000007) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -1106,24 +1010,12 @@ D16    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RX    </text>
-    <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-64" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D10    </text>
-    <line x1="-64" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RX    </text>
-    <line x1="-240" y1="0" x2="-244" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-274" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-259" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D9    </text>
   </g>
   <g transform="translate(370,414.4000000000001) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -1132,30 +1024,12 @@ D9    </text>
     </rect>
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 TX    </text>
-    <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-64" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="-49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D9    </text>
-    <line x1="-64" y1="0" x2="-151" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-206" y="-8" width="55" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-178.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-Yes    </text>
-    <line x1="-206" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 TX    </text>
-    <line x1="-240" y1="0" x2="-244" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-274" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-259" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D8    </text>
   </g>
   <g transform="translate(598,439) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -1164,18 +1038,12 @@ D8    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D0    </text>
-    <line x1="30" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D0    </text>
-    <line x1="240" y1="0" x2="244" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="244" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="259" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-A3    </text>
   </g>
   <g transform="translate(598,414.4) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -1184,18 +1052,12 @@ A3    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D1    </text>
-    <line x1="30" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D1    </text>
-    <line x1="240" y1="0" x2="244" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="244" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="259" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-A4    </text>
   </g>
   <g transform="translate(598,389.79999999999995) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -1204,11 +1066,11 @@ A4    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D2    </text>
-    <line x1="30" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D2    </text>
   </g>
   <g transform="translate(598,365.19999999999993) " >
@@ -1218,11 +1080,11 @@ D2    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D3    </text>
-    <line x1="30" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D3    </text>
   </g>
   <g transform="translate(598,340.5999999999999) " >
@@ -1232,11 +1094,11 @@ D3    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D4    </text>
-    <line x1="30" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D4    </text>
   </g>
   <g transform="translate(598,315.9999999999999) " >
@@ -1246,11 +1108,11 @@ D4    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D5    </text>
-    <line x1="30" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D5    </text>
   </g>
   <g transform="translate(598,291.39999999999986) " >
@@ -1260,17 +1122,11 @@ D5    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D6    </text>
-    <line x1="30" y1="0" x2="151" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="151" y="-8" width="55" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="178.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-Yes    </text>
-    <line x1="206" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D6    </text>
   </g>
   <g transform="translate(598,266.79999999999984) " >
@@ -1280,23 +1136,11 @@ D6    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D7    </text>
-    <line x1="30" y1="0" x2="68" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="68" y="-8" width="55" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-Yes    </text>
-    <line x1="123" y1="0" x2="151" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="151" y="-8" width="55" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="178.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-Yes    </text>
-    <line x1="206" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D7    </text>
   </g>
   <g transform="translate(598,242.19999999999985) " >
@@ -1306,17 +1150,11 @@ D7    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D8    </text>
-    <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-WKP    </text>
-    <line x1="64" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D8    </text>
   </g>
   <g transform="translate(598,217.59999999999985) " >
@@ -1326,11 +1164,11 @@ D8    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VUSB    </text>
-    <line x1="30" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VUSB    </text>
   </g>
   <g transform="translate(598,192.99999999999986) " >
@@ -1340,11 +1178,11 @@ VUSB    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 EN    </text>
-    <line x1="30" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 EN    </text>
   </g>
   <g transform="translate(598,168.39999999999986) " >
@@ -1356,11 +1194,11 @@ EN    </text>
 LI+    </text>
     <text x="30" y="-16" text-anchor="middle" dominant-baseline="bottom" font-family="Arial, Helvetica, sans-serif" font-size="10px" fill="black" >
 Sulu    </text>
-    <line x1="30" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
     </rect>
-    <text x="225" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 LI+    </text>
   </g>
 </svg>

@@ -1562,6 +1562,20 @@ const schemaDocs = require('./schema-docs');
             }
         },
         {
+            guid:'36a024cb-427e-431a-878b-c06fee0e1ebe', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'featherComparison',
+                    platformNew: 'Sulu',
+                    platformOld: 'Photon 2',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                    includeFeather: true, // Must add this with featherComparison
+                }); 
+            }
+        },
+        {
             guid:'6b9bbf34-54df-4cbb-bf2f-8dda881901e4', 
             generatorFn:function(updater){
                 return updater.generatePinInfo({

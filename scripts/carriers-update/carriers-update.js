@@ -2682,6 +2682,12 @@ const generatorConfig = require('./generator-config');
             platformInfoNew.pins = tempPins;
         }
 
+        let platformInfoFeather;
+        if (options.includeFeather) {
+            platformInfoFeather = updater.pinInfo.platforms.find(p => p.name == 'Feather');
+            // console.log('platformInfoFeather', platformInfoFeather);
+        }
+
         let platformInfoOld;
         let mappedPins;
 
@@ -2837,6 +2843,9 @@ const generatorConfig = require('./generator-config');
                         old: oldPin,
                         new: newPin,
                     };
+                    if (platformInfoFeather) {
+                        m.feather = platformInfoFeather.pins.find(e => e.num == pinNum);
+                    }
                     
                     if (options.noModulePin) {
                         if (oldPin.name == newPin.name) {
@@ -3819,6 +3828,89 @@ const generatorConfig = require('./generator-config');
 
 
             md += updater.generateTable(tableOptions, tableData);
+        }
+
+        if (options.style == 'featherComparison') {
+            // This is used to compare Feather GPIO pins for highlighting the A3/A5 swap on Photon 2
+            // Options: platformOld, platformNew, noPinNumbers (typically used), newMCU, showBootMode, newRightColumns
+
+            let tableOptions = {
+                columns: [],
+            };
+
+            if (!options.noPinNumbers) {
+                tableOptions.columns.push({
+                    key: 'num',
+                    title: 'Pin',
+                    align: 'center',
+                });    
+            }
+            if (platformInfoFeather) {
+                tableOptions.columns.push({
+                    key: 'featherPinName',
+                    title: 'Feather Pin Name',
+                });    
+            }
+            if (platformInfoOld) {
+                tableOptions.columns.push({
+                    key: 'oldPinName',
+                    title: options.platformOld + ' Pin Name',
+                });    
+            }
+            tableOptions.columns.push({
+                key: 'newPinName',
+                title: options.platformNew + ' Pin Name',
+            });
+
+            if (options.newMCU) {
+                tableOptions.columns.push({
+                    key: 'newHardwarePin',
+                    title: options.newMCU,
+                });    
+            }
+            if (options.showBootMode) {
+                tableOptions.columns.push({
+                    key: 'newBoot',
+                    title: 'Special boot function'
+                });    
+            }
+            if (options.newRightColumns) {
+                for(const obj of options.newRightColumns) {
+                    tableOptions.columns.push(obj);
+                }
+            }
+        
+            let tableData = [];
+
+            // console.log('gpioComparison', {options, mappedPins});
+
+            for(const m of mappedPins) {
+                // Maybe also: m.old.isIO && m.new.isIO
+                if (m.feather.name != m.old.name || m.feather.name != m.new.name) {
+                    let rowData = {
+                        num: m.num
+                    };
+                    if (m.feather) {
+                        rowData.featherPinName = m.feather.name;
+                    }
+                    if (m.old) {
+                        rowData.oldPinName = getPinNameWithAlt(m.old);
+                        rowData.oldHardwarePin = m.old.hardwarePin;
+                    }
+                    if (m.new) {
+                        rowData.newPinName = getPinNameWithAlt(m.new);
+                        rowData.newPinNameNoAlt = m.new.name;
+                        rowData.newHardwarePin = m.new.hardwarePin;
+                        rowData.newBoot = m.new.boot;
+                        for(const key in m.new) {
+                            rowData['new_' + key] = m.new[key];
+                        }
+                    }
+                    tableData.push(rowData);                    
+                }
+            }
+
+            md += updater.generateTable(tableOptions, tableData);            
         }
 
         if (options.style == 'portPins') {

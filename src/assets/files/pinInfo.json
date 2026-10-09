@@ -309,6 +309,314 @@
   "platforms": [
     {
       "id": 0,
+      "name": "Feather",
+      "pins": [
+        {
+          "num": 1,
+          "name": "RST",
+          "desc": "Hardware reset. Pull low to reset; can leave unconnected in normal operation."
+        },
+        {
+          "num": 2,
+          "name": "3V3",
+          "desc": "Regulated 3.3V DC output",
+          "isPower": true
+        },
+        {
+          "num": 3,
+          "name": "MODE",
+          "desc": "MODE button, has internal pull-up",
+          "isControl": true
+        },
+        {
+          "num": 4,
+          "name": "GND",
+          "desc": "Ground.",
+          "isPower": true
+        },
+        {
+          "num": 5,
+          "name": "A0",
+          "desc": "A0 Analog in, GPIO",
+          "analogRead": true,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true
+        },
+        {
+          "num": 6,
+          "name": "A1",
+          "desc": "A1 Analog in, GPIO",
+          "analogRead": true,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true
+        },
+        {
+          "num": 7,
+          "name": "A2",
+          "desc": "A2 Analog in, GPIO",
+          "analogRead": true,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true
+        },
+        {
+          "num": 8,
+          "name": "A3",
+          "desc": "A3 Analog in, GPIO",
+          "isIO": true
+        },
+        {
+          "num": 9,
+          "name": "A4",
+          "desc": "A4 Analog in, GPIO",
+          "analogRead": true,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true
+        },
+        {
+          "num": 10,
+          "name": "A5",
+          "desc": "A5 Analog in, GPIO, PWM, SPI SS",
+          "analogRead": true,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true,
+          "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead."
+        },
+        {
+          "num": 11,
+          "name": "SCK",
+          "desc": "SPI SCK, GPIO",
+          "analogRead": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true,
+          "spi": "SPI (SCK)|SCK. Use SPI object."
+        },
+        {
+          "num": 12,
+          "name": "MOSI",
+          "desc": "SPI MOSI, GPIO",
+          "analogRead": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true,
+          "spi": "SPI (MOSI)|MOSI. Use SPI object."
+        },
+        {
+          "num": 13,
+          "name": "MISO",
+          "desc": "SPI MISO, GPIO",
+          "analogRead": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true,
+          "spi": "SPI (MISO)|MISO. Use SPI object."
+        },
+        {
+          "num": 14,
+          "name": "RX",
+          "desc": "Serial RX, GPIO",
+          "analogRead": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true,
+          "serial": "Serial1 RX|RX. Use Serial1 object."
+        },
+        {
+          "num": 15,
+          "name": "TX",
+          "desc": "Serial TX, GPIO",
+          "analogRead": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true,
+          "serial": "Serial1 TX|TX. Use Serial1 object."
+        },
+        {
+          "num": 16,
+          "name": "D0",
+          "desc": "I2C SDA, GPIO",
+          "analogRead": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "i2c": "Wire (SDA)|SDA. Use Wire object.",
+          "isIO": true
+        },
+        {
+          "num": 17,
+          "name": "D1",
+          "desc": "I2C SCL, GPIO",
+          "analogRead": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "i2c": "Wire (SCL)|SCL. Use Wire object.",
+          "isIO": true
+        },
+        {
+          "num": 18,
+          "name": "D2",
+          "desc": "GPIO",
+          "analogRead": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true
+        },
+        {
+          "num": 19,
+          "name": "D3",
+          "desc": "GPIO",
+          "analogRead": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true
+        },
+        {
+          "num": 20,
+          "name": "D4",
+          "desc": "GPIO",
+          "analogRead": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true
+        },
+        {
+          "num": 21,
+          "name": "D5",
+          "desc": "GPIO",
+          "analogRead": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true
+        },
+        {
+          "num": 22,
+          "name": "D6",
+          "desc": "GPIO",
+          "analogRead": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true
+        },
+        {
+          "num": 23,
+          "name": "D7",
+          "desc": "GPIO",
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true
+        },
+        {
+          "num": 24,
+          "name": "D8",
+          "altName": "WKP",
+          "desc": "GPIO",
+          "analogRead": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "isIO": true
+        },
+        {
+          "num": 25,
+          "name": "VUSB",
+          "desc": "Power out (when powered by USB). Power in with limitations.",
+          "is5VTolerant": true,
+          "isPower": true
+        },
+        {
+          "num": 26,
+          "name": "EN",
+          "desc": "Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.",
+          "is5VTolerant": false,
+          "isControl": true
+        },
+        {
+          "num": 27,
+          "name": "LI+",
+          "desc": "Connected to JST PH LiPo battery connector. 3.7V in or out.",
+          "is5VTolerant": false,
+          "isPower": true
+        }
+      ],
+      "diagram": {
+        "columns": [
+          "num",
+          "name",
+          [
+            "isPower",
+            "i2c"
+          ],
+          [
+            "spi",
+            "swd"
+          ],
+          [
+            "serial"
+          ],
+          "hardwarePin"
+        ]
+      },
+      "layout": {
+        "columns": [
+          {
+            "pins": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "rowStart": 0,
+            "reverse": true,
+            "hOffset": -145
+          },
+          {
+            "pins": [
+              27,
+              26,
+              25,
+              24,
+              23,
+              22,
+              21,
+              20,
+              19,
+              18,
+              17,
+              16
+            ],
+            "rowStart": 4,
+            "reverse": false,
+            "hOffset": 130
+          }
+        ],
+        "extraTop": 53,
+        "extraBottom": 40,
+        "image": "/assets/images/argon.svg",
+        "scale": 2.68,
+        "translate": [
+          177,
+          0
+        ]
+      }
+    },
+    {
+      "id": 0,
       "name": "m-hat",
       "pins": [
         {

@@ -13,7 +13,19 @@ description: Migration guide for transitioning from the Photon 2 to Sulu
 
 {{migration-guide leftImg="/assets/images/photon2-rendering.png" leftStyle="transform: matrix(0.92, 0, 0, 0.92, 0, 7);" rightImg="/assets/images/electron-2/electron-2-rendering.png"}}
 
+Sulu and the Photon 2 
 
+{{!-- BEGIN do not edit content below, it is automatically generated 36a024cb-427e-431a-878b-c06fee0e1ebe --}}
+
+| Feather Pin Name | Photon 2 Pin Name | Sulu Pin Name |
+| :--- | :--- | :--- |
+| A3 | A5 / D14 | A3 / D16 |
+| A4 | S4 / D19 | A4 / D15 |
+| A5 | S3 / D18 | A5 / D14 |
+| D8 | D10 / WKP | D8 / WKP |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### SPI - Sulu from Photon 2
 
