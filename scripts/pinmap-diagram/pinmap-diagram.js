@@ -202,6 +202,7 @@ const svg = require('./svg');
                                         text = 'PWM';
                                     }
                                 }
+
                                 if (info[key] == 'isNC') {
                                     text = 'NC';
                                 }
@@ -1367,10 +1368,10 @@ const svg = require('./svg');
 
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: 'Sulu',
-            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/electron-2/electron-2-rendering.svg'),
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/sulu/sulu-rendering.svg'),
             outputPath: 'assets/images/sulu/' + generateOptions.outputFile,
             // scale to make height 500px width 221
-            deviceImageTransform: 'scale(1.04) translate(-33,-27)',
+            deviceImageTransform: 'scale(1.005) translate(-20,-10)',
             width: 1000,
             height: 510,
             background: 'white',
@@ -1408,11 +1409,13 @@ const svg = require('./svg');
 
     diagram.generateFeatherToSulu = async function(generateOptions, files) {
         
+        // Special case: generateOptions.pinNameComparison
+
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: 'Sulu',
-            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/electron-2/electron-2-rendering.svg'),
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/sulu/sulu-rendering.svg'),
             outputPath: 'assets/images/sulu/' + generateOptions.outputFile,
-            deviceImageTransform: 'scale(1.04) translate(-33,-27)',
+            deviceImageTransform: 'scale(1.005) translate(-20,-10)',
             width: 1000,
             height: 510,
             background: 'white',
@@ -1453,10 +1456,13 @@ const svg = require('./svg');
                 titlePosition: titlePositions[ii],
                 titleAfter: 'Sulu',
             });
-            options.pins[ii].columns.push({
-                width: 30,
-                keys: ['altName'],
-            });
+            if (!options.noAltNames) {
+                options.pins[ii].columns.push({
+                    width: 30,
+                    keys: ['altName'],
+                });
+            }
+
             if (generateOptions.feature) {
                 options.pins[ii].columns.push({
                     keys: [generateOptions.feature],
@@ -1480,108 +1486,18 @@ const svg = require('./svg');
                 titlePosition: titlePositions[ii],
                 titleAfter: generateOptions.compareAfter,
             });
-            options.pins[ii].columns.push({
-                width: 30,
-                keys: ['compare_altName'],
-            });
-        
+            if (!options.noAltNames) {
+                options.pins[ii].columns.push({
+                    width: 30,
+                    keys: ['compare_altName'],
+                });
+            }
         }
 
 
         await diagram.generate(options, files);
     }
 
-
-    // TODO: Delete this
-    diagram.generateElectron2 = async function(generateOptions, files) {
-        
-        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
-            platformName: 'Electron 2',
-            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/electron-2/electron-2-rendering.svg'),
-            outputPath: 'assets/images/electron-2/electron-2-pinout.svg',
-            // scale to make height 500px width 221
-            deviceImageTransform: 'scale(1.04) translate(-33,-27)',
-            width: 1000,
-            height: 510,
-            background: 'white',
-            pins: [
-                {   // Left side
-                    num: 1,
-                    x: 370,
-                    y: 70,
-                    numDelta: 1,
-                    xDelta: 0,
-                    yDelta: 24.6,
-                    count: 15,
-                    xDir: -1,
-                    yDir: 0,
-                    columns: [
-                        {
-                            width: 30,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 30,
-                            keys: ['altName'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['serial'],
-                        },
-                        {
-                            keys: ['spi'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                        {
-                            keys: ['hardwarePin'],
-                        },
-                    ],
-                },
-                {   // Right side
-                    num: 16,
-                    x: 598,
-                    y: 439,
-                    numDelta: 1,
-                    xDelta: 0,
-                    yDelta: -24.6,
-                    count: 12,
-                    xDir: 1,
-                    yDir: 0,
-                    columns: [
-                        {
-                            width: 30,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 30,
-                            keys: ['altName'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
-                        },
-                        {
-                            keys: ['serial'],
-                        },
-                        {
-                            keys: ['spi', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                        {
-                            keys: ['hardwarePin'],
-                        },
-                    ],
-                },
-            ],
-        });
-
-        await diagram.generate(options, files);
-    }
 
     diagram.generateFeatherAdapter = async function(generateOptions, files) {
         
@@ -1953,7 +1869,6 @@ const svg = require('./svg');
 
         await diagram.generate(options, files);
     }
-
 
     diagram.generateArgonToPhoton2 = async function(generateOptions, files) {
         
@@ -2624,6 +2539,13 @@ const svg = require('./svg');
         // 
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Photon 2',
+            outputFile: 'sulu-photon2-pin-name-comparison.svg',
+            pinNameComparison: true,
+            noAltNames: true,
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToSulu(Object.assign({
+            comparePlatform: 'Photon 2',
             outputFile: 'sulu-photon2-comparison.svg'
         }, generateOptions), files);
 
@@ -2662,9 +2584,6 @@ const svg = require('./svg');
             outputFile: 'sulu-photon2-swd-comparison.svg',
             feature: 'swd',
         }, generateOptions), files);
-
-        // TODO: remove this
-        await diagram.generateElectron2(generateOptions, files); 
 
         await diagram.generateFeatherAdapter(Object.assign(Object.assign({}, generateOptions), {
             platformName: 'Photon 2',
