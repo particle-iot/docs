@@ -490,7 +490,7 @@
                             "title": "Boron datasheet"
                         },
                         {
-                            "dir": "sulu",
+                            "dir": "sulu-datasheet",
                             "title": "Sulu datasheet",
                             "internal": true
                         }
