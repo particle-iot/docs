@@ -834,6 +834,8 @@ Sulu    </text>
     </rect>
     <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RST    </text>
+    <text x="-88" y="-16" text-anchor="middle" dominant-baseline="bottom" font-family="Arial, Helvetica, sans-serif" font-size="10px" fill="black" >
+Photon 2    </text>
   </g>
   <g transform="translate(370,94.6) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -928,10 +930,10 @@ A2    </text>
 A3    </text>
     <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#FFE949" >
     </rect>
     <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-A3    </text>
+A5    </text>
   </g>
   <g transform="translate(370,266.79999999999995) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -942,10 +944,10 @@ A3    </text>
 A4    </text>
     <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#FFE949" >
     </rect>
     <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-A4    </text>
+S4    </text>
   </g>
   <g transform="translate(370,291.4) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -956,10 +958,10 @@ A4    </text>
 A5    </text>
     <line x1="-30" y1="0" x2="-58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="-88" y="-8" width="30" height="16" stroke="black" fill="#FFE949" >
     </rect>
     <text x="-73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-A5    </text>
+S3    </text>
   </g>
   <g transform="translate(370,316) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -1152,10 +1154,10 @@ D7    </text>
 D8    </text>
     <line x1="30" y1="0" x2="58" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
+    <rect x="58" y="-8" width="30" height="16" stroke="black" fill="#FFE949" >
     </rect>
     <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D8    </text>
+D10    </text>
   </g>
   <g transform="translate(598,217.59999999999985) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -1200,5 +1202,7 @@ Sulu    </text>
     </rect>
     <text x="73" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 LI+    </text>
+    <text x="88" y="-16" text-anchor="middle" dominant-baseline="bottom" font-family="Arial, Helvetica, sans-serif" font-size="10px" fill="black" >
+Photon 2    </text>
   </g>
 </svg>

@@ -124,6 +124,13 @@ const svg = require('./svg');
                 if (info) {
                     if (options.comparePlatform) {
                         let compareName = info[options.compareKey] || info.name;
+                        if (options.pinNameComparison) {
+                            // Compare the pin at the same pin number, not the pin with the same name
+                            const sameNumInfo = diagram.comparePlatformInfo.pins.find(e => e.num == num);
+                            if (sameNumInfo) {
+                                compareName = sameNumInfo.name;
+                            }
+                        }
 
                         info.compareName = compareName;
                         const comparisonInfo = diagram.comparePlatformInfo.pins.find(e => e.name == compareName);
@@ -235,6 +242,9 @@ const svg = require('./svg');
 
                                     let bgColor = p.columns[jj].bgColor;
 
+                                    if (!bgColor && options.pinNameComparison && key == 'compareName' && info.compareName != info.name) {
+                                        bgColor = featureColors['pinNameDifference'];
+                                    }
                                     if (!bgColor) {
                                         bgColor = featureColors[key];
                                     } 
@@ -416,6 +426,7 @@ const svg = require('./svg');
             m2Pin: '#F5F6FA', // COLOR_Gray_100
             name: '#00E1FF', // ParticleBlue_500 (old: dark gray)
             num: '#E6AB00', // (old: gold color)
+            pinNameDifference: '#FFE949', // State_Yellow_500 (compare pin name differs)
             p2pin: '#E6AB00', // (old: gold)
             p2Pin: '#E6AB00', // (old: gold)
             rpi: '#CD2355', // Raspberry Pi color 
@@ -1419,7 +1430,6 @@ const svg = require('./svg');
             width: 1000,
             height: 510,
             background: 'white',
-            compareKey: 'argonName',
             pins: [
                 {   // Left side
                     num: 1,
@@ -2542,6 +2552,7 @@ const svg = require('./svg');
             outputFile: 'sulu-photon2-pin-name-comparison.svg',
             pinNameComparison: true,
             noAltNames: true,
+            compareAfter: 'Photon 2',
         }, generateOptions), files);
 
         await diagram.generateFeatherToSulu(Object.assign({

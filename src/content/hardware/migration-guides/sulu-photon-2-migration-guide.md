@@ -46,7 +46,10 @@ Sulu has a 3-pin Particle LiPo battery connector for a battery pack containing a
 
 ## Interface port differences
 
-### Pin locations
+### Pin names
+
+{{imageOverlay src="/assets/images/sulu/sulu-photon2-pin-name-comparison.svg" alt="Pin name comparison" class="full-width"}}
+
 
 {{!-- BEGIN do not edit content below, it is automatically generated 36a024cb-427e-431a-878b-c06fee0e1ebe --}}
 
