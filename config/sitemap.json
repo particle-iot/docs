@@ -8391,12 +8391,12 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "08097dc0b47161915d736917924d45960db09362612fd91eb78ae9e07be3c94f",
-            "date": "2026-10-08"
+            "hash": "24d32b4c569e0cb4bc7537346c17b794116234c04512745d83d89199eb08f999",
+            "date": "2026-10-13"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "3df41dd1897ccbd45ee0c5c914743c40f98d7f76c03268033d132af58a18ee5b",
-            "date": "2026-10-08"
+            "hash": "0add4679270f635c9990d95e4b0d22cdeb91ad8a065b8ddbb6712fc9454cabd5",
+            "date": "2026-10-13"
         },
         "hardware/expansion/monitor-one-muon-cards.md": {
             "hash": "c3972720c018e02b6de030bb3e83fd5d238fe52770d6768c9b43282dceeb3c62",
@@ -9083,8 +9083,8 @@
             "date": "2024-08-28"
         },
         "reference/datasheets/b-series/b504-datasheet.md": {
-            "hash": "b1e1adf6e54d0edd385a309f4c87f7b2721ecb4fa784fce274d4e03ab3f32dee",
-            "date": "2026-10-08"
+            "hash": "43343402f977acac08539dd419a1f10b23ad770fb410fb382d1bc421f9390fb8",
+            "date": "2026-10-13"
         },
         "hardware/m.2-som/basic-som-design.md": {
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea",
@@ -9459,8 +9459,8 @@
             "date": "2024-11-01"
         },
         "reference/datasheets/m-series/m1-enclosure-datasheet.md": {
-            "hash": "9683b0f234e5e88656935ecfb63e727bc1913d883d9af02005425f4972ad54c8",
-            "date": "2026-09-09"
+            "hash": "1a888b9bba07cfa129f9289dfdb39fba6f61b4f3fd4d2a73e9837b064e1737cb",
+            "date": "2026-10-13"
         },
         "reference/device-os/libraries/a/Adafruit_SSD1305_RK.md": {
             "hash": "0d2103aed0bae02ca0b94dc8bff2c011e9c5f7c3311ba47cb535ac613e3705b4",
@@ -9707,8 +9707,8 @@
             "date": "2026-10-08"
         },
         "hardware/migration-guides/b404-b504-migration-guide.md": {
-            "hash": "f5fcc7701cc45a369e2893a82a5cc221ba5eb413cda6756d37d20cc388bbc539",
-            "date": "2026-06-17"
+            "hash": "8eded5c7c4d76b6dc2605e0a0c97233cc9359832a7553738ee1f4a5fe3542ed3",
+            "date": "2026-10-13"
         },
         "hardware/migration-guides/electron-2-boron-migration-guide.md": {
             "hash": "da62ed30085cd5db0fcab898450cd3722d55548d0de0db7cd37f5aac2bb5b4d8",
@@ -10059,8 +10059,8 @@
             "date": "2026-07-20"
         },
         "reference/datasheets/m-series/m635e-datasheet.md": {
-            "hash": "2c00fa11d081575e3c175932f15b08a3109ad245c72a988dd9387f24324a38dd",
-            "date": "2026-10-08"
+            "hash": "72b3e4c0dfed2b160e8952002b5101fff65025dc0280b16d54bf1dad371d928c",
+            "date": "2026-10-13"
         },
         "reference/device-os/api/introduction/device-programming-summary.md": {
             "hash": "0fb58d421f8ab72358645d102c04e0538ef290693e6ca99349df32bc8e335103",
