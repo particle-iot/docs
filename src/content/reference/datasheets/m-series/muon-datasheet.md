@@ -257,7 +257,7 @@ The M-SoM is certified with the following cellular antenna:
 | Wide band LTE cell antenna [x1] | PARANTCW1EA | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 | Wide band LTE cell antenna [x50] | PARANTCW1TY | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 
-Single quantity units and developer kits include a PARANTCW1EA antenna. Tray quantities of the do not include antennas.
+Single quantity units and developer kits include a PARANTCW1EA antenna. Tray quantities do not include antennas.
 
 | Dimension | Value | Unit |
 | :--- | ---: | :---: |

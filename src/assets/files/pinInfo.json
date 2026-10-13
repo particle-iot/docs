@@ -8320,7 +8320,7 @@
         {
           "num": 2,
           "name": "3V3",
-          "desc": "Regulated 3.3V DC output, maximum load 1000 mA",
+          "desc": "Regulated 3.3V DC output",
           "isPower": true
         },
         {
@@ -8716,7 +8716,7 @@
         {
           "num": 25,
           "name": "VUSB",
-          "desc": "Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.",
+          "desc": "Power out (when powered by USB) 5 VDC, power in with limitations.",
           "is5VTolerant": true,
           "isPower": true
         },
