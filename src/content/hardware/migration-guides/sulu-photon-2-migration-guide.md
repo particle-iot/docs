@@ -13,7 +13,39 @@ description: Migration guide for transitioning from the Photon 2 to Sulu
 
 {{migration-guide leftImg="/assets/images/photon2-rendering.png" leftStyle="transform: matrix(0.92, 0, 0, 0.92, 0, 7);" rightImg="/assets/images/electron-2/electron-2-rendering.png"}}
 
-Sulu and the Photon 2 
+Sulu and the Photon 2 have similar MCUs but some pins are different.
+
+
+## Hardware
+
+### Datasheets
+
+- [Sulu datasheet](/reference/datasheets/b-series/sulu-datasheet/)
+- [Photon 2 datasheet](/reference/datasheets/wifi/photon-2-datasheet/)
+
+## Certification
+
+When migrating to a new device, recertification is typically required. If you are using the standard Particle antennas 
+you often only need to complete the less expensive unintentional radiator testing of your completed assembly, however 
+in some cases intentional radiator testing could be required.
+
+## Connector differences
+
+### USB Connector
+
+Sulu has a USB-C connector. The Photon 2 has a Micro USB connector.
+
+### SWD/JTAG
+
+Sulu supports programming and debugging use SWD (Serial Wire Debug) using the 10-pin micro JTAG connector on the top of the module.
+
+On the Photon 2, SWD is shared with GPIO pins D6 and D7, which adds restrictions on the use of these pins. Sulu has dedicated pins for SWD.
+
+![SWD Debug Connector](/assets/images/argon/swd-connector-pinout.png)
+
+## Interface port differences
+
+### Pin locations
 
 {{!-- BEGIN do not edit content below, it is automatically generated 36a024cb-427e-431a-878b-c06fee0e1ebe --}}
 
@@ -491,3 +523,9 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 
 {{!-- END do not edit content above, it is automatically generated --}}
 {{collapse op="end"}}
+
+## Revision history
+
+| Revision | Date       | Author | Comments |
+| :--------| :--------- | :----- | :------- |
+| pre 01   | 2026-10-13 | RK     | Initial preview version |

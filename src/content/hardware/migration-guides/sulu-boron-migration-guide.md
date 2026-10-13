@@ -13,6 +13,47 @@ description: Migration guide for transitioning from the Boron to Sulu
 
 {{migration-guide leftImg="/assets/images/boron/boron-top.png" leftStyle="transform: matrix(0.92, 0, 0, 0.92, 0, 7);" rightImg="/assets/images/electron-2/electron-2-rendering.png"}}
 
+## Hardware
+
+### Datasheets
+
+- [Sulu datasheet](/reference/datasheets/b-series/sulu-datasheet/)
+- [Boron datasheet](/reference/datasheets/b-series/boron-datasheet/)
+- [Boron BRN404X datasheet](/reference/datasheets/b-series/brn404x-datasheet/)
+
+## Certification
+
+When migrating to a new device, recertification is typically required. If you are using the standard Particle antennas 
+you often only need to complete the less expensive unintentional radiator testing of your completed assembly, however 
+in some cases intentional radiator testing could be required.
+
+## Software differences
+
+### User firmware binary size
+
+One major advantage is that user firmware binaries can be up to 2048 Kbytes, instead of 256 Kbytes on Gen 3 devices using Device OS 3.1.0 or later.
+
+### Available RAM
+
+The Boron and Argon have around 80K of RAM available to user applications. Sulu has 3500K of available RAM.
+
+### Flash file system
+
+There is a 2 MB flash file system for storing user data. This is the same size as the Boron, B-SoM, and Argon.
+
+## Connector differences
+
+### USB Connector
+
+Sulu has a USB-C connector. The Boron has a Micro USB connector.
+
+### SWD/JTAG
+
+Sulu has a 10-pin micro debugging connector like the Boron.
+
+SWO (Serial Wire Output) is not supported on the RTL8722DM.
+
+## Interface port differences
 
 ### SPI - Sulu from Boron
 {{imageOverlay src="/assets/images/sulu/sulu-boron-spi-comparison.svg" alt="SPI comparison" class="full-width"}}
@@ -622,3 +663,82 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 
 {{!-- END do not edit content above, it is automatically generated --}}
 {{collapse op="end"}}
+
+## Software
+
+### Wi-Fi Configuration
+
+The Boron does not have Wi-Fi capabilities. If you wish to use Wi-Fi on Sulu, you will typically use BLE for configuration of Wi-Fi. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration. A React Native reference will be provided to simplify Wi-Fi setup.
+
+Sample applications for React Native, iOS, and Android will be provided in the future.
+
+| Feature | Sulu | Photon 2 | Photon | Argon |
+| :--- | :---: | :---: | :---: | :---: |
+| Wi-Fi (SoftAP) | | &check; | |
+| BLE | &check; | &check; | | &check; |
+
+### BLE (Bluetooth LE)
+
+- BLE long-range (coded PHY) is not supported on Sulu. It is on the Boron with Device OS 3.1 or later.
+
+### Platform ID
+
+The Platform ID of Sulu is 38. This is different than the Boron (13) because of the vastly different hardware. 
+
+If you have a product based on the Boron, you will need to create a separate product for devices using Sulu. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+
+### Third-party libraries
+
+{{!-- BEGIN shared-blurb 0ac81e91-31f6-4a87-9d78-f10f016ab102 --}}
+
+Most third-party libraries are believed to be compatible. The exceptions include:
+
+- Libraries for MCU-specific features (such as ADC DMA)
+- Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
+- Libraries that manipulate GPIO at high speeds or are timing-dependent
+
+#### DS18B20 (1-Wire temperature sensor)
+
+- Not compatible
+- OneWire library requires high-speed GPIO support
+- Can use [DS2482](https://github.com/rickkas7/DS2482-RK) I2C to 1-Wire bridge chip instead
+- SHT30 sensors (I2C) may be an alternative in some applications
+
+#### FastLED
+
+- Not compatible. 
+- In theory the library could be modified to use the same technique as the NeoPixel library.
+
+
+#### NeoPixel (WS2812, WS2812B, and WS2813)
+
+- Requires Device OS 5.3.2 or later and [Particle-NeoPixel](https://github.com/technobly/Particle-NeoPixel) version 1.0.3.
+
+#### OneWire
+
+- Not compatible
+- OneWire library requires high-speed GPIO support
+- Can use [DS2482](https://github.com/rickkas7/DS2482-RK) I2C to OneWire bridge instead
+
+#### DHT22 and DHT11 (temperature and humidity sensor)
+
+- Not compatible, requires high-speed GPIO support
+- Using an I2C temperature and humidity sensor like the SHT3x is recommended instead
+
+#### SHT1x (temperature and humidity sensor)
+
+- Not compatible, requires high-speed GPIO support
+- SHT3x using I2C is recommended
+
+#### SparkIntervalTimer 
+
+- Not compatible at this time
+- Requires hardware timer support from user firmware
+
+{{!-- END shared-blurb --}}
+
+## Revision history
+
+| Revision | Date       | Author | Comments |
+| :--------| :--------- | :----- | :------- |
+| pre 01   | 2026-10-13 | RK     | Initial preview version |

@@ -93,6 +93,13 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 
 {{imageOverlay src="/assets/images/sulu/sulu-block-diagram.png" alt="Block diagram" class="full-width"}}
 
+### Migration guides
+
+If you are migrating from a different Particle device to Sulu the following migration guides may be helpful:
+
+- [Sulu from Photon 2](/hardware/migration-guides/sulu-photon-2-migration-guide/)
+- [Sulu from Boron](/hardware/migration-guides/sulu-boron-migration-guide/)
+
 ### Power
 
 #### USB
