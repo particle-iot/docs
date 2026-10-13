@@ -15,25 +15,23 @@ This is a preliminary datasheet and is subject to change.
 ## Overview
 
 The Sulu is a global LTE CAT 1 bis module that supports cellular, Wi-Fi, and Bluetooth LE (BLE). It is based on the Realtek RTL8722DM
-(same as the M-SoM) and contains built-in battery charging circuitry in a convenient Feather form-factor that be 
+(same as the M-SoM) and contains built-in battery charging circuitry in a convenient Feather form-factor that can be 
 be used in prototyping breadboards or in production designs.
 
 - Feather form-factor, like the Boron or Photon 2
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
 - Realtek RTL8722DM MCU (BLE and Wi-Fi)
-- Quectel EG800Q-GL LTE Cat 1 bis (global) cellular modem
-
-Unlike the Boron 404X (LTE Cat M1), the EG800Q-GL LTE Cat 1 bis module can connect to 4G LTE cellular networks worldwide.
+- Quectel EG800Q-GL LTE CAT 1 bis (global) cellular modem
 
 ### What is LTE CAT 1 bis
 
 LTE CAT 1 bis provides cellular connectivity using a compact and lower-cost cellular module and a single antenna.
 
-LTE CAT 1 (regular) modules requires two antennas for receive antenna diversity, and generally require higher power, especially for 2G or 3G fallback.
+LTE CAT 1 (regular) modules require two antennas for receive antenna diversity, and generally require higher power, especially for 2G or 3G fallback.
 
 LTE Cat M1 is also a compact, low-cost, single antenna standard, however it requires additional equipment at the cellular tower side and is not universally implemented worldwide.
 
-LTE CAT 1 and LTE CAT 1 bis use the same 4G LTE towers used by 4G cell phones. Since all 5G cell phones also can connect to 4G, there is widespread support and no carriers are planning on 4G sunset at this time.
+LTE CAT 1 and LTE CAT 1 bis use the same 4G LTE towers used by 4G cell phones. Since all 5G cell phones also can connect to 4G, there is widespread support and no carriers have announced plans to sunset 4G.
 
 ### Comparison
 
@@ -42,7 +40,7 @@ LTE CAT 1 and LTE CAT 1 bis use the same 4G LTE towers used by 4G cell phones. S
 | Form factor | Feather | Feather | Feather | M.2 SoM | M.2 SoM | M.2 SoM |
 | Cellular modem | Quectel EG800Q-GL | u-blox SARA-R510S | None | Quectel EG91-NAX | Quectel BG95-M5 | Quectel EG91-EX |
 | Cellular region | Global | NorAm | N/A | Americas | NorAm | EMEAA |
-| Cellular technology | LTE Cat 1 bis | LTE Cat M1 | None | LTE Cat 1 with 3G fallback | LTE Cat M1 | LTE Cat 1 with 2G/3G fallback |
+| Cellular technology | LTE CAT 1 bis | LTE Cat M1 | None | LTE Cat 1 with 3G fallback | LTE Cat M1 | LTE Cat 1 with 2G/3G fallback |
 | Wi-Fi supported | Yes (2.4 GHz and 5 GHz) | No | Yes (2.4 GHz and 5 GHz) | No | Yes (2.4 GHz and 5 GHz) | Yes (2.4 GHz and 5 GHz) |
 | Generation | Gen 4 | Gen 3 | Gen 4 | Gen 3 | Gen 4 | Gen 4 |
 | MCU | RTL8722DM | nRF52840 | RTL8721DM | nRF52840 | RTL8722DM | RTL8722DM |
@@ -128,13 +126,13 @@ This pin is the output of the on board 3.3V step-down switching regulator. The r
 
 #### EN pin
 
-The **EN** pin is not a power pin, per se, but it controls the 3V3 power. The EN pin is pulled high by a 100K resistor to the higher of VUSB, the micro USB connector, or Li+. Because the pull-up can result in voltages near 5V you should never directly connect EN to a 3.3V GPIO pin. Instead, you should only pull EN low, such as by using an N-channel MOSFET or other open-collector transistor.
+The **EN** pin is not a power pin, per se, but it controls the 3V3 power. The EN pin is pulled high by a 100K resistor to the higher of VUSB, the USB connector, or Li+. Because the pull-up can result in voltages near 5V you should never directly connect EN to a 3.3V GPIO pin. Instead, you should only pull EN to GND, such as by using an N-channel MOSFET or other open-collector transistor.
 
-The EN pin can force the device into a deep power-down state where it uses very little power. It also can used to assure that the device is completely reset, similar to unplugging it, with one caveat:
+The EN pin can force the device into a deep power-down state where it uses very little power. It can also used to assure that the device is completely reset, similar to unplugging it, with one caveat:
 
 If using the EN pin to deeply reset the device, you must be careful not to allow leakage current back into the MCU by GPIO or by pull-ups to 3V3. If you only power external devices by 3V3 you won't run into this, as 3V3 is de-powered when EN is low. 
 
-However, if you have circuitry that is powered by a separate, external power supply, you must be careful. An externally powered circuit that drives a GPIO high when EN is low can provide enough current to keep the MCU from powering down and resetting. Likewise, a pull-up to an external power supply can do the same thing. Be sure that in no circumstances can power by supplied to the MCU when 3V3 is de-powered.
+However, if you have circuitry that is powered by a separate, external power supply, you must be careful. An externally powered circuit that drives a GPIO high when EN is low can provide enough current to keep the MCU from powering down and resetting. Likewise, a pull-up to an external power supply can do the same thing. Be sure that in no circumstances can power be supplied to the MCU when 3V3 is de-powered.
 
 
 ## Antennas
@@ -157,7 +155,7 @@ Sulu is certified with the following cellular antenna:
 | Wide band LTE cell antenna [x1] | PARANTCW1EA | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 | Wide band LTE cell antenna [x50] | PARANTCW1TY | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 
-Single quantity units and developer kits include a PARANTCW1EA antenna. Tray quantities of the do not include antennas.
+Single quantity units and developer kits include a PARANTCW1EA antenna. Tray quantities do not include antennas.
 
 | Dimension | Value | Unit |
 | :--- | ---: | :---: |
@@ -183,7 +181,7 @@ Sulu is certified for use with the same antennas as the P2/Photon 2. The same an
 | Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x1] | PARANTWM1EA | [Datasheet](/assets/datasheets/PARANTWM1EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/particle-p2-photon2-wi-fi-antenna-2-4-5ghz)  |
 | Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x50] |PARANTWM1TY | [Datasheet](/assets/datasheets/PARANTWM1EA.pdf) |
 
-Single quantity M-SoM units and developer kits include a PARANTWM1EA antenna. Tray quantities of the M-SoM do not include antennas.
+Single quantity eveloper kits include a PARANTWM1EA antenna. Tray quantities do not include antennas.
 
 {{!-- BEGIN shared-blurb adf4fb35-acf2-464b-8080-15e05f79006b --}}
 {{box op="start" cssClass="boxed warningBox"}}
@@ -306,7 +304,7 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Ph
 
 Sulu supports two SPI (serial peripheral interconnect) ports.
 
-{{imageOverlay src="/assets/images/sulu/sulu-pinout-spi.svg" alt="Pinout ADC" class="full-width"}}
+{{imageOverlay src="/assets/images/sulu/sulu-pinout-spi.svg" alt="Pinout SPI" class="full-width"}}
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8db4f1d9-7b1d-4806-b83d-fb515a59d15c --}}
 
@@ -413,7 +411,7 @@ Sulu supports one I2C (two-wire serial interface) port.
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-- The I2C port is 3.3V and must not be connected directly a 5V I2C bus
+- The I2C port is 3.3V and must not be connected directly to a 5V I2C bus
 - Maximum bus speed is 400 kHz
 - External pull-up resistors are recommended for I2C as the internal pull-up is 13K.
 - If not using I2C, pins D0 and D1 can be used as GPIO or analog input.
@@ -484,7 +482,7 @@ The pins that support PWM are different on the Boron (and Argon) and Sulu.
 
 {{!-- imageOverlay src="/assets/images/sulu/sulu-photon2-pwm-comparison.svg" alt="PWM comparison" class="full-width" --}}
 
-The pins that support PWM are different on the Photon and Sulu.
+The pins that support PWM are different on the Photon 2 and Sulu.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 817332fa-3736-4879-a091-256b97e9d5c1 --}}
 
@@ -568,7 +566,7 @@ Sulu contains the bq24195 PMIC and MAX17043 fuel gauge. They are on a dedicated 
 
 ### SWD
 
-Sulu has a dedicated 10 pin debug connector that exposes the SWD interface of the RTL872x. This interface can be used to debug your code or reprogram your Boron bootloader, device OS, or the user firmware using any standard SWD tools including our Gen 3 Debugger.
+Sulu has a dedicated 10 pin debug connector that exposes the SWD interface of the RTL872x. This interface can be used to debug your code or reprogram your bootloader, Device OS, or the user firmware using any standard SWD tools such as CMSIS/DAP debuggers.
 
 
 |       | Sulu      | Photon 2 | Boron |
@@ -577,7 +575,7 @@ Sulu has a dedicated 10 pin debug connector that exposes the SWD interface of th
 | SWDIO | Dedicated | D7       | Dedicated |
 | SWO   | Not Used  | Not Used | Dedicated |
 
-<div align="center"><img src="/assets/images/boron/swd-connector-pinout.png" ></div>
+<div align="center"><img src="/assets/images/boron/swd-connector-pinout.png" alt="SWD connector"></div>
 
 #### SWD vs. Photon 2
 
@@ -600,7 +598,7 @@ Sulu does not have RTL872x boot mode pins exposed on GPIO.
 
 #### Boot mode pins vs. Photon 2
 
-{{!-- imageOverlay src="/assets/images/sulu/sulu-photon2-boot-comparison.svg" alt="ADC comparison" class="full-width" --}}
+
 
 Because Sulu uses dedicated pins for SWD, and uses the LPUART for TX/RX instead of LOGUART, the restrictions below for the Photon 2 do not apply to Sulu.
 
@@ -626,11 +624,9 @@ There is a limit of 8 pin interrupts on the Boron; this limitation does not exis
 
 Sulu can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
 
-Sulu can only wake from `HIBERNATE` sleep mode certain pins, `RISING`, `FALLING`, or `CHANGE`. 
+Sulu can only wake from `HIBERNATE` sleep mode on certain pins, `RISING`, `FALLING`, or `CHANGE` including pin D8, also known as `WKP`.
 
-Pin D10 `WKP` is the same module pin location as the Argon pin D8, which is also the WKP pin. 
-
-{{imageOverlay src="/assets/images/sulu/sulu-pinout-hibernate.svg" alt="Pinout Boot" class="full-width"}}
+{{imageOverlay src="/assets/images/sulu/sulu-pinout-hibernate.svg" alt="Pinout Sleep" class="full-width"}}
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated f1da1b65-7e6c-4611-ba44-b9273c40c9da --}}
@@ -1229,7 +1225,7 @@ Sulu does not have NFC Tag support.
 
 ### Mating connectors
 
-Sulu uses two single row 0.1" pitch male header pins. One of them is 16 pin while the other is 12 pin. It can be mounted with matching 0.1" pitch female headers with a typical height of 0.335" (8.5mm). When you search for parts like these it can be difficult to navigate the thousands of parts available online so here are a few good choices for the Photon 2 and Argon:
+Sulu uses two single row 0.1" pitch male header pins. One of them is 16 pin while the other is 12 pin. It can be mounted with matching 0.1" pitch female headers with a typical height of 0.335" (8.5mm). When you search for parts like these it can be difficult to navigate the thousands of parts available online so here are a few good choices for Sulu, the Photon 2, and Boron:
 
 | Description | MFG | MFG Part Number |
 |:----------- |:----|:----------------|
