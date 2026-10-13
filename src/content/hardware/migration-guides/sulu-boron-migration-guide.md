@@ -242,7 +242,6 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 | Pin | Pin Name | Description | MCU |
 | :---: | :--- | :--- | :--- |
-| 23 | D7 | Low at boot triggers MCU boot mode. | PB[31] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -591,7 +590,6 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | No |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | &nbsp; | Internal pull resistance | 13K | 13K |
-| ∆ | Signal used at boot | n/a | Low at boot triggers MCU boot mode. |
 #### D8
 |   |   | Boron | Sulu |
 | :--- | :--- | :--- | :--- |

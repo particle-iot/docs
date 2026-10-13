@@ -2,7 +2,7 @@
 title: Sulu datasheet
 layout: commonTwo.hbs
 columns: two
-description: Sulu datasheet and migration guide tables
+description: Sulu datasheet
 ---
 
 # Sulu datasheet (preliminary)
@@ -24,6 +24,16 @@ be used in prototyping breadboards or in production designs.
 - Quectel EG800Q-GL LTE Cat 1 bis (global) cellular modem
 
 Unlike the Boron 404X (LTE Cat M1), the EG800Q-GL LTE Cat 1 bis module can connect to 4G LTE cellular networks worldwide.
+
+### What is LTE CAT 1 bis
+
+LTE CAT 1 bis provides cellular connectivity using a compact and lower-cost cellular module and a single antenna.
+
+LTE CAT 1 (regular) modules requires two antennas for receive antenna diversity, and generally require higher power, especially for 2G or 3G fallback.
+
+LTE Cat M1 is also a compact, low-cost, single antenna standard, however it requires additional equipment at the cellular tower side and is not universally implemented worldwide.
+
+LTE CAT 1 and LTE CAT 1 bis use the same 4G LTE towers used by 4G cell phones. Since all 5G cell phones also can connect to 4G, there is widespread support and no carriers are planning on 4G sunset at this time.
 
 ### Comparison
 
@@ -83,9 +93,42 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 
 {{imageOverlay src="/assets/images/sulu/sulu-block-diagram.png" alt="Block diagram" class="full-width"}}
 
-### Migration guides
+### Power
 
-## Power
+#### USB
+
+The USB port is the easiest way to power Sulu. Please make sure that the USB port is able to provide at least 500mA. The connector is USB-C, which is different than the Photon 2 and Boron, which have a Micro B USB connector.
+
+#### VUSB Pin
+The pin is internally connected to the VBUS of the USB port. The nominal output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.
+
+#### LiPo
+
+Sulu includes a 3-pin JST-PH connector (left), not the 2-pin JST-PH connector on some other Particle devices (right). The TS pin is expected to be connected to a 10K NTC thermistor in the battery pack.
+
+<div align="center"><img src="/assets/images/m-series/battery-conn.png" alt="Battery connector" class="small"/></div>
+
+<p class="attribution">Looking at the exposed end of the connector attached to the battery</p>
+
+If purchasing a LiPo battery from a 3rd-party supplier, beware as the polarity of the JST-PH connector is not standardized and may be reversed. Permanent damage to the breakout board can occur if powered by reverse polarity on the JST connector. See the [battery guide](/hardware/power/batteries/) for additional information.
+
+
+#### Li+ pin
+This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering Sulu. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
+
+#### 3V3 PIN
+This pin is the output of the on board 3.3V step-down switching regulator. The regulator is rated at 500mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of Sulu first. 
+
+#### EN pin
+
+The **EN** pin is not a power pin, per se, but it controls the 3V3 power. The EN pin is pulled high by a 100K resistor to the higher of VUSB, the micro USB connector, or Li+. Because the pull-up can result in voltages near 5V you should never directly connect EN to a 3.3V GPIO pin. Instead, you should only pull EN low, such as by using an N-channel MOSFET or other open-collector transistor.
+
+The EN pin can force the device into a deep power-down state where it uses very little power. It also can used to assure that the device is completely reset, similar to unplugging it, with one caveat:
+
+If using the EN pin to deeply reset the device, you must be careful not to allow leakage current back into the MCU by GPIO or by pull-ups to 3V3. If you only power external devices by 3V3 you won't run into this, as 3V3 is de-powered when EN is low. 
+
+However, if you have circuitry that is powered by a separate, external power supply, you must be careful. An externally powered circuit that drives a GPIO high when EN is low can provide enough current to keep the MCU from powering down and resetting. Likewise, a pull-up to an external power supply can do the same thing. Be sure that in no circumstances can power by supplied to the MCU when 3V3 is de-powered.
+
 
 ## Antennas
 
@@ -461,7 +504,7 @@ The pins that support PWM are different on the Photon and Sulu.
 Sulu does not support CAN.
 
 - The Tracker SoM includes CAN via a MCP25625 CAN interface with integrated transceiver.
-- Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to the Photon 2.
+- Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to Sulu.
 
 ### PDM 
 
@@ -520,11 +563,18 @@ Sulu contains the bq24195 PMIC and MAX17043 fuel gauge. They are on a dedicated 
 
 Sulu has a dedicated 10 pin debug connector that exposes the SWD interface of the RTL872x. This interface can be used to debug your code or reprogram your Boron bootloader, device OS, or the user firmware using any standard SWD tools including our Gen 3 Debugger.
 
-Unlike the Photon 2, SWD pins are not shared with GPIO.
+
+|       | Sulu      | Photon 2 | Boron |
+| :---- | :-------: | :------: | :-------: |
+| SWCLK | Dedicated | D6       | Dedicated |
+| SWDIO | Dedicated | D7       | Dedicated |
+| SWO   | Not Used  | Not Used | Dedicated |
 
 <div align="center"><img src="/assets/images/boron/swd-connector-pinout.png" ></div>
 
 #### SWD vs. Photon 2
+
+On the Photon 2, SWD is shared on D6 and D7. This is not the case on Sulu, which uses a dedicated port for SWD, not shared with GPIO.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 39c69dbe-1354-4b67-8f20-ae279d6f45d5 --}}
 
@@ -539,26 +589,13 @@ Unlike the Photon 2, SWD pins are not shared with GPIO.
 
 ### Boot mode pins
 
-{{imageOverlay src="/assets/images/sulu/sulu-pinout-boot.svg" alt="Pinout Boot" class="full-width"}}
-
-These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
-
-{{!-- BEGIN do not edit content below, it is automatically generated db6531b6-9387-4e7c-b2f9-779c8423b2cf --}}
-
-| Pin | Pin Name | Description | MCU |
-| :---: | :--- | :--- | :--- |
-| 23 | D7 | Low at boot triggers MCU boot mode. | PB[31] |
-
-
-{{!-- END do not edit content above, it is automatically generated --}}
-
-`TX` is a boot mode pin on the Photon 2, P2, and M-SoM, but not on Sulu.
+Sulu does not have RTL872x boot mode pins exposed on GPIO.
 
 #### Boot mode pins vs. Photon 2
 
 {{!-- imageOverlay src="/assets/images/sulu/sulu-photon2-boot-comparison.svg" alt="ADC comparison" class="full-width" --}}
 
-While the D7 pin is common between Sulu and Photon 2 as a boot pin, there are fewer restrictions on Sulu.
+Because Sulu uses dedicated pins for SWD, and uses the LPUART for TX/RX instead of LOGUART, the restrictions below for the Photon 2 do not apply to Sulu.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5baa3b30-adfa-4fbb-a77c-0cacd12bb039 --}}
 
@@ -566,7 +603,7 @@ While the D7 pin is common between Sulu and Photon 2 as a boot pin, there are fe
 | :--- | :--- | :--- | :--- |
 | TX / D8 | Low at boot triggers ISP flash download | TX / D9 | &nbsp; |
 | D6 | SWCLK. 40K pull-down at boot. | D6 | &nbsp; |
-| D7 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | D7 | Low at boot triggers MCU boot mode. |
+| D7 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | D7 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -1073,7 +1110,6 @@ Sulu does not have NFC Tag support.
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">13K</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Signal used at boot</td><td class="" style="text-align: left; ">Low at boot triggers MCU boot mode.</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[31]</td></tr>
 </tbody>
 </table>
@@ -1137,6 +1173,118 @@ Sulu does not have NFC Tag support.
 {{!-- END do not edit content above, it is automatically generated  --}}
 
 {{collapse op="end"}}
+
+## Technical specification
+
+{{!-- ### Absolute maximum ratings --}}
+
+### Recommended operating conditions
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+|:-|:-|:-:|:-:|:-:|:-:|
+| Operating Temperature | T<sub>op</sub> | -20 |  | +70 | °C |
+| Humidity Range Non condensing, relative humidity | | | | 95 | % |
+
+
+{{!-- ### Wi-Fi Specifications --}}
+
+
+### I/O Characteristics
+
+{{!-- BEGIN shared-blurb 817be6c6-c2fb-43b0-be1e-c4b5b030b6e2 --}}
+| Parameter | Symbol | Min   | Typ   | Peak  | Unit  |
+| :-------- | :----- | :---: | :---: | :---: | :---: |
+| Input-High Voltage | V<sub>IH</sub> | 2.0 | | | V |
+| Input-Low Voltage | V<sub>IL</sub> |  | | 0.8 | V |
+| Output drive strength (normal drive) | | | | 4 | mA |
+| Output drive strength (high drive) | | | | 12 | mA |
+| Total output drive (all pins) | | | | 200 | mA |
+{{!-- END shared-blurb --}}
+
+
+
+### Power consumption
+
+**To be provided at a later date**
+
+
+## Mechanical specifications
+
+**To be provided at a later date**
+
+{{!--
+### Dimensions and weight
+
+- Sulu is designed to compliant with the Adafruit Feather form-factor (2.0" x 0.9")
+- It has male header pins on the bottom of the module
+- It will not be available in a "no headers" version as there are components on the bottom side of the board
+--}}
+
+### Mating connectors
+
+Sulu uses two single row 0.1" pitch male header pins. One of them is 16 pin while the other is 12 pin. It can be mounted with matching 0.1" pitch female headers with a typical height of 0.335" (8.5mm). When you search for parts like these it can be difficult to navigate the thousands of parts available online so here are a few good choices for the Photon 2 and Argon:
+
+| Description | MFG | MFG Part Number |
+|:----------- |:----|:----------------|
+|16-pin 0.1" (2.54mm) Female Header|Sullins|PPTC161LFBN-RC|
+|16-pin 0.1" (2.54mm) Female Header|TE|6-535541-4|
+|12-pin 0.1" (2.54mm) Female Header|Sullins|PPTC121LFBN-RC|
+|12-pin 0.1" (2.54mm) Female Header|TE|6-534237-0|
+
+### Recommended PCB land pattern
+
+Sulu can be directly soldered onto the PCB or be mounted with the above mentioned female headers.
+
+<div align=center><img src="/assets/images/argon/argon-landing-pattern.png" ></div>
+
+## Assembly
+
+### Water soluble flux
+
+If you are attaching Sulu to a custom base board, we recommend using a socket. As there are components on the bottom side of Sulu there is no version available with castellated holes, solder pads, or similar techniques for direct surface mounting.
+
+The pin headers on the bottom of Sulu are not intended to be reflowed using paste-in-hole. 
+
+If you wish to surface mount module, you should directly use the P2 module on your base board instead of incorporating Sulu.
+
+If you decide to wave solder or hand-solder Sulu directly to your base board, water soluble flux should not be used. There are components within the P2 module that are moisture-sensitive, and wash water can get trapped under the RF shields, causing damage.
+
+Use no-clean flux instead if you must solder Sulu module.
+
+### Conformal coatings
+
+Sulu modules should not use a conformal coating to protect the module from water. Some components on the module cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
+
+Furthermore, the buttons cannot be protected by using a coating. Using an enclosure that protects both your base board and Sulu module as a single waterproof assembly is recommended instead.
+
+## Ordering information
+
+**To be provided at a later date**
+
+## Qualification and approvals
+
+**To be provided at a later date**
+
+## Product handling
+
+
+### Moisture sensitivity levels
+
+<i class="icon-attention"></i> The Moisture Sensitivity Level (MSL) relates to the packaging and handling precautions required. The P1 module is rated level 3. In general, this precaution applies for Photons without headers.  When reflowing a P1 directly onto an application PCB, increased moisture levels prior to reflow can damage sensitive electronics on the P1.  A bake process to reduce moisture may be required. <i class="icon-attention"></i>
+
+<i class="icon-right-hand"></i>For more information regarding moisture sensitivity levels, labeling, storage and drying see the MSL standard see IPC/JEDEC J-STD-020 (can be downloaded from [www.jedec.org](http://www.jedec.org)).
+
+### ESD precautions
+
+<i class="icon-attention"></i> The P1 module contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling a P1 module without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates P1 modules.  ESD precautions should be implemented on the application board where the P1 module is mounted. Failure to observe these precautions can result in severe damage to the P1 module! <i class="icon-attention"></i>
+
+## Default settings
+
+The P2 module comes pre-programmed with a bootloader and a user application called Tinker.  This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
+
+The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
+
+You may use the [Particle Web IDE](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/getting-started/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
 
 
 ## Country compatibility
@@ -1454,6 +1602,6 @@ Sulu does not have NFC Tag support.
 
 ## Revision history
 
-| Revision | Date | Author | Comments |
-|:---------|:-----|:-------|:---------|
-| pre      | 2026-10-07 | RK | Initial version |
+| Revision | Date       | Author | Comments |
+| :--------| :--------- | :----- | :------- |
+| pre 01   | 2026-10-07 | RK     | Initial preview version |
