@@ -11,7 +11,7 @@ description: Migration guide for transitioning from the Boron to Sulu
 {{downloadButton url="/assets/pdfs/datasheets/sulu-boron-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-{{migration-guide leftImg="/assets/images/boron/boron-top.png" leftStyle="transform: matrix(0.92, 0, 0, 0.92, 0, 7);" rightImg="/assets/images/electron-2/electron-2-rendering.png"}}
+{{migration-guide leftImg="/assets/images/boron/boron-top.png" rightImg="/assets/images/sulu/sulu-rendering.png"}}
 
 ## Hardware
 
@@ -27,15 +27,43 @@ When migrating to a new device, recertification is typically required. If you ar
 you often only need to complete the less expensive unintentional radiator testing of your completed assembly, however 
 in some cases intentional radiator testing could be required.
 
+## Cellular
+
+The Boron 404X contains a LTE Cat M1 cellular modem that is only officially supported in the United States, Canada, and Mexico. It may work in some additional countries.
+
+Sulu has a LTE Cat 1 bis cellular modem with global cellular compatibility. This allows a single SKU to be used world-wide.
+
+See [country comparison](/reference/datasheets/b-series/sulu-datasheet/#country-comparison) in the Sulu datasheet for more information.
+
+## SIM
+
+Sulu contains an e-sim programmed with the Particle EtherSIM.
+
+The Boron has a MFF2 hardware EtherSIM, as well as a 4FF plastic nano SIM card slot.
+
+## Wi-Fi connectivity
+
+Sulu supports Wi-Fi connectivity as well as cellular. Wi-Fi is not supported on Boron.
+
+## NFC Tag
+
+Boron supports NFC tag mode. This is not supported on Sulu.
+
+## Antennas
+
+The Boron certified cellular antenna (PARANTC41EA/PARANTC41TY) is different than the Sulu certified cellular antenna (PARANTCW1EA/PARANTCW1TY).
+
+The Boron has an integrated BLE chip antenna. Sulu requires an external antenna for BLE, shared with Wi-Fi.
+
 ## Software differences
 
 ### User firmware binary size
 
-One major advantage is that user firmware binaries can be up to 2048 Kbytes, instead of 256 Kbytes on Gen 3 devices using Device OS 3.1.0 or later.
+One major advantage is that user firmware binaries can be up to 2048 KB, instead of 256 KB on Gen 3 devices using Device OS 3.1.0 or later.
 
 ### Available RAM
 
-The Boron and Argon have around 80K of RAM available to user applications. Sulu has 3500K of available RAM.
+The Boron and Argon have around 80 KB of RAM available to user applications. Sulu has 3000 KB (3 MB) of available RAM.
 
 ### Flash file system
 
@@ -59,6 +87,7 @@ Sulu has a 3-pin Particle LiPo battery connector for a battery pack containing a
 
 
 ### SPI - Sulu from Boron
+
 {{imageOverlay src="/assets/images/sulu/sulu-boron-spi-comparison.svg" alt="SPI comparison" class="full-width"}}
 
 {{!-- BEGIN do not edit content below, it is automatically generated 74e90cd9-f151-4393-86a2-fdd6ca70c4ca --}}
@@ -102,7 +131,7 @@ Sulu has a 3-pin Particle LiPo battery connector for a battery pack containing a
 
 {{imageOverlay src="/assets/images/sulu/sulu-boron-serial-comparison.svg" alt="Serial comparison" class="full-width"}}
 
-The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Boron. It optionally supports hardware flow control.
+The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Boron. Sulu optionally supports hardware flow control on `Serial1`.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8671f442-6d5f-468b-a0c2-a11870f7228d --}}
 
@@ -128,13 +157,13 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Bo
 | Odd parity |  | &check; |
 | CTS/RTS flow control |  | &check;<sup>1</sup> |
 
-<sup>1</sup>CTS/RTS flow control only on `Serial2` and `Serial3`. It is optional.
+<sup>1</sup>CTS/RTS flow control only on `Serial1` on Sulu. It is optional.
 
-<sup>2</sup>On the Argon, the buffer be resized larger in Device OS 3.2.0 and later.
+<sup>2</sup>On the Boron, the buffer be resized larger in Device OS 3.2.0 and later.
 
 Supported Baud Rates:
 
-| Baud Rate | Argon | P2 |
+| Baud Rate | Boron | P2 |
 | ---: | :---: | :---|
 | 110     | | &check; |
 | 300     | | &check; |
@@ -202,7 +231,7 @@ For analog to digital conversion (ADC) using `analogRead()`.
 
 {{imageOverlay src="/assets/images/sulu/sulu-boron-pwm-comparison.svg" alt="PWM comparison" class="full-width"}}
 
-The pins that support PWM are different on the Argon and Photon 2.
+The pins that support PWM are different on the Boron and Photon 2.
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6026dd9c-e783-4ada-a1ed-850c5cddcd0b --}}
@@ -267,10 +296,9 @@ and Sulu, but only on specific pins. The Boron can use any pins for PDM (with th
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-The Argon supports I2S (sound) input and output with a third-party library.
+Boron supports I2S (sound) input and output with a third-party library.
 
-There is no software support for I2S on Sulu, and while the RTL872x hardware supports I2S, the pins that it requires are in use by other ports.
-
+The Sulu hardware supports I2S (sound), but there is no support for it in Device OS. It should be possible to implement in a third-party library from user firmware, but there is no publicly available library available at this time.
 ### BLE (Bluetooth LE) - Sulu from Boron
 
 BLE Central and BLE Peripheral modes are supported on Sulu and the Boron.
@@ -301,9 +329,9 @@ There is a limit of 8 pin interrupts on the Boron; this limitation does not exis
 
 Sulu can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
 
-Sulu can only wake from `HIBERNATE` sleep mode certain pins, `RISING`, `FALLING`, or `CHANGE`. 
+Sulu can only wake from `HIBERNATE` sleep mode on certain pins, `RISING`, `FALLING`, or `CHANGE`. 
 
-Pin D8 `WKP` is the same module pin location as the Boron pin D8, which is also the WKP pin. 
+Pin D8 `WKP` is the same module pin location as the Boron pin D8, which is also the WKP pin. This is different on the Photon 2.
 
 {{!-- BEGIN do not edit content below, it is automatically generated f1da1b65-7e6c-4611-ba44-b9273c40c9da --}}
 
@@ -671,13 +699,13 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 
 ### Wi-Fi Configuration
 
-The Boron does not have Wi-Fi capabilities. If you wish to use Wi-Fi on Sulu, you will typically use BLE for configuration of Wi-Fi. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration. A React Native reference will be provided to simplify Wi-Fi setup.
+The Boron does not have Wi-Fi capabilities. If you wish to use Wi-Fi on Sulu, you will typically use BLE for configuration of Wi-Fi. Using BLE allows mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
 
 Sample applications for React Native, iOS, and Android will be provided in the future.
 
 | Feature | Sulu | Photon 2 | Photon | Argon |
 | :--- | :---: | :---: | :---: | :---: |
-| Wi-Fi (SoftAP) | | &check; | |
+| Wi-Fi (SoftAP) | | | &check; | |
 | BLE | &check; | &check; | | &check; |
 
 ### BLE (Bluetooth LE)
