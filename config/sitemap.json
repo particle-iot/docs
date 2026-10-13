@@ -1275,8 +1275,8 @@
             "hash": "6e3c2fcb330df96b39a5c0a9af7aa9f9b5bd08240d7f17927b5fb068e130d0d2"
         },
         "reference/device-os/file-system.md": {
-            "date": "2024-02-27",
-            "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
+            "date": "2026-10-13",
+            "hash": "40d725a4f32e4ce93385a1d96b604c71580d26b5b7f76c5d438a0fa3790a7455"
         },
         "reference/device-os/firmware.md": {
             "date": "2026-10-14",
@@ -8391,7 +8391,7 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "24d32b4c569e0cb4bc7537346c17b794116234c04512745d83d89199eb08f999",
+            "hash": "a5d688cd82d80d1322967c3f407b1b8a70009fcb76546f3ce3b299698dcd7102",
             "date": "2026-10-13"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
@@ -10059,7 +10059,7 @@
             "date": "2026-07-20"
         },
         "reference/datasheets/m-series/m635e-datasheet.md": {
-            "hash": "72b3e4c0dfed2b160e8952002b5101fff65025dc0280b16d54bf1dad371d928c",
+            "hash": "473eef6bb1bda6d06a25d5039c34a91c5dfe623c371d04c4f9831c4313bd9a56",
             "date": "2026-10-13"
         },
         "reference/device-os/api/introduction/device-programming-summary.md": {
