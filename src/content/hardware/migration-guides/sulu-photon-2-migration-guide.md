@@ -155,7 +155,7 @@ These pins have a special function at boot on the Photon 2. These restrictions d
 | :--- | :--- | :--- | :--- |
 | TX / D8 | Low at boot triggers ISP flash download | TX / D9 | &nbsp; |
 | D6 | SWCLK. 40K pull-down at boot. | D6 | &nbsp; |
-| D7 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | D7 | Low at boot triggers MCU boot mode. |
+| D7 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | D7 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -459,7 +459,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | 13K |
 | ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
-| ∆ | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | Low at boot triggers MCU boot mode. |
+| ∆ | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | n/a |
 #### D10 / D8
 |   |   | Photon 2 | Sulu |
 | :--- | :--- | :--- | :--- |
