@@ -41,19 +41,22 @@ The Boron and Argon have around 80K of RAM available to user applications. Sulu 
 
 There is a 2 MB flash file system for storing user data. This is the same size as the Boron, B-SoM, and Argon.
 
-## Connector differences
+## Antennas
 
-### USB Connector
+Sulu does not contain an on-board chip antenna for BLE, unlike the Boron.
+
+External antennas are required on Sulu for BLE/Wi-Fi, and also for cellular. See [antennas](/reference/datasheets/b-series/sulu-datasheet/#antennas) in the Sulu datasheet for more information.
+
+## USB connector
 
 Sulu has a USB-C connector. The Boron has a Micro USB connector.
 
-### SWD/JTAG
+## LiPo battery connector
 
-Sulu has a 10-pin micro debugging connector like the Boron.
-
-SWO (Serial Wire Output) is not supported on the RTL8722DM.
+Sulu has a 3-pin Particle LiPo battery connector for a battery pack containing an integrated 10K NTC thermistor. This is a different connector and battery than the Boron.
 
 ## Interface port differences
+
 
 ### SPI - Sulu from Boron
 {{imageOverlay src="/assets/images/sulu/sulu-boron-spi-comparison.svg" alt="SPI comparison" class="full-width"}}
@@ -371,10 +374,10 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | Pin Name | RST|
 | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
 #### 3V3
-| | Unchanged between Boron and Sulu |
-| :--- | :--- |
-| Pin Name | 3V3|
-| Description | Regulated 3.3V DC output, maximum load 1000 mA|
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | 3V3 | 3V3 |
+| ∆ | Description | Regulated 3.3V DC output, maximum load 1000 mA | Regulated 3.3V DC output |
 #### MODE
 |   |   | Boron | Sulu |
 | :--- | :--- | :--- | :--- |
@@ -644,11 +647,11 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### VUSB
-| | Unchanged between Boron and Sulu |
-| :--- | :--- |
-| Pin Name | VUSB|
-| Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.|
-| Input is 5V Tolerant | Yes|
+|   |   | Boron | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | VUSB | VUSB |
+| ∆ | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. | Power out (when powered by USB) 5 VDC, power in with limitations. |
+| &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### EN
 | | Unchanged between Boron and Sulu |
 | :--- | :--- |

@@ -115,7 +115,7 @@ Sulu includes a 3-pin JST-PH connector (left), not the 2-pin JST-PH connector on
 
 <p class="attribution">Looking at the exposed end of the connector attached to the battery</p>
 
-If purchasing a LiPo battery from a 3rd-party supplier, beware as the polarity of the JST-PH connector is not standardized and may be reversed. Permanent damage to the breakout board can occur if powered by reverse polarity on the JST connector. See the [battery guide](/hardware/power/batteries/) for additional information.
+If purchasing a LiPo battery from a 3rd-party supplier, beware as the polarity of the JST-PH connector is not standardized and may be reversed. Permanent damage to can occur if powered by reverse polarity on the JST connector. See the [battery guide](/hardware/power/batteries/) for additional information.
 
 
 #### Li+ pin
@@ -413,7 +413,6 @@ Sulu supports one I2C (two-wire serial interface) port.
 
 - The I2C port is 3.3V and must not be connected directly to a 5V I2C bus
 - Maximum bus speed is 400 kHz
-- External pull-up resistors are recommended for I2C as the internal pull-up is 13K.
 - If not using I2C, pins D0 and D1 can be used as GPIO or analog input.
 - The PMIC and Fuel Gauge are on a separate, dedicated I2C interface and do not affect `Wire`.
 
@@ -600,7 +599,7 @@ Sulu does not have RTL872x boot mode pins exposed on GPIO.
 
 
 
-Because Sulu uses dedicated pins for SWD, and uses the LPUART for TX/RX instead of LOGUART, the restrictions below for the Photon 2 do not apply to Sulu.
+Because Sulu uses dedicated pins for SWD, and uses the LP_UART for TX/RX instead of LOG_UART, the restrictions below for the Photon 2 do not apply to Sulu.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5baa3b30-adfa-4fbb-a77c-0cacd12bb039 --}}
 
@@ -707,7 +706,7 @@ Sulu does not have NFC Tag support.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">2</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">3V3</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Regulated 3.3V DC output, maximum load 1000 mA</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Regulated 3.3V DC output</td></tr>
 </tbody>
 </table>
 
@@ -1143,7 +1142,7 @@ Sulu does not have NFC Tag support.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">25</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">VUSB</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Power out (when powered by USB) 5 VDC, power in with limitations.</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Input is 5V Tolerant</td><td class="" style="text-align: left; ">Yes</td></tr>
 </tbody>
 </table>

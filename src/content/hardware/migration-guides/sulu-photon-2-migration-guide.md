@@ -11,10 +11,11 @@ description: Migration guide for transitioning from the Photon 2 to Sulu
 {{downloadButton url="/assets/pdfs/datasheets/sulu-photon-2-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-{{migration-guide leftImg="/assets/images/photon2-rendering.png" leftStyle="transform: matrix(0.92, 0, 0, 0.92, 0, 7);" rightImg="/assets/images/electron-2/electron-2-rendering.png"}}
+{{migration-guide leftImg="/assets/images/photon2-rendering.png"  rightImg="/assets/images/sulu/sulu-rendering.png"}}
 
-Sulu and the Photon 2 have similar MCUs but some pins are different.
+Sulu adds cellular connectivity that the Photon 2 does not have. 
 
+Sulu and the Photon 2 both have have Wi-Fi, similar MCUs, and share a Feather form-factor, but some pins are different.
 
 ## Hardware
 
@@ -29,19 +30,19 @@ When migrating to a new device, recertification is typically required. If you ar
 you often only need to complete the less expensive unintentional radiator testing of your completed assembly, however 
 in some cases intentional radiator testing could be required.
 
-## Connector differences
+## Antennas
 
-### USB Connector
+Sulu does not contain an on-board trace antenna for Wi-Fi and BLE, unlike the Photon 2.
+
+External antennas are required on Sulu for BLE/Wi-Fi, and also for cellular. See [antennas](/reference/datasheets/b-series/sulu-datasheet/#antennas) in the Sulu datasheet for more information.
+
+## USB connector
 
 Sulu has a USB-C connector. The Photon 2 has a Micro USB connector.
 
-### SWD/JTAG
+## LiPo battery connector
 
-Sulu supports programming and debugging use SWD (Serial Wire Debug) using the 10-pin micro JTAG connector on the top of the module.
-
-On the Photon 2, SWD is shared with GPIO pins D6 and D7, which adds restrictions on the use of these pins. Sulu has dedicated pins for SWD.
-
-![SWD Debug Connector](/assets/images/argon/swd-connector-pinout.png)
+Sulu has a 3-pin Particle LiPo battery connector for a battery pack containing an integrated 10K NTC thermistor. This is a different connector and battery than the Photon 2.
 
 ## Interface port differences
 
@@ -129,8 +130,9 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Ph
 
 ### Analog input (ADC) - Sulu from Photon 2
 
-{{imageOverlay src="/assets/images/sulu/sulu-photon2-adc-comparison.svg" alt="Serial comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/sulu/sulu-photon2-adc-comparison.svg" alt="ADC comparison" class="full-width"}}
 
+The Photon 2 supports alternate ADC functions on pins D0 and D1. This is not available on Sulu, however pins A3 and A5 are available on Sulu, so there are the same number of ADC pin.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 28c6f04f-66e8-4b64-87d0-4f6cf18e9228 --}}
 
@@ -199,7 +201,7 @@ These pins have a special function at boot on the Photon 2. These restrictions d
 
 Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connector on the top of the device. The Photon 2 also has this connector, but the pins are shared with GPIO pins.
 
-<div align="center"><img src="/assets/images/boron/swd-connector-pinout.png" ></div>
+<div align="center"><img src="/assets/images/boron/swd-connector-pinout.png" alt="SWD connector"></div>
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 39c69dbe-1354-4b67-8f20-ae279d6f45d5 --}}
@@ -214,15 +216,15 @@ Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connect
 
 ### Battery and charge monitoring
 
-The Photon 2 does not have a PMIC chip and uses `VBAT_MEAS` to measure the battery voltage and and `CHG` to determine the charge state.
+The Photon 2 does not have a PMIC chip and uses `VBAT_MEAS` to measure the battery voltage and `CHG` to determine the charge state.
 
-This is not used on Sulu, which has a full bq24195 PMIC and the battery status can be determined using the system power manager to access the PMIC and Fuel Gauge chips via I2C. This is the same chipset uses on the Boron, Tracker, Muon, and other cellular devices.
+This is not used on Sulu, which has a full bq24195 PMIC and the battery status can be determined using the system power manager to access the PMIC and Fuel Gauge chips via I2C. This is the same chipset used on the Boron, Tracker, Muon, and other cellular devices.
 
 
 ### Full module pin comparison - Sulu from Photon 2
 
 {{imageOverlay src="/assets/images/photon-2-pinout.svg" alt="Photon 2 Pinout Diagram" class="full-width"}}
-{{imageOverlay src="/assets/images/sulu/sulu-pinout.svg" alt="Pinout" class="full-width"}}
+{{imageOverlay src="/assets/images/sulu/sulu-pinout.svg" alt="Sulu Pinout" class="full-width"}}
 
 {{collapse op="start" label="Show pin details"}}
 {{!-- BEGIN do not edit content below, it is automatically generated 9fb77145-edd4-4f0a-815a-fb1994390006 --}}
@@ -236,7 +238,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 |   |   | Photon 2 | Sulu |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
-| ∆ | Description | Regulated 3.3V DC output, maximum load 500 mA | Regulated 3.3V DC output, maximum load 1000 mA |
+| ∆ | Description | Regulated 3.3V DC output, maximum load 500 mA | Regulated 3.3V DC output |
 #### MODE
 |   |   | Photon 2 | Sulu |
 | :--- | :--- | :--- | :--- |
@@ -504,11 +506,11 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### VUSB
-| | Unchanged between Photon 2 and Sulu |
-| :--- | :--- |
-| Pin Name | VUSB|
-| Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.|
-| Input is 5V Tolerant | Yes|
+|   |   | Photon 2 | Sulu |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | VUSB | VUSB |
+| ∆ | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. | Power out (when powered by USB) 5 VDC, power in with limitations. |
+| &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### EN
 | | Unchanged between Photon 2 and Sulu |
 | :--- | :--- |
