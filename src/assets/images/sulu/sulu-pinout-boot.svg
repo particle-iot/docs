@@ -1188,13 +1188,7 @@ PB[30]    </text>
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D7    </text>
-    <line x1="30" y1="0" x2="68" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="68" y="-8" width="55" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-Yes    </text>
-    <line x1="123" y1="0" x2="127" y2="0" stroke="black" stroke-width="1" >
+    <line x1="30" y1="0" x2="127" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="127" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
