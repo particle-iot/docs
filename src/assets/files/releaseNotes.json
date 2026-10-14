@@ -30233,6 +30233,434 @@
                 2934,
                 2935
             ]
+        },
+        "v6.6.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v6.6.0",
+            "tag_name": "v6.6.0",
+            "name": "v6.6.0 (Argon/Boron/B-SoM/B5-SoM/Tracker/Tracker-M/E-SoM-X/M-SoM/P2)",
+            "prerelease": false,
+            "created_at": "2026-10-09T10:42:11Z",
+            "published_at": "2026-10-13T20:51:32Z",
+            "entries": [
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2953
+                    ],
+                    "section": "FEATURES",
+                    "text": "eSIM-aware IDLE cellular state: with no enabled eSIM profile the modem stays on and reachable over AT but does not try to register"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [
+                        2949
+                    ],
+                    "section": "FEATURES",
+                    "text": "Allow reading and clearing the last panic info over USB"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2959
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Registration backoff for deactivated SIMs: after the first hour of failed registration attempts, retries space out to 1/2/4 hours with the radio off"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2950,
+                        2965
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "RNG: switch to mbedTLS CTR_DRBG over an ADC-based entropy source"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [
+                        2953
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Re-send the system describe when the ICCID changes (e.g. an eSIM profile switch)"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2948
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Backup RAM persists to the filesystem instead of a dedicated flash page"
+                },
+                {
+                    "tags": [
+                        "build"
+                    ],
+                    "prs": [
+                        2941
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Parallel build support (`make -jXX`) and ccache"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [
+                        2937
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Non-blocking cloud handshake: the system loop keeps running while the DTLS and CoAP handshake is in progress"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2964
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Enable mbedTLS restartable ECP so handshake ECC operations don't block the system loop"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2965
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Speed up AES operations by moving AES tables from PSRAM into SRAM (`MBEDTLS_AES_ROM_TABLES` off)"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2944,
+                        2958
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Generate a heap panic if heap operation would cause a deadlock due to disabled scheduler"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2940
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Detect and recover from an unresponsive modem AT interface while connected, reset connection state on every `disconnect()` exit path"
+                },
+                {
+                    "tags": [
+                        "Cellular",
+                        "R510"
+                    ],
+                    "prs": [
+                        2940
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Allow more time for the modem to answer AT after a parser error before hard resetting it"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2952
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "`cellular_device_info()` uses the cached info without taking the NCP client lock when the modem is off"
+                },
+                {
+                    "tags": [
+                        "Cellular",
+                        "Quectel"
+                    ],
+                    "prs": [
+                        2953
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "APDU channel reliability fixes"
+                },
+                {
+                    "tags": [
+                        "M SoM"
+                    ],
+                    "prs": [
+                        2936
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix power leakage in STOP/ULP sleep mode (PB12/SWD_DATA pull-ups)"
+                },
+                {
+                    "tags": [
+                        "Gen 3"
+                    ],
+                    "prs": [
+                        2939
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "usb: fix non-blocking `Serial` writes asserting on a full TX buffer and receiving with a null buffer"
+                },
+                {
+                    "tags": [
+                        "Gen 3",
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2944,
+                        2958
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix malloc deadlocks when allocating with the scheduler suspended (SPI/I2C init, `TCPServer` constructor), `__malloc_lock` trylocks the mutex before panicking"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2948
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "backup ram: initialize the retained system area on cold boot"
+                },
+                {
+                    "tags": [
+                        "third_party"
+                    ],
+                    "prs": [
+                        2947
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "littlefs: fix truncate followed by a write tripping the pcache assert"
+                },
+                {
+                    "tags": [
+                        "third_party"
+                    ],
+                    "prs": [
+                        2942
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "mbedtls: security fixes backported from 2.22.0"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [
+                        2957
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "ledger: fix a HardFault on cloud disconnect during a ledger update, encode the result and error message in responses"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [
+                        2964
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Disconnect from the cloud when the network interface carrying the cloud connection goes down and resume the session on reconnect; `Cellular.disconnect()` / `WiFi.disconnect()` on that interface now disconnect from the cloud first"
+                },
+                {
+                    "tags": [
+                        "wiring"
+                    ],
+                    "prs": [
+                        2968
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix `SystemSleepConfiguration` move assignment leaking wakeup sources (memory lost on every sleep cycle when reusing a configuration); fix network wakeup source/reason sizes and `SystemSleepResult` self-assignment"
+                },
+                {
+                    "tags": [
+                        "wiring"
+                    ],
+                    "prs": [
+                        2961
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "`pinAvailable()` no longer initializes `SPI`; pins used by SPI/I2C/UART peripherals are detected from the pin function on Gen 3 and Gen 4"
+                },
+                {
+                    "tags": [
+                        "Gen 4"
+                    ],
+                    "prs": [
+                        2960
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "I2C: fix slave mode SCL hold and interrupt storm"
+                },
+                {
+                    "tags": [
+                        "Cellular",
+                        "Quectel"
+                    ],
+                    "prs": [
+                        2962
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "EG91: recover from an unresponsive AT interface during PPP data dial"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2962
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "`cellular_device_info()` ignores and does not cache invalid ICCIDs, falls back to cached info if the modem query fails"
+                },
+                {
+                    "tags": [
+                        "third_party"
+                    ],
+                    "prs": [
+                        2965
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "FreeRTOS: `vEventGroupDelete()` frees memory outside the scheduler-suspended section"
+                },
+                {
+                    "tags": [
+                        "build"
+                    ],
+                    "prs": [
+                        2949
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Back-write the real module hash and CRC into the linked ELF files, so an ELF can be matched against the module hash a device reports"
+                },
+                {
+                    "tags": [
+                        "Gen 3"
+                    ],
+                    "prs": [
+                        2954
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Flash space savings: disable x509 certificate parsing on LOW_FLASH_SPACE platforms, compact USB string mapping table in USB driver"
+                },
+                {
+                    "tags": [
+                        "Tracker"
+                    ],
+                    "prs": [
+                        2954
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Stub out Wi-Fi code unused on scan-only platforms to save flash space"
+                },
+                {
+                    "tags": [
+                        "Gen 3"
+                    ],
+                    "prs": [
+                        2953
+                    ],
+                    "section": "INTERNAL",
+                    "text": "NFC driver can be compiled out for debugging purposes"
+                },
+                {
+                    "tags": [
+                        "ci"
+                    ],
+                    "prs": [
+                        2941
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Faster CI builds"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2943,
+                        2955
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Env var suite fixes: drop the empty env var set OTA workaround, make sure product level env vars are cleared"
+                },
+                {
+                    "tags": [
+                        "hal"
+                    ],
+                    "prs": [
+                        2963
+                    ],
+                    "section": "INTERNAL",
+                    "text": "`HAL_PLATFORM_STRICT_HEAP_LOCK_PANIC` debug option to panic on any heap access while the scheduler is suspended"
+                },
+                {
+                    "tags": [
+                        "ci"
+                    ],
+                    "prs": [
+                        2956
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Don't ship test ELF files in CI release artifacts"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2965,
+                        2962,
+                        2967
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Sync the device public key before running tests, entropy source qualification test, EG91 PPP stall and power saving test reliability"
+                }
+            ],
+            "prs": [
+                2936,
+                2937,
+                2939,
+                2940,
+                2941,
+                2942,
+                2943,
+                2944,
+                2947,
+                2948,
+                2949,
+                2950,
+                2952,
+                2953,
+                2954,
+                2955,
+                2956,
+                2957,
+                2958,
+                2959,
+                2960,
+                2961,
+                2962,
+                2963,
+                2964,
+                2965,
+                2967,
+                2968
+            ]
         }
     },
     "pulls": {
@@ -44834,6 +45262,227 @@
             "title": "Boot log",
             "state": "open",
             "created_at": "2026-08-04T14:46:40Z"
+        },
+        "2939": {
+            "url": "https://github.com/particle-iot/device-os/pull/2939",
+            "number": 2939,
+            "title": "[Gen 3] Fix USB CDC write triggering an assertion failure; migrates wiring/usbserial to be run under test runner, more usb tests",
+            "state": "closed",
+            "created_at": "2026-08-06T07:44:08Z",
+            "detail": "1. On Gen 3 a non-blocking `Serial.write()` racing a full TX buffer could SOS the device. `hal_usb_cdc_pvt_send_data()` `SPARK_ASSERT`ed that `app_fifo_write()` succeeds, but a full FIFO returns `NRF_ERROR_NO_MEM` - so writing into a full buffer was an assertion failure instead of a short write. `SerialUSBStream` had the same problem one layer up: errors from the HAL propagated out of `read()`/`peek()`/`write()` instead of being reported as \"0 bytes done\". **This is a 6.5.0 regression introduced in https://github.com/particle-iot/device-os/pull/2935**\n\n2. `wiring/usbserial` was a manual test, so it never ran on HIL.\n\n3. USB coverage beyond CDC data was basically nonexistent: control-request transport (chunking, concurrency, cancellation), descriptors/WCID, device modes and bus-reset robustness had no automated tests. `user/tests/app/usb_ctrl_request` predates the test runner and never runs."
+        },
+        "2940": {
+            "url": "https://github.com/particle-iot/device-os/pull/2940",
+            "number": 2940,
+            "title": "DVOS-35 [quectel] Fixes recovery of AT lockup when zero data while \"CONNECTED\" issue [sc-139209]",
+            "state": "closed",
+            "created_at": "2026-08-15T00:03:54Z"
+        },
+        "2941": {
+            "url": "https://github.com/particle-iot/device-os/pull/2941",
+            "number": 2941,
+            "title": "[build] working -jXX and ccache support; faster CI builds",
+            "state": "closed",
+            "created_at": "2026-08-25T07:29:41Z",
+            "detail": "1. `make -jXX` has never worked. Recursive make relies on positional ordering of prerequisites in `all: prebuild $(MAKE_DEPENDENCIES) $(TARGET) postbuild`, which only holds for serial builds. Under `-j` the dependency libraries have no rule in the parent make instance (`No rule to make target 'libservices.a'`), submakes race each other in shared build directories and `make clean all -jXX` runs both goals in parallel, cleaning from under an ongoing build.\n2. ccache has never worked either: `$(CCACHE)` is referenced in every `module.mk` recipe, but is not defined anywhere. Even when defined manually, bare `--specs=nano.specs` makes ccache bail out on every single compile (`Result: bad_compiler_arguments` - it tries to stat the specs file by its bare name), so nothing was ever cached.\n3. CI builds everything single-threaded and rebuilds the same shared unit-test library sources for every one of ~37 test apps per platform. There is also no visibility into per-platform build times.\n4. Bonus: CI builds have been running under GNU make 3.82 (2010) all this time - buildtools ships its own `make` into `/root/.particle/bin` which shadows the distro one."
+        },
+        "2942": {
+            "url": "https://github.com/particle-iot/device-os/pull/2942",
+            "number": 2942,
+            "title": "[third_party] mbedtls: 2.22.0 backports",
+            "state": "closed",
+            "created_at": "2026-08-25T08:28:56Z"
+        },
+        "2943": {
+            "url": "https://github.com/particle-iot/device-os/pull/2943",
+            "number": 2943,
+            "title": "[test] Fix empty env var tests",
+            "state": "closed",
+            "created_at": "2026-09-02T17:45:41Z",
+            "detail": "Concourse tests started failing env var tests. The change is due to device service behavior when sending empty env var asset OTAs. Previously, Device Service would send an empty env var asset which would trigger a device reboot to apply it. As of August 2026 Device service no longer has this behavior so the tests should not need to account for it."
+        },
+        "2944": {
+            "url": "https://github.com/particle-iot/device-os/pull/2944",
+            "number": 2944,
+            "title": "[gen3] [rtl872x] Fix hal malloc deadlocks",
+            "state": "closed",
+            "created_at": "2026-09-04T20:31:20Z",
+            "detail": "I observed a deadlock on boot with an MSOM. \n\nThe backtrace showed contention on the malloc mutex between system thread and user application thread. Something was trying to malloc with scheduling disabled, which resulted in the deadlock."
+        },
+        "2945": {
+            "url": "https://github.com/particle-iot/device-os/pull/2945",
+            "number": 2945,
+            "title": "Make LED breathing pattern sinusoidal instead of linear",
+            "state": "open",
+            "created_at": "2026-09-14T12:38:07Z"
+        },
+        "2946": {
+            "url": "https://github.com/particle-iot/device-os/pull/2946",
+            "number": 2946,
+            "title": "[gen4] rng: switch to secure DRBG; backup RAM via filesystem; last panic info over USB; littlefs truncate bugfix backport",
+            "state": "closed",
+            "created_at": "2026-09-16T22:32:21Z",
+            "detail": "A few things in one branch:\n\n1. On Gen 4 there is no hardware RNG peripheral, so the random source has to be provided\nin software: this adds a mbedtls CTR_DRBG over an ADC-based entropy source.\n\n2. Backup RAM was persisted to a dedicated 4K flash page with a full 4K shadow copy on every\nsync, and `.retained_system` had no defined cold boot state - on a cold boot the region kept\nwhatever was left in RAM, stale DTLS session included.\n\n3. The last panic info was only visible through cloud vitals, published once per panic, with\nthe assertion text as a pointer value (an int). Nothing could read it over USB, and nothing\ncould clear it.\n\n4. The linked ELF artifacts carry a placeholder hash and CRC, so an ELF alone cannot be matched\nagainst the module a device reports over USB, and any tool that wants to symbolicate an address\nhas to find the sibling binary first."
+        },
+        "2947": {
+            "url": "https://github.com/particle-iot/device-os/pull/2947",
+            "number": 2947,
+            "title": "[third_party] littlefs: fix truncate followed by write tripping the pcache assert",
+            "state": "closed",
+            "created_at": "2026-09-17T17:18:09Z",
+            "detail": "Truncating an open file and then writing from the start trips the `lfs_cache_prog()` assert\n(`pcache->block == 0xffffffff`, SOS 10 at lfs.c:183) when the file spans more than one block.\nOur littlefs tree pre-dates the upstream fix for this (12e464e, \"writes following a truncate\",\nMay 2019)."
+        },
+        "2948": {
+            "url": "https://github.com/particle-iot/device-os/pull/2948",
+            "number": 2948,
+            "title": "[gen4] backup ram: persist via filesystem; initialize retained system on cold boot",
+            "state": "closed",
+            "created_at": "2026-09-17T17:18:16Z",
+            "detail": "Backup RAM was persisted to a dedicated 4K flash page with a full 4K shadow copy on every\nsync, and `.retained_system` had no defined cold boot state - on a cold boot the region kept\nwhatever was left in RAM, stale DTLS session included."
+        },
+        "2949": {
+            "url": "https://github.com/particle-iot/device-os/pull/2949",
+            "number": 2949,
+            "title": "[system] control: last panic info over USB; [build] back-write module hash and crc into elf",
+            "state": "closed",
+            "created_at": "2026-09-17T17:18:22Z",
+            "detail": "The last panic info was only visible through cloud vitals, published once per panic, with\nthe assertion text as a pointer value (an int). Nothing could read it over USB, and nothing\ncould clear it.\n\nThe linked ELF artifacts carry a placeholder hash and CRC, so an ELF alone cannot be matched\nagainst the module a device reports over USB, and any tool that wants to symbolicate an\naddress has to find the sibling binary first."
+        },
+        "2950": {
+            "url": "https://github.com/particle-iot/device-os/pull/2950",
+            "number": 2950,
+            "title": "[gen4] [rtl872x] rng: use mbedtls CTR_DRBG",
+            "state": "closed",
+            "created_at": "2026-09-17T17:18:28Z",
+            "detail": "On RTL8721D there is no hardware RNG peripheral, so the random source has to be provided in\nsoftware: this adds a mbedtls CTR_DRBG over an ADC-based entropy source."
+        },
+        "2952": {
+            "url": "https://github.com/particle-iot/device-os/pull/2952",
+            "number": 2952,
+            "title": "[cellular] do not block cellular_device_info() on the ncp client lock when the modem is not on",
+            "state": "closed",
+            "created_at": "2026-09-17T23:16:24Z",
+            "detail": "`cellular_device_info()` acquires the NCP client lock unconditionally, even when the modem is not on (off, transient state etc) and all it needs is the cached ICCID/IMEI/etc. The lock is normally held for the whole duration of a modem power on/off or reset sequence, which may very well be tens of seconds when the modem fails to power on.\n\n`HAL_System_Info()` -> `HAL_OTA_Add_System_Info()` -> `cellular_device_info()` runs on the system thread during the cloud handshake, e.g. when moving an existing session over after an ACM triggered failover. If the ncp netif thread is inside `on()` at that moment, the handshake stalls for the full power sequence:\n\n```\n0000201868 comm.dtls INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 2\n0000216569 ncp.client ERROR: Failed to power on modem, try hard reset\n0000246975 ncp.client ERROR: Failed to reset the modem.\n0000246977 net.pppncp ERROR: Failed to initialize cellular NCP client: -160\n0000246981 comm.protocol.handshake INFO: Skipping HELLO message\n```\n\n45 seconds between the session move command and the next protocol message, unblocking 4ms after the ncp client gives up."
+        },
+        "2953": {
+            "url": "https://github.com/particle-iot/device-os/pull/2953",
+            "number": 2953,
+            "title": "adds eSIM-aware IDLE cellular state [sc-139159]",
+            "state": "closed",
+            "created_at": "2026-09-18T22:37:37Z"
+        },
+        "2954": {
+            "url": "https://github.com/particle-iot/device-os/pull/2954",
+            "number": 2954,
+            "title": "[gen3] Flash space savings: disable x509 cert parsing on LOW_FLASH_SPACE platforms + bump nrf5_sdk",
+            "state": "closed",
+            "created_at": "2026-09-21T16:38:17Z",
+            "detail": "Almost out of flash space on Gen 3 platforms, with #2953 actually over."
+        },
+        "2955": {
+            "url": "https://github.com/particle-iot/device-os/pull/2955",
+            "number": 2955,
+            "title": "[test] ensure PROD level env vars are cleared",
+            "state": "closed",
+            "created_at": "2026-09-21T19:14:08Z"
+        },
+        "2956": {
+            "url": "https://github.com/particle-iot/device-os/pull/2956",
+            "number": 2956,
+            "title": "[ci] no test elfs",
+            "state": "closed",
+            "created_at": "2026-09-23T23:17:38Z"
+        },
+        "2957": {
+            "url": "https://github.com/particle-iot/device-os/pull/2957",
+            "number": 2957,
+            "title": "[ledger] Fixes and unit tests",
+            "state": "closed",
+            "created_at": "2026-09-24T20:06:02Z",
+            "detail": "Customer reported HardFault on cloud disconnect during a ledger update due to a null pointer being passed in the error callback handler instead of the class instance."
+        },
+        "2958": {
+            "url": "https://github.com/particle-iot/device-os/pull/2958",
+            "number": 2958,
+            "title": "[hal] core: attempt to trylock malloc mutex under suspended scheduler",
+            "state": "closed",
+            "created_at": "2026-09-25T10:02:30Z"
+        },
+        "2959": {
+            "url": "https://github.com/particle-iot/device-os/pull/2959",
+            "number": 2959,
+            "title": "Cellular registration backoff [DVOS-29]",
+            "state": "closed",
+            "created_at": "2026-09-25T19:26:28Z"
+        },
+        "2960": {
+            "url": "https://github.com/particle-iot/device-os/pull/2960",
+            "number": 2960,
+            "title": "[DVOS-67] [Gen 4] i2c: fix slave mode SCL hold and interrupt storm",
+            "state": "closed",
+            "created_at": "2026-09-28T17:18:20Z",
+            "detail": "Gen 4 I2C slave interrupt handler reads the interrupt status once per pass and gates clearing and servicing on its state machine. Delayed across the stop of one transaction and the start of the next, one `IC_INTR_STAT` read reports both conditions. The handler clears both bits, applies one to its state machine, drops the other. The state machine is now behind the bus: `RD_REQ` or `RX_FULL` goes unserviced, the peripheral holds SCL low until the requested byte is written or the FIFO is drained, and the pending interrupt bit is never cleared - it re-fires endlessly.\n\nRegression since 5.3.1: https://github.com/particle-iot/device-os/pull/2634"
+        },
+        "2961": {
+            "url": "https://github.com/particle-iot/device-os/pull/2961",
+            "number": 2961,
+            "title": "[wiring] Avoid malloc when calling pinAvailable()",
+            "state": "closed",
+            "created_at": "2026-09-30T15:43:07Z",
+            "detail": "Calling `pinMode()` under `SINGLE_THREADED_BLOCK()` / scheduling disabled can cause SPI class initialization in some circumstances, which mallocs a mutex. This was causing a panic before #2958. While we can now survive this condition, `pinMode()`/`pinAvailable()` should be safe to use under any contex."
+        },
+        "2962": {
+            "url": "https://github.com/particle-iot/device-os/pull/2962",
+            "number": 2962,
+            "title": "[quectel][eg91] recover PPP data dial unresponsive AT interface",
+            "state": "closed",
+            "created_at": "2026-10-03T17:29:11Z",
+            "detail": "`wiring/cellular_no_fixture` was failing `CLOUD_05_loss_of_cellular_network_connectivity_does_not_cause_full_handshake` on EG91NAX for a few reasons\n- PR #2940 fixed an issue with EG91 where PPP dial over cmux was killing the AT interpreter in the modem (modem bug).  As it turns out there was another path for recovery in this CLOUD_05 test that was trying to hard reset the modem first instead of powering it off completely.  This was allowing the EG91 to keep hitting the PPP stall issue after boot.\n- PR #2953 added a way to update the system describe when the ICCID changed.  The method for fetching the ICCID could error out if the AT interface stalled, resulting in a new handshake to send the change to describe.\n- Any test waiting for connection could potential break AT interface immediately after connected on EG91 (i.e. `waitFor(Cellular.ready, 900000) or waitFor(Particle.connected, 900000)`."
+        },
+        "2963": {
+            "url": "https://github.com/particle-iot/device-os/pull/2963",
+            "number": 2963,
+            "title": "[hal] Add force panic define to facilitate debugging",
+            "state": "closed",
+            "created_at": "2026-10-05T22:32:21Z",
+            "detail": "There may be user application or system features that rely on malloc/free while scheduling is disabled. This may be silently succeeding but we may want an option to force these situations to panic in order to debug potentially incorrect or dangerous behavior."
+        },
+        "2964": {
+            "url": "https://github.com/particle-iot/device-os/pull/2964",
+            "number": 2964,
+            "title": "[system] force a cloud disconnect when the underlying network goes down",
+            "state": "closed",
+            "created_at": "2026-10-06T14:22:42Z",
+            "detail": "1. Cloud is not disconnected when the interface the cloud socket is bound to loses link. `NetworkManager` only schedules a `ConnectionManager` check, which returns early when no interface is ready (`countReady == 0`). `cloud_disconnect()` is only called from `networkDisconnectImpl()` for `NETWORK_INTERFACE_ALL`, so even `Cellular.disconnect()`/`WiFi.disconnect()` leaves the cloud \"connected\".\n2. lwIP doesn't propagate netif state to UDP sockets, `recv()` just keeps returning `EWOULDBLOCK`, so `Particle.connected()` stays `true` with no network at all. What happens next depends on whether anything was sent while the link was down:\n   - nothing in flight - the link-up cloud ping succeeds and the session survives\n   - a confirmable message in flight - it uses up all its retransmits on the dead link, `CoAPMessageStore::message_timeout()` fires ~30s after the link is already back, the `CLOSE` it sends wipes the session and we end up doing a full handshake\n\n**This PR additionally fixes Windows builds which got broken in #2941**"
+        },
+        "2965": {
+            "url": "https://github.com/particle-iot/device-os/pull/2965",
+            "number": 2965,
+            "title": "[gen4] rng: faster entropy harvest + non-fatal reseed; [third_party] freertos: free event groups with the scheduler running",
+            "state": "closed",
+            "created_at": "2026-10-06T18:52:44Z"
+        },
+        "2966": {
+            "url": "https://github.com/particle-iot/device-os/pull/2966",
+            "number": 2966,
+            "title": "Device key rotation",
+            "state": "open",
+            "created_at": "2026-10-07T14:39:45Z"
+        },
+        "2967": {
+            "url": "https://github.com/particle-iot/device-os/pull/2967",
+            "number": 2967,
+            "title": "[test] 00_before: add 02a_sync_device_public_key",
+            "state": "closed",
+            "created_at": "2026-10-08T09:58:15Z"
+        },
+        "2968": {
+            "url": "https://github.com/particle-iot/device-os/pull/2968",
+            "number": 2968,
+            "title": "[wiring] fix SystemSleepConfiguration move assignment memory leak; add tests",
+            "state": "closed",
+            "created_at": "2026-10-08T11:24:21Z",
+            "detail": "Reported on the community forum: free memory drops ~120-140 bytes per sleep cycle on Borons reusing a global `SystemSleepConfiguration`.\n\nThe gist of the problem is that move assignment just copies `hal_sleep_config_t` over and never frees the wakeup source list it was already holding, only the destructor does. So `config = SystemSleepConfiguration()` leaks all the wakeup sources every time. Self move assignment is also broken - it nulls its own list and leaks it. Has been like this since 1.5.0.\n\nWhile looking at this found a few more:\n1. `network()` sets `base.size` to `sizeof(hal_wakeup_source_gpio_t)`\n2. nRF52840 network wakeup reason has `base.size = sizeof(hal_wakeup_source_base_t)`, so the copy in `System.systemSleepResult_` gets truncated\n3. `SystemSleepResult` self-assignment frees the wakeup source before copying from it\n4. wakeup sources are `delete`d through `hal_wakeup_source_base_t*`"
         }
     }
 }

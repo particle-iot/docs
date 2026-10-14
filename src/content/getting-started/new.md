@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 6.6.0 preview 2026-10-14
+
+[Device OS 6.6.0](/reference/device-os/release-notes/?mode=rel1&ver=v6.6.0) is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc. It is a preview release.
+
+
 ### Carrier update Pakistan 2026-10-06
 
 Updated the carrier entries and bands for Pakistan to fix inconsistent naming caused by Warid being acquired by Mobilink, then branded as Jazz. It is now listed as Jazz.
