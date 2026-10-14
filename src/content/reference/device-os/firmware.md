@@ -3251,6 +3251,10 @@ void disconnect(void);
 WiFi.disconnect();
 ```
 
+{{since when="6.6.0"}}
+
+If the cloud connection is using this network interface, `WiFi.disconnect()` will first disconnect from the cloud. When the interface goes down, the cloud session is also disconnected, and the session is resumed when the interface reconnects.
+
 ### connecting()
 
 {{api name1="WiFi.connecting"}}
@@ -6030,6 +6034,10 @@ void disconnect();
 // SYNTAX
 Cellular.disconnect();
 ```
+
+{{since when="6.6.0"}}
+
+If the cloud connection is using this network interface, `Cellular.disconnect()` will first disconnect from the cloud. When the interface goes down, the cloud session is also disconnected, and the session is resumed when the interface reconnects.
 
 ### connecting()
 
@@ -24072,7 +24080,8 @@ Retained memory is preserved on RTL872x devices in the following cases:
 | Reset button or reset pin | Not saved  |
 | Every 10 seconds | 5.3.1 to 5.8.0 only |
 
-Calling [`System.backupRamSync()`](/reference/device-os/api/system-calls/backupramsync/) will manually save the contents of retained memory to a dedicated flash page on the RTL872x processor and will be restored after the device is reset. You should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear and is relatively slow to execute.
+Calling [`System.backupRamSync()`](/reference/device-os/api/system-calls/backupramsync/) will manually save the contents of retained memory and will be restored after the device is reset. You should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear and is relatively slow to execute.
+In Device OS 5.3.1 to 6.5.x it is saved to a dedicated flash page, and in Device OS 6.6.0 and later it is saved to the flash file system.
 
 Prior to Device OS 5.3.1, retained memory is not supported on RTL872x devices. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
 
@@ -24214,9 +24223,9 @@ Using additional sanity checks can help prevent using invalid data.
 
 {{api name1="FEATURE_RETAINED_MEMORY"}}
 
-- On Gen 3 devices (B-Series SoM, Boron, Argon, Tracker SoM, Tracker One, E404X), retained memory is always enabled, regagrdless of the feature flag.
+- On Gen 3 devices (B-Series SoM, Boron, Argon, Tracker SoM, Tracker One, E404X), retained memory is always enabled, regardless of the feature flag.
 
-- On the P2, Photon 2, and Tracker M, retained memory is not available.
+- On the P2, Photon 2, and Tracker M (RTL872x), retained memory has limited support in Device OS 5.3.1 and later. See [Retained memory](#retained-memory) for the cases in which it is saved. It is not supported in earlier versions.
 
 - On Gen 2 devices (E-Series, Photon, P1), backup RAM is disabled by default, since it does require some maintenance power
 which may not be desired on some low-powered projects.  Backup RAM consumes roughly
@@ -27807,7 +27816,8 @@ Retained memory is preserved on RTL872x devices in the following cases:
 | Reset button or reset pin | Not saved  |
 | Every 10 seconds | 5.3.1 to 5.8.0 only |
 
-Calling [`System.backupRamSync()`](/reference/device-os/api/system-calls/backupramsync/) will manually save the contents of retained memory to a dedicated flash page on the RTL872x processor and will be restored after the device is reset. You should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear and is relatively slow to execute.
+Calling [`System.backupRamSync()`](/reference/device-os/api/system-calls/backupramsync/) will manually save the contents of retained memory and will be restored after the device is reset. You should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear and is relatively slow to execute.
+In Device OS 5.3.1 to 6.5.x it is saved to a dedicated flash page, and in Device OS 6.6.0 and later it is saved to the flash file system.
 
 Prior to Device OS 5.3.1, retained memory is not supported on RTL872x devices. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
 
