@@ -373,7 +373,8 @@ Retained memory is preserved on RTL872x devices in the following cases:
 | Reset button or reset pin | Not saved  |
 | Every 10 seconds | 5.3.1 to 5.8.0 only |
 
-Calling [`System.backupRamSync()`](/reference/device-os/api/system-calls/backupramsync/) will manually save the contents of retained memory to a dedicated flash page on the RTL872x processor and will be restored after the device is reset. You should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear and is relatively slow to execute.
+Calling [`System.backupRamSync()`](/reference/device-os/api/system-calls/backupramsync/) will manually save the contents of retained memory and will be restored after the device is reset. You should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear and is relatively slow to execute.
+In Device OS 5.3.1 to 6.5.x it is saved to a dedicated flash page, and in Device OS 6.6.0 and later it is saved to the flash file system.
 
 Prior to Device OS 5.3.1, retained memory is not supported on RTL872x devices. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
 
