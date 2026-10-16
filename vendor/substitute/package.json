@@ -1,0 +1,7 @@
+{
+  "name": "substitute",
+  "version": "0.0.1",
+  "description": "substitute :props in strings. (Vendored copy of segmentio/substitute 0.0.1, whose GitHub repo was deleted.)",
+  "main": "index.js",
+  "license": "MIT"
+}

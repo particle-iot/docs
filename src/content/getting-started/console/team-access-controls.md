@@ -120,7 +120,7 @@ from the product team.
 | Action                     | Administrator (Owner) | Administrator | Developer | Support | View-only |
 |----------------------------|:---------------------:|:-------------:|:---------:|:-------:|:---------:|
 |          **Team**          |                       |               |           |         |           |
-|      View Product team     | &check;               | &check;       | &check;   | &check; | &check;   |
+|      View Product team     | &check;               | &check;       |           |         |           |
 | Manage Product team        | &check;               | &check;       |           |         |           |
 | Create Product API users   | &check;               | &check;       |           |         |           |
 |         **Fleet Health**   |                       |               |           |         |           |
@@ -157,8 +157,8 @@ from the product team.
 | Create new Integration     | &check;               | &check;       | &check;   |         |           |
 | Edit/delete Integration    | &check;               | &check;       | &check;   |         |           |
 |      **OAuth clients**     |                       |               |           |         |           |
-| View OAuth clients         | &check;               | &check;       | &check;   | &check; | &check;   |
-| Create OAuth client        | &check;               | &check;       | &check;   |         |           |
+| View OAuth clients         | &check;               | &check;       | &check;   |         |           |
+| Create OAuth client        | &check;               | &check;       | &check;<sup>1</sup>  |         |           |
 | Edit/delete OAuth client   | &check;               | &check;       | &check;   |         |           |
 |        **Customers**       |                       |               |           |         |           |
 | View Customers             | &check;               | &check;       | &check;   | &check; | &check;   |
@@ -170,16 +170,18 @@ from the product team.
 |        **Billing & Usage** |                       |               |           |         |           |
 | View Billing & Usage       | &check;               | &check;       |           |         |           |
 
+<sup>1</sup>Developer-created OAuth clients cannot have permission levels higher than their own permissions.
+
 ### Organization permissions
 
 | Action                                     | Administrator (Owner) | Administrator | Developer | Support | View-only |
 |--------------------------------------------|:---------------------:|:-------------:|:---------:|:-------:|:---------:|
 |                **Team**                    |                       |               |           |         |           |
-| View org team                              | &check;               | &check;       | &check;   | &check; | &check;   |
+| View org team                              | &check;               | &check;       |           |         |           |
 | Manage org team                            | &check;               | &check;       |           |         |           |
 | Create org API users                       | &check;               | &check;       |           |         |           |
 |           **Owned Products**               |                       |               |           |         |           |
-| Create new Product                         | &check;               | &check;       | &check;   |         |           |
+| Create new Product                         | &check;               | &check;       |           |         |           |
 | Administrator role for all Products in org | &check;               | &check;       |           |         |           |
 | Developer role for all Products in org     |                       |               | &check;   |         |           |
 | Support role for all Products in org       |                       |               |           | &check; |           |
