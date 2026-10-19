@@ -14,6 +14,7 @@
         "spell": "mdspell --en-us --ignore-numbers --no-suggestions 'src/content/**/*.md' '!src/content/languages/**/*.md' '!src/content/firmware/tracker-edge/tracker-edge-firmware.md' '!src/content/firmware/tracker-edge/tracker-edge-api-reference.md' '!src/content/reference/device-os/firmware.md' '!src/content/reference/discontinued/software/firmware-core.md' '!src/content/reference/discontinued/software/firmware-mesh.md' '!src/content/reference/discontinued/software/firmware-xenon.md'"
     },
     "dependencies": {
+        "substitute": "file:vendor/substitute",
         "apidoc": "^1.2.0",
         "autoprefixer": "^10.5.0",
         "binary-version-reader": "^2.0.1",
@@ -65,7 +66,8 @@
     },
     "overrides": {
         "minimist": "0.2.4",
-        "lodash": "4.17.21"
+        "lodash": "4.17.21",
+        "substitute": "$substitute"
     },
     "engines": {
         "node": "24.12.0",
