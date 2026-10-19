@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Team access controls 2026-10-19
+
+Corrected errors in the [Team access control Permissions matrix](/getting-started/console/team-access-controls/#permissions-matrix).
+
 ### CLI local compile 2026-10-14
 
 The Particle CLI now supports local compile using the `--compiler local` option of [`particle compile`](/getting-started/developer-tools/cli/#compile-and-flash-code-locally) and `particle flash`. It works in the same was as local compile in Particle Workbench, but Workbench does not need to be installed.
