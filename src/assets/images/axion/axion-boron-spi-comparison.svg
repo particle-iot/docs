@@ -827,7 +827,7 @@
     <text x="-15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RST    </text>
     <text x="-30" y="-16" text-anchor="middle" dominant-baseline="bottom" font-family="Arial, Helvetica, sans-serif" font-size="10px" fill="black" >
-Sulu    </text>
+Axion    </text>
     <line x1="-30" y1="0" x2="-210" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-240" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >
@@ -1427,7 +1427,7 @@ EN    </text>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 LI+    </text>
     <text x="30" y="-16" text-anchor="middle" dominant-baseline="bottom" font-family="Arial, Helvetica, sans-serif" font-size="10px" fill="black" >
-Sulu    </text>
+Axion    </text>
     <line x1="30" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#E2E4EB" >

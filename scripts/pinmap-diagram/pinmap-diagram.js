@@ -1378,9 +1378,9 @@ const svg = require('./svg');
         });
 
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
-            platformName: 'Sulu',
-            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/sulu/sulu-rendering.svg'),
-            outputPath: 'assets/images/sulu/' + generateOptions.outputFile,
+            platformName: 'Axion',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/axion/axion-rendering.svg'),
+            outputPath: 'assets/images/axion/' + generateOptions.outputFile,
             // scale to make height 500px width 221
             deviceImageTransform: 'scale(1.005) translate(-20,-10)',
             width: 1000,
@@ -1423,9 +1423,9 @@ const svg = require('./svg');
         // Special case: generateOptions.pinNameComparison
 
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
-            platformName: 'Sulu',
-            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/sulu/sulu-rendering.svg'),
-            outputPath: 'assets/images/sulu/' + generateOptions.outputFile,
+            platformName: 'Axion',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/axion/axion-rendering.svg'),
+            outputPath: 'assets/images/axion/' + generateOptions.outputFile,
             deviceImageTransform: 'scale(1.005) translate(-20,-10)',
             width: 1000,
             height: 510,
@@ -1464,7 +1464,7 @@ const svg = require('./svg');
                 width: 30,
                 keys: ['name'],
                 titlePosition: titlePositions[ii],
-                titleAfter: 'Sulu',
+                titleAfter: 'Axion',
             });
             if (!options.noAltNames) {
                 options.pins[ii].columns.push({
@@ -2465,91 +2465,91 @@ const svg = require('./svg');
         
         await diagram.generatePhoton2(generateOptions, files);
         
-        // Sulu diagrams - rename these
+        // Axion diagrams - rename these
         await diagram.generateSulu(Object.assign({
-            outputFile: 'sulu-pinout.svg'
+            outputFile: 'axion-pinout.svg'
         }, generateOptions), files);
 
         await diagram.generateSulu(Object.assign({
-            outputFile: 'sulu-pinout-adc.svg',
+            outputFile: 'axion-pinout-adc.svg',
             feature: 'hardwareADC'
         }, generateOptions), files);
 
 
         await diagram.generateSulu(Object.assign({
-            outputFile: 'sulu-pinout-spi.svg',
+            outputFile: 'axion-pinout-spi.svg',
             feature: 'spi'
         }, generateOptions), files);
 
         await diagram.generateSulu(Object.assign({
-            outputFile: 'sulu-pinout-serial.svg',
+            outputFile: 'axion-pinout-serial.svg',
             feature: 'serial'
         }, generateOptions), files);
 
         await diagram.generateSulu(Object.assign({
-            outputFile: 'sulu-pinout-i2c.svg',
+            outputFile: 'axion-pinout-i2c.svg',
             feature: 'i2c'
         }, generateOptions), files);
 
         await diagram.generateSulu(Object.assign({
-            outputFile: 'sulu-pinout-pwm.svg',
+            outputFile: 'axion-pinout-pwm.svg',
             feature: 'analogWritePWM'
         }, generateOptions), files);
 
         await diagram.generateSulu(Object.assign({
-            outputFile: 'sulu-pinout-pdm.svg',
+            outputFile: 'axion-pinout-pdm.svg',
             feature: 'pdm'
         }, generateOptions), files);
 
         await diagram.generateSulu(Object.assign({
-            outputFile: 'sulu-pinout-i2s.svg',
+            outputFile: 'axion-pinout-i2s.svg',
             feature: 'i2s'
         }, generateOptions), files);
 
         await diagram.generateSulu(Object.assign({
-            outputFile: 'sulu-pinout-boot.svg',
+            outputFile: 'axion-pinout-boot.svg',
             feature: 'boot'
         }, generateOptions), files);
 
         await diagram.generateSulu(Object.assign({
-            outputFile: 'sulu-pinout-hibernate.svg',
+            outputFile: 'axion-pinout-hibernate.svg',
             feature: 'hibernate'
         }, generateOptions), files);
 
         //
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Boron',
-            outputFile: 'sulu-boron-comparison.svg'
+            outputFile: 'axion-boron-comparison.svg'
         }, generateOptions), files);
 
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Boron',
-            outputFile: 'sulu-boron-spi-comparison.svg',
+            outputFile: 'axion-boron-spi-comparison.svg',
             feature: 'spi',
         }, generateOptions), files);
 
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Boron',
-            outputFile: 'sulu-boron-serial-comparison.svg',
+            outputFile: 'axion-boron-serial-comparison.svg',
             feature: 'serial',
         }, generateOptions), files);
 
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Boron',
-            outputFile: 'sulu-boron-adc-comparison.svg',
+            outputFile: 'axion-boron-adc-comparison.svg',
             feature: 'hardwareADC',
         }, generateOptions), files);
 
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Boron',
-            outputFile: 'sulu-boron-pwm-comparison.svg',
+            outputFile: 'axion-boron-pwm-comparison.svg',
             feature: 'analogWritePWM',
         }, generateOptions), files);
 
         // 
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Photon 2',
-            outputFile: 'sulu-photon2-pin-name-comparison.svg',
+            outputFile: 'axion-photon2-pin-name-comparison.svg',
             pinNameComparison: true,
             noAltNames: true,
             compareAfter: 'Photon 2',
@@ -2557,42 +2557,42 @@ const svg = require('./svg');
 
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Photon 2',
-            outputFile: 'sulu-photon2-comparison.svg'
+            outputFile: 'axion-photon2-comparison.svg'
         }, generateOptions), files);
 
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Photon 2',
-            outputFile: 'sulu-photon2-spi-comparison.svg',
+            outputFile: 'axion-photon2-spi-comparison.svg',
             feature: 'spi',
         }, generateOptions), files);
 
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Photon 2',
-            outputFile: 'sulu-photon2-serial-comparison.svg',
+            outputFile: 'axion-photon2-serial-comparison.svg',
             feature: 'serial',
         }, generateOptions), files);
 
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Photon 2',
-            outputFile: 'sulu-photon2-adc-comparison.svg',
+            outputFile: 'axion-photon2-adc-comparison.svg',
             feature: 'hardwareADC',
         }, generateOptions), files);
 
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Photon 2',
-            outputFile: 'sulu-photon2-pwm-comparison.svg',
+            outputFile: 'axion-photon2-pwm-comparison.svg',
             feature: 'analogWritePWM',
         }, generateOptions), files);
         
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Photon 2',
-            outputFile: 'sulu-photon2-boot-comparison.svg',
+            outputFile: 'axion-photon2-boot-comparison.svg',
             feature: 'boot',
         }, generateOptions), files);
 
         await diagram.generateFeatherToSulu(Object.assign({
             comparePlatform: 'Photon 2',
-            outputFile: 'sulu-photon2-swd-comparison.svg',
+            outputFile: 'axion-photon2-swd-comparison.svg',
             feature: 'swd',
         }, generateOptions), files);
 

@@ -239,7 +239,9 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'pwm-listing',
-                    platformFilter: (e => e.id > 0 && e.id < 99),
+                    platformFilter: function(e) {
+                        return e.id > 0 && e.id < 99 && !e.hidden;
+                    },
                 }); 
             } 
         },                
@@ -1217,7 +1219,7 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },    
-        // Sulu
+        // Axion
         {
             guid:'f82eeab1-470c-4c25-a505-3057c080fc1d', 
             generatorFn:function(updater) {
@@ -1244,7 +1246,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generateCountryComparison({
                     models: [
                         {
-                            title: 'Sulu',
+                            title: 'Axion',
                             modem: 'EG800Q-GL',
                             sim: 4,
                         },
@@ -1323,14 +1325,14 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },        
-        // Sulu - TODO: Rename platform
+        // Axion- TODO: Rename platform
         {
             guid: 'c95d8236-be6f-492a-a5d6-40adf1a6acc7', 
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'full-details',
                     showPinNum: true,
-                    platformNew: 'Sulu'
+                    platformNew: 'Axion'
                 }); 
             } 
         },                
@@ -1339,7 +1341,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'pinFunction',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     noPinNumbers: true,
                 }); 
             } 
@@ -1349,7 +1351,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     interface: 'serial',
                     noPinNumbers: true,
                 }); 
@@ -1360,7 +1362,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     interface: 'spi',
                     noPinNumbers: true,
                 }); 
@@ -1371,7 +1373,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     interface: 'i2c',
                     noPinNumbers: true,
                 }); 
@@ -1382,7 +1384,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     interface: 'hardwareADC',
                     noPinNumbers: true,
                 }); 
@@ -1393,7 +1395,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     interface: 'analogWritePWM',
                     noInterface: true,
                     showHardwareTimer: true,
@@ -1406,7 +1408,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     interface: 'pdm',
                     noPinNumbers: true,
                 }); 
@@ -1417,7 +1419,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     interface: 'i2s',
                     noPinNumbers: true,
                 }); 
@@ -1428,7 +1430,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'bootPins',
-                    platformNew: 'Sulu'
+                    platformNew: 'Axion'
                 }); 
             }             
         },
@@ -1437,7 +1439,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     interface: 'hibernate',
                     onlyGPIO: true,
                 }); 
@@ -1446,13 +1448,13 @@ const schemaDocs = require('./schema-docs');
 
         
 
-        // Sulu migration guide - from Boron
+        // Axion migration guide - from Boron
         {
             guid:'ec636e6d-5401-4cf4-8ff9-27354ec41508', 
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'full-comparison',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     platformOld: 'Boron',
                     noModulePin: true,
                 }); 
@@ -1463,7 +1465,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     platformOld: 'Boron',
                     port: 'analogWritePWM',
                     label: 'PWM',
@@ -1477,7 +1479,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     platformOld: 'Boron',
                     port: 'analogRead',
                     label: 'ADC',
@@ -1491,7 +1493,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     platformOld: 'Boron',
                     port: 'serial',
                     label: 'Serial',
@@ -1506,7 +1508,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     platformOld: 'Boron',
                     port: 'spi',
                     label: 'SPI',
@@ -1517,13 +1519,13 @@ const schemaDocs = require('./schema-docs');
             }
         },        
 
-        // Sulu migration guide - from Photon 2
+        // Axion migration guide - from Photon 2
         {
             guid:'9fb77145-edd4-4f0a-815a-fb1994390006', 
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'full-comparison',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     platformOld: 'Photon 2',
                     noModulePin: true,
                 }); 
@@ -1534,7 +1536,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     platformOld: 'Photon 2',
                     port: 'analogWritePWM',
                     label: 'PWM',
@@ -1548,7 +1550,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     platformOld: 'Photon 2',
                     port: 'analogRead',
                     label: 'ADC',
@@ -1562,7 +1564,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     platformOld: 'Photon 2',
                     port: 'serial',
                     label: 'Serial',
@@ -1577,7 +1579,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'featherComparison',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     platformOld: 'Photon 2',
                     useShortName: true,
                     noPinNumbers: true,
@@ -1591,7 +1593,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     platformOld: 'Photon 2',
                     port: 'spi',
                     label: 'SPI',
@@ -1606,7 +1608,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     platformOld: 'Photon 2',
                     port: 'boot',
                     label: 'Boot',
@@ -1621,7 +1623,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'Sulu',
+                    platformNew: 'Axion',
                     platformOld: 'Photon 2',
                     port: 'swd',
                     label: 'SWD',

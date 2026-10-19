@@ -1,6 +1,6 @@
 {
-    "id": 0,
-    "name": "Sulu",
+    "id": 38,
+    "name": "Axion",
     "pins": [
         {
             "num": 1,
@@ -455,6 +455,7 @@
         ]
     },
     "comment": "v0.1 2026-05-27",
+    "hidden": true,
     "layout": {
         "columns": [
             {
