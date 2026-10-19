@@ -21,7 +21,7 @@ Axion and the Photon 2 both have have Wi-Fi, similar MCUs, and share a Feather f
 
 ### Datasheets
 
-- [Axion datasheet](/reference/datasheets/b-series/axion-datasheet/)
+- [Axion datasheet](/reference/datasheets/m-series/axion-datasheet/)
 - [Photon 2 datasheet](/reference/datasheets/wifi/photon-2-datasheet/)
 
 ## Certification
@@ -34,7 +34,7 @@ in some cases intentional radiator testing could be required.
 
 Axion does not contain an on-board trace antenna for Wi-Fi and BLE, unlike the Photon 2.
 
-External antennas are required on Axion for BLE/Wi-Fi, and also for cellular. See [antennas](/reference/datasheets/b-series/axion-datasheet/#antennas) in the Axion datasheet for more information.
+External antennas are required on Axion for BLE/Wi-Fi, and also for cellular. See [antennas](/reference/datasheets/m-series/axion-datasheet/#antennas) in the Axion datasheet for more information.
 
 ## USB connector
 

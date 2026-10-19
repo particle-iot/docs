@@ -488,11 +488,6 @@
                         {
                             "dir": "boron-datasheet",
                             "title": "Boron datasheet"
-                        },
-                        {
-                            "dir": "axion-datasheet",
-                            "title": "Axion datasheet",
-                            "internal": true
                         }
                     ]
                 },
@@ -512,6 +507,11 @@
                         {
                             "dir": "muon-datasheet",
                             "title": "Muon datasheet"
+                        },
+                        {
+                            "dir": "axion-datasheet",
+                            "title": "Axion datasheet",
+                            "internal": true
                         },
                         {
                             "dir": "m2-breakout-datasheet",

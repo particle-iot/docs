@@ -17,7 +17,7 @@ description: Migration guide for transitioning from the Boron to Axion
 
 ### Datasheets
 
-- [Axion datasheet](/reference/datasheets/b-series/axion-datasheet/)
+- [Axion datasheet](/reference/datasheets/m-series/axion-datasheet/)
 - [Boron datasheet](/reference/datasheets/b-series/boron-datasheet/)
 - [Boron BRN404X datasheet](/reference/datasheets/b-series/brn404x-datasheet/)
 
@@ -33,7 +33,7 @@ The Boron 404X contains a LTE Cat M1 cellular modem that is only officially supp
 
 Axion has a LTE Cat 1 bis cellular modem with global cellular compatibility. This allows a single SKU to be used world-wide.
 
-See [country comparison](/reference/datasheets/b-series/axion-datasheet/#country-comparison) in the Axion datasheet for more information.
+See [country comparison](/reference/datasheets/m-series/axion-datasheet/#country-comparison) in the Axion datasheet for more information.
 
 ## SIM
 
@@ -73,7 +73,7 @@ There is a 2 MB flash file system for storing user data. This is the same size a
 
 Axion does not contain an on-board chip antenna for BLE, unlike the Boron.
 
-External antennas are required on Axion for BLE/Wi-Fi, and also for cellular. See [antennas](/reference/datasheets/b-series/axion-datasheet/#antennas) in the Axion datasheet for more information.
+External antennas are required on Axion for BLE/Wi-Fi, and also for cellular. See [antennas](/reference/datasheets/m-series/axion-datasheet/#antennas) in the Axion datasheet for more information.
 
 ## USB connector
 
