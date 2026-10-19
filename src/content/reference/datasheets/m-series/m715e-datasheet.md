@@ -5,15 +5,15 @@ layout: commonTwo.hbs
 description: M715e datasheet
 ---
 
-# M635 datasheet
+# M635 datasheet (preliminary)
 
-{{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/m715e-datasheet.pdf"}}
-{{/unless}} {{!-- pdf-generation --}}
+{{box op="start" cssClass="boxed warningBox"}}
+This is a preliminary datasheet and is subject to change.
+{{box op="end"}}
 
 {{!-- ![M-SoM](/assets/images/m-series/m635e-top.png) --}}
  
-This datasheet is for the M715e. For the M404 and M524, see also:
+This datasheet is for the M715e. See also:
 - [M404 and M524](/reference/datasheets/m-series/msom-datasheet/).
 - [M635e](/reference/datasheets/m-series/m635e-datasheet/).
 
@@ -108,9 +108,8 @@ See [supervisory reset](#supervisory-reset), below, for additional information.
 ### RF
 
 - The M-SoM includes three U.FL connectors for external antennas:
-  - Cellular (including NTN)
+  - Cellular
   - Wi-Fi (2.4 GHz and 5 GHz) and BLE
-  - GNSS (GPS)
 
 - Wi-Fi operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
 
@@ -1268,174 +1267,7 @@ SE, SI, SK, TR, UA, UK(NI).
 {{!-- END do not edit content above, it is automatically generated  --}}
 
 
-### Country comparison
-
-
-{{!-- BEGIN do not edit content below, it is automatically generated 4cddf99f-ceea-4891-a726-42385fc117f6 --}}
-
-| Country | M715e | M404 | M524 | M635e |
-| :--- | :---: | :---: | :---: | :---: |
-| Afghanistan | &nbsp; | &nbsp; | ❓ | ✅ |
-| Albania | ✅ | &nbsp; | ✅ | ✅ |
-| Algeria | ✅ | &nbsp; | ✅ | ✅ |
-| American Samoa | &nbsp; | &nbsp; | &nbsp; | ✅ |
-| Andorra | &nbsp; | &nbsp; | &nbsp; | ✅ |
-| Anguilla | ✅ | &nbsp; | &nbsp; | ✅ |
-| Antigua and Barbuda | ✅ | &nbsp; | &nbsp; | ✅ |
-| Argentina | ✅ | ❓ | ❓ | ✅ |
-| Armenia | ✅ | &nbsp; | ❓ | ✅ |
-| Aruba | ✅ | &nbsp; | ✅ | ✅ |
-| Australia | ✅ | ❓ | ✅ | ✅ |
-| Austria | ✅ | ❓ | ✅ | ✅ |
-| Azerbaijan | ✅ | &nbsp; | ❓ | ✅ |
-| Bahamas | ✅ | &nbsp; | &nbsp; | ✅ |
-| Bahrain | ✅ | &nbsp; | ✅ | ✅ |
-| Bangladesh | ✅ | &nbsp; | ✅ | ✅ |
-| Barbados | ✅ | &nbsp; | &nbsp; | ✅ |
-| Belarus | ✅ | &nbsp; | ✅ | ✅ |
-| Belgium | ✅ | ❓ | ✅ | ✅ |
-| Belize | ✅ | &nbsp; | &nbsp; | &nbsp; |
-| Bolivia | ✅ | &nbsp; | &nbsp; | ✅ |
-| Bosnia and Herzegovina | &nbsp; | &nbsp; | ✅ | ✅ |
-| Botswana | ✅ | &nbsp; | ✅ | ✅ |
-| Brunei | ✅ | &nbsp; | ✅ | &nbsp; |
-| Bulgaria | ✅ | &nbsp; | ✅ | ✅ |
-| Burkina Faso | ✅ | &nbsp; | ✅ | ✅ |
-| Cabo Verde | ✅ | &nbsp; | ✅ | ✅ |
-| Cambodia | ✅ | &nbsp; | ✅ | ✅ |
-| Canada | ✅ | ✅ | &nbsp; | ✅ |
-| Cayman Islands | ✅ | &nbsp; | &nbsp; | ✅ |
-| Chad | ✅ | &nbsp; | ✅ | ✅ |
-| Chile | ✅ | &nbsp; | ✅ | &nbsp; |
-| Colombia | ✅ | &nbsp; | &nbsp; | ✅ |
-| Congo (Brazzaville) | ✅ | &nbsp; | ✅ | ✅ |
-| Congo (Kinshasa) | ✅ | &nbsp; | ✅ | ✅ |
-| Costa Rica | ✅ | &nbsp; | ❓ | &nbsp; |
-| Côte d'Ivoire | ✅ | &nbsp; | ✅ | ✅ |
-| Croatia | ✅ | ❓ | ✅ | ✅ |
-| Cyprus | ✅ | &nbsp; | ✅ | ✅ |
-| Czechia | ✅ | &nbsp; | ✅ | ✅ |
-| Denmark | ✅ | ❓ | ✅ | ✅ |
-| Dominica | ✅ | &nbsp; | &nbsp; | ✅ |
-| Dominican Republic | ✅ | &nbsp; | &nbsp; | ✅ |
-| Ecuador | ✅ | &nbsp; | &nbsp; | ✅ |
-| Egypt | ✅ | &nbsp; | ✅ | ✅ |
-| El Salvador | ✅ | &nbsp; | &nbsp; | ✅ |
-| Estonia | ✅ | ❓ | ✅ | ✅ |
-| eSwatini | ✅ | &nbsp; | ✅ | ✅ |
-| Ethiopia | ✅ | &nbsp; | ✅ | ✅ |
-| Faroe Islands | ✅ | &nbsp; | ✅ | ✅ |
-| Finland | ✅ | ❓ | ✅ | ✅ |
-| France | ✅ | ❓ | ✅ | ✅ |
-| French Guiana | &nbsp; | &nbsp; | ✅ | ✅ |
-| Gabon | ✅ | &nbsp; | ✅ | ✅ |
-| Georgia | ✅ | &nbsp; | ❓ | ✅ |
-| Germany | ✅ | ❓ | ✅ | ✅ |
-| Ghana | ✅ | &nbsp; | ✅ | ✅ |
-| Gibraltar | ✅ | &nbsp; | ✅ | ✅ |
-| Greece | ✅ | &nbsp; | ✅ | ✅ |
-| Grenada | &nbsp; | &nbsp; | &nbsp; | ✅ |
-| Guadeloupe | ✅ | &nbsp; | ❓ | ✅ |
-| Guatemala | ✅ | &nbsp; | &nbsp; | ✅ |
-| Guernsey | ✅ | &nbsp; | &nbsp; | ✅ |
-| Guinea | ✅ | &nbsp; | ✅ | ✅ |
-| Guinea-Bissau | ✅ | &nbsp; | ✅ | ✅ |
-| Guyana | ✅ | &nbsp; | ✅ | ✅ |
-| Haiti | &nbsp; | &nbsp; | ❓ | ✅ |
-| Holy See (Vatican City) | &nbsp; | &nbsp; | &nbsp; | ✅ |
-| Honduras | ✅ | &nbsp; | &nbsp; | ✅ |
-| Hong Kong | ✅ | &nbsp; | ✅ | &nbsp; |
-| Hungary | ✅ | ❓ | ✅ | ✅ |
-| Iceland | ✅ | ❓ | ✅ | ✅ |
-| Indonesia | ✅ | &nbsp; | ✅ | ✅ |
-| Ireland | ✅ | &nbsp; | ✅ | ✅ |
-| Isle of Man | ✅ | &nbsp; | &nbsp; | ✅ |
-| Israel | ✅ | &nbsp; | ✅ | &nbsp; |
-| Italy | ✅ | &nbsp; | ✅ | ✅ |
-| Jamaica | ✅ | &nbsp; | &nbsp; | &nbsp; |
-| Japan | ✅ | ❓ | ❓ | ✅ |
-| Jersey | ✅ | &nbsp; | ❓ | ✅ |
-| Jordan | ✅ | &nbsp; | ✅ | ✅ |
-| Kazakhstan | ✅ | &nbsp; | ✅ | ✅ |
-| Kenya | ✅ | &nbsp; | ✅ | ✅ |
-| Kosovo | &nbsp; | &nbsp; | &nbsp; | ✅ |
-| Kuwait | ✅ | &nbsp; | ✅ | ✅ |
-| Kyrgyzstan | ✅ | &nbsp; | ❓ | ✅ |
-| Latvia | ✅ | ❓ | ✅ | ✅ |
-| Liechtenstein | ✅ | &nbsp; | ✅ | ✅ |
-| Lithuania | ✅ | ❓ | ✅ | ✅ |
-| Luxembourg | ✅ | ❓ | ✅ | ✅ |
-| Macao | ✅ | &nbsp; | ✅ | &nbsp; |
-| Madagascar | ✅ | &nbsp; | ✅ | ✅ |
-| Malawi | ✅ | &nbsp; | ✅ | ✅ |
-| Malaysia | ✅ | &nbsp; | ✅ | ✅ |
-| Malta | ✅ | ❓ | ✅ | ✅ |
-| Mexico | ✅ | ✅ | &nbsp; | ✅ |
-| Moldova | ✅ | &nbsp; | ✅ | ✅ |
-| Monaco | &nbsp; | &nbsp; | &nbsp; | ✅ |
-| Mongolia | ✅ | &nbsp; | ✅ | ✅ |
-| Montenegro | ✅ | &nbsp; | ✅ | ✅ |
-| Morocco | ✅ | &nbsp; | ✅ | ✅ |
-| Mozambique | ✅ | &nbsp; | ✅ | ✅ |
-| Myanmar | ✅ | &nbsp; | ✅ | ✅ |
-| Namibia | ✅ | &nbsp; | ✅ | ✅ |
-| Netherlands | ✅ | ❓ | ✅ | ✅ |
-| New Zealand | ✅ | ❓ | ✅ | ✅ |
-| Nicaragua | ✅ | &nbsp; | &nbsp; | ✅ |
-| Nigeria | ✅ | &nbsp; | ✅ | ✅ |
-| North Macedonia | ✅ | &nbsp; | ❓ | ✅ |
-| Norway | ✅ | ❓ | ✅ | ✅ |
-| Pakistan | ✅ | &nbsp; | ✅ | ✅ |
-| Palestine | &nbsp; | &nbsp; | ✅ | ✅ |
-| Panama | ✅ | &nbsp; | &nbsp; | ✅ |
-| Papua New Guinea | &nbsp; | &nbsp; | ✅ | ✅ |
-| Paraguay | ✅ | &nbsp; | &nbsp; | ✅ |
-| Peru | ✅ | &nbsp; | &nbsp; | ✅ |
-| Philippines | ✅ | &nbsp; | ❓ | ✅ |
-| Poland | ✅ | ❓ | ✅ | ✅ |
-| Portugal | ✅ | ❓ | ✅ | ✅ |
-| Puerto Rico | ✅ | &nbsp; | &nbsp; | ✅ |
-| Qatar | ✅ | &nbsp; | ✅ | ✅ |
-| Romania | ✅ | ❓ | ✅ | ✅ |
-| Rwanda | &nbsp; | &nbsp; | ✅ | ✅ |
-| Saint Kitts and Nevis | ✅ | &nbsp; | &nbsp; | ✅ |
-| Saint Lucia | ✅ | &nbsp; | &nbsp; | ✅ |
-| Saint Vincent and the Grenadines | ✅ | &nbsp; | &nbsp; | &nbsp; |
-| San Marino | &nbsp; | &nbsp; | &nbsp; | ✅ |
-| Serbia | ✅ | &nbsp; | ✅ | ✅ |
-| Seychelles | ✅ | &nbsp; | ✅ | ✅ |
-| Sint Maarten | &nbsp; | &nbsp; | ✅ | ✅ |
-| Slovakia | ✅ | ❓ | ✅ | ✅ |
-| Slovenia | ✅ | ❓ | ✅ | ✅ |
-| South Africa | ✅ | &nbsp; | ✅ | ✅ |
-| South Korea | ✅ | ❓ | ✅ | ✅ |
-| South Sudan | &nbsp; | &nbsp; | ✅ | ✅ |
-| Spain | ✅ | ❓ | ✅ | ✅ |
-| Sri Lanka | ✅ | ❓ | ✅ | &nbsp; |
-| Suriname | &nbsp; | &nbsp; | ✅ | ✅ |
-| Sweden | ✅ | ❓ | ✅ | ✅ |
-| Switzerland | ✅ | ❓ | ✅ | ✅ |
-| Taiwan | ✅ | ❓ | ✅ | ✅ |
-| Tajikistan | ✅ | &nbsp; | ❓ | ✅ |
-| Tanzania | ✅ | &nbsp; | ✅ | ✅ |
-| Thailand | ✅ | ❓ | ✅ | &nbsp; |
-| Trinidad and Tobago | ✅ | &nbsp; | &nbsp; | ✅ |
-| Tunisia | ✅ | &nbsp; | ✅ | ✅ |
-| Turks and Caicos Islands | ✅ | &nbsp; | &nbsp; | ✅ |
-| Uganda | ✅ | &nbsp; | ✅ | ✅ |
-| Ukraine | ✅ | &nbsp; | ❓ | ✅ |
-| United Kingdom | ✅ | ❓ | ✅ | ✅ |
-| United States | ✅ | ✅ | &nbsp; | ✅ |
-| Uruguay | ✅ | &nbsp; | ❓ | ✅ |
-| Uzbekistan | ✅ | &nbsp; | ❓ | ✅ |
-| Venezuela | ✅ | &nbsp; | &nbsp; | &nbsp; |
-| Vietnam | ✅ | &nbsp; | ✅ | &nbsp; |
-| Virgin Islands (British) | ✅ | &nbsp; | ❓ | ✅ |
-| Virgin Islands (U.S.) | ✅ | &nbsp; | &nbsp; | &nbsp; |
-| Zambia | ✅ | &nbsp; | ✅ | ✅ |
-
-
-{{!-- END do not edit content above, it is automatically generated  --}}
+{{!-- TODO: Use 4cddf99f-ceea-4891-a726-42385fc117f6 for Country comparison --}}
 
 
 ---
