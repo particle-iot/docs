@@ -1281,6 +1281,44 @@ const schemaDocs = require('./schema-docs');
                 });            
             },     
         },
+        // M715e
+        {
+            guid:'4cddf99f-ceea-4891-a726-42385fc117f6', 
+            generatorFn:function(updater){
+                return updater.generateCountryComparison({
+                    models: [
+                        {
+                            title: 'M715e',
+                            modem: 'EG800Q-GL',
+                            sim: 4,
+                        },
+                        {
+                            title: 'M404',
+                            modem: 'BG95-M5',
+                            sim: 4,
+                        },
+                        {
+                            title: 'M524',
+                            modem: 'EG91-EX',
+                            sim: 4,
+                        },
+                        {
+                            title: 'M635e',
+                            modem: 'BG95-S5',
+                            sim: 4,
+                            simPlan: 41,
+                        },
+                    ],
+                    recommendationMap: {
+                        'YES': '\u2705', // green check
+                        'NS': '\u2753', // red question mark
+                        'POSS': '\u2753', // red question mark
+                        'NRND': 'NRND',
+                        'NR': '',
+                    }
+                });            
+            },     
+        },
         // Tachyon
         {
             guid:'ae3c46e6-c970-4ceb-8e55-2adde82efb79',
@@ -6078,6 +6116,18 @@ const schemaDocs = require('./schema-docs');
                     filterFn:function(skuObj) {
                         return !skuObj.name.startsWith('M635E');
                     }
+                }); 
+            } 
+        },
+        {
+            // SKU list M715e
+            guid:'52eb3dff-b0a0-4b4a-a0cc-45ba515fa96e', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('m series', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('M715E');
+                    },
+                    showPreDevelopment: true,        
                 }); 
             } 
         },

@@ -505,6 +505,11 @@
                             "title": "M635e datasheet"
                         },
                         {
+                            "dir": "m715e-datasheet",
+                            "title": "M715e datasheet",
+                            "internal": true
+                        },
+                        {
                             "dir": "muon-datasheet",
                             "title": "Muon datasheet"
                         },
