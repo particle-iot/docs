@@ -1262,7 +1262,16 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 
 ## Ordering information
 
-**To be provided at a later date**
+{{!-- BEGIN do not edit content below, it is automatically generated 9d04c39f-47ea-46bf-a4bc-dcf45e50195f --}}
+
+| SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| AXN715EHEA | Axion LTE CAT 1 bis (Global, EtherSIM+), [x1] | Global | EG800Q-GL | &check; | In development | |
+| AXN715EHTY | Axion LTE CAT 1 bis (Global, EtherSIM+), [x50] | Global | EG800Q-GL | &check; | In development | |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
 
 ## Qualification and approvals
 

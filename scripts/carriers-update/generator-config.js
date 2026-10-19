@@ -1228,6 +1228,17 @@ const schemaDocs = require('./schema-docs');
             } 
         },
         {
+            guid: '9d04c39f-47ea-46bf-a4bc-dcf45e50195f',
+            generatorFn:function(updater){
+                return updater.generateFamilySkus(null, {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('AXN');
+                    },
+                    showPreDevelopment: true,        
+                }); 
+            },
+        },
+        {
             guid:'896ba802-bdd8-4f9e-8f06-6d82af2289cd', 
             generatorFn:function(updater){
                 return updater.generateCountryComparison({
