@@ -11,7 +11,7 @@ description: Migration guide for transitioning from the Boron to Sulu
 {{downloadButton url="/assets/pdfs/datasheets/sulu-boron-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-{{migration-guide leftImg="/assets/images/boron/boron-top.png" rightImg="/assets/images/sulu/sulu-rendering.png"}}
+{{migration-guide leftImg="/assets/images/boron/boron-top.png" rightImg="/assets/images/axion/axion-rendering.png"}}
 
 ## Hardware
 
@@ -88,11 +88,11 @@ Sulu has a 3-pin Particle LiPo battery connector for a battery pack containing a
 
 ### SPI - Sulu from Boron
 
-{{imageOverlay src="/assets/images/sulu/sulu-boron-spi-comparison.svg" alt="SPI comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/axion/axion-boron-spi-comparison.svg" alt="SPI comparison" class="full-width"}}
 
 {{!-- BEGIN do not edit content below, it is automatically generated 74e90cd9-f151-4393-86a2-fdd6ca70c4ca --}}
 
-| Boron Pin Name | Boron SPI | Sulu Pin Name | Sulu SPI |
+| Boron Pin Name | Boron SPI | Axion Pin Name | Axion SPI |
 | :--- | :--- | :--- | :--- |
 | A3 / D16 | &nbsp; | A3 / D16 | SPI1 (MOSI) |
 | A4 / D15 | &nbsp; | A4 / D15 | SPI1 (MISO) |
@@ -129,13 +129,13 @@ Sulu has a 3-pin Particle LiPo battery connector for a battery pack containing a
 
 ### Serial (UART) - Sulu from Boron
 
-{{imageOverlay src="/assets/images/sulu/sulu-boron-serial-comparison.svg" alt="Serial comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/axion/axion-boron-serial-comparison.svg" alt="Serial comparison" class="full-width"}}
 
 The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Boron. Sulu optionally supports hardware flow control on `Serial1`.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8671f442-6d5f-468b-a0c2-a11870f7228d --}}
 
-| Boron Pin Name | Boron Serial | Sulu Pin Name | Sulu Serial |
+| Boron Pin Name | Boron Serial | Axion Pin Name | Axion Serial |
 | :--- | :--- | :--- | :--- |
 | RX / D10 | Serial1 RX | RX / D10 | Serial1 (RX)  |
 | TX / D09 | Serial1 TX | TX / D9 | Serial1 (TX) |
@@ -205,7 +205,7 @@ Supported Baud Rates:
 
 ### Analog input (ADC) - Sulu from Boron
 
-{{imageOverlay src="/assets/images/sulu/sulu-boron-adc-comparison.svg" alt="ADC comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/axion/axion-boron-adc-comparison.svg" alt="ADC comparison" class="full-width"}}
 
 For analog to digital conversion (ADC) using `analogRead()`.
 
@@ -214,7 +214,7 @@ For analog to digital conversion (ADC) using `analogRead()`.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 60b8d1d9-a3b4-431a-a028-c0f7c0bdda3a --}}
 
-| Boron Pin Name | Boron ADC | Sulu Pin Name | Sulu ADC |
+| Boron Pin Name | Boron ADC | Axion Pin Name | Axion ADC |
 | :--- | :--- | :--- | :--- |
 | A0 / D19 | &check; | A0 / D19 | &check; |
 | A1 / D18 | &check; | A1 / D18 | &check; |
@@ -229,14 +229,14 @@ For analog to digital conversion (ADC) using `analogRead()`.
 
 ### PWM (Pulse-width modulation) - Sulu from Boron
 
-{{imageOverlay src="/assets/images/sulu/sulu-boron-pwm-comparison.svg" alt="PWM comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/axion/axion-boron-pwm-comparison.svg" alt="PWM comparison" class="full-width"}}
 
 The pins that support PWM are different on the Boron and Photon 2.
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6026dd9c-e783-4ada-a1ed-850c5cddcd0b --}}
 
-| Boron Pin Name | Boron PWM | Sulu Pin Name | Sulu PWM |
+| Boron Pin Name | Boron PWM | Axion Pin Name | Axion PWM |
 | :--- | :--- | :--- | :--- |
 | A0 / D19 | &check; | A0 / D19 | &nbsp; |
 | A1 / D18 | &check; | A1 / D18 | &nbsp; |
@@ -390,7 +390,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 
 {{imageOverlay src="/assets/images/boron-pinout.svg" alt="Boron Pinout Diagram" class="full-width"}}
 
-{{imageOverlay src="/assets/images/sulu/sulu-pinout.svg" alt="Pinout" class="full-width"}}
+{{imageOverlay src="/assets/images/axion/axion-pinout.svg" alt="Pinout" class="full-width"}}
 
 
 
@@ -398,28 +398,28 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 {{!-- BEGIN do not edit content below, it is automatically generated ec636e6d-5401-4cf4-8ff9-27354ec41508 --}}
 
 #### RST
-| | Unchanged between Boron and Sulu |
+| | Unchanged between Boron and Axion |
 | :--- | :--- |
 | Pin Name | RST|
 | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
 #### 3V3
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
 | ∆ | Description | Regulated 3.3V DC output, maximum load 1000 mA | Regulated 3.3V DC output |
 #### MODE
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | MODE | MODE |
 | &nbsp; | Description | MODE button, has internal pull-up | MODE button, has internal pull-up |
 | ∆ | Supports attachInterrupt | n/a | Yes |
 #### GND
-| | Unchanged between Boron and Sulu |
+| | Unchanged between Boron and Axion |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground.|
 #### A0
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A0 | A0 |
 | &nbsp; | Pin Alternate Name | D19 | D19 |
@@ -432,7 +432,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### A1
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A1 | A1 |
 | &nbsp; | Pin Alternate Name | D18 | D18 |
@@ -445,7 +445,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### A2
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A2 | A2 |
 | &nbsp; | Pin Alternate Name | D17 | D17 |
@@ -458,7 +458,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### A3
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A3 | A3 |
 | &nbsp; | Pin Alternate Name | D16 | D16 |
@@ -472,7 +472,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 42K |
 #### A4
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A4 | A4 |
 | &nbsp; | Pin Alternate Name | D15 | D15 |
@@ -486,7 +486,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### A5
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A5 | A5 |
 | &nbsp; | Pin Alternate Name | D14 | D14 |
@@ -500,7 +500,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 22K |
 #### SCK
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | SCK | SCK |
 | &nbsp; | Pin Alternate Name | D13 | D13 |
@@ -514,7 +514,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | I2S interface | n/a | I2S CLK |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### MOSI
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | MOSI | MOSI |
 | &nbsp; | Pin Alternate Name | D12 | D12 |
@@ -527,7 +527,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### MISO
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | MISO | MISO |
 | &nbsp; | Pin Alternate Name | D11 | D11 |
@@ -541,7 +541,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | I2S interface | n/a | I2S TX |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### RX
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | RX | RX |
 | &nbsp; | Pin Alternate Name | D10 | D10 |
@@ -554,7 +554,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### TX
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | TX | TX |
 | ∆ | Pin Alternate Name | D09 | D9 |
@@ -568,7 +568,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | I2S interface | n/a | I2S MCLK |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### D0
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D0 | D0 |
 | ∆ | Description | I2C SDA, GPIO | I2C SDA, GPIO, PWM |
@@ -580,7 +580,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D1
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D1 | D1 |
 | ∆ | Description | I2C SCL, GPIO | I2C SCL, GPIO, PWM |
@@ -592,7 +592,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D2
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D2 | D2 |
 | ∆ | Description | SPI1 SCK, Serial1 RTS, GPIO, PWM | D2 GPIO, Serial RTS flow control (optional) |
@@ -605,7 +605,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D3
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D3 | D3 |
 | ∆ | Description | SPI1 MOSI, Serial1 CTS, PWM, GPIO | D3 GPIO, Serial1 CTS flow control (optional) |
@@ -618,7 +618,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D4
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D4 | D4 |
 | ∆ | Description | SPI1 MISO, PWM, GPIO | D4 GPIO, SPI SS, PWM, I2S WS |
@@ -631,7 +631,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | I2S interface | n/a | I2S WS |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D5
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D5 | D5 |
 | ∆ | Description | PWM, GPIO | D5 GPIO, SPI1 SS |
@@ -643,7 +643,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D6
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D6 | D6 |
 | ∆ | Description | PWM, GPIO | GPIO |
@@ -654,7 +654,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D7
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D7 | D7 |
 | ∆ | Description | PWM, GPIO | GPIO |
@@ -664,7 +664,7 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D8
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D8 | D8 |
 | &nbsp; | Pin Alternate Name | WKP | WKP |
@@ -676,18 +676,18 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### VUSB
-|   |   | Boron | Sulu |
+|   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | VUSB | VUSB |
 | ∆ | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. | Power out (when powered by USB) 5 VDC, power in with limitations. |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### EN
-| | Unchanged between Boron and Sulu |
+| | Unchanged between Boron and Axion |
 | :--- | :--- |
 | Pin Name | EN|
 | Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
 #### LI+
-| | Unchanged between Boron and Sulu |
+| | Unchanged between Boron and Axion |
 | :--- | :--- |
 | Pin Name | LI+|
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|

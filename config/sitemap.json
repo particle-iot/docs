@@ -1279,7 +1279,7 @@
             "hash": "40d725a4f32e4ce93385a1d96b604c71580d26b5b7f76c5d438a0fa3790a7455"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-10-14",
+            "date": "2026-10-19",
             "hash": "5a1ea587ac46fe8ee56ee81859a3de01e6d3a8460674de92f88eebdaf4ffa4df"
         },
         "reference/device-os/pin-info.md": {
@@ -3167,7 +3167,7 @@
             "hash": "e669bf1e59ac9b1556bc3b386bc473649dae063a8f56e2912dc0ec2a603b9be7"
         },
         "reference/device-os/api/servo/attach.md": {
-            "date": "2026-05-08",
+            "date": "2026-10-19",
             "hash": "0ba7315c3a32c960a2792ccab224797302f30e05a8ec902fda26588892df4a7f"
         },
         "reference/device-os/api/servo/write.md": {

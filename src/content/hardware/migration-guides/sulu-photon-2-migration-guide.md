@@ -11,7 +11,7 @@ description: Migration guide for transitioning from the Photon 2 to Sulu
 {{downloadButton url="/assets/pdfs/datasheets/sulu-photon-2-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-{{migration-guide leftImg="/assets/images/photon2-rendering.png"  rightImg="/assets/images/sulu/sulu-rendering.png"}}
+{{migration-guide leftImg="/assets/images/photon2-rendering.png"  rightImg="/assets/images/axion/axion-rendering.png"}}
 
 Sulu adds cellular connectivity that the Photon 2 does not have. 
 
@@ -50,12 +50,12 @@ Sulu has a 3-pin Particle LiPo battery connector for a battery pack containing a
 
 The pins in the same physical position whose names vary between the Photon 2 and Sulu are highlighted in yellow in the diagram below.
 
-{{imageOverlay src="/assets/images/sulu/sulu-photon2-pin-name-comparison.svg" alt="Pin name comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/axion/axion-photon2-pin-name-comparison.svg" alt="Pin name comparison" class="full-width"}}
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 36a024cb-427e-431a-878b-c06fee0e1ebe --}}
 
-| Feather Pin Name | Photon 2 Pin Name | Sulu Pin Name |
+| Feather Pin Name | Photon 2 Pin Name | Axion Pin Name |
 | :--- | :--- | :--- |
 | A3 | A5 / D14 | A3 / D16 |
 | A4 | S4 / D19 | A4 / D15 |
@@ -67,7 +67,7 @@ The pins in the same physical position whose names vary between the Photon 2 and
 
 ### SPI - Sulu from Photon 2
 
-{{imageOverlay src="/assets/images/sulu/sulu-photon2-spi-comparison.svg" alt="SPI comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/axion/axion-photon2-spi-comparison.svg" alt="SPI comparison" class="full-width"}}
 
 Both Sulu and the Photon 2 support two SPI interfaces, however there are important differences.
 
@@ -91,7 +91,7 @@ Additionally, `SPI1` is on different pins.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6b9bbf34-54df-4cbb-bf2f-8dda881901e4 --}}
 
-| Photon 2 Pin Name | Photon 2 SPI | Sulu Pin Name | Sulu SPI |
+| Photon 2 Pin Name | Photon 2 SPI | Axion Pin Name | Axion SPI |
 | :--- | :--- | :--- | :--- |
 | A5 / D14 | &nbsp; | A3 / D16 | SPI1 (MOSI) |
 | S4 / D19 | &nbsp; | A4 / D15 | SPI1 (MISO) |
@@ -110,13 +110,13 @@ Additionally, `SPI1` is on different pins.
 
 ### Serial (UART) - Sulu from Photon 2
 
-{{imageOverlay src="/assets/images/sulu/sulu-photon2-serial-comparison.svg" alt="Serial comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/axion/axion-photon2-serial-comparison.svg" alt="Serial comparison" class="full-width"}}
 
 The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Photon 2. On Sulu only, `Serial1` optionally supports hardware flow control. On the Photon 2 only, there are additional UART serial ports `Serial2` and `Serial3`.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5fdfbe77-2ae3-406f-b4e0-e6aafb8ae948 --}}
 
-| Photon 2 Pin Name | Photon 2 Serial | Sulu Pin Name | Sulu Serial |
+| Photon 2 Pin Name | Photon 2 Serial | Axion Pin Name | Axion Serial |
 | :--- | :--- | :--- | :--- |
 | SCK / D17 | Serial3 (RTS) | SCK / D13 | &nbsp; |
 | MOSI / D15 | Serial3 (TX) | MOSI / D12 | &nbsp; |
@@ -135,13 +135,13 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Ph
 
 ### Analog input (ADC) - Sulu from Photon 2
 
-{{imageOverlay src="/assets/images/sulu/sulu-photon2-adc-comparison.svg" alt="ADC comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/axion/axion-photon2-adc-comparison.svg" alt="ADC comparison" class="full-width"}}
 
 The Photon 2 supports alternate ADC functions on pins D0 and D1. This is not available on Sulu, however pins A3 and A5 are available on Sulu, so there are the same number of ADC pin.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 28c6f04f-66e8-4b64-87d0-4f6cf18e9228 --}}
 
-| Photon 2 Pin Name | Photon 2 ADC | Sulu Pin Name | Sulu ADC |
+| Photon 2 Pin Name | Photon 2 ADC | Axion Pin Name | Axion ADC |
 | :--- | :--- | :--- | :--- |
 | A0 / D11 | &check; | A0 / D19 | &check; |
 | A1 / D12 | &check; | A1 / D18 | &check; |
@@ -157,12 +157,12 @@ The Photon 2 supports alternate ADC functions on pins D0 and D1. This is not ava
 
 ### PWM (Pulse-width modulation) - Sulu from Photon 2
 
-{{imageOverlay src="/assets/images/sulu/sulu-photon2-pwm-comparison.svg" alt="PWM comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/axion/axion-photon2-pwm-comparison.svg" alt="PWM comparison" class="full-width"}}
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 817332fa-3736-4879-a091-256b97e9d5c1 --}}
 
-| Photon 2 Pin Name | Photon 2 PWM | Sulu Pin Name | Sulu PWM |
+| Photon 2 Pin Name | Photon 2 PWM | Axion Pin Name | Axion PWM |
 | :--- | :--- | :--- | :--- |
 | A2 / D13 | &check; | A2 / D17 | &check; |
 | A5 / D14 | &check; | A3 / D16 | &check; |
@@ -181,7 +181,7 @@ The Photon 2 supports alternate ADC functions on pins D0 and D1. This is not ava
 
 ### Boot mode pins - Sulu from Photon 2
 
-{{!-- imageOverlay src="/assets/images/sulu/sulu-photon2-boot-comparison.svg" alt="Boot mode comparison" class="full-width" --}}
+{{!-- imageOverlay src="/assets/images/axion/axion-photon2-boot-comparison.svg" alt="Boot mode comparison" class="full-width" --}}
 
 These pins have a special function at boot on the Photon 2. These restrictions do not exist on Sulu because:
 
@@ -190,7 +190,7 @@ These pins have a special function at boot on the Photon 2. These restrictions d
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5baa3b30-adfa-4fbb-a77c-0cacd12bb039 --}}
 
-| Photon 2 Pin Name | Photon 2 Boot | Sulu Pin Name | Sulu Boot |
+| Photon 2 Pin Name | Photon 2 Boot | Axion Pin Name | Axion Boot |
 | :--- | :--- | :--- | :--- |
 | TX / D8 | Low at boot triggers ISP flash download | TX / D9 | &nbsp; |
 | D6 | SWCLK. 40K pull-down at boot. | D6 | &nbsp; |
@@ -202,7 +202,7 @@ These pins have a special function at boot on the Photon 2. These restrictions d
 
 ### SWD - Sulu from Photon 2
 
-{{imageOverlay src="/assets/images/sulu/sulu-photon2-swd-comparison.svg" alt="SWD comparison" class="full-width"}}
+{{imageOverlay src="/assets/images/axion/axion-photon2-swd-comparison.svg" alt="SWD comparison" class="full-width"}}
 
 Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connector on the top of the device. The Photon 2 also has this connector, but the pins are shared with GPIO pins.
 
@@ -211,7 +211,7 @@ Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connect
 
 {{!-- BEGIN do not edit content below, it is automatically generated 39c69dbe-1354-4b67-8f20-ae279d6f45d5 --}}
 
-| Photon 2 Pin Name | Photon 2 SWD | Sulu Pin Name | Sulu SWD |
+| Photon 2 Pin Name | Photon 2 SWD | Axion Pin Name | Axion SWD |
 | :--- | :--- | :--- | :--- |
 | D6 | SWCLK | D6 | &nbsp; |
 | D7 | SWDIO | D7 | &nbsp; |
@@ -229,34 +229,34 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 ### Full module pin comparison - Sulu from Photon 2
 
 {{imageOverlay src="/assets/images/photon-2-pinout.svg" alt="Photon 2 Pinout Diagram" class="full-width"}}
-{{imageOverlay src="/assets/images/sulu/sulu-pinout.svg" alt="Sulu Pinout" class="full-width"}}
+{{imageOverlay src="/assets/images/axion/axion-pinout.svg" alt="Sulu Pinout" class="full-width"}}
 
 {{collapse op="start" label="Show pin details"}}
 {{!-- BEGIN do not edit content below, it is automatically generated 9fb77145-edd4-4f0a-815a-fb1994390006 --}}
 
 #### RST
-| | Unchanged between Photon 2 and Sulu |
+| | Unchanged between Photon 2 and Axion |
 | :--- | :--- |
 | Pin Name | RST|
 | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
 #### 3V3
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
 | ∆ | Description | Regulated 3.3V DC output, maximum load 500 mA | Regulated 3.3V DC output |
 #### MODE
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | MODE | MODE |
 | &nbsp; | Description | MODE button, has internal pull-up | MODE button, has internal pull-up |
 | ∆ | Supports attachInterrupt | n/a | Yes |
 #### GND
-| | Unchanged between Photon 2 and Sulu |
+| | Unchanged between Photon 2 and Axion |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground.|
 #### A0
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A0 | A0 |
 | ∆ | Pin Alternate Name | D11 | D19 |
@@ -267,7 +267,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | &nbsp; | Internal pull resistance | 2.1K | 2.1K |
 #### A1
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A1 | A1 |
 | ∆ | Pin Alternate Name | D12 | D18 |
@@ -278,7 +278,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | &nbsp; | Internal pull resistance | 2.1K | 2.1K |
 #### A2
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A2 | A2 |
 | ∆ | Pin Alternate Name | D13 | D17 |
@@ -291,7 +291,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 42K | ??? |
 #### A5 / A3
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | A5 | A3 |
 | ∆ | Pin Alternate Name | D14 | D16 |
@@ -305,7 +305,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | &nbsp; | Internal pull resistance | 42K | 42K |
 #### S4 / A4
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S4 | A4 |
 | ∆ | Pin Alternate Name | D19 | D15 |
@@ -319,7 +319,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | ??? |
 #### S3 / A5
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S3 | A5 |
 | ∆ | Pin Alternate Name | D18 | D14 |
@@ -331,7 +331,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | 22K |
 #### SCK
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | SCK | SCK |
 | ∆ | Pin Alternate Name | D17 | D13 |
@@ -346,7 +346,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | ∆ | I2S interface | n/a | I2S CLK |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### MOSI
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | MOSI | MOSI |
 | ∆ | Pin Alternate Name | D15 | D12 |
@@ -360,7 +360,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### MISO
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | MISO | MISO |
 | ∆ | Pin Alternate Name | D16 | D11 |
@@ -375,7 +375,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | ∆ | I2S interface | n/a | I2S TX |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### RX
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | RX | RX |
 | ∆ | Pin Alternate Name | D9 | D10 |
@@ -388,7 +388,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 42K | 2.1K |
 #### TX
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | TX | TX |
 | ∆ | Pin Alternate Name | D8 | D9 |
@@ -403,7 +403,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | ∆ | Internal pull resistance | 42K | 2.1K |
 | ∆ | Signal used at boot | Low at boot triggers ISP flash download | n/a |
 #### D0
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D0 | D0 |
 | ∆ | Pin Alternate Name | A3 | n/a |
@@ -417,7 +417,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 22K | ??? |
 #### D1
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D1 | D1 |
 | ∆ | Pin Alternate Name | A4 | n/a |
@@ -431,7 +431,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 22K | ??? |
 #### D2
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D2 | D2 |
 | ∆ | Description | D2 GPIO, Serial2 RTS, SPI1 MOSI | D2 GPIO, Serial RTS flow control (optional) |
@@ -442,7 +442,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### D3
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D3 | D3 |
 | ∆ | Description | D3 GPIO, Serial2 CTS, SPI1 MISO | D3 GPIO, Serial1 CTS flow control (optional) |
@@ -453,7 +453,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### D4
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D4 | D4 |
 | ∆ | Description | D4 GPIO, Serial2 TX, SPI1 SCK | D4 GPIO, SPI SS, PWM, I2S WS |
@@ -467,7 +467,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | ∆ | I2S interface | n/a | I2S WS |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### D5
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D5 | D5 |
 | ∆ | Description | D5 GPIO, Serial2 RX, SPI1 SS | D5 GPIO, SPI1 SS |
@@ -478,7 +478,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### D6
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D6 | D6 |
 | ∆ | Description | D6 GPIO, SWCLK. | GPIO |
@@ -489,7 +489,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
 | ∆ | Signal used at boot | SWCLK. 40K pull-down at boot. | n/a |
 #### D7
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D7 | D7 |
 | ∆ | Description | D7 GPIO, Blue LED, SWDIO | GPIO |
@@ -500,7 +500,7 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | n/a |
 #### D10 / D8
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | D10 | D8 |
 | &nbsp; | Pin Alternate Name | WKP | WKP |
@@ -511,18 +511,18 @@ This is not used on Sulu, which has a full bq24195 PMIC and the battery status c
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### VUSB
-|   |   | Photon 2 | Sulu |
+|   |   | Photon 2 | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | VUSB | VUSB |
 | ∆ | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. | Power out (when powered by USB) 5 VDC, power in with limitations. |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### EN
-| | Unchanged between Photon 2 and Sulu |
+| | Unchanged between Photon 2 and Axion |
 | :--- | :--- |
 | Pin Name | EN|
 | Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
 #### LI+
-| | Unchanged between Photon 2 and Sulu |
+| | Unchanged between Photon 2 and Axion |
 | :--- | :--- |
 | Pin Name | LI+|
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
