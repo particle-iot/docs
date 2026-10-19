@@ -188,13 +188,13 @@
                     "internal": true
                 },
                 {
-                    "dir": "sulu-boron-migration-guide",
-                    "title": "Sulu from Boron migration guide",
+                    "dir": "axion-boron-migration-guide",
+                    "title": "Axion from Boron migration guide",
                     "internal": true
                 },
                 {
-                    "dir": "sulu-photon-2-migration-guide",
-                    "title": "Sulu from Photon 2 migration guide",
+                    "dir": "axion-photon-2-migration-guide",
+                    "title": "Axion from Photon 2 migration guide",
                     "internal": true
                 },
                 {

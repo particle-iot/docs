@@ -1325,7 +1325,7 @@ const svg = require('./svg');
 
 
 
-    diagram.generateSulu = async function(generateOptions, files) {
+    diagram.generateAxion = async function(generateOptions, files) {
         
         let columns = [
             {
@@ -1418,7 +1418,7 @@ const svg = require('./svg');
     }
 
 
-    diagram.generateFeatherToSulu = async function(generateOptions, files) {
+    diagram.generateFeatherToAxion = async function(generateOptions, files) {
         
         // Special case: generateOptions.pinNameComparison
 
@@ -2466,88 +2466,88 @@ const svg = require('./svg');
         await diagram.generatePhoton2(generateOptions, files);
         
         // Axion diagrams - rename these
-        await diagram.generateSulu(Object.assign({
+        await diagram.generateAxion(Object.assign({
             outputFile: 'axion-pinout.svg'
         }, generateOptions), files);
 
-        await diagram.generateSulu(Object.assign({
+        await diagram.generateAxion(Object.assign({
             outputFile: 'axion-pinout-adc.svg',
             feature: 'hardwareADC'
         }, generateOptions), files);
 
 
-        await diagram.generateSulu(Object.assign({
+        await diagram.generateAxion(Object.assign({
             outputFile: 'axion-pinout-spi.svg',
             feature: 'spi'
         }, generateOptions), files);
 
-        await diagram.generateSulu(Object.assign({
+        await diagram.generateAxion(Object.assign({
             outputFile: 'axion-pinout-serial.svg',
             feature: 'serial'
         }, generateOptions), files);
 
-        await diagram.generateSulu(Object.assign({
+        await diagram.generateAxion(Object.assign({
             outputFile: 'axion-pinout-i2c.svg',
             feature: 'i2c'
         }, generateOptions), files);
 
-        await diagram.generateSulu(Object.assign({
+        await diagram.generateAxion(Object.assign({
             outputFile: 'axion-pinout-pwm.svg',
             feature: 'analogWritePWM'
         }, generateOptions), files);
 
-        await diagram.generateSulu(Object.assign({
+        await diagram.generateAxion(Object.assign({
             outputFile: 'axion-pinout-pdm.svg',
             feature: 'pdm'
         }, generateOptions), files);
 
-        await diagram.generateSulu(Object.assign({
+        await diagram.generateAxion(Object.assign({
             outputFile: 'axion-pinout-i2s.svg',
             feature: 'i2s'
         }, generateOptions), files);
 
-        await diagram.generateSulu(Object.assign({
+        await diagram.generateAxion(Object.assign({
             outputFile: 'axion-pinout-boot.svg',
             feature: 'boot'
         }, generateOptions), files);
 
-        await diagram.generateSulu(Object.assign({
+        await diagram.generateAxion(Object.assign({
             outputFile: 'axion-pinout-hibernate.svg',
             feature: 'hibernate'
         }, generateOptions), files);
 
         //
-        await diagram.generateFeatherToSulu(Object.assign({
+        await diagram.generateFeatherToAxion(Object.assign({
             comparePlatform: 'Boron',
             outputFile: 'axion-boron-comparison.svg'
         }, generateOptions), files);
 
-        await diagram.generateFeatherToSulu(Object.assign({
+        await diagram.generateFeatherToAxion(Object.assign({
             comparePlatform: 'Boron',
             outputFile: 'axion-boron-spi-comparison.svg',
             feature: 'spi',
         }, generateOptions), files);
 
-        await diagram.generateFeatherToSulu(Object.assign({
+        await diagram.generateFeatherToAxion(Object.assign({
             comparePlatform: 'Boron',
             outputFile: 'axion-boron-serial-comparison.svg',
             feature: 'serial',
         }, generateOptions), files);
 
-        await diagram.generateFeatherToSulu(Object.assign({
+        await diagram.generateFeatherToAxion(Object.assign({
             comparePlatform: 'Boron',
             outputFile: 'axion-boron-adc-comparison.svg',
             feature: 'hardwareADC',
         }, generateOptions), files);
 
-        await diagram.generateFeatherToSulu(Object.assign({
+        await diagram.generateFeatherToAxion(Object.assign({
             comparePlatform: 'Boron',
             outputFile: 'axion-boron-pwm-comparison.svg',
             feature: 'analogWritePWM',
         }, generateOptions), files);
 
         // 
-        await diagram.generateFeatherToSulu(Object.assign({
+        await diagram.generateFeatherToAxion(Object.assign({
             comparePlatform: 'Photon 2',
             outputFile: 'axion-photon2-pin-name-comparison.svg',
             pinNameComparison: true,
@@ -2555,42 +2555,42 @@ const svg = require('./svg');
             compareAfter: 'Photon 2',
         }, generateOptions), files);
 
-        await diagram.generateFeatherToSulu(Object.assign({
+        await diagram.generateFeatherToAxion(Object.assign({
             comparePlatform: 'Photon 2',
             outputFile: 'axion-photon2-comparison.svg'
         }, generateOptions), files);
 
-        await diagram.generateFeatherToSulu(Object.assign({
+        await diagram.generateFeatherToAxion(Object.assign({
             comparePlatform: 'Photon 2',
             outputFile: 'axion-photon2-spi-comparison.svg',
             feature: 'spi',
         }, generateOptions), files);
 
-        await diagram.generateFeatherToSulu(Object.assign({
+        await diagram.generateFeatherToAxion(Object.assign({
             comparePlatform: 'Photon 2',
             outputFile: 'axion-photon2-serial-comparison.svg',
             feature: 'serial',
         }, generateOptions), files);
 
-        await diagram.generateFeatherToSulu(Object.assign({
+        await diagram.generateFeatherToAxion(Object.assign({
             comparePlatform: 'Photon 2',
             outputFile: 'axion-photon2-adc-comparison.svg',
             feature: 'hardwareADC',
         }, generateOptions), files);
 
-        await diagram.generateFeatherToSulu(Object.assign({
+        await diagram.generateFeatherToAxion(Object.assign({
             comparePlatform: 'Photon 2',
             outputFile: 'axion-photon2-pwm-comparison.svg',
             feature: 'analogWritePWM',
         }, generateOptions), files);
         
-        await diagram.generateFeatherToSulu(Object.assign({
+        await diagram.generateFeatherToAxion(Object.assign({
             comparePlatform: 'Photon 2',
             outputFile: 'axion-photon2-boot-comparison.svg',
             feature: 'boot',
         }, generateOptions), files);
 
-        await diagram.generateFeatherToSulu(Object.assign({
+        await diagram.generateFeatherToAxion(Object.assign({
             comparePlatform: 'Photon 2',
             outputFile: 'axion-photon2-swd-comparison.svg',
             feature: 'swd',

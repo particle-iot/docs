@@ -490,8 +490,8 @@
                             "title": "Boron datasheet"
                         },
                         {
-                            "dir": "sulu-datasheet",
-                            "title": "Sulu datasheet",
+                            "dir": "axion-datasheet",
+                            "title": "Axion datasheet",
                             "internal": true
                         }
                     ]

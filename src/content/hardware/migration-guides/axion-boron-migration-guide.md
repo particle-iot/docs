@@ -1,14 +1,14 @@
 ---
-title: Sulu from Boron migration guide
+title: Axion from Boron migration guide
 layout: commonTwo.hbs
 columns: two
-description: Migration guide for transitioning from the Boron to Sulu
+description: Migration guide for transitioning from the Boron to Axion
 ---
 
 # {{title}}
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/sulu-boron-migration-guide.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/axion-boron-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 {{migration-guide leftImg="/assets/images/boron/boron-top.png" rightImg="/assets/images/axion/axion-rendering.png"}}
@@ -17,7 +17,7 @@ description: Migration guide for transitioning from the Boron to Sulu
 
 ### Datasheets
 
-- [Sulu datasheet](/reference/datasheets/b-series/sulu-datasheet/)
+- [Axion datasheet](/reference/datasheets/b-series/axion-datasheet/)
 - [Boron datasheet](/reference/datasheets/b-series/boron-datasheet/)
 - [Boron BRN404X datasheet](/reference/datasheets/b-series/brn404x-datasheet/)
 
@@ -31,29 +31,29 @@ in some cases intentional radiator testing could be required.
 
 The Boron 404X contains a LTE Cat M1 cellular modem that is only officially supported in the United States, Canada, and Mexico. It may work in some additional countries.
 
-Sulu has a LTE Cat 1 bis cellular modem with global cellular compatibility. This allows a single SKU to be used world-wide.
+Axion has a LTE Cat 1 bis cellular modem with global cellular compatibility. This allows a single SKU to be used world-wide.
 
-See [country comparison](/reference/datasheets/b-series/sulu-datasheet/#country-comparison) in the Sulu datasheet for more information.
+See [country comparison](/reference/datasheets/b-series/axion-datasheet/#country-comparison) in the Axion datasheet for more information.
 
 ## SIM
 
-Sulu contains an e-sim programmed with the Particle EtherSIM.
+Axion contains an e-sim programmed with the Particle EtherSIM.
 
 The Boron has a MFF2 hardware EtherSIM, as well as a 4FF plastic nano SIM card slot.
 
 ## Wi-Fi connectivity
 
-Sulu supports Wi-Fi connectivity as well as cellular. Wi-Fi is not supported on Boron.
+Axion supports Wi-Fi connectivity as well as cellular. Wi-Fi is not supported on Boron.
 
 ## NFC Tag
 
-Boron supports NFC tag mode. This is not supported on Sulu.
+Boron supports NFC tag mode. This is not supported on Axion.
 
 ## Antennas
 
-The Boron certified cellular antenna (PARANTC41EA/PARANTC41TY) is different than the Sulu certified cellular antenna (PARANTCW1EA/PARANTCW1TY).
+The Boron certified cellular antenna (PARANTC41EA/PARANTC41TY) is different than the Axion certified cellular antenna (PARANTCW1EA/PARANTCW1TY).
 
-The Boron has an integrated BLE chip antenna. Sulu requires an external antenna for BLE, shared with Wi-Fi.
+The Boron has an integrated BLE chip antenna. Axion requires an external antenna for BLE, shared with Wi-Fi.
 
 ## Software differences
 
@@ -63,7 +63,7 @@ One major advantage is that user firmware binaries can be up to 2048 KB, instead
 
 ### Available RAM
 
-The Boron and Argon have around 80 KB of RAM available to user applications. Sulu has 3000 KB (3 MB) of available RAM.
+The Boron and Argon have around 80 KB of RAM available to user applications. Axion has 3000 KB (3 MB) of available RAM.
 
 ### Flash file system
 
@@ -71,22 +71,22 @@ There is a 2 MB flash file system for storing user data. This is the same size a
 
 ## Antennas
 
-Sulu does not contain an on-board chip antenna for BLE, unlike the Boron.
+Axion does not contain an on-board chip antenna for BLE, unlike the Boron.
 
-External antennas are required on Sulu for BLE/Wi-Fi, and also for cellular. See [antennas](/reference/datasheets/b-series/sulu-datasheet/#antennas) in the Sulu datasheet for more information.
+External antennas are required on Axion for BLE/Wi-Fi, and also for cellular. See [antennas](/reference/datasheets/b-series/axion-datasheet/#antennas) in the Axion datasheet for more information.
 
 ## USB connector
 
-Sulu has a USB-C connector. The Boron has a Micro USB connector.
+Axion has a USB-C connector. The Boron has a Micro USB connector.
 
 ## LiPo battery connector
 
-Sulu has a 3-pin Particle LiPo battery connector for a battery pack containing an integrated 10K NTC thermistor. This is a different connector and battery than the Boron.
+Axion has a 3-pin Particle LiPo battery connector for a battery pack containing an integrated 10K NTC thermistor. This is a different connector and battery than the Boron.
 
 ## Interface port differences
 
 
-### SPI - Sulu from Boron
+### SPI - Axion from Boron
 
 {{imageOverlay src="/assets/images/axion/axion-boron-spi-comparison.svg" alt="SPI comparison" class="full-width"}}
 
@@ -119,7 +119,7 @@ Sulu has a 3-pin Particle LiPo battery connector for a battery pack containing a
 - Available clock divisors: 2, 4, 8, 16, 32, 64, 128, 256
 - Default divisor is 4
 
-#### SPI - Sulu
+#### SPI - Axion
 
 | | SPI1 | SPI0 |
 | :--- | :--- | :--- |
@@ -127,11 +127,11 @@ Sulu has a 3-pin Particle LiPo battery connector for a battery pack containing a
 | Hardware peripheral | RTL872x SPI1 | RTL872x SPI0 |
 
 
-### Serial (UART) - Sulu from Boron
+### Serial (UART) - Axion from Boron
 
 {{imageOverlay src="/assets/images/axion/axion-boron-serial-comparison.svg" alt="Serial comparison" class="full-width"}}
 
-The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Boron. Sulu optionally supports hardware flow control on `Serial1`.
+The primary UART serial (`Serial1`) is on the TX and RX pins on both Axion and Boron. Axion optionally supports hardware flow control on `Serial1`.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8671f442-6d5f-468b-a0c2-a11870f7228d --}}
 
@@ -145,7 +145,7 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Bo
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-|      | Boron    | Sulu |
+|      | Boron    | Axion |
 | :--- | :------: | :---: |
 | Buffer size | 64 bytes<sup>2</sup> | 2048 bytes |
 | 7-bit mode |  | &check; |
@@ -157,7 +157,7 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Bo
 | Odd parity |  | &check; |
 | CTS/RTS flow control |  | &check;<sup>1</sup> |
 
-<sup>1</sup>CTS/RTS flow control only on `Serial1` on Sulu. It is optional.
+<sup>1</sup>CTS/RTS flow control only on `Serial1` on Axion. It is optional.
 
 <sup>2</sup>On the Boron, the buffer be resized larger in Device OS 3.2.0 and later.
 
@@ -203,14 +203,14 @@ Supported Baud Rates:
 | 6000000 | | &check; |
 
 
-### Analog input (ADC) - Sulu from Boron
+### Analog input (ADC) - Axion from Boron
 
 {{imageOverlay src="/assets/images/axion/axion-boron-adc-comparison.svg" alt="ADC comparison" class="full-width"}}
 
 For analog to digital conversion (ADC) using `analogRead()`.
 
-- Pin A0, A1, A2, A3, A4, and A5 are analog inputs on both the Boron and Sulu.
-- The `setADCSampleTime()` function is not supported on Sulu.
+- Pin A0, A1, A2, A3, A4, and A5 are analog inputs on both the Boron and Axion.
+- The `setADCSampleTime()` function is not supported on Axion.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 60b8d1d9-a3b4-431a-a028-c0f7c0bdda3a --}}
 
@@ -227,7 +227,7 @@ For analog to digital conversion (ADC) using `analogRead()`.
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
-### PWM (Pulse-width modulation) - Sulu from Boron
+### PWM (Pulse-width modulation) - Axion from Boron
 
 {{imageOverlay src="/assets/images/axion/axion-boron-pwm-comparison.svg" alt="PWM comparison" class="full-width"}}
 
@@ -262,13 +262,13 @@ The pins that support PWM are different on the Boron and Photon 2.
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-All available PWM pins on Sulu share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
+All available PWM pins on Axion share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
 
 
-### PDM - Sulu from Boron
+### PDM - Axion from Boron
 
 Pulse density modulation digital microphones can be used with the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library 
-and Sulu, but only on specific pins. The Boron can use any pins for PDM (with the same library).
+and Axion, but only on specific pins. The Boron can use any pins for PDM (with the same library).
 
 {{!-- BEGIN do not edit content below, it is automatically generated e9d285b3-09e4-47f2-b040-a45f719a9bde --}}
 
@@ -281,7 +281,7 @@ and Sulu, but only on specific pins. The Boron can use any pins for PDM (with th
 {{!-- END do not edit content above, it is automatically generated--}}
 
 
-### I2S (Sound) - Sulu from Boron
+### I2S (Sound) - Axion from Boron
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6489e45c-ce6e-41be-840b-c94c85124702 --}}
@@ -298,15 +298,15 @@ and Sulu, but only on specific pins. The Boron can use any pins for PDM (with th
 
 Boron supports I2S (sound) input and output with a third-party library.
 
-The Sulu hardware supports I2S (sound), but there is no support for it in Device OS. It should be possible to implement in a third-party library from user firmware, but there is no publicly available library available at this time.
-### BLE (Bluetooth LE) - Sulu from Boron
+The Axion hardware supports I2S (sound), but there is no support for it in Device OS. It should be possible to implement in a third-party library from user firmware, but there is no publicly available library available at this time.
+### BLE (Bluetooth LE) - Axion from Boron
 
-BLE Central and BLE Peripheral modes are supported on Sulu and the Boron.
+BLE Central and BLE Peripheral modes are supported on Axion and the Boron.
 
-BLE long range (coded PHY) is not supported on Sulu but is supported on the Boron.
+BLE long range (coded PHY) is not supported on Axion but is supported on the Boron.
 
 
-### Boot mode pins - Sulu from Boron
+### Boot mode pins - Axion from Boron
 
 These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
 
@@ -319,17 +319,17 @@ These pins have a special function at boot. Beware when using these pins as inpu
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
-### Interrupts - Sulu from Boron
+### Interrupts - Axion from Boron
 
-All pins can be used for interrupts on Gen 3 devices and Sulu.
+All pins can be used for interrupts on Gen 3 devices and Axion.
 
-There is a limit of 8 pin interrupts on the Boron; this limitation does not exist on Sulu.
+There is a limit of 8 pin interrupts on the Boron; this limitation does not exist on Axion.
 
-### Sleep - Sulu from Boron
+### Sleep - Axion from Boron
 
-Sulu can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
+Axion can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
 
-Sulu can only wake from `HIBERNATE` sleep mode on certain pins, `RISING`, `FALLING`, or `CHANGE`. 
+Axion can only wake from `HIBERNATE` sleep mode on certain pins, `RISING`, `FALLING`, or `CHANGE`. 
 
 Pin D8 `WKP` is the same module pin location as the Boron pin D8, which is also the WKP pin. This is different on the Photon 2.
 
@@ -347,19 +347,19 @@ Pin D8 `WKP` is the same module pin location as the Boron pin D8, which is also 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
 
-### Internal pull-up or pull-down - Sulu from Boron
+### Internal pull-up or pull-down - Axion from Boron
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
 
-- On Sulu, the internal pull varies based on the pin.
+- On Axion, the internal pull varies based on the pin.
 - On the Boron (Gen 3), the internal pull is approximately 13K.
 
 
-### Retained memory - Sulu from Boron
+### Retained memory - Axion from Boron
 
-Sulu has limited support for retained memory, also referred to as Backup RAM or SRAM, in Device OS 5.3.1 and later.
+Axion has limited support for retained memory, also referred to as Backup RAM or SRAM, in Device OS 5.3.1 and later.
 
 {{!-- BEGIN shared-blurb f960cc9c-6e25-4205-adf9-03bfd50b9da7 --}}
 Retained memory is preserved on RTL872x devices in the following cases:
@@ -381,12 +381,12 @@ Prior to Device OS 5.3.1, retained memory is not supported on RTL872x devices. T
 Retained memory is 3068 bytes. 
 {{!-- END shared-blurb --}}
 
-### NFC tag - Sulu from Boron
+### NFC tag - Axion from Boron
 
-Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have support for NFC Tag.
+Axion does not have NFC Tag support. Gen 3 devices including the Boron do have support for NFC Tag.
 
 
-### Full module pin comparison - Sulu from Boron
+### Full module pin comparison - Axion from Boron
 
 {{imageOverlay src="/assets/images/boron-pinout.svg" alt="Boron Pinout Diagram" class="full-width"}}
 
@@ -700,24 +700,24 @@ Sulu does not have NFC Tag support. Gen 3 devices including the Boron do have su
 
 ### Wi-Fi Configuration
 
-The Boron does not have Wi-Fi capabilities. If you wish to use Wi-Fi on Sulu, you will typically use BLE for configuration of Wi-Fi. Using BLE allows mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
+The Boron does not have Wi-Fi capabilities. If you wish to use Wi-Fi on Axion, you will typically use BLE for configuration of Wi-Fi. Using BLE allows mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
 
 Sample applications for React Native, iOS, and Android will be provided in the future.
 
-| Feature | Sulu | Photon 2 | Photon | Argon |
+| Feature | Axion | Photon 2 | Photon | Argon |
 | :--- | :---: | :---: | :---: | :---: |
 | Wi-Fi (SoftAP) | | | &check; | |
 | BLE | &check; | &check; | | &check; |
 
 ### BLE (Bluetooth LE)
 
-- BLE long-range (coded PHY) is not supported on Sulu. It is on the Boron with Device OS 3.1 or later.
+- BLE long-range (coded PHY) is not supported on Axion. It is on the Boron with Device OS 3.1 or later.
 
 ### Platform ID
 
-The Platform ID of Sulu is 38. This is different than the Boron (13) because of the vastly different hardware. 
+The Platform ID of Axion is 38. This is different than the Boron (13) because of the vastly different hardware. 
 
-If you have a product based on the Boron, you will need to create a separate product for devices using Sulu. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+If you have a product based on the Boron, you will need to create a separate product for devices using Axion. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
 
 ### Third-party libraries
 

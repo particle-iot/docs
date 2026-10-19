@@ -1,27 +1,27 @@
 ---
-title: Sulu from Photon 2 migration guide
+title: Axion from Photon 2 migration guide
 layout: commonTwo.hbs
 columns: two
-description: Migration guide for transitioning from the Photon 2 to Sulu
+description: Migration guide for transitioning from the Photon 2 to Axion
 ---
 
 # {{title}}
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/sulu-photon-2-migration-guide.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/axion-photon-2-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 {{migration-guide leftImg="/assets/images/photon2-rendering.png"  rightImg="/assets/images/axion/axion-rendering.png"}}
 
-Sulu adds cellular connectivity that the Photon 2 does not have. 
+Axion adds cellular connectivity that the Photon 2 does not have. 
 
-Sulu and the Photon 2 both have have Wi-Fi, similar MCUs, and share a Feather form-factor, but some pins are different.
+Axion and the Photon 2 both have have Wi-Fi, similar MCUs, and share a Feather form-factor, but some pins are different.
 
 ## Hardware
 
 ### Datasheets
 
-- [Sulu datasheet](/reference/datasheets/b-series/sulu-datasheet/)
+- [Axion datasheet](/reference/datasheets/b-series/axion-datasheet/)
 - [Photon 2 datasheet](/reference/datasheets/wifi/photon-2-datasheet/)
 
 ## Certification
@@ -32,23 +32,23 @@ in some cases intentional radiator testing could be required.
 
 ## Antennas
 
-Sulu does not contain an on-board trace antenna for Wi-Fi and BLE, unlike the Photon 2.
+Axion does not contain an on-board trace antenna for Wi-Fi and BLE, unlike the Photon 2.
 
-External antennas are required on Sulu for BLE/Wi-Fi, and also for cellular. See [antennas](/reference/datasheets/b-series/sulu-datasheet/#antennas) in the Sulu datasheet for more information.
+External antennas are required on Axion for BLE/Wi-Fi, and also for cellular. See [antennas](/reference/datasheets/b-series/axion-datasheet/#antennas) in the Axion datasheet for more information.
 
 ## USB connector
 
-Sulu has a USB-C connector. The Photon 2 has a Micro USB connector.
+Axion has a USB-C connector. The Photon 2 has a Micro USB connector.
 
 ## LiPo battery connector
 
-Sulu has a 3-pin Particle LiPo battery connector for a battery pack containing an integrated 10K NTC thermistor. This is a different connector and battery than the Photon 2.
+Axion has a 3-pin Particle LiPo battery connector for a battery pack containing an integrated 10K NTC thermistor. This is a different connector and battery than the Photon 2.
 
 ## Interface port differences
 
 ### Pin names
 
-The pins in the same physical position whose names vary between the Photon 2 and Sulu are highlighted in yellow in the diagram below.
+The pins in the same physical position whose names vary between the Photon 2 and Axion are highlighted in yellow in the diagram below.
 
 {{imageOverlay src="/assets/images/axion/axion-photon2-pin-name-comparison.svg" alt="Pin name comparison" class="full-width"}}
 
@@ -65,14 +65,14 @@ The pins in the same physical position whose names vary between the Photon 2 and
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-### SPI - Sulu from Photon 2
+### SPI - Axion from Photon 2
 
 {{imageOverlay src="/assets/images/axion/axion-photon2-spi-comparison.svg" alt="SPI comparison" class="full-width"}}
 
-Both Sulu and the Photon 2 support two SPI interfaces, however there are important differences.
+Both Axion and the Photon 2 support two SPI interfaces, however there are important differences.
 
 {{!-- BEGIN shared-blurb 01d93dfc-5739-4690-b8e2-4c1e5a35bd75 --}}
-|                     | Photon 2 | Sulu |
+|                     | Photon 2 | Axion |
 | :------------------ | :--- | :--- |
 | `SPI`               | 25 MHz | 50 MHz |
 | SPI Master          | &check; | &check; |
@@ -108,11 +108,11 @@ Additionally, `SPI1` is on different pins.
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
-### Serial (UART) - Sulu from Photon 2
+### Serial (UART) - Axion from Photon 2
 
 {{imageOverlay src="/assets/images/axion/axion-photon2-serial-comparison.svg" alt="Serial comparison" class="full-width"}}
 
-The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Photon 2. On Sulu only, `Serial1` optionally supports hardware flow control. On the Photon 2 only, there are additional UART serial ports `Serial2` and `Serial3`.
+The primary UART serial (`Serial1`) is on the TX and RX pins on both Axion and Photon 2. On Axion only, `Serial1` optionally supports hardware flow control. On the Photon 2 only, there are additional UART serial ports `Serial2` and `Serial3`.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5fdfbe77-2ae3-406f-b4e0-e6aafb8ae948 --}}
 
@@ -133,11 +133,11 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Ph
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
-### Analog input (ADC) - Sulu from Photon 2
+### Analog input (ADC) - Axion from Photon 2
 
 {{imageOverlay src="/assets/images/axion/axion-photon2-adc-comparison.svg" alt="ADC comparison" class="full-width"}}
 
-The Photon 2 supports alternate ADC functions on pins D0 and D1. This is not available on Sulu, however pins A3 and A5 are available on Sulu, so there are the same number of ADC pin.
+The Photon 2 supports alternate ADC functions on pins D0 and D1. This is not available on Axion, however pins A3 and A5 are available on Axion, so there are the same number of ADC pin.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 28c6f04f-66e8-4b64-87d0-4f6cf18e9228 --}}
 
@@ -155,7 +155,7 @@ The Photon 2 supports alternate ADC functions on pins D0 and D1. This is not ava
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-### PWM (Pulse-width modulation) - Sulu from Photon 2
+### PWM (Pulse-width modulation) - Axion from Photon 2
 
 {{imageOverlay src="/assets/images/axion/axion-photon2-pwm-comparison.svg" alt="PWM comparison" class="full-width"}}
 
@@ -179,14 +179,14 @@ The Photon 2 supports alternate ADC functions on pins D0 and D1. This is not ava
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-### Boot mode pins - Sulu from Photon 2
+### Boot mode pins - Axion from Photon 2
 
 {{!-- imageOverlay src="/assets/images/axion/axion-photon2-boot-comparison.svg" alt="Boot mode comparison" class="full-width" --}}
 
-These pins have a special function at boot on the Photon 2. These restrictions do not exist on Sulu because:
+These pins have a special function at boot on the Photon 2. These restrictions do not exist on Axion because:
 
-- Photon 2 uses LOG_UART for TX/RX which has boot mode restrictions on TX. Sulu uses LP_UART, which does not have restrictions.
-- Photon 2 shares SWD with D6/D7. Sulu uses dedicated pins for SWD.
+- Photon 2 uses LOG_UART for TX/RX which has boot mode restrictions on TX. Axion uses LP_UART, which does not have restrictions.
+- Photon 2 shares SWD with D6/D7. Axion uses dedicated pins for SWD.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5baa3b30-adfa-4fbb-a77c-0cacd12bb039 --}}
 
@@ -200,11 +200,11 @@ These pins have a special function at boot on the Photon 2. These restrictions d
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
-### SWD - Sulu from Photon 2
+### SWD - Axion from Photon 2
 
 {{imageOverlay src="/assets/images/axion/axion-photon2-swd-comparison.svg" alt="SWD comparison" class="full-width"}}
 
-Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connector on the top of the device. The Photon 2 also has this connector, but the pins are shared with GPIO pins.
+Axion has dedicated pins for SWD debugging, available on the 10-pin debug connector on the top of the device. The Photon 2 also has this connector, but the pins are shared with GPIO pins.
 
 <div align="center"><img src="/assets/images/boron/swd-connector-pinout.png" alt="SWD connector"></div>
 
@@ -223,13 +223,13 @@ Sulu has dedicated pins for SWD debugging, available on the 10-pin debug connect
 
 The Photon 2 does not have a PMIC chip and uses `VBAT_MEAS` to measure the battery voltage and `CHG` to determine the charge state.
 
-This is not used on Sulu, which has a full bq24195 PMIC and the battery status can be determined using the system power manager to access the PMIC and Fuel Gauge chips via I2C. This is the same chipset used on the Boron, Tracker, Muon, and other cellular devices.
+This is not used on Axion, which has a full bq24195 PMIC and the battery status can be determined using the system power manager to access the PMIC and Fuel Gauge chips via I2C. This is the same chipset used on the Boron, Tracker, Muon, and other cellular devices.
 
 
-### Full module pin comparison - Sulu from Photon 2
+### Full module pin comparison - Axion from Photon 2
 
 {{imageOverlay src="/assets/images/photon-2-pinout.svg" alt="Photon 2 Pinout Diagram" class="full-width"}}
-{{imageOverlay src="/assets/images/axion/axion-pinout.svg" alt="Sulu Pinout" class="full-width"}}
+{{imageOverlay src="/assets/images/axion/axion-pinout.svg" alt="Axion Pinout" class="full-width"}}
 
 {{collapse op="start" label="Show pin details"}}
 {{!-- BEGIN do not edit content below, it is automatically generated 9fb77145-edd4-4f0a-815a-fb1994390006 --}}

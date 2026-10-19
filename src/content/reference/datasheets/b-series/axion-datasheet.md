@@ -1,11 +1,11 @@
 ---
-title: Sulu datasheet
+title: Axion datasheet
 layout: commonTwo.hbs
 columns: two
-description: Sulu datasheet
+description: Axion datasheet
 ---
 
-# Sulu datasheet (preliminary)
+# Axion datasheet (preliminary)
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is a preliminary datasheet and is subject to change.
@@ -14,7 +14,7 @@ This is a preliminary datasheet and is subject to change.
 
 ## Overview
 
-The Sulu is a global LTE CAT 1 bis module that supports cellular, Wi-Fi, and Bluetooth LE (BLE). It is based on the Realtek RTL8722DM
+The Axion is a global LTE CAT 1 bis module that supports cellular, Wi-Fi, and Bluetooth LE (BLE). It is based on the Realtek RTL8722DM
 (same as the M-SoM) and contains built-in battery charging circuitry in a convenient Feather form-factor that can be 
 be used in prototyping breadboards or in production designs.
 
@@ -35,7 +35,7 @@ LTE CAT 1 and LTE CAT 1 bis use the same 4G LTE towers used by 4G cell phones. S
 
 ### Comparison
 
-|  | Sulu | Boron 404X | Photon 2 | B504e | M404 | M524 |
+|  | Axion | Boron 404X | Photon 2 | B504e | M404 | M524 |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Form factor | Feather | Feather | Feather | M.2 SoM | M.2 SoM | M.2 SoM |
 | Cellular modem | Quectel EG800Q-GL | u-blox SARA-R510S | None | Quectel EG91-NAX | Quectel BG95-M5 | Quectel EG91-EX |
@@ -93,23 +93,23 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 
 ### Migration guides
 
-If you are migrating from a different Particle device to Sulu the following migration guides may be helpful:
+If you are migrating from a different Particle device to Axion the following migration guides may be helpful:
 
-- [Sulu from Photon 2](/hardware/migration-guides/sulu-photon-2-migration-guide/)
-- [Sulu from Boron](/hardware/migration-guides/sulu-boron-migration-guide/)
+- [Axion from Photon 2](/hardware/migration-guides/axion-photon-2-migration-guide/)
+- [Axion from Boron](/hardware/migration-guides/axion-boron-migration-guide/)
 
 ### Power
 
 #### USB
 
-The USB port is the easiest way to power Sulu. Please make sure that the USB port is able to provide at least 500mA. The connector is USB-C, which is different than the Photon 2 and Boron, which have a Micro B USB connector.
+The USB port is the easiest way to power Axion. Please make sure that the USB port is able to provide at least 500mA. The connector is USB-C, which is different than the Photon 2 and Boron, which have a Micro B USB connector.
 
 #### VUSB Pin
 The pin is internally connected to the VBUS of the USB port. The nominal output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.
 
 #### LiPo
 
-Sulu includes a 3-pin JST-PH connector (left), not the 2-pin JST-PH connector on some other Particle devices (right). The TS pin is expected to be connected to a 10K NTC thermistor in the battery pack.
+Axion includes a 3-pin JST-PH connector (left), not the 2-pin JST-PH connector on some other Particle devices (right). The TS pin is expected to be connected to a 10K NTC thermistor in the battery pack.
 
 <div align="center"><img src="/assets/images/m-series/battery-conn.png" alt="Battery connector" class="small"/></div>
 
@@ -119,10 +119,10 @@ If purchasing a LiPo battery from a 3rd-party supplier, beware as the polarity o
 
 
 #### Li+ pin
-This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering Sulu. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
+This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering Axion. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
 
 #### 3V3 PIN
-This pin is the output of the on board 3.3V step-down switching regulator. The regulator is rated at 500mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of Sulu first. 
+This pin is the output of the on board 3.3V step-down switching regulator. The regulator is rated at 500mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of Axion first. 
 
 #### EN pin
 
@@ -137,7 +137,7 @@ However, if you have circuitry that is powered by a separate, external power sup
 
 ## Antennas
 
-- Sulu includes two U.FL connectors for external antennas:
+- Axion includes two U.FL connectors for external antennas:
   - Cellular 
   - Wi-Fi (2.4 GHz and 5 GHz) and BLE
 
@@ -147,7 +147,7 @@ However, if you have circuitry that is powered by a separate, external power sup
 
 ### Certified cellular antennas
 
-Sulu is certified with the following cellular antenna:
+Axion is certified with the following cellular antenna:
 
 {{!-- BEGIN shared-blurb c04616f7-eede-439f-9dee-d5c9aa1bf53f --}}
 | Antenna | SKU | Details | Links |
@@ -174,7 +174,7 @@ Single quantity units and developer kits include a PARANTCW1EA antenna. Tray qua
 
 ### Certified Wi-Fi/BLE antennas
 
-Sulu is certified for use with the same antennas as the P2/Photon 2. The same antenna is shared for Wi-Fi and BLE. Unlike the P2/Photon 2, the external antenna is required for Wi-Fi and BLE and Sulu does not include a built-in trace antenna on the module.
+Axion is certified for use with the same antennas as the P2/Photon 2. The same antenna is shared for Wi-Fi and BLE. Unlike the P2/Photon 2, the external antenna is required for Wi-Fi and BLE and Axion does not include a built-in trace antenna on the module.
 
 | Antenna | SKU  | Links |
 | :------ | :--- | :---- |
@@ -235,7 +235,7 @@ work with 5 GHz and this will result in poor Wi-Fi performance on the P2, Photon
 
 {{imageOverlay src="/assets/images/axion/axion-pinout-adc.svg" alt="Pinout ADC" class="full-width"}}
 
-Sulu supports 6 ADC inputs.
+Axion supports 6 ADC inputs.
 
 {{!-- BEGIN do not edit content below, it is automatically generated c76560c5-effb-4708-97a6-f21573263797 --}}
 
@@ -259,7 +259,7 @@ Sulu supports 6 ADC inputs.
 
 {{imageOverlay src="/assets/images/axion/axion-pinout-serial.svg" alt="Pinout serial" class="full-width"}}
 
-Sulu supports one UART serial interface. 
+Axion supports one UART serial interface. 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 230fb891-7a16-4ccc-b5f0-4398c84303b8 --}}
 
@@ -280,7 +280,7 @@ Sulu supports one UART serial interface.
 
 {{!-- imageOverlay src="/assets/images/axion/axion-photon2-serial-comparison.svg" alt="Serial comparison" class="full-width" --}}
 
-The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Photon 2. On Sulu only, `Serial1` optionally supports hardware flow control. On the Photon 2 only, there are additional UART serial ports `Serial2` and `Serial3`.
+The primary UART serial (`Serial1`) is on the TX and RX pins on both Axion and Photon 2. On Axion only, `Serial1` optionally supports hardware flow control. On the Photon 2 only, there are additional UART serial ports `Serial2` and `Serial3`.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5fdfbe77-2ae3-406f-b4e0-e6aafb8ae948 --}}
 
@@ -302,7 +302,7 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both Sulu and Ph
 
 ### SPI
 
-Sulu supports two SPI (serial peripheral interconnect) ports.
+Axion supports two SPI (serial peripheral interconnect) ports.
 
 {{imageOverlay src="/assets/images/axion/axion-pinout-spi.svg" alt="Pinout SPI" class="full-width"}}
 
@@ -333,7 +333,7 @@ Sulu supports two SPI (serial peripheral interconnect) ports.
 
 {{!-- imageOverlay src="/assets/images/axion/axion-boron-spi-comparison.svg" alt="SPI comparison" class="full-width" --}}
 
-Both Sulu and the Boron support two SPI interfaces, however `SPI1` (secondary SPI port) is on different pins.
+Both Axion and the Boron support two SPI interfaces, however `SPI1` (secondary SPI port) is on different pins.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 74e90cd9-f151-4393-86a2-fdd6ca70c4ca --}}
 
@@ -357,10 +357,10 @@ Both Sulu and the Boron support two SPI interfaces, however `SPI1` (secondary SP
 
 {{!-- imageOverlay src="/assets/images/axion/axion-photon2-spi-comparison.svg" alt="SPI comparison" class="full-width" --}}
 
-Both Sulu and the Photon 2 support two SPI interfaces, however there are important differences.
+Both Axion and the Photon 2 support two SPI interfaces, however there are important differences.
 
 {{!-- BEGIN shared-blurb 01d93dfc-5739-4690-b8e2-4c1e5a35bd75 --}}
-|                     | Photon 2 | Sulu |
+|                     | Photon 2 | Axion |
 | :------------------ | :--- | :--- |
 | `SPI`               | 25 MHz | 50 MHz |
 | SPI Master          | &check; | &check; |
@@ -399,7 +399,7 @@ Additionally, `SPI1` is on different pins.
 
 {{imageOverlay src="/assets/images/axion/axion-pinout-i2c.svg" alt="Pinout I2C" class="full-width"}}
 
-Sulu supports one I2C (two-wire serial interface) port.
+Axion supports one I2C (two-wire serial interface) port.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 529ff47f-b3ba-467b-8eb6-c95f5b0c3821 --}}
 
@@ -420,7 +420,7 @@ Sulu supports one I2C (two-wire serial interface) port.
 
 {{imageOverlay src="/assets/images/axion/axion-pinout-pwm.svg" alt="Pinout PWM" class="full-width"}}
 
-Sulu supports PWM (pulse-width modulation) on the following pins:
+Axion supports PWM (pulse-width modulation) on the following pins:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 420ef473-badc-4833-b341-1771f7a8699e --}}
 
@@ -447,7 +447,7 @@ On the RTL872x devices, all PWM pins and the RGB LED share the same PWM timer an
 
 {{!-- imageOverlay src="/assets/images/axion/axion-boron-pwm-comparison.svg" alt="PWM comparison" class="full-width" --}}
 
-The pins that support PWM are different on the Boron (and Argon) and Sulu.
+The pins that support PWM are different on the Boron (and Argon) and Axion.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6026dd9c-e783-4ada-a1ed-850c5cddcd0b --}}
 
@@ -481,7 +481,7 @@ The pins that support PWM are different on the Boron (and Argon) and Sulu.
 
 {{!-- imageOverlay src="/assets/images/axion/axion-photon2-pwm-comparison.svg" alt="PWM comparison" class="full-width" --}}
 
-The pins that support PWM are different on the Photon 2 and Sulu.
+The pins that support PWM are different on the Photon 2 and Axion.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 817332fa-3736-4879-a091-256b97e9d5c1 --}}
 
@@ -505,17 +505,17 @@ The pins that support PWM are different on the Photon 2 and Sulu.
 
 ### CAN (controller area network)
 
-Sulu does not support CAN.
+Axion does not support CAN.
 
 - The Tracker SoM includes CAN via a MCP25625 CAN interface with integrated transceiver.
-- Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to Sulu.
+- Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to Axion.
 
 ### PDM 
 
 {{imageOverlay src="/assets/images/axion/axion-pinout-pdm.svg" alt="Pinout PDM" class="full-width"}}
 
 Pulse density modulation digital microphones can be used with the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library 
-and Sulu, but only on specific pins.
+and Axion, but only on specific pins.
 
 {{!-- BEGIN do not edit content below, it is automatically generated e9d285b3-09e4-47f2-b040-a45f719a9bde --}}
 
@@ -532,7 +532,7 @@ and Sulu, but only on specific pins.
 
 {{imageOverlay src="/assets/images/axion/axion-pinout-i2s.svg" alt="Pinout I2S" class="full-width"}}
 
-The Sulu hardware supports I2S (sound), but there is no support for it in Device OS. It should be possible to implement in a third-party library from user firmware, but there is no publicly available library available at this time.
+The Axion hardware supports I2S (sound), but there is no support for it in Device OS. It should be possible to implement in a third-party library from user firmware, but there is no publicly available library available at this time.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6489e45c-ce6e-41be-840b-c94c85124702 --}}
 
@@ -548,13 +548,13 @@ The Sulu hardware supports I2S (sound), but there is no support for it in Device
 
 ### BLE (Bluetooth LE)
 
-BLE Central and BLE Peripheral modes are supported on Sulu.
+BLE Central and BLE Peripheral modes are supported on Axion.
 
-BLE long range (coded PHY) is not supported on Sulu.
+BLE long range (coded PHY) is not supported on Axion.
 
 ### PMIC and Fuel Gauge
 
-Sulu contains the bq24195 PMIC and MAX17043 fuel gauge. They are on a dedicated I2C interface and will not interfere with the `Wire` interface on `D0` and `D1`.
+Axion contains the bq24195 PMIC and MAX17043 fuel gauge. They are on a dedicated I2C interface and will not interfere with the `Wire` interface on `D0` and `D1`.
 
 | Name       | MCU    | Description |
 | :--------- | :----- | :---------- |
@@ -565,10 +565,10 @@ Sulu contains the bq24195 PMIC and MAX17043 fuel gauge. They are on a dedicated 
 
 ### SWD
 
-Sulu has a dedicated 10 pin debug connector that exposes the SWD interface of the RTL872x. This interface can be used to debug your code or reprogram your bootloader, Device OS, or the user firmware using any standard SWD tools such as CMSIS/DAP debuggers.
+Axion has a dedicated 10 pin debug connector that exposes the SWD interface of the RTL872x. This interface can be used to debug your code or reprogram your bootloader, Device OS, or the user firmware using any standard SWD tools such as CMSIS/DAP debuggers.
 
 
-|       | Sulu      | Photon 2 | Boron |
+|       | Axion      | Photon 2 | Boron |
 | :---- | :-------: | :------: | :-------: |
 | SWCLK | Dedicated | D6       | Dedicated |
 | SWDIO | Dedicated | D7       | Dedicated |
@@ -578,7 +578,7 @@ Sulu has a dedicated 10 pin debug connector that exposes the SWD interface of th
 
 #### SWD vs. Photon 2
 
-On the Photon 2, SWD is shared on D6 and D7. This is not the case on Sulu, which uses a dedicated port for SWD, not shared with GPIO.
+On the Photon 2, SWD is shared on D6 and D7. This is not the case on Axion, which uses a dedicated port for SWD, not shared with GPIO.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 39c69dbe-1354-4b67-8f20-ae279d6f45d5 --}}
 
@@ -593,13 +593,13 @@ On the Photon 2, SWD is shared on D6 and D7. This is not the case on Sulu, which
 
 ### Boot mode pins
 
-Sulu does not have RTL872x boot mode pins exposed on GPIO.
+Axion does not have RTL872x boot mode pins exposed on GPIO.
 
 #### Boot mode pins vs. Photon 2
 
 
 
-Because Sulu uses dedicated pins for SWD, and uses the LP_UART for TX/RX instead of LOG_UART, the restrictions below for the Photon 2 do not apply to Sulu.
+Because Axion uses dedicated pins for SWD, and uses the LP_UART for TX/RX instead of LOG_UART, the restrictions below for the Photon 2 do not apply to Axion.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5baa3b30-adfa-4fbb-a77c-0cacd12bb039 --}}
 
@@ -614,16 +614,16 @@ Because Sulu uses dedicated pins for SWD, and uses the LP_UART for TX/RX instead
 
 ### Interrupts
 
-All pins can be used for interrupts on Sulu.
+All pins can be used for interrupts on Axion.
 
-There is a limit of 8 pin interrupts on the Boron; this limitation does not exist on Sulu.
+There is a limit of 8 pin interrupts on the Boron; this limitation does not exist on Axion.
 
 ### Sleep
 
 
-Sulu can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
+Axion can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
 
-Sulu can only wake from `HIBERNATE` sleep mode on certain pins, `RISING`, `FALLING`, or `CHANGE` including pin D8, also known as `WKP`.
+Axion can only wake from `HIBERNATE` sleep mode on certain pins, `RISING`, `FALLING`, or `CHANGE` including pin D8, also known as `WKP`.
 
 {{imageOverlay src="/assets/images/axion/axion-pinout-hibernate.svg" alt="Pinout Sleep" class="full-width"}}
 
@@ -649,7 +649,7 @@ Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` functi
 
 ### Retained memory
 
-Sulu has limited support for retained memory, also referred to as Backup RAM or SRAM, in Device OS 5.3.1 and later.
+Axion has limited support for retained memory, also referred to as Backup RAM or SRAM, in Device OS 5.3.1 and later.
 
 {{!-- BEGIN shared-blurb f960cc9c-6e25-4205-adf9-03bfd50b9da7 --}}
 Retained memory is preserved on RTL872x devices in the following cases:
@@ -673,7 +673,7 @@ Retained memory is 3068 bytes.
 
 ### NFC tag
 
-Sulu does not have NFC Tag support. 
+Axion does not have NFC Tag support. 
 
 
 ---
@@ -1218,14 +1218,14 @@ Sulu does not have NFC Tag support.
 {{!--
 ### Dimensions and weight
 
-- Sulu is designed to compliant with the Adafruit Feather form-factor (2.0" x 0.9")
+- Axion is designed to compliant with the Adafruit Feather form-factor (2.0" x 0.9")
 - It has male header pins on the bottom of the module
 - It will not be available in a "no headers" version as there are components on the bottom side of the board
 --}}
 
 ### Mating connectors
 
-Sulu uses two single row 0.1" pitch male header pins. One of them is 16 pin while the other is 12 pin. It can be mounted with matching 0.1" pitch female headers with a typical height of 0.335" (8.5mm). When you search for parts like these it can be difficult to navigate the thousands of parts available online so here are a few good choices for Sulu, the Photon 2, and Boron:
+Axion uses two single row 0.1" pitch male header pins. One of them is 16 pin while the other is 12 pin. It can be mounted with matching 0.1" pitch female headers with a typical height of 0.335" (8.5mm). When you search for parts like these it can be difficult to navigate the thousands of parts available online so here are a few good choices for Axion, the Photon 2, and Boron:
 
 | Description | MFG | MFG Part Number |
 |:----------- |:----|:----------------|
@@ -1236,7 +1236,7 @@ Sulu uses two single row 0.1" pitch male header pins. One of them is 16 pin whil
 
 ### Recommended PCB land pattern
 
-Sulu can be directly soldered onto the PCB or be mounted with the above mentioned female headers.
+Axion can be directly soldered onto the PCB or be mounted with the above mentioned female headers.
 
 <div align=center><img src="/assets/images/argon/argon-landing-pattern.png" ></div>
 
@@ -1244,21 +1244,21 @@ Sulu can be directly soldered onto the PCB or be mounted with the above mentione
 
 ### Water soluble flux
 
-If you are attaching Sulu to a custom base board, we recommend using a socket. As there are components on the bottom side of Sulu there is no version available with castellated holes, solder pads, or similar techniques for direct surface mounting.
+If you are attaching Axion to a custom base board, we recommend using a socket. As there are components on the bottom side of Axion there is no version available with castellated holes, solder pads, or similar techniques for direct surface mounting.
 
-The pin headers on the bottom of Sulu are not intended to be reflowed using paste-in-hole. 
+The pin headers on the bottom of Axion are not intended to be reflowed using paste-in-hole. 
 
-If you wish to surface mount module, you should directly use the P2 module on your base board instead of incorporating Sulu.
+If you wish to surface mount module, you should directly use the P2 module on your base board instead of incorporating Axion.
 
-If you decide to wave solder or hand-solder Sulu directly to your base board, water soluble flux should not be used. There are components within the P2 module that are moisture-sensitive, and wash water can get trapped under the RF shields, causing damage.
+If you decide to wave solder or hand-solder Axion directly to your base board, water soluble flux should not be used. There are components within the P2 module that are moisture-sensitive, and wash water can get trapped under the RF shields, causing damage.
 
-Use no-clean flux instead if you must solder Sulu module.
+Use no-clean flux instead if you must solder Axion module.
 
 ### Conformal coatings
 
-Sulu modules should not use a conformal coating to protect the module from water. Some components on the module cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
+Axion modules should not use a conformal coating to protect the module from water. Some components on the module cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
 
-Furthermore, the buttons cannot be protected by using a coating. Using an enclosure that protects both your base board and Sulu module as a single waterproof assembly is recommended instead.
+Furthermore, the buttons cannot be protected by using a coating. Using an enclosure that protects both your base board and Axion module as a single waterproof assembly is recommended instead.
 
 ## Ordering information
 
