@@ -488,11 +488,6 @@
                         {
                             "dir": "boron-datasheet",
                             "title": "Boron datasheet"
-                        },
-                        {
-                            "dir": "axion-datasheet",
-                            "title": "Axion datasheet",
-                            "internal": true
                         }
                     ]
                 },
