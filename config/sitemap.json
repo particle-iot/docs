@@ -591,8 +591,8 @@
             "hash": "46f95a29b0a7edd657bd39e51d1497a1f3c1121ea0024912c3f86b22c276d286"
         },
         "getting-started/console/console.md": {
-            "date": "2026-09-19",
-            "hash": "9bbad119d6cadbabfcb024cbd33562bde53875f5409846a63378b3b351ad55b8"
+            "date": "2026-10-20",
+            "hash": "187a29bca6fa9da06bf44e129f667493dc820f349b88c86de7c837d54a2be854"
         },
         "getting-started/console/development-devices.md": {
             "date": "2025-03-18",
@@ -615,8 +615,8 @@
             "hash": "0bdd41b5c0ea57e91c50ea03ef254787ba258d7303531ba2a018141a737e1213"
         },
         "getting-started/console/team-access-controls.md": {
-            "date": "2023-11-28",
-            "hash": "b6cb4fc80fcc4e5fa579dbbfb40db409f195898a63a205d2eadd342db98413a5"
+            "date": "2026-10-20",
+            "hash": "08c104c722082a3f9987604d14b255715d96f9aea4ed1bf77c2e98355bd7b6c9"
         },
         "getting-started/console/two-step-authentication.md": {
             "date": "2023-03-22",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "8aab849ceeb7e546ec227ccc0a60f0ab69442d774cf5d7ee5bb03d09e401689f",
-            "date": "2026-10-14"
+            "hash": "81a791792d48da7a93e2b4fb298f8b6861966c0ffc085575a874fe827698eb9b",
+            "date": "2026-10-20"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8487,8 +8487,8 @@
             "date": "2025-03-18"
         },
         "integrations/integrations/google-maps.md": {
-            "hash": "97565ccc265359050ccbc018d30285ec9ba45366c085c174af42cc2e7c6ac8e8",
-            "date": "2025-03-18"
+            "hash": "6409622485e393190a22ffc4d1b2ec41d0fb01520ff2c2a0b9eed28d824074a8",
+            "date": "2026-10-20"
         },
         "reference/device-os/api/threading/threading.md": {
             "hash": "d9e0cf50bccd8ba262c0af1b920ff662dabe18a8ee367b1f980c63612fd8c81b",
