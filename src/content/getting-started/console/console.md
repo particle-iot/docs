@@ -71,6 +71,15 @@ renaming the device and unclaiming it from your account.
 
 Unclaiming a cellular device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also pause or release ownership of your SIM to stop billing.
 
+The product device list has a number of columns that are not present in the sandbox device list:
+
+- Firmware - Fleet-wide firmware releases only apply to products. While you can flash sandbox devices OTA, there isn't a release number associated with it.
+- Device OS - The Device OS version reporting is related to the fleet-wide firmware release process.
+- Owner - All sandbox devices are owned by you, the user logged into the account the sandbox is being viewer for.
+- Billing status - All sandbox devices count toward the 100-device billing limit.
+- Groups - Groups are only available in products.
+
+
 ### Event logs
 
 The Logs feature provides a clean interface to view event information in real-time, just from your devices. We're hoping that this is handy both while debugging code during development, and checking out recent activity on your device once you power-on your finished project. Tailored around improving the experience of browsing logs, the page provides a handful of tools, like filtering, modifiers which enable you to narrow down your search for events, making it easier to view only the data that is relevant to you. In this view, you'll only see events that come in while the browser window is open.

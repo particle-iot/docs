@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Console clarification 2026-10-20
+
+Added a clarification to [console docs](/getting-started/console/console/#devices) for why some columns are not present in the sandbox device list.
+
 ### Team access controls 2026-10-19
 
 Corrected errors in the [Team access control Permissions matrix](/getting-started/console/team-access-controls/#permissions-matrix).
