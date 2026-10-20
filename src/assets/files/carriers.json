@@ -35289,6 +35289,21 @@
             "PARANTCW1EA",
             "PARANTCN1EA"
           ]
+        },
+        {
+          "name": "M-Series M715e LTE CAT 1 bis (Global) EtherSIM",
+          "short": [
+            "M715"
+          ],
+          "region": "global",
+          "lifecycle": "In development",
+          "showInternalUsers": true,
+          "sim": 4,
+          "simPlan": 40,
+          "modem": "EG800Q-GL",
+          "antennas": [
+            "PARANTCW1EA"
+          ]
         }
       ]
     },

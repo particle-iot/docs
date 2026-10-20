@@ -56,7 +56,37 @@ carriers2.saveQuery = function() {
     history.pushState(null, '', url);
 };
 
+// Items (skuFamily or group) with the internal flag are shown if the user has an internal account, or if the
+// page was entered with the device query parameter set to an internal device. In that case all internal
+// devices are shown. The initial query is captured at load time because saveQuery replaces the URL later.
+carriers2.initialDeviceParam = new URLSearchParams(window.location.search).get('device');
+
+carriers2.isInternalItem = function(obj) {
+    return !!(obj.internal || obj.showInternalUsers);
+}
+
+carriers2.showInternal = function() {
+    if (typeof apiHelperAuth != 'undefined' && apiHelperAuth.isInternal) {
+        return true;
+    }
+    const deviceParam = carriers2.initialDeviceParam;
+    if (!deviceParam) {
+        return false;
+    }
+    for(const skuFamilyObj of datastore.data.skuFamily) {
+        for(const groupObj of (skuFamilyObj.group || [])) {
+            if ((carriers2.isInternalItem(skuFamilyObj) || carriers2.isInternalItem(groupObj)) &&
+                Array.isArray(groupObj.short) && groupObj.short.includes(deviceParam)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 carriers2.generateDeviceMenu = function(options) {
+    const showInternal = carriers2.showInternal();
+
     // options
     //   .selectElem - The element to append the items to
     //   .addAllDevices 
@@ -65,20 +95,16 @@ carriers2.generateDeviceMenu = function(options) {
         if (skuFamilyObj.wifi || skuFamilyObj.cellular === false || !skuFamilyObj.group) {
             continue;
         }
-        if (skuFamilyObj.showInternalUsers) {
-            if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
-                continue;
-            }            
+        if (carriers2.isInternalItem(skuFamilyObj) && !showInternal) {
+            continue;
         }
 
         const optGroupElem = document.createElement('optgroup');
         $(optGroupElem).attr('label', skuFamilyObj.name);
 
         for(const groupObj of skuFamilyObj.group) {
-            if (groupObj.showInternalUsers) {
-                if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
-                    continue;
-                }            
+            if (carriers2.isInternalItem(groupObj) && !showInternal) {
+                continue;
             }
             if (!Array.isArray(groupObj.short) || groupObj.short.length == 0) {
                 continue;
