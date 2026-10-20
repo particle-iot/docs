@@ -1248,6 +1248,16 @@ bandFit.saveQuery = function() {
 
 };
 
+// Returns the countryCarrier keys to use for a test entry. By default this is the key for the sim's default
+// simPlan, but a test can set simPlan to override it (for example, to include NTN).
+bandFit.getCountryCarrierKeys = function(simObj, testObj) {
+    if (testObj.simPlan) {
+        const simPlanObj = datastore.findSimPlanById(testObj.simPlan);
+        return simPlanObj.countryCarrierKeys || [simPlanObj.countryCarrierKey];
+    }
+    return [simObj.simPlanKey];
+}
+
 bandFit.renderCountries = function(countries) {
     let test = $(bandFit.bandFitTestSelectElem).val();
     if (!test) {
@@ -1267,7 +1277,11 @@ bandFit.renderCountries = function(countries) {
                 continue;
             }
 
-            if (!ccObj[simObj.simPlanKey]) {
+            // Include the carrier if it is used by any of the tests
+            const usedByTest = bandFit.tests[test].tests.some(testObj => {
+                return bandFit.getCountryCarrierKeys(simObj, testObj).some(key => ccObj[key]);
+            });
+            if (!usedByTest) {
                 continue;
             }
             if (ccObj.bands.length == 0) {
@@ -1295,7 +1309,12 @@ bandFit.renderCountries = function(countries) {
                 redX: 0,
             }
 
+            const countryCarrierKeys = bandFit.getCountryCarrierKeys(simObj, testObj);
+
             for(const ccObj of carriersInCountry) {
+                if (!countryCarrierKeys.some(key => ccObj[key])) {
+                    continue;
+                }
 
                 for(let b of ccObj.bands) {
                     let hasTech = false;
@@ -1455,7 +1474,10 @@ bandFit.renderCountries = function(countries) {
             }
 
             for(const testObj of bandFit.tests[test].tests) {
-                if (ccObj[simObj.simPlanKey].roamingRestrictions) {
+                const countryCarrierKeys = bandFit.getCountryCarrierKeys(simObj, testObj);
+                const carrierUsedByTest = countryCarrierKeys.some(key => ccObj[key]);
+
+                if (countryCarrierKeys.some(key => ccObj[key] && ccObj[key].roamingRestrictions)) {
                     roamingRestrictions = true;
                 }
     
@@ -1467,7 +1489,7 @@ bandFit.renderCountries = function(countries) {
                     let value = '';
                     let footnote;
         
-                    if (carrierSupportsBand) {
+                    if (carrierSupportsBand && carrierUsedByTest) {
                         if (modemSupportsBand) {
                             if (!bandEnabled) {
                                 value = '\u2753';
@@ -1835,6 +1857,52 @@ bandFit.init = function(callback) {
                 {
                     title: 'M635e',
                     modemObj: datastore.data.modems.find(e => e.model == 'BG95-S5'),
+                    simPlan: 41, // SuperSIM w/Skylo, includes NTN
+                    borderRight: true,
+                    backgroundColor: '#FF9F61', // @COLOR_Tangerine_400
+                },
+            ],
+        },
+        'msom-404-524-715': {
+            title: 'M-Series (M404 vs. M524 vs. M715e)',
+            sim: 4, // EtherSIM
+            showInternalUsers: true,
+            tests: [
+                {
+                    title: 'M404',
+                    modemObj: datastore.data.modems.find(e => e.model == 'BG95-M5'),
+                    borderRight: true,
+                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
+                },
+                {
+                    title: 'M524',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG91-EX'),
+                    borderRight: true,
+                    backgroundColor: '#89E2B3', // COLOR_Mint_600
+                },
+                {
+                    title: 'M715e',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-GL'),
+                    borderRight: true,
+                    backgroundColor: '#FF9F61', // @COLOR_Tangerine_400
+                },
+            ],
+        },
+        'msom-715-635': {
+            title: 'M-Series (M715e vs M635e)',
+            sim: 4, // EtherSIM
+            showInternalUsers: true,
+            tests: [
+                {
+                    title: 'M715e',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-GL'),
+                    borderRight: true,
+                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
+                },
+                {
+                    title: 'M635e',
+                    modemObj: datastore.data.modems.find(e => e.model == 'BG95-S5'),
+                    simPlan: 41, // SuperSIM w/Skylo, includes NTN
                     borderRight: true,
                     backgroundColor: '#FF9F61', // @COLOR_Tangerine_400
                 },
@@ -1864,46 +1932,7 @@ bandFit.init = function(callback) {
                 },
             ],
         },
-        /*
-        'electron-2': {
-            title: 'Electron 2 (ELC504EM vs. ELC524EM)',
-            showInternalUsers: true,
-            sim: 4, // EtherSIM
-            tests: [
-                {
-                    title: 'ELC504EM',
-                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-NA'),
-                    borderRight: true,
-                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
-                },
-                {
-                    title: 'ELC524EM',
-                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-EU'),
-                    borderRight: false,
-                    backgroundColor: '#89E2B3', // COLOR_Mint_600
-                },
-            ],
-        },
-        'electron-2-b524': {
-            title: 'Electron 2 (ELC524EM) vs. B-SoM (B524)',
-            showInternalUsers: true,
-            sim: 4, // EtherSIM
-            tests: [
-                {
-                    title: 'ELC524EM',
-                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-EU'),
-                    borderRight: true,
-                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
-                },
-                {
-                    title: 'B524',
-                    modemObj: datastore.data.modems.find(e => e.model == 'EG91-E'),
-                    borderRight: false,
-                    backgroundColor: '#89E2B3', // COLOR_Mint_600
-                },
-            ],
-        },
-        */
+
         'tracker': {
             title: 'Tracker One, Monitor One, Tracker SoM (ONE404 vs. ONE524)',
             sim: 4, // EtherSIM
