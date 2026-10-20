@@ -31,6 +31,10 @@ location of connected devices to end-users in real-time
 This tutorial will explore how to get started with the Particle + Google
 Maps integration.
 
+{{note op="start" type="note"}}
+If you are experiencing a 404 error on every geolocation, see [radio type workaround](#radio-type-workaround), below.
+{{note op="end"}}
+
 ## Geolocation basics
 
 There are four common ways to find a location of a device, described
@@ -394,3 +398,99 @@ The library uses the logging feature of Device OS version 0.6.0 or later when bu
 ```
 SerialLogHandler logHandler;
 ```
+
+## Radio type workaround
+
+It is possible that your webhook will return a 404 ("not found") error for every geolocation attempt. While not every tower is known to Google geolocation, you may be experiencing an issue where all requests fail when the radio type is not specified in the request.
+
+As a workaround, you can set this using a custom webhook instead of using the built-in integration. This is fully compatible with the existing device-side firmware and no changes are required on-device.
+
+Disable the existing Google Maps geolocation webhook so both do not trigger. 
+
+Edit the integration and slide the **Status** slider to off.
+
+{{imageOverlay src="/assets/images/geolocation/geolocation-disable.png" alt="Disable old" class="no-darken"}}
+
+From **Configuration** - **Secrets** use the **Create new secret**.
+
+{{imageOverlay src="/assets/images/geolocation/cloud-secret.png" alt="Secrets" class="no-darken"}}
+
+In the dialog, enter the name `GEOLOCATION_KEY` with the value of your Google Geolocation API key.
+
+{{imageOverlay src="/assets/images/geolocation/create-secret.png" alt="Create secret" class="no-darken"}}
+
+From **Cloud services** - **Integrations** create a new integration of type **Custom Webhook**.
+
+The easiest way to create the webhook is to click **Custom template** at the top of the edit pane.
+
+{{imageOverlay src="/assets/images/geolocation/custom-template.png" alt="Custom template" class="no-darken"}}
+
+Copy and paste this:
+
+```json
+{
+    "name": "manual geolocation",
+    "event": "deviceLocator",
+    "responseTopic": "hook-response/\{{PARTICLE_EVENT_NAME}}/\{{PARTICLE_DEVICE_ID}}",
+    "secrets": [
+        {
+            "name": "GEOLOCATION_KEY"
+        }
+    ],
+    "url": "https://www.googleapis.com/geolocation/v1/geolocate",
+    "requestType": "POST",
+    "noDefaults": true,
+    "rejectUnauthorized": true,
+    "responseTemplate": "\{{^error}}\{{location.lat}},\{{location.lng}},\{{accuracy}}\{{/error}}\{{#error}}\{{message}}\{{/error}}",
+    "unchunked": false,
+    "data_url_response_event": false,
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "query": {
+        "key": "\{{{GEOLOCATION_KEY}}}"
+    },
+    "body": "{ \{{#c}}\"considerIp\":false,\"radioType\": \"lte\",\"carrier\": \"\{{o}}\",\"cellTowers\":[\{{#a}}{\"cellId\":\{{i}},\"locationAreaCode\":\{{l}},\"mobileCountryCode\":\{{c}},\"mobileNetworkCode\":\{{n}} },\{{/a}}{\"cellId\":\{{a.0.i}},\"locationAreaCode\":\{{a.0.l}},\"mobileCountryCode\":\{{a.0.c}},\"mobileNetworkCode\":\{{a.0.n}} }]\{{/c}}\{{#w}}\"considerIp\":\{{i}},\"wifiAccessPoints\":[\{{#a}}{\"macAddress\":\"\{{m}}\",\"signalStrength\":\{{s}},\"channel\":\{{c}} },\{{/a}}{\"macAddress\":\"\{{a.0.m}}\",\"signalStrength\":\{{a.0.s}},\"channel\":\{{a.0.c}} }]\{{/w}} }"
+}
+```
+
+If you'd like to manually set the parameters in the **Webhook Builder** graphical user interface, or have changed the event name or other settings, expand the section below for further details.
+
+{{collapse op="start" label="Show full instructions"}}
+
+{{imageOverlay src="/assets/images/geolocation/manual-webhook.png" alt="Manual webhook" class="no-darken"}}
+
+- **Name** - shown as manual geolocation here, but you can enter any name here.
+- **Event name** - the default is `deviceLocator` (case-sensitive). This is the firmware default and should match what you configured earlier.
+- **URL** - set to `https://www.googleapis.com/geolocation/v1/geolocate`.
+- **Request type** - set to **POST**.
+- **Request format** - set to **Custom Body**.
+- If you are creating a sandbox integration, leave Device set to **Any**. This field is not present for product integrations.
+- In the **Cloud secrets** section, enable **GEOLOCATION_KEY**.
+
+Open the **Extra settings** section:
+
+{{imageOverlay src="/assets/images/geolocation/extra-settings.png" alt="Extra settings" class="no-darken"}}
+
+For **Custom request body**, copy and paste this:
+
+```json
+{ \{{#c}}"considerIp":false,"radioType": "lte","carrier": "\{{o}}","cellTowers":[\{{#a}}{"cellId":\{{i}},"locationAreaCode":\{{l}},"mobileCountryCode":\{{c}},"mobileNetworkCode":\{{n}} },\{{/a}}{"cellId":\{{a.0.i}},"locationAreaCode":\{{a.0.l}},"mobileCountryCode":\{{a.0.c}},"mobileNetworkCode":\{{a.0.n}} }]\{{/c}}\{{#w}}"considerIp":\{{i}},"wifiAccessPoints":[\{{#a}}{"macAddress":"\{{m}}","signalStrength":\{{s}},"channel":\{{c}} },\{{/a}}{"macAddress":"\{{a.0.m}}","signalStrength":\{{a.0.s}},"channel":\{{a.0.c}} }]\{{/w}} }
+```
+
+The value `lte` for radio type appears to work even when the Particle device is not using LTE.
+
+For query parameters, add:
+
+- `key` > `\{{{GEOLOCATION_KEY}}}`
+
+For HTTP headers, add:
+
+- `Content-Type` > `application/json`
+
+For webhook responses, add:
+
+- Response topic: `hook-response/\{{PARTICLE_EVENT_NAME}}/\{{PARTICLE_DEVICE_ID}}`
+- Response template: `\{{^error}}\{{location.lat}},\{{location.lng}},\{{accuracy}}\{{/error}}\{{#error}}\{{message}}\{{/error}}`
+
+{{collapse op="end"}}

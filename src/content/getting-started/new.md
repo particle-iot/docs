@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Google maps geolocation 2026-10-20
+
+Added a section for [radio type workaround](/integrations/integrations/google-maps/#radio-type-workaround) if you are receiving 404 errors on every request.
+
 ### Console clarification 2026-10-20
 
 Added a clarification to [console docs](/getting-started/console/console/#devices) for why some columns are not present in the sandbox device list.
