@@ -6,13 +6,15 @@ columns: two
 
 # {{title}}
 
-Gen 3 devices, including the Boron, Argon, B-Series SoM, Tracker SoM, and Tracker One all include a flash memory file system available for user use.
+Gen 3 devices, including the Boron, Argon, B-Series SoM, Tracker SoM, and Tracker One, and Gen 4 devices including the M-SoM and Photon 2 all include a flash memory file system available for user use.
 
 | Device | Size |
 | :--- | ---: |
 | Boron | 2 MB |
 | Argon | 2 MB |
 | B-Series SoM | 2 MB |
+| M-SoM | 2 MB |
+| P2 / Photon 2 | 2 MB |
 | Tracker SoM | 4 MB |
 | Tracker One | 4 MB |
 

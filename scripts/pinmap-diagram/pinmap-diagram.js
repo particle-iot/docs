@@ -124,6 +124,13 @@ const svg = require('./svg');
                 if (info) {
                     if (options.comparePlatform) {
                         let compareName = info[options.compareKey] || info.name;
+                        if (options.pinNameComparison) {
+                            // Compare the pin at the same pin number, not the pin with the same name
+                            const sameNumInfo = diagram.comparePlatformInfo.pins.find(e => e.num == num);
+                            if (sameNumInfo) {
+                                compareName = sameNumInfo.name;
+                            }
+                        }
 
                         info.compareName = compareName;
                         const comparisonInfo = diagram.comparePlatformInfo.pins.find(e => e.name == compareName);
@@ -202,10 +209,14 @@ const svg = require('./svg');
                                         text = 'PWM';
                                     }
                                 }
+
                                 if (info[key] == 'isNC') {
                                     text = 'NC';
                                 }
-
+                                if (['boot', 'hibernate', 'compare_boot', 'compare_hibernate'].includes(key) && text && typeof text === 'string' && text.length > 0) {
+                                    text = 'Yes';
+                                }
+ 
                                 if (text === true) {
                                     text = info.name;
                                 }
@@ -231,6 +242,9 @@ const svg = require('./svg');
 
                                     let bgColor = p.columns[jj].bgColor;
 
+                                    if (!bgColor && options.pinNameComparison && key == 'compareName' && info.compareName != info.name) {
+                                        bgColor = featureColors['pinNameDifference'];
+                                    }
                                     if (!bgColor) {
                                         bgColor = featureColors[key];
                                     } 
@@ -412,6 +426,7 @@ const svg = require('./svg');
             m2Pin: '#F5F6FA', // COLOR_Gray_100
             name: '#00E1FF', // ParticleBlue_500 (old: dark gray)
             num: '#E6AB00', // (old: gold color)
+            pinNameDifference: '#FFE949', // State_Yellow_500 (compare pin name differs)
             p2pin: '#E6AB00', // (old: gold)
             p2Pin: '#E6AB00', // (old: gold)
             rpi: '#CD2355', // Raspberry Pi color 
@@ -435,15 +450,10 @@ const svg = require('./svg');
     };
 
 
-    diagram.generateArgon  = async function (generateOptions, files) {
+    diagram.generateFeather  = async function (generateOptions, files) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
-            platformName: 'Argon',
-            // height="194.98106" width="86.125328"
-            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/argon.svg'),
-            outputPath: 'assets/images/argon-pinout.svg',
-            // scale to make height 500px width 221
-            deviceImageTransform: 'translate(375,0) scale(2.564)',
+            // Pass ing: platformName, deviceImage, outputPath, deviceImageTransform
             width: 1000,
             height: 510,
             background: 'white',
@@ -1314,14 +1324,65 @@ const svg = require('./svg');
 
 
 
-    diagram.generateElectron2 = async function(generateOptions, files) {
+
+    diagram.generateAxion = async function(generateOptions, files) {
         
+        let columns = [
+            {
+                width: 30,
+                keys: ['name'],
+            },
+            {
+                width: 30,
+                keys: ['altName'],
+            },
+        ];
+
+        if (!generateOptions.feature || generateOptions.feature == 'i2c' || generateOptions.feature == 'swd') {
+            columns.push({
+                keys: ['isPower', 'isControl', 'i2c', 'swd'],
+            });
+        }
+
+        if (!generateOptions.feature || generateOptions.feature == 'serial') {
+            columns.push({
+                keys: ['serial'],
+            });
+        }
+
+        if (!generateOptions.feature) {
+            columns.push({
+                keys: ['spi', 'hardwareADC'],
+            });
+        }
+        else {
+            for(const col of ['spi', 'hardwareADC', 'pdm', 'i2s', 'boot', 'swd', 'hibernate']) {
+                if (generateOptions.feature == col) {
+                    columns.push({
+                        keys: [col],
+                    });
+                }
+            }
+        }
+        
+        if (!generateOptions.feature || generateOptions.feature == 'analogWritePWM') {
+            columns.push({
+                keys: ['analogWritePWM'],
+            });
+        }
+
+
+
+        columns.push({
+            keys: ['hardwarePin'],
+        });
+
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
-            platformName: 'Electron 2',
-            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/electron-2/electron-2-rendering.svg'),
-            outputPath: 'assets/images/electron-2/electron-2-pinout.svg',
+            platformName: 'Axion',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/axion/axion-rendering.svg'),
+            outputPath: 'assets/images/axion/' + generateOptions.outputFile,
             // scale to make height 500px width 221
-            deviceImageTransform: 'scale(1.04) translate(-33,-27)',
+            deviceImageTransform: 'scale(1.005) translate(-20,-10)',
             width: 1000,
             height: 510,
             background: 'white',
@@ -1336,31 +1397,7 @@ const svg = require('./svg');
                     count: 15,
                     xDir: -1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 30,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 30,
-                            keys: ['altName'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['serial'],
-                        },
-                        {
-                            keys: ['spi'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                        {
-                            keys: ['hardwarePin'],
-                        },
-                    ],
+                    columns,
                 },
                 {   // Right side
                     num: 16,
@@ -1372,37 +1409,105 @@ const svg = require('./svg');
                     count: 12,
                     xDir: 1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 30,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 30,
-                            keys: ['altName'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
-                        },
-                        {
-                            keys: ['serial'],
-                        },
-                        {
-                            keys: ['spi', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                        {
-                            keys: ['hardwarePin'],
-                        },
-                    ],
+                    columns,
                 },
             ],
         });
 
         await diagram.generate(options, files);
     }
+
+
+    diagram.generateFeatherToAxion = async function(generateOptions, files) {
+        
+        // Special case: generateOptions.pinNameComparison
+
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'Axion',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/axion/axion-rendering.svg'),
+            outputPath: 'assets/images/axion/' + generateOptions.outputFile,
+            deviceImageTransform: 'scale(1.005) translate(-20,-10)',
+            width: 1000,
+            height: 510,
+            background: 'white',
+            pins: [
+                {   // Left side
+                    num: 1,
+                    x: 370,
+                    y: 70,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 24.6,
+                    count: 15,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [],
+                },
+                {   // Right side
+                    num: 16,
+                    x: 598,
+                    y: 439,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -24.6,
+                    count: 12,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [],
+                },
+            ]
+        });
+
+        const titlePositions = ['first', 'last'];
+        for(let ii = 0; ii < options.pins.length; ii++) {
+            options.pins[ii].columns.push({
+                width: 30,
+                keys: ['name'],
+                titlePosition: titlePositions[ii],
+                titleAfter: 'Axion',
+            });
+            if (!options.noAltNames) {
+                options.pins[ii].columns.push({
+                    width: 30,
+                    keys: ['altName'],
+                });
+            }
+
+            if (generateOptions.feature) {
+                options.pins[ii].columns.push({
+                    keys: [generateOptions.feature],
+                });    
+            }
+
+            // Spacer
+            options.pins[ii].columns.push({
+                width: 20,
+            });
+
+            if (generateOptions.feature) {
+                options.pins[ii].columns.push({
+                    keys: ['compare_' + generateOptions.feature],
+                });    
+            }
+
+            options.pins[ii].columns.push({
+                width: 30,
+                keys: ['compareName'],
+                titlePosition: titlePositions[ii],
+                titleAfter: generateOptions.compareAfter,
+            });
+            if (!options.noAltNames) {
+                options.pins[ii].columns.push({
+                    width: 30,
+                    keys: ['compare_altName'],
+                });
+            }
+        }
+
+
+        await diagram.generate(options, files);
+    }
+
 
     diagram.generateFeatherAdapter = async function(generateOptions, files) {
         
@@ -1774,7 +1879,6 @@ const svg = require('./svg');
 
         await diagram.generate(options, files);
     }
-
 
     diagram.generateArgonToPhoton2 = async function(generateOptions, files) {
         
@@ -2279,8 +2383,19 @@ const svg = require('./svg');
         // generateOptions:
         //      topDir - top of the docs directory (contains src directory)
         //      pinInfo - path to the pinInfo.json file
+        await diagram.generateFeather(Object.assign(Object.assign({}, generateOptions), {
+            platformName: 'Argon',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/argon.svg'),
+            outputPath: 'assets/images/argon-pinout.svg',
+            deviceImageTransform: 'translate(375,0) scale(2.564)',
+        }), files);
 
-        await diagram.generateArgon(generateOptions, files);
+        await diagram.generateFeather(Object.assign(Object.assign({}, generateOptions), {
+            platformName: 'Boron',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/boron.svg'),
+            outputPath: 'assets/images/boron-pinout.svg',
+            deviceImageTransform: 'translate(375,0) scale(2.564)',
+        }), files);
 
         await diagram.generatePhoton(generateOptions, files);
         
@@ -2349,8 +2464,137 @@ const svg = require('./svg');
         }, generateOptions), files);
         
         await diagram.generatePhoton2(generateOptions, files);
+        
+        // Axion diagrams - rename these
+        await diagram.generateAxion(Object.assign({
+            outputFile: 'axion-pinout.svg'
+        }, generateOptions), files);
 
-        await diagram.generateElectron2(generateOptions, files);
+        await diagram.generateAxion(Object.assign({
+            outputFile: 'axion-pinout-adc.svg',
+            feature: 'hardwareADC'
+        }, generateOptions), files);
+
+
+        await diagram.generateAxion(Object.assign({
+            outputFile: 'axion-pinout-spi.svg',
+            feature: 'spi'
+        }, generateOptions), files);
+
+        await diagram.generateAxion(Object.assign({
+            outputFile: 'axion-pinout-serial.svg',
+            feature: 'serial'
+        }, generateOptions), files);
+
+        await diagram.generateAxion(Object.assign({
+            outputFile: 'axion-pinout-i2c.svg',
+            feature: 'i2c'
+        }, generateOptions), files);
+
+        await diagram.generateAxion(Object.assign({
+            outputFile: 'axion-pinout-pwm.svg',
+            feature: 'analogWritePWM'
+        }, generateOptions), files);
+
+        await diagram.generateAxion(Object.assign({
+            outputFile: 'axion-pinout-pdm.svg',
+            feature: 'pdm'
+        }, generateOptions), files);
+
+        await diagram.generateAxion(Object.assign({
+            outputFile: 'axion-pinout-i2s.svg',
+            feature: 'i2s'
+        }, generateOptions), files);
+
+        await diagram.generateAxion(Object.assign({
+            outputFile: 'axion-pinout-boot.svg',
+            feature: 'boot'
+        }, generateOptions), files);
+
+        await diagram.generateAxion(Object.assign({
+            outputFile: 'axion-pinout-hibernate.svg',
+            feature: 'hibernate'
+        }, generateOptions), files);
+
+        //
+        await diagram.generateFeatherToAxion(Object.assign({
+            comparePlatform: 'Boron',
+            outputFile: 'axion-boron-comparison.svg'
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToAxion(Object.assign({
+            comparePlatform: 'Boron',
+            outputFile: 'axion-boron-spi-comparison.svg',
+            feature: 'spi',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToAxion(Object.assign({
+            comparePlatform: 'Boron',
+            outputFile: 'axion-boron-serial-comparison.svg',
+            feature: 'serial',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToAxion(Object.assign({
+            comparePlatform: 'Boron',
+            outputFile: 'axion-boron-adc-comparison.svg',
+            feature: 'hardwareADC',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToAxion(Object.assign({
+            comparePlatform: 'Boron',
+            outputFile: 'axion-boron-pwm-comparison.svg',
+            feature: 'analogWritePWM',
+        }, generateOptions), files);
+
+        // 
+        await diagram.generateFeatherToAxion(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'axion-photon2-pin-name-comparison.svg',
+            pinNameComparison: true,
+            noAltNames: true,
+            compareAfter: 'Photon 2',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToAxion(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'axion-photon2-comparison.svg'
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToAxion(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'axion-photon2-spi-comparison.svg',
+            feature: 'spi',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToAxion(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'axion-photon2-serial-comparison.svg',
+            feature: 'serial',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToAxion(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'axion-photon2-adc-comparison.svg',
+            feature: 'hardwareADC',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToAxion(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'axion-photon2-pwm-comparison.svg',
+            feature: 'analogWritePWM',
+        }, generateOptions), files);
+        
+        await diagram.generateFeatherToAxion(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'axion-photon2-boot-comparison.svg',
+            feature: 'boot',
+        }, generateOptions), files);
+
+        await diagram.generateFeatherToAxion(Object.assign({
+            comparePlatform: 'Photon 2',
+            outputFile: 'axion-photon2-swd-comparison.svg',
+            feature: 'swd',
+        }, generateOptions), files);
 
         await diagram.generateFeatherAdapter(Object.assign(Object.assign({}, generateOptions), {
             platformName: 'Photon 2',

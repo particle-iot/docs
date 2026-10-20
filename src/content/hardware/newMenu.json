@@ -188,6 +188,16 @@
                     "internal": true
                 },
                 {
+                    "dir": "axion-boron-migration-guide",
+                    "title": "Axion from Boron migration guide",
+                    "internal": true
+                },
+                {
+                    "dir": "axion-photon-2-migration-guide",
+                    "title": "Axion from Photon 2 migration guide",
+                    "internal": true
+                },
+                {
                     "dir": "b404-b504-migration-guide",
                     "title": "B504e from B404X/B404/B402 migration Guide"
                 },

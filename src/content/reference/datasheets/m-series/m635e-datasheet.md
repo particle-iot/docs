@@ -41,7 +41,7 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
   - ARM Cortex M33 CPU, 200 MHz
 - 2048 KB (2 MB) user application maximum size
 - 3072 KB (3 MB) of RAM available to user applications
-- 8 MB flash file system
+- 2 MB flash file system for user data storage
 - FCC (United States), ISED (Canada), and CE (European Union) certified
 {{!-- END shared-blurb --}}
 
@@ -124,7 +124,7 @@ The M-SoM is certified with the following cellular antenna:
 | Wide band LTE cell antenna [x1] | PARANTCW1EA | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 | Wide band LTE cell antenna [x50] | PARANTCW1TY | B504e and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 
-Single quantity units and developer kits include a PARANTCW1EA antenna. Tray quantities of the do not include antennas.
+Single quantity units and developer kits include a PARANTCW1EA antenna. Tray quantities do not include antennas.
 
 | Dimension | Value | Unit |
 | :--- | ---: | :---: |
@@ -1375,7 +1375,6 @@ SE, SI, SK, TR, UA, UK(NI).
 | Bolivia | M635E | 2G | Viva |
 | Bosnia and Herzegovina | M635E | 2G | HT Eronet |
 | Botswana | M635E | 2G | BeMobile |
-| Brazil | M635E | 2G, NTN | Skylo, TIM |
 | Bulgaria | M635E | 2G, NTN | A1, Skylo, Telenor, Vivacom |
 | Burkina Faso | M635E | 2G | Orange |
 | Cabo Verde | M635E | 2G | CVMóvel, Unitel T+ |
@@ -1419,7 +1418,6 @@ SE, SI, SK, TR, UA, UK(NI).
 | Honduras | M635E | 2G | Claro, Tigo |
 | Hungary | M635E | 2G, M1, NTN | Magyar Telekom, Skylo, Telenor, Vodafone |
 | Iceland | M635E | M1, NTN | Nova, Siminn, Skylo, Vodafone |
-| India | M635E | 2G | Airtel |
 | Indonesia | M635E | 2G | Indosat, Telkomsel, XL Axiata |
 | Ireland | M635E | 2G, NTN | Skylo, Vodafone |
 | Isle of Man | M635E | 2G, NTN | Manx Telecom, Skylo, Sure |
@@ -1455,7 +1453,6 @@ SE, SI, SK, TR, UA, UK(NI).
 | Nigeria | M635E | 2G | Airtel |
 | North Macedonia | M635E | 2G, NTN | Skylo, Vip operator |
 | Norway | M635E | 2G, M1, NTN | Skylo, TDC, Telenor, Telia |
-| Oman | M635E | 2G | Ooredoo |
 | Pakistan | M635E | 2G | Jazz, Ufone |
 | Panama | M635E | 2G | Movistar |
 | Paraguay | M635E | 2G | Personal, Tigo, Vox |
@@ -1466,14 +1463,12 @@ SE, SI, SK, TR, UA, UK(NI).
 | Puerto Rico | M635E | NTN | Skylo |
 | Qatar | M635E | 2G | Ooredoo, Vodafone |
 | Romania | M635E | 2G, M1, NTN | Orange, Skylo, Telekom Romania, Vodafone |
-| Russia | M635E | 2G | Beeline, Megafon, MTS, Tele2 |
 | Rwanda | M635E | 2G | Airtel, MTN |
 | Saint Kitts and Nevis | M635E | 2G | Flow |
 | Saint Lucia | M635E | 2G | Flow |
 | San Marino | M635E | NTN | Skylo |
 | Serbia | M635E | 2G | Telenor, VIP |
 | Seychelles | M635E | 2G | Airtel |
-| Singapore | M635E | M1, NTN | SingTel, Skylo |
 | Sint Maarten | M635E | 2G | TelCell |
 | Slovakia | M635E | 2G, M1, NTN | O2, Orange, Skylo, Telekom |
 | Slovenia | M635E | 2G, M1, NTN | A1, Mobitel, Skylo |
@@ -1490,7 +1485,6 @@ SE, SI, SK, TR, UA, UK(NI).
 | Turks and Caicos Islands | M635E | 2G | Flow |
 | Uganda | M635E | 2G | Africell, Airtel, MTN |
 | Ukraine | M635E | 2G | Kyivstar, Life, MTS |
-| United Arab Emirates | M635E | M1 | Etisalat |
 | United Kingdom | M635E | 2G, M1, NTN | EE, O2, Skylo, Vodafone |
 | United States | M635E | M1, NTN | AT&T, Skylo, T-Mobile (USA), Verizon<sup>7</sup> |
 | Uruguay | M635E | 2G | Antel |

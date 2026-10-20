@@ -239,7 +239,9 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'pwm-listing',
-                    platformFilter: (e => e.id > 0 && e.id < 99),
+                    platformFilter: function(e) {
+                        return e.id > 0 && e.id < 99 && !e.hidden;
+                    },
                 }); 
             } 
         },                
@@ -1216,7 +1218,107 @@ const schemaDocs = require('./schema-docs');
                     noEtherSimColumn: true,
                 }); 
             } 
-        },        
+        },    
+        // Axion
+        {
+            guid:'f82eeab1-470c-4c25-a505-3057c080fc1d', 
+            generatorFn:function(updater) {
+                return updater.generateCountryList(null, {
+                    modems: ['EG800Q-GL'],
+                    noModel: true,
+                }); 
+            } 
+        },
+        {
+            guid: '9d04c39f-47ea-46bf-a4bc-dcf45e50195f',
+            generatorFn:function(updater){
+                return updater.generateFamilySkus(null, {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('AXN');
+                    },
+                    showPreDevelopment: true,        
+                }); 
+            },
+        },
+        {
+            guid:'896ba802-bdd8-4f9e-8f06-6d82af2289cd', 
+            generatorFn:function(updater){
+                return updater.generateCountryComparison({
+                    models: [
+                        {
+                            title: 'Axion',
+                            modem: 'EG800Q-GL',
+                            sim: 4,
+                        },
+                        {
+                            title: 'BRN404X',
+                            modem: 'R510',
+                            sim: 4,
+                        },
+                        {
+                            title: 'B504e',
+                            modem: 'EG91-NAX',
+                            sim: 4,
+                        },
+                        {
+                            title: 'M404',
+                            modem: 'BG95-M5',
+                            sim: 4,
+                        },
+                        {
+                            title: 'M524',
+                            modem: 'EG91-EX',
+                            sim: 4,
+                        },
+                    ],
+                    recommendationMap: {
+                        'YES': '\u2705', // green check
+                        'NS': '\u2753', // red question mark
+                        'POSS': '\u2753', // red question mark
+                        'NRND': 'NRND',
+                        'NR': '',
+                    }
+                });            
+            },     
+        },
+        // M715e
+        {
+            guid:'4cddf99f-ceea-4891-a726-42385fc117f6', 
+            generatorFn:function(updater){
+                return updater.generateCountryComparison({
+                    models: [
+                        {
+                            title: 'M715e',
+                            modem: 'EG800Q-GL',
+                            sim: 4,
+                        },
+                        {
+                            title: 'M404',
+                            modem: 'BG95-M5',
+                            sim: 4,
+                        },
+                        {
+                            title: 'M524',
+                            modem: 'EG91-EX',
+                            sim: 4,
+                        },
+                        {
+                            title: 'M635e',
+                            modem: 'BG95-S5',
+                            sim: 4,
+                            simPlan: 41,
+                        },
+                    ],
+                    recommendationMap: {
+                        'YES': '\u2705', // green check
+                        'NS': '\u2753', // red question mark
+                        'POSS': '\u2753', // red question mark
+                        'NRND': 'NRND',
+                        'NR': '',
+                    }
+                });            
+            },     
+        },
         // Tachyon
         {
             guid:'ae3c46e6-c970-4ceb-8e55-2adde82efb79',
@@ -1261,7 +1363,316 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },        
-        // Electron 2
+        // Axion- TODO: Rename platform
+        {
+            guid: 'c95d8236-be6f-492a-a5d6-40adf1a6acc7', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'Axion'
+                }); 
+            } 
+        },                
+        {
+            guid: '96e7f64a-8089-4ee3-9e31-3906270428cb',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'Axion',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'230fb891-7a16-4ccc-b5f0-4398c84303b8',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Axion',
+                    interface: 'serial',
+                    noPinNumbers: true,
+                }); 
+            }                     
+        },
+        {
+            guid:'8db4f1d9-7b1d-4806-b83d-fb515a59d15c',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Axion',
+                    interface: 'spi',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'529ff47f-b3ba-467b-8eb6-c95f5b0c3821',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Axion',
+                    interface: 'i2c',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'c76560c5-effb-4708-97a6-f21573263797',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Axion',
+                    interface: 'hardwareADC',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'420ef473-badc-4833-b341-1771f7a8699e',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Axion',
+                    interface: 'analogWritePWM',
+                    noInterface: true,
+                    showHardwareTimer: true,
+                    noPinNumbers: true,
+                }); 
+            } 
+        },   
+        {
+            guid:'e9d285b3-09e4-47f2-b040-a45f719a9bde',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Axion',
+                    interface: 'pdm',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'6489e45c-ce6e-41be-840b-c94c85124702',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Axion',
+                    interface: 'i2s',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'db6531b6-9387-4e7c-b2f9-779c8423b2cf',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'bootPins',
+                    platformNew: 'Axion'
+                }); 
+            }             
+        },
+        {
+            guid:'f1da1b65-7e6c-4611-ba44-b9273c40c9da',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Axion',
+                    interface: 'hibernate',
+                    onlyGPIO: true,
+                }); 
+            }             
+        },
+
+        
+
+        // Axion migration guide - from Boron
+        {
+            guid:'ec636e6d-5401-4cf4-8ff9-27354ec41508', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'Axion',
+                    platformOld: 'Boron',
+                    noModulePin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'6026dd9c-e783-4ada-a1ed-850c5cddcd0b', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Axion',
+                    platformOld: 'Boron',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'60b8d1d9-a3b4-431a-a028-c0f7c0bdda3a', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Axion',
+                    platformOld: 'Boron',
+                    port: 'analogRead',
+                    label: 'ADC',
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },
+        {
+            guid:'8671f442-6d5f-468b-a0c2-a11870f7228d', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Axion',
+                    platformOld: 'Boron',
+                    port: 'serial',
+                    label: 'Serial',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },
+        {
+            guid:'74e90cd9-f151-4393-86a2-fdd6ca70c4ca', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Axion',
+                    platformOld: 'Boron',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },        
+
+        // Axion migration guide - from Photon 2
+        {
+            guid:'9fb77145-edd4-4f0a-815a-fb1994390006', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'Axion',
+                    platformOld: 'Photon 2',
+                    noModulePin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'817332fa-3736-4879-a091-256b97e9d5c1', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Axion',
+                    platformOld: 'Photon 2',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'28c6f04f-66e8-4b64-87d0-4f6cf18e9228', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Axion',
+                    platformOld: 'Photon 2',
+                    port: 'analogRead',
+                    label: 'ADC',
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },
+        {
+            guid:'5fdfbe77-2ae3-406f-b4e0-e6aafb8ae948', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Axion',
+                    platformOld: 'Photon 2',
+                    port: 'serial',
+                    label: 'Serial',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },
+        {
+            guid:'36a024cb-427e-431a-878b-c06fee0e1ebe', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'featherComparison',
+                    platformNew: 'Axion',
+                    platformOld: 'Photon 2',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                    includeFeather: true, // Must add this with featherComparison
+                }); 
+            }
+        },
+        {
+            guid:'6b9bbf34-54df-4cbb-bf2f-8dda881901e4', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Axion',
+                    platformOld: 'Photon 2',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },        
+        {
+            guid:'5baa3b30-adfa-4fbb-a77c-0cacd12bb039', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Axion',
+                    platformOld: 'Photon 2',
+                    port: 'boot',
+                    label: 'Boot',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },      
+        {
+            guid:'39c69dbe-1354-4b67-8f20-ae279d6f45d5', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Axion',
+                    platformOld: 'Photon 2',
+                    port: 'swd',
+                    label: 'SWD',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    noModulePin: true,
+                }); 
+            }
+        },        
+
+        // Electron 2 - TODO: Remove these
         {
             guid:'22694b55-ad2c-4e61-a33f-71994b569ba3', 
             generatorFn:function(updater){
@@ -5705,6 +6116,18 @@ const schemaDocs = require('./schema-docs');
                     filterFn:function(skuObj) {
                         return !skuObj.name.startsWith('M635E');
                     }
+                }); 
+            } 
+        },
+        {
+            // SKU list M715e
+            guid:'52eb3dff-b0a0-4b4a-a0cc-45ba515fa96e', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('m series', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('M715E');
+                    },
+                    showPreDevelopment: true,        
                 }); 
             } 
         },

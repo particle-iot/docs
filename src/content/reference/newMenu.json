@@ -505,8 +505,18 @@
                             "title": "M635e datasheet"
                         },
                         {
+                            "dir": "m715e-datasheet",
+                            "title": "M715e datasheet",
+                            "internal": true
+                        },
+                        {
                             "dir": "muon-datasheet",
                             "title": "Muon datasheet"
+                        },
+                        {
+                            "dir": "axion-datasheet",
+                            "title": "Axion datasheet",
+                            "internal": true
                         },
                         {
                             "dir": "m2-breakout-datasheet",

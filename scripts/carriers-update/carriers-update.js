@@ -513,7 +513,7 @@ const generatorConfig = require('./generator-config');
             });
         }
 
-        let recommendationMap = {
+        let recommendationMap = options.recommendationMap || {
             'YES': '&check;', 
             'NS': '?',
             'POSS': '',
@@ -911,7 +911,7 @@ const generatorConfig = require('./generator-config');
         let tableData = [];
 
         for(const skuObj of updater.datastore.data.skus) {
-            if (skuObj.lifecycle == 'Hidden' || skuObj.accessory || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || skuObj.accessory || !!skuObj.linux) {
                 continue;
             }
             if (!skuObj.prefix || skuObj.prefix == 'P000') {
@@ -960,7 +960,7 @@ const generatorConfig = require('./generator-config');
         let tableData = [];
 
         for(const skuObj of updater.datastore.data.skus) {
-            if (skuObj.lifecycle == 'Hidden' || skuObj.accessory || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || skuObj.accessory || !!skuObj.linux) {
                 continue;
             }
             if (!skuObj.prefix || skuObj.prefix == 'P000') {
@@ -1019,7 +1019,7 @@ const generatorConfig = require('./generator-config');
         let tableData = [];
 
         for(const skuObj of updater.datastore.data.skus) {
-            if (skuObj.lifecycle == 'Hidden'|| !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || !!skuObj.linux) {
                 continue;
             }
             if (options.filterFn && options.filterFn(skuObj)) {
@@ -1058,7 +1058,7 @@ const generatorConfig = require('./generator-config');
 
         // Filter
         updater.datastore.data.skus.forEach(function(skuObj) {
-            if (skuObj.family != skuFamily) {
+            if (skuFamily && skuObj.family != skuFamily) {
                 return;
             }
 
@@ -1066,10 +1066,15 @@ const generatorConfig = require('./generator-config');
                 // Hide discontinued kits
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Hidden' && !options.showHidden) {
                 // Hidden, whether a kit or not
                 return;
             }
+            if (skuObj.lifecycle == 'Pre development' && !options.showPreDevelopment) {
+                // Before In development
+                return;
+            }
+
             if (!!skuObj.linux && !options.includeLinux) {
                 // Linux is hidden, unless includeLinux is specified as an option
                 return;
@@ -1083,6 +1088,7 @@ const generatorConfig = require('./generator-config');
 
             skus.push(skuObj);
         });
+
 
         // Sort
         skus.sort(function(a, b) {
@@ -1100,10 +1106,16 @@ const generatorConfig = require('./generator-config');
         // Render
         let md = '';
 
+        let showWifi = options.showWifi;
+        if (typeof showWifi == 'undefined' && skuFamily) {
         const skuFamilyObj = updater.datastore.findSkuFamily(skuFamily);
+            if (skuFamilyObj.wifi) {
+                showWifi = true;
+            }
+        }
 
         md += '| SKU | Description | Region ';
-        if (!skuFamilyObj.wifi) {
+        if (!showWifi) {
             md += ' | Modem ';
             if (!options.noEtherSimColumn) {
                 md += '| EtherSIM ';
@@ -1113,7 +1125,7 @@ const generatorConfig = require('./generator-config');
 
         //
         md += '| :--- | :--- | :--- ';
-        if (!skuFamilyObj.wifi) {
+        if (!showWifi) {
             md += ' | :--- | :---: ';
         }
         md += '| :--- | :--- |\n';
@@ -1121,14 +1133,19 @@ const generatorConfig = require('./generator-config');
         skus.forEach(function(skuObj) {
             md += '| ' + skuObj.name + ' | ' + skuObj.desc + ' | ' + updater.skuRegionReadable[skuObj.skuRegion];
 
-            if (!skuFamilyObj.wifi) {
+            if (!showWifi) {
                 md += ' | ' + skuObj.modem;
                 if (!options.noEtherSimColumn) {
                     md += ' | ' + ((skuObj.sim == 4) ? '&check;' : '');
                 }
             }
 
-            md += ' | ' + skuObj.lifecycle + ' | ' + (skuObj.replacement ? skuObj.replacement : '') + '|\n'; 
+            let lifecycle = skuObj.lifecycle;
+            if (lifecycle == 'Pre development') {
+                lifecycle = 'In development';
+            }
+
+            md += ' | ' + lifecycle + ' | ' + (skuObj.replacement ? skuObj.replacement : '') + '|\n'; 
         });
 
         return md;
@@ -1339,7 +1356,7 @@ const generatorConfig = require('./generator-config');
         let tableData = [];
 
         updater.datastore.data.skus.forEach(function(skuObj) {
-            if (!skuObj.verizon) {
+            if (!skuObj.verizon || skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development') {
                 // Not Verizon
                 return;
             }
@@ -1385,7 +1402,7 @@ const generatorConfig = require('./generator-config');
                 // No USB required
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || skuObj.linux) {
                 // Hidden SKU
                 return;
             }
@@ -1443,7 +1460,7 @@ const generatorConfig = require('./generator-config');
                 // Not a device
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || !!skuObj.linux) {
                 // Hidden SKU
                 return;
             }
@@ -1615,7 +1632,7 @@ const generatorConfig = require('./generator-config');
                 // Hide discontinued kits
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || !!skuObj.linux) {
                 // Hidden, whether a kit or not
                 return;
             }
@@ -1785,7 +1802,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.cellAnt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || !!skuObj.linux) {
                 return;
             }
 
@@ -1850,7 +1867,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.ntnAnt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || !!skuObj.linux) {
                 return;
             }
 
@@ -1912,7 +1929,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.wifiAntInt && !skuObj.wifiAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || !!skuObj.linux) {
                 return;
             }
 
@@ -1966,7 +1983,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.bleAntInt && !skuObj.bleAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
                 return;
             }
 
@@ -2019,7 +2036,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.nfcAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
                 return;
             }
 
@@ -2074,7 +2091,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.gnssAntInt && !skuObj.gnssAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
                 return;
             }
 
@@ -2126,7 +2143,7 @@ const generatorConfig = require('./generator-config');
 
         // Filter
         updater.datastore.data.skus.forEach(function(skuObj) {
-            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
                 return;
             }
 
@@ -2276,7 +2293,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.cellAnt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || skuObj.lifecycle == 'End of life' || !!skuObj.linux) {
                 return;
             }
 
@@ -2347,7 +2364,7 @@ const generatorConfig = require('./generator-config');
                 // Hide discontinued kits
                 return;
             }
-            if (skuObj.lifecycle == 'Hidden' || !!skuObj.linux) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || !!skuObj.linux) {
                 // Hidden, whether a kit or not
                 return;
             }
@@ -2682,6 +2699,12 @@ const generatorConfig = require('./generator-config');
             platformInfoNew.pins = tempPins;
         }
 
+        let platformInfoFeather;
+        if (options.includeFeather) {
+            platformInfoFeather = updater.pinInfo.platforms.find(p => p.name == 'Feather');
+            // console.log('platformInfoFeather', platformInfoFeather);
+        }
+
         let platformInfoOld;
         let mappedPins;
 
@@ -2837,6 +2860,9 @@ const generatorConfig = require('./generator-config');
                         old: oldPin,
                         new: newPin,
                     };
+                    if (platformInfoFeather) {
+                        m.feather = platformInfoFeather.pins.find(e => e.num == pinNum);
+                    }
                     
                     if (options.noModulePin) {
                         if (oldPin.name == newPin.name) {
@@ -3819,6 +3845,89 @@ const generatorConfig = require('./generator-config');
 
 
             md += updater.generateTable(tableOptions, tableData);
+        }
+
+        if (options.style == 'featherComparison') {
+            // This is used to compare Feather GPIO pins for highlighting the A3/A5 swap on Photon 2
+            // Options: platformOld, platformNew, noPinNumbers (typically used), newMCU, showBootMode, newRightColumns
+
+            let tableOptions = {
+                columns: [],
+            };
+
+            if (!options.noPinNumbers) {
+                tableOptions.columns.push({
+                    key: 'num',
+                    title: 'Pin',
+                    align: 'center',
+                });    
+            }
+            if (platformInfoFeather) {
+                tableOptions.columns.push({
+                    key: 'featherPinName',
+                    title: 'Feather Pin Name',
+                });    
+            }
+            if (platformInfoOld) {
+                tableOptions.columns.push({
+                    key: 'oldPinName',
+                    title: options.platformOld + ' Pin Name',
+                });    
+            }
+            tableOptions.columns.push({
+                key: 'newPinName',
+                title: options.platformNew + ' Pin Name',
+            });
+
+            if (options.newMCU) {
+                tableOptions.columns.push({
+                    key: 'newHardwarePin',
+                    title: options.newMCU,
+                });    
+            }
+            if (options.showBootMode) {
+                tableOptions.columns.push({
+                    key: 'newBoot',
+                    title: 'Special boot function'
+                });    
+            }
+            if (options.newRightColumns) {
+                for(const obj of options.newRightColumns) {
+                    tableOptions.columns.push(obj);
+                }
+            }
+        
+            let tableData = [];
+
+            // console.log('gpioComparison', {options, mappedPins});
+
+            for(const m of mappedPins) {
+                // Maybe also: m.old.isIO && m.new.isIO
+                if (m.feather.name != m.old.name || m.feather.name != m.new.name) {
+                    let rowData = {
+                        num: m.num
+                    };
+                    if (m.feather) {
+                        rowData.featherPinName = m.feather.name;
+                    }
+                    if (m.old) {
+                        rowData.oldPinName = getPinNameWithAlt(m.old);
+                        rowData.oldHardwarePin = m.old.hardwarePin;
+                    }
+                    if (m.new) {
+                        rowData.newPinName = getPinNameWithAlt(m.new);
+                        rowData.newPinNameNoAlt = m.new.name;
+                        rowData.newHardwarePin = m.new.hardwarePin;
+                        rowData.newBoot = m.new.boot;
+                        for(const key in m.new) {
+                            rowData['new_' + key] = m.new[key];
+                        }
+                    }
+                    tableData.push(rowData);                    
+                }
+            }
+
+            md += updater.generateTable(tableOptions, tableData);            
         }
 
         if (options.style == 'portPins') {

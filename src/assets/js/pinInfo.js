@@ -40,7 +40,11 @@ function getPinInfoCallback(pinInfoIn, textStatus, errorThrown) {
 	pinInfo = pinInfoIn;
 		
 	// Make pin index by name. The JSON file has an array but the hash makes it easier to access.
-	for(var ii = 0; ii < pinInfo.platforms.length; ii++) {
+	for(var ii = pinInfo.platforms.length - 1; ii >= 0; ii--) {
+		if (pinInfo.platforms[ii].hidden) {
+			pinInfo.platforms.splice(ii, 1);
+			continue;
+		}
 		var name = pinInfo.platforms[ii].name;
 		objectForPlatform[name] = pinInfo.platforms[ii];
 	}
