@@ -1806,14 +1806,27 @@ bandFit.onCountrySelected = function() {
     bandFit.saveQuery();
 }
 
+// Internal tests are shown if the user has an internal account, or if the page was entered with the test
+// query parameter set to an internal test. In that case all internal tests are shown, not just that one.
+// The initial query is captured at load time because saveQuery replaces the URL later.
+bandFit.initialTestParam = new URLSearchParams(window.location.search).get('test');
+
+bandFit.showInternal = function() {
+    if (typeof apiHelperAuth != 'undefined' && apiHelperAuth.isInternal) {
+        return true;
+    }
+    const testObj = bandFit.initialTestParam ? bandFit.tests[bandFit.initialTestParam] : null;
+    return !!(testObj && testObj.showInternalUsers);
+}
+
 bandFit.updateTestMenu = function() {
+    const showInternal = bandFit.showInternal();
+
     for(const testKey in bandFit.tests) {
         const testObj = bandFit.tests[testKey];
         
-        if (testObj.showInternalUsers) {
-            if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
-                continue;
-            }            
+        if (testObj.showInternalUsers && !showInternal) {
+            continue;
         }
 
         const optionElem = document.createElement('option');
@@ -1932,7 +1945,25 @@ bandFit.init = function(callback) {
                 },
             ],
         },
-
+        'boron-715': {
+            title: 'Boron (BRN404X vs. Axion AXN715EH)',
+            sim: 4, // EtherSIM
+            showInternalUsers: true,
+            tests: [
+                {
+                    title: 'BRN404X',
+                    modemObj: datastore.data.modems.find(e => e.model == 'R510'),
+                    borderRight: true,
+                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
+                },
+                {
+                    title: 'AXN715EH',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-GL'),
+                    borderRight: true,
+                    backgroundColor: '#FF9F61', // @COLOR_Tangerine_400
+                },
+            ],
+        },
         'tracker': {
             title: 'Tracker One, Monitor One, Tracker SoM (ONE404 vs. ONE524)',
             sim: 4, // EtherSIM
