@@ -668,7 +668,7 @@ const familyMapCreate = function() {
                     // A model with mapShowPOSS treats NR and POSS the same as YES for map purposes
                     let recommended = cmsObj.recommendation == 'YES';
                     if (!recommended && modelObj.mapShowPOSS && (cmsObj.recommendation == 'NS' || cmsObj.recommendation == 'POSS')) {
-                        if (cmsObj.roamingRestrictions != 'hide' || cmsObj.roamingRestrictions != 'warn') {
+                        if (cmsObj.roamingRestrictions != 'hide' && cmsObj.roamingRestrictions != 'warn') {
                             recommended = true;
                         }
                     }

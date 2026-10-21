@@ -265,7 +265,7 @@ Axion supports one UART serial interface.
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| D2 | D2 GPIO, Serial RTS flow control (optional) | Serial1 (RTS)  | PA[14] |
+| D2 | D2 GPIO, Serial1 RTS flow control (optional) | Serial1 (RTS)  | PA[14] |
 | D3 | D3 GPIO, Serial1 CTS flow control (optional) | Serial1 (CTS)  | PA[15] |
 | RX / D10 | Serial RX, PWM, GPIO | Serial1 (RX)  | PA[13] |
 | TX / D9 | Serial TX, PWM, GPIO, I2S MCLK | Serial1 (TX) | PA[12] |
@@ -634,7 +634,7 @@ Axion can only wake from `HIBERNATE` sleep mode on certain pins, `RISING`, `FALL
 | :---: | :--- | :--- | :--- | :--- |
 | 14 | RX / D10 | Serial RX, PWM, GPIO | Pin can wake from HIBERNATE sleep | PA[13] |
 | 15 | TX / D9 | Serial TX, PWM, GPIO, I2S MCLK | Pin can wake from HIBERNATE sleep | PA[12] |
-| 18 | D2 | D2 GPIO, Serial RTS flow control (optional) | Pin can wake from HIBERNATE sleep | PA[14] |
+| 18 | D2 | D2 GPIO, Serial1 RTS flow control (optional) | Pin can wake from HIBERNATE sleep | PA[14] |
 | 19 | D3 | D3 GPIO, Serial1 CTS flow control (optional) | Pin can wake from HIBERNATE sleep | PA[15] |
 | 24 | D8 / WKP | GPIO, WKP | Pin can wake from HIBERNATE sleep | PA[20] |
 
@@ -1016,7 +1016,7 @@ Axion does not have NFC Tag support.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">18</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D2</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D2 GPIO, Serial RTS flow control (optional)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D2 GPIO, Serial1 RTS flow control (optional)</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">RTS. Use Serial1 object.</td></tr>

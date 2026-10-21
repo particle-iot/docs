@@ -339,7 +339,7 @@ Pin D8 `WKP` is the same module pin location as the Boron pin D8, which is also 
 | :---: | :--- | :--- | :--- | :--- |
 | 14 | RX / D10 | Serial RX, PWM, GPIO | Pin can wake from HIBERNATE sleep | PA[13] |
 | 15 | TX / D9 | Serial TX, PWM, GPIO, I2S MCLK | Pin can wake from HIBERNATE sleep | PA[12] |
-| 18 | D2 | D2 GPIO, Serial RTS flow control (optional) | Pin can wake from HIBERNATE sleep | PA[14] |
+| 18 | D2 | D2 GPIO, Serial1 RTS flow control (optional) | Pin can wake from HIBERNATE sleep | PA[14] |
 | 19 | D3 | D3 GPIO, Serial1 CTS flow control (optional) | Pin can wake from HIBERNATE sleep | PA[15] |
 | 24 | D8 / WKP | GPIO, WKP | Pin can wake from HIBERNATE sleep | PA[20] |
 
@@ -595,7 +595,7 @@ Axion does not have NFC Tag support. Gen 3 devices including the Boron do have s
 |   |   | Boron | Axion |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D2 | D2 |
-| ∆ | Description | SPI1 SCK, Serial1 RTS, GPIO, PWM | D2 GPIO, Serial RTS flow control (optional) |
+| ∆ | Description | SPI1 SCK, Serial1 RTS, GPIO, PWM | D2 GPIO, Serial1 RTS flow control (optional) |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogWrite (PWM) | Yes | No |
