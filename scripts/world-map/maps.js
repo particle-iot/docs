@@ -9,6 +9,7 @@
 //  .countries array of { isoCode, style } (usually from data.mapCountries())
 // data is from carrier-data.js load().
 
+// Example map generation code - not currently used
 // Same as the 'ntn' family map in carriers.js (familyMap.drawMapNTN)
 function ntnMap(data) {
     const styles = [
@@ -58,6 +59,7 @@ function ntnMap(data) {
     return { file: 'assets/images/maps/ntn.svg', styles, countries };
 }
 
+// Example map generation code - not currently used
 // Same as familyMap.drawMapCat1Expansion in carriers.js
 function cat1ExpansionMap(data) {
     const styles = [
@@ -77,6 +79,7 @@ function cat1ExpansionMap(data) {
     return { file: 'assets/images/maps/cat1-expansion.svg', styles, countries };
 }
 
+// Example map generation code - not currently used
 // Same as familyMap.drawMap in carriers.js: one map per device family, colored by
 // the mapColor and mapHatch of each group (model) in skuFamily.
 function familyMap(data, worldMapGlobal, family) {
@@ -128,6 +131,9 @@ function familyMap(data, worldMapGlobal, family) {
 }
 
 module.exports = function(data, worldMapGlobal) {
+    const maps = [];
+
+    /* Example map generation code - not currently used
     const maps = [
         ntnMap(data),
         cat1ExpansionMap(data),
@@ -142,6 +148,7 @@ module.exports = function(data, worldMapGlobal) {
             maps.push(map);
         }
     }
+    */
 
     return maps;
 };

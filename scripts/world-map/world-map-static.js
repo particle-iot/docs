@@ -12,15 +12,22 @@
 //      (or one of the objects in .styles). Country codes that are not on the map are skipped,
 //      or throw an error if .strict is true.
 //  .fillColor default country fill color (optional)
+//  .pngWidth width in pixels of the png (optional)
 //  .legendTextColor legend text color, named or css (default Midnight_700)
 //  Other options in worldMapGlobal.optionDefaults (legendFont, swatchWidth, etc.) may also be set.
 //
 // generateWorldMapSvg(options) returns the SVG as a string.
 // writeWorldMapSvg(options, destPath) also writes it to destPath (creating directories as needed).
+// generateWorldMapPng(svg, { width }) converts the SVG string to a PNG Buffer (async). The default
+//      width is 2000 pixels, the width of the map.
+// writeWorldMap(options, destPath, formats) writes the formats ('svg' and/or 'png') of the map. 
+//      destPath is the .svg path; the .png is written next to it. Returns { svg: Buffer, png: Buffer } 
+//      containing the formats that were generated, keyed by extension.
 
 const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
+const sharp = require('sharp');
 
 const worldMapGlobal = require('../../src/assets/js/world-map.js');
 
@@ -105,8 +112,35 @@ function writeWorldMapSvg(options, destPath) {
     return svg;
 }
 
+async function generateWorldMapPng(svg, options = {}) {
+    return sharp(Buffer.from(svg), { density: 72 })
+        .resize({ width: options.width || 2000 })
+        .png()
+        .toBuffer();
+}
+
+async function writeWorldMap(options, destPath, formats = ['svg']) {
+    const result = {};
+    const base = destPath.replace(/\.svg$/, '');
+
+    fs.mkdirSync(path.dirname(destPath), { recursive: true });
+
+    const svg = generateWorldMapSvg(options);
+    if (formats.includes('svg')) {
+        fs.writeFileSync(base + '.svg', svg);
+        result.svg = Buffer.from(svg);
+    }
+    if (formats.includes('png')) {
+        result.png = await generateWorldMapPng(svg, { width: options.pngWidth });
+        fs.writeFileSync(base + '.png', result.png);
+    }
+    return result;
+}
+
 module.exports = {
     generateWorldMapSvg,
     writeWorldMapSvg,
+    generateWorldMapPng,
+    writeWorldMap,
     worldMapGlobal,
 };

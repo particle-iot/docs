@@ -1,23 +1,32 @@
 // Generates the static world maps defined in maps.js.
 //
-// As a metalsmith plugin (see scripts/metalsmith.js), the SVG files are added to the
-// build output; they are not stored in src:
-//    .use(worldMapBuild({ sourceDir: '../src' }))
+// The generated files are written to src (by default src/assets/images/maps) so they can be 
+// committed to GitHub, and are also added to the metalsmith files so they appear in the build.
+// (The source files have already been read by the time this runs, like apidoc.js.)
+//    .use(worldMapBuild({ sourceDir: '../src', formats: ['svg', 'png'] }))
+//
+// options:
+//  .sourceDir directory the generated files are written to, relative to the scripts directory
+//      (default '../src'). Each map's .file is relative to this directory.
+//  .formats array of 'svg' and/or 'png' (default ['svg']). A map definition can override this 
+//      with its own .formats.
 //
 // From the command line, to preview the maps (default output is a scratch directory):
-//    node scripts/world-map/world-map-build.js [outDir]
+//    node scripts/world-map/world-map-build.js [outDir] [svg|png|svg,png]
 
 const path = require('path');
 
 const carrierData = require('./carrier-data');
-const { generateWorldMapSvg, worldMapGlobal } = require('./world-map-static');
+const { writeWorldMap, worldMapGlobal } = require('./world-map-static');
 const defineMaps = require('./maps');
 
-// Returns array of { file, svg }
-function generateAll(options = {}) {
+// Writes all of the maps to destDir. Returns an object whose keys are the file paths 
+// relative to destDir ('assets/images/maps/ntn.svg') and values are Buffers.
+async function generateAll(options = {}) {
+    const destDir = options.destDir;
     const data = carrierData.load(options.carriersPath);
 
-    const results = [];
+    const results = {};
     const seen = new Set();
 
     for(const map of defineMaps(data, worldMapGlobal)) {
@@ -26,7 +35,13 @@ function generateAll(options = {}) {
         }
         seen.add(map.file);
 
-        results.push({ file: map.file, svg: generateWorldMapSvg(map) });
+        const formats = map.formats || options.formats || ['svg'];
+
+        const written = await writeWorldMap(map, path.join(destDir, map.file), formats);
+        const base = map.file.replace(/\.svg$/, '');
+        for(const ext in written) {
+            results[base + '.' + ext] = written[ext];
+        }
     }
     return results;
 }
@@ -41,28 +56,28 @@ module.exports = function(options = {}) {
         }
         firstLoad = false;
 
-        try {
-            for(const { file, svg } of generateAll(options)) {
-                files[file] = { contents: Buffer.from(svg) };
-            }
-            done();
-        }
-        catch(e) {
-            done(e);
-        }
+        const destDir = path.resolve(__dirname, '..', options.sourceDir || '../src');
+
+        generateAll({ destDir, formats: options.formats, carriersPath: options.carriersPath })
+            .then(function(results) {
+                for(const file in results) {
+                    files[file] = { contents: results[file] };
+                }
+                done();
+            })
+            .catch(done);
     };
 };
 
 module.exports.generateAll = generateAll;
 
 if (require.main === module) {
-    const fs = require('fs');
-
     const outDir = path.resolve(process.argv[2] || 'world-map-out');
-    for(const { file, svg } of generateAll()) {
-        const dest = path.join(outDir, file);
-        fs.mkdirSync(path.dirname(dest), { recursive: true });
-        fs.writeFileSync(dest, svg);
-        console.log('wrote ' + dest);
-    }
+    const formats = (process.argv[3] || 'svg').split(',');
+
+    generateAll({ destDir: outDir, formats }).then(function(results) {
+        for(const file in results) {
+            console.log('wrote ' + path.join(outDir, file));
+        }
+    });
 }

@@ -196,8 +196,8 @@ exports.metalsmith = function () {
         ],
       })
     ))
-    // Generate static SVG world maps (see scripts/world-map/maps.js) into assets/images/maps
-    .use(worldMapBuild())
+    // Generate static world maps (see scripts/world-map/maps.js) into src/assets/images/maps and the build
+    .use(worldMapBuild({ sourceDir: '../src', formats: ['svg', 'png'] }))
     .use(troubleshooting({
         sourceDir: '../src',
         jsonFile: 'assets/files/troubleshooting.json',
