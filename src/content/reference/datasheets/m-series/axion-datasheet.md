@@ -56,7 +56,7 @@ Since the Axion AXN715e supports LTE Cat 1 bis, it can be used world-wide with a
 | MCU processor speed | 200 MHz Cortex-M33 | 64 MHz Cortex-M4F | 200 MHz Cortex-M33 | 64 MHz Cortex-M4F | 200 MHz Cortex-M33 | 200 MHz Cortex-M33 |
 | User RAM available | 3072 KB | ~80 KB | 3072 KB | ~80 KB | 3072 KB | 3072 KB |
 | Maximum user application size | 2048 KB | 256 KB | 2048 KB | 256 KB | 2048 KB | 2048 KB |
-| Li-Po battery connector | Yes | Yes | Yes | No | No | No |
+| Li-Po battery connector | 3-pin | 2-pin | 2-pin | No | No | No |
 | RGB status LED | Yes | Yes | Yes | No<sup>1</sup> | No<sup>1</sup> | No<sup>1</sup> |
 | MODE and RESET buttons | Yes | Yes | Yes | No<sup>1</sup> | No<sup>1</sup> | No<sup>1</sup> |
 | USB connector | USB-C | Micro-B | Micro-B | No<sup>1</sup> | No<sup>1</sup> | No<sup>1</sup> |

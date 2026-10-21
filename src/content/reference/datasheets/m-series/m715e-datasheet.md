@@ -5,7 +5,7 @@ layout: commonTwo.hbs
 description: M715e datasheet
 ---
 
-# M635 datasheet (preliminary)
+# M715e datasheet (preliminary)
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is a preliminary datasheet and is subject to change.
