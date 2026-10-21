@@ -416,8 +416,8 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
-| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
-| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
+| M404MTY | M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
+| M404MEA | M-Series LTE-M/2G (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | GA | |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | In development | |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | GA | |

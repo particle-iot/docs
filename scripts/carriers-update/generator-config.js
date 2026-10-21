@@ -6899,6 +6899,22 @@ const schemaDocs = require('./schema-docs');
             } 
         },        
 
+        // Axion datasheet, Device Comparison
+        {
+            guid: '6cad9be0-0f56-4bba-b571-f1c1747722b1',
+            generatorFn:function(updater){
+                return updater.generateDeviceComparison({
+                    devices: [
+                        {title: 'Axion', sku: 'AXN715EHEA'},
+                        {title: 'Boron 404X', sku: 'BRN404X'},
+                        {title: 'Photon 2', sku: 'PHN2MEA'},
+                        {title: 'B504e', sku: 'B504EMEA'},
+                        {title: 'M404', sku: 'M404MEA'},
+                        {title: 'M524', sku: 'M524MEA'},
+                    ],
+                }); 
+            } 
+        },
 
     ];
 

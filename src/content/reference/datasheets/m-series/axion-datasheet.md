@@ -43,8 +43,9 @@ Since the Axion AXN715e supports LTE Cat 1 bis, it can be used world-wide with a
 
 ### Device Comparison
 
-{{!-- BEGIN shared-blurb a5efad71-3119-4018-9c96-d2d8c2da7aa2 --}}
-|  | Axion | Boron 404X | Photon 2 | B504e | M404 | M524 |
+{{!-- BEGIN do not edit content below, it is automatically generated 6cad9be0-0f56-4bba-b571-f1c1747722b1 --}}
+
+|   | Axion | Boron 404X | Photon 2 | B504e | M404 | M524 |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Form factor | Feather | Feather | Feather | M.2 SoM | M.2 SoM | M.2 SoM |
 | Cellular modem | Quectel EG800Q-GL | u-blox SARA-R510S | None | Quectel EG91-NAX | Quectel BG95-M5 | Quectel EG91-EX |
@@ -62,9 +63,12 @@ Since the Axion AXN715e supports LTE Cat 1 bis, it can be used world-wide with a
 | USB connector | USB-C | Micro-B | Micro-B | No<sup>1</sup> | No<sup>1</sup> | No<sup>1</sup> |
 | BLE support | Yes | Yes | Yes | Yes | Yes | Yes |
 | NFC tag support | No | Yes | No | Yes | No | No |
-| GNSS support | No | No | No | Yes | Yes | Yes | 
-| SIM | e-sim | MFF2 or 4FF | None | e-sim | MFF2 | MFF2 | 
+| GNSS support | No | No | No | Yes | Yes | Yes |
+| SIM | e-sim | MFF2 or 4FF | None | e-sim | MFF2 | MFF2 |
 | On-board antennas | None | BLE PCB antenna | Wi-Fi/BLE PCB antenna | None | None | None |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 - <sup>1</sup> not included on the M.2 SoM module, typically included on your base board.
 
@@ -78,7 +82,6 @@ SIM:
 - e-sim: Electronic SIM included. Cannot be programmed with arbitrary 3rd-party profiles on these devices.
 - MFF2: SMD SIM included, cannot be changed.
 - 4FF: Plastic nano SIM card, can be used with 3rd-party SIM cards
-{{!-- END shared-blurb --}}
 
 ### MCU
 

@@ -139,8 +139,8 @@ Some older devices do not have the serial number stored on the device (E260, for
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Deprecated | E4DK |
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Deprecated | E4DT |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated | P036 |
-| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | GA | P054 |
-| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | GA | P054 |
+| M404MEA | M-Series LTE-M/2G (NorAm, EtherSIM), [x1] | GA | P054 |
+| M404MTY | M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50] | GA | P054 |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA | P055 |
 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA | P055 |
 | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development | P068 |
@@ -287,8 +287,8 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P051 | PHN2MEA | Photon 2 [x1] | GA |
 | P051 | PHN2MTY | Photon 2, Tray [x50] | GA |
 | P052 | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA |
-| P054 | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | GA |
-| P054 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | GA |
+| P054 | M404MEA | M-Series LTE-M/2G (NorAm, EtherSIM), [x1] | GA |
+| P054 | M404MTY | M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50] | GA |
 | P054 | MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | GA |
 | P054 | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | GA |
 | P054 | MUON635 | Muon LTE M1/2G/Satellite Dev Board (Global, EtherSIM), [x1] | In development |

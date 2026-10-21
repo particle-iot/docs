@@ -36,6 +36,10 @@ const generatorConfig = require('./generator-config');
         return null;
     };
 
+    updater.datastore.findMcuById = function(id) {
+        return updater.datastore.data.mcus.find(e => e.id == id) || null;
+    };
+
     updater.datastore.findRegionGroupById = function(id) {
         for(let ii = 0; ii < updater.datastore.data.regionGroups.length; ii++) {
             const obj = updater.datastore.data.regionGroups[ii];
@@ -1503,6 +1507,229 @@ const generatorConfig = require('./generator-config');
         return updater.generateTable(tableOptions, tableData);
 
 
+    }
+
+    updater.generateDeviceComparison = function(options) {
+        // Generates a table with a column for each device and a row for each feature, as used in
+        // the "Device Comparison" section of datasheets.
+        // options.devices is an array of objects, one per column, left to right:
+        //   .title   Column heading
+        //   .sku     SKU in the skus table that supplies the data for that column
+        // options.footnote is appended after the "No" values for features that are on the base board 
+        // on M.2 SoMs. Default is '<sup>1</sup>'
+
+        const footnote = options.footnote || '<sup>1</sup>';
+        const noBaseBoard = 'No' + footnote;
+
+        const manufacturerNames = {
+            quectel: 'Quectel',
+            ublox: 'u-blox',
+        };
+        const regionNames = {
+            global: 'Global',
+            noram: 'NorAm',
+            americas: 'Americas',
+            emeaa: 'EMEAA',
+        };
+        const usbNames = {
+            'c': 'USB-C',
+            'micro-b': 'Micro-B',
+        };
+
+        const yesNo = function(b) {
+            return b ? 'Yes' : 'No';
+        };
+
+        const antennaType = function(t) {
+            // Both the trace and chip antennas are on-board antennas
+            return t ? 'PCB antenna' : null;
+        };
+
+        const rowDefs = [
+            {
+                title: 'Form factor',
+                fn: function({sku}) {
+                    if (sku.feather) {
+                        return 'Feather';
+                    }
+                    if (sku.m2som) {
+                        return 'M.2 SoM';
+                    }
+                    return '';
+                }
+            },
+            {
+                title: 'Cellular modem',
+                fn: function({modem}) {
+                    if (!modem) {
+                        return 'None';
+                    }
+                    return manufacturerNames[modem.manufacturer] + ' ' + (modem.partName || modem.model);
+                }
+            },
+            {
+                title: 'Cellular region',
+                fn: function({sku, modem}) {
+                    return modem ? regionNames[sku.skuRegion] : 'N/A';
+                }
+            },
+            {
+                title: 'Cellular technology',
+                fn: function({modem}) {
+                    return modem ? modem.techSummary : 'None';
+                }
+            },
+            {
+                title: 'Wi-Fi supported',
+                fn: function({sku, mcu}) {
+                    if (sku.wifi || sku.wifiAntInt || sku.wifiAntExt) {
+                        return 'Yes' + (mcu.wifiBands ? ' (' + mcu.wifiBands + ')' : '');
+                    }
+                    return 'No';
+                }
+            },
+            {
+                title: 'Generation',
+                fn: function({sku}) {
+                    return 'Gen ' + sku.gen;
+                }
+            },
+            {
+                title: 'MCU',
+                fn: function({mcu}) {
+                    return mcu.name;
+                }
+            },
+            {
+                title: 'MCU processor speed',
+                fn: function({mcu}) {
+                    return mcu.cpuSummary;
+                }
+            },
+            {
+                title: 'User RAM available',
+                fn: function({mcu}) {
+                    return (mcu.userRamApprox ? '~' : '') + mcu.userRam;
+                }
+            },
+            {
+                title: 'Maximum user application size',
+                fn: function({mcu}) {
+                    return mcu.userAppSize;
+                }
+            },
+            {
+                title: 'Li-Po battery connector',
+                fn: function({sku}) {
+                    // M.2 SoMs do not have a battery connector; it's on the base board
+                    const m = sku.m2som ? null : (sku.batteryConn || '').match(/-([0-9]+)$/);
+                    return m ? m[1] + '-pin' : 'No';
+                }
+            },
+            {
+                title: 'RGB status LED',
+                fn: function({sku}) {
+                    return sku.feather ? 'Yes' : noBaseBoard;
+                }
+            },
+            {
+                title: 'MODE and RESET buttons',
+                fn: function({sku}) {
+                    return sku.feather ? 'Yes' : noBaseBoard;
+                }
+            },
+            {
+                title: 'USB connector',
+                fn: function({sku}) {
+                    return usbNames[sku.usb] || noBaseBoard;
+                }
+            },
+            {
+                title: 'BLE support',
+                fn: function({mcu}) {
+                    return yesNo(mcu.ble);
+                }
+            },
+            {
+                title: 'NFC tag support',
+                fn: function({mcu}) {
+                    return yesNo(mcu.nfcTag);
+                }
+            },
+            {
+                title: 'GNSS support',
+                fn: function({sku}) {
+                    return yesNo(sku.gnss);
+                }
+            },
+            {
+                title: 'SIM',
+                fn: function({sku}) {
+                    if (sku.simEsim) {
+                        return 'e-sim';
+                    }
+                    let types = [];
+                    if (sku.simMff2) {
+                        types.push('MFF2');
+                    }
+                    if (sku.sim4ff) {
+                        types.push('4FF');
+                    }
+                    return types.length ? types.join(' or ') : 'None';
+                }
+            },
+            {
+                title: 'On-board antennas',
+                fn: function({sku}) {
+                    const wifi = antennaType(sku.wifiAntInt);
+                    const ble = antennaType(sku.bleAntInt);
+                    if (wifi && ble) {
+                        return 'Wi-Fi/BLE ' + wifi;
+                    }
+                    if (wifi) {
+                        return 'Wi-Fi ' + wifi;
+                    }
+                    if (ble) {
+                        return 'BLE ' + ble;
+                    }
+                    return 'None';
+                }
+            },
+        ];
+
+        // Collect the data for each column
+        let devices = [];
+        for(const device of options.devices) {
+            const sku = updater.datastore.findSkuByName(device.sku);
+            if (!sku) {
+                throw new Error('generateDeviceComparison: sku ' + device.sku + ' not found');
+            }
+            const mcu = updater.datastore.findMcuById(sku.mcu);
+            if (!mcu) {
+                throw new Error('generateDeviceComparison: mcu ' + sku.mcu + ' not found for sku ' + device.sku);
+            }
+            const modem = sku.modem ? updater.datastore.findModemByModel(sku.modem) : null;
+
+            devices.push({title: device.title, sku, mcu, modem});
+        }
+
+        // The table is transposed from the usual generateTable usage: each row is a feature, and 
+        // each column is a device. The first column is the feature name, which has no heading.
+        let columns = [{key: 'feature', title: ' '}];
+        devices.forEach(function(device, index) {
+            columns.push({key: 'device' + index, title: device.title, align: 'center'});
+        });
+
+        let tableData = [];
+        for(const rowDef of rowDefs) {
+            let rowData = {feature: rowDef.title};
+            devices.forEach(function(device, index) {
+                rowData['device' + index] = rowDef.fn(device);
+            });
+            tableData.push(rowData);
+        }
+
+        return updater.generateTable({columns}, tableData);
     }
 
     updater.generateSkuLifecycle = function(options) {

@@ -161,6 +161,10 @@ instead of using a battery pack temperature sensor.
 | MUONCB | Muon Carrier Board (Dev Board only) | c | 3-pin | GA |
 | MUONCB-BETA | Muon Carrier Board - Beta Sample | c | 3-pin | Deprecated |
 | MUONCBKIT | Muon Carrier Board Kit | c | 3-pin | GA |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | micro-b | 2-pin | Deprecated |
+| [PHN2KIT](/reference/datasheets/wi-fi/photon-2-datasheet/) | Photon 2, Kit [x1] | micro-b | 2-pin | GA |
+| [PHN2MEA](/reference/datasheets/wi-fi/photon-2-datasheet/) | Photon 2 [x1] | micro-b | 2-pin | GA |
+| [PHN2MTY](/reference/datasheets/wi-fi/photon-2-datasheet/) | Photon 2, Tray [x50] | micro-b | 2-pin | GA |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | micro-b | 2-pin | Deprecated |
 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | micro-b | 2-pin | Deprecated |
 | XENNTRAY50 | Xenon [x50] | micro-b | 2-pin | End of life |

@@ -29141,7 +29141,9 @@
         "PARTICLE_CELLULAR_PREFERRED_PLMN",
         "PARTICLE_CELLULAR_PREFERRED_BANDS",
         "PARTICLE_CELLULAR_FORBIDDEN_BANDS"
-      ]
+      ],
+      "partName": "SARA-R510S",
+      "techSummary": "LTE Cat M1"
     },
     {
       "model": "BG96-MC",
@@ -29240,7 +29242,8 @@
         "PARTICLE_CELLULAR_PREFERRED_PLMN",
         "PARTICLE_CELLULAR_PREFERRED_BANDS",
         "PARTICLE_CELLULAR_FORBIDDEN_BANDS"
-      ]
+      ],
+      "techSummary": "LTE Cat M1"
     },
     {
       "model": "BG95-S5",
@@ -29315,7 +29318,8 @@
       ],
       "technologies": [
         "4G"
-      ]
+      ],
+      "techSummary": "LTE CAT 1 bis"
     },
     {
       "model": "EG800Q-EU",
@@ -29397,7 +29401,8 @@
         "PARTICLE_CELLULAR_PREFERRED_PLMN",
         "PARTICLE_CELLULAR_PREFERRED_BANDS",
         "PARTICLE_CELLULAR_FORBIDDEN_BANDS"
-      ]
+      ],
+      "techSummary": "LTE Cat 1 with 2G/3G fallback"
     },
     {
       "model": "EG21-G",
@@ -29489,7 +29494,8 @@
       "technologies": [
         "3G",
         "4G"
-      ]
+      ],
+      "techSummary": "LTE Cat 1 with 3G fallback"
     },
     {
       "model": "EG91-AUX",
@@ -32442,7 +32448,7 @@
     },
     {
       "name": "M404MEA",
-      "desc": "M-Series LTE-M/2G (Global, EtherSIM), [x1]",
+      "desc": "M-Series LTE-M/2G (NorAm, EtherSIM), [x1]",
       "lifecycle": "GA",
       "multiple": false,
       "enterprise": false,
@@ -32457,7 +32463,7 @@
       "family": "m series",
       "gen": "4",
       "skuClass": "production",
-      "skuRegion": "global",
+      "skuRegion": "noram",
       "gnss": "cellular-modem",
       "cellAnt": "PARANTCW1EA",
       "cellAntInc": true,
@@ -32484,7 +32490,7 @@
     },
     {
       "name": "M404MTY",
-      "desc": "M-Series LTE-M/2G (Global, EtherSIM), Tray [x50]",
+      "desc": "M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "GA",
       "multiple": true,
       "singleSku": "M404MEA",
@@ -32500,7 +32506,7 @@
       "family": "m series",
       "gen": "4",
       "skuClass": "production",
-      "skuRegion": "global",
+      "skuRegion": "noram",
       "gnss": "cellular-modem",
       "cellAnt": "PARANTCW1EA",
       "cellAntInc": false,
@@ -33832,7 +33838,7 @@
       "multiple": true,
       "singleSku": false,
       "wifi": true,
-      "gen": "3",
+      "gen": "4",
       "family": "p series",
       "skuClass": "production",
       "skuRegion": "global",
@@ -33851,7 +33857,7 @@
       "platformId": 32,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "nrf52840",
+      "mcu": "rtl8721x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p2-datasheet/",
       "hsCode": "8517.62.0090"
     },
@@ -34018,7 +34024,7 @@
       "wholesale": true,
       "retail": true,
       "wifi": true,
-      "gen": "3",
+      "gen": "4",
       "family": "p series",
       "skuClass": "prototyping",
       "skuRegion": "global",
@@ -34034,7 +34040,8 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "rtl8721x",
+      "batteryConn": "jst-ph-2"
     },
     {
       "name": "PHN2KIT",
@@ -34042,7 +34049,7 @@
       "lifecycle": "GA",
       "multiple": false,
       "wifi": true,
-      "gen": "3",
+      "gen": "4",
       "family": "p series",
       "skuClass": "prototyping",
       "feather": true,
@@ -34062,8 +34069,9 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/"
+      "mcu": "rtl8721x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
+      "batteryConn": "jst-ph-2"
     },
     {
       "name": "PHN2MEA",
@@ -34071,7 +34079,7 @@
       "lifecycle": "GA",
       "multiple": false,
       "wifi": true,
-      "gen": "3",
+      "gen": "4",
       "family": "p series",
       "skuClass": "prototyping",
       "feather": true,
@@ -34091,9 +34099,10 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840",
+      "mcu": "rtl8721x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "batteryConn": "jst-ph-2"
     },
     {
       "name": "PHN2MTY",
@@ -34102,7 +34111,7 @@
       "multiple": true,
       "singleSku": "PHN2MEA",
       "wifi": true,
-      "gen": "3",
+      "gen": "4",
       "family": "p series",
       "skuClass": "prototyping",
       "feather": true,
@@ -34122,9 +34131,10 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840",
+      "mcu": "rtl8721x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "batteryConn": "jst-ph-2"
     },
     {
       "name": "PHNTRAYH",
@@ -189623,7 +189633,10 @@
       "flashFileSystem": "2 MB",
       "nfcTag": true,
       "userAppSize": "256 KB",
-      "userRam": "80 KB"
+      "userRam": "80 KB",
+      "name": "nRF52840",
+      "cpuSummary": "64 MHz Cortex-M4F",
+      "userRamApprox": true
     },
     {
       "id": "rtl872x",
@@ -189633,7 +189646,23 @@
       "nfcTag": false,
       "userAppSize": "2048 KB",
       "userRam": "3072 KB",
-      "wifi": "802.11b/g/n"
+      "wifi": "802.11b/g/n",
+      "name": "RTL8722DM",
+      "cpuSummary": "200 MHz Cortex-M33",
+      "wifiBands": "2.4 GHz and 5 GHz"
+    },
+    {
+      "id": "rtl8721x",
+      "ble": "5",
+      "cpu": "ARM Cortex M33 CPU, 200 MHz",
+      "flashFileSystem": "2 MB",
+      "nfcTag": false,
+      "userAppSize": "2048 KB",
+      "userRam": "3072 KB",
+      "wifi": "802.11b/g/n",
+      "name": "RTL8721DM",
+      "cpuSummary": "200 MHz Cortex-M33",
+      "wifiBands": "2.4 GHz and 5 GHz"
     },
     {
       "id": "stm32f2xx",
