@@ -52,7 +52,7 @@
         "particle-api-js": "^11.1.3",
         "postcss": "^8.5.13",
         "prettify": "^0.1.7",
-        "sharp": "^0.34.5"
+        "sharp": "^0.35.5"
     },
     "devDependencies": {
         "chalk": "^1.1.3",
