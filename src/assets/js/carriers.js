@@ -56,7 +56,37 @@ carriers2.saveQuery = function() {
     history.pushState(null, '', url);
 };
 
+// Items (skuFamily or group) with the internal flag are shown if the user has an internal account, or if the
+// page was entered with the device query parameter set to an internal device. In that case all internal
+// devices are shown. The initial query is captured at load time because saveQuery replaces the URL later.
+carriers2.initialDeviceParam = new URLSearchParams(window.location.search).get('device');
+
+carriers2.isInternalItem = function(obj) {
+    return !!(obj.internal || obj.showInternalUsers);
+}
+
+carriers2.showInternal = function() {
+    if (typeof apiHelperAuth != 'undefined' && apiHelperAuth.isInternal) {
+        return true;
+    }
+    const deviceParam = carriers2.initialDeviceParam;
+    if (!deviceParam) {
+        return false;
+    }
+    for(const skuFamilyObj of datastore.data.skuFamily) {
+        for(const groupObj of (skuFamilyObj.group || [])) {
+            if ((carriers2.isInternalItem(skuFamilyObj) || carriers2.isInternalItem(groupObj)) &&
+                Array.isArray(groupObj.short) && groupObj.short.includes(deviceParam)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 carriers2.generateDeviceMenu = function(options) {
+    const showInternal = carriers2.showInternal();
+
     // options
     //   .selectElem - The element to append the items to
     //   .addAllDevices 
@@ -65,20 +95,16 @@ carriers2.generateDeviceMenu = function(options) {
         if (skuFamilyObj.wifi || skuFamilyObj.cellular === false || !skuFamilyObj.group) {
             continue;
         }
-        if (skuFamilyObj.showInternalUsers) {
-            if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
-                continue;
-            }            
+        if (carriers2.isInternalItem(skuFamilyObj) && !showInternal) {
+            continue;
         }
 
         const optGroupElem = document.createElement('optgroup');
         $(optGroupElem).attr('label', skuFamilyObj.name);
 
         for(const groupObj of skuFamilyObj.group) {
-            if (groupObj.showInternalUsers) {
-                if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
-                    continue;
-                }            
+            if (carriers2.isInternalItem(groupObj) && !showInternal) {
+                continue;
             }
             if (!Array.isArray(groupObj.short) || groupObj.short.length == 0) {
                 continue;
@@ -642,7 +668,7 @@ const familyMapCreate = function() {
                     // A model with mapShowPOSS treats NR and POSS the same as YES for map purposes
                     let recommended = cmsObj.recommendation == 'YES';
                     if (!recommended && modelObj.mapShowPOSS && (cmsObj.recommendation == 'NS' || cmsObj.recommendation == 'POSS')) {
-                        if (cmsObj.roamingRestrictions != 'hide' || cmsObj.roamingRestrictions != 'warn') {
+                        if (cmsObj.roamingRestrictions != 'hide' && cmsObj.roamingRestrictions != 'warn') {
                             recommended = true;
                         }
                     }
@@ -1248,6 +1274,16 @@ bandFit.saveQuery = function() {
 
 };
 
+// Returns the countryCarrier keys to use for a test entry. By default this is the key for the sim's default
+// simPlan, but a test can set simPlan to override it (for example, to include NTN).
+bandFit.getCountryCarrierKeys = function(simObj, testObj) {
+    if (testObj.simPlan) {
+        const simPlanObj = datastore.findSimPlanById(testObj.simPlan);
+        return simPlanObj.countryCarrierKeys || [simPlanObj.countryCarrierKey];
+    }
+    return [simObj.simPlanKey];
+}
+
 bandFit.renderCountries = function(countries) {
     let test = $(bandFit.bandFitTestSelectElem).val();
     if (!test) {
@@ -1267,7 +1303,11 @@ bandFit.renderCountries = function(countries) {
                 continue;
             }
 
-            if (!ccObj[simObj.simPlanKey]) {
+            // Include the carrier if it is used by any of the tests
+            const usedByTest = bandFit.tests[test].tests.some(testObj => {
+                return bandFit.getCountryCarrierKeys(simObj, testObj).some(key => ccObj[key]);
+            });
+            if (!usedByTest) {
                 continue;
             }
             if (ccObj.bands.length == 0) {
@@ -1295,7 +1335,12 @@ bandFit.renderCountries = function(countries) {
                 redX: 0,
             }
 
+            const countryCarrierKeys = bandFit.getCountryCarrierKeys(simObj, testObj);
+
             for(const ccObj of carriersInCountry) {
+                if (!countryCarrierKeys.some(key => ccObj[key])) {
+                    continue;
+                }
 
                 for(let b of ccObj.bands) {
                     let hasTech = false;
@@ -1455,7 +1500,10 @@ bandFit.renderCountries = function(countries) {
             }
 
             for(const testObj of bandFit.tests[test].tests) {
-                if (ccObj[simObj.simPlanKey].roamingRestrictions) {
+                const countryCarrierKeys = bandFit.getCountryCarrierKeys(simObj, testObj);
+                const carrierUsedByTest = countryCarrierKeys.some(key => ccObj[key]);
+
+                if (countryCarrierKeys.some(key => ccObj[key] && ccObj[key].roamingRestrictions)) {
                     roamingRestrictions = true;
                 }
     
@@ -1467,7 +1515,7 @@ bandFit.renderCountries = function(countries) {
                     let value = '';
                     let footnote;
         
-                    if (carrierSupportsBand) {
+                    if (carrierSupportsBand && carrierUsedByTest) {
                         if (modemSupportsBand) {
                             if (!bandEnabled) {
                                 value = '\u2753';
@@ -1784,14 +1832,27 @@ bandFit.onCountrySelected = function() {
     bandFit.saveQuery();
 }
 
+// Internal tests are shown if the user has an internal account, or if the page was entered with the test
+// query parameter set to an internal test. In that case all internal tests are shown, not just that one.
+// The initial query is captured at load time because saveQuery replaces the URL later.
+bandFit.initialTestParam = new URLSearchParams(window.location.search).get('test');
+
+bandFit.showInternal = function() {
+    if (typeof apiHelperAuth != 'undefined' && apiHelperAuth.isInternal) {
+        return true;
+    }
+    const testObj = bandFit.initialTestParam ? bandFit.tests[bandFit.initialTestParam] : null;
+    return !!(testObj && testObj.showInternalUsers);
+}
+
 bandFit.updateTestMenu = function() {
+    const showInternal = bandFit.showInternal();
+
     for(const testKey in bandFit.tests) {
         const testObj = bandFit.tests[testKey];
         
-        if (testObj.showInternalUsers) {
-            if (typeof apiHelperAuth == 'undefined' || !apiHelperAuth.isInternal) {
-                continue;
-            }            
+        if (testObj.showInternalUsers && !showInternal) {
+            continue;
         }
 
         const optionElem = document.createElement('option');
@@ -1835,6 +1896,52 @@ bandFit.init = function(callback) {
                 {
                     title: 'M635e',
                     modemObj: datastore.data.modems.find(e => e.model == 'BG95-S5'),
+                    simPlan: 41, // SuperSIM w/Skylo, includes NTN
+                    borderRight: true,
+                    backgroundColor: '#FF9F61', // @COLOR_Tangerine_400
+                },
+            ],
+        },
+        'msom-404-524-715': {
+            title: 'M-Series (M404 vs. M524 vs. M715e)',
+            sim: 4, // EtherSIM
+            showInternalUsers: true,
+            tests: [
+                {
+                    title: 'M404',
+                    modemObj: datastore.data.modems.find(e => e.model == 'BG95-M5'),
+                    borderRight: true,
+                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
+                },
+                {
+                    title: 'M524',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG91-EX'),
+                    borderRight: true,
+                    backgroundColor: '#89E2B3', // COLOR_Mint_600
+                },
+                {
+                    title: 'M715e',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-GL'),
+                    borderRight: true,
+                    backgroundColor: '#FF9F61', // @COLOR_Tangerine_400
+                },
+            ],
+        },
+        'msom-715-635': {
+            title: 'M-Series (M715e vs M635e)',
+            sim: 4, // EtherSIM
+            showInternalUsers: true,
+            tests: [
+                {
+                    title: 'M715e',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-GL'),
+                    borderRight: true,
+                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
+                },
+                {
+                    title: 'M635e',
+                    modemObj: datastore.data.modems.find(e => e.model == 'BG95-S5'),
+                    simPlan: 41, // SuperSIM w/Skylo, includes NTN
                     borderRight: true,
                     backgroundColor: '#FF9F61', // @COLOR_Tangerine_400
                 },
@@ -1864,46 +1971,25 @@ bandFit.init = function(callback) {
                 },
             ],
         },
-        /*
-        'electron-2': {
-            title: 'Electron 2 (ELC504EM vs. ELC524EM)',
-            showInternalUsers: true,
+        'boron-715': {
+            title: 'Boron (BRN404X vs. Axion AXN715EH)',
             sim: 4, // EtherSIM
+            showInternalUsers: true,
             tests: [
                 {
-                    title: 'ELC504EM',
-                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-NA'),
+                    title: 'BRN404X',
+                    modemObj: datastore.data.modems.find(e => e.model == 'R510'),
                     borderRight: true,
                     backgroundColor: '#AFE4EE', // COLOR_Sky_600        
                 },
                 {
-                    title: 'ELC524EM',
-                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-EU'),
-                    borderRight: false,
-                    backgroundColor: '#89E2B3', // COLOR_Mint_600
-                },
-            ],
-        },
-        'electron-2-b524': {
-            title: 'Electron 2 (ELC524EM) vs. B-SoM (B524)',
-            showInternalUsers: true,
-            sim: 4, // EtherSIM
-            tests: [
-                {
-                    title: 'ELC524EM',
-                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-EU'),
+                    title: 'AXN715EH',
+                    modemObj: datastore.data.modems.find(e => e.model == 'EG800Q-GL'),
                     borderRight: true,
-                    backgroundColor: '#AFE4EE', // COLOR_Sky_600        
-                },
-                {
-                    title: 'B524',
-                    modemObj: datastore.data.modems.find(e => e.model == 'EG91-E'),
-                    borderRight: false,
-                    backgroundColor: '#89E2B3', // COLOR_Mint_600
+                    backgroundColor: '#FF9F61', // @COLOR_Tangerine_400
                 },
             ],
         },
-        */
         'tracker': {
             title: 'Tracker One, Monitor One, Tracker SoM (ONE404 vs. ONE524)',
             sim: 4, // EtherSIM

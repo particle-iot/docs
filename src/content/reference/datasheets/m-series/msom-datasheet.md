@@ -1544,8 +1544,8 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 
 | SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | GA | |
-| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | GA | |
+| M404MEA | M-Series LTE-M/2G (NorAm, EtherSIM), [x1] | NORAM | BG95-M5 | &check; | GA | |
+| M404MTY | M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50] | NORAM | BG95-M5 | &check; | GA | |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | GA | |
 | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | &check; | In development | |

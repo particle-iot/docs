@@ -5,7 +5,7 @@ layout: commonTwo.hbs
 description: M715e datasheet
 ---
 
-# M635 datasheet (preliminary)
+# M715e datasheet (preliminary)
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is a preliminary datasheet and is subject to change.
@@ -30,6 +30,62 @@ The Particle M-SoM contains the following functional units:
   - M524: Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
   - M635e: Quectel BG95-S5 LTE Cat M1/2G (Global with NTN satellite)
   - M715e Quectel EG800Q-GL LTE Cat 1 bis (Global)
+
+### What is LTE CAT 1 bis
+
+{{!-- BEGIN shared-blurb 27a05a40-8a98-436a-825f-4e20fa77a3cc --}}
+LTE CAT 1 bis provides cellular connectivity using a compact and lower-cost cellular module and a single antenna.
+
+LTE CAT 1 (regular) modules require two antennas for receive antenna diversity, and generally require higher power, especially for 2G or 3G fallback.
+
+LTE Cat M1 is also a compact, low-cost, single antenna standard, however it requires additional equipment at the cellular tower side and is not universally implemented worldwide.
+
+LTE CAT 1 and LTE CAT 1 bis use the same 4G LTE towers used by 4G cell phones. Since all 5G cell phones also can connect to 4G, there is widespread support and no carriers have announced plans to sunset 4G.
+{{!-- END shared-blurb --}}
+
+### Coverage comparison
+
+Since the M715e supports LTE Cat 1 bis, it can be used world-wide with a single SKU, replacing both the M404 and M524 in many applications, and also with improved coverage for South America.
+
+{{imageOverlay src="/assets/images/maps/m404_m524_m715.png" alt="Coverage map" class="full-width"}}
+
+### Device comparison (M-Series)
+
+{{!-- BEGIN do not edit content below, it is automatically generated 231f43fc-80d4-479e-af07-2a1175671137 --}}
+
+|   | M715e | M404 | M524 |
+| :--- | :---: | :---: | :---: |
+| Cellular modem | Quectel EG800Q-GL | Quectel BG95-M5 | Quectel EG91-EX |
+| Cellular region | Global | NorAm | EMEAA |
+| Cellular technology | LTE CAT 1 bis | LTE Cat M1 | LTE Cat 1 with 2G/3G fallback |
+| GNSS support | No | Yes | Yes |
+| SIM | e-sim | MFF2 | MFF2 |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+### Device comparison (B-Series)
+
+{{!-- BEGIN do not edit content below, it is automatically generated 84cbc555-a49b-43cc-81eb-cd166382e776 --}}
+
+|   | M715e | B404X | B524 | B504e |
+| :--- | :---: | :---: | :---: | :---: |
+| Cellular modem | Quectel EG800Q-GL | u-blox SARA-R510S | Quectel EG91-E | Quectel EG91-NAX |
+| Cellular region | Global | NorAm | EMEAA | Americas |
+| Cellular technology | LTE CAT 1 bis | LTE Cat M1 | LTE Cat 1 with 2G/3G fallback | LTE Cat 1 with 3G fallback |
+| Wi-Fi supported | Yes (2.4 GHz and 5 GHz) | No | No | No |
+| Generation | Gen 4 | Gen 3 | Gen 3 | Gen 3 |
+| MCU | RTL8722DM | nRF52840 | nRF52840 | nRF52840 |
+| MCU processor speed | 200 MHz Cortex-M33 | 64 MHz Cortex-M4F | 64 MHz Cortex-M4F | 64 MHz Cortex-M4F |
+| User RAM available | 3072 KB | ~80 KB | ~80 KB | ~80 KB |
+| Maximum user application size | 2048 KB | 256 KB | 256 KB | 256 KB |
+| BLE support | Yes | Yes | Yes | Yes |
+| NFC tag support | No | Yes | Yes | Yes |
+| GNSS support | No | No | No | Yes |
+| SIM | e-sim | MFF2 | MFF2 | e-sim |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### MCU
 
@@ -1277,8 +1333,8 @@ SE, SI, SK, TR, UA, UK(NI).
 
 | SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| M715EMEA | M-Series LTE CAT 1 bis (Global, EtherSIM+), [x1] | EMEAA | EG800Q-GL | &check; | In development | |
-| M715EMTY | M-Series LTE CAT 1 bis (Global, EtherSIM+), Tray [x50] | EMEAA | EG800Q-GL | &check; | In development | |
+| M715EMEA | M-Series LTE CAT 1 bis (Global, EtherSIM+), [x1] | Global | EG800Q-GL | &check; | In development | |
+| M715EMTY | M-Series LTE CAT 1 bis (Global, EtherSIM+), Tray [x50] | Global | EG800Q-GL | &check; | In development | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

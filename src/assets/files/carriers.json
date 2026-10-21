@@ -29021,7 +29021,8 @@
       "technologies": [
         "2G",
         "3G"
-      ]
+      ],
+      "techSummary": "3G with 2G fallback"
     },
     {
       "model": "U260",
@@ -29037,7 +29038,8 @@
       "technologies": [
         "2G",
         "3G"
-      ]
+      ],
+      "techSummary": "3G with 2G fallback"
     },
     {
       "model": "U270",
@@ -29053,7 +29055,8 @@
       "technologies": [
         "2G",
         "3G"
-      ]
+      ],
+      "techSummary": "3G with 2G fallback"
     },
     {
       "model": "G350",
@@ -29068,7 +29071,8 @@
       ],
       "technologies": [
         "2G"
-      ]
+      ],
+      "techSummary": "2G"
     },
     {
       "model": "R410",
@@ -29105,7 +29109,8 @@
       "env": [
         "PARTICLE_CELLULAR_PREFERRED_BANDS",
         "PARTICLE_CELLULAR_FORBIDDEN_BANDS"
-      ]
+      ],
+      "techSummary": "LTE Cat M1"
     },
     {
       "model": "R510",
@@ -29141,7 +29146,9 @@
         "PARTICLE_CELLULAR_PREFERRED_PLMN",
         "PARTICLE_CELLULAR_PREFERRED_BANDS",
         "PARTICLE_CELLULAR_FORBIDDEN_BANDS"
-      ]
+      ],
+      "partName": "SARA-R510S",
+      "techSummary": "LTE Cat M1"
     },
     {
       "model": "BG96-MC",
@@ -29168,7 +29175,8 @@
         "PARTICLE_CELLULAR_PREFERRED_PLMN",
         "PARTICLE_CELLULAR_PREFERRED_BANDS",
         "PARTICLE_CELLULAR_FORBIDDEN_BANDS"
-      ]
+      ],
+      "techSummary": "LTE Cat M1"
     },
     {
       "model": "BG95-M1",
@@ -29195,7 +29203,8 @@
       ],
       "technologies": [
         "M1"
-      ]
+      ],
+      "techSummary": "LTE Cat M1"
     },
     {
       "model": "BG95-M5",
@@ -29240,7 +29249,8 @@
         "PARTICLE_CELLULAR_PREFERRED_PLMN",
         "PARTICLE_CELLULAR_PREFERRED_BANDS",
         "PARTICLE_CELLULAR_FORBIDDEN_BANDS"
-      ]
+      ],
+      "techSummary": "LTE Cat M1"
     },
     {
       "model": "BG95-S5",
@@ -29281,7 +29291,8 @@
         "PARTICLE_CELLULAR_PREFERRED_PLMN",
         "PARTICLE_CELLULAR_PREFERRED_BANDS",
         "PARTICLE_CELLULAR_FORBIDDEN_BANDS"
-      ]
+      ],
+      "techSummary": "LTE Cat M1 with 2G fallback and NTN satellite"
     },
     {
       "model": "EG800Q-GL",
@@ -29315,7 +29326,8 @@
       ],
       "technologies": [
         "4G"
-      ]
+      ],
+      "techSummary": "LTE CAT 1 bis"
     },
     {
       "model": "EG800Q-EU",
@@ -29332,7 +29344,8 @@
       ],
       "technologies": [
         "4G"
-      ]
+      ],
+      "techSummary": "LTE CAT 1 bis"
     },
     {
       "model": "EG800Q-NA",
@@ -29348,7 +29361,8 @@
       ],
       "technologies": [
         "4G"
-      ]
+      ],
+      "techSummary": "LTE CAT 1 bis"
     },
     {
       "model": "EG91-E",
@@ -29370,7 +29384,8 @@
         "2G",
         "3G",
         "4G"
-      ]
+      ],
+      "techSummary": "LTE Cat 1 with 2G/3G fallback"
     },
     {
       "model": "EG91-EX",
@@ -29397,7 +29412,8 @@
         "PARTICLE_CELLULAR_PREFERRED_PLMN",
         "PARTICLE_CELLULAR_PREFERRED_BANDS",
         "PARTICLE_CELLULAR_FORBIDDEN_BANDS"
-      ]
+      ],
+      "techSummary": "LTE Cat 1 with 2G/3G fallback"
     },
     {
       "model": "EG21-G",
@@ -29444,7 +29460,8 @@
         "PARTICLE_CELLULAR_PREFERRED_PLMN",
         "PARTICLE_CELLULAR_PREFERRED_BANDS",
         "PARTICLE_CELLULAR_FORBIDDEN_BANDS"
-      ]
+      ],
+      "techSummary": "LTE Cat 1 with 2G/3G fallback"
     },
     {
       "model": "EG91-NA",
@@ -29468,7 +29485,8 @@
         "PARTICLE_CELLULAR_PREFERRED_PLMN",
         "PARTICLE_CELLULAR_PREFERRED_BANDS",
         "PARTICLE_CELLULAR_FORBIDDEN_BANDS"
-      ]
+      ],
+      "techSummary": "LTE Cat 1 with 3G fallback"
     },
     {
       "model": "EG91-NAX",
@@ -29489,7 +29507,8 @@
       "technologies": [
         "3G",
         "4G"
-      ]
+      ],
+      "techSummary": "LTE Cat 1 with 3G fallback"
     },
     {
       "model": "EG91-AUX",
@@ -29518,7 +29537,8 @@
         "2G",
         "3G",
         "4G"
-      ]
+      ],
+      "techSummary": "LTE Cat 1 with 2G/3G fallback"
     },
     {
       "model": "EG916Q",
@@ -29549,36 +29569,8 @@
       ],
       "technologies": [
         "4G"
-      ]
-    },
-    {
-      "model": "EG91-AUX",
-      "manufacturer": "quectel",
-      "name": "Latin America LTE Cat1",
-      "bands": [
-        "2G-850",
-        "2G-900",
-        "2G-1800",
-        "2G-1900",
-        "3G-1",
-        "3G-2",
-        "3G-5",
-        "3G-8",
-        "4G-1",
-        "4G-2",
-        "4G-3",
-        "4G-4",
-        "4G-5",
-        "4G-7",
-        "4G-8",
-        "4G-28",
-        "4G-66"
       ],
-      "technologies": [
-        "2G",
-        "3G",
-        "4G"
-      ]
+      "techSummary": "LTE CAT 1 bis"
     },
     {
       "model": "SG560D-NA",
@@ -29634,7 +29626,8 @@
         "PARTICLE_CELLULAR_FORBIDDEN_BANDS",
         "PARTICLE_CELLULAR_SIM_SLOT",
         "PARTICLE_CELLULAR_RADIO_MODE"
-      ]
+      ],
+      "techSummary": "5G with LTE fallback"
     },
     {
       "model": "SG560D-EM",
@@ -29699,7 +29692,8 @@
         "PARTICLE_CELLULAR_FORBIDDEN_BANDS",
         "PARTICLE_CELLULAR_SIM_SLOT",
         "PARTICLE_CELLULAR_RADIO_MODE"
-      ]
+      ],
+      "techSummary": "5G with LTE/3G/2G fallback"
     }
   ],
   "sims": [
@@ -32442,7 +32436,7 @@
     },
     {
       "name": "M404MEA",
-      "desc": "M-Series LTE-M/2G (Global, EtherSIM), [x1]",
+      "desc": "M-Series LTE-M/2G (NorAm, EtherSIM), [x1]",
       "lifecycle": "GA",
       "multiple": false,
       "enterprise": false,
@@ -32457,7 +32451,7 @@
       "family": "m series",
       "gen": "4",
       "skuClass": "production",
-      "skuRegion": "global",
+      "skuRegion": "noram",
       "gnss": "cellular-modem",
       "cellAnt": "PARANTCW1EA",
       "cellAntInc": true,
@@ -32484,7 +32478,7 @@
     },
     {
       "name": "M404MTY",
-      "desc": "M-Series LTE-M/2G (Global, EtherSIM), Tray [x50]",
+      "desc": "M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "GA",
       "multiple": true,
       "singleSku": "M404MEA",
@@ -32500,7 +32494,7 @@
       "family": "m series",
       "gen": "4",
       "skuClass": "production",
-      "skuRegion": "global",
+      "skuRegion": "noram",
       "gnss": "cellular-modem",
       "cellAnt": "PARANTCW1EA",
       "cellAntInc": false,
@@ -32666,8 +32660,7 @@
       "family": "m series",
       "gen": "4",
       "skuClass": "production",
-      "skuRegion": "emeaa",
-      "gnss": "cellular-modem",
+      "skuRegion": "global",
       "cellAnt": "PARANTCW1EA",
       "cellAntInc": true,
       "bleAntInt": false,
@@ -32704,8 +32697,7 @@
       "family": "m series",
       "gen": "4",
       "skuClass": "production",
-      "skuRegion": "emeaa",
-      "gnss": "cellular-modem",
+      "skuRegion": "global",
       "cellAnt": "PARANTCW1EA",
       "cellAntInc": false,
       "bleAntInt": false,
@@ -33832,7 +33824,7 @@
       "multiple": true,
       "singleSku": false,
       "wifi": true,
-      "gen": "3",
+      "gen": "4",
       "family": "p series",
       "skuClass": "production",
       "skuRegion": "global",
@@ -33851,7 +33843,7 @@
       "platformId": 32,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "nrf52840",
+      "mcu": "rtl8721x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p2-datasheet/",
       "hsCode": "8517.62.0090"
     },
@@ -34018,7 +34010,7 @@
       "wholesale": true,
       "retail": true,
       "wifi": true,
-      "gen": "3",
+      "gen": "4",
       "family": "p series",
       "skuClass": "prototyping",
       "skuRegion": "global",
@@ -34034,7 +34026,8 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "rtl8721x",
+      "batteryConn": "jst-ph-2"
     },
     {
       "name": "PHN2KIT",
@@ -34042,7 +34035,7 @@
       "lifecycle": "GA",
       "multiple": false,
       "wifi": true,
-      "gen": "3",
+      "gen": "4",
       "family": "p series",
       "skuClass": "prototyping",
       "feather": true,
@@ -34062,8 +34055,9 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/"
+      "mcu": "rtl8721x",
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
+      "batteryConn": "jst-ph-2"
     },
     {
       "name": "PHN2MEA",
@@ -34071,7 +34065,7 @@
       "lifecycle": "GA",
       "multiple": false,
       "wifi": true,
-      "gen": "3",
+      "gen": "4",
       "family": "p series",
       "skuClass": "prototyping",
       "feather": true,
@@ -34091,9 +34085,10 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840",
+      "mcu": "rtl8721x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "batteryConn": "jst-ph-2"
     },
     {
       "name": "PHN2MTY",
@@ -34102,7 +34097,7 @@
       "multiple": true,
       "singleSku": "PHN2MEA",
       "wifi": true,
-      "gen": "3",
+      "gen": "4",
       "family": "p series",
       "skuClass": "prototyping",
       "feather": true,
@@ -34122,9 +34117,10 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840",
+      "mcu": "rtl8721x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "batteryConn": "jst-ph-2"
     },
     {
       "name": "PHNTRAYH",
@@ -35288,6 +35284,21 @@
           "antennas": [
             "PARANTCW1EA",
             "PARANTCN1EA"
+          ]
+        },
+        {
+          "name": "M-Series M715e LTE CAT 1 bis (Global) EtherSIM",
+          "short": [
+            "M715"
+          ],
+          "region": "global",
+          "lifecycle": "In development",
+          "showInternalUsers": true,
+          "sim": 4,
+          "simPlan": 40,
+          "modem": "EG800Q-GL",
+          "antennas": [
+            "PARANTCW1EA"
           ]
         }
       ]
@@ -189608,7 +189619,10 @@
       "flashFileSystem": "2 MB",
       "nfcTag": true,
       "userAppSize": "256 KB",
-      "userRam": "80 KB"
+      "userRam": "80 KB",
+      "name": "nRF52840",
+      "cpuSummary": "64 MHz Cortex-M4F",
+      "userRamApprox": true
     },
     {
       "id": "rtl872x",
@@ -189618,7 +189632,23 @@
       "nfcTag": false,
       "userAppSize": "2048 KB",
       "userRam": "3072 KB",
-      "wifi": "802.11b/g/n"
+      "wifi": "802.11b/g/n",
+      "name": "RTL8722DM",
+      "cpuSummary": "200 MHz Cortex-M33",
+      "wifiBands": "2.4 GHz and 5 GHz"
+    },
+    {
+      "id": "rtl8721x",
+      "ble": "5",
+      "cpu": "ARM Cortex M33 CPU, 200 MHz",
+      "flashFileSystem": "2 MB",
+      "nfcTag": false,
+      "userAppSize": "2048 KB",
+      "userRam": "3072 KB",
+      "wifi": "802.11b/g/n",
+      "name": "RTL8721DM",
+      "cpuSummary": "200 MHz Cortex-M33",
+      "wifiBands": "2.4 GHz and 5 GHz"
     },
     {
       "id": "stm32f2xx",

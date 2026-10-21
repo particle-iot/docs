@@ -318,8 +318,6 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | Global | E350KIT | Electron 2G Kit (Global) | G350 | &nbsp; | 2 | Deprecated | B524MEA |
 | Global | E350TRAY50 | Electron 2G (Global), Tray [x50] | G350 | &nbsp; | 2 | Deprecated | B524MTY |
 | Global | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | U201 | &check; | 2 | NRND | &nbsp; |
-| Global | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | BG95-M5 | &check; | 4 | GA | &nbsp; |
-| Global | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | BG95-M5 | &check; | 4 | GA | &nbsp; |
 | Global | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | BG95-S5 | &check; | 4 | In development | &nbsp; |
 | Global | MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | BG95-M5 | &check; | 4 | GA | &nbsp; |
 | Global | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | BG95-M5 | &check; | 4 | GA | &nbsp; |
@@ -356,6 +354,8 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | NORAM | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 2 | Deprecated | BRN404XKIT |
 | NORAM | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 2 | Deprecated | BRN404XTRAY50 |
 | NORAM | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R410 | &check; | 2 | Deprecated | &nbsp; |
+| NORAM | M404MEA | M-Series LTE-M/2G (NorAm, EtherSIM), [x1] | BG95-M5 | &check; | 4 | GA | &nbsp; |
+| NORAM | M404MTY | M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50] | BG95-M5 | &check; | 4 | GA | &nbsp; |
 | NORAM | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | BG96-MC | &check; | 3 | GA | &nbsp; |
 | NORAM | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | BG96-MC | &check; | 3 | In development | &nbsp; |
 | NORAM | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | BG96-MC | &nbsp; | 3 | Deprecated | ONE404MEA |
@@ -384,8 +384,8 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 
 | Modem | SKU | Description | Region | EtherSIM | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :---: | :---: | :--- | :--- |
-| BG95-M5 | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | Global | &check; | 4 | GA | &nbsp; |
-| BG95-M5 | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | &check; | 4 | GA | &nbsp; |
+| BG95-M5 | M404MEA | M-Series LTE-M/2G (NorAm, EtherSIM), [x1] | NORAM | &check; | 4 | GA | &nbsp; |
+| BG95-M5 | M404MTY | M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 4 | GA | &nbsp; |
 | BG95-M5 | MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Global | &check; | 4 | GA | &nbsp; |
 | BG95-M5 | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | &check; | 4 | GA | &nbsp; |
 | BG95-S5 | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | &check; | 4 | In development | &nbsp; |
@@ -521,8 +521,8 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | EtherSIM | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | 3 | GA | &nbsp; |
 | EtherSIM | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | 2 | NRND | &nbsp; |
 | EtherSIM | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | 2 | Deprecated | &nbsp; |
-| EtherSIM | M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | 4 | GA | &nbsp; |
-| EtherSIM | M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | 4 | GA | &nbsp; |
+| EtherSIM | M404MEA | M-Series LTE-M/2G (NorAm, EtherSIM), [x1] | NORAM | BG95-M5 | 4 | GA | &nbsp; |
+| EtherSIM | M404MTY | M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50] | NORAM | BG95-M5 | 4 | GA | &nbsp; |
 | EtherSIM | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | 4 | GA | &nbsp; |
 | EtherSIM | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | 4 | GA | &nbsp; |
 | EtherSIM | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-S5 | 4 | In development | &nbsp; |
@@ -844,8 +844,8 @@ The following SKUs have LTE Cat M1 cellular modems:
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
 | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
-| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | Global | &check; | BG95-M5 | 4 | GA | &nbsp; |
-| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | &check; | BG95-M5 | 4 | GA | &nbsp; |
+| M404MEA | M-Series LTE-M/2G (NorAm, EtherSIM), [x1] | NORAM | &check; | BG95-M5 | 4 | GA | &nbsp; |
+| M404MTY | M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | BG95-M5 | 4 | GA | &nbsp; |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | &check; | BG96-MC | 3 | GA | &nbsp; |
 | MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Global | &check; | BG95-M5 | 4 | GA | &nbsp; |
 | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | Global | &check; | BG95-M5 | 4 | GA | &nbsp; |

@@ -52,6 +52,7 @@ var sitemap = require('./sitemap.js');
 var buildZip = require('./buildZip.js');
 var carriersUpdate = require('./carriers-update/carriers-update.js');
 var pinmapDiagram = require('./pinmap-diagram/pinmap-diagram.js');
+var worldMapBuild = require('./world-map/world-map-build.js');
 var trackerSchema = require('./tracker-schema.js');
 var deviceOsApi = require('./device-os-api.js');
 var libraries = require('./libraries.js');
@@ -195,6 +196,8 @@ exports.metalsmith = function () {
         ],
       })
     ))
+    // Generate static world maps (see scripts/world-map/maps.js) into src/assets/images/maps and the build
+    .use(worldMapBuild({ sourceDir: '../src', formats: ['svg', 'png'] }))
     .use(troubleshooting({
         sourceDir: '../src',
         jsonFile: 'assets/files/troubleshooting.json',

@@ -134,8 +134,8 @@ The [LocationFusionRK](https://github.com/rickkas7/LocationFusionRK) can be used
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | Global | GA |
-| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | GA |
+| M404MEA | M-Series LTE-M/2G (NorAm, EtherSIM), [x1] | NORAM | GA |
+| M404MTY | M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
 | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | GA |
 | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
 | MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | Global | GA |

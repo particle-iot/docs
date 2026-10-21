@@ -134,8 +134,8 @@ The following are M.2 SoM device SKUs:
 | [B523MTY](/reference/datasheets/b-series/b524-b523-datasheet/) | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | NRND |
 | [B524MEA](/reference/datasheets/b-series/b524-b523-datasheet/) | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | GA |
 | [B524MTY](/reference/datasheets/b-series/b524-b523-datasheet/) | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
-| [M404MEA](/reference/datasheets/m-series/msom-datasheet/) | M-Series LTE-M/2G (Global, EtherSIM), [x1] | GA |
-| [M404MTY](/reference/datasheets/m-series/msom-datasheet/) | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | GA |
+| [M404MEA](/reference/datasheets/m-series/msom-datasheet/) | M-Series LTE-M/2G (NorAm, EtherSIM), [x1] | GA |
+| [M404MTY](/reference/datasheets/m-series/msom-datasheet/) | M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50] | GA |
 | [M524MEA](/reference/datasheets/m-series/msom-datasheet/) | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA |
 | [M524MTY](/reference/datasheets/m-series/msom-datasheet/) | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
 | [M635EMEA](/reference/datasheets/m-series/msom-datasheet/) | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |

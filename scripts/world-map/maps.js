@@ -1,0 +1,253 @@
+// Definitions of the static world maps generated at build time (see world-map-build.js).
+//
+// This is code instead of a configuration file so each map can compute its styles and
+// countries from the carrier database. 
+//
+// module.exports is a function (data, worldMapGlobal) that returns an array of maps:
+//  .file   destination path, relative to the site root (for example 'assets/images/maps/foo.svg')
+//  .styles array of styles passed to generateWorldMapSvg (title, color, hatch)
+//  .countries array of { isoCode, style } (usually from data.mapCountries())
+// data is from carrier-data.js load().
+
+// Example map generation code - not currently used
+// Same as the 'ntn' family map in carriers.js (familyMap.drawMapNTN)
+function ntnMap(data) {
+    const styles = [
+        { title: '2G', color: 'State_Yellow_500' }, // 0
+        { color: 'State_Yellow_500', hatch: 'backward' }, // 1
+        { title: 'M1', color: 'Sky_700' }, // 2
+        { color: 'Sky_700', hatch: 'backward' }, // 3
+        { title: 'M1 & 2G', color: 'Mint_800' }, // 4
+        { color: 'Mint_800', hatch: 'backward' }, // 5 (index + 1 = same with NTN)
+        { title: 'NTN', hatch: 'backward' }, // 6
+    ];
+    const NTN_ONLY = 6;
+
+    const countries = data.mapCountries(function(countryObj, info) {
+        let foundValue = -1;
+
+        for(const cmsObj of info.countryModemSim) {
+            if (cmsObj.modem != 'BG95-S5' || cmsObj.sim != 4) {
+                continue;
+            }
+
+            let has2G = cmsObj.technologies.includes('2G');
+            let hasM1 = cmsObj.technologies.includes('M1');
+            const hasNTN = cmsObj.technologies.includes('NTN');
+
+            if (cmsObj.roamingRestrictions == 'hide' || cmsObj.roamingRestrictions == 'warn') {
+                has2G = hasM1 = false;
+            }
+
+            if (hasM1 && has2G) {
+                foundValue = 4;
+            }
+            else if (hasM1) {
+                foundValue = 2;
+            }
+            else if (has2G) {
+                foundValue = 0;
+            }
+
+            if (hasNTN) {
+                foundValue = (foundValue >= 0) ? (foundValue + 1) : NTN_ONLY;
+            }
+        }
+        return foundValue;
+    });
+
+    return { file: 'assets/images/maps/ntn.svg', styles, countries };
+}
+
+// Example map generation code - not currently used
+// Same as familyMap.drawMapCat1Expansion in carriers.js
+function cat1ExpansionMap(data) {
+    const styles = [
+        { title: 'Original', color: 'Sky_600' },
+        { title: 'Expanded', color: 'Sky_900' },
+    ];
+
+    const countries = data.mapCountries(function(countryObj, info) {
+        for(const cmsObj of info.countryModemSim) {
+            if (cmsObj.recommendation != 'YES' || !cmsObj.modem.startsWith('EG91-E') || cmsObj.sim != 4) {
+                continue;
+            }
+            return cmsObj.expansion ? 1 : 0;
+        }
+    });
+
+    return { file: 'assets/images/maps/cat1-expansion.svg', styles, countries };
+}
+
+
+// Example map generation code - not currently used
+// Same as familyMap.drawMap in carriers.js: one map per device family, colored by
+// the mapColor and mapHatch of each group (model) in skuFamily.
+function familyMap(data, worldMapGlobal, family) {
+    const colors = ['#86E2D5', '#00AEEF'];
+
+    // A country that only picks up a hatch is drawn as a hatch over the default fill
+    const NO_COLOR_INDEX = colors.length;
+    const { styles, getStyleIndex } = worldMapGlobal.createHatchStyles([...colors, undefined]);
+
+    const models = data.getModels(family);
+
+    const countries = data.mapCountries(function(countryObj, info) {
+        let foundColorIndex;
+        let foundHatch = '';
+
+        for(const cmsObj of info.countryModemSim) {
+            for(const modelObj of models) {
+                if (modelObj.sim != cmsObj.sim || modelObj.modem != cmsObj.modem) {
+                    continue;
+                }
+
+                // A model with mapShowPOSS treats NR and POSS the same as YES for map purposes
+                let recommended = cmsObj.recommendation == 'YES';
+                if (!recommended && modelObj.mapShowPOSS && (cmsObj.recommendation == 'NS' || cmsObj.recommendation == 'POSS')) {
+                    // This matches carriers.js, where the condition is always true
+                    recommended = true;
+                }
+                if (!recommended) {
+                    continue;
+                }
+
+                if (typeof modelObj.mapColor != 'undefined') {
+                    foundColorIndex = modelObj.mapColor;
+                }
+                if (modelObj.mapHatch) {
+                    foundHatch = modelObj.mapHatch;
+                }
+            }
+        }
+        if (typeof foundColorIndex != 'undefined' || foundHatch) {
+            const colorIndex = typeof foundColorIndex != 'undefined' ? foundColorIndex : NO_COLOR_INDEX;
+            return getStyleIndex(colorIndex, foundHatch);
+        }
+    });
+
+    const slug = family.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+    return { file: 'assets/images/maps/family-' + slug + '.svg', styles, countries };
+}
+
+function generateRecommendationMap(data, options) {
+    // Each style above is either a color (no hatch) or a hatch (no color). A country supported by
+    // more than one of the models gets the color of one and the hatch of the other, or a cross 
+    // hatch if it has both hatched models. Those combinations are added to styles, without
+    // a title so they don't appear in the legend.
+    const baseStyles = options.styles.slice();
+
+    const getStyleIndex = function(color, hatch) {
+        let index = options.styles.findIndex(e => e.color == color && e.hatch == hatch);
+        if (index < 0) {
+            const style = {};
+            if (color) {
+                style.color = color;
+            }
+            if (hatch) {
+                style.hatch = hatch;
+            }
+            index = options.styles.push(style) - 1;
+        }
+        return index;
+    };
+
+    const countries = data.mapCountries(function(countryObj, info) {
+        let color;
+        const hatches = new Set();
+
+        for(const style of baseStyles) {
+
+            const supported = info.countryModemSim.some(cmsObj => options.supportedFn(style, cmsObj));
+
+            if (!supported) {
+                continue;
+            }
+            if (style.color) {
+                color = style.color;
+            }
+            if (style.hatch) {
+                hatches.add(style.hatch);
+            }
+        }
+
+        let hatch;
+        if (hatches.size > 1) {
+            hatch = 'cross';
+        }
+        else if (hatches.size == 1) {
+            hatch = [...hatches][0];
+        }
+
+        if (color || hatch) {
+            return getStyleIndex(color, hatch);
+        }
+    });
+
+    return { file: options.file, formats: options.formats, styles: options.styles, countries };
+}
+
+
+function map_m404_m524_m715(data) {
+    const options = {
+
+        styles: [
+            { title: 'M715', color: 'Sky_700', modem: 'EG800Q-GL', sim: 4, }, // 0
+            { title: 'M404', hatch: 'backward', modem: 'BG95-M5', sim: 4, }, // 1
+            { title: 'M524', hatch: 'forward', modem: 'EG91-EX', sim: 4, }, // 2        
+        ],
+        file: 'assets/images/maps/m404_m524_m715.png', 
+        formats: ['png'],
+        supportedFn: function(style, cmsObj) {
+            return cmsObj.modem == style.modem && cmsObj.sim == style.sim && cmsObj.recommendation == 'YES';
+        },
+    }
+
+    return generateRecommendationMap(data, options);
+}
+
+function map_axn715_brn404x(data) {
+    const options = {
+
+        styles: [
+            { title: 'AXN715', color: 'Sky_700', modem: 'EG800Q-GL', sim: 4, }, // 0
+            { title: 'BRN404X', hatch: 'backward', modem: 'R510', sim: 4, }, // 1
+        ],
+        file: 'assets/images/maps/axn715_brn404x.png', 
+        formats: ['png'],
+        supportedFn: function(style, cmsObj) {
+            return cmsObj.modem == style.modem && cmsObj.sim == style.sim && cmsObj.recommendation == 'YES';
+        },
+    }
+
+    return generateRecommendationMap(data, options);
+}
+
+
+
+module.exports = function(data, worldMapGlobal) {
+    const maps = [
+        map_m404_m524_m715(data),
+        map_axn715_brn404x(data),
+    ];
+
+    /* Example map generation code - not currently used
+    const maps = [
+        ntnMap(data),
+        cat1ExpansionMap(data),
+    ];
+
+    for(const skuFamilyObj of data.data.skuFamily) {
+        if (!skuFamilyObj.group || skuFamilyObj.wifi || skuFamilyObj.cellular === false) {
+            continue;
+        }
+        const map = familyMap(data, worldMapGlobal, skuFamilyObj.family);
+        if (map.countries.length) {
+            maps.push(map);
+        }
+    }
+    */
+
+    return maps;
+};

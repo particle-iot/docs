@@ -286,7 +286,7 @@
         {
             "num": 18,
             "name": "D2",
-            "desc": "D2 GPIO, Serial RTS flow control (optional)",
+            "desc": "D2 GPIO, Serial1 RTS flow control (optional)",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": false,

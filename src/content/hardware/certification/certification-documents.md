@@ -874,8 +874,8 @@ Additional FCC Test Reports:
 
 | SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | GA | |
-| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | GA | |
+| M404MEA | M-Series LTE-M/2G (NorAm, EtherSIM), [x1] | NORAM | BG95-M5 | &check; | GA | |
+| M404MTY | M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50] | NORAM | BG95-M5 | &check; | GA | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

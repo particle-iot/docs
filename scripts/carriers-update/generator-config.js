@@ -6899,6 +6899,94 @@ const schemaDocs = require('./schema-docs');
             } 
         },        
 
+        // Axion datasheet, Device Comparison
+        {
+            guid: '6cad9be0-0f56-4bba-b571-f1c1747722b1',
+            generatorFn:function(updater){
+                return updater.generateDeviceComparison({
+                    rows: [
+                        'form-factor',
+                        'cellular-modem',
+                        'cellular-region',
+                        'cellular-technology',
+                        'wi-fi-supported',
+                        'generation',
+                        'mcu',
+                        'mcu-processor-speed',
+                        'user-ram-available',
+                        'maximum-user-application-size',
+                        'li-po-battery-connector',
+                        'rgb-status-led',
+                        'mode-and-reset-buttons',
+                        'usb-connector',
+                        'ble-support',
+                        'nfc-tag-support',
+                        'gnss-support',
+                        'sim',
+                        'on-board-antennas',
+                    ],
+                    devices: [
+                        {title: 'Axion', sku: 'AXN715EHEA'},
+                        {title: 'Boron 404X', sku: 'BRN404X'},
+                        {title: 'Photon 2', sku: 'PHN2MEA'},
+                        {title: 'B504e', sku: 'B504EMEA'},
+                        {title: 'M404', sku: 'M404MEA'},
+                        {title: 'M524', sku: 'M524MEA'},
+                    ],
+                }); 
+            } 
+        },
+
+        // M715e datasheet, Device Comparison
+        {
+            guid: '231f43fc-80d4-479e-af07-2a1175671137',
+            generatorFn:function(updater){
+                return updater.generateDeviceComparison({
+                    rows: [
+                        'cellular-modem',
+                        'cellular-region',
+                        'cellular-technology',
+                        'gnss-support',
+                        'sim',
+                    ],
+                    devices: [
+                        {title: 'M715e', sku: 'M715EMEA'},
+                        {title: 'M404', sku: 'M404MEA'},
+                        {title: 'M524', sku: 'M524MEA'},
+                    ],
+                }); 
+            } 
+        },
+
+        // M715e datasheet, Device Comparison with B-Series
+        {
+            guid: '84cbc555-a49b-43cc-81eb-cd166382e776',
+            generatorFn:function(updater){
+                return updater.generateDeviceComparison({
+                    rows: [
+                        'cellular-modem',
+                        'cellular-region',
+                        'cellular-technology',
+                        'wi-fi-supported',
+                        'generation',
+                        'mcu',
+                        'mcu-processor-speed',
+                        'user-ram-available',
+                        'maximum-user-application-size',
+                        'ble-support',
+                        'nfc-tag-support',
+                        'gnss-support',
+                        'sim',
+                    ],
+                    devices: [
+                        {title: 'M715e', sku: 'M715EMEA'},
+                        {title: 'B404X', sku: 'B404XMEA'},
+                        {title: 'B524', sku: 'B524MEA'},
+                        {title: 'B504e', sku: 'B504EMEA'},
+                    ],
+                }); 
+            } 
+        },
 
     ];
 

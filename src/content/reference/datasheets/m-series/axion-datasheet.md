@@ -25,6 +25,7 @@ be used in prototyping breadboards or in production designs.
 
 ### What is LTE CAT 1 bis
 
+{{!-- BEGIN shared-blurb 27a05a40-8a98-436a-825f-4e20fa77a3cc --}}
 LTE CAT 1 bis provides cellular connectivity using a compact and lower-cost cellular module and a single antenna.
 
 LTE CAT 1 (regular) modules require two antennas for receive antenna diversity, and generally require higher power, especially for 2G or 3G fallback.
@@ -32,10 +33,19 @@ LTE CAT 1 (regular) modules require two antennas for receive antenna diversity, 
 LTE Cat M1 is also a compact, low-cost, single antenna standard, however it requires additional equipment at the cellular tower side and is not universally implemented worldwide.
 
 LTE CAT 1 and LTE CAT 1 bis use the same 4G LTE towers used by 4G cell phones. Since all 5G cell phones also can connect to 4G, there is widespread support and no carriers have announced plans to sunset 4G.
+{{!-- END shared-blurb --}}
 
-### Comparison
+### Coverage comparison
 
-|  | Axion | Boron 404X | Photon 2 | B504e | M404 | M524 |
+Since the Axion AXN715e supports LTE Cat 1 bis, it can be used world-wide with a single SKU. The Boron BRN404X is recommended only for use in the United States, Canada, and Mexico. The Axion also supports both Wi-Fi and cellular.
+
+{{imageOverlay src="/assets/images/maps/axn715_brn404x.png" alt="Coverage map" class="full-width"}}
+
+### Device Comparison
+
+{{!-- BEGIN do not edit content below, it is automatically generated 6cad9be0-0f56-4bba-b571-f1c1747722b1 --}}
+
+|   | Axion | Boron 404X | Photon 2 | B504e | M404 | M524 |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Form factor | Feather | Feather | Feather | M.2 SoM | M.2 SoM | M.2 SoM |
 | Cellular modem | Quectel EG800Q-GL | u-blox SARA-R510S | None | Quectel EG91-NAX | Quectel BG95-M5 | Quectel EG91-EX |
@@ -47,15 +57,18 @@ LTE CAT 1 and LTE CAT 1 bis use the same 4G LTE towers used by 4G cell phones. S
 | MCU processor speed | 200 MHz Cortex-M33 | 64 MHz Cortex-M4F | 200 MHz Cortex-M33 | 64 MHz Cortex-M4F | 200 MHz Cortex-M33 | 200 MHz Cortex-M33 |
 | User RAM available | 3072 KB | ~80 KB | 3072 KB | ~80 KB | 3072 KB | 3072 KB |
 | Maximum user application size | 2048 KB | 256 KB | 2048 KB | 256 KB | 2048 KB | 2048 KB |
-| Li-Po battery connector | Yes | Yes | Yes | No | No | No |
+| Li-Po battery connector | 3-pin | 2-pin | 2-pin | No | No | No |
 | RGB status LED | Yes | Yes | Yes | No<sup>1</sup> | No<sup>1</sup> | No<sup>1</sup> |
 | MODE and RESET buttons | Yes | Yes | Yes | No<sup>1</sup> | No<sup>1</sup> | No<sup>1</sup> |
 | USB connector | USB-C | Micro-B | Micro-B | No<sup>1</sup> | No<sup>1</sup> | No<sup>1</sup> |
 | BLE support | Yes | Yes | Yes | Yes | Yes | Yes |
 | NFC tag support | No | Yes | No | Yes | No | No |
-| GNSS support | No | No | No | Yes | Yes | Yes | 
-| SIM | e-sim | MFF2 or 4FF | None | e-sim | MFF2 | MFF2 | 
+| GNSS support | No | No | No | Yes | Yes | Yes |
+| SIM | e-sim | MFF2 or 4FF | None | e-sim | MFF2 | MFF2 |
 | On-board antennas | None | BLE PCB antenna | Wi-Fi/BLE PCB antenna | None | None | None |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 - <sup>1</sup> not included on the M.2 SoM module, typically included on your base board.
 
@@ -69,7 +82,6 @@ SIM:
 - e-sim: Electronic SIM included. Cannot be programmed with arbitrary 3rd-party profiles on these devices.
 - MFF2: SMD SIM included, cannot be changed.
 - 4FF: Plastic nano SIM card, can be used with 3rd-party SIM cards
-
 
 ### MCU
 
@@ -265,7 +277,7 @@ Axion supports one UART serial interface.
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| D2 | D2 GPIO, Serial RTS flow control (optional) | Serial1 (RTS)  | PA[14] |
+| D2 | D2 GPIO, Serial1 RTS flow control (optional) | Serial1 (RTS)  | PA[14] |
 | D3 | D3 GPIO, Serial1 CTS flow control (optional) | Serial1 (CTS)  | PA[15] |
 | RX / D10 | Serial RX, PWM, GPIO | Serial1 (RX)  | PA[13] |
 | TX / D9 | Serial TX, PWM, GPIO, I2S MCLK | Serial1 (TX) | PA[12] |
@@ -634,7 +646,7 @@ Axion can only wake from `HIBERNATE` sleep mode on certain pins, `RISING`, `FALL
 | :---: | :--- | :--- | :--- | :--- |
 | 14 | RX / D10 | Serial RX, PWM, GPIO | Pin can wake from HIBERNATE sleep | PA[13] |
 | 15 | TX / D9 | Serial TX, PWM, GPIO, I2S MCLK | Pin can wake from HIBERNATE sleep | PA[12] |
-| 18 | D2 | D2 GPIO, Serial RTS flow control (optional) | Pin can wake from HIBERNATE sleep | PA[14] |
+| 18 | D2 | D2 GPIO, Serial1 RTS flow control (optional) | Pin can wake from HIBERNATE sleep | PA[14] |
 | 19 | D3 | D3 GPIO, Serial1 CTS flow control (optional) | Pin can wake from HIBERNATE sleep | PA[15] |
 | 24 | D8 / WKP | GPIO, WKP | Pin can wake from HIBERNATE sleep | PA[20] |
 
@@ -1016,7 +1028,7 @@ Axion does not have NFC Tag support.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Number</td><td class="" style="text-align: left; ">18</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">D2</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D2 GPIO, Serial RTS flow control (optional)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D2 GPIO, Serial1 RTS flow control (optional)</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">RTS. Use Serial1 object.</td></tr>

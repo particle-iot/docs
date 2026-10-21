@@ -36,7 +36,7 @@ Particle has an extensive portfolio of LTE-ready, Supply Secure devices in the U
 | BRN404X | Boron LTE CAT-M1 (NorAm, EtherSIM) |
 | E404X | E-Series LTE CAT-M1 (NorAm, EtherSIM) |
 | ELC404 | Electron LTE CAT-M1 (NorAm, EtherSIM) |
-| M404M | M-Series LTE-M/2G (Global, EtherSIM) |
+| M404M | M-Series LTE-M/2G (NorAm, EtherSIM) |
 | M635EM | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM) |
 | ONE404 | Tracker One LTE M1 (NorAm, EtherSIM) |
 | T404 | Tracker SoM LTE M1 (NorAm, EtherSIM) |
@@ -102,8 +102,8 @@ If you are using a different antenna, and had previously undergone intentional r
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | PARANTC41EA | ANT-FLXU |
 | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANT-FLXU | PARANTC41EA |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANT-FLXU | ANTCW2EA |
-| M404MEA | M-Series LTE-M/2G (Global, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
-| M404MTY | M-Series LTE-M/2G (Global, EtherSIM), Tray [x50] | PARANTCW1EA | &nbsp; |
+| M404MEA | M-Series LTE-M/2G (NorAm, EtherSIM), [x1] | PARANTCW1EA | &nbsp; |
+| M404MTY | M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50] | PARANTCW1EA | &nbsp; |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | 1 | &nbsp; |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | 1 | &nbsp; |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | 1 | &nbsp; |
