@@ -13,7 +13,7 @@
 //      or throw an error if .strict is true.
 //  .fillColor default country fill color (optional)
 //  .pngWidth width in pixels of the png (optional)
-//  .legendTextColor legend text color, named or css (default Midnight_700)
+//  .legendTextColor legend text color, named or css (default ParticleBlue_600)
 //  Other options in worldMapGlobal.optionDefaults (legendFont, swatchWidth, etc.) may also be set.
 //
 // generateWorldMapSvg(options) returns the SVG as a string.
@@ -85,7 +85,7 @@ function generateWorldMapSvg(options) {
     }
 
     // In the browser the legend text color comes from the page's CSS (.worldMapLegendText)
-    const legendTextColor = instance.getColor(options.legendTextColor || 'Midnight_700');
+    const legendTextColor = instance.getColor(options.legendTextColor || 'ParticleBlue_600');
     for(const textElem of instance.worldMapSvg.querySelectorAll('.worldMapLegendText')) {
         textElem.setAttribute('fill', legendTextColor);
     }
@@ -121,7 +121,7 @@ async function generateWorldMapPng(svg, options = {}) {
 
 async function writeWorldMap(options, destPath, formats = ['svg']) {
     const result = {};
-    const base = destPath.replace(/\.svg$/, '');
+    const base = destPath.replace(/\.(svg|png)$/, '');
 
     fs.mkdirSync(path.dirname(destPath), { recursive: true });
 

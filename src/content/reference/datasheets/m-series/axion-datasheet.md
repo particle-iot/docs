@@ -25,6 +25,7 @@ be used in prototyping breadboards or in production designs.
 
 ### What is LTE CAT 1 bis
 
+{{!-- BEGIN shared-blurb 27a05a40-8a98-436a-825f-4e20fa77a3cc --}}
 LTE CAT 1 bis provides cellular connectivity using a compact and lower-cost cellular module and a single antenna.
 
 LTE CAT 1 (regular) modules require two antennas for receive antenna diversity, and generally require higher power, especially for 2G or 3G fallback.
@@ -32,9 +33,17 @@ LTE CAT 1 (regular) modules require two antennas for receive antenna diversity, 
 LTE Cat M1 is also a compact, low-cost, single antenna standard, however it requires additional equipment at the cellular tower side and is not universally implemented worldwide.
 
 LTE CAT 1 and LTE CAT 1 bis use the same 4G LTE towers used by 4G cell phones. Since all 5G cell phones also can connect to 4G, there is widespread support and no carriers have announced plans to sunset 4G.
+{{!-- END shared-blurb --}}
 
-### Comparison
+### Coverage comparison
 
+Since the Axion AXN715e supports LTE Cat 1 bis, it can be used world-wide with a single SKU. The Boron BRN404X is recommended only for use in the United States, Canada, and Mexico. The Axion also supports both Wi-Fi and cellular.
+
+{{imageOverlay src="/assets/images/maps/axn715_brn404x.png" alt="Coverage map" class="full-width"}}
+
+### Device Comparison
+
+{{!-- BEGIN shared-blurb a5efad71-3119-4018-9c96-d2d8c2da7aa2 --}}
 |  | Axion | Boron 404X | Photon 2 | B504e | M404 | M524 |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Form factor | Feather | Feather | Feather | M.2 SoM | M.2 SoM | M.2 SoM |
@@ -69,7 +78,7 @@ SIM:
 - e-sim: Electronic SIM included. Cannot be programmed with arbitrary 3rd-party profiles on these devices.
 - MFF2: SMD SIM included, cannot be changed.
 - 4FF: Plastic nano SIM card, can be used with 3rd-party SIM cards
-
+{{!-- END shared-blurb --}}
 
 ### MCU
 

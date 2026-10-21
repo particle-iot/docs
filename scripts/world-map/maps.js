@@ -79,6 +79,7 @@ function cat1ExpansionMap(data) {
     return { file: 'assets/images/maps/cat1-expansion.svg', styles, countries };
 }
 
+
 // Example map generation code - not currently used
 // Same as familyMap.drawMap in carriers.js: one map per device family, colored by
 // the mapColor and mapHatch of each group (model) in skuFamily.
@@ -130,8 +131,106 @@ function familyMap(data, worldMapGlobal, family) {
     return { file: 'assets/images/maps/family-' + slug + '.svg', styles, countries };
 }
 
+function generateRecommendationMap(data, options) {
+    // Each style above is either a color (no hatch) or a hatch (no color). A country supported by
+    // more than one of the models gets the color of one and the hatch of the other, or a cross 
+    // hatch if it has both hatched models. Those combinations are added to styles, without
+    // a title so they don't appear in the legend.
+    const baseStyles = options.styles.slice();
+
+    const getStyleIndex = function(color, hatch) {
+        let index = options.styles.findIndex(e => e.color == color && e.hatch == hatch);
+        if (index < 0) {
+            const style = {};
+            if (color) {
+                style.color = color;
+            }
+            if (hatch) {
+                style.hatch = hatch;
+            }
+            index = options.styles.push(style) - 1;
+        }
+        return index;
+    };
+
+    const countries = data.mapCountries(function(countryObj, info) {
+        let color;
+        const hatches = new Set();
+
+        for(const style of baseStyles) {
+
+            const supported = info.countryModemSim.some(cmsObj => options.supportedFn(style, cmsObj));
+
+            if (!supported) {
+                continue;
+            }
+            if (style.color) {
+                color = style.color;
+            }
+            if (style.hatch) {
+                hatches.add(style.hatch);
+            }
+        }
+
+        let hatch;
+        if (hatches.size > 1) {
+            hatch = 'cross';
+        }
+        else if (hatches.size == 1) {
+            hatch = [...hatches][0];
+        }
+
+        if (color || hatch) {
+            return getStyleIndex(color, hatch);
+        }
+    });
+
+    return { file: options.file, formats: options.formats, styles: options.styles, countries };
+}
+
+
+function map_m404_m524_m715(data) {
+    const options = {
+
+        styles: [
+            { title: 'M715', color: 'Sky_700', modem: 'EG800Q-GL', sim: 4, }, // 0
+            { title: 'M404', hatch: 'backward', modem: 'BG95-M5', sim: 4, }, // 1
+            { title: 'M524', hatch: 'forward', modem: 'EG91-EX', sim: 4, }, // 2        
+        ],
+        file: 'assets/images/maps/m404_m524_m715.png', 
+        formats: ['png'],
+        supportedFn: function(style, cmsObj) {
+            return cmsObj.modem == style.modem && cmsObj.sim == style.sim && cmsObj.recommendation == 'YES';
+        },
+    }
+
+    return generateRecommendationMap(data, options);
+}
+
+function map_axn715_brn404x(data) {
+    const options = {
+
+        styles: [
+            { title: 'AXN715', color: 'Sky_700', modem: 'EG800Q-GL', sim: 4, }, // 0
+            { title: 'BRN404X', hatch: 'backward', modem: 'R510', sim: 4, }, // 1
+        ],
+        file: 'assets/images/maps/axn715_brn404x.png', 
+        formats: ['png'],
+        supportedFn: function(style, cmsObj) {
+            return cmsObj.modem == style.modem && cmsObj.sim == style.sim && cmsObj.recommendation == 'YES';
+        },
+    }
+
+    return generateRecommendationMap(data, options);
+}
+
+
+
 module.exports = function(data, worldMapGlobal) {
-    const maps = [];
+    const maps = [
+        map_m404_m524_m715(data),
+        map_axn715_brn404x(data),
+    ];
 
     /* Example map generation code - not currently used
     const maps = [

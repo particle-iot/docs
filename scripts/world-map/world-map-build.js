@@ -38,7 +38,7 @@ async function generateAll(options = {}) {
         const formats = map.formats || options.formats || ['svg'];
 
         const written = await writeWorldMap(map, path.join(destDir, map.file), formats);
-        const base = map.file.replace(/\.svg$/, '');
+        const base = map.file.replace(/\.(svg|png)$/, '');
         for(const ext in written) {
             results[base + '.' + ext] = written[ext];
         }

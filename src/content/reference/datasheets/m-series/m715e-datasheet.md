@@ -31,6 +31,24 @@ The Particle M-SoM contains the following functional units:
   - M635e: Quectel BG95-S5 LTE Cat M1/2G (Global with NTN satellite)
   - M715e Quectel EG800Q-GL LTE Cat 1 bis (Global)
 
+### What is LTE CAT 1 bis
+
+{{!-- BEGIN shared-blurb 27a05a40-8a98-436a-825f-4e20fa77a3cc --}}
+LTE CAT 1 bis provides cellular connectivity using a compact and lower-cost cellular module and a single antenna.
+
+LTE CAT 1 (regular) modules require two antennas for receive antenna diversity, and generally require higher power, especially for 2G or 3G fallback.
+
+LTE Cat M1 is also a compact, low-cost, single antenna standard, however it requires additional equipment at the cellular tower side and is not universally implemented worldwide.
+
+LTE CAT 1 and LTE CAT 1 bis use the same 4G LTE towers used by 4G cell phones. Since all 5G cell phones also can connect to 4G, there is widespread support and no carriers have announced plans to sunset 4G.
+{{!-- END shared-blurb --}}
+
+### Coverage comparison
+
+Since the M715e supports LTE Cat 1 bis, it can be used world-wide with a single SKU, replacing both the M404 and M524 in many applications, and also with improved coverage for South America.
+
+{{imageOverlay src="/assets/images/maps/m404_m524_m715.png" alt="Coverage map" class="full-width"}}
+
 ### MCU
 
 {{!-- BEGIN shared-blurb f8fe3056-dfdd-46b2-9743-207930877f29 --}}

@@ -1,0 +1,2519 @@
+[
+  {
+    "Region": "North America",
+    "Country": "Anguilla",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Antigua and Barbuda",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Bahamas",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Barbados",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Canada",
+    "Tracker": {
+      "M1": "y"
+    },
+    "B Series": {
+      "M1": "y"
+    },
+    "E Series": {
+      "M1": "y"
+    },
+    "Boron": {
+      "M1": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Cayman Islands",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Dominica",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Dominican Republic",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Grenada",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Guadeloupe",
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Mexico",
+    "Tracker": {
+      "M1": "y"
+    },
+    "B Series": {
+      "M1": "y"
+    },
+    "E Series": {
+      "M1": "y",
+      "3G": "y",
+      "2G": "y"
+    },
+    "Boron": {
+      "M1": "y",
+      "3G": "y",
+      "2G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Saint Kitts and Nevis",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Saint Lucia",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Saint Vincent and the Grenadines",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Trinidad and Tobago",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Turks and Caicos Islands",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "United States",
+    "Tracker": {
+      "M1": "y"
+    },
+    "B Series": {
+      "M1": "y"
+    },
+    "E Series": {
+      "M1": "y"
+    },
+    "Boron": {
+      "M1": "y"
+    }
+  },
+  {
+    "Region": "North America",
+    "Country": "Virgin Islands (British)",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Albania",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Armenia",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Austria",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Azerbaijan",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Belarus",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Belgium",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Bosnia and Herzegovina",
+    "Tracker": {
+      "3G": "y",
+      "4G": "y",
+      "2G": "y"
+    },
+    "B Series": {
+      "3G": "y",
+      "4G": "y",
+      "2G": "y"
+    },
+    "E Series": {
+      "3G": "y",
+      "2G": "y"
+    },
+    "Boron": {
+      "3G": "y",
+      "2G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Bulgaria",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Croatia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Czechia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Denmark",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Estonia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Faroe Islands",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Finland",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "France",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Georgia",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Germany",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Gibraltar",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Greece",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Hungary",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Iceland",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Ireland",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Italy",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Kyrgyzstan",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Latvia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Liechtenstein",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Lithuania",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Luxembourg",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Malta",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Moldova",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Montenegro",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Netherlands",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Norway",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Poland",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Portugal",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Romania",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Serbia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Slovakia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Slovenia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Spain",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Sweden",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Switzerland",
+    "Tracker": {
+      "3G": "y",
+      "4G": "y",
+      "2G": "y"
+    },
+    "B Series": {
+      "3G": "y",
+      "4G": "y",
+      "2G": "y"
+    },
+    "E Series": {
+      "3G": "y",
+      "2G": "y"
+    },
+    "Boron": {
+      "3G": "y",
+      "2G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Tajikistan",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Ukraine",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "United Kingdom",
+    "Tracker": {
+      "3G": "y",
+      "4G": "y",
+      "2G": "y"
+    },
+    "B Series": {
+      "3G": "y",
+      "4G": "y",
+      "2G": "y"
+    },
+    "E Series": {
+      "3G": "y",
+      "2G": "y"
+    },
+    "Boron": {
+      "3G": "y",
+      "2G": "y"
+    }
+  },
+  {
+    "Region": "Europe",
+    "Country": "Uzbekistan",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Afghanistan",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Bahrain",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Bangladesh",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Cambodia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Cyprus",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Hong Kong",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Indonesia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Israel",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Japan",
+    "B Series": {
+      "4G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Jordan",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Kazakhstan",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Kuwait",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Malaysia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Mongolia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Myanmar",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Pakistan",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Philippines",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Qatar",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "South Korea",
+    "Tracker": {
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "3G": "y"
+    },
+    "Boron": {
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Sri Lanka",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Taiwan",
+    "Tracker": {
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "3G": "y",
+      "4G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Thailand",
+    "Tracker": {
+      "3G": "y",
+      "4G": "y",
+      "2G": "y"
+    },
+    "B Series": {
+      "3G": "y",
+      "4G": "y",
+      "2G": "y"
+    },
+    "E Series": {
+      "3G": "y",
+      "2G": "y"
+    },
+    "Boron": {
+      "3G": "y",
+      "2G": "y"
+    }
+  },
+  {
+    "Region": "Asia",
+    "Country": "Vietnam",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Argentina",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Aruba",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Bolivia",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Chile",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Colombia",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Costa Rica",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Ecuador",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "El Salvador",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "French Guiana",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Guatemala",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Guyana",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Honduras",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Nicaragua",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Panama",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Paraguay",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Peru",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Sint Maarten",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Uruguay",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "South America",
+    "Country": "Venezuela",
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Algeria",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Botswana",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Burkina Faso",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Cabo Verde",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Chad",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Congo (Brazzaville)",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Congo (Kinshasa)",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Côte d'Ivoire",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Egypt",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "eSwatini",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Gabon",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Ghana",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Guinea",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Guinea-Bissau",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Kenya",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Madagascar",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Malawi",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Morocco",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Mozambique",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Namibia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Nigeria",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Rwanda",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Seychelles",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "South Africa",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Tanzania",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Tunisia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Uganda",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Africa",
+    "Country": "Zambia",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "2G": "y",
+      "3G": "y"
+    },
+    "Boron": {
+      "2G": "y",
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Oceania",
+    "Country": "Australia",
+    "Tracker": {
+      "4G": "y"
+    },
+    "B Series": {
+      "4G": "y"
+    }
+  },
+  {
+    "Region": "Oceania",
+    "Country": "Brunei",
+    "Tracker": {
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "3G": "y",
+      "4G": "y"
+    },
+    "E Series": {
+      "3G": "y"
+    },
+    "Boron": {
+      "3G": "y"
+    }
+  },
+  {
+    "Region": "Oceania",
+    "Country": "New Zealand",
+    "Tracker": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    },
+    "B Series": {
+      "2G": "y",
+      "3G": "y",
+      "4G": "y"
+    }
+  }
+]
