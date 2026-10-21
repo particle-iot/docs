@@ -647,12 +647,12 @@
             "hash": "4f6c0d93a3dd402078eaff079dbf2262adf03f1ca6a62e2696cc5757ba6b8924"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2026-09-17",
-            "hash": "0365e9b226c334c1428d1132da51bdff838c0464bec61ea28da07b855296e94a"
+            "date": "2026-10-21",
+            "hash": "680cd0411795da510aa15c301b889ec35442efbd93ade094b90358dd7fb69f5d"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2026-05-29",
-            "hash": "37280cad6468698d0660b938cc42cf2826708db6a116a091da164da33dc67242"
+            "date": "2026-10-21",
+            "hash": "ae1ab48a056f8d40311578f069a49f63a3be48cfbd95aa3cd52dad5b96691625"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -695,8 +695,8 @@
             "hash": "81e578c0cb9eae073f929db481418784b0befcf13c4c2f3fb7f2b17cad48df8e"
         },
         "getting-started/setup/manual-setup.md": {
-            "date": "2026-06-15",
-            "hash": "a1cc8f3d73cac1baba92dac300370df4edd2a7343ae912082a2d438c90fb1cb9"
+            "date": "2026-10-21",
+            "hash": "885edc427de1a9e09e751a6d317c216e7d3b911209218a2d4d74e38ab864eb2e"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -927,16 +927,16 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2026-06-17",
-            "hash": "8f7cd7c4616ea97a39765a55aba589340753e3b35277e15b74179e8cb12f1f8d"
+            "date": "2026-10-21",
+            "hash": "cdd9f42badf371d58c659ee7b67a3048cabd75263b22d79afe0c2ac03767142c"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2026-08-14",
             "hash": "33d8342e26f75987c556993b5acc058287bb1e5603dcef37aca60e8f881db7e6"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2026-07-30",
-            "hash": "4e37e85e182316a2b27da1b1fc3c26fe254561143af1e2f1b21abe367654877c"
+            "date": "2026-10-21",
+            "hash": "a61fbc3e3df0390762dd94415f879fa0a5a19857041b58504fbb923727bb21a2"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -1031,12 +1031,12 @@
             "hash": "049c2279674052cb84dbf67aa1991d6d5c571897a12a61106195a616285a81dd"
         },
         "hardware/power/batteries.md": {
-            "date": "2026-03-05",
-            "hash": "4b2951755549f4c80c265d749a1fb5b33fa6d1d077fefcd503ac762973854543"
+            "date": "2026-10-21",
+            "hash": "5cec30d84e3425d80c2761af82f55be97115d0200fdb81ccd10c3d1f0c966f80"
         },
         "hardware/power/power-supply-guide.md": {
-            "date": "2026-07-20",
-            "hash": "0135ad02d127f952bf574615d20bee9a938aa6ef6f28a0f201fb28fe628a5585"
+            "date": "2026-10-21",
+            "hash": "db6b430a1a38a4441fccd80508aac17f20f67ccdee8a03c8c45a9fddc9f01b0f"
         },
         "hardware/power/vehicle-power.md": {
             "date": "2024-02-27",
@@ -8163,8 +8163,8 @@
             "date": "2026-08-25"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "3a639863bb475eed4d4b52902581b5c8dbd2fbb6d24d3f26541fa732487c480c",
-            "date": "2026-05-29"
+            "hash": "589580657bce1863fa61b2db3c74c8b06a7b75e3169af3464c731a39229a4961",
+            "date": "2026-10-21"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8391,8 +8391,8 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "a5d688cd82d80d1322967c3f407b1b8a70009fcb76546f3ce3b299698dcd7102",
-            "date": "2026-10-13"
+            "hash": "d3f244d246cf8084039c66ff061d30380cc12e058dee70d2d37b23f3ffd98eac",
+            "date": "2026-10-21"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "0add4679270f635c9990d95e4b0d22cdeb91ad8a065b8ddbb6712fc9454cabd5",
@@ -9115,8 +9115,8 @@
             "date": "2026-09-30"
         },
         "hardware/som/som-guide.md": {
-            "hash": "f3e974f4311f62d8ea8298b02bf03f9b28f7df1cb845b72426a4ef99326e5720",
-            "date": "2026-05-29"
+            "hash": "092c147f8ef10d2d2ec4d1c4b7cd1f185c55fd59cc639e127719ac9d78e5ba6b",
+            "date": "2026-10-21"
         },
         "getting-started/getting-started.md": {
             "hash": "ae625053e81b7eb53c24ce1608fedeff29140eb0d8a9e60ca4c4f189b3023423",
@@ -9139,8 +9139,8 @@
             "date": "2024-07-23"
         },
         "reference/cellular/verizon-faq.md": {
-            "hash": "36450357edfabf88ae01099bde70b9749b79d5fae83237c99ab376153a349d15",
-            "date": "2026-10-19"
+            "hash": "7dae42958d01648de973d5b1af25efd541b2cc59b67e9b0a793451cd6807801a",
+            "date": "2026-10-21"
         },
         "reference/device-os/libraries/a/Adafruit_ADS1X15_multi.md": {
             "hash": "8a7cc52f3debf1f8017ede9a2bd5bcb35a07758c30a5de8618c3ed452e5e17c2",
@@ -9619,8 +9619,8 @@
             "date": "2025-01-15"
         },
         "getting-started/cloud/location.md": {
-            "hash": "49976670eb269a399acc43544b439be5d5155d0156d65cf07bd1918dabcc273b",
-            "date": "2026-05-29"
+            "hash": "18c0b1f7d18e7b0b184e2e1aa25353c3b5c636fa9261a407e1b673ecf3f9a607",
+            "date": "2026-10-21"
         },
         "reference/technical-advisory-notices/tan015.md": {
             "hash": "dd8860c4fc975fa1161d286a6aa3a8b6d5b295b002f176f0b299694daa1eec04",

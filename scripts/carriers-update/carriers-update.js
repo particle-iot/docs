@@ -1515,6 +1515,8 @@ const generatorConfig = require('./generator-config');
         // options.devices is an array of objects, one per column, left to right:
         //   .title   Column heading
         //   .sku     SKU in the skus table that supplies the data for that column
+        // options.rows is an optional array of row ids to include, in order. Default is all rows.
+        //   Ids: form-factor, cellular-modem, cellular-region, cellular-technology, wi-fi-supported, generation, mcu, mcu-processor-speed, user-ram-available, maximum-user-application-size, li-po-battery-connector, rgb-status-led, mode-and-reset-buttons, usb-connector, ble-support, nfc-tag-support, gnss-support, sim, on-board-antennas
         // options.footnote is appended after the "No" values for features that are on the base board 
         // on M.2 SoMs. Default is '<sup>1</sup>'
 
@@ -1547,6 +1549,7 @@ const generatorConfig = require('./generator-config');
 
         const rowDefs = [
             {
+                id: 'form-factor',
                 title: 'Form factor',
                 fn: function({sku}) {
                     if (sku.feather) {
@@ -1559,6 +1562,7 @@ const generatorConfig = require('./generator-config');
                 }
             },
             {
+                id: 'cellular-modem',
                 title: 'Cellular modem',
                 fn: function({modem}) {
                     if (!modem) {
@@ -1568,18 +1572,21 @@ const generatorConfig = require('./generator-config');
                 }
             },
             {
+                id: 'cellular-region',
                 title: 'Cellular region',
                 fn: function({sku, modem}) {
                     return modem ? regionNames[sku.skuRegion] : 'N/A';
                 }
             },
             {
+                id: 'cellular-technology',
                 title: 'Cellular technology',
                 fn: function({modem}) {
                     return modem ? modem.techSummary : 'None';
                 }
             },
             {
+                id: 'wi-fi-supported',
                 title: 'Wi-Fi supported',
                 fn: function({sku, mcu}) {
                     if (sku.wifi || sku.wifiAntInt || sku.wifiAntExt) {
@@ -1589,36 +1596,42 @@ const generatorConfig = require('./generator-config');
                 }
             },
             {
+                id: 'generation',
                 title: 'Generation',
                 fn: function({sku}) {
                     return 'Gen ' + sku.gen;
                 }
             },
             {
+                id: 'mcu',
                 title: 'MCU',
                 fn: function({mcu}) {
                     return mcu.name;
                 }
             },
             {
+                id: 'mcu-processor-speed',
                 title: 'MCU processor speed',
                 fn: function({mcu}) {
                     return mcu.cpuSummary;
                 }
             },
             {
+                id: 'user-ram-available',
                 title: 'User RAM available',
                 fn: function({mcu}) {
                     return (mcu.userRamApprox ? '~' : '') + mcu.userRam;
                 }
             },
             {
+                id: 'maximum-user-application-size',
                 title: 'Maximum user application size',
                 fn: function({mcu}) {
                     return mcu.userAppSize;
                 }
             },
             {
+                id: 'li-po-battery-connector',
                 title: 'Li-Po battery connector',
                 fn: function({sku}) {
                     // M.2 SoMs do not have a battery connector; it's on the base board
@@ -1627,42 +1640,49 @@ const generatorConfig = require('./generator-config');
                 }
             },
             {
+                id: 'rgb-status-led',
                 title: 'RGB status LED',
                 fn: function({sku}) {
                     return sku.feather ? 'Yes' : noBaseBoard;
                 }
             },
             {
+                id: 'mode-and-reset-buttons',
                 title: 'MODE and RESET buttons',
                 fn: function({sku}) {
                     return sku.feather ? 'Yes' : noBaseBoard;
                 }
             },
             {
+                id: 'usb-connector',
                 title: 'USB connector',
                 fn: function({sku}) {
                     return usbNames[sku.usb] || noBaseBoard;
                 }
             },
             {
+                id: 'ble-support',
                 title: 'BLE support',
                 fn: function({mcu}) {
                     return yesNo(mcu.ble);
                 }
             },
             {
+                id: 'nfc-tag-support',
                 title: 'NFC tag support',
                 fn: function({mcu}) {
                     return yesNo(mcu.nfcTag);
                 }
             },
             {
+                id: 'gnss-support',
                 title: 'GNSS support',
                 fn: function({sku}) {
                     return yesNo(sku.gnss);
                 }
             },
             {
+                id: 'sim',
                 title: 'SIM',
                 fn: function({sku}) {
                     if (sku.simEsim) {
@@ -1679,6 +1699,7 @@ const generatorConfig = require('./generator-config');
                 }
             },
             {
+                id: 'on-board-antennas',
                 title: 'On-board antennas',
                 fn: function({sku}) {
                     const wifi = antennaType(sku.wifiAntInt);
@@ -1696,6 +1717,18 @@ const generatorConfig = require('./generator-config');
                 }
             },
         ];
+
+        // Select and order the rows. Default is all rows in the order defined above.
+        let rows = rowDefs;
+        if (options.rows) {
+            rows = options.rows.map(function(id) {
+                const rowDef = rowDefs.find(e => e.id == id);
+                if (!rowDef) {
+                    throw new Error('generateDeviceComparison: unknown row id ' + id);
+                }
+                return rowDef;
+            });
+        }
 
         // Collect the data for each column
         let devices = [];
@@ -1721,7 +1754,7 @@ const generatorConfig = require('./generator-config');
         });
 
         let tableData = [];
-        for(const rowDef of rowDefs) {
+        for(const rowDef of rows) {
             let rowData = {feature: rowDef.title};
             devices.forEach(function(device, index) {
                 rowData['device' + index] = rowDef.fn(device);

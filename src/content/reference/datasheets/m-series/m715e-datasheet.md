@@ -49,6 +49,44 @@ Since the M715e supports LTE Cat 1 bis, it can be used world-wide with a single 
 
 {{imageOverlay src="/assets/images/maps/m404_m524_m715.png" alt="Coverage map" class="full-width"}}
 
+### Device comparison (M-Series)
+
+{{!-- BEGIN do not edit content below, it is automatically generated 231f43fc-80d4-479e-af07-2a1175671137 --}}
+
+|   | M715e | M404 | M524 |
+| :--- | :---: | :---: | :---: |
+| Cellular modem | Quectel EG800Q-GL | Quectel BG95-M5 | Quectel EG91-EX |
+| Cellular region | Global | NorAm | EMEAA |
+| Cellular technology | LTE CAT 1 bis | LTE Cat M1 | LTE Cat 1 with 2G/3G fallback |
+| GNSS support | No | Yes | Yes |
+| SIM | e-sim | MFF2 | MFF2 |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+### Device comparison (B-Series)
+
+{{!-- BEGIN do not edit content below, it is automatically generated 84cbc555-a49b-43cc-81eb-cd166382e776 --}}
+
+|   | M715e | B404X | B524 | B504e |
+| :--- | :---: | :---: | :---: | :---: |
+| Cellular modem | Quectel EG800Q-GL | u-blox SARA-R510S | Quectel EG91-E | Quectel EG91-NAX |
+| Cellular region | Global | NorAm | EMEAA | Americas |
+| Cellular technology | LTE CAT 1 bis | LTE Cat M1 | LTE Cat 1 with 2G/3G fallback | LTE Cat 1 with 3G fallback |
+| Wi-Fi supported | Yes (2.4 GHz and 5 GHz) | No | No | No |
+| Generation | Gen 4 | Gen 3 | Gen 3 | Gen 3 |
+| MCU | RTL8722DM | nRF52840 | nRF52840 | nRF52840 |
+| MCU processor speed | 200 MHz Cortex-M33 | 64 MHz Cortex-M4F | 64 MHz Cortex-M4F | 64 MHz Cortex-M4F |
+| User RAM available | 3072 KB | ~80 KB | ~80 KB | ~80 KB |
+| Maximum user application size | 2048 KB | 256 KB | 256 KB | 256 KB |
+| BLE support | Yes | Yes | Yes | Yes |
+| NFC tag support | No | Yes | Yes | Yes |
+| GNSS support | No | No | No | Yes |
+| SIM | e-sim | MFF2 | MFF2 | e-sim |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 ### MCU
 
 {{!-- BEGIN shared-blurb f8fe3056-dfdd-46b2-9743-207930877f29 --}}
@@ -1295,8 +1333,8 @@ SE, SI, SK, TR, UA, UK(NI).
 
 | SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| M715EMEA | M-Series LTE CAT 1 bis (Global, EtherSIM+), [x1] | EMEAA | EG800Q-GL | &check; | In development | |
-| M715EMTY | M-Series LTE CAT 1 bis (Global, EtherSIM+), Tray [x50] | EMEAA | EG800Q-GL | &check; | In development | |
+| M715EMEA | M-Series LTE CAT 1 bis (Global, EtherSIM+), [x1] | Global | EG800Q-GL | &check; | In development | |
+| M715EMTY | M-Series LTE CAT 1 bis (Global, EtherSIM+), Tray [x50] | Global | EG800Q-GL | &check; | In development | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
