@@ -52,6 +52,10 @@ datastore.findModemByModel = function(model) {
     return null;
 };
 
+datastore.findMcuById = function(id) {
+    return datastore.data.mcus.find(e => e.id == id) || null;
+};
+
 datastore.findRegionGroupById = function(id) {
     for(let ii = 0; ii < datastore.data.regionGroups.length; ii++) {
         const obj = datastore.data.regionGroups[ii];

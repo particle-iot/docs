@@ -10077,6 +10077,10 @@
         "tools/developer-tools/antenna-tool.md": {
             "hash": "5396fcfaeaa7ab30ef386c40934dc5a1013194415ae14ed5edb8a966cb945d76",
             "date": "2026-10-01"
+        },
+        "tools/developer-tools/device-comparison.md": {
+            "hash": "a415c496338261a9651a7747dd5e5a7fa4f22c10d57df76023d5bdf715e2cd59",
+            "date": "2026-10-22"
         }
     }
 }
