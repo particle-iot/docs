@@ -4,9 +4,21 @@ $(document).ready(function () {
     // Devices selected when the page is loaded without parameters
     const defaultDevices = ['M715', 'M404', 'M524'];
 
+    // Symbols for recommendation values, used if the recommendation table does not have
+    // symbol.greenCheckOrRedQuestion for that value
+    const defaultRecommendationSymbol = {
+        YES: '\u2705',
+    };
+    const defaultUnknownSymbol = '\u2753';
+
+    const escapeAttr = function(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    };
+
     $('.deviceComparison').each(async function() {
         const thisElem = $(this);
         const tableElem = $(thisElem).find('.deviceComparisonTable');
+        const countryElem = $(thisElem).find('input.deviceComparisonCountry');
         const selectElems = $(thisElem).find('select.deviceComparisonDevice');
 
         // Remember the search parameters before they are replaced
@@ -95,10 +107,62 @@ $(document).ready(function () {
 
             let value = urlParams.get(selectElem.data('param'));
             if (!value || !findDeviceOption(value)) {
-                value = defaultDevices[index];
+                // Some defaults may be internal-only; use the next available default
+                const available = defaultDevices.filter(e => findDeviceOption(e));
+                value = available[index] || deviceOptions[0].options[0].value;
             }
             selectElem.val(value);
         });
+
+        {
+            // Show country compatibility, default is checked
+            const cc = urlParams.get(countryElem.data('param'));
+            if (cc !== null) {
+                countryElem.prop('checked', cc != '0');
+            }
+        }
+
+        // Returns the table rows for country compatibility, one per country. Each device column is
+        // looked up in countryModemSim using the modem and SIM of the device's SKU.
+        const getCountryRows = function(devices) {
+            const rows = [{feature: '<strong>Country compatibility</strong>'}];
+
+            const cmsByKey = {};
+            for(const cmsObj of datastore.data.countryModemSim) {
+                cmsByKey[cmsObj.country + '|' + cmsObj.modem + '|' + cmsObj.sim] = cmsObj;
+            }
+
+            for(const countryObj of datastore.data.countries) {
+                const rowData = {feature: escapeAttr(countryObj.name)};
+                let hasData = false;
+
+                devices.forEach(function(device, index) {
+                    const cmsObj = cmsByKey[countryObj.name + '|' + device.skuObj.modem + '|' + device.skuObj.sim];
+                    if (!cmsObj || !cmsObj.recommendation) {
+                        return;
+                    }
+                    const recommendationObj = datastore.data.recommendation.find(e => e.name == cmsObj.recommendation);
+                    if (!recommendationObj) {
+                        return;
+                    }
+
+                    let symbol = recommendationObj.symbol ? recommendationObj.symbol.greenCheckOrRedQuestion : undefined;
+                    if (symbol === undefined) {
+                        symbol = defaultRecommendationSymbol[recommendationObj.name] || defaultUnknownSymbol;
+                    }
+
+                    const tooltip = cmsObj.reason || recommendationObj.desc || recommendationObj.short;
+
+                    rowData['device' + index] = '<span title="' + escapeAttr(tooltip) + '">' + symbol + '</span>';
+                    hasData = true;
+                });
+
+                if (hasData) {
+                    rows.push(rowData);
+                }
+            }
+            return rows;
+        };
 
         const update = function() {
             const devices = [];
@@ -108,20 +172,29 @@ $(document).ready(function () {
                 const value = $(this).val();
                 const option = findDeviceOption(value);
                 if (option) {
-                    devices.push({title: value, sku: option.sku});
+                    devices.push({title: value, sku: option.sku, skuObj: datastore.findSkuByName(option.sku)});
                     urlConfig[$(this).data('param')] = value;
                 }
             });
+
+            const showCountry = countryElem.prop('checked');
+            urlConfig[countryElem.data('param')] = showCountry ? '1' : '0';
 
             // Update URL
             history.pushState(null, '', '?' + $.param(urlConfig));
 
             const def = deviceComparison.getTableDefinition({devices}, datastore);
 
-            tableElem.empty().append(tableGenerator.generateTable({columns: def.columns}, def.tableData));
+            let tableData = def.tableData;
+            if (showCountry) {
+                tableData = tableData.concat(getCountryRows(devices));
+            }
+
+            tableElem.empty().append(tableGenerator.generateTable({columns: def.columns}, tableData));
         };
 
         selectElems.on('change', update);
+        countryElem.on('change', update);
 
         update();
     });

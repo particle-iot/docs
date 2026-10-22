@@ -189488,27 +189488,62 @@
     {
       "name": "YES",
       "short": "Recommended",
-      "desc": "Recommended and supported configuration"
+      "desc": "Recommended and supported configuration",
+      "symbol": {
+        "checkOnly": "✓",
+        "greenCheckOnly": "✅",
+        "greenCheckOrRedX": "✅",
+        "greenCheckOrRedQuestion": "✅",
+        "greenCheckOrRedQuestionOrRedX": "✅"
+      }
     },
     {
       "name": "NS",
       "short": "Not supported",
-      "desc": "Not officially supported, likely to work"
+      "desc": "Not officially supported, likely to work",
+      "symbol": {
+        "checkOnly": "",
+        "greenCheckOnly": "",
+        "greenCheckOrRedX": "❌",
+        "greenCheckOrRedQuestion": "❓",
+        "greenCheckOrRedQuestionOrRedX": "❓"
+      }
     },
     {
       "name": "POSS",
       "short": "Untested",
-      "desc": "Not officially supported, may work but is untested"
+      "desc": "Not officially supported, may work but is untested",
+      "symbol": {
+        "checkOnly": "",
+        "greenCheckOnly": "",
+        "greenCheckOrRedX": "❌",
+        "greenCheckOrRedQuestion": "❓",
+        "greenCheckOrRedQuestionOrRedX": "❓"
+      }
     },
     {
       "name": "NRND",
       "short": "Not recommended for new designs",
-      "desc": "Not recommended for new designs"
+      "desc": "Not recommended for new designs",
+      "symbol": {
+        "checkOnly": "",
+        "greenCheckOnly": "",
+        "greenCheckOrRedX": "❌",
+        "greenCheckOrRedQuestion": "",
+        "greenCheckOrRedQuestionOrRedX": "❌"
+      }
     },
     {
       "name": "NR",
       "short": "Not recommended",
-      "desc": "Not recommended"
+      "desc": "Not recommended",
+      "symbol": {
+        "checkOnly": "",
+        "greenCheckOnly": "",
+        "greenCheckOrRedX": "❌",
+        "greenCheckOrRedQuestion": "",
+        "greenCheckOrRedQuestionOrRedX": "❌"
+      }
     }
   ],
   "regionGroups": [
