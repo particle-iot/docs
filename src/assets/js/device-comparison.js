@@ -77,6 +77,9 @@ $(document).ready(function () {
                     value: groupObj.short[0],
                     title: groupObj.name,
                     sku: skuObj.name,
+                    modem: groupObj.modem,
+                    sim: groupObj.sim,
+                    simPlan: groupObj.simPlan,
                 });
             }
 
@@ -159,7 +162,8 @@ $(document).ready(function () {
                         return;
                     }
 
-                    rowData['device' + index] = '<span title="' + escapeAttr(tooltip) + '">' + symbol + '</span>';
+                    rowData['device' + index] = '<span class="deviceComparisonCell" title="' + escapeAttr(tooltip) + 
+                        '" data-country="' + escapeAttr(countryObj.name) + '" data-device="' + escapeAttr(device.title) + '">' + symbol + '</span>';
                     hasData = true;
                 });
 
@@ -170,6 +174,74 @@ $(document).ready(function () {
             return rows;
         };
 
+        // Show the country details for a device in an overlay, using the same content as the country
+        // details tab on the carriers page (from the recommendation down, without the SKU list)
+        const showDetails = function(country, deviceValue) {
+            const option = findDeviceOption(deviceValue);
+            if (!option) {
+                return;
+            }
+
+            const overlayElem = $('<div class="deviceComparisonOverlay">');
+            const panelElem = $('<div class="deviceComparisonOverlayPanel">').appendTo(overlayElem);
+
+            const close = function() {
+                $(document).off('keydown.deviceComparisonOverlay');
+                overlayElem.parent().remove();
+            };
+            $('<button type="button" class="deviceComparisonOverlayClose" aria-label="Close">&times;</button>').on('click', close).appendTo(panelElem);
+            $('<h3>').text(option.title + ' in ' + country).appendTo(panelElem);
+
+            const resultDiv = $('<div>').appendTo(panelElem);
+
+            overlayElem.on('click', function(ev) {
+                if (ev.target === overlayElem[0]) {
+                    close();
+                }
+            });
+            $(document).on('keydown.deviceComparisonOverlay', function(ev) {
+                if (ev.key == 'Escape') {
+                    close();
+                }
+            });
+
+            // Site table and font styles are scoped to #docs .content, so the overlay needs a .content
+            // ancestor to look like the carriers page. It can't go in the page's own .content element
+            // because that is inside a transformed, scrolling container, which breaks position: fixed.
+            // Instead, add a separate .content wrapper directly under #docs. Use the page's background color
+            // so the theme matches.
+            let hostElem = $('#docs');
+            if (!hostElem.length) {
+                hostElem = $('body');
+            }
+            let bgColor = 'transparent';
+            for(let e = $(thisElem).closest('.content')[0] || hostElem[0]; e; e = e.parentElement) {
+                bgColor = getComputedStyle(e).backgroundColor;
+                if (bgColor != 'transparent' && bgColor != 'rgba(0, 0, 0, 0)') {
+                    break;
+                }
+            }
+            panelElem.css('background-color', bgColor);
+
+            $('<div class="content">').append(overlayElem).appendTo(hostElem);
+
+            countryDetails.generateTable({
+                country,
+                modem: option.modem,
+                sim: option.sim,
+                simPlan: option.simPlan,
+                tableId: 'deviceComparisonDetailTable',
+                resultDiv,
+            });
+        };
+
+        tableElem.on('click', 'td', function() {
+            const cellElem = $(this).find('.deviceComparisonCell');
+            if (cellElem.length) {
+                showDetails(cellElem.data('country'), cellElem.data('device'));
+            }
+        });
+
         const update = function() {
             const devices = [];
             const urlConfig = {};
@@ -178,7 +250,7 @@ $(document).ready(function () {
                 const value = $(this).val();
                 const option = findDeviceOption(value);
                 if (option) {
-                    devices.push({title: value, sku: option.sku, skuObj: datastore.findSkuByName(option.sku)});
+                    devices.push({title: value, option, sku: option.sku, skuObj: datastore.findSkuByName(option.sku)});
                     urlConfig[$(this).data('param')] = value;
                 }
             });

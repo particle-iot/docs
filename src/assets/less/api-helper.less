@@ -427,3 +427,43 @@ select.apiHelperConfigSchemaProductSelect {
 .deviceComparisonFootnote {
     font-size: 0.9em;
 }
+
+.deviceComparisonCell {
+    cursor: pointer;
+}
+
+.deviceComparisonOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deviceComparisonOverlayPanel {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    max-height: 85%;
+    overflow: auto;
+    padding: 16px 24px;
+    border-radius: 6px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.deviceComparisonOverlayClose {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    color: inherit;
+}
