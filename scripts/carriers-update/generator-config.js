@@ -6906,6 +6906,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generateDeviceComparison({
                     rows: [
                         'form-factor',
+                        'lifecycle',
                         'cellular-modem',
                         'cellular-region',
                         'cellular-technology',
@@ -6924,6 +6925,7 @@ const schemaDocs = require('./schema-docs');
                         'gnss-support',
                         'sim',
                         'on-board-antennas',
+                        'platform',
                     ],
                     devices: [
                         {title: 'Axion', sku: 'AXN715EHEA'},
@@ -6943,11 +6945,13 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generateDeviceComparison({
                     rows: [
+                        'lifecycle',
                         'cellular-modem',
                         'cellular-region',
                         'cellular-technology',
                         'gnss-support',
                         'sim',
+                        'platform',
                     ],
                     devices: [
                         {title: 'M715e', sku: 'M715EMEA'},
@@ -6964,6 +6968,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generateDeviceComparison({
                     rows: [
+                        'lifecycle',
                         'cellular-modem',
                         'cellular-region',
                         'cellular-technology',
@@ -6977,6 +6982,7 @@ const schemaDocs = require('./schema-docs');
                         'nfc-tag-support',
                         'gnss-support',
                         'sim',
+                        'platform',
                     ],
                     devices: [
                         {title: 'M715e', sku: 'M715EMEA'},

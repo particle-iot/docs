@@ -61,6 +61,13 @@
                 }
             },
             {
+                id: 'lifecycle',
+                title: 'Lifecycle',
+                fn: function({sku}) {
+                    return sku.lifecycle == 'Pre development' ? 'In development' : (sku.lifecycle || '');
+                }
+            },
+            {
                 id: 'cellular-modem',
                 title: 'Cellular modem',
                 fn: function({modem}) {
@@ -215,6 +222,29 @@
                     return 'None';
                 }
             },
+            {
+                id: 'platform',
+                title: 'Platform',
+                fn: function({platform}) {
+                    return platform ? platform.displayName + ' (' + platform.id + ')' : '';
+                }
+            },
+            {
+                // Only included by default (all rows), which is how the interactive tool uses it
+                id: 'datasheet',
+                title: 'Datasheet',
+                fn: function({sku}) {
+                    if (!sku.datasheet) {
+                        return '';
+                    }
+                    let link = sku.datasheet;
+                    const linkPrefix = 'https://docs.particle.io';
+                    if (link.startsWith(linkPrefix)) {
+                        link = link.substring(linkPrefix.length);
+                    }
+                    return '<a href="' + link.replace(/"/g, '&quot;') + '">Datasheet</a>';
+                }
+            },
         ];
 
         return rowDefs;
@@ -260,7 +290,13 @@
             }
             const modem = sku.modem ? lookup.findModemByModel(sku.modem) : null;
 
-            devices.push({title: device.title, sku, mcu, modem});
+            // Platform is in the deviceConstants object (keyed by name), matched on id
+            let platform = null;
+            if (sku.platformId !== undefined && lookup.data && lookup.data.deviceConstants) {
+                platform = Object.values(lookup.data.deviceConstants).find(e => e.id == sku.platformId) || null;
+            }
+
+            devices.push({title: device.title, sku, mcu, modem, platform});
         }
 
         // The table is transposed from the usual generateTable usage: each row is a feature, and 

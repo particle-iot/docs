@@ -48,6 +48,7 @@ Since the Axion AXN715e supports LTE Cat 1 bis, it can be used world-wide with a
 |   | Axion | Boron 404X | Photon 2 | B504e | M404 | M524 |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Form factor | Feather | Feather | Feather | M.2 SoM | M.2 SoM | M.2 SoM |
+| Lifecycle | In development | Deprecated | GA | GA | GA | GA |
 | Cellular modem | Quectel EG800Q-GL | u-blox SARA-R510S | None | Quectel EG91-NAX | Quectel BG95-M5 | Quectel EG91-EX |
 | Cellular region | Global | NorAm | N/A | Americas | NorAm | EMEAA |
 | Cellular technology | LTE CAT 1 bis | LTE Cat M1 | None | LTE Cat 1 with 3G fallback | LTE Cat M1 | LTE Cat 1 with 2G/3G fallback |
@@ -66,6 +67,7 @@ Since the Axion AXN715e supports LTE Cat 1 bis, it can be used world-wide with a
 | GNSS support | No | No | No | Yes | Yes | Yes |
 | SIM | e-sim | MFF2 or 4FF | None | e-sim | MFF2 | MFF2 |
 | On-board antennas | None | BLE PCB antenna | Wi-Fi/BLE PCB antenna | None | None | None |
+| Platform | &nbsp; | Boron (13) | Photon 2 / P2 (32) | B5-SoM (25) | M-SoM (35) | M-SoM (35) |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

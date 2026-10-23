@@ -153,6 +153,10 @@ $(document).ready(function () {
 
                     const tooltip = cmsObj.reason || recommendationObj.desc || recommendationObj.short;
 
+                    if (!symbol) {
+                        return;
+                    }
+
                     rowData['device' + index] = '<span title="' + escapeAttr(tooltip) + '">' + symbol + '</span>';
                     hasData = true;
                 });
