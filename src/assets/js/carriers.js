@@ -1171,7 +1171,7 @@ countryDetails.update = function() {
         let modemSimSimPlan = [];
         
         for(const skuFamilyObj of datastore.data.skuFamily) {
-            if (skuFamilyObj.group) {
+            if (skuFamilyObj.group && !skuFamilyObj.wifi) {
                 for(const skuFamilyGroupObj of skuFamilyObj.group) {
                     let exists = false;
                     for(const mspObj of modemSimSimPlan) {

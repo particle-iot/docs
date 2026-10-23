@@ -61,7 +61,7 @@ Since the M715e supports LTE Cat 1 bis, it can be used world-wide with a single 
 | Cellular technology | LTE CAT 1 bis | LTE Cat M1 | LTE Cat 1 with 2G/3G fallback |
 | GNSS support | No | Yes | Yes |
 | SIM | e-sim | MFF2 | MFF2 |
-| Platform | &nbsp; | M-SoM (35) | M-SoM (35) |
+| Platform | N/A | M-SoM (35) | M-SoM (35) |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -86,7 +86,7 @@ Since the M715e supports LTE Cat 1 bis, it can be used world-wide with a single 
 | NFC tag support | No | Yes | Yes | Yes |
 | GNSS support | No | No | No | Yes |
 | SIM | e-sim | MFF2 | MFF2 | e-sim |
-| Platform | &nbsp; | B-SoM (23) | B5-SoM (25) | B5-SoM (25) |
+| Platform | N/A | B-SoM (23) | B5-SoM (25) | B5-SoM (25) |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

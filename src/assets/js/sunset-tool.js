@@ -703,7 +703,7 @@ $(document).ready(async function() {
         let showItems = [];
 
         for(const familyObj of datastore.data.skuFamily) {
-            if (!familyObj.group) {
+            if (!familyObj.group || familyObj.wifi) {
                 continue;
             }
 

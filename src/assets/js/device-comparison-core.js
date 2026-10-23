@@ -131,7 +131,7 @@
                 title: 'Wi-Fi supported',
                 fn: function({sku, mcu}) {
                     if (sku.wifi || sku.wifiAntInt || sku.wifiAntExt) {
-                        return 'Yes' + (mcu.wifiBands ? ' (' + mcu.wifiBands + ')' : '');
+                        return 'Yes' + ((sku.wifiBands || mcu.wifiBands) ? ' (' + (sku.wifiBands || mcu.wifiBands) + ')' : '');
                     }
                     return 'No';
                 }

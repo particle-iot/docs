@@ -30150,7 +30150,8 @@
       "mcu": "nrf52840",
       "rgbStatusLed": true,
       "modeButton": true,
-      "resetButton": true
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "ARG-LDKT",
@@ -30180,7 +30181,8 @@
       "mcu": "nrf52840",
       "rgbStatusLed": true,
       "modeButton": true,
-      "resetButton": true
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "ARG-STRTKT",
@@ -30213,7 +30215,8 @@
       "mcu": "nrf52840",
       "rgbStatusLed": true,
       "modeButton": true,
-      "resetButton": true
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "ARGN-H",
@@ -30248,7 +30251,8 @@
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/",
       "rgbStatusLed": true,
       "modeButton": true,
-      "resetButton": true
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "ARGNKIT",
@@ -30282,7 +30286,8 @@
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/",
       "rgbStatusLed": true,
       "modeButton": true,
-      "resetButton": true
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "ARGNTRAY50",
@@ -30319,7 +30324,8 @@
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/",
       "rgbStatusLed": true,
       "modeButton": true,
-      "resetButton": true
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "ASSET2GV2",
@@ -34009,7 +34015,8 @@
       "mcu": "stm32f2xx",
       "rgbStatusLed": "base board",
       "modeButton": "base board",
-      "resetButton": "base board"
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "P0REEL",
@@ -34033,7 +34040,8 @@
       "mcu": "stm32f2xx",
       "rgbStatusLed": "base board",
       "modeButton": "base board",
-      "resetButton": "base board"
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "P1MOD10",
@@ -34061,7 +34069,8 @@
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p1-datasheet/",
       "rgbStatusLed": "base board",
       "modeButton": "base board",
-      "resetButton": "base board"
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "P1REEL",
@@ -34091,7 +34100,8 @@
       "hsCode": "8517.62.0090",
       "rgbStatusLed": "base board",
       "modeButton": "base board",
-      "resetButton": "base board"
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "P2MOD10",
@@ -34133,7 +34143,7 @@
       "multiple": true,
       "singleSku": false,
       "wifi": true,
-      "gen": "3",
+      "gen": "4",
       "family": "p series",
       "skuClass": "production",
       "skuRegion": "global",
@@ -34152,7 +34162,7 @@
       "platformId": 32,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "nrf52840",
+      "mcu": "rtl8721x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p2-datasheet/",
       "hsCode": "8517.62.0090",
       "rgbStatusLed": "base board",
@@ -34425,7 +34435,7 @@
       "wifi": true,
       "gen": "2",
       "family": "photon",
-      "skuClass": "production",
+      "skuClass": "prototyping",
       "skuRegion": "global",
       "wifiAntInt": "chip",
       "wifiAntIntInc": true,
@@ -34443,7 +34453,8 @@
       "hsCode": "8517.62.0090",
       "rgbStatusLed": "base board",
       "modeButton": "base board",
-      "resetButton": "base board"
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "PHNTRAYNOH",
@@ -34454,7 +34465,7 @@
       "wifi": true,
       "gen": "2",
       "family": "photon",
-      "skuClass": "production",
+      "skuClass": "prototyping",
       "skuRegion": "global",
       "wifiAntInt": "chip",
       "wifiAntIntInc": true,
@@ -34471,7 +34482,8 @@
       "mcu": "stm32f2xx",
       "rgbStatusLed": "base board",
       "modeButton": "base board",
-      "resetButton": "base board"
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "PHOTONH",
@@ -34481,7 +34493,7 @@
       "wifi": true,
       "gen": "2",
       "family": "photon",
-      "skuClass": "production",
+      "skuClass": "prototyping",
       "skuRegion": "global",
       "wifiAntInt": "chip",
       "wifiAntIntInc": true,
@@ -34495,7 +34507,8 @@
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/",
       "rgbStatusLed": "base board",
       "modeButton": "base board",
-      "resetButton": "base board"
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "PHOTONKIT",
@@ -34519,7 +34532,8 @@
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/",
       "rgbStatusLed": true,
       "modeButton": true,
-      "resetButton": true
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "PHOTONNOH",
@@ -34543,7 +34557,8 @@
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/",
       "rgbStatusLed": true,
       "modeButton": true,
-      "resetButton": true
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "PMBATH1EA",
@@ -36313,22 +36328,78 @@
       ]
     },
     {
-      "family": "argon",
-      "name": "Argon",
+      "family": "wifi",
+      "name": "Wi-Fi",
       "kind": "embedded",
-      "wifi": true
-    },
-    {
-      "family": "photon",
-      "name": "Photon",
-      "kind": "embedded",
-      "wifi": true
-    },
-    {
-      "family": "p series",
-      "name": "P-Series",
-      "kind": "embedded",
-      "wifi": true
+      "wifi": true,
+      "group": [
+        {
+          "name": "Photon 2",
+          "short": [
+            "PHOTON2"
+          ],
+          "skus": [
+            "PHN2MEA",
+            "PHN2KIT",
+            "PHN2MTY",
+            "PHN2EDGEKIT"
+          ],
+          "lifecycle": "GA"
+        },
+        {
+          "name": "P2",
+          "short": [
+            "P2"
+          ],
+          "skus": [
+            "P2MOD10",
+            "P2REEL"
+          ],
+          "lifecycle": "GA"
+        },
+        {
+          "name": "Argon",
+          "short": [
+            "ARGON"
+          ],
+          "skus": [
+            "ARGN-H",
+            "ARGNKIT",
+            "ARGNTRAY50",
+            "ARG-AQKT",
+            "ARG-LDKT",
+            "ARG-STRTKT"
+          ],
+          "lifecycle": "Deprecated"
+        },
+        {
+          "name": "Photon",
+          "short": [
+            "PHOTON"
+          ],
+          "skus": [
+            "PHOTONH",
+            "PHOTONKIT",
+            "PHOTONNOH",
+            "PHNTRAYH",
+            "PHNTRAYNOH"
+          ],
+          "lifecycle": "Deprecated"
+        },
+        {
+          "name": "P1",
+          "short": [
+            "P1"
+          ],
+          "skus": [
+            "P1REEL",
+            "P1MOD10",
+            "P0REEL",
+            "P0MOD10"
+          ],
+          "lifecycle": "NRND"
+        }
+      ]
     },
     {
       "family": "mesh",

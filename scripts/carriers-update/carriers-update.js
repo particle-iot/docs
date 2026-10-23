@@ -131,6 +131,21 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
             }
         }
 
+        // A product family like argon or photon is part of the top-level Wi-Fi entry, find it by
+        // the family of the SKUs in its groups
+        for(const obj of updater.datastore.data.skuFamily) {
+            if (obj.wifi && obj.group) {
+                for(const groupObj of obj.group) {
+                    for(const skuName of (groupObj.skus || [])) {
+                        const skuObj = updater.datastore.findSkuByName(skuName);
+                        if (skuObj && skuObj.family == family) {
+                            return obj;
+                        }
+                    }
+                }
+            }
+        }
+
         return null;
     };
 
@@ -2181,18 +2196,31 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
         md += '| Family | SKUs |\n';
         md += '| :----- | :--- |\n';
 
+        // The rows are the top-level skuFamily entries, except that a Wi-Fi entry has a row for each group
+        let rows = [];
         updater.datastore.data.skuFamily.forEach(function(skuFamilyObj) {
+            if (skuFamilyObj.wifi && skuFamilyObj.group) {
+                for(const groupObj of skuFamilyObj.group) {
+                    rows.push({name: groupObj.name, match: skuObj => groupObj.skus.includes(skuObj.name)});
+                }
+            }
+            else {
+                rows.push({name: skuFamilyObj.name, match: skuObj => skuObj.family == skuFamilyObj.family});
+            }
+        });
+
+        rows.forEach(function(row) {
             let familySkuNames = [];
 
             skus.forEach(function(skuObj) {
-                if (skuObj.family != skuFamilyObj.family) {
+                if (!row.match(skuObj)) {
                     return;
                 }
                 familySkuNames.push(skuObj.name);
             });
 
             if (familySkuNames.length > 0) {
-                md += '| ' + skuFamilyObj.name + ' | ';
+                md += '| ' + row.name + ' | ';
 
                 md += familySkuNames.join(', ');
 

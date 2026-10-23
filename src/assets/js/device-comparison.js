@@ -56,7 +56,8 @@ $(document).ready(function () {
             if (skuFamilyObj.kind !== 'embedded') {
                 continue;
             }
-            if (skuFamilyObj.wifi || skuFamilyObj.cellular === false || !skuFamilyObj.group) {
+            // Wi-Fi devices are included here, but not in carriers.js
+            if (skuFamilyObj.cellular === false || !skuFamilyObj.group) {
                 continue;
             }
 
