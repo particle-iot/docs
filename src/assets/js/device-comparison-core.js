@@ -37,6 +37,28 @@
             'c': 'USB-C',
             'micro-b': 'Micro-B',
         };
+        // Values for rgbStatusLed, modeButton, and resetButton in skus: true (on the device), 
+        // 'base board' (not on a module, typically on your base board), and 'internal' (inside the 
+        // product enclosure)
+        const formatOnBoard = function(value) {
+            if (value === true) {
+                return 'Yes';
+            }
+            if (value === 'base board') {
+                return noBaseBoard;
+            }
+            if (value === 'internal') {
+                return 'Internal';
+            }
+            return value === false ? 'No' : undefined;
+        };
+        const skuClassFormFactors = {
+            production: 'SMD module',
+            prototyping: 'Prototyping module',
+            kit: 'Developer kit',
+            eval: 'Evaluation board',
+            both: 'Gateway',
+        };
 
         const yesNo = function(b) {
             return b ? 'Yes' : 'No';
@@ -69,7 +91,8 @@
                     if (sku.m2som) {
                         return 'M.2 SoM';
                     }
-                    return '';
+                    // Fall back to a description based on the SKU class
+                    return skuClassFormFactors[sku.skuClass] || '';
                 }
             },
             {
@@ -138,6 +161,9 @@
                 id: 'user-ram-available',
                 title: 'User RAM available',
                 fn: function({mcu}) {
+                    if (!mcu.userRam) {
+                        return;
+                    }
                     return (mcu.userRamApprox ? '~' : '') + mcu.userRam;
                 }
             },
@@ -161,14 +187,17 @@
                 id: 'rgb-status-led',
                 title: 'RGB status LED',
                 fn: function({sku}) {
-                    return sku.feather ? 'Yes' : noBaseBoard;
+                    return formatOnBoard(sku.rgbStatusLed);
                 }
             },
             {
                 id: 'mode-and-reset-buttons',
                 title: 'MODE and RESET buttons',
                 fn: function({sku}) {
-                    return sku.feather ? 'Yes' : noBaseBoard;
+                    if (sku.modeButton === sku.resetButton) {
+                        return formatOnBoard(sku.modeButton);
+                    }
+                    return 'MODE: ' + formatOnBoard(sku.modeButton) + ', RESET: ' + formatOnBoard(sku.resetButton);
                 }
             },
             {
@@ -343,7 +372,8 @@
         for(const rowDef of rows) {
             let rowData = {feature: rowDef.title};
             devices.forEach(function(device, index) {
-                rowData['device' + index] = rowDef.fn(device);
+                const value = rowDef.fn(device);
+                rowData['device' + index] = (typeof value == 'undefined' || value === null || value === '') ? 'N/A' : value;
             });
             tableData.push(rowData);
         }
