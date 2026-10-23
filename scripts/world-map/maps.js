@@ -226,10 +226,32 @@ function map_axn715_brn404x(data) {
 
 
 
+// Cellular regions: each country is assigned a style from its regions array in countries.
+// The styles are checked in order, so a country in both North America and Americas is NorAm.
+function map_cellular_regions(data) {
+    const styles = [
+        { title: 'NorAm', color: 'Sky_700', regions: ['North America'] }, // 0
+        // Possibly also include 'Commonwealth' in EMEAA
+        { title: 'EMEAA', color: 'Mint_800', regions: ['Europe', 'Middle East', 'Africa', 'Asia', 'Oceania'] }, // 1 
+        { title: 'Americas', hatch: 'forward', regions: ['Americas'] }, // 2
+    ];
+
+    const countries = data.mapCountries(function(countryObj) {
+        const countryRegions = countryObj.regions || [];
+
+        const index = styles.findIndex(style => style.regions.some(region => countryRegions.includes(region)));
+        return index;
+    });
+
+    return { file: 'assets/images/maps/cellular-regions.png', formats: ['png'], styles, countries };
+}
+
+
 module.exports = function(data, worldMapGlobal) {
     const maps = [
         map_m404_m524_m715(data),
         map_axn715_brn404x(data),
+        map_cellular_regions(data),
     ];
 
     /* Example map generation code - not currently used

@@ -2168,6 +2168,25 @@
       "iso3": "LSO"
     },
     {
+      "name": "Libya",
+      "isoCode": "LY",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "libya",
+      "box": {
+        "sw": {
+          "lat": 19.5008138,
+          "lon": 9.3871
+        },
+        "ne": {
+          "lat": 33.1689,
+          "lon": 25.1506
+        }
+      },
+      "iso3": "LBY"
+    },
+    {
       "name": "Liechtenstein",
       "isoCode": "LI",
       "regions": [
@@ -114544,6 +114563,178 @@
       "technologies": [],
       "supported": {},
       "notSupported": {}
+    },
+    {
+      "country": "Libya",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Libya",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
     },
     {
       "country": "Liechtenstein",
