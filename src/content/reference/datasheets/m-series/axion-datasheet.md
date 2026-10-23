@@ -73,6 +73,7 @@ Since the Axion AXN715e supports LTE Cat 1 bis, it can be used world-wide with a
 {{!-- END do not edit content above, it is automatically generated --}}
 
 - <sup>1</sup> not included on the M.2 SoM module, typically included on your base board.
+- <sup>2</sup> Wi-Fi and BLE share a single external antenna.
 
 Cellular Region:
 - NorAm: United States, Canada, and Mexico. 
@@ -1619,15 +1620,3 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 | Virgin Islands (British) | ✅ | &nbsp; | ❓ | &nbsp; | ❓ |
 | Virgin Islands (U.S.) | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
 | Zambia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
-
-
-{{!-- END do not edit content above, it is automatically generated  --}}
-
-✅ Recommended and supported<br/>
-❓ Not officially supported, but may work
-
-## Revision history
-
-| Revision | Date       | Author | Comments |
-| :--------| :--------- | :----- | :------- |
-| pre 01   | 2026-10-07 | RK     | Initial preview version |

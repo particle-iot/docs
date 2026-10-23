@@ -16,6 +16,7 @@
     // Returns an array of row definitions ({id, title, fn}) for the options
     //   options.footnote is appended after the "No" values for features that are on the base board 
     //     on M.2 SoMs. Default is '<sup>1</sup>'
+    //   options.sharedAntennaFootnote is appended to antennas shared by Wi-Fi and BLE. Default is '<sup>2</sup>'
     deviceComparison.getRowDefs = function(options) {
         options = options || {};
 
@@ -44,6 +45,17 @@
         const antennaType = function(t) {
             // Both the trace and chip antennas are on-board antennas
             return t ? 'PCB antenna' : null;
+        };
+
+        // Antenna values are part numbers; some SKUs have true/false instead, which is ignored. 
+        // A value of 4 means Wi-Fi and BLE share a single external antenna (PARANTWM1EA), which is
+        // shown with a footnote.
+        const sharedAntennaFootnote = options.sharedAntennaFootnote || '<sup>2</sup>';
+        const antennaList = function(values) {
+            const list = values.filter(e => (typeof e == 'string' && e) || e === 4).map(function(e) {
+                return (e == '4') ? ('PARANTWM1EA' + sharedAntennaFootnote) : e;
+            });
+            return list.length ? list.join(', ') : 'None';
         };
 
         const rowDefs = [
@@ -202,6 +214,27 @@
                         types.push('4FF');
                     }
                     return types.length ? types.join(' or ') : 'None';
+                }
+            },
+            {
+                id: 'cellular-antenna',
+                title: 'Cellular antenna',
+                fn: function({sku}) {
+                    return antennaList([sku.cellAnt, sku.cellAntAlt, sku.ntnAnt]);
+                }
+            },
+            {
+                id: 'wi-fi-antenna',
+                title: 'Wi-Fi antenna',
+                fn: function({sku}) {
+                    return antennaList([sku.wifiAntExt]);
+                }
+            },
+            {
+                id: 'ble-antenna',
+                title: 'BLE antenna',
+                fn: function({sku}) {
+                    return antennaList([sku.bleAntExt]);
                 }
             },
             {

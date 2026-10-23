@@ -268,6 +268,8 @@ $(document).ready(function () {
                 tableData = tableData.concat(getCountryRows(devices));
             }
 
+            $(thisElem).find('.deviceComparisonFootnoteShared').toggle(def.tableData.some(r => Object.values(r).some(v => typeof v == 'string' && v.includes('PARANTWM1EA<sup>2</sup>'))));
+
             tableElem.empty().append(tableGenerator.generateTable({columns: def.columns}, tableData));
         };
 
