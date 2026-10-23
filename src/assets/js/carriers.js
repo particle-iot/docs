@@ -1002,14 +1002,12 @@ countryDetails.generateTable = function(options) {
         html += dataui.generateSkuTable(skusArray, {});
     }
     else
-    if (options.showSkuFamily) {
+    if (options.showSkus) {
+        // options.showSkus is the skus array from a skuFamily group
         let skusArray = [];
         for(let skuObj of datastore.data.skus) {
-            for(const prefix of options.showSkuFamily) {
-                if (skuObj.name.startsWith(prefix) && !skuObj.name.startsWith(prefix + 'X')) {
-                    skusArray.push(skuObj);
-                    break;
-                }
+            if (options.showSkus.includes(skuObj.name)) {
+                skusArray.push(skuObj);
             }
         }
         html += dataui.generateSkuTable(skusArray, {});
@@ -1164,7 +1162,7 @@ countryDetails.update = function() {
             simPlan: skuFamilyInfo.groupObj.simPlan,
             tableId: 'carrierDetailTable',
             resultDiv,
-            showSkuFamily: skuFamilyInfo.groupObj.short,
+            showSkus: skuFamilyInfo.groupObj.skus,
         });
         
     

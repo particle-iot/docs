@@ -26,17 +26,15 @@ $(document).ready(function () {
 
         await datastore.init();
 
-        // Choose the SKU that supplies the data for a group in skuFamily. The group has the modem and
-        // SIM, but there are many SKUs (kits, trays, etc.) with the same values, so prefer one whose 
-        // name starts with the group's short name.
+        // Choose the SKU that supplies the data for a group in skuFamily. The group's skus array has the
+        // SKUs for the group (kits, trays, etc.) with the preferred one first.
         const findSkuForGroup = function(skuFamilyObj, groupObj) {
-            const short = groupObj.short[0].toUpperCase();
-
-            const skus = datastore.data.skus.filter(function(skuObj) {
-                return skuObj.family == skuFamilyObj.family && skuObj.modem == groupObj.modem && skuObj.sim == groupObj.sim;
-            });
-
-            return skus.find(e => e.name.toUpperCase().startsWith(short)) || skus[0];
+            for(const skuName of (groupObj.skus || [])) {
+                const skuObj = datastore.data.skus.find(e => e.name == skuName);
+                if (skuObj) {
+                    return skuObj;
+                }
+            }
         };
 
         // Internal devices are shown to internal users, or if one is requested in the URL
@@ -51,9 +49,13 @@ $(document).ready(function () {
             return !!(obj.internal || obj.showInternalUsers);
         };
 
-        // Generate the device list from skuFamily; same filtering as carriers.js
+        // Generate the device list from skuFamily; same filtering as carriers.js, but only embedded
+        // devices (not Linux devices such as Tachyon) can be compared
         const deviceOptions = [];
         for(const skuFamilyObj of datastore.data.skuFamily) {
+            if (skuFamilyObj.kind !== 'embedded') {
+                continue;
+            }
             if (skuFamilyObj.wifi || skuFamilyObj.cellular === false || !skuFamilyObj.group) {
                 continue;
             }

@@ -66,6 +66,9 @@ Since the Axion AXN715e supports LTE Cat 1 bis, it can be used world-wide with a
 | NFC tag support | No | Yes | No | Yes | No | No |
 | GNSS support | No | No | No | Yes | Yes | Yes |
 | SIM | e-sim | MFF2 or 4FF | None | e-sim | MFF2 | MFF2 |
+| Cellular antenna | PARANTCW1EA | PARANTC41EA, ANT-FLXU | None | PARANTCW1EA | PARANTCW1EA | PARANTCW1EA |
+| Wi-Fi antenna | PARANTWM1EA | None | PARANTWM1EA<sup>2</sup> | None | PARANTWM1EA | PARANTWM1EA |
+| BLE antenna | PARANTWM1EA | ANT-FLXV2 | PARANTWM1EA<sup>2</sup> | ANT-FLXV2 | PARANTWM1EA | PARANTWM1EA |
 | On-board antennas | None | BLE PCB antenna | Wi-Fi/BLE PCB antenna | None | None | None |
 | Platform | &nbsp; | Boron (13) | Photon 2 / P2 (32) | B5-SoM (25) | M-SoM (35) | M-SoM (35) |
 

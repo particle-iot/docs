@@ -30147,7 +30147,10 @@
       "platformId": 12,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "ARG-LDKT",
@@ -30174,7 +30177,10 @@
       "platformId": 12,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "ARG-STRTKT",
@@ -30204,7 +30210,10 @@
       "platformId": 12,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "ARGN-H",
@@ -30236,7 +30245,10 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "ARGNKIT",
@@ -30267,7 +30279,10 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "ARGNTRAY50",
@@ -30301,7 +30316,10 @@
       "batteryRequired": false,
       "endOfSupport": "2025-03-31",
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "ASSET2GV2",
@@ -30329,7 +30347,10 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "mcu": "stm32f2xx",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "ASSET3G260V2",
@@ -30357,7 +30378,10 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "mcu": "stm32f2xx",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "ASSET3G270V2",
@@ -30385,7 +30409,10 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "mcu": "stm32f2xx",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "AXN715EHEA",
@@ -30426,7 +30453,10 @@
       "verizon": true,
       "mcu": "rtl872x",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "AXN715EHTY",
@@ -30467,7 +30497,10 @@
       "verizon": true,
       "mcu": "rtl872x",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "B402MEA",
@@ -30503,7 +30536,10 @@
       "batteryRequired": false,
       "m2som": true,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B402MTY",
@@ -30541,7 +30577,10 @@
       "endOfSupport": "2025-03-31",
       "m2som": true,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B404MEA",
@@ -30578,7 +30617,10 @@
       "verizon": true,
       "m2som": true,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B404MTY",
@@ -30618,7 +30660,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B404XMEA",
@@ -30656,7 +30701,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404x-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B404XMTY",
@@ -30695,7 +30743,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404x-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B504EMEA",
@@ -30735,7 +30786,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B504EMTY",
@@ -30776,7 +30830,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B504MEA",
@@ -30815,7 +30872,10 @@
       "batteryRequired": true,
       "m2som": true,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B504MTY",
@@ -30855,7 +30915,10 @@
       "batteryRequired": true,
       "m2som": true,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B523MEA",
@@ -30892,7 +30955,10 @@
       "batteryRequired": true,
       "m2som": true,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B523MTY",
@@ -30932,7 +30998,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B524MEA",
@@ -30968,7 +31037,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B524MTY",
@@ -31005,7 +31077,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "BAT1800",
@@ -31065,7 +31140,10 @@
       "batteryRequired": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN310TRAY50",
@@ -31105,7 +31183,10 @@
       "endOfSupport": "2025-03-31",
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN314KIT",
@@ -31142,7 +31223,10 @@
       "batteryRequired": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN314TRAY50",
@@ -31181,7 +31265,10 @@
       "endOfSupport": "2025-03-31",
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN402",
@@ -31216,7 +31303,10 @@
       "batteryRequired": false,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN402-AQKT",
@@ -31248,7 +31338,10 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "mcu": "nrf52840",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN402KIT",
@@ -31282,7 +31375,10 @@
       "batteryRequired": false,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN402TRAY50",
@@ -31323,7 +31419,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN404",
@@ -31359,7 +31458,10 @@
       "verizon": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN404KIT",
@@ -31394,7 +31496,10 @@
       "verizon": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN404TRAY50",
@@ -31431,7 +31536,10 @@
       "verizon": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN404X",
@@ -31472,7 +31580,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/brn404x-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN404XKIT",
@@ -31511,7 +31622,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/brn404x-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN404XTRAY50",
@@ -31552,7 +31666,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/brn404x-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "E260KIT",
@@ -31580,7 +31697,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "E260TRAY50",
@@ -31608,7 +31728,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E270KIT",
@@ -31636,7 +31759,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "E270TRAY50",
@@ -31669,7 +31795,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E310KIT",
@@ -31702,7 +31831,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E310MOD1",
@@ -31729,7 +31861,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E310TRAY50",
@@ -31760,7 +31895,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E313EA",
@@ -31787,7 +31925,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E313TRAY50",
@@ -31815,7 +31956,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E314KIT",
@@ -31847,7 +31991,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "E314MOD1",
@@ -31874,7 +32021,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E314TRAY50",
@@ -31906,7 +32056,10 @@
       "endOfSupport": "2025-03-31",
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E350KIT",
@@ -31933,7 +32086,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "E350TRAY50",
@@ -31961,7 +32117,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E402KIT",
@@ -31993,7 +32152,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "E402MOD1",
@@ -32020,7 +32182,10 @@
       "batteryRequired": false,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E402TRAY50",
@@ -32054,7 +32219,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E404KIT",
@@ -32086,7 +32254,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "E404MOD1",
@@ -32117,7 +32288,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E404TRAY50",
@@ -32146,7 +32320,10 @@
       "batteryRequired": false,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E404XTRAY50",
@@ -32179,7 +32356,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e404x-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "EDGEAISNSRKIT",
@@ -32223,7 +32403,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "ELC402EA",
@@ -32251,7 +32434,10 @@
       "batteryRequired": false,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "ELC402TY",
@@ -32284,7 +32470,10 @@
       "endOfSupport": "2025-03-31",
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "ELC404TY",
@@ -32313,7 +32502,10 @@
       "verizon": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "FWNG-ETH",
@@ -32474,7 +32666,10 @@
       "m2som": true,
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "M404MTY",
@@ -32517,7 +32712,10 @@
       "m2som": true,
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "M524MEA",
@@ -32558,7 +32756,10 @@
       "m2som": true,
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "M524MTY",
@@ -32600,7 +32801,10 @@
       "m2som": true,
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "M635EMEA",
@@ -32641,7 +32845,10 @@
       "batteryRequired": false,
       "m2som": true,
       "mcu": "rtl872x",
-      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "M715EMEA",
@@ -32678,7 +32885,10 @@
       "batteryRequired": false,
       "m2som": true,
       "mcu": "rtl872x",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "M715EMTY",
@@ -32715,7 +32925,10 @@
       "batteryRequired": false,
       "m2som": true,
       "mcu": "rtl872x",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "M8CAB3VEA",
@@ -32955,7 +33168,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/monitor-one-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "MON404E02C01KIT",
@@ -32998,7 +33214,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/monitor-one-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "MON524E01C01KIT",
@@ -33041,7 +33260,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/monitor-one-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "MUON404",
@@ -33083,7 +33305,10 @@
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "MUON404EA",
@@ -33125,7 +33350,10 @@
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "MUON524",
@@ -33166,7 +33394,10 @@
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "MUON524EA",
@@ -33207,7 +33438,10 @@
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "MUON635",
@@ -33248,7 +33482,10 @@
       "verizon": true,
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "MUON635EA",
@@ -33289,7 +33526,10 @@
       "verizon": true,
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "MUONCB",
@@ -33417,7 +33657,10 @@
       "batteryRequired": false,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE402MTY",
@@ -33457,7 +33700,10 @@
       "batteryRequired": false,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE404MEA",
@@ -33500,7 +33746,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE404MTY",
@@ -33545,7 +33794,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
       "hsCode": "8517.62.00.90",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE523MEA",
@@ -33589,7 +33841,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE523MTY",
@@ -33635,7 +33890,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE524MEA",
@@ -33677,7 +33935,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE524MTY",
@@ -33721,7 +33982,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "P0MOD10",
@@ -33742,7 +34006,10 @@
       "platformId": 6,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "P0REEL",
@@ -33763,7 +34030,10 @@
       "platformId": 6,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "P1MOD10",
@@ -33788,7 +34058,10 @@
       "usb": false,
       "batteryRequired": false,
       "mcu": "stm32f2xx",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p1-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p1-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "P1REEL",
@@ -33815,7 +34088,10 @@
       "endOfSupport": "2025-03-31",
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p1-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "P2MOD10",
@@ -33845,7 +34121,10 @@
       "batteryRequired": false,
       "mcu": "rtl8721x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p2-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "P2REEL",
@@ -33875,7 +34154,10 @@
       "batteryRequired": false,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p2-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "PARANTC41EA",
@@ -34027,7 +34309,10 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "mcu": "rtl8721x",
-      "batteryConn": "jst-ph-2"
+      "batteryConn": "jst-ph-2",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "PHN2KIT",
@@ -34057,7 +34342,10 @@
       "batteryRequired": false,
       "mcu": "rtl8721x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
-      "batteryConn": "jst-ph-2"
+      "batteryConn": "jst-ph-2",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "PHN2MEA",
@@ -34088,7 +34376,10 @@
       "mcu": "rtl8721x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
       "hsCode": "8517.62.0090",
-      "batteryConn": "jst-ph-2"
+      "batteryConn": "jst-ph-2",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "PHN2MTY",
@@ -34120,7 +34411,10 @@
       "mcu": "rtl8721x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
       "hsCode": "8517.62.0090",
-      "batteryConn": "jst-ph-2"
+      "batteryConn": "jst-ph-2",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "PHNTRAYH",
@@ -34146,7 +34440,10 @@
       "batteryRequired": false,
       "endOfSupport": "2025-03-31",
       "mcu": "stm32f2xx",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "PHNTRAYNOH",
@@ -34171,7 +34468,10 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "endOfSupport": "2025-03-31",
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "PHOTONH",
@@ -34192,7 +34492,10 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "mcu": "stm32f2xx",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "PHOTONKIT",
@@ -34213,7 +34516,10 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "mcu": "stm32f2xx",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "PHOTONNOH",
@@ -34234,7 +34540,10 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "mcu": "stm32f2xx",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "PMBATH1EA",
@@ -34504,7 +34813,10 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "mcu": "stm32f2xx",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "SNSRKIT3G270",
@@ -34532,7 +34844,10 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "mcu": "stm32f2xx",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "SPKBTTN",
@@ -34584,7 +34899,10 @@
       "batteryRequired": false,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T402MKIT",
@@ -34624,7 +34942,10 @@
       "batteryRequired": false,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-eval-board/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "T402MTY",
@@ -34670,7 +34991,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T404MEA",
@@ -34714,7 +35038,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T404MKIT",
@@ -34758,7 +35085,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "T404MTY",
@@ -34804,7 +35134,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T523MEA",
@@ -34845,7 +35178,10 @@
       "batteryRequired": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T523MKIT",
@@ -34890,7 +35226,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "T523MTY",
@@ -34932,7 +35271,10 @@
       "batteryRequired": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T524MEA",
@@ -34975,7 +35317,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T524MKIT",
@@ -35018,7 +35363,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "T524MTY",
@@ -35063,7 +35411,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "TACH4NA",
@@ -35093,7 +35444,10 @@
       "wifiAntIntInc": true,
       "wifiAntExt": false,
       "linux": true,
-      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "TACH4ROW",
@@ -35120,7 +35474,10 @@
       "wifiAntIntInc": true,
       "wifiAntExt": false,
       "linux": true,
-      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "TACH8NA",
@@ -35147,7 +35504,10 @@
       "wifiAntIntInc": true,
       "wifiAntExt": false,
       "linux": true,
-      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "TACH8ROW",
@@ -35174,7 +35534,10 @@
       "wifiAntIntInc": true,
       "wifiAntExt": false,
       "linux": true,
-      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "XENNTRAY50",
@@ -35207,7 +35570,10 @@
       "platformId": 14,
       "prefix": "XENT",
       "endOfSupport": "2020-12-31",
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     }
   ],
   "skuClass": [
@@ -35240,11 +35606,16 @@
     {
       "family": "m series",
       "name": "M-Series SoM",
+      "kind": "embedded",
       "group": [
         {
           "name": "M-Series M404 LTE M1 (NorAm) EtherSIM",
           "short": [
             "M404"
+          ],
+          "skus": [
+            "M404MEA",
+            "M404MTY"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35261,6 +35632,10 @@
           "short": [
             "M524"
           ],
+          "skus": [
+            "M524MEA",
+            "M524MTY"
+          ],
           "region": "emeaa",
           "lifecycle": "GA",
           "sim": 4,
@@ -35275,6 +35650,9 @@
           "name": "M-Series M635e LTE M1/2G/Satellite (Global, EtherSIM), [x1]",
           "short": [
             "M635E"
+          ],
+          "skus": [
+            "M635EMEA"
           ],
           "lifecycle": "In development",
           "sim": 4,
@@ -35291,6 +35669,10 @@
           "short": [
             "M715"
           ],
+          "skus": [
+            "M715EMEA",
+            "M715EMTY"
+          ],
           "region": "global",
           "lifecycle": "In development",
           "showInternalUsers": true,
@@ -35306,11 +35688,16 @@
     {
       "family": "b series",
       "name": "B-Series SoM",
+      "kind": "embedded",
       "group": [
         {
           "name": "B-Series B404X LTE M1 (NorAm) EtherSIM",
           "short": [
             "B404X"
+          ],
+          "skus": [
+            "B404XMEA",
+            "B404XMTY"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35327,6 +35714,10 @@
           "short": [
             "B404"
           ],
+          "skus": [
+            "B404MEA",
+            "B404MTY"
+          ],
           "region": "noram",
           "lifecycle": "GA",
           "sim": 4,
@@ -35341,6 +35732,10 @@
           "name": "B-Series B504e LTE CAT1/3G (NorAm) EtherSIM",
           "short": [
             "B504e"
+          ],
+          "skus": [
+            "B504EMEA",
+            "B504EMTY"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35358,6 +35753,10 @@
           "short": [
             "B524"
           ],
+          "skus": [
+            "B524MEA",
+            "B524MTY"
+          ],
           "region": "emeaa",
           "lifecycle": "GA",
           "sim": 4,
@@ -35372,6 +35771,10 @@
           "name": "B-Series B402 LTE M1 (NorAm) (before 2021)",
           "short": [
             "B402"
+          ],
+          "skus": [
+            "B402MEA",
+            "B402MTY"
           ],
           "region": "noram",
           "lifecycle": "NRND",
@@ -35388,6 +35791,10 @@
           "short": [
             "B523"
           ],
+          "skus": [
+            "B523MEA",
+            "B523MTY"
+          ],
           "region": "emeaa",
           "lifecycle": "NRND",
           "sim": 2,
@@ -35403,11 +35810,17 @@
     {
       "family": "boron",
       "name": "Boron",
+      "kind": "embedded",
       "group": [
         {
           "name": "Boron BRN404X LTE M1 (NorAm) EtherSIM",
           "short": [
             "BRN404X"
+          ],
+          "skus": [
+            "BRN404X",
+            "BRN404XKIT",
+            "BRN404XTRAY50"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35424,6 +35837,11 @@
           "short": [
             "BRN404"
           ],
+          "skus": [
+            "BRN404",
+            "BRN404KIT",
+            "BRN404TRAY50"
+          ],
           "region": "noram",
           "lifecycle": "GA",
           "sim": 4,
@@ -35438,6 +35856,10 @@
           "name": "Boron BRN314 2G/3G Global EtherSIM",
           "short": [
             "BRN314"
+          ],
+          "skus": [
+            "BRN314KIT",
+            "BRN314TRAY50"
           ],
           "region": "global",
           "lifecycle": "GA",
@@ -35454,6 +35876,12 @@
           "short": [
             "BRN402"
           ],
+          "skus": [
+            "BRN402",
+            "BRN402-AQKT",
+            "BRN402KIT",
+            "BRN402TRAY50"
+          ],
           "region": "noram",
           "lifecycle": "NRND",
           "sim": 3,
@@ -35468,6 +35896,10 @@
           "name": "Boron BRN310 2G/3G Global (before 2021)",
           "short": [
             "BRN310"
+          ],
+          "skus": [
+            "BRN310KIT",
+            "BRN310TRAY50"
           ],
           "region": "global",
           "lifecycle": "NRND",
@@ -35484,10 +35916,14 @@
     {
       "family": "tachyon",
       "name": "Tachyon",
+      "kind": "linux",
       "group": [
         {
           "name": "Tachyon TACH8NA (NorAm)",
           "short": [
+            "TACH8NA"
+          ],
+          "skus": [
             "TACH8NA"
           ],
           "region": "noram",
@@ -35502,6 +35938,9 @@
           "short": [
             "TACH8ROW"
           ],
+          "skus": [
+            "TACH8ROW"
+          ],
           "region": "emeaa",
           "lifecycle": "In development",
           "sim": 5,
@@ -35514,12 +35953,22 @@
     {
       "family": "tracker",
       "name": "Tracker",
+      "kind": "embedded",
       "group": [
         {
           "name": "Tracker T404/ONE404 LTE M1 (NorAm) EtherSIM",
           "short": [
             "T404",
             "ONE404"
+          ],
+          "skus": [
+            "T404MEA",
+            "T404MKIT",
+            "T404MTY",
+            "ONE404MEA",
+            "ONE404MEA-NB",
+            "ONE404MTY",
+            "ONE404MTY-NB"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35537,6 +35986,15 @@
             "T524",
             "ONE524"
           ],
+          "skus": [
+            "T524MEA",
+            "T524MKIT",
+            "T524MTY",
+            "ONE524MEA",
+            "ONE524MEA-NB",
+            "ONE524MTY",
+            "ONE524MTY-NB"
+          ],
           "region": "emeaa",
           "lifecycle": "GA",
           "sim": 4,
@@ -35552,6 +36010,10 @@
           "short": [
             "MON404"
           ],
+          "skus": [
+            "MON404E01C01KIT",
+            "MON404E02C01KIT"
+          ],
           "region": "noram",
           "lifecycle": "In development",
           "sim": 4,
@@ -35563,6 +36025,9 @@
           "name": "Monitor One MON524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
           "short": [
             "MON524"
+          ],
+          "skus": [
+            "MON524E01C01KIT"
           ],
           "region": "emeaa",
           "lifecycle": "In development",
@@ -35576,6 +36041,15 @@
           "short": [
             "T402",
             "ONE402"
+          ],
+          "skus": [
+            "T402MEA",
+            "T402MKIT",
+            "T402MTY",
+            "ONE402MEA",
+            "ONE402MEA-NB",
+            "ONE402MTY",
+            "ONE402MTY-NB"
           ],
           "region": "noram",
           "lifecycle": "NRND",
@@ -35592,6 +36066,15 @@
             "T523",
             "ONE523"
           ],
+          "skus": [
+            "T523MEA",
+            "T523MKIT",
+            "T523MTY",
+            "ONE523MEA",
+            "ONE523MEA-NB",
+            "ONE523MTY",
+            "ONE523MTY-NB"
+          ],
           "region": "emeaa",
           "lifecycle": "NRND",
           "sim": 2,
@@ -35606,11 +36089,17 @@
     {
       "family": "e series",
       "name": "E-Series",
+      "kind": "embedded",
       "group": [
         {
           "name": "E-Series E404 LTE M1 (NorAm) EtherSIM",
           "short": [
             "E404"
+          ],
+          "skus": [
+            "E404KIT",
+            "E404MOD1",
+            "E404TRAY50"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35628,6 +36117,11 @@
           "short": [
             "E314"
           ],
+          "skus": [
+            "E314KIT",
+            "E314MOD1",
+            "E314TRAY50"
+          ],
           "region": "global",
           "lifecycle": "GA",
           "sim": 4,
@@ -35644,6 +36138,11 @@
           "short": [
             "E402"
           ],
+          "skus": [
+            "E402KIT",
+            "E402MOD1",
+            "E402TRAY50"
+          ],
           "region": "noram",
           "lifecycle": "NRND",
           "sim": 3,
@@ -35659,6 +36158,11 @@
           "short": [
             "E310"
           ],
+          "skus": [
+            "E310KIT",
+            "E310MOD1",
+            "E310TRAY50"
+          ],
           "region": "global",
           "lifecycle": "NRND",
           "sim": 1,
@@ -35673,6 +36177,10 @@
           "name": "E-Series E313 2G/3G Global (Enterprise)",
           "short": [
             "E313"
+          ],
+          "skus": [
+            "E313EA",
+            "E313TRAY50"
           ],
           "region": "global",
           "lifecycle": "NRND",
@@ -35690,11 +36198,16 @@
     {
       "family": "electron",
       "name": "Electron",
+      "kind": "embedded",
       "group": [
         {
           "name": "Electron ELC404 LTE M1 (NorAm) EtherSIM",
           "short": [
             "ELC404"
+          ],
+          "skus": [
+            "ELC404EA",
+            "ELC404TY"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35711,6 +36224,10 @@
           "short": [
             "ELC314"
           ],
+          "skus": [
+            "ELC314EA",
+            "ELC314TY"
+          ],
           "region": "global",
           "lifecycle": "GA",
           "sim": 4,
@@ -35726,6 +36243,10 @@
           "short": [
             "ELC402"
           ],
+          "skus": [
+            "ELC402EA",
+            "ELC402TY"
+          ],
           "region": "noram",
           "lifecycle": "NRND",
           "sim": 3,
@@ -35739,6 +36260,10 @@
           "name": "Electron U260 2G/3G Americas/Aus",
           "short": [
             "U260"
+          ],
+          "skus": [
+            "E260KIT",
+            "E260TRAY50"
           ],
           "region": "americas",
           "lifecycle": "End of life",
@@ -35754,6 +36279,10 @@
           "short": [
             "U270"
           ],
+          "skus": [
+            "E270KIT",
+            "E270TRAY50"
+          ],
           "region": "emeaa",
           "lifecycle": "End of life",
           "sim": 1,
@@ -35767,6 +36296,10 @@
           "name": "Electron G350 2G Global",
           "short": [
             "G350"
+          ],
+          "skus": [
+            "E350KIT",
+            "E350TRAY50"
           ],
           "region": "global",
           "lifecycle": "End of life",
@@ -35782,21 +36315,25 @@
     {
       "family": "argon",
       "name": "Argon",
+      "kind": "embedded",
       "wifi": true
     },
     {
       "family": "photon",
       "name": "Photon",
+      "kind": "embedded",
       "wifi": true
     },
     {
       "family": "p series",
       "name": "P-Series",
+      "kind": "embedded",
       "wifi": true
     },
     {
       "family": "mesh",
       "name": "Mesh",
+      "kind": "embedded",
       "wifi": false,
       "mesh": true,
       "cellular": false,
@@ -189692,7 +190229,9 @@
       "flashFileSystem": false,
       "nfcTag": false,
       "userAppSize": "128 KB",
-      "userRam": "50 KB"
+      "userRam": "50 KB",
+      "name": "STM32F205",
+      "cpuSummary": "120 MHz Cortex-M3"
     },
     {
       "id": "kryo-8",
@@ -189700,7 +190239,9 @@
       "cpu": "Octa-core Qualcomm® Kryo™ CPU (1x 2.7GHz, 3x 2.4GHz, 4x 1.9GHz)",
       "flashFileSystem": true,
       "nfcTag": false,
-      "wifi": "6e"
+      "wifi": "6e",
+      "name": "Qualcomm QCM6490",
+      "cpuSummary": "Octa-core Kryo (1x 2.7 GHz, 3x 2.4 GHz, 4x 1.9 GHz)"
     }
   ],
   "sunset": [
