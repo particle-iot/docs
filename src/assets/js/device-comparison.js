@@ -39,7 +39,9 @@ $(document).ready(function () {
             return skus.find(e => e.name.toUpperCase().startsWith(short)) || skus[0];
         };
 
-        // Internal devices are only shown if one is requested in the URL
+        // Internal devices are shown to internal users, or if one is requested in the URL
+        const showInternal = (typeof apiHelperAuth == 'object' && !!apiHelperAuth.isInternal);
+
         const requestedDevices = [];
         selectElems.each(function() {
             requestedDevices.push(urlParams.get($(this).data('param')));
@@ -62,7 +64,7 @@ $(document).ready(function () {
                 if (!Array.isArray(groupObj.short) || groupObj.short.length == 0) {
                     continue;
                 }
-                if ((isInternalItem(skuFamilyObj) || isInternalItem(groupObj)) && !requestedDevices.includes(groupObj.short[0])) {
+                if ((isInternalItem(skuFamilyObj) || isInternalItem(groupObj)) && !showInternal && !requestedDevices.includes(groupObj.short[0])) {
                     continue;
                 }
 
