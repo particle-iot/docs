@@ -117,14 +117,16 @@
                 title: 'Cellular region',
                 fn: function({sku, modem}) {
                     return modem ? regionNames[sku.skuRegion] : 'N/A';
-                }
+                },
+                infoNote: 'cellular-region.md'
             },
             {
                 id: 'cellular-technology',
                 title: 'Cellular technology',
                 fn: function({modem}) {
                     return modem ? modem.techSummary : 'None';
-                }
+                },
+                infoNote: 'cellular-technology.md'
             },
             {
                 id: 'wi-fi-supported',
@@ -371,6 +373,11 @@
         let tableData = [];
         for(const rowDef of rows) {
             let rowData = {feature: rowDef.title};
+            if (rowDef.infoNote) {
+                // Only used by the interactive tool, which adds an info icon to the row. The markdown
+                // table generator ignores this key.
+                rowData.infoNote = rowDef.infoNote;
+            }
             devices.forEach(function(device, index) {
                 const value = rowDef.fn(device);
                 rowData['device' + index] = (typeof value == 'undefined' || value === null || value === '') ? 'N/A' : value;

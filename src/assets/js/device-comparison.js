@@ -177,14 +177,9 @@ $(document).ready(function () {
             return rows;
         };
 
-        // Show the country details for a device in an overlay, using the same content as the country
-        // details tab on the carriers page (from the recommendation down, without the SKU list)
-        const showDetails = function(country, deviceValue) {
-            const option = findDeviceOption(deviceValue);
-            if (!option) {
-                return;
-            }
-
+        // Opens an overlay panel with a title and returns the element for its content. The overlay is 
+        // sized to its content up to 900 px wide, and scrolls vertically if the content is long.
+        const openOverlay = function(title) {
             const overlayElem = $('<div class="deviceComparisonOverlay">');
             const panelElem = $('<div class="deviceComparisonOverlayPanel">').appendTo(overlayElem);
 
@@ -193,9 +188,9 @@ $(document).ready(function () {
                 overlayElem.parent().remove();
             };
             $('<button type="button" class="deviceComparisonOverlayClose" aria-label="Close">&times;</button>').on('click', close).appendTo(panelElem);
-            $('<h3>').text(option.title + ' in ' + country).appendTo(panelElem);
+            $('<h3>').text(title).appendTo(panelElem);
 
-            const resultDiv = $('<div>').appendTo(panelElem);
+            const contentElem = $('<div>').appendTo(panelElem);
 
             overlayElem.on('click', function(ev) {
                 if (ev.target === overlayElem[0]) {
@@ -228,6 +223,19 @@ $(document).ready(function () {
 
             $('<div class="content">').append(overlayElem).appendTo(hostElem);
 
+            return contentElem;
+        };
+
+        // Show the country details for a device in an overlay, using the same content as the country
+        // details tab on the carriers page (from the recommendation down, without the SKU list)
+        const showDetails = function(country, deviceValue) {
+            const option = findDeviceOption(deviceValue);
+            if (!option) {
+                return;
+            }
+
+            const resultDiv = openOverlay(option.title + ' in ' + country);
+
             countryDetails.generateTable({
                 country,
                 modem: option.modem,
@@ -237,6 +245,35 @@ $(document).ready(function () {
                 resultDiv,
             });
         };
+
+        // Show the additional information for a row in an overlay. The note is a markdown file in
+        // content/notes, which is built into a page at /notes/<name>/index.html. Like the troubleshooting 
+        // tool, get the content of that page.
+        const showNote = async function(noteName, title) {
+            const contentElem = openOverlay(title);
+            contentElem.text('Loading...');
+
+            try {
+                const noteFetch = await fetch('/notes/' + noteName.replace(/\.md$/, '') + '/index.html');
+                if (!noteFetch.ok) {
+                    throw new Error('status ' + noteFetch.status);
+                }
+                const noteDocument = new DOMParser().parseFromString(await noteFetch.text(), 'text/html');
+
+                contentElem.empty().append($(noteDocument).find('.content').children());
+            }
+            catch(e) {
+                contentElem.text('Unable to load the additional information.');
+            }
+        };
+
+        tableElem.on('click keydown', '.deviceComparisonInfo', function(ev) {
+            if (ev.type == 'keydown' && ev.key != 'Enter' && ev.key != ' ') {
+                return;
+            }
+            ev.preventDefault();
+            showNote($(this).data('note'), $(this).data('title'));
+        });
 
         tableElem.on('click', 'td', function() {
             const cellElem = $(this).find('.deviceComparisonCell');
@@ -272,6 +309,16 @@ $(document).ready(function () {
             }
 
             $(thisElem).find('.deviceComparisonFootnoteShared').toggle(def.tableData.some(r => Object.values(r).some(v => typeof v == 'string' && v.includes('PARANTWM1EA<sup>2</sup>'))));
+
+            // Rows with an infoNote get an info icon after the label that opens the note
+            for(const rowData of tableData) {
+                if (rowData.infoNote) {
+                    rowData.feature = escapeAttr(rowData.feature) + 
+                        '<img class="deviceComparisonInfo" src="/assets/images/info-icon.png" width="14" height="14" tabindex="0" role="button"' +
+                        ' alt="More information about ' + escapeAttr(rowData.feature) + '" title="More information"' +
+                        ' data-note="' + escapeAttr(rowData.infoNote) + '" data-title="' + escapeAttr(rowData.feature) + '">';
+                }
+            }
 
             tableElem.empty().append(tableGenerator.generateTable({columns: def.columns}, tableData));
         };

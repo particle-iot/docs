@@ -432,6 +432,22 @@ select.apiHelperConfigSchemaProductSelect {
     cursor: pointer;
 }
 
+// The site's .content img styles make images block elements with large margins, so they 
+// need to be overridden to keep the icon inline with the label
+.content img.deviceComparisonInfo {
+    display: inline !important;
+    width: 16px;
+    height: 16px;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 0 0 6px !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    vertical-align: text-bottom;
+    cursor: pointer;
+}
+
 .deviceComparisonOverlay {
     position: fixed;
     top: 0;
