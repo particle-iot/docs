@@ -474,6 +474,25 @@
       }
     },
     {
+      "name": "Bhutan",
+      "isoCode": "BT",
+      "regions": [
+        "Asia"
+      ],
+      "plain": "bhutan",
+      "box": {
+        "sw": {
+          "lat": 26.7,
+          "lon": 88.75
+        },
+        "ne": {
+          "lat": 28.33,
+          "lon": 92.12
+        }
+      },
+      "iso3": "BTN"
+    },
+    {
       "name": "Bolivia",
       "isoCode": "BO",
       "regions": [
@@ -839,6 +858,25 @@
       "iso3": "COL"
     },
     {
+      "name": "Comoros",
+      "isoCode": "KM",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "comoros",
+      "box": {
+        "sw": {
+          "lat": -12.4,
+          "lon": 43.2
+        },
+        "ne": {
+          "lat": -11.36,
+          "lon": 44.54
+        }
+      },
+      "iso3": "COM"
+    },
+    {
       "name": "Congo (Brazzaville)",
       "aliases": [
         "Republic of the Congo"
@@ -1038,6 +1076,25 @@
       "tachyonKickstarter": true
     },
     {
+      "name": "Djibouti",
+      "isoCode": "DJ",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "djibouti",
+      "box": {
+        "sw": {
+          "lat": 10.93,
+          "lon": 41.77
+        },
+        "ne": {
+          "lat": 12.71,
+          "lon": 43.42
+        }
+      },
+      "iso3": "DJI"
+    },
+    {
       "name": "Dominica",
       "isoCode": "DM",
       "regions": [
@@ -1155,6 +1212,25 @@
         }
       },
       "iso3": "GNQ"
+    },
+    {
+      "name": "Eritrea",
+      "isoCode": "ER",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "eritrea",
+      "box": {
+        "sw": {
+          "lat": 12.36,
+          "lon": 36.44
+        },
+        "ne": {
+          "lat": 18,
+          "lon": 43.14
+        }
+      },
+      "iso3": "ERI"
     },
     {
       "name": "Estonia",
@@ -2166,6 +2242,25 @@
         }
       },
       "iso3": "LSO"
+    },
+    {
+      "name": "Liberia",
+      "isoCode": "LR",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "liberia",
+      "box": {
+        "sw": {
+          "lat": 4.35,
+          "lon": -11.49
+        },
+        "ne": {
+          "lat": 8.55,
+          "lon": -7.37
+        }
+      },
+      "iso3": "LBR"
     },
     {
       "name": "Libya",
@@ -3318,6 +3413,25 @@
       "iso3": "SMR"
     },
     {
+      "name": "São Tomé and Príncipe",
+      "isoCode": "ST",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "sao tome and principe",
+      "box": {
+        "sw": {
+          "lat": 0.02,
+          "lon": 6.45
+        },
+        "ne": {
+          "lat": 1.7,
+          "lon": 7.47
+        }
+      },
+      "iso3": "STP"
+    },
+    {
       "name": "Saudi Arabia",
       "isoCode": "SA",
       "regions": [
@@ -3626,6 +3740,25 @@
       "iso3": "LKA"
     },
     {
+      "name": "Sudan",
+      "isoCode": "SD",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "sudan",
+      "box": {
+        "sw": {
+          "lat": 8.68,
+          "lon": 21.84
+        },
+        "ne": {
+          "lat": 22.23,
+          "lon": 38.58
+        }
+      },
+      "iso3": "SDN"
+    },
+    {
       "name": "Suriname",
       "isoCode": "SR",
       "regions": [
@@ -3705,6 +3838,26 @@
       "tachyonKickstarter": true
     },
     {
+      "name": "Syria",
+      "isoCode": "SY",
+      "regions": [
+        "Middle East",
+        "Asia"
+      ],
+      "plain": "syria",
+      "box": {
+        "sw": {
+          "lat": 32.31,
+          "lon": 35.73
+        },
+        "ne": {
+          "lat": 37.32,
+          "lon": 42.38
+        }
+      },
+      "iso3": "SYR"
+    },
+    {
       "name": "Taiwan",
       "isoCode": "TW",
       "regions": [
@@ -3740,7 +3893,7 @@
           "lon": 73.1397362
         }
       },
-      "iso3": "UZB"
+      "iso3": "TJK"
     },
     {
       "name": "Tanzania",
@@ -3876,6 +4029,25 @@
         }
       },
       "iso3": "TUR"
+    },
+    {
+      "name": "Turkmenistan",
+      "isoCode": "TM",
+      "regions": [
+        "Asia"
+      ],
+      "plain": "turkmenistan",
+      "box": {
+        "sw": {
+          "lat": 35.14,
+          "lon": 52.44
+        },
+        "ne": {
+          "lat": 42.8,
+          "lon": 66.69
+        }
+      },
+      "iso3": "TKM"
     },
     {
       "name": "Turks and Caicos Islands",
@@ -4139,6 +4311,25 @@
         }
       },
       "iso3": "VIR"
+    },
+    {
+      "name": "Western Sahara",
+      "isoCode": "EH",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "western sahara",
+      "box": {
+        "sw": {
+          "lat": 20.77,
+          "lon": -17.1
+        },
+        "ne": {
+          "lat": 27.67,
+          "lon": -8.67
+        }
+      },
+      "iso3": "ESH"
     },
     {
       "name": "Yemen",
@@ -53504,6 +53695,178 @@
       }
     },
     {
+      "country": "Bhutan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Bhutan",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
       "country": "Bolivia",
       "modem": "BG95-M5",
       "sim": 4,
@@ -66346,6 +66709,178 @@
       }
     },
     {
+      "country": "Comoros",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Comoros",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
       "country": "Congo (Brazzaville)",
       "modem": "BG95-M5",
       "sim": 4,
@@ -73871,6 +74406,178 @@
       }
     },
     {
+      "country": "Djibouti",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Djibouti",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
       "country": "Dominica",
       "modem": "BG95-M5",
       "sim": 4,
@@ -77498,6 +78205,178 @@
       "technologies": [],
       "supported": {},
       "notSupported": {}
+    },
+    {
+      "country": "Eritrea",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Eritrea",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
     },
     {
       "country": "Estonia",
@@ -114563,6 +115442,178 @@
       "technologies": [],
       "supported": {},
       "notSupported": {}
+    },
+    {
+      "country": "Liberia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Liberia",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
     },
     {
       "country": "Libya",
@@ -153777,6 +154828,178 @@
       "notSupported": {}
     },
     {
+      "country": "São Tomé and Príncipe",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
       "country": "Saudi Arabia",
       "modem": "BG95-M5",
       "sim": 4,
@@ -166921,6 +168144,178 @@
       }
     },
     {
+      "country": "Sudan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Sudan",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
       "country": "Suriname",
       "modem": "BG95-M5",
       "sim": 4,
@@ -170985,6 +172380,178 @@
           "M1-20"
         ]
       }
+    },
+    {
+      "country": "Syria",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Syria",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
     },
     {
       "country": "Taiwan",
@@ -177920,6 +179487,178 @@
           "M1-20"
         ]
       }
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
     },
     {
       "country": "Turks and Caicos Islands",
@@ -189336,6 +191075,178 @@
       "technologies": [],
       "supported": {},
       "notSupported": {}
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
     },
     {
       "country": "Yemen",
