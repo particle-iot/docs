@@ -93,7 +93,8 @@
                     }
                     // Fall back to a description based on the SKU class
                     return skuClassFormFactors[sku.skuClass] || '';
-                }
+                },
+                infoNote: 'form-factor.md'
             },
             {
                 id: 'lifecycle',
