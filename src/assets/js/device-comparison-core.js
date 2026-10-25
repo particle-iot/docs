@@ -246,7 +246,8 @@
                         types.push('4FF');
                     }
                     return types.length ? types.join(' or ') : 'None';
-                }
+                },
+                infoNote: 'sim.md'
             },
             {
                 id: 'cellular-antenna',
