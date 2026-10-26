@@ -7028,6 +7028,16 @@ const schemaDocs = require('./schema-docs');
             } 
         },
 
+        // Antenna note (notes/antenna.md), shown from the cellular antenna row in the device comparison tool
+        {
+            guid: '187748ca-095c-40b9-9cc6-557eb4c47fd1',
+            generatorFn:function(updater){
+                return updater.generateAntennaNote({
+                    skus: ['PARANTCW1EA', 'PARANTC41EA', 'ANTCW2EA', 'ANT-FLXU', 'ANTELEC'],
+                }); 
+            } 
+        },
+
     ];
 
 

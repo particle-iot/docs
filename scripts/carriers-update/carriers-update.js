@@ -1172,6 +1172,16 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
     }
 
 
+    updater.relativeDocsUrl = function(url) {
+        // Converts https://docs.particle.io/assets/images/foo.png to /assets/images/foo.png. 
+        // Other URLs are returned unchanged.
+        const linkPrefix = 'https://docs.particle.io';
+        if (url.startsWith(linkPrefix)) {
+            return url.substring(linkPrefix.length);
+        }
+        return url;
+    };
+
     updater.generateTable = function(options, data) {
         // options includes options, table headers, etc.
         // data contains the data as an array of objects. The elements of the array are rows in the table.
@@ -1249,13 +1259,7 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
                 }
                 if (c.linkKey && d[c.linkKey]) {
                     const text = s;
-                    let link = d[c.linkKey];
-
-                    let linkPrefix = 'https://docs.particle.io';
-                    if (link.startsWith(linkPrefix)) {
-                        link = link.substring(linkPrefix.length);
-                    }
-                    s = '[' + text + '](' + link + ')';
+                    s = '[' + text + '](' + updater.relativeDocsUrl(d[c.linkKey]) + ')';
                 }
 
                 line += '| ' + s + ' ';
@@ -1534,9 +1538,108 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
         return updater.generateTable({columns: def.columns}, def.tableData);
     }
 
+    updater.generateAntennaNote = function(options) {
+        // Generates a section for each antenna, used in the additional information note for antennas. 
+        // options.skus is an array of the single (EA) antenna SKUs to include
+        // Each section starts with a horizontal rule and a heading, and has a table with the name, description, lifecycle and datasheet, the image,
+        // the gain and dimension tables, and a table of the devices that use the antenna.
+        let md = '';
+
+        for(const skuName of options.skus) {
+            const antennaObj = updater.datastore.findSkuByName(skuName);
+            if (!antennaObj) {
+                throw new Error('generateAntennaNote: sku ' + skuName + ' not found');
+            }
+
+            md += '<hr>\n\n';
+            md += '### ' + antennaObj.name + '\n\n';
+
+            // Name, description, lifecycle, and datasheet
+            md += updater.generateTable({
+                columns: [
+                    {key: 'name', title: 'SKU'},
+                    {key: 'desc', title: 'Description'},
+                    {key: 'lifecycle', title: 'Lifecycle', align: 'center'},
+                    {key: 'datasheetText', title: 'Datasheet', align: 'center', linkKey: 'datasheet'},
+                ]
+            }, [{
+                name: antennaObj.name,
+                desc: antennaObj.desc,
+                lifecycle: antennaObj.lifecycle,
+                datasheet: antennaObj.datasheet,
+                datasheetText: antennaObj.datasheet ? 'Datasheet' : undefined,
+            }]) + '\n';
+
+            if (antennaObj.image) {
+                md += '![' + antennaObj.name + '](' + updater.relativeDocsUrl(antennaObj.image) + ')\n\n';
+            }
+
+            // Gain, if there is data for this antenna
+            const gainSections = [
+                {title: 'Peak gain', key: 'peakGain', unitsKey: 'peakGainUnits', skus: [antennaObj.name]},
+                {title: 'Average gain', key: 'avgGain', unitsKey: 'avgGainUnits', skus: [antennaObj.name]},
+            ].filter(section => !!antennaObj[section.key]);
+
+            if (gainSections.length) {
+                md += '**Gain**\n\n';
+                md += updater.generateAntennaGain({sections: gainSections}) + '\n';
+            }
+
+            // Dimensions
+            if (typeof antennaObj.length != 'undefined') {
+                md += '**Dimensions**\n\n';
+                md += updater.generateAntennaDimensions({skus: [antennaObj.name], includeMultiple: true}) + '\n';
+            }
+
+            // Devices that use this antenna as the cellular antenna, alternate, or NTN antenna
+            const uses = [
+                {key: 'cellAnt', incKey: 'cellAntInc', title: 'Cellular'},
+                {key: 'cellAntAlt', title: 'Cellular alternate'},
+                {key: 'ntnAnt', incKey: 'ntnAntInc', title: 'NTN'},
+            ];
+            const deviceSkus = updater.getAntennaDeviceSkus(skuObj => uses.some(use => skuObj[use.key] == antennaObj.name));
+
+            if (deviceSkus.length) {
+                let tableData = [];
+                for(const skuObj of deviceSkus) {
+                    const skuUses = uses.filter(use => skuObj[use.key] == antennaObj.name);
+                    tableData.push({
+                        desc: skuObj.desc,
+                        name: skuObj.name,
+                        included: skuUses.some(use => use.incKey && skuObj[use.incKey]),
+                        use: skuUses.map(use => use.title).join(', '),
+                        lifecycle: skuObj.lifecycle,
+                    });
+                }
+
+                md += '**Devices that use this antenna**\n\n';
+                md += updater.generateTable({
+                    columns: [
+                        {key: 'desc', title: 'Device'},
+                        {key: 'name', title: 'SKU'},
+                        {key: 'included', title: 'Included', align: 'center', onlyCheckmark: true},
+                        {key: 'use', title: 'Use'},
+                        {key: 'lifecycle', title: 'Lifecycle', align: 'center'},
+                    ]
+                }, tableData) + '\n';
+            }
+        }
+
+        return md;
+    };
+
+    // Frequency bands (columns) of the antenna gain tables, keys of peakGain and avgGain in skus
+    updater.antennaGainBands = [
+        {key: '700-900', title: '700/850/900'},
+        {key: '1700-1900', title: '1700/1800/1900'},
+        {key: '2100', title: '2100'},
+        {key: '2400', title: '2400'},
+        {key: '2600', title: '2600'},
+    ];
+
     updater.generateAntennaGain = function(options) {
         // Generates a table of antenna gain with a row for each antenna and a column for each frequency band. 
-        // options.bands is an array of the columns, left to right:
+        // options.bands is an array of the columns, left to right (default updater.antennaGainBands):
         //   .key    key in the peakGain and avgGain objects in skus, like '700-900'
         //   .title  column heading, like '700/850/900'
         // options.sections is an array of groups of rows, each with a heading row:
@@ -1545,8 +1648,10 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
         //   .unitsKey  key in skus with the units, like 'peakGainUnits'
         //   .skus      array of single SKUs to include as rows
 
+        const bands = options.bands || updater.antennaGainBands;
+
         let columns = [{key: 'parameter', title: 'Parameter'}];
-        options.bands.forEach(function(band, index) {
+        bands.forEach(function(band, index) {
             columns.push({key: 'band' + index, title: band.title, align: 'center'});
         });
         columns.push({key: 'units', title: 'Unit'});
@@ -1568,7 +1673,7 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
                 }
 
                 let rowData = {parameter: skuName, units: skuObj[section.unitsKey]};
-                options.bands.forEach(function(band, index) {
+                bands.forEach(function(band, index) {
                     if (typeof gain[band.key] != 'undefined') {
                         rowData['band' + index] = gain[band.key];
                     }
@@ -1918,23 +2023,21 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
     };
 
 
-    updater.generateAntCell = function(options) {
+    updater.getAntennaDeviceSkus = function(matchFn, options) {
+        // Returns the devices (skus) that match matchFn(skuObj), sorted by description. This is shared by
+        // the lists of devices that use antennas. Discontinued, hidden, and Linux devices are omitted.
+        // options.filterFn(skuObj) returns true to omit a sku (optional)
         let skus = [];
 
-        if (!options) {
-            options = {};
-        }
-
-        // Filter
         updater.datastore.data.skus.forEach(function(skuObj) {
-            if (!skuObj.cellAnt) {
+            if (!matchFn(skuObj)) {
                 return;
             }
             if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || !!skuObj.linux) {
                 return;
             }
 
-            if (options.filterFn) {
+            if (options && options.filterFn) {
                 if (options.filterFn(skuObj)) {
                     return;
                 }
@@ -1943,10 +2046,21 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
             skus.push(skuObj);
         });
 
-        // Sort
         skus.sort(function(a, b) {
             return a.desc.localeCompare(b.desc);
         });
+
+        return skus;
+    };
+
+    updater.generateAntCell = function(options) {
+        let skus = [];
+
+        if (!options) {
+            options = {};
+        }
+
+        skus = updater.getAntennaDeviceSkus(skuObj => !!skuObj.cellAnt, options);
 
         // Render
         let md = '';
@@ -1990,28 +2104,7 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
             options = {};
         }
 
-        // Filter
-        updater.datastore.data.skus.forEach(function(skuObj) {
-            if (!skuObj.ntnAnt) {
-                return;
-            }
-            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || !!skuObj.linux) {
-                return;
-            }
-
-            if (options.filterFn) {
-                if (options.filterFn(skuObj)) {
-                    return;
-                }
-            }
-
-            skus.push(skuObj);
-        });
-
-        // Sort
-        skus.sort(function(a, b) {
-            return a.desc.localeCompare(b.desc);
-        });
+        skus = updater.getAntennaDeviceSkus(skuObj => !!skuObj.ntnAnt, options);
 
         // Render
         let md = '';
@@ -4652,13 +4745,16 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
         const oldDocsData = fs.readFileSync(mdPath, 'utf8');
         let frontMatter = '';
         let dashCount = 0;
-        for(let line of oldDocsData.split('\n')) {
-            line = line.trim();
-            frontMatter += line + '\n';
-            if (line == '---') {
-                if (++dashCount == 2) {
-                    break;
-                }            
+        // Some files, like the notes, do not have front matter
+        if (oldDocsData.startsWith('---')) {
+            for(let line of oldDocsData.split('\n')) {
+                line = line.trim();
+                frontMatter += line + '\n';
+                if (line == '---') {
+                    if (++dashCount == 2) {
+                        break;
+                    }            
+                }
             }
         }
 
