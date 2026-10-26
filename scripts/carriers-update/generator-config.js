@@ -7062,6 +7062,20 @@ const schemaDocs = require('./schema-docs');
             } 
         },
 
+        // BLE antenna note (notes/ble-antenna.md), shown from the BLE antenna row in the device comparison tool
+        {
+            guid: 'ad020223-7e1c-43a3-9590-cf6ca2357e4a',
+            generatorFn:function(updater){
+                return updater.generateAntennaNote({
+                    skus: ['ANT-FLXV2', 'PARANTWM1EA'],
+                    uses: [
+                        // A value of 4 means PARANTWM1EA (shared by Wi-Fi and BLE) on the Photon 2 and P2
+                        {key: 'bleAntExt', incKey: 'bleAntExtInc', title: 'BLE', aliases: {'4': 'PARANTWM1EA'}},
+                    ],
+                }); 
+            } 
+        },
+
     ];
 
 

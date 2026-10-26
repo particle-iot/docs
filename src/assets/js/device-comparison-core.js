@@ -271,7 +271,8 @@
                 title: 'BLE antenna',
                 fn: function({sku}) {
                     return antennaList([sku.bleAntExt]);
-                }
+                },
+                infoNote: 'ble-antenna.md'
             },
             {
                 id: 'on-board-antennas',
