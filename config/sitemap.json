@@ -927,8 +927,8 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2026-10-23",
-            "hash": "d8394f6569f149edb4e3d883c82c4f4c91488998ef97de0ea09f5db58828415e"
+            "date": "2026-10-26",
+            "hash": "d0db1d7f63ec13597e4682c41da3ec1d6ab40a35c57f974c9e8004bd664ec222"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2026-08-14",
@@ -995,20 +995,20 @@
             "hash": "8f57d8a8a7a7bce5605eea8a1a6234e9ff0d5e2322177c1ee6826f387c636145"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2026-06-09",
-            "hash": "e8d27dce6e8d368b4a59648fa4a3c062fbdd328629c573ab8a4dfd7337b09d73"
+            "date": "2026-10-26",
+            "hash": "f20c798353050d8c025858e236eae692b19a7fa5c5c71216097129a834df3944"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2026-06-09",
-            "hash": "b3af9f87cc57d6887db554c57693e1b0ac19b4f27e9ea9b29f752426dc4b8cea"
+            "date": "2026-10-26",
+            "hash": "a9dd06bd37af48f84e99c4e2bb1b154592d6e54056b90bff078d7495e26b41f9"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2024-02-27",
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2026-10-06",
-            "hash": "b1ab892699fa5540c3af8da7d8094781ceecb87019547b7a5922730a166dbba8"
+            "date": "2026-10-26",
+            "hash": "8bbdd01228bc97af9e4cc0fb2f6a56c081e852209258ef9b58e24484045a705b"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2026-10-14",

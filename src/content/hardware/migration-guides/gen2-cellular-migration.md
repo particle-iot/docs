@@ -432,15 +432,20 @@ There are more UART ports on the Gen 2 devices than Gen 3. If you need more hard
 
 ### PWM (pulse width modulation)
 
-{{!-- BEGIN shared-blurb 2fd8bba2-0bda-44c3-822d-0fb0ad30118e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 9393d0b2-f32f-4259-a064-6185f7d0e1c1 --}}
 
-| Dimension | PARANTCW1EA | PARANTC41EA | ANTCW2EA | ANT-FLXU | ANTELEC | 
+| Dimension | PARANTCW1EA | PARANTC41EA | ANTCW2EA | ANT-FLXU | ANTELEC |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | Tray SKU | PARANTCW1TY | PARANTC41TY | ANTCW2TY | ANT-FLXU-50 | ANTELEC50 |
-| Length | 116mm | 122.1mm | 97.0mm | 96.0mm | 80.0mm |
-| Width | 27mm | 12.8mm | 21.0mm | 21.0mm | 20.0mm |
+| Length | 116mm | 122.1mm | 97mm | 96mm | 80mm |
+| Width | 27mm | 12.8mm | 21mm | 21mm | 20mm |
 | Thickness | 0.2mm | 0.2mm | 0.2mm | 0.2mm | 0.2mm |
 | Cable Length | 189.5mm | 183mm | 160mm | 150mm | 164mm |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+{{!-- BEGIN shared-blurb 2fd8bba2-0bda-44c3-822d-0fb0ad30118e --}}
 
 PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna can be bent when being placed inside an enclosure. There are a couple restrictions to ensure good performance:
 

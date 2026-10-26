@@ -1534,6 +1534,59 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
         return updater.generateTable({columns: def.columns}, def.tableData);
     }
 
+    updater.generateAntennaDimensions = function(options) {
+        // Generates a table of antenna dimensions with a column for each antenna and a row for each dimension.
+        // options.skus is an array of the single (EA) SKUs to include, left to right
+        // options.includeMultiple is true to add a row with the multiple (tray) SKU of each antenna
+        // The dimensions are in the length, width, thickness, cableLength, and dimensionUnits keys of skus.
+
+        const dimensions = [
+            {title: 'Length', key: 'length'},
+            {title: 'Width', key: 'width'},
+            {title: 'Thickness', key: 'thickness'},
+            {title: 'Cable Length', key: 'cableLength'},
+        ];
+
+        let skuObjs = [];
+        for(const skuName of options.skus) {
+            const skuObj = updater.datastore.findSkuByName(skuName);
+            if (!skuObj) {
+                throw new Error('generateAntennaDimensions: sku ' + skuName + ' not found');
+            }
+            skuObjs.push(skuObj);
+        }
+
+        // The table is transposed from the usual generateTable usage: each row is a dimension, and 
+        // each column is an antenna. 
+        let columns = [{key: 'dimension', title: 'Dimension'}];
+        skuObjs.forEach(function(skuObj, index) {
+            columns.push({key: 'sku' + index, title: skuObj.name, align: 'center'});
+        });
+
+        let tableData = [];
+
+        if (options.includeMultiple) {
+            let rowData = {dimension: 'Tray SKU'};
+            skuObjs.forEach(function(skuObj, index) {
+                rowData['sku' + index] = skuObj.multipleSku;
+            });
+            tableData.push(rowData);
+        }
+
+        for(const dimension of dimensions) {
+            let rowData = {dimension: dimension.title};
+            skuObjs.forEach(function(skuObj, index) {
+                const value = skuObj[dimension.key];
+                if (typeof value != 'undefined') {
+                    rowData['sku' + index] = value + (skuObj.dimensionUnits || '');
+                }
+            });
+            tableData.push(rowData);
+        }
+
+        return updater.generateTable({columns}, tableData);
+    }
+
     updater.generateSkuLifecycle = function(options) {
         let tableData = [];
 

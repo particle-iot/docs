@@ -6997,6 +6997,17 @@ const schemaDocs = require('./schema-docs');
             } 
         },
 
+        // Antenna dimensions, shared blurb 2fd8bba2-0bda-44c3-822d-0fb0ad30118e in antenna.md and other guides
+        {
+            guid: '9393d0b2-f32f-4259-a064-6185f7d0e1c1',
+            generatorFn:function(updater){
+                return updater.generateAntennaDimensions({
+                    skus: ['PARANTCW1EA', 'PARANTC41EA', 'ANTCW2EA', 'ANT-FLXU', 'ANTELEC'],
+                    includeMultiple: true,
+                }); 
+            } 
+        },
+
     ];
 
 
