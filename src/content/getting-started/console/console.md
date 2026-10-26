@@ -219,12 +219,6 @@ In the Basic and Enterprise plans, usage is divided by the class of devices. For
 These panels turn yellow at 70% of your plan limits, and red when the limits have been reached.
 
 
-You can also quickly view your usage from the popup under your email address in the upper-right corner of the console window.
-
-<div align="center"><img src="/assets/images/console/usage-popup.png" class="small"></div>
-
-The numbers of devices and data operations will be updated within a half hour. Cellular data usage may be delayed for up to a week.
-
 ### Historical data
 
 At the bottom of the Billing & Usage panel you can request a data usage report:
@@ -232,7 +226,7 @@ At the bottom of the Billing & Usage panel you can request a data usage report:
 ![](/assets/images/console/historical-data.png)
 
 - Time Range: Past week, Past month, Past 3 months, Past year
-- Data Requested: Data usage by device, Data usage by product
+- Data Requested: Data usage by device, Data usage by product, Metered devices snapshot, Metered devices changes, Devices in grace period
 
 It will take several minutes to generate the data, and you will be emailed a csv file when done. 
 

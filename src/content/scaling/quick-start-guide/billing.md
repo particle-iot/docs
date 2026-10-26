@@ -17,7 +17,7 @@ Hardware is billed at the time of shipment.
 
 Billing information is available in the [Particle Console](https://console.particle.io/).
 
-Select your organization in the upper left corner, then the **Billing & Usage** tab. Only organization administrators can see organization billing information. The organization popup will initially be set to **Sandbox**.
+Select your organization in the upper left corner, then the **Billing & Usage** tab. Only organization administrators can see organization billing information. The organization popup will initially be set to **Sandbox**. Then select the icon that looks like a credit card.
 
 ![Organization Billing](/assets/images/console/org-view-labeled.png)
 
