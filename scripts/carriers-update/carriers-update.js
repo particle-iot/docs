@@ -1601,15 +1601,33 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
     updater.generateAntennaNote = function(options) {
         // Generates a section for each antenna, used in the additional information note for antennas. 
         // options.skus is an array of the single (EA) antenna SKUs to include
+        // options.uses is how devices use the antenna (default cellular), see uses below
         // Each section starts with a horizontal rule and a heading, and has a table with the name, description, lifecycle and datasheet, the image,
         // the gain and dimension tables, and a table of the devices that use the antenna.
         let md = '';
+
+        // The keys in the devices (skus) that identify the antenna they use. The default is the cellular
+        // antennas.
+        //   .key     key in skus with the antenna SKU
+        //   .incKey  key in skus that is true if the antenna is included with the device (optional)
+        //   .title   description of the use in the table
+        //   .aliases object mapping other values of the key to the antenna SKU (optional)
+        const uses = options.uses || [
+            {key: 'cellAnt', incKey: 'cellAntInc', title: 'Cellular'},
+            {key: 'cellAntAlt', title: 'Cellular alternate'},
+            {key: 'ntnAnt', incKey: 'ntnAntInc', title: 'NTN'},
+        ];
 
         for(const skuName of options.skus) {
             const antennaObj = updater.datastore.findSkuByName(skuName);
             if (!antennaObj) {
                 throw new Error('generateAntennaNote: sku ' + skuName + ' not found');
             }
+
+            const usesAntenna = function(skuObj, use) {
+                const value = skuObj[use.key];
+                return value == antennaObj.name || (!!use.aliases && use.aliases[value] == antennaObj.name);
+            };
 
             md += '<hr>\n\n';
             md += '### ' + antennaObj.name + '\n\n';
@@ -1651,18 +1669,13 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
                 md += updater.generateAntennaDimensions({skus: [antennaObj.name], includeMultiple: true}) + '\n';
             }
 
-            // Devices that use this antenna as the cellular antenna, alternate, or NTN antenna
-            const uses = [
-                {key: 'cellAnt', incKey: 'cellAntInc', title: 'Cellular'},
-                {key: 'cellAntAlt', title: 'Cellular alternate'},
-                {key: 'ntnAnt', incKey: 'ntnAntInc', title: 'NTN'},
-            ];
-            const deviceSkus = updater.getDeviceSkus(skuObj => uses.some(use => skuObj[use.key] == antennaObj.name));
+            // Devices that use this antenna, by default as the cellular antenna, alternate, or NTN antenna
+            const deviceSkus = updater.getDeviceSkus(skuObj => uses.some(use => usesAntenna(skuObj, use)));
 
             if (deviceSkus.length) {
                 let tableData = [];
                 for(const skuObj of deviceSkus) {
-                    const skuUses = uses.filter(use => skuObj[use.key] == antennaObj.name);
+                    const skuUses = uses.filter(use => usesAntenna(skuObj, use));
                     tableData.push({
                         desc: skuObj.desc,
                         name: skuObj.name,

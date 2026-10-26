@@ -263,7 +263,8 @@
                 title: 'Wi-Fi antenna',
                 fn: function({sku}) {
                     return antennaList([sku.wifiAntExt]);
-                }
+                },
+                infoNote: 'wifi-antenna.md'
             },
             {
                 id: 'ble-antenna',

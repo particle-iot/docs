@@ -7048,6 +7048,20 @@ const schemaDocs = require('./schema-docs');
             } 
         },
 
+        // Wi-Fi antenna note (notes/wifi-antenna.md), shown from the Wi-Fi antenna row in the device comparison tool
+        {
+            guid: 'f51ca1ec-817f-42b2-b488-5e47cee82075',
+            generatorFn:function(updater){
+                return updater.generateAntennaNote({
+                    skus: ['ANT-FLXV2', 'PARANTWM1EA'],
+                    uses: [
+                        // A value of 4 means PARANTWM1EA (shared by Wi-Fi and BLE) on the Photon 2 and P2
+                        {key: 'wifiAntExt', incKey: 'wifiAntExtInc', title: 'Wi-Fi', aliases: {'4': 'PARANTWM1EA'}},
+                    ],
+                }); 
+            } 
+        },
+
     ];
 
 
