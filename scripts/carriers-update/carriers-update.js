@@ -1538,6 +1538,66 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
         return updater.generateTable({columns: def.columns}, def.tableData);
     }
 
+    updater.generateMcuNote = function(options) {
+        // Generates a section for each MCU, used in the additional information note for MCUs.
+        // options.mcus is an array of MCU ids in the mcus table, like 'nrf52840'
+        // Each section starts with a horizontal rule and a heading, and has a table of the MCU features 
+        // (the same values as the device comparison rows) and a table of the devices that use the MCU.
+        let md = '';
+
+        const rowDefs = deviceComparison.getRowDefs();
+        const mcuRows = ['mcu', 'mcu-processor-speed', 'user-ram-available', 'maximum-user-application-size'].map(function(id) {
+            return rowDefs.find(e => e.id == id);
+        });
+
+        for(const mcuId of options.mcus) {
+            const mcu = updater.datastore.findMcuById(mcuId);
+            if (!mcu) {
+                throw new Error('generateMcuNote: mcu ' + mcuId + ' not found');
+            }
+
+            const deviceSkus = updater.getDeviceSkus(skuObj => skuObj.mcu == mcuId);
+
+            md += '<hr>\n\n';
+            md += '### ' + mcu.name + '\n\n';
+
+            // Use the generation of the MCU if known, otherwise the generations of the devices that use it
+            let generations = [];
+            if (typeof mcu.gen != 'undefined') {
+                generations = [mcu.gen];
+            }
+            else {
+                generations = [...new Set(deviceSkus.map(e => e.gen))].sort();
+            }
+
+            let tableData = [{feature: 'Generation', value: generations.map(e => 'Gen ' + e).join(', ')}];
+            for(const rowDef of mcuRows) {
+                tableData.push({feature: rowDef.title, value: rowDef.fn({mcu})});
+            }
+
+            md += updater.generateTable({
+                columns: [
+                    {key: 'feature', title: 'Feature'},
+                    {key: 'value', title: 'Value'},
+                ]
+            }, tableData) + '\n';
+
+            if (deviceSkus.length) {
+                md += '**Devices that use this MCU**\n\n';
+                md += updater.generateTable({
+                    columns: [
+                        {key: 'desc', title: 'Device'},
+                        {key: 'name', title: 'SKU'},
+                        {key: 'gen', title: 'Gen', align: 'center'},
+                        {key: 'lifecycle', title: 'Lifecycle', align: 'center'},
+                    ]
+                }, deviceSkus) + '\n';
+            }
+        }
+
+        return md;
+    };
+
     updater.generateAntennaNote = function(options) {
         // Generates a section for each antenna, used in the additional information note for antennas. 
         // options.skus is an array of the single (EA) antenna SKUs to include
@@ -1597,7 +1657,7 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
                 {key: 'cellAntAlt', title: 'Cellular alternate'},
                 {key: 'ntnAnt', incKey: 'ntnAntInc', title: 'NTN'},
             ];
-            const deviceSkus = updater.getAntennaDeviceSkus(skuObj => uses.some(use => skuObj[use.key] == antennaObj.name));
+            const deviceSkus = updater.getDeviceSkus(skuObj => uses.some(use => skuObj[use.key] == antennaObj.name));
 
             if (deviceSkus.length) {
                 let tableData = [];
@@ -2023,9 +2083,9 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
     };
 
 
-    updater.getAntennaDeviceSkus = function(matchFn, options) {
+    updater.getDeviceSkus = function(matchFn, options) {
         // Returns the devices (skus) that match matchFn(skuObj), sorted by description. This is shared by
-        // the lists of devices that use antennas. Discontinued, hidden, and Linux devices are omitted.
+        // the lists of devices that use antennas and MCUs. Discontinued, hidden, and Linux devices are omitted.
         // options.filterFn(skuObj) returns true to omit a sku (optional)
         let skus = [];
 
@@ -2060,7 +2120,7 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
             options = {};
         }
 
-        skus = updater.getAntennaDeviceSkus(skuObj => !!skuObj.cellAnt, options);
+        skus = updater.getDeviceSkus(skuObj => !!skuObj.cellAnt, options);
 
         // Render
         let md = '';
@@ -2104,7 +2164,7 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
             options = {};
         }
 
-        skus = updater.getAntennaDeviceSkus(skuObj => !!skuObj.ntnAnt, options);
+        skus = updater.getDeviceSkus(skuObj => !!skuObj.ntnAnt, options);
 
         // Render
         let md = '';

@@ -151,7 +151,8 @@
                 title: 'MCU',
                 fn: function({mcu}) {
                     return mcu.name;
-                }
+                },
+                infoNote: 'mcu.md'
             },
             {
                 id: 'mcu-processor-speed',

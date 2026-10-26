@@ -30226,7 +30226,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100",
       "length": 96,
@@ -30262,7 +30264,9 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -30275,7 +30279,10 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "wifi",
+        "ble"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100",
       "image": "https://docs.particle.io/assets/images/antennas/ANT-FLXV2.jpg"
@@ -30289,7 +30296,10 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "wifi",
+        "ble"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -30301,7 +30311,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "nfc"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -30314,7 +30326,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100",
       "length": 97,
@@ -30350,7 +30364,9 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -30363,7 +30379,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100",
       "length": 80,
@@ -30383,7 +30401,9 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -34433,7 +34453,7 @@
       "platformId": 32,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "rtl8721x",
+      "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p2-datasheet/",
       "hsCode": "8517.62.0090",
       "rgbStatusLed": "base board",
@@ -34466,7 +34486,7 @@
       "platformId": 32,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "rtl8721x",
+      "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p2-datasheet/",
       "hsCode": "8517.62.0090",
       "rgbStatusLed": "base board",
@@ -34482,7 +34502,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100",
       "length": 122.1,
@@ -34518,7 +34540,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -34526,7 +34550,10 @@
       "name": "PARANTCN1EA",
       "desc": "NTN and LTE cell antenna, [x1]",
       "lifecycle": "In development",
-      "antenna": true,
+      "antenna": [
+        "cellular",
+        "ntn"
+      ],
       "multiple": false,
       "multipleSku": "PARANTCN1TY",
       "enterprise": false,
@@ -34545,7 +34572,10 @@
       "name": "PARANTCN1TY",
       "desc": "NTN and LTE cell antenna, [x50]",
       "lifecycle": "In development",
-      "antenna": true,
+      "antenna": [
+        "cellular",
+        "ntn"
+      ],
       "multiple": true,
       "singleSku": "PARANTCN1EA",
       "enterprise": false,
@@ -34563,7 +34593,9 @@
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100",
       "length": 116,
@@ -34591,7 +34623,9 @@
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -34604,7 +34638,9 @@
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "gnss"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9000",
       "image": "https://docs.particle.io/assets/images/antennas/PARANTGN1.jpg"
@@ -34618,7 +34654,9 @@
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "gnss"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9000"
     },
@@ -34631,7 +34669,10 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "wifi",
+        "ble"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100",
       "image": "https://docs.particle.io/assets/images/antennas/PARANTWM1.jpg"
@@ -34645,7 +34686,10 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "wifi",
+        "ble"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -34673,7 +34717,7 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "rtl8721x",
+      "mcu": "rtl872x",
       "batteryConn": "jst-ph-2",
       "rgbStatusLed": true,
       "modeButton": true,
@@ -34705,7 +34749,7 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "rtl8721x",
+      "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
       "batteryConn": "jst-ph-2",
       "rgbStatusLed": true,
@@ -34739,7 +34783,7 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "rtl8721x",
+      "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
       "hsCode": "8517.62.0090",
       "batteryConn": "jst-ph-2",
@@ -34774,7 +34818,7 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "rtl8721x",
+      "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
       "hsCode": "8517.62.0090",
       "batteryConn": "jst-ph-2",
@@ -192524,7 +192568,9 @@
       "userRam": "80 KB",
       "name": "nRF52840",
       "cpuSummary": "64 MHz Cortex-M4F",
-      "userRamApprox": true
+      "userRamApprox": true,
+      "gen": 3,
+      "embedded": true
     },
     {
       "id": "rtl872x",
@@ -192537,20 +192583,9 @@
       "wifi": "802.11b/g/n",
       "name": "RTL8722DM",
       "cpuSummary": "200 MHz Cortex-M33",
-      "wifiBands": "2.4 GHz and 5 GHz"
-    },
-    {
-      "id": "rtl8721x",
-      "ble": "5",
-      "cpu": "ARM Cortex M33 CPU, 200 MHz",
-      "flashFileSystem": "2 MB",
-      "nfcTag": false,
-      "userAppSize": "2048 KB",
-      "userRam": "3072 KB",
-      "wifi": "802.11b/g/n",
-      "name": "RTL8721DM",
-      "cpuSummary": "200 MHz Cortex-M33",
-      "wifiBands": "2.4 GHz and 5 GHz"
+      "wifiBands": "2.4 GHz and 5 GHz",
+      "gen": 4,
+      "embedded": true
     },
     {
       "id": "stm32f2xx",
@@ -192561,7 +192596,9 @@
       "userAppSize": "128 KB",
       "userRam": "50 KB",
       "name": "STM32F205",
-      "cpuSummary": "120 MHz Cortex-M3"
+      "cpuSummary": "120 MHz Cortex-M3",
+      "gen": 2,
+      "embedded": true
     },
     {
       "id": "kryo-8",
@@ -192571,7 +192608,9 @@
       "nfcTag": false,
       "wifi": "6e",
       "name": "Qualcomm QCM6490",
-      "cpuSummary": "Octa-core Kryo (1x 2.7 GHz, 3x 2.4 GHz, 4x 1.9 GHz)"
+      "cpuSummary": "Octa-core Kryo (1x 2.7 GHz, 3x 2.4 GHz, 4x 1.9 GHz)",
+      "embedded": false,
+      "linux": true
     }
   ],
   "sunset": [

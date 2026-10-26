@@ -7038,6 +7038,16 @@ const schemaDocs = require('./schema-docs');
             } 
         },
 
+        // MCU note (notes/mcu.md), shown from the MCU row in the device comparison tool
+        {
+            guid: '06e4de0f-7b6f-4f61-8708-6585c6a13c13',
+            generatorFn:function(updater){
+                return updater.generateMcuNote({
+                    mcus: ['rtl872x', 'nrf52840', 'stm32f2xx'],
+                }); 
+            } 
+        },
+
     ];
 
 

@@ -54,7 +54,7 @@ Since the Axion AXN715e supports LTE Cat 1 bis, it can be used world-wide with a
 | Cellular technology | LTE CAT 1 bis | LTE Cat M1 | None | LTE Cat 1 with 3G fallback | LTE Cat M1 | LTE Cat 1 with 2G/3G fallback |
 | Wi-Fi supported | Yes (2.4 GHz and 5 GHz) | No | Yes (2.4 GHz and 5 GHz) | No | Yes (2.4 GHz and 5 GHz) | Yes (2.4 GHz and 5 GHz) |
 | Generation | Gen 4 | Gen 3 | Gen 4 | Gen 3 | Gen 4 | Gen 4 |
-| MCU | RTL8722DM | nRF52840 | RTL8721DM | nRF52840 | RTL8722DM | RTL8722DM |
+| MCU | RTL8722DM | nRF52840 | RTL8722DM | nRF52840 | RTL8722DM | RTL8722DM |
 | MCU processor speed | 200 MHz Cortex-M33 | 64 MHz Cortex-M4F | 200 MHz Cortex-M33 | 64 MHz Cortex-M4F | 200 MHz Cortex-M33 | 200 MHz Cortex-M33 |
 | User RAM available | 3072 KB | ~80 KB | 3072 KB | ~80 KB | 3072 KB | 3072 KB |
 | Maximum user application size | 2048 KB | 256 KB | 2048 KB | 256 KB | 2048 KB | 2048 KB |

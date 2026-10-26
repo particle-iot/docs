@@ -1,3 +1,5 @@
+For more information, see the [Antenna guide](/hardware/certification/antenna/).
+
 {{!-- BEGIN do not edit content below, it is automatically generated 187748ca-095c-40b9-9cc6-557eb4c47fd1 --}}
 
 <hr>
