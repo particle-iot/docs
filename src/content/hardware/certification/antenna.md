@@ -54,18 +54,22 @@ In the United States, you can generally substitute an antenna that is of the sam
 Note that the ANT-ELEC should not be used with any LTE Cat 1 or LTE Cat M1 device because it does not support some bands used by LTE.
 
 
+{{!-- BEGIN do not edit content below, it is automatically generated d7e4143b-fcb5-4fba-a1dc-e02581a3bb25 --}}
+
 | Parameter | 700/850/900 | 1700/1800/1900 | 2100 | 2400 | 2600 | Unit |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| Peak gain | | | | | | | |
+| Peak gain | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | PARANTCW1EA | 2.8 | 5.3 | 5.3 | 5.3 | 5.3 | dBi |
-| PARANTC41EA | 2.46 | 3.86 | 3.86 |3.86 |3.86 | dBi |
+| PARANTC41EA | 2.46 | 3.86 | 3.86 | 3.86 | 3.86 | dBi |
 | ANTCW2EA | 1.42 | 3.77 | 4.62 | 4.71 | 4.66 | dBi |
-| ANT-FLXU | 1 | 3.5 | 5 | 5 | 4.5|  dBi |
-|  | | | | | | | |
-| Average gain | | | | | | | |
+| ANT-FLXU | 1 | 3.5 | 5 | 5 | 4.5 | dBi |
+| Average gain | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | PARANTC41EA | 1 | 0.98 | 0.98 | 0.98 | 0.98 | dB |
 | ANTCW2EA | -2.98 | -1.9 | -2.65 | -2.1 | -2.2 | dB |
 | ANT-FLXU | -3 | -2 | -2.5 | -2 | -2 | dB |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ### Cellular antenna dimensions

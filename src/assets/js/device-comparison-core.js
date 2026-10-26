@@ -254,7 +254,8 @@
                 title: 'Cellular antenna',
                 fn: function({sku}) {
                     return antennaList([sku.cellAnt, sku.cellAntAlt, sku.ntnAnt]);
-                }
+                },
+                infoNote: 'antenna.md'
             },
             {
                 id: 'wi-fi-antenna',

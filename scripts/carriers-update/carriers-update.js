@@ -1534,6 +1534,52 @@ const deviceComparison = require('../../src/assets/js/device-comparison-core');
         return updater.generateTable({columns: def.columns}, def.tableData);
     }
 
+    updater.generateAntennaGain = function(options) {
+        // Generates a table of antenna gain with a row for each antenna and a column for each frequency band. 
+        // options.bands is an array of the columns, left to right:
+        //   .key    key in the peakGain and avgGain objects in skus, like '700-900'
+        //   .title  column heading, like '700/850/900'
+        // options.sections is an array of groups of rows, each with a heading row:
+        //   .title     heading, like 'Peak gain'
+        //   .key       key in skus with an object of gain by band, like 'peakGain'
+        //   .unitsKey  key in skus with the units, like 'peakGainUnits'
+        //   .skus      array of single SKUs to include as rows
+
+        let columns = [{key: 'parameter', title: 'Parameter'}];
+        options.bands.forEach(function(band, index) {
+            columns.push({key: 'band' + index, title: band.title, align: 'center'});
+        });
+        columns.push({key: 'units', title: 'Unit'});
+
+        let tableData = [];
+
+        for(const section of options.sections) {
+            // Heading row, with the other columns empty
+            tableData.push({parameter: section.title});
+
+            for(const skuName of section.skus) {
+                const skuObj = updater.datastore.findSkuByName(skuName);
+                if (!skuObj) {
+                    throw new Error('generateAntennaGain: sku ' + skuName + ' not found');
+                }
+                const gain = skuObj[section.key];
+                if (!gain) {
+                    throw new Error('generateAntennaGain: sku ' + skuName + ' has no ' + section.key);
+                }
+
+                let rowData = {parameter: skuName, units: skuObj[section.unitsKey]};
+                options.bands.forEach(function(band, index) {
+                    if (typeof gain[band.key] != 'undefined') {
+                        rowData['band' + index] = gain[band.key];
+                    }
+                });
+                tableData.push(rowData);
+            }
+        }
+
+        return updater.generateTable({columns}, tableData);
+    }
+
     updater.generateAntennaDimensions = function(options) {
         // Generates a table of antenna dimensions with a column for each antenna and a row for each dimension.
         // options.skus is an array of the single (EA) SKUs to include, left to right

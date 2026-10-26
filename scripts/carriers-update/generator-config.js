@@ -7008,6 +7008,26 @@ const schemaDocs = require('./schema-docs');
             } 
         },
 
+        // Antenna gain, antenna.md
+        {
+            guid: 'd7e4143b-fcb5-4fba-a1dc-e02581a3bb25',
+            generatorFn:function(updater){
+                return updater.generateAntennaGain({
+                    bands: [
+                        {key: '700-900', title: '700/850/900'},
+                        {key: '1700-1900', title: '1700/1800/1900'},
+                        {key: '2100', title: '2100'},
+                        {key: '2400', title: '2400'},
+                        {key: '2600', title: '2600'},
+                    ],
+                    sections: [
+                        {title: 'Peak gain', key: 'peakGain', unitsKey: 'peakGainUnits', skus: ['PARANTCW1EA', 'PARANTC41EA', 'ANTCW2EA', 'ANT-FLXU']},
+                        {title: 'Average gain', key: 'avgGain', unitsKey: 'avgGainUnits', skus: ['PARANTC41EA', 'ANTCW2EA', 'ANT-FLXU']},
+                    ],
+                }); 
+            } 
+        },
+
     ];
 
 

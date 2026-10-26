@@ -30235,7 +30235,23 @@
       "cableLength": 150,
       "dimensionUnits": "mm",
       "image": "https://docs.particle.io/assets/images/antennas/ANT-FLXU.jpg",
-      "datasheet": "https://docs.particle.io/assets/datasheets/FXUB63.07.0150C.pdf"
+      "datasheet": "https://docs.particle.io/assets/datasheets/FXUB63.07.0150C.pdf",
+      "peakGain": {
+        "2100": 5,
+        "2400": 5,
+        "2600": 4.5,
+        "700-900": 1,
+        "1700-1900": 3.5
+      },
+      "peakGainUnits": "dBi",
+      "avgGain": {
+        "2100": -2.5,
+        "2400": -2,
+        "2600": -2,
+        "700-900": -3,
+        "1700-1900": -2
+      },
+      "avgGainUnits": "dB"
     },
     {
       "name": "ANT-FLXU-50",
@@ -30307,7 +30323,23 @@
       "cableLength": 160,
       "dimensionUnits": "mm",
       "image": "https://docs.particle.io/assets/images/antennas/ANTCW2.png",
-      "datasheet": "https://docs.particle.io/assets/datasheets/ANTCW2EA.pdf"
+      "datasheet": "https://docs.particle.io/assets/datasheets/ANTCW2EA.pdf",
+      "peakGain": {
+        "2100": 4.62,
+        "2400": 4.71,
+        "2600": 4.66,
+        "700-900": 1.42,
+        "1700-1900": 3.77
+      },
+      "peakGainUnits": "dBi",
+      "avgGain": {
+        "2100": -2.65,
+        "2400": -2.1,
+        "2600": -2.2,
+        "700-900": -2.98,
+        "1700-1900": -1.9
+      },
+      "avgGainUnits": "dB"
     },
     {
       "name": "ANTCW2TY",
@@ -34459,7 +34491,23 @@
       "cableLength": 183,
       "dimensionUnits": "mm",
       "image": "https://docs.particle.io/assets/images/antennas/PARANTC41.png",
-      "datasheet": "https://docs.particle.io/assets/datasheets/PARANTC41.pdf"
+      "datasheet": "https://docs.particle.io/assets/datasheets/PARANTC41.pdf",
+      "peakGain": {
+        "2100": 3.86,
+        "2400": 3.86,
+        "2600": 3.86,
+        "700-900": 2.46,
+        "1700-1900": 3.86
+      },
+      "peakGainUnits": "dBi",
+      "avgGain": {
+        "2100": 0.98,
+        "2400": 0.98,
+        "2600": 0.98,
+        "700-900": 1,
+        "1700-1900": 0.98
+      },
+      "avgGainUnits": "dB"
     },
     {
       "name": "PARANTC41TY",
@@ -34524,7 +34572,15 @@
       "cableLength": 189.5,
       "dimensionUnits": "mm",
       "image": "https://docs.particle.io/assets/images/antennas/PARANTCW1.jpg",
-      "datasheet": "https://docs.particle.io/assets/pdfs/PARANTCW1EA.pdf"
+      "datasheet": "https://docs.particle.io/assets/pdfs/PARANTCW1EA.pdf",
+      "peakGain": {
+        "2100": 5.3,
+        "2400": 5.3,
+        "2600": 5.3,
+        "700-900": 2.8,
+        "1700-1900": 5.3
+      },
+      "peakGainUnits": "dBi"
     },
     {
       "name": "PARANTCW1TY",
