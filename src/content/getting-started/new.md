@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device comparison tool 2026-10-27
+
+Added a new tool for [device comparsion](/tools/developer-tools/device-comparison/) to compare the features of devices.
+
 ### Google maps geolocation 2026-10-20
 
 Added a section for [radio type workaround](/integrations/integrations/google-maps/#radio-type-workaround) if you are receiving 404 errors on every request.

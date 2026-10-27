@@ -101,6 +101,12 @@ $(document).ready(function () {
             return null;
         };
 
+        if (deviceOptions.length == 0) {
+            // Nothing to compare, for example if the device data failed to load
+            tableElem.text('No devices are available to compare.');
+            return;
+        }
+
         selectElems.each(function(index) {
             const selectElem = $(this);
             selectElem.empty();
