@@ -81,6 +81,10 @@
                     "title": "Battery calculator"
                 },
                 {
+                    "dir": "device-comparison",
+                    "title": "Device comparison"
+                },
+                {
                     "dir": "resistor-calculator",
                     "title": "Resistor divider calculator"
                 },

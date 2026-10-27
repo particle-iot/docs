@@ -48,12 +48,13 @@ Since the Axion AXN715e supports LTE Cat 1 bis, it can be used world-wide with a
 |   | Axion | Boron 404X | Photon 2 | B504e | M404 | M524 |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Form factor | Feather | Feather | Feather | M.2 SoM | M.2 SoM | M.2 SoM |
+| Lifecycle | In development | Deprecated | GA | GA | GA | GA |
 | Cellular modem | Quectel EG800Q-GL | u-blox SARA-R510S | None | Quectel EG91-NAX | Quectel BG95-M5 | Quectel EG91-EX |
 | Cellular region | Global | NorAm | N/A | Americas | NorAm | EMEAA |
 | Cellular technology | LTE CAT 1 bis | LTE Cat M1 | None | LTE Cat 1 with 3G fallback | LTE Cat M1 | LTE Cat 1 with 2G/3G fallback |
 | Wi-Fi supported | Yes (2.4 GHz and 5 GHz) | No | Yes (2.4 GHz and 5 GHz) | No | Yes (2.4 GHz and 5 GHz) | Yes (2.4 GHz and 5 GHz) |
 | Generation | Gen 4 | Gen 3 | Gen 4 | Gen 3 | Gen 4 | Gen 4 |
-| MCU | RTL8722DM | nRF52840 | RTL8721DM | nRF52840 | RTL8722DM | RTL8722DM |
+| MCU | RTL8722DM | nRF52840 | RTL8722DM | nRF52840 | RTL8722DM | RTL8722DM |
 | MCU processor speed | 200 MHz Cortex-M33 | 64 MHz Cortex-M4F | 200 MHz Cortex-M33 | 64 MHz Cortex-M4F | 200 MHz Cortex-M33 | 200 MHz Cortex-M33 |
 | User RAM available | 3072 KB | ~80 KB | 3072 KB | ~80 KB | 3072 KB | 3072 KB |
 | Maximum user application size | 2048 KB | 256 KB | 2048 KB | 256 KB | 2048 KB | 2048 KB |
@@ -65,12 +66,17 @@ Since the Axion AXN715e supports LTE Cat 1 bis, it can be used world-wide with a
 | NFC tag support | No | Yes | No | Yes | No | No |
 | GNSS support | No | No | No | Yes | Yes | Yes |
 | SIM | e-sim | MFF2 or 4FF | None | e-sim | MFF2 | MFF2 |
+| Cellular antenna | PARANTCW1EA | PARANTC41EA, ANT-FLXU | None | PARANTCW1EA | PARANTCW1EA | PARANTCW1EA |
+| Wi-Fi antenna | PARANTWM1EA | None | PARANTWM1EA<sup>2</sup> | None | PARANTWM1EA | PARANTWM1EA |
+| BLE antenna | PARANTWM1EA | ANT-FLXV2 | PARANTWM1EA<sup>2</sup> | ANT-FLXV2 | PARANTWM1EA | PARANTWM1EA |
 | On-board antennas | None | BLE PCB antenna | Wi-Fi/BLE PCB antenna | None | None | None |
+| Platform | N/A | Boron (13) | Photon 2 / P2 (32) | B5-SoM (25) | M-SoM (35) | M-SoM (35) |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
 - <sup>1</sup> not included on the M.2 SoM module, typically included on your base board.
+- <sup>2</sup> Wi-Fi and BLE share a single external antenna.
 
 Cellular Region:
 - NorAm: United States, Canada, and Mexico. 
@@ -1617,15 +1623,3 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 | Virgin Islands (British) | ✅ | &nbsp; | ❓ | &nbsp; | ❓ |
 | Virgin Islands (U.S.) | ✅ | &nbsp; | ❓ | &nbsp; | &nbsp; |
 | Zambia | ✅ | &nbsp; | &nbsp; | &nbsp; | ✅ |
-
-
-{{!-- END do not edit content above, it is automatically generated  --}}
-
-✅ Recommended and supported<br/>
-❓ Not officially supported, but may work
-
-## Revision history
-
-| Revision | Date       | Author | Comments |
-| :--------| :--------- | :----- | :------- |
-| pre 01   | 2026-10-07 | RK     | Initial preview version |

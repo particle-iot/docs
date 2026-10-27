@@ -474,6 +474,25 @@
       }
     },
     {
+      "name": "Bhutan",
+      "isoCode": "BT",
+      "regions": [
+        "Asia"
+      ],
+      "plain": "bhutan",
+      "box": {
+        "sw": {
+          "lat": 26.7,
+          "lon": 88.75
+        },
+        "ne": {
+          "lat": 28.33,
+          "lon": 92.12
+        }
+      },
+      "iso3": "BTN"
+    },
+    {
       "name": "Bolivia",
       "isoCode": "BO",
       "regions": [
@@ -839,6 +858,25 @@
       "iso3": "COL"
     },
     {
+      "name": "Comoros",
+      "isoCode": "KM",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "comoros",
+      "box": {
+        "sw": {
+          "lat": -12.4,
+          "lon": 43.2
+        },
+        "ne": {
+          "lat": -11.36,
+          "lon": 44.54
+        }
+      },
+      "iso3": "COM"
+    },
+    {
       "name": "Congo (Brazzaville)",
       "aliases": [
         "Republic of the Congo"
@@ -1038,6 +1076,25 @@
       "tachyonKickstarter": true
     },
     {
+      "name": "Djibouti",
+      "isoCode": "DJ",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "djibouti",
+      "box": {
+        "sw": {
+          "lat": 10.93,
+          "lon": 41.77
+        },
+        "ne": {
+          "lat": 12.71,
+          "lon": 43.42
+        }
+      },
+      "iso3": "DJI"
+    },
+    {
       "name": "Dominica",
       "isoCode": "DM",
       "regions": [
@@ -1155,6 +1212,25 @@
         }
       },
       "iso3": "GNQ"
+    },
+    {
+      "name": "Eritrea",
+      "isoCode": "ER",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "eritrea",
+      "box": {
+        "sw": {
+          "lat": 12.36,
+          "lon": 36.44
+        },
+        "ne": {
+          "lat": 18,
+          "lon": 43.14
+        }
+      },
+      "iso3": "ERI"
     },
     {
       "name": "Estonia",
@@ -2166,6 +2242,44 @@
         }
       },
       "iso3": "LSO"
+    },
+    {
+      "name": "Liberia",
+      "isoCode": "LR",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "liberia",
+      "box": {
+        "sw": {
+          "lat": 4.35,
+          "lon": -11.49
+        },
+        "ne": {
+          "lat": 8.55,
+          "lon": -7.37
+        }
+      },
+      "iso3": "LBR"
+    },
+    {
+      "name": "Libya",
+      "isoCode": "LY",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "libya",
+      "box": {
+        "sw": {
+          "lat": 19.5008138,
+          "lon": 9.3871
+        },
+        "ne": {
+          "lat": 33.1689,
+          "lon": 25.1506
+        }
+      },
+      "iso3": "LBY"
     },
     {
       "name": "Liechtenstein",
@@ -3299,6 +3413,25 @@
       "iso3": "SMR"
     },
     {
+      "name": "São Tomé and Príncipe",
+      "isoCode": "ST",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "sao tome and principe",
+      "box": {
+        "sw": {
+          "lat": 0.02,
+          "lon": 6.45
+        },
+        "ne": {
+          "lat": 1.7,
+          "lon": 7.47
+        }
+      },
+      "iso3": "STP"
+    },
+    {
       "name": "Saudi Arabia",
       "isoCode": "SA",
       "regions": [
@@ -3607,6 +3740,25 @@
       "iso3": "LKA"
     },
     {
+      "name": "Sudan",
+      "isoCode": "SD",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "sudan",
+      "box": {
+        "sw": {
+          "lat": 8.68,
+          "lon": 21.84
+        },
+        "ne": {
+          "lat": 22.23,
+          "lon": 38.58
+        }
+      },
+      "iso3": "SDN"
+    },
+    {
       "name": "Suriname",
       "isoCode": "SR",
       "regions": [
@@ -3686,6 +3838,26 @@
       "tachyonKickstarter": true
     },
     {
+      "name": "Syria",
+      "isoCode": "SY",
+      "regions": [
+        "Middle East",
+        "Asia"
+      ],
+      "plain": "syria",
+      "box": {
+        "sw": {
+          "lat": 32.31,
+          "lon": 35.73
+        },
+        "ne": {
+          "lat": 37.32,
+          "lon": 42.38
+        }
+      },
+      "iso3": "SYR"
+    },
+    {
       "name": "Taiwan",
       "isoCode": "TW",
       "regions": [
@@ -3721,7 +3893,7 @@
           "lon": 73.1397362
         }
       },
-      "iso3": "UZB"
+      "iso3": "TJK"
     },
     {
       "name": "Tanzania",
@@ -3857,6 +4029,25 @@
         }
       },
       "iso3": "TUR"
+    },
+    {
+      "name": "Turkmenistan",
+      "isoCode": "TM",
+      "regions": [
+        "Asia"
+      ],
+      "plain": "turkmenistan",
+      "box": {
+        "sw": {
+          "lat": 35.14,
+          "lon": 52.44
+        },
+        "ne": {
+          "lat": 42.8,
+          "lon": 66.69
+        }
+      },
+      "iso3": "TKM"
     },
     {
       "name": "Turks and Caicos Islands",
@@ -4120,6 +4311,25 @@
         }
       },
       "iso3": "VIR"
+    },
+    {
+      "name": "Western Sahara",
+      "isoCode": "EH",
+      "regions": [
+        "Africa"
+      ],
+      "plain": "western sahara",
+      "box": {
+        "sw": {
+          "lat": 20.77,
+          "lon": -17.1
+        },
+        "ne": {
+          "lat": 27.67,
+          "lon": -8.67
+        }
+      },
+      "iso3": "ESH"
     },
     {
       "name": "Yemen",
@@ -30012,12 +30222,38 @@
       "desc": "Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]",
       "lifecycle": "NRND",
       "multiple": false,
+      "multipleSku": "ANT-FLXU-50",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
-      "hsCode": "8529.10.9100"
+      "hsCode": "8529.10.9100",
+      "length": 96,
+      "width": 21,
+      "thickness": 0.2,
+      "cableLength": 150,
+      "dimensionUnits": "mm",
+      "image": "https://docs.particle.io/assets/images/antennas/ANT-FLXU.jpg",
+      "datasheet": "https://docs.particle.io/assets/datasheets/FXUB63.07.0150C.pdf",
+      "peakGain": {
+        "2100": 5,
+        "2400": 5,
+        "2600": 4.5,
+        "700-900": 1,
+        "1700-1900": 3.5
+      },
+      "peakGainUnits": "dBi",
+      "avgGain": {
+        "2100": -2.5,
+        "2400": -2,
+        "2600": -2,
+        "700-900": -3,
+        "1700-1900": -2
+      },
+      "avgGainUnits": "dB"
     },
     {
       "name": "ANT-FLXU-50",
@@ -30028,7 +30264,9 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -30037,12 +30275,17 @@
       "desc": "Particle Wi-Fi Antenna 2.4GHz, [x1]",
       "lifecycle": "GA",
       "multiple": false,
+      "multipleSku": "ANT-FLXV2-50",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "wifi",
+        "ble"
+      ],
       "skuRegion": "global",
-      "hsCode": "8529.10.9100"
+      "hsCode": "8529.10.9100",
+      "image": "https://docs.particle.io/assets/images/antennas/ANT-FLXV2.jpg"
     },
     {
       "name": "ANT-FLXV2-50",
@@ -30053,7 +30296,10 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "wifi",
+        "ble"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -30065,7 +30311,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "nfc"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -30074,12 +30322,38 @@
       "desc": "Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]",
       "lifecycle": "GA",
       "multiple": false,
+      "multipleSku": "ANTCW2TY",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
-      "hsCode": "8529.10.9100"
+      "hsCode": "8529.10.9100",
+      "length": 97,
+      "width": 21,
+      "thickness": 0.2,
+      "cableLength": 160,
+      "dimensionUnits": "mm",
+      "image": "https://docs.particle.io/assets/images/antennas/ANTCW2.png",
+      "datasheet": "https://docs.particle.io/assets/datasheets/ANTCW2EA.pdf",
+      "peakGain": {
+        "2100": 4.62,
+        "2400": 4.71,
+        "2600": 4.66,
+        "700-900": 1.42,
+        "1700-1900": 3.77
+      },
+      "peakGainUnits": "dBi",
+      "avgGain": {
+        "2100": -2.65,
+        "2400": -2.1,
+        "2600": -2.2,
+        "700-900": -2.98,
+        "1700-1900": -1.9
+      },
+      "avgGainUnits": "dB"
     },
     {
       "name": "ANTCW2TY",
@@ -30090,7 +30364,9 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -30099,12 +30375,22 @@
       "desc": "Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1]",
       "lifecycle": "NRND",
       "multiple": false,
+      "multipleSku": "ANTELEC50",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
-      "hsCode": "8529.10.9100"
+      "hsCode": "8529.10.9100",
+      "length": 80,
+      "width": 20,
+      "thickness": 0.2,
+      "cableLength": 164,
+      "dimensionUnits": "mm",
+      "image": "https://docs.particle.io/assets/images/antennas/ANTELEC.png",
+      "datasheet": "https://docs.particle.io/assets/datasheets/PC104.07.0165C.pdf"
     },
     {
       "name": "ANTELEC50",
@@ -30115,7 +30401,9 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -30147,7 +30435,11 @@
       "platformId": 12,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "ARG-LDKT",
@@ -30174,7 +30466,11 @@
       "platformId": 12,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "ARG-STRTKT",
@@ -30204,13 +30500,18 @@
       "platformId": 12,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "ARGN-H",
       "desc": "Argon [x1]",
       "lifecycle": "Deprecated",
       "multiple": false,
+      "multipleSku": "ARGNTRAY50",
       "wifi": true,
       "gen": "3",
       "family": "argon",
@@ -30236,7 +30537,11 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "ARGNKIT",
@@ -30267,7 +30572,11 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "ARGNTRAY50",
@@ -30301,7 +30610,11 @@
       "batteryRequired": false,
       "endOfSupport": "2025-03-31",
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/argon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "ASSET2GV2",
@@ -30329,7 +30642,10 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "mcu": "stm32f2xx",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "ASSET3G260V2",
@@ -30357,7 +30673,10 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "mcu": "stm32f2xx",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "ASSET3G270V2",
@@ -30385,7 +30704,10 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "mcu": "stm32f2xx",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "AXN715EHEA",
@@ -30426,7 +30748,10 @@
       "verizon": true,
       "mcu": "rtl872x",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "AXN715EHTY",
@@ -30467,7 +30792,10 @@
       "verizon": true,
       "mcu": "rtl872x",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "B402MEA",
@@ -30481,6 +30809,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "B402MTY",
       "family": "b series",
       "gen": "3",
       "skuClass": "production",
@@ -30503,7 +30832,10 @@
       "batteryRequired": false,
       "m2som": true,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B402MTY",
@@ -30541,7 +30873,10 @@
       "endOfSupport": "2025-03-31",
       "m2som": true,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B404MEA",
@@ -30555,6 +30890,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "B404MTY",
       "family": "b series",
       "gen": "3",
       "skuClass": "production",
@@ -30578,7 +30914,10 @@
       "verizon": true,
       "m2som": true,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B404MTY",
@@ -30618,7 +30957,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404-b402-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B404XMEA",
@@ -30631,6 +30973,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "B404XMTY",
       "family": "b series",
       "gen": "3",
       "skuClass": "production",
@@ -30656,7 +30999,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404x-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B404XMTY",
@@ -30695,7 +31041,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b404x-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B504EMEA",
@@ -30705,6 +31054,7 @@
       "wholesale": true,
       "retail": true,
       "multiple": false,
+      "multipleSku": "B504EMTY",
       "modem": "EG91-NAX",
       "sim": 4,
       "simPlans": [
@@ -30735,7 +31085,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B504EMTY",
@@ -30776,7 +31129,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B504MEA",
@@ -30784,6 +31140,7 @@
       "lifecycle": "Deprecated",
       "replacement": "B504EMEA",
       "multiple": false,
+      "multipleSku": "B504MTY",
       "enterprise": false,
       "wholesale": false,
       "retail": false,
@@ -30815,7 +31172,10 @@
       "batteryRequired": true,
       "m2som": true,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B504MTY",
@@ -30855,7 +31215,10 @@
       "batteryRequired": true,
       "m2som": true,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b504-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B523MEA",
@@ -30870,6 +31233,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "B523MTY",
       "family": "b series",
       "gen": "3",
       "skuClass": "production",
@@ -30892,7 +31256,10 @@
       "batteryRequired": true,
       "m2som": true,
       "mcu": "nrf52840",
-      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B523MTY",
@@ -30932,7 +31299,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B524MEA",
@@ -30945,6 +31315,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "B524MTY",
       "family": "b series",
       "gen": "3",
       "skuClass": "production",
@@ -30968,7 +31339,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "B524MTY",
@@ -31005,7 +31379,10 @@
       "m2som": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/b524-b523-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "BAT1800",
@@ -31013,6 +31390,7 @@
       "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
+      "multipleSku": "BATT18MOD50",
       "skuRegion": "global",
       "usb": false,
       "batteryRequired": false
@@ -31042,6 +31420,7 @@
       "sim4ff": true,
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "BRN310TRAY50",
       "family": "boron",
       "gen": "3",
       "skuClass": "kit",
@@ -31065,7 +31444,10 @@
       "batteryRequired": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN310TRAY50",
@@ -31105,7 +31487,10 @@
       "endOfSupport": "2025-03-31",
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN314KIT",
@@ -31119,6 +31504,7 @@
       "sim4ff": true,
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "BRN314TRAY50",
       "family": "boron",
       "gen": "3",
       "skuClass": "kit",
@@ -31142,7 +31528,10 @@
       "batteryRequired": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN314TRAY50",
@@ -31181,7 +31570,10 @@
       "endOfSupport": "2025-03-31",
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN402",
@@ -31216,7 +31608,10 @@
       "batteryRequired": false,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN402-AQKT",
@@ -31248,7 +31643,10 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "mcu": "nrf52840",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN402KIT",
@@ -31263,6 +31661,7 @@
       "sim4ff": true,
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "BRN402TRAY50",
       "family": "boron",
       "gen": "3",
       "skuClass": "kit",
@@ -31282,7 +31681,10 @@
       "batteryRequired": false,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN402TRAY50",
@@ -31323,7 +31725,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN404",
@@ -31359,7 +31764,10 @@
       "verizon": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN404KIT",
@@ -31374,6 +31782,7 @@
       "sim4ff": true,
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "BRN404TRAY50",
       "family": "boron",
       "gen": "3",
       "skuClass": "kit",
@@ -31394,7 +31803,10 @@
       "verizon": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN404TRAY50",
@@ -31431,7 +31843,10 @@
       "verizon": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/boron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN404X",
@@ -31472,7 +31887,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/brn404x-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN404XKIT",
@@ -31486,6 +31904,7 @@
       "sim4ff": true,
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "BRN404XTRAY50",
       "family": "boron",
       "gen": "3",
       "skuClass": "kit",
@@ -31511,7 +31930,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/brn404x-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "BRN404XTRAY50",
@@ -31552,7 +31974,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/b-series/brn404x-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "E260KIT",
@@ -31566,6 +31991,7 @@
       ],
       "sim4ff": true,
       "multiple": false,
+      "multipleSku": "E260TRAY50",
       "family": "electron",
       "gen": "2",
       "skuClass": "kit",
@@ -31580,7 +32006,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "E260TRAY50",
@@ -31608,7 +32037,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E270KIT",
@@ -31622,6 +32054,7 @@
       ],
       "sim4ff": true,
       "multiple": false,
+      "multipleSku": "E270TRAY50",
       "family": "electron",
       "gen": "2",
       "skuClass": "kit",
@@ -31636,7 +32069,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "E270TRAY50",
@@ -31669,7 +32105,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E310KIT",
@@ -31702,7 +32141,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E310MOD1",
@@ -31715,6 +32157,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "E310TRAY50",
       "family": "e series",
       "gen": "2",
       "skuClass": "production",
@@ -31729,7 +32172,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E310TRAY50",
@@ -31760,7 +32206,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E313EA",
@@ -31773,6 +32222,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "E313TRAY50",
       "family": "e series",
       "gen": "2",
       "skuClass": "production",
@@ -31787,7 +32237,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E313TRAY50",
@@ -31815,7 +32268,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E314KIT",
@@ -31847,7 +32303,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "E314MOD1",
@@ -31860,6 +32319,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "E314TRAY50",
       "family": "e series",
       "gen": "2",
       "skuClass": "production",
@@ -31874,7 +32334,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E314TRAY50",
@@ -31906,7 +32369,10 @@
       "endOfSupport": "2025-03-31",
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E350KIT",
@@ -31933,7 +32399,11 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true,
+      "multipleSku": "E350TRAY50"
     },
     {
       "name": "E350TRAY50",
@@ -31961,7 +32431,10 @@
       "batteryRequired": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E402KIT",
@@ -31993,7 +32466,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "E402MOD1",
@@ -32006,6 +32482,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "E402TRAY50",
       "family": "e series",
       "gen": "2",
       "skuClass": "production",
@@ -32020,7 +32497,10 @@
       "batteryRequired": false,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E402TRAY50",
@@ -32054,7 +32534,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E404KIT",
@@ -32086,7 +32569,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "E404MOD1",
@@ -32099,6 +32585,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "E404TRAY50",
       "family": "e series",
       "gen": "2",
       "skuClass": "production",
@@ -32117,7 +32604,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E404TRAY50",
@@ -32146,7 +32636,10 @@
       "batteryRequired": false,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e-series-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "E404XTRAY50",
@@ -32179,7 +32672,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/e404x-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "EDGEAISNSRKIT",
@@ -32223,7 +32719,10 @@
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "ELC402EA",
@@ -32237,6 +32736,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "ELC402TY",
       "family": "electron",
       "gen": "2",
       "skuClass": "production",
@@ -32251,7 +32751,10 @@
       "batteryRequired": false,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "ELC402TY",
@@ -32284,7 +32787,10 @@
       "endOfSupport": "2025-03-31",
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "ELC404TY",
@@ -32313,7 +32819,10 @@
       "verizon": true,
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/e-series/electron-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "FWNG-ETH",
@@ -32439,6 +32948,7 @@
       "desc": "M-Series LTE-M/2G (NorAm, EtherSIM), [x1]",
       "lifecycle": "GA",
       "multiple": false,
+      "multipleSku": "M404MTY",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
@@ -32474,7 +32984,10 @@
       "m2som": true,
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "M404MTY",
@@ -32517,13 +33030,17 @@
       "m2som": true,
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "M524MEA",
       "desc": "M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1]",
       "lifecycle": "GA",
       "multiple": false,
+      "multipleSku": "M524MTY",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
@@ -32558,7 +33075,10 @@
       "m2som": true,
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "M524MTY",
@@ -32600,7 +33120,10 @@
       "m2som": true,
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "M635EMEA",
@@ -32641,13 +33164,17 @@
       "batteryRequired": false,
       "m2som": true,
       "mcu": "rtl872x",
-      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/m-series/msom-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "M715EMEA",
       "desc": "M-Series LTE CAT 1 bis (Global, EtherSIM+), [x1]",
       "lifecycle": "Pre development",
       "multiple": false,
+      "multipleSku": "M715EMTY",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
@@ -32678,7 +33205,10 @@
       "batteryRequired": false,
       "m2som": true,
       "mcu": "rtl872x",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "M715EMTY",
@@ -32715,7 +33245,11 @@
       "batteryRequired": false,
       "m2som": true,
       "mcu": "rtl872x",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board",
+      "singleSku": "M715EMEA"
     },
     {
       "name": "M8CAB3VEA",
@@ -32723,6 +33257,7 @@
       "lifecycle": "In development",
       "accessory": true,
       "multiple": false,
+      "multipleSku": "M8CAB3VTY",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
@@ -32750,6 +33285,7 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
+      "multipleSku": "M8CABTY",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
@@ -32764,6 +33300,7 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
+      "multipleSku": "M8CABRATY",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
@@ -32808,6 +33345,7 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
+      "multipleSku": "M8CONNTY",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
@@ -32836,6 +33374,7 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
+      "multipleSku": "M8TEMPHUMITY",
       "enterprise": false,
       "wholesale": true,
       "retail": false,
@@ -32955,7 +33494,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/monitor-one-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "MON404E02C01KIT",
@@ -32998,7 +33540,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/monitor-one-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "MON524E01C01KIT",
@@ -33041,7 +33586,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/monitor-one-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "MUON404",
@@ -33083,7 +33631,10 @@
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "MUON404EA",
@@ -33125,7 +33676,10 @@
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "MUON524",
@@ -33166,7 +33720,10 @@
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "MUON524EA",
@@ -33207,7 +33764,10 @@
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "MUON635",
@@ -33248,7 +33808,10 @@
       "verizon": true,
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "MUON635EA",
@@ -33289,7 +33852,10 @@
       "verizon": true,
       "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/m-series/muon-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "MUONCB",
@@ -33392,6 +33958,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "ONE402MTY",
       "family": "tracker",
       "gen": "3",
       "skuClass": "both",
@@ -33417,7 +33984,10 @@
       "batteryRequired": false,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE402MTY",
@@ -33457,7 +34027,10 @@
       "batteryRequired": false,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE404MEA",
@@ -33470,6 +34043,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "ONE404MTY",
       "family": "tracker",
       "gen": "3",
       "skuClass": "both",
@@ -33500,7 +34074,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE404MTY",
@@ -33545,7 +34122,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
       "hsCode": "8517.62.00.90",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE523MEA",
@@ -33560,6 +34140,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "ONE523MTY",
       "family": "tracker",
       "gen": "3",
       "skuClass": "both",
@@ -33589,7 +34170,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE523MTY",
@@ -33635,7 +34219,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE524MEA",
@@ -33648,6 +34235,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "ONE524MTY",
       "family": "tracker",
       "gen": "3",
       "skuClass": "both",
@@ -33677,7 +34265,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "ONE524MTY",
@@ -33721,7 +34312,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-one/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "internal",
+      "modeButton": "internal",
+      "resetButton": "internal"
     },
     {
       "name": "P0MOD10",
@@ -33742,7 +34336,11 @@
       "platformId": 6,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "P0REEL",
@@ -33763,7 +34361,11 @@
       "platformId": 6,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "P1MOD10",
@@ -33788,7 +34390,11 @@
       "usb": false,
       "batteryRequired": false,
       "mcu": "stm32f2xx",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p1-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p1-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "P1REEL",
@@ -33815,7 +34421,11 @@
       "endOfSupport": "2025-03-31",
       "mcu": "stm32f2xx",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p1-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "P2MOD10",
@@ -33843,9 +34453,12 @@
       "platformId": 32,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "rtl8721x",
+      "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p2-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "P2REEL",
@@ -33854,7 +34467,7 @@
       "multiple": true,
       "singleSku": false,
       "wifi": true,
-      "gen": "3",
+      "gen": "4",
       "family": "p series",
       "skuClass": "production",
       "skuRegion": "global",
@@ -33873,21 +34486,50 @@
       "platformId": 32,
       "usb": false,
       "batteryRequired": false,
-      "mcu": "nrf52840",
+      "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/p2-datasheet/",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "PARANTC41EA",
       "desc": "Wide band LTE-CAT M1 cell antenna [x1]",
       "lifecycle": "GA",
       "multiple": false,
+      "multipleSku": "PARANTC41TY",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
-      "hsCode": "8529.10.9100"
+      "hsCode": "8529.10.9100",
+      "length": 122.1,
+      "width": 12.8,
+      "thickness": 0.2,
+      "cableLength": 183,
+      "dimensionUnits": "mm",
+      "image": "https://docs.particle.io/assets/images/antennas/PARANTC41.png",
+      "datasheet": "https://docs.particle.io/assets/datasheets/PARANTC41.pdf",
+      "peakGain": {
+        "2100": 3.86,
+        "2400": 3.86,
+        "2600": 3.86,
+        "700-900": 2.46,
+        "1700-1900": 3.86
+      },
+      "peakGainUnits": "dBi",
+      "avgGain": {
+        "2100": 0.98,
+        "2400": 0.98,
+        "2600": 0.98,
+        "700-900": 1,
+        "1700-1900": 0.98
+      },
+      "avgGainUnits": "dB"
     },
     {
       "name": "PARANTC41TY",
@@ -33898,7 +34540,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -33906,19 +34550,32 @@
       "name": "PARANTCN1EA",
       "desc": "NTN and LTE cell antenna, [x1]",
       "lifecycle": "In development",
-      "antenna": true,
+      "antenna": [
+        "cellular",
+        "ntn"
+      ],
       "multiple": false,
+      "multipleSku": "PARANTCN1TY",
       "enterprise": false,
       "wholesale": false,
       "retail": false,
       "skuRegion": "global",
-      "hsCode": "8529.10.9100"
+      "hsCode": "8529.10.9100",
+      "length": 145,
+      "width": 29,
+      "thickness": 13.5,
+      "dimensionUnits": "mm",
+      "image": "https://docs.particle.io/assets/images/antennas/PARANTCN1.jpg",
+      "datasheet": "https://docs.particle.io/assets/pdfs/PARANTCN1EA.pdf"
     },
     {
       "name": "PARANTCN1TY",
       "desc": "NTN and LTE cell antenna, [x50]",
       "lifecycle": "In development",
-      "antenna": true,
+      "antenna": [
+        "cellular",
+        "ntn"
+      ],
       "multiple": true,
       "singleSku": "PARANTCN1EA",
       "enterprise": false,
@@ -33932,12 +34589,30 @@
       "desc": "Wide band LTE cell antenna, [x1]",
       "lifecycle": "GA",
       "multiple": false,
+      "multipleSku": "PARANTCW1TY",
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
-      "hsCode": "8529.10.9100"
+      "hsCode": "8529.10.9100",
+      "length": 116,
+      "width": 27,
+      "thickness": 0.2,
+      "cableLength": 189.5,
+      "dimensionUnits": "mm",
+      "image": "https://docs.particle.io/assets/images/antennas/PARANTCW1.jpg",
+      "datasheet": "https://docs.particle.io/assets/pdfs/PARANTCW1EA.pdf",
+      "peakGain": {
+        "2100": 5.3,
+        "2400": 5.3,
+        "2600": 5.3,
+        "700-900": 2.8,
+        "1700-1900": 5.3
+      },
+      "peakGainUnits": "dBi"
     },
     {
       "name": "PARANTCW1TY",
@@ -33948,7 +34623,9 @@
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "cellular"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -33957,12 +34634,16 @@
       "desc": "Particle GNSS FPC antenna, [x1]",
       "lifecycle": "GA",
       "multiple": false,
+      "multipleSku": "PARANTGN1TY",
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "gnss"
+      ],
       "skuRegion": "global",
-      "hsCode": "8529.10.9000"
+      "hsCode": "8529.10.9000",
+      "image": "https://docs.particle.io/assets/images/antennas/PARANTGN1.jpg"
     },
     {
       "name": "PARANTGN1TY",
@@ -33973,7 +34654,9 @@
       "enterprise": false,
       "wholesale": false,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "gnss"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9000"
     },
@@ -33982,12 +34665,17 @@
       "desc": "Particle P2/Photon2/M-SoM Wi-Fi antenna 2.4/5GHz, [x1]",
       "lifecycle": "GA",
       "multiple": false,
+      "multipleSku": "PARANTWM1TY",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "antenna": true,
+      "antenna": [
+        "wifi",
+        "ble"
+      ],
       "skuRegion": "global",
-      "hsCode": "8529.10.9100"
+      "hsCode": "8529.10.9100",
+      "image": "https://docs.particle.io/assets/images/antennas/PARANTWM1.jpg"
     },
     {
       "name": "PARANTWM1TY",
@@ -33998,7 +34686,10 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "antenna": true,
+      "antenna": [
+        "wifi",
+        "ble"
+      ],
       "skuRegion": "global",
       "hsCode": "8529.10.9100"
     },
@@ -34026,8 +34717,11 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "rtl8721x",
-      "batteryConn": "jst-ph-2"
+      "mcu": "rtl872x",
+      "batteryConn": "jst-ph-2",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "PHN2KIT",
@@ -34055,15 +34749,19 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "rtl8721x",
+      "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
-      "batteryConn": "jst-ph-2"
+      "batteryConn": "jst-ph-2",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "PHN2MEA",
       "desc": "Photon 2 [x1]",
       "lifecycle": "GA",
       "multiple": false,
+      "multipleSku": "PHN2MTY",
       "wifi": true,
       "gen": "4",
       "family": "p series",
@@ -34085,10 +34783,13 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "rtl8721x",
+      "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
       "hsCode": "8517.62.0090",
-      "batteryConn": "jst-ph-2"
+      "batteryConn": "jst-ph-2",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "PHN2MTY",
@@ -34117,10 +34818,13 @@
       "platformId": 32,
       "usb": "micro-b",
       "batteryRequired": false,
-      "mcu": "rtl8721x",
+      "mcu": "rtl872x",
       "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/",
       "hsCode": "8517.62.0090",
-      "batteryConn": "jst-ph-2"
+      "batteryConn": "jst-ph-2",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "PHNTRAYH",
@@ -34131,7 +34835,7 @@
       "wifi": true,
       "gen": "2",
       "family": "photon",
-      "skuClass": "production",
+      "skuClass": "prototyping",
       "skuRegion": "global",
       "wifiAntInt": "chip",
       "wifiAntIntInc": true,
@@ -34146,7 +34850,11 @@
       "batteryRequired": false,
       "endOfSupport": "2025-03-31",
       "mcu": "stm32f2xx",
-      "hsCode": "8517.62.0090"
+      "hsCode": "8517.62.0090",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "PHNTRAYNOH",
@@ -34157,7 +34865,7 @@
       "wifi": true,
       "gen": "2",
       "family": "photon",
-      "skuClass": "production",
+      "skuClass": "prototyping",
       "skuRegion": "global",
       "wifiAntInt": "chip",
       "wifiAntIntInc": true,
@@ -34171,17 +34879,22 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "endOfSupport": "2025-03-31",
-      "mcu": "stm32f2xx"
+      "mcu": "stm32f2xx",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "PHOTONH",
       "desc": "Photon with Headers, [x1]",
       "lifecycle": "Deprecated",
       "multiple": false,
+      "multipleSku": "PHNTRAYH",
       "wifi": true,
       "gen": "2",
       "family": "photon",
-      "skuClass": "production",
+      "skuClass": "prototyping",
       "skuRegion": "global",
       "wifiAntInt": "chip",
       "wifiAntIntInc": true,
@@ -34192,7 +34905,11 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "mcu": "stm32f2xx",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board",
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "PHOTONKIT",
@@ -34213,13 +34930,18 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "mcu": "stm32f2xx",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "PHOTONNOH",
       "desc": "Photon without Headers, Dev board Kit [x1]",
       "lifecycle": "Deprecated",
       "multiple": false,
+      "multipleSku": "PHNTRAYNOH",
       "wifi": true,
       "gen": "2",
       "family": "photon",
@@ -34234,7 +34956,11 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "mcu": "stm32f2xx",
-      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true,
+      "wifiBands": "2.4 GHz"
     },
     {
       "name": "PMBATH1EA",
@@ -34242,6 +34968,7 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
+      "multipleSku": "PMBATH1TY",
       "enterprise": false,
       "wholesale": false,
       "retail": false,
@@ -34290,6 +35017,7 @@
       "skuClass": "power",
       "accessory": true,
       "multiple": false,
+      "multipleSku": "PMBATNH1TY",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
@@ -34322,6 +35050,7 @@
       "skuClass": "power",
       "accessory": true,
       "multiple": false,
+      "multipleSku": "PMDCH1TY",
       "enterprise": false,
       "wholesale": false,
       "retail": false,
@@ -34353,6 +35082,7 @@
       "skuClass": "power",
       "accessory": true,
       "multiple": false,
+      "multipleSku": "PMDCNH1TY",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
@@ -34433,6 +35163,7 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
+      "multipleSku": "SIMBLANKV2_50",
       "enterprise": false,
       "wholesale": true,
       "retail": true,
@@ -34504,7 +35235,10 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "mcu": "stm32f2xx",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "SNSRKIT3G270",
@@ -34532,7 +35266,10 @@
       "usb": "micro-b",
       "batteryRequired": true,
       "mcu": "stm32f2xx",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "SPKBTTN",
@@ -34558,6 +35295,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "T402MTY",
       "family": "tracker",
       "gen": "3",
       "skuClass": "production",
@@ -34584,7 +35322,10 @@
       "batteryRequired": false,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T402MKIT",
@@ -34624,7 +35365,10 @@
       "batteryRequired": false,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-eval-board/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "T402MTY",
@@ -34670,7 +35414,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T404MEA",
@@ -34683,6 +35430,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "T404MTY",
       "family": "tracker",
       "gen": "3",
       "skuClass": "production",
@@ -34714,7 +35462,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T404MKIT",
@@ -34758,7 +35509,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "T404MTY",
@@ -34804,7 +35558,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T523MEA",
@@ -34819,6 +35576,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "T523MTY",
       "family": "tracker",
       "gen": "3",
       "skuClass": "production",
@@ -34845,7 +35603,10 @@
       "batteryRequired": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T523MKIT",
@@ -34890,7 +35651,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "T523MTY",
@@ -34932,7 +35696,10 @@
       "batteryRequired": true,
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T524MEA",
@@ -34945,6 +35712,7 @@
       ],
       "simMff2": true,
       "multiple": false,
+      "multipleSku": "T524MTY",
       "family": "tracker",
       "gen": "3",
       "skuClass": "production",
@@ -34975,7 +35743,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "T524MKIT",
@@ -35018,7 +35789,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-eval-board/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "T524MTY",
@@ -35063,7 +35837,10 @@
       "mcu": "nrf52840",
       "datasheet": "https://docs.particle.io/reference/datasheets/tracker/tracker-som-datasheet/",
       "hsCode": "8517.62.0090",
-      "pmic": "bq24195"
+      "pmic": "bq24195",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     },
     {
       "name": "TACH4NA",
@@ -35093,7 +35870,10 @@
       "wifiAntIntInc": true,
       "wifiAntExt": false,
       "linux": true,
-      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "TACH4ROW",
@@ -35120,7 +35900,10 @@
       "wifiAntIntInc": true,
       "wifiAntExt": false,
       "linux": true,
-      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "TACH8NA",
@@ -35147,7 +35930,10 @@
       "wifiAntIntInc": true,
       "wifiAntExt": false,
       "linux": true,
-      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "TACH8ROW",
@@ -35174,7 +35960,10 @@
       "wifiAntIntInc": true,
       "wifiAntExt": false,
       "linux": true,
-      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/"
+      "datasheet": "https://docs.particle.io/reference/datasheets/tachyon/tachyon-datasheet/",
+      "rgbStatusLed": true,
+      "modeButton": true,
+      "resetButton": true
     },
     {
       "name": "XENNTRAY50",
@@ -35207,7 +35996,10 @@
       "platformId": 14,
       "prefix": "XENT",
       "endOfSupport": "2020-12-31",
-      "mcu": "nrf52840"
+      "mcu": "nrf52840",
+      "rgbStatusLed": "base board",
+      "modeButton": "base board",
+      "resetButton": "base board"
     }
   ],
   "skuClass": [
@@ -35240,11 +36032,16 @@
     {
       "family": "m series",
       "name": "M-Series SoM",
+      "kind": "embedded",
       "group": [
         {
           "name": "M-Series M404 LTE M1 (NorAm) EtherSIM",
           "short": [
             "M404"
+          ],
+          "skus": [
+            "M404MEA",
+            "M404MTY"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35261,6 +36058,10 @@
           "short": [
             "M524"
           ],
+          "skus": [
+            "M524MEA",
+            "M524MTY"
+          ],
           "region": "emeaa",
           "lifecycle": "GA",
           "sim": 4,
@@ -35275,6 +36076,9 @@
           "name": "M-Series M635e LTE M1/2G/Satellite (Global, EtherSIM), [x1]",
           "short": [
             "M635E"
+          ],
+          "skus": [
+            "M635EMEA"
           ],
           "lifecycle": "In development",
           "sim": 4,
@@ -35291,6 +36095,10 @@
           "short": [
             "M715"
           ],
+          "skus": [
+            "M715EMEA",
+            "M715EMTY"
+          ],
           "region": "global",
           "lifecycle": "In development",
           "showInternalUsers": true,
@@ -35306,11 +36114,16 @@
     {
       "family": "b series",
       "name": "B-Series SoM",
+      "kind": "embedded",
       "group": [
         {
           "name": "B-Series B404X LTE M1 (NorAm) EtherSIM",
           "short": [
             "B404X"
+          ],
+          "skus": [
+            "B404XMEA",
+            "B404XMTY"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35327,6 +36140,10 @@
           "short": [
             "B404"
           ],
+          "skus": [
+            "B404MEA",
+            "B404MTY"
+          ],
           "region": "noram",
           "lifecycle": "GA",
           "sim": 4,
@@ -35341,6 +36158,10 @@
           "name": "B-Series B504e LTE CAT1/3G (NorAm) EtherSIM",
           "short": [
             "B504e"
+          ],
+          "skus": [
+            "B504EMEA",
+            "B504EMTY"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35358,6 +36179,10 @@
           "short": [
             "B524"
           ],
+          "skus": [
+            "B524MEA",
+            "B524MTY"
+          ],
           "region": "emeaa",
           "lifecycle": "GA",
           "sim": 4,
@@ -35372,6 +36197,10 @@
           "name": "B-Series B402 LTE M1 (NorAm) (before 2021)",
           "short": [
             "B402"
+          ],
+          "skus": [
+            "B402MEA",
+            "B402MTY"
           ],
           "region": "noram",
           "lifecycle": "NRND",
@@ -35388,6 +36217,10 @@
           "short": [
             "B523"
           ],
+          "skus": [
+            "B523MEA",
+            "B523MTY"
+          ],
           "region": "emeaa",
           "lifecycle": "NRND",
           "sim": 2,
@@ -35403,11 +36236,17 @@
     {
       "family": "boron",
       "name": "Boron",
+      "kind": "embedded",
       "group": [
         {
           "name": "Boron BRN404X LTE M1 (NorAm) EtherSIM",
           "short": [
             "BRN404X"
+          ],
+          "skus": [
+            "BRN404X",
+            "BRN404XKIT",
+            "BRN404XTRAY50"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35424,6 +36263,11 @@
           "short": [
             "BRN404"
           ],
+          "skus": [
+            "BRN404",
+            "BRN404KIT",
+            "BRN404TRAY50"
+          ],
           "region": "noram",
           "lifecycle": "GA",
           "sim": 4,
@@ -35438,6 +36282,10 @@
           "name": "Boron BRN314 2G/3G Global EtherSIM",
           "short": [
             "BRN314"
+          ],
+          "skus": [
+            "BRN314KIT",
+            "BRN314TRAY50"
           ],
           "region": "global",
           "lifecycle": "GA",
@@ -35454,6 +36302,12 @@
           "short": [
             "BRN402"
           ],
+          "skus": [
+            "BRN402",
+            "BRN402-AQKT",
+            "BRN402KIT",
+            "BRN402TRAY50"
+          ],
           "region": "noram",
           "lifecycle": "NRND",
           "sim": 3,
@@ -35468,6 +36322,10 @@
           "name": "Boron BRN310 2G/3G Global (before 2021)",
           "short": [
             "BRN310"
+          ],
+          "skus": [
+            "BRN310KIT",
+            "BRN310TRAY50"
           ],
           "region": "global",
           "lifecycle": "NRND",
@@ -35484,10 +36342,14 @@
     {
       "family": "tachyon",
       "name": "Tachyon",
+      "kind": "linux",
       "group": [
         {
           "name": "Tachyon TACH8NA (NorAm)",
           "short": [
+            "TACH8NA"
+          ],
+          "skus": [
             "TACH8NA"
           ],
           "region": "noram",
@@ -35502,6 +36364,9 @@
           "short": [
             "TACH8ROW"
           ],
+          "skus": [
+            "TACH8ROW"
+          ],
           "region": "emeaa",
           "lifecycle": "In development",
           "sim": 5,
@@ -35514,12 +36379,22 @@
     {
       "family": "tracker",
       "name": "Tracker",
+      "kind": "embedded",
       "group": [
         {
           "name": "Tracker T404/ONE404 LTE M1 (NorAm) EtherSIM",
           "short": [
             "T404",
             "ONE404"
+          ],
+          "skus": [
+            "T404MEA",
+            "T404MKIT",
+            "T404MTY",
+            "ONE404MEA",
+            "ONE404MEA-NB",
+            "ONE404MTY",
+            "ONE404MTY-NB"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35537,6 +36412,15 @@
             "T524",
             "ONE524"
           ],
+          "skus": [
+            "T524MEA",
+            "T524MKIT",
+            "T524MTY",
+            "ONE524MEA",
+            "ONE524MEA-NB",
+            "ONE524MTY",
+            "ONE524MTY-NB"
+          ],
           "region": "emeaa",
           "lifecycle": "GA",
           "sim": 4,
@@ -35552,6 +36436,10 @@
           "short": [
             "MON404"
           ],
+          "skus": [
+            "MON404E01C01KIT",
+            "MON404E02C01KIT"
+          ],
           "region": "noram",
           "lifecycle": "In development",
           "sim": 4,
@@ -35563,6 +36451,9 @@
           "name": "Monitor One MON524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
           "short": [
             "MON524"
+          ],
+          "skus": [
+            "MON524E01C01KIT"
           ],
           "region": "emeaa",
           "lifecycle": "In development",
@@ -35576,6 +36467,15 @@
           "short": [
             "T402",
             "ONE402"
+          ],
+          "skus": [
+            "T402MEA",
+            "T402MKIT",
+            "T402MTY",
+            "ONE402MEA",
+            "ONE402MEA-NB",
+            "ONE402MTY",
+            "ONE402MTY-NB"
           ],
           "region": "noram",
           "lifecycle": "NRND",
@@ -35592,6 +36492,15 @@
             "T523",
             "ONE523"
           ],
+          "skus": [
+            "T523MEA",
+            "T523MKIT",
+            "T523MTY",
+            "ONE523MEA",
+            "ONE523MEA-NB",
+            "ONE523MTY",
+            "ONE523MTY-NB"
+          ],
           "region": "emeaa",
           "lifecycle": "NRND",
           "sim": 2,
@@ -35606,11 +36515,17 @@
     {
       "family": "e series",
       "name": "E-Series",
+      "kind": "embedded",
       "group": [
         {
           "name": "E-Series E404 LTE M1 (NorAm) EtherSIM",
           "short": [
             "E404"
+          ],
+          "skus": [
+            "E404KIT",
+            "E404MOD1",
+            "E404TRAY50"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35628,6 +36543,11 @@
           "short": [
             "E314"
           ],
+          "skus": [
+            "E314KIT",
+            "E314MOD1",
+            "E314TRAY50"
+          ],
           "region": "global",
           "lifecycle": "GA",
           "sim": 4,
@@ -35644,6 +36564,11 @@
           "short": [
             "E402"
           ],
+          "skus": [
+            "E402KIT",
+            "E402MOD1",
+            "E402TRAY50"
+          ],
           "region": "noram",
           "lifecycle": "NRND",
           "sim": 3,
@@ -35659,6 +36584,11 @@
           "short": [
             "E310"
           ],
+          "skus": [
+            "E310KIT",
+            "E310MOD1",
+            "E310TRAY50"
+          ],
           "region": "global",
           "lifecycle": "NRND",
           "sim": 1,
@@ -35673,6 +36603,10 @@
           "name": "E-Series E313 2G/3G Global (Enterprise)",
           "short": [
             "E313"
+          ],
+          "skus": [
+            "E313EA",
+            "E313TRAY50"
           ],
           "region": "global",
           "lifecycle": "NRND",
@@ -35690,11 +36624,16 @@
     {
       "family": "electron",
       "name": "Electron",
+      "kind": "embedded",
       "group": [
         {
           "name": "Electron ELC404 LTE M1 (NorAm) EtherSIM",
           "short": [
             "ELC404"
+          ],
+          "skus": [
+            "ELC404EA",
+            "ELC404TY"
           ],
           "region": "noram",
           "lifecycle": "GA",
@@ -35711,6 +36650,10 @@
           "short": [
             "ELC314"
           ],
+          "skus": [
+            "ELC314EA",
+            "ELC314TY"
+          ],
           "region": "global",
           "lifecycle": "GA",
           "sim": 4,
@@ -35726,6 +36669,10 @@
           "short": [
             "ELC402"
           ],
+          "skus": [
+            "ELC402EA",
+            "ELC402TY"
+          ],
           "region": "noram",
           "lifecycle": "NRND",
           "sim": 3,
@@ -35739,6 +36686,10 @@
           "name": "Electron U260 2G/3G Americas/Aus",
           "short": [
             "U260"
+          ],
+          "skus": [
+            "E260KIT",
+            "E260TRAY50"
           ],
           "region": "americas",
           "lifecycle": "End of life",
@@ -35754,6 +36705,10 @@
           "short": [
             "U270"
           ],
+          "skus": [
+            "E270KIT",
+            "E270TRAY50"
+          ],
           "region": "emeaa",
           "lifecycle": "End of life",
           "sim": 1,
@@ -35768,6 +36723,10 @@
           "short": [
             "G350"
           ],
+          "skus": [
+            "E350KIT",
+            "E350TRAY50"
+          ],
           "region": "global",
           "lifecycle": "End of life",
           "sim": 1,
@@ -35780,23 +36739,83 @@
       ]
     },
     {
-      "family": "argon",
-      "name": "Argon",
-      "wifi": true
-    },
-    {
-      "family": "photon",
-      "name": "Photon",
-      "wifi": true
-    },
-    {
-      "family": "p series",
-      "name": "P-Series",
-      "wifi": true
+      "family": "wifi",
+      "name": "Wi-Fi",
+      "kind": "embedded",
+      "wifi": true,
+      "group": [
+        {
+          "name": "Photon 2",
+          "short": [
+            "PHOTON2"
+          ],
+          "skus": [
+            "PHN2MEA",
+            "PHN2KIT",
+            "PHN2MTY",
+            "PHN2EDGEKIT"
+          ],
+          "lifecycle": "GA"
+        },
+        {
+          "name": "P2",
+          "short": [
+            "P2"
+          ],
+          "skus": [
+            "P2MOD10",
+            "P2REEL"
+          ],
+          "lifecycle": "GA"
+        },
+        {
+          "name": "Argon",
+          "short": [
+            "ARGON"
+          ],
+          "skus": [
+            "ARGN-H",
+            "ARGNKIT",
+            "ARGNTRAY50",
+            "ARG-AQKT",
+            "ARG-LDKT",
+            "ARG-STRTKT"
+          ],
+          "lifecycle": "Deprecated"
+        },
+        {
+          "name": "Photon",
+          "short": [
+            "PHOTON"
+          ],
+          "skus": [
+            "PHOTONH",
+            "PHOTONKIT",
+            "PHOTONNOH",
+            "PHNTRAYH",
+            "PHNTRAYNOH"
+          ],
+          "lifecycle": "Deprecated"
+        },
+        {
+          "name": "P1",
+          "short": [
+            "P1"
+          ],
+          "skus": [
+            "P1REEL",
+            "P1MOD10",
+            "P0REEL",
+            "P0MOD10"
+          ],
+          "lifecycle": "NRND"
+        }
+      ]
     },
     {
       "family": "mesh",
       "name": "Mesh",
+      "kind": "embedded",
       "wifi": false,
       "mesh": true,
       "cellular": false,
@@ -52877,6 +53896,178 @@
       }
     },
     {
+      "country": "Bhutan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Bhutan",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bhutan",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
       "country": "Bolivia",
       "modem": "BG95-M5",
       "sim": 4,
@@ -65719,6 +66910,178 @@
       }
     },
     {
+      "country": "Comoros",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Comoros",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Comoros",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
       "country": "Congo (Brazzaville)",
       "modem": "BG95-M5",
       "sim": 4,
@@ -73244,6 +74607,178 @@
       }
     },
     {
+      "country": "Djibouti",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Djibouti",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Djibouti",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
       "country": "Dominica",
       "modem": "BG95-M5",
       "sim": 4,
@@ -76871,6 +78406,178 @@
       "technologies": [],
       "supported": {},
       "notSupported": {}
+    },
+    {
+      "country": "Eritrea",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Eritrea",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Eritrea",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
     },
     {
       "country": "Estonia",
@@ -113936,6 +115643,350 @@
       "technologies": [],
       "supported": {},
       "notSupported": {}
+    },
+    {
+      "country": "Liberia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Liberia",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Liberia",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Libya",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Libya",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
     },
     {
       "country": "Liechtenstein",
@@ -152978,6 +155029,178 @@
       "notSupported": {}
     },
     {
+      "country": "São Tomé and Príncipe",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
       "country": "Saudi Arabia",
       "modem": "BG95-M5",
       "sim": 4,
@@ -166122,6 +168345,178 @@
       }
     },
     {
+      "country": "Sudan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Sudan",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sudan",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
       "country": "Suriname",
       "modem": "BG95-M5",
       "sim": 4,
@@ -170186,6 +172581,178 @@
           "M1-20"
         ]
       }
+    },
+    {
+      "country": "Syria",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Syria",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Syria",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
     },
     {
       "country": "Taiwan",
@@ -177121,6 +179688,178 @@
           "M1-20"
         ]
       }
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Turkmenistan",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
     },
     {
       "country": "Turks and Caicos Islands",
@@ -188539,6 +191278,178 @@
       "notSupported": {}
     },
     {
+      "country": "Western Sahara",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "BG95-S5",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "EG800Q-GL",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM",
+      "supported": {},
+      "notSupported": {},
+      "technologies": []
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "EG91-E",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "EG91-E",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "G350",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "R410",
+      "sim": 3,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "R410",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "R510",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "U201",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "U201",
+      "sim": 2,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "U201",
+      "sim": 4,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "U260",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
+      "country": "Western Sahara",
+      "modem": "U270",
+      "sim": 1,
+      "supported": {},
+      "notSupported": {},
+      "technologies": [],
+      "recommendation": "NR"
+    },
+    {
       "country": "Yemen",
       "modem": "BG95-M5",
       "sim": 4,
@@ -189488,27 +192399,62 @@
     {
       "name": "YES",
       "short": "Recommended",
-      "desc": "Recommended and supported configuration"
+      "desc": "Recommended and supported configuration",
+      "symbol": {
+        "checkOnly": "✓",
+        "greenCheckOnly": "✅",
+        "greenCheckOrRedX": "✅",
+        "greenCheckOrRedQuestion": "✅",
+        "greenCheckOrRedQuestionOrRedX": "✅"
+      }
     },
     {
       "name": "NS",
       "short": "Not supported",
-      "desc": "Not officially supported, likely to work"
+      "desc": "Not officially supported, likely to work",
+      "symbol": {
+        "checkOnly": "",
+        "greenCheckOnly": "",
+        "greenCheckOrRedX": "❌",
+        "greenCheckOrRedQuestion": "❓",
+        "greenCheckOrRedQuestionOrRedX": "❓"
+      }
     },
     {
       "name": "POSS",
       "short": "Untested",
-      "desc": "Not officially supported, may work but is untested"
+      "desc": "Not officially supported, may work but is untested",
+      "symbol": {
+        "checkOnly": "",
+        "greenCheckOnly": "",
+        "greenCheckOrRedX": "❌",
+        "greenCheckOrRedQuestion": "❓",
+        "greenCheckOrRedQuestionOrRedX": "❓"
+      }
     },
     {
       "name": "NRND",
       "short": "Not recommended for new designs",
-      "desc": "Not recommended for new designs"
+      "desc": "Not recommended for new designs",
+      "symbol": {
+        "checkOnly": "",
+        "greenCheckOnly": "",
+        "greenCheckOrRedX": "❌",
+        "greenCheckOrRedQuestion": "",
+        "greenCheckOrRedQuestionOrRedX": "❌"
+      }
     },
     {
       "name": "NR",
       "short": "Not recommended",
-      "desc": "Not recommended"
+      "desc": "Not recommended",
+      "symbol": {
+        "checkOnly": "",
+        "greenCheckOnly": "",
+        "greenCheckOrRedX": "❌",
+        "greenCheckOrRedQuestion": "",
+        "greenCheckOrRedQuestionOrRedX": "❌"
+      }
     }
   ],
   "regionGroups": [
@@ -189622,7 +192568,9 @@
       "userRam": "80 KB",
       "name": "nRF52840",
       "cpuSummary": "64 MHz Cortex-M4F",
-      "userRamApprox": true
+      "userRamApprox": true,
+      "gen": 3,
+      "embedded": true
     },
     {
       "id": "rtl872x",
@@ -189635,20 +192583,9 @@
       "wifi": "802.11b/g/n",
       "name": "RTL8722DM",
       "cpuSummary": "200 MHz Cortex-M33",
-      "wifiBands": "2.4 GHz and 5 GHz"
-    },
-    {
-      "id": "rtl8721x",
-      "ble": "5",
-      "cpu": "ARM Cortex M33 CPU, 200 MHz",
-      "flashFileSystem": "2 MB",
-      "nfcTag": false,
-      "userAppSize": "2048 KB",
-      "userRam": "3072 KB",
-      "wifi": "802.11b/g/n",
-      "name": "RTL8721DM",
-      "cpuSummary": "200 MHz Cortex-M33",
-      "wifiBands": "2.4 GHz and 5 GHz"
+      "wifiBands": "2.4 GHz and 5 GHz",
+      "gen": 4,
+      "embedded": true
     },
     {
       "id": "stm32f2xx",
@@ -189657,7 +192594,11 @@
       "flashFileSystem": false,
       "nfcTag": false,
       "userAppSize": "128 KB",
-      "userRam": "50 KB"
+      "userRam": "50 KB",
+      "name": "STM32F205",
+      "cpuSummary": "120 MHz Cortex-M3",
+      "gen": 2,
+      "embedded": true
     },
     {
       "id": "kryo-8",
@@ -189665,7 +192606,11 @@
       "cpu": "Octa-core Qualcomm® Kryo™ CPU (1x 2.7GHz, 3x 2.4GHz, 4x 1.9GHz)",
       "flashFileSystem": true,
       "nfcTag": false,
-      "wifi": "6e"
+      "wifi": "6e",
+      "name": "Qualcomm QCM6490",
+      "cpuSummary": "Octa-core Kryo (1x 2.7 GHz, 3x 2.4 GHz, 4x 1.9 GHz)",
+      "embedded": false,
+      "linux": true
     }
   ],
   "sunset": [

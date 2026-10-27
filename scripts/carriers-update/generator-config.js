@@ -6906,6 +6906,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generateDeviceComparison({
                     rows: [
                         'form-factor',
+                        'lifecycle',
                         'cellular-modem',
                         'cellular-region',
                         'cellular-technology',
@@ -6923,7 +6924,11 @@ const schemaDocs = require('./schema-docs');
                         'nfc-tag-support',
                         'gnss-support',
                         'sim',
+                        'cellular-antenna',
+                        'wi-fi-antenna',
+                        'ble-antenna',
                         'on-board-antennas',
+                        'platform',
                     ],
                     devices: [
                         {title: 'Axion', sku: 'AXN715EHEA'},
@@ -6943,11 +6948,13 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generateDeviceComparison({
                     rows: [
+                        'lifecycle',
                         'cellular-modem',
                         'cellular-region',
                         'cellular-technology',
                         'gnss-support',
                         'sim',
+                        'platform',
                     ],
                     devices: [
                         {title: 'M715e', sku: 'M715EMEA'},
@@ -6964,6 +6971,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generateDeviceComparison({
                     rows: [
+                        'lifecycle',
                         'cellular-modem',
                         'cellular-region',
                         'cellular-technology',
@@ -6977,12 +6985,92 @@ const schemaDocs = require('./schema-docs');
                         'nfc-tag-support',
                         'gnss-support',
                         'sim',
+                        'platform',
                     ],
                     devices: [
                         {title: 'M715e', sku: 'M715EMEA'},
                         {title: 'B404X', sku: 'B404XMEA'},
                         {title: 'B524', sku: 'B524MEA'},
                         {title: 'B504e', sku: 'B504EMEA'},
+                    ],
+                }); 
+            } 
+        },
+
+        // Antenna dimensions, shared blurb 2fd8bba2-0bda-44c3-822d-0fb0ad30118e in antenna.md and other guides
+        {
+            guid: '9393d0b2-f32f-4259-a064-6185f7d0e1c1',
+            generatorFn:function(updater){
+                return updater.generateAntennaDimensions({
+                    skus: ['PARANTCW1EA', 'PARANTC41EA', 'ANTCW2EA', 'ANT-FLXU', 'ANTELEC'],
+                    includeMultiple: true,
+                }); 
+            } 
+        },
+
+        // Antenna gain, antenna.md
+        {
+            guid: 'd7e4143b-fcb5-4fba-a1dc-e02581a3bb25',
+            generatorFn:function(updater){
+                return updater.generateAntennaGain({
+                    bands: [
+                        {key: '700-900', title: '700/850/900'},
+                        {key: '1700-1900', title: '1700/1800/1900'},
+                        {key: '2100', title: '2100'},
+                        {key: '2400', title: '2400'},
+                        {key: '2600', title: '2600'},
+                    ],
+                    sections: [
+                        {title: 'Peak gain', key: 'peakGain', unitsKey: 'peakGainUnits', skus: ['PARANTCW1EA', 'PARANTC41EA', 'ANTCW2EA', 'ANT-FLXU']},
+                        {title: 'Average gain', key: 'avgGain', unitsKey: 'avgGainUnits', skus: ['PARANTC41EA', 'ANTCW2EA', 'ANT-FLXU']},
+                    ],
+                }); 
+            } 
+        },
+
+        // Antenna note (notes/antenna.md), shown from the cellular antenna row in the device comparison tool
+        {
+            guid: '187748ca-095c-40b9-9cc6-557eb4c47fd1',
+            generatorFn:function(updater){
+                return updater.generateAntennaNote({
+                    skus: ['PARANTCW1EA', 'PARANTC41EA', 'ANTCW2EA', 'ANT-FLXU', 'ANTELEC'],
+                }); 
+            } 
+        },
+
+        // MCU note (notes/mcu.md), shown from the MCU row in the device comparison tool
+        {
+            guid: '06e4de0f-7b6f-4f61-8708-6585c6a13c13',
+            generatorFn:function(updater){
+                return updater.generateMcuNote({
+                    mcus: ['rtl872x', 'nrf52840', 'stm32f2xx'],
+                }); 
+            } 
+        },
+
+        // Wi-Fi antenna note (notes/wifi-antenna.md), shown from the Wi-Fi antenna row in the device comparison tool
+        {
+            guid: 'f51ca1ec-817f-42b2-b488-5e47cee82075',
+            generatorFn:function(updater){
+                return updater.generateAntennaNote({
+                    skus: ['ANT-FLXV2', 'PARANTWM1EA'],
+                    uses: [
+                        // A value of 4 means PARANTWM1EA (shared by Wi-Fi and BLE) on the Photon 2 and P2
+                        {key: 'wifiAntExt', incKey: 'wifiAntExtInc', title: 'Wi-Fi', aliases: {'4': 'PARANTWM1EA'}},
+                    ],
+                }); 
+            } 
+        },
+
+        // BLE antenna note (notes/ble-antenna.md), shown from the BLE antenna row in the device comparison tool
+        {
+            guid: 'ad020223-7e1c-43a3-9590-cf6ca2357e4a',
+            generatorFn:function(updater){
+                return updater.generateAntennaNote({
+                    skus: ['ANT-FLXV2', 'PARANTWM1EA'],
+                    uses: [
+                        // A value of 4 means PARANTWM1EA (shared by Wi-Fi and BLE) on the Photon 2 and P2
+                        {key: 'bleAntExt', incKey: 'bleAntExtInc', title: 'BLE', aliases: {'4': 'PARANTWM1EA'}},
                     ],
                 }); 
             } 

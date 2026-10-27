@@ -3,6 +3,7 @@ const { update } = require('lodash');
 const path = require('path');
 
 const generatorConfig = require('./generator-config');
+const deviceComparison = require('../../src/assets/js/device-comparison-core');
 
 (function(updater) {
 
@@ -127,6 +128,21 @@ const generatorConfig = require('./generator-config');
             const obj = updater.datastore.data.skuFamily[ii];
             if (obj.family == family) {
                 return obj;
+            }
+        }
+
+        // A product family like argon or photon is part of the top-level Wi-Fi entry, find it by
+        // the family of the SKUs in its groups
+        for(const obj of updater.datastore.data.skuFamily) {
+            if (obj.wifi && obj.group) {
+                for(const groupObj of obj.group) {
+                    for(const skuName of (groupObj.skus || [])) {
+                        const skuObj = updater.datastore.findSkuByName(skuName);
+                        if (skuObj && skuObj.family == family) {
+                            return obj;
+                        }
+                    }
+                }
             }
         }
 
@@ -1156,6 +1172,16 @@ const generatorConfig = require('./generator-config');
     }
 
 
+    updater.relativeDocsUrl = function(url) {
+        // Converts https://docs.particle.io/assets/images/foo.png to /assets/images/foo.png. 
+        // Other URLs are returned unchanged.
+        const linkPrefix = 'https://docs.particle.io';
+        if (url.startsWith(linkPrefix)) {
+            return url.substring(linkPrefix.length);
+        }
+        return url;
+    };
+
     updater.generateTable = function(options, data) {
         // options includes options, table headers, etc.
         // data contains the data as an array of objects. The elements of the array are rows in the table.
@@ -1233,13 +1259,7 @@ const generatorConfig = require('./generator-config');
                 }
                 if (c.linkKey && d[c.linkKey]) {
                     const text = s;
-                    let link = d[c.linkKey];
-
-                    let linkPrefix = 'https://docs.particle.io';
-                    if (link.startsWith(linkPrefix)) {
-                        link = link.substring(linkPrefix.length);
-                    }
-                    s = '[' + text + '](' + link + ')';
+                    s = '[' + text + '](' + updater.relativeDocsUrl(d[c.linkKey]) + ')';
                 }
 
                 line += '| ' + s + ' ';
@@ -1511,253 +1531,279 @@ const generatorConfig = require('./generator-config');
 
     updater.generateDeviceComparison = function(options) {
         // Generates a table with a column for each device and a row for each feature, as used in
-        // the "Device Comparison" section of datasheets.
-        // options.devices is an array of objects, one per column, left to right:
-        //   .title   Column heading
-        //   .sku     SKU in the skus table that supplies the data for that column
-        // options.rows is an optional array of row ids to include, in order. Default is all rows.
-        //   Ids: form-factor, cellular-modem, cellular-region, cellular-technology, wi-fi-supported, generation, mcu, mcu-processor-speed, user-ram-available, maximum-user-application-size, li-po-battery-connector, rgb-status-led, mode-and-reset-buttons, usb-connector, ble-support, nfc-tag-support, gnss-support, sim, on-board-antennas
-        // options.footnote is appended after the "No" values for features that are on the base board 
-        // on M.2 SoMs. Default is '<sup>1</sup>'
+        // the "Device Comparison" section of datasheets. The table definition is shared with the 
+        // runtime device comparison tool, see src/assets/js/device-comparison-core.js for options.
+        const def = deviceComparison.getTableDefinition(options, updater.datastore);
 
-        const footnote = options.footnote || '<sup>1</sup>';
-        const noBaseBoard = 'No' + footnote;
+        return updater.generateTable({columns: def.columns}, def.tableData);
+    }
 
-        const manufacturerNames = {
-            quectel: 'Quectel',
-            ublox: 'u-blox',
-        };
-        const regionNames = {
-            global: 'Global',
-            noram: 'NorAm',
-            americas: 'Americas',
-            emeaa: 'EMEAA',
-        };
-        const usbNames = {
-            'c': 'USB-C',
-            'micro-b': 'Micro-B',
-        };
+    updater.generateMcuNote = function(options) {
+        // Generates a section for each MCU, used in the additional information note for MCUs.
+        // options.mcus is an array of MCU ids in the mcus table, like 'nrf52840'
+        // Each section starts with a horizontal rule and a heading, and has a table of the MCU features 
+        // (the same values as the device comparison rows) and a table of the devices that use the MCU.
+        let md = '';
 
-        const yesNo = function(b) {
-            return b ? 'Yes' : 'No';
-        };
+        const rowDefs = deviceComparison.getRowDefs();
+        const mcuRows = ['mcu', 'mcu-processor-speed', 'user-ram-available', 'maximum-user-application-size'].map(function(id) {
+            return rowDefs.find(e => e.id == id);
+        });
 
-        const antennaType = function(t) {
-            // Both the trace and chip antennas are on-board antennas
-            return t ? 'PCB antenna' : null;
-        };
+        for(const mcuId of options.mcus) {
+            const mcu = updater.datastore.findMcuById(mcuId);
+            if (!mcu) {
+                throw new Error('generateMcuNote: mcu ' + mcuId + ' not found');
+            }
 
-        const rowDefs = [
-            {
-                id: 'form-factor',
-                title: 'Form factor',
-                fn: function({sku}) {
-                    if (sku.feather) {
-                        return 'Feather';
-                    }
-                    if (sku.m2som) {
-                        return 'M.2 SoM';
-                    }
-                    return '';
-                }
-            },
-            {
-                id: 'cellular-modem',
-                title: 'Cellular modem',
-                fn: function({modem}) {
-                    if (!modem) {
-                        return 'None';
-                    }
-                    return manufacturerNames[modem.manufacturer] + ' ' + (modem.partName || modem.model);
-                }
-            },
-            {
-                id: 'cellular-region',
-                title: 'Cellular region',
-                fn: function({sku, modem}) {
-                    return modem ? regionNames[sku.skuRegion] : 'N/A';
-                }
-            },
-            {
-                id: 'cellular-technology',
-                title: 'Cellular technology',
-                fn: function({modem}) {
-                    return modem ? modem.techSummary : 'None';
-                }
-            },
-            {
-                id: 'wi-fi-supported',
-                title: 'Wi-Fi supported',
-                fn: function({sku, mcu}) {
-                    if (sku.wifi || sku.wifiAntInt || sku.wifiAntExt) {
-                        return 'Yes' + (mcu.wifiBands ? ' (' + mcu.wifiBands + ')' : '');
-                    }
-                    return 'No';
-                }
-            },
-            {
-                id: 'generation',
-                title: 'Generation',
-                fn: function({sku}) {
-                    return 'Gen ' + sku.gen;
-                }
-            },
-            {
-                id: 'mcu',
-                title: 'MCU',
-                fn: function({mcu}) {
-                    return mcu.name;
-                }
-            },
-            {
-                id: 'mcu-processor-speed',
-                title: 'MCU processor speed',
-                fn: function({mcu}) {
-                    return mcu.cpuSummary;
-                }
-            },
-            {
-                id: 'user-ram-available',
-                title: 'User RAM available',
-                fn: function({mcu}) {
-                    return (mcu.userRamApprox ? '~' : '') + mcu.userRam;
-                }
-            },
-            {
-                id: 'maximum-user-application-size',
-                title: 'Maximum user application size',
-                fn: function({mcu}) {
-                    return mcu.userAppSize;
-                }
-            },
-            {
-                id: 'li-po-battery-connector',
-                title: 'Li-Po battery connector',
-                fn: function({sku}) {
-                    // M.2 SoMs do not have a battery connector; it's on the base board
-                    const m = sku.m2som ? null : (sku.batteryConn || '').match(/-([0-9]+)$/);
-                    return m ? m[1] + '-pin' : 'No';
-                }
-            },
-            {
-                id: 'rgb-status-led',
-                title: 'RGB status LED',
-                fn: function({sku}) {
-                    return sku.feather ? 'Yes' : noBaseBoard;
-                }
-            },
-            {
-                id: 'mode-and-reset-buttons',
-                title: 'MODE and RESET buttons',
-                fn: function({sku}) {
-                    return sku.feather ? 'Yes' : noBaseBoard;
-                }
-            },
-            {
-                id: 'usb-connector',
-                title: 'USB connector',
-                fn: function({sku}) {
-                    return usbNames[sku.usb] || noBaseBoard;
-                }
-            },
-            {
-                id: 'ble-support',
-                title: 'BLE support',
-                fn: function({mcu}) {
-                    return yesNo(mcu.ble);
-                }
-            },
-            {
-                id: 'nfc-tag-support',
-                title: 'NFC tag support',
-                fn: function({mcu}) {
-                    return yesNo(mcu.nfcTag);
-                }
-            },
-            {
-                id: 'gnss-support',
-                title: 'GNSS support',
-                fn: function({sku}) {
-                    return yesNo(sku.gnss);
-                }
-            },
-            {
-                id: 'sim',
-                title: 'SIM',
-                fn: function({sku}) {
-                    if (sku.simEsim) {
-                        return 'e-sim';
-                    }
-                    let types = [];
-                    if (sku.simMff2) {
-                        types.push('MFF2');
-                    }
-                    if (sku.sim4ff) {
-                        types.push('4FF');
-                    }
-                    return types.length ? types.join(' or ') : 'None';
-                }
-            },
-            {
-                id: 'on-board-antennas',
-                title: 'On-board antennas',
-                fn: function({sku}) {
-                    const wifi = antennaType(sku.wifiAntInt);
-                    const ble = antennaType(sku.bleAntInt);
-                    if (wifi && ble) {
-                        return 'Wi-Fi/BLE ' + wifi;
-                    }
-                    if (wifi) {
-                        return 'Wi-Fi ' + wifi;
-                    }
-                    if (ble) {
-                        return 'BLE ' + ble;
-                    }
-                    return 'None';
-                }
-            },
+            const deviceSkus = updater.getDeviceSkus(skuObj => skuObj.mcu == mcuId);
+
+            md += '<hr>\n\n';
+            md += '### ' + mcu.name + '\n\n';
+
+            // Use the generation of the MCU if known, otherwise the generations of the devices that use it
+            let generations = [];
+            if (typeof mcu.gen != 'undefined') {
+                generations = [mcu.gen];
+            }
+            else {
+                generations = [...new Set(deviceSkus.map(e => e.gen))].sort();
+            }
+
+            let tableData = [{feature: 'Generation', value: generations.map(e => 'Gen ' + e).join(', ')}];
+            for(const rowDef of mcuRows) {
+                tableData.push({feature: rowDef.title, value: rowDef.fn({mcu})});
+            }
+
+            md += updater.generateTable({
+                columns: [
+                    {key: 'feature', title: 'Feature'},
+                    {key: 'value', title: 'Value'},
+                ]
+            }, tableData) + '\n';
+
+            if (deviceSkus.length) {
+                md += '**Devices that use this MCU**\n\n';
+                md += updater.generateTable({
+                    columns: [
+                        {key: 'desc', title: 'Device'},
+                        {key: 'name', title: 'SKU'},
+                        {key: 'gen', title: 'Gen', align: 'center'},
+                        {key: 'lifecycle', title: 'Lifecycle', align: 'center'},
+                    ]
+                }, deviceSkus) + '\n';
+            }
+        }
+
+        return md;
+    };
+
+    updater.generateAntennaNote = function(options) {
+        // Generates a section for each antenna, used in the additional information note for antennas. 
+        // options.skus is an array of the single (EA) antenna SKUs to include
+        // options.uses is how devices use the antenna (default cellular), see uses below
+        // Each section starts with a horizontal rule and a heading, and has a table with the name, description, lifecycle and datasheet, the image,
+        // the gain and dimension tables, and a table of the devices that use the antenna.
+        let md = '';
+
+        // The keys in the devices (skus) that identify the antenna they use. The default is the cellular
+        // antennas.
+        //   .key     key in skus with the antenna SKU
+        //   .incKey  key in skus that is true if the antenna is included with the device (optional)
+        //   .title   description of the use in the table
+        //   .aliases object mapping other values of the key to the antenna SKU (optional)
+        const uses = options.uses || [
+            {key: 'cellAnt', incKey: 'cellAntInc', title: 'Cellular'},
+            {key: 'cellAntAlt', title: 'Cellular alternate'},
+            {key: 'ntnAnt', incKey: 'ntnAntInc', title: 'NTN'},
         ];
 
-        // Select and order the rows. Default is all rows in the order defined above.
-        let rows = rowDefs;
-        if (options.rows) {
-            rows = options.rows.map(function(id) {
-                const rowDef = rowDefs.find(e => e.id == id);
-                if (!rowDef) {
-                    throw new Error('generateDeviceComparison: unknown row id ' + id);
+        for(const skuName of options.skus) {
+            const antennaObj = updater.datastore.findSkuByName(skuName);
+            if (!antennaObj) {
+                throw new Error('generateAntennaNote: sku ' + skuName + ' not found');
+            }
+
+            const usesAntenna = function(skuObj, use) {
+                const value = skuObj[use.key];
+                return value == antennaObj.name || (!!use.aliases && use.aliases[value] == antennaObj.name);
+            };
+
+            md += '<hr>\n\n';
+            md += '### ' + antennaObj.name + '\n\n';
+
+            // Name, description, lifecycle, and datasheet
+            md += updater.generateTable({
+                columns: [
+                    {key: 'name', title: 'SKU'},
+                    {key: 'desc', title: 'Description'},
+                    {key: 'lifecycle', title: 'Lifecycle', align: 'center'},
+                    {key: 'datasheetText', title: 'Datasheet', align: 'center', linkKey: 'datasheet'},
+                ]
+            }, [{
+                name: antennaObj.name,
+                desc: antennaObj.desc,
+                lifecycle: antennaObj.lifecycle,
+                datasheet: antennaObj.datasheet,
+                datasheetText: antennaObj.datasheet ? 'Datasheet' : undefined,
+            }]) + '\n';
+
+            if (antennaObj.image) {
+                md += '![' + antennaObj.name + '](' + updater.relativeDocsUrl(antennaObj.image) + ')\n\n';
+            }
+
+            // Gain, if there is data for this antenna
+            const gainSections = [
+                {title: 'Peak gain', key: 'peakGain', unitsKey: 'peakGainUnits', skus: [antennaObj.name]},
+                {title: 'Average gain', key: 'avgGain', unitsKey: 'avgGainUnits', skus: [antennaObj.name]},
+            ].filter(section => !!antennaObj[section.key]);
+
+            if (gainSections.length) {
+                md += '**Gain**\n\n';
+                md += updater.generateAntennaGain({sections: gainSections}) + '\n';
+            }
+
+            // Dimensions
+            if (typeof antennaObj.length != 'undefined') {
+                md += '**Dimensions**\n\n';
+                md += updater.generateAntennaDimensions({skus: [antennaObj.name], includeMultiple: true}) + '\n';
+            }
+
+            // Devices that use this antenna, by default as the cellular antenna, alternate, or NTN antenna
+            const deviceSkus = updater.getDeviceSkus(skuObj => uses.some(use => usesAntenna(skuObj, use)));
+
+            if (deviceSkus.length) {
+                let tableData = [];
+                for(const skuObj of deviceSkus) {
+                    const skuUses = uses.filter(use => usesAntenna(skuObj, use));
+                    tableData.push({
+                        desc: skuObj.desc,
+                        name: skuObj.name,
+                        included: skuUses.some(use => use.incKey && skuObj[use.incKey]),
+                        use: skuUses.map(use => use.title).join(', '),
+                        lifecycle: skuObj.lifecycle,
+                    });
                 }
-                return rowDef;
-            });
+
+                md += '**Devices that use this antenna**\n\n';
+                md += updater.generateTable({
+                    columns: [
+                        {key: 'desc', title: 'Device'},
+                        {key: 'name', title: 'SKU'},
+                        {key: 'included', title: 'Included', align: 'center', onlyCheckmark: true},
+                        {key: 'use', title: 'Use'},
+                        {key: 'lifecycle', title: 'Lifecycle', align: 'center'},
+                    ]
+                }, tableData) + '\n';
+            }
         }
 
-        // Collect the data for each column
-        let devices = [];
-        for(const device of options.devices) {
-            const sku = updater.datastore.findSkuByName(device.sku);
-            if (!sku) {
-                throw new Error('generateDeviceComparison: sku ' + device.sku + ' not found');
-            }
-            const mcu = updater.datastore.findMcuById(sku.mcu);
-            if (!mcu) {
-                throw new Error('generateDeviceComparison: mcu ' + sku.mcu + ' not found for sku ' + device.sku);
-            }
-            const modem = sku.modem ? updater.datastore.findModemByModel(sku.modem) : null;
+        return md;
+    };
 
-            devices.push({title: device.title, sku, mcu, modem});
+    // Frequency bands (columns) of the antenna gain tables, keys of peakGain and avgGain in skus
+    updater.antennaGainBands = [
+        {key: '700-900', title: '700/850/900'},
+        {key: '1700-1900', title: '1700/1800/1900'},
+        {key: '2100', title: '2100'},
+        {key: '2400', title: '2400'},
+        {key: '2600', title: '2600'},
+    ];
+
+    updater.generateAntennaGain = function(options) {
+        // Generates a table of antenna gain with a row for each antenna and a column for each frequency band. 
+        // options.bands is an array of the columns, left to right (default updater.antennaGainBands):
+        //   .key    key in the peakGain and avgGain objects in skus, like '700-900'
+        //   .title  column heading, like '700/850/900'
+        // options.sections is an array of groups of rows, each with a heading row:
+        //   .title     heading, like 'Peak gain'
+        //   .key       key in skus with an object of gain by band, like 'peakGain'
+        //   .unitsKey  key in skus with the units, like 'peakGainUnits'
+        //   .skus      array of single SKUs to include as rows
+
+        const bands = options.bands || updater.antennaGainBands;
+
+        let columns = [{key: 'parameter', title: 'Parameter'}];
+        bands.forEach(function(band, index) {
+            columns.push({key: 'band' + index, title: band.title, align: 'center'});
+        });
+        columns.push({key: 'units', title: 'Unit'});
+
+        let tableData = [];
+
+        for(const section of options.sections) {
+            // Heading row, with the other columns empty
+            tableData.push({parameter: section.title});
+
+            for(const skuName of section.skus) {
+                const skuObj = updater.datastore.findSkuByName(skuName);
+                if (!skuObj) {
+                    throw new Error('generateAntennaGain: sku ' + skuName + ' not found');
+                }
+                const gain = skuObj[section.key];
+                if (!gain) {
+                    throw new Error('generateAntennaGain: sku ' + skuName + ' has no ' + section.key);
+                }
+
+                let rowData = {parameter: skuName, units: skuObj[section.unitsKey]};
+                bands.forEach(function(band, index) {
+                    if (typeof gain[band.key] != 'undefined') {
+                        rowData['band' + index] = gain[band.key];
+                    }
+                });
+                tableData.push(rowData);
+            }
         }
 
-        // The table is transposed from the usual generateTable usage: each row is a feature, and 
-        // each column is a device. The first column is the feature name, which has no heading.
-        let columns = [{key: 'feature', title: ' '}];
-        devices.forEach(function(device, index) {
-            columns.push({key: 'device' + index, title: device.title, align: 'center'});
+        return updater.generateTable({columns}, tableData);
+    }
+
+    updater.generateAntennaDimensions = function(options) {
+        // Generates a table of antenna dimensions with a column for each antenna and a row for each dimension.
+        // options.skus is an array of the single (EA) SKUs to include, left to right
+        // options.includeMultiple is true to add a row with the multiple (tray) SKU of each antenna
+        // The dimensions are in the length, width, thickness, cableLength, and dimensionUnits keys of skus.
+
+        const dimensions = [
+            {title: 'Length', key: 'length'},
+            {title: 'Width', key: 'width'},
+            {title: 'Thickness', key: 'thickness'},
+            {title: 'Cable Length', key: 'cableLength'},
+        ];
+
+        let skuObjs = [];
+        for(const skuName of options.skus) {
+            const skuObj = updater.datastore.findSkuByName(skuName);
+            if (!skuObj) {
+                throw new Error('generateAntennaDimensions: sku ' + skuName + ' not found');
+            }
+            skuObjs.push(skuObj);
+        }
+
+        // The table is transposed from the usual generateTable usage: each row is a dimension, and 
+        // each column is an antenna. 
+        let columns = [{key: 'dimension', title: 'Dimension'}];
+        skuObjs.forEach(function(skuObj, index) {
+            columns.push({key: 'sku' + index, title: skuObj.name, align: 'center'});
         });
 
         let tableData = [];
-        for(const rowDef of rows) {
-            let rowData = {feature: rowDef.title};
-            devices.forEach(function(device, index) {
-                rowData['device' + index] = rowDef.fn(device);
+
+        if (options.includeMultiple) {
+            let rowData = {dimension: 'Tray SKU'};
+            skuObjs.forEach(function(skuObj, index) {
+                rowData['sku' + index] = skuObj.multipleSku;
+            });
+            tableData.push(rowData);
+        }
+
+        for(const dimension of dimensions) {
+            let rowData = {dimension: dimension.title};
+            skuObjs.forEach(function(skuObj, index) {
+                const value = skuObj[dimension.key];
+                if (typeof value != 'undefined') {
+                    rowData['sku' + index] = value + (skuObj.dimensionUnits || '');
+                }
             });
             tableData.push(rowData);
         }
@@ -2050,23 +2096,21 @@ const generatorConfig = require('./generator-config');
     };
 
 
-    updater.generateAntCell = function(options) {
+    updater.getDeviceSkus = function(matchFn, options) {
+        // Returns the devices (skus) that match matchFn(skuObj), sorted by description. This is shared by
+        // the lists of devices that use antennas and MCUs. Discontinued, hidden, and Linux devices are omitted.
+        // options.filterFn(skuObj) returns true to omit a sku (optional)
         let skus = [];
 
-        if (!options) {
-            options = {};
-        }
-
-        // Filter
         updater.datastore.data.skus.forEach(function(skuObj) {
-            if (!skuObj.cellAnt) {
+            if (!matchFn(skuObj)) {
                 return;
             }
             if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || !!skuObj.linux) {
                 return;
             }
 
-            if (options.filterFn) {
+            if (options && options.filterFn) {
                 if (options.filterFn(skuObj)) {
                     return;
                 }
@@ -2075,10 +2119,21 @@ const generatorConfig = require('./generator-config');
             skus.push(skuObj);
         });
 
-        // Sort
         skus.sort(function(a, b) {
             return a.desc.localeCompare(b.desc);
         });
+
+        return skus;
+    };
+
+    updater.generateAntCell = function(options) {
+        let skus = [];
+
+        if (!options) {
+            options = {};
+        }
+
+        skus = updater.getDeviceSkus(skuObj => !!skuObj.cellAnt, options);
 
         // Render
         let md = '';
@@ -2122,28 +2177,7 @@ const generatorConfig = require('./generator-config');
             options = {};
         }
 
-        // Filter
-        updater.datastore.data.skus.forEach(function(skuObj) {
-            if (!skuObj.ntnAnt) {
-                return;
-            }
-            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Pre development' || !!skuObj.linux) {
-                return;
-            }
-
-            if (options.filterFn) {
-                if (options.filterFn(skuObj)) {
-                    return;
-                }
-            }
-
-            skus.push(skuObj);
-        });
-
-        // Sort
-        skus.sort(function(a, b) {
-            return a.desc.localeCompare(b.desc);
-        });
+        skus = updater.getDeviceSkus(skuObj => !!skuObj.ntnAnt, options);
 
         // Render
         let md = '';
@@ -2427,18 +2461,31 @@ const generatorConfig = require('./generator-config');
         md += '| Family | SKUs |\n';
         md += '| :----- | :--- |\n';
 
+        // The rows are the top-level skuFamily entries, except that a Wi-Fi entry has a row for each group
+        let rows = [];
         updater.datastore.data.skuFamily.forEach(function(skuFamilyObj) {
+            if (skuFamilyObj.wifi && skuFamilyObj.group) {
+                for(const groupObj of skuFamilyObj.group) {
+                    rows.push({name: groupObj.name, match: skuObj => groupObj.skus.includes(skuObj.name)});
+                }
+            }
+            else {
+                rows.push({name: skuFamilyObj.name, match: skuObj => skuObj.family == skuFamilyObj.family});
+            }
+        });
+
+        rows.forEach(function(row) {
             let familySkuNames = [];
 
             skus.forEach(function(skuObj) {
-                if (skuObj.family != skuFamilyObj.family) {
+                if (!row.match(skuObj)) {
                     return;
                 }
                 familySkuNames.push(skuObj.name);
             });
 
             if (familySkuNames.length > 0) {
-                md += '| ' + skuFamilyObj.name + ' | ';
+                md += '| ' + row.name + ' | ';
 
                 md += familySkuNames.join(', ');
 
@@ -4771,13 +4818,16 @@ const generatorConfig = require('./generator-config');
         const oldDocsData = fs.readFileSync(mdPath, 'utf8');
         let frontMatter = '';
         let dashCount = 0;
-        for(let line of oldDocsData.split('\n')) {
-            line = line.trim();
-            frontMatter += line + '\n';
-            if (line == '---') {
-                if (++dashCount == 2) {
-                    break;
-                }            
+        // Some files, like the notes, do not have front matter
+        if (oldDocsData.startsWith('---')) {
+            for(let line of oldDocsData.split('\n')) {
+                line = line.trim();
+                frontMatter += line + '\n';
+                if (line == '---') {
+                    if (++dashCount == 2) {
+                        break;
+                    }            
+                }
             }
         }
 

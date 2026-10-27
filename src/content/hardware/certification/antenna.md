@@ -54,31 +54,40 @@ In the United States, you can generally substitute an antenna that is of the sam
 Note that the ANT-ELEC should not be used with any LTE Cat 1 or LTE Cat M1 device because it does not support some bands used by LTE.
 
 
+{{!-- BEGIN do not edit content below, it is automatically generated d7e4143b-fcb5-4fba-a1dc-e02581a3bb25 --}}
+
 | Parameter | 700/850/900 | 1700/1800/1900 | 2100 | 2400 | 2600 | Unit |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| Peak gain | | | | | | | |
+| Peak gain | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | PARANTCW1EA | 2.8 | 5.3 | 5.3 | 5.3 | 5.3 | dBi |
-| PARANTC41EA | 2.46 | 3.86 | 3.86 |3.86 |3.86 | dBi |
+| PARANTC41EA | 2.46 | 3.86 | 3.86 | 3.86 | 3.86 | dBi |
 | ANTCW2EA | 1.42 | 3.77 | 4.62 | 4.71 | 4.66 | dBi |
-| ANT-FLXU | 1 | 3.5 | 5 | 5 | 4.5|  dBi |
-|  | | | | | | | |
-| Average gain | | | | | | | |
+| ANT-FLXU | 1 | 3.5 | 5 | 5 | 4.5 | dBi |
+| Average gain | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | PARANTC41EA | 1 | 0.98 | 0.98 | 0.98 | 0.98 | dB |
 | ANTCW2EA | -2.98 | -1.9 | -2.65 | -2.1 | -2.2 | dB |
 | ANT-FLXU | -3 | -2 | -2.5 | -2 | -2 | dB |
 
 
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
 ### Cellular antenna dimensions
 
-{{!-- BEGIN shared-blurb 2fd8bba2-0bda-44c3-822d-0fb0ad30118e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 9393d0b2-f32f-4259-a064-6185f7d0e1c1 --}}
 
-| Dimension | PARANTCW1EA | PARANTC41EA | ANTCW2EA | ANT-FLXU | ANTELEC | 
+| Dimension | PARANTCW1EA | PARANTC41EA | ANTCW2EA | ANT-FLXU | ANTELEC |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | Tray SKU | PARANTCW1TY | PARANTC41TY | ANTCW2TY | ANT-FLXU-50 | ANTELEC50 |
-| Length | 116mm | 122.1mm | 97.0mm | 96.0mm | 80.0mm |
-| Width | 27mm | 12.8mm | 21.0mm | 21.0mm | 20.0mm |
+| Length | 116mm | 122.1mm | 97mm | 96mm | 80mm |
+| Width | 27mm | 12.8mm | 21mm | 21mm | 20mm |
 | Thickness | 0.2mm | 0.2mm | 0.2mm | 0.2mm | 0.2mm |
 | Cable Length | 189.5mm | 183mm | 160mm | 150mm | 164mm |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+{{!-- BEGIN shared-blurb 2fd8bba2-0bda-44c3-822d-0fb0ad30118e --}}
 
 PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna can be bent when being placed inside an enclosure. There are a couple restrictions to ensure good performance:
 
@@ -215,9 +224,11 @@ These devices do not have a cellular modem and therefore do not need a cellular 
 
 | Family | SKUs |
 | :----- | :--- |
+| Photon 2 | PHN2EDGEKIT, PHN2KIT, PHN2MEA, PHN2MTY|
+| P2 | P2MOD10, P2REEL|
 | Argon | ARG-AQKT, ARG-LDKT, ARG-STRTKT, ARGN-H, ARGNKIT, ARGNTRAY50|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH, PHOTONKIT, PHOTONNOH|
-| P-Series | P0MOD10, P0REEL, P1MOD10, P1REEL, P2MOD10, P2REEL, PHN2EDGEKIT, PHN2KIT, PHN2MEA, PHN2MTY|
+| P1 | P0MOD10, P0REEL, P1MOD10, P1REEL|
 
 
 {{!-- END do not edit content above, it is automatically generated 57d69268-776d-11eb-9439-0242ac130002 --}}
@@ -662,7 +673,7 @@ These devices do not have a BLE radio and therefore do not need a BLE antenna.
 | E-Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
 | Electron | ASSET2GV2, ASSET3G260V2, ASSET3G270V2, E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350KIT, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY, SNSRKIT3G260, SNSRKIT3G270|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH, PHOTONKIT, PHOTONNOH|
-| P-Series | P0MOD10, P0REEL, P1MOD10, P1REEL|
+| P1 | P0MOD10, P0REEL, P1MOD10, P1REEL|
 
 
 {{!-- END do not edit content above, it is automatically generated 2cf3e112-776e-11eb-9439-0242ac130002 --}}
@@ -764,8 +775,10 @@ These devices do not have an NFC radio and therefore do not need a NFC antenna.
 | Tracker | MON404E01C01KIT, MON404E02C01KIT, MON524E01C01KIT|
 | E-Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
 | Electron | ASSET2GV2, ASSET3G260V2, ASSET3G270V2, E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350KIT, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY, SNSRKIT3G260, SNSRKIT3G270|
+| Photon 2 | PHN2EDGEKIT, PHN2KIT, PHN2MEA, PHN2MTY|
+| P2 | P2MOD10, P2REEL|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH, PHOTONKIT, PHOTONNOH|
-| P-Series | P0MOD10, P0REEL, P1MOD10, P1REEL, P2MOD10, P2REEL, PHN2EDGEKIT, PHN2KIT, PHN2MEA, PHN2MTY|
+| P1 | P0MOD10, P0REEL, P1MOD10, P1REEL|
 
 
 {{!-- END do not edit content above, it is automatically generated 6b9301fa-776e-11eb-9439-0242ac130002 --}}

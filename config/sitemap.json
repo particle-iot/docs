@@ -927,8 +927,8 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2026-10-21",
-            "hash": "cdd9f42badf371d58c659ee7b67a3048cabd75263b22d79afe0c2ac03767142c"
+            "date": "2026-10-26",
+            "hash": "e8796ea2f0c43f73cfe04b4a0a09bc63265e610e9d7aa1aabcaf72e4878b5018"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2026-08-14",
@@ -995,20 +995,20 @@
             "hash": "8f57d8a8a7a7bce5605eea8a1a6234e9ff0d5e2322177c1ee6826f387c636145"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2026-06-09",
-            "hash": "e8d27dce6e8d368b4a59648fa4a3c062fbdd328629c573ab8a4dfd7337b09d73"
+            "date": "2026-10-26",
+            "hash": "3f7c5572f37c0a60c60d97baf347f615813bd91fab7539b06b91fd2609910bfd"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2026-06-09",
-            "hash": "b3af9f87cc57d6887db554c57693e1b0ac19b4f27e9ea9b29f752426dc4b8cea"
+            "date": "2026-10-26",
+            "hash": "e3ae7e9b36b8e135a4a9a3c4b516d72cef2a7e59c25de2ecee94fea37e677cfd"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2024-02-27",
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2026-10-06",
-            "hash": "b1ab892699fa5540c3af8da7d8094781ceecb87019547b7a5922730a166dbba8"
+            "date": "2026-10-26",
+            "hash": "db72814c49b571f57af26e2cff758dfe3892431475898e87df0be772521707ed"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2026-10-14",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "81a791792d48da7a93e2b4fb298f8b6861966c0ffc085575a874fe827698eb9b",
-            "date": "2026-10-20"
+            "hash": "c1025fd6bd2aee3c3902022f6dc4bcd2f0f873ceb411435b87382928d22cf66a",
+            "date": "2026-10-27"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -10077,6 +10077,10 @@
         "tools/developer-tools/antenna-tool.md": {
             "hash": "5396fcfaeaa7ab30ef386c40934dc5a1013194415ae14ed5edb8a966cb945d76",
             "date": "2026-10-01"
+        },
+        "tools/developer-tools/device-comparison.md": {
+            "hash": "b6b09638409e73743a7e3035ac0f455973c78345ec036161ea079ec17147438d",
+            "date": "2026-10-23"
         }
     }
 }
