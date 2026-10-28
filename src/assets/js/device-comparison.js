@@ -107,7 +107,7 @@ $(document).ready(function () {
             if (xbeeSkus.length) {
                 deviceOptions.push({
                     label: 'Digi XBee 3',
-                    options: xbeeSkus.map(skuObj => ({value: skuObj.short, title: skuObj.title || skuObj.desc, sku: skuObj.name})),
+                    options: xbeeSkus.map(skuObj => ({value: skuObj.short, title: skuObj.title || skuObj.desc, sku: skuObj.name, modem: skuObj.modem, sim: skuObj.sim, simPlan: (skuObj.simPlans || [])[0]})),
                 });
             }
         }
@@ -324,6 +324,10 @@ $(document).ready(function () {
             if (showCountry) {
                 tableData = tableData.concat(getCountryRows(devices));
             }
+
+            // The XBee note is shown if country compatibility is shown for a device that uses the XBee Global Connect SIM
+            const xbeeSim = datastore.data.sims.find(e => e.simPlanKey == 'xbeeGlobal');
+            $(thisElem).find('.deviceComparisonFootnoteXbee').toggle(showCountry && !!xbeeSim && devices.some(d => d.skuObj && d.skuObj.sim == xbeeSim.id));
 
             $(thisElem).find('.deviceComparisonFootnoteShared').toggle(def.tableData.some(r => Object.values(r).some(v => typeof v == 'string' && v.includes('PARANTWM1EA<sup>2</sup>'))));
 
