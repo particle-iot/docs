@@ -42,6 +42,11 @@ datastore.countryInList = function(country, countryList) {
     return found;
 };
 
+// The XBee skus are in datastore.data.xbee.skus instead of the top level skus array, so they are not included 
+// in any of the Particle device lists. They are only used by the device comparison tool, so findSkuByName looks
+// in the XBee skus if the sku is not found in the Particle skus. The XBee modems and mcus are in the 
+// modems and mcus tables.
+
 datastore.findModemByModel = function(model) {
     for(let ii = 0; ii < datastore.data.modems.length; ii++) {
         const obj = datastore.data.modems[ii];
@@ -92,6 +97,11 @@ datastore.findSkuByName = function(name, createIfNecessary) {
         if (obj.name == name) {
             return obj;
         }
+    }
+
+    const xbeeSku = (datastore.data.xbee && datastore.data.xbee.skus || []).find(e => e.name == name);
+    if (xbeeSku) {
+        return xbeeSku;
     }
 
     if (createIfNecessary) {

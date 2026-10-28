@@ -29216,6 +29216,7 @@
   "modems": [
     {
       "model": "U201",
+      "family": "particle",
       "manufacturer": "ublox",
       "name": "3G Global",
       "bands": [
@@ -29236,6 +29237,7 @@
     },
     {
       "model": "U260",
+      "family": "particle",
       "manufacturer": "ublox",
       "name": "3G Americas",
       "lifecycle": "NRND",
@@ -29253,6 +29255,7 @@
     },
     {
       "model": "U270",
+      "family": "particle",
       "manufacturer": "ublox",
       "name": "3G Europe/Asia/Africa",
       "lifecycle": "NRND",
@@ -29270,6 +29273,7 @@
     },
     {
       "model": "G350",
+      "family": "particle",
       "manufacturer": "ublox",
       "name": "2G Global",
       "lifecycle": "NRND",
@@ -29286,6 +29290,7 @@
     },
     {
       "model": "R410",
+      "family": "particle",
       "manufacturer": "ublox",
       "name": "LTE M1",
       "bands": [
@@ -29324,6 +29329,7 @@
     },
     {
       "model": "R510",
+      "family": "particle",
       "manufacturer": "ublox",
       "name": "LTE M1",
       "bands": [
@@ -29362,6 +29368,7 @@
     },
     {
       "model": "BG96-MC",
+      "family": "particle",
       "manufacturer": "quectel",
       "name": "North America LTE M1",
       "bands": [
@@ -29418,6 +29425,7 @@
     },
     {
       "model": "BG95-M5",
+      "family": "particle",
       "manufacturer": "quectel",
       "name": "LTE Cat M1",
       "globalM1": true,
@@ -29464,6 +29472,7 @@
     },
     {
       "model": "BG95-S5",
+      "family": "particle",
       "manufacturer": "quectel",
       "name": "LTE Cat M1/2G/NTN Satellite",
       "globalM1": true,
@@ -29506,6 +29515,7 @@
     },
     {
       "model": "EG800Q-GL",
+      "family": "particle",
       "manufacturer": "quectel",
       "name": "LTE Cat 1 bis",
       "bands": [
@@ -29576,6 +29586,7 @@
     },
     {
       "model": "EG91-E",
+      "family": "particle",
       "manufacturer": "quectel",
       "name": "Europe LTE Cat 1",
       "bands": [
@@ -29599,6 +29610,7 @@
     },
     {
       "model": "EG91-EX",
+      "family": "particle",
       "manufacturer": "quectel",
       "name": "Europe LTE Cat 1",
       "bands": [
@@ -29700,6 +29712,7 @@
     },
     {
       "model": "EG91-NAX",
+      "family": "particle",
       "manufacturer": "quectel",
       "name": "North America LTE Cat1",
       "bands": [
@@ -29784,6 +29797,7 @@
     },
     {
       "model": "SG560D-NA",
+      "family": "particle",
       "manufacturer": "quectel",
       "name": "5G North America",
       "bands": [
@@ -29841,6 +29855,7 @@
     },
     {
       "model": "SG560D-EM",
+      "family": "particle",
       "manufacturer": "quectel",
       "name": "Rest of world 5G",
       "bands": [
@@ -29904,6 +29919,169 @@
         "PARTICLE_CELLULAR_RADIO_MODE"
       ],
       "techSummary": "5G with LTE/3G/2G fallback"
+    },
+    {
+      "model": "ME310G1-WW",
+      "family": "xbee",
+      "manufacturer": "telit",
+      "name": "LTE-M/NB-IoT with 2G fallback",
+      "bands": [
+        "M1-1",
+        "M1-2",
+        "M1-3",
+        "M1-4",
+        "M1-5",
+        "M1-8",
+        "M1-12",
+        "M1-13",
+        "M1-18",
+        "M1-19",
+        "M1-20",
+        "M1-25",
+        "M1-26",
+        "M1-27",
+        "M1-28",
+        "M1-66",
+        "M1-71",
+        "M1-85",
+        "2G-850",
+        "2G-900",
+        "2G-1800",
+        "2G-1900"
+      ],
+      "technologies": [
+        "M1",
+        "NB-IoT",
+        "2G"
+      ],
+      "techSummary": "LTE-M, NB-IoT, 2G fallback"
+    },
+    {
+      "model": "ME310G1-W1",
+      "family": "xbee",
+      "manufacturer": "telit",
+      "name": "LTE-M/NB-IoT",
+      "bands": [
+        "M1-1",
+        "M1-2",
+        "M1-3",
+        "M1-4",
+        "M1-5",
+        "M1-8",
+        "M1-12",
+        "M1-13",
+        "M1-18",
+        "M1-19",
+        "M1-20",
+        "M1-25",
+        "M1-26",
+        "M1-27",
+        "M1-28",
+        "M1-66",
+        "M1-71",
+        "M1-85"
+      ],
+      "technologies": [
+        "M1",
+        "NB-IoT"
+      ],
+      "techSummary": "LTE-M, NB-IoT"
+    },
+    {
+      "model": "PLS63-W",
+      "family": "xbee",
+      "manufacturer": "thales",
+      "name": "Global LTE Cat 1",
+      "bands": [
+        "4G-1",
+        "4G-2",
+        "4G-3",
+        "4G-4",
+        "4G-5",
+        "4G-7",
+        "4G-8",
+        "4G-12",
+        "4G-13",
+        "4G-18",
+        "4G-19",
+        "4G-20",
+        "4G-25",
+        "4G-26",
+        "4G-28",
+        "4G-38",
+        "4G-40",
+        "4G-41",
+        "4G-66"
+      ],
+      "technologies": [
+        "4G"
+      ],
+      "techSummary": "LTE Cat 1 with 3G/2G fallback"
+    },
+    {
+      "model": "PLS63-X",
+      "family": "xbee",
+      "manufacturer": "thales",
+      "name": "North America LTE Cat 1",
+      "bands": [
+        "4G-2",
+        "4G-4",
+        "4G-5",
+        "4G-12",
+        "4G-13",
+        "4G-25",
+        "4G-26",
+        "4G-66",
+        "4G-71"
+      ],
+      "technologies": [
+        "4G"
+      ],
+      "techSummary": "LTE Cat 1 with 3G fallback"
+    },
+    {
+      "model": "PLS83-W",
+      "family": "xbee",
+      "manufacturer": "thales",
+      "name": "Global LTE Cat 4",
+      "bands": [
+        "4G-1",
+        "4G-2",
+        "4G-3",
+        "4G-4",
+        "4G-5",
+        "4G-7",
+        "4G-8",
+        "4G-12",
+        "4G-13",
+        "4G-18",
+        "4G-19",
+        "4G-20",
+        "4G-26",
+        "4G-28",
+        "4G-38",
+        "4G-40",
+        "4G-41",
+        "4G-66",
+        "3G-1",
+        "3G-2",
+        "3G-3",
+        "3G-4",
+        "3G-5",
+        "3G-6",
+        "3G-8",
+        "3G-19",
+        "2G-850",
+        "2G-900",
+        "2G-1800",
+        "2G-1900"
+      ],
+      "technologies": [
+        "2G",
+        "3G",
+        "4G"
+      ],
+      "techSummary": "LTE Cat 4 with 3G/2G fallback"
     }
   ],
   "sims": [
@@ -192560,6 +192738,7 @@
   "mcus": [
     {
       "id": "nrf52840",
+      "family": "particle",
       "ble": "5",
       "cpu": "ARM Cortex M4F CPU, 64 MHz",
       "flashFileSystem": "2 MB",
@@ -192574,6 +192753,7 @@
     },
     {
       "id": "rtl872x",
+      "family": "particle",
       "ble": "5",
       "cpu": "ARM Cortex M33 CPU, 200 MHz",
       "flashFileSystem": "2 MB",
@@ -192589,6 +192769,7 @@
     },
     {
       "id": "stm32f2xx",
+      "family": "particle",
       "ble": false,
       "cpu": "ARM Cortex M3 CPU, 120 MHz",
       "flashFileSystem": false,
@@ -192602,6 +192783,7 @@
     },
     {
       "id": "kryo-8",
+      "family": "particle",
       "ble": false,
       "cpu": "Octa-core Qualcomm® Kryo™ CPU (1x 2.7GHz, 3x 2.4GHz, 4x 1.9GHz)",
       "flashFileSystem": true,
@@ -192611,6 +192793,19 @@
       "cpuSummary": "Octa-core Kryo (1x 2.7 GHz, 3x 2.4 GHz, 4x 1.9 GHz)",
       "embedded": false,
       "linux": true
+    },
+    {
+      "id": "efr32",
+      "family": "xbee",
+      "ble": true,
+      "cpu": "ARM Cortex M4 CPU, 40 MHz",
+      "flashFileSystem": false,
+      "nfcTag": false,
+      "userAppSize": "8 MB",
+      "userRam": "64 KB",
+      "name": "Silicon Labs EFR32",
+      "cpuSummary": "40 MHz Cortex-M4",
+      "embedded": true
     }
   ],
   "sunset": [
@@ -211024,5 +211219,149 @@
         "productId": "0x0"
       }
     }
+  },
+  "xbee": {
+    "skus": [
+      {
+        "name": "XB3-C-GM2-UT-001",
+        "short": "XB3-GM2",
+        "title": "XBee 3 Global LTE-M/NB-IoT",
+        "desc": "Digi XBee 3 Global LTE-M/NB-IoT (GM2), no SIM",
+        "lifecycle": "GA",
+        "multiple": false,
+        "family": "xbee",
+        "gen": "XBee 3",
+        "skuClass": "production",
+        "formFactor": "XBee 20-pin through-hole",
+        "skuRegion": "global",
+        "modem": "ME310G1-WW",
+        "sim4ff": true,
+        "simMff2": false,
+        "simEsim": false,
+        "gnss": "cellular-modem",
+        "mcu": "efr32",
+        "cellAnt": "1 U.FL (cellular)",
+        "cellAntInc": false,
+        "rgbStatusLed": "base board",
+        "modeButton": "base board",
+        "resetButton": "base board",
+        "usb": false,
+        "datasheet": "https://www.digi.com/resources/library/data-sheets/digi-xbee-3-global-lte-m-nb-iot-datasheet",
+        "bleAntExt": "1 U.FL (Bluetooth)",
+        "bleAntExtInc": false
+      },
+      {
+        "name": "XB3-C-GM1-UT-001",
+        "short": "XB3-GM1",
+        "title": "XBee 3 Low-Power LTE-M/NB-IoT",
+        "desc": "Digi XBee 3 Low-Power LTE-M/NB-IoT (GM1), no SIM",
+        "lifecycle": "GA",
+        "multiple": false,
+        "family": "xbee",
+        "gen": "XBee 3",
+        "skuClass": "production",
+        "formFactor": "XBee 20-pin through-hole",
+        "skuRegion": "global",
+        "modem": "ME310G1-W1",
+        "sim4ff": true,
+        "simMff2": false,
+        "simEsim": false,
+        "gnss": "cellular-modem",
+        "mcu": "efr32",
+        "cellAnt": "1 U.FL (cellular)",
+        "cellAntInc": false,
+        "rgbStatusLed": "base board",
+        "modeButton": "base board",
+        "resetButton": "base board",
+        "usb": false,
+        "datasheet": "https://www.digi.com/resources/library/data-sheets/digi-xbee-3-global-lte-m-nb-iot-datasheet",
+        "bleAntExt": "1 U.FL (Bluetooth)",
+        "bleAntExtInc": false
+      },
+      {
+        "name": "XB3-C-G1-UT-001",
+        "short": "XB3-G1",
+        "title": "XBee 3 Global LTE Cat 1",
+        "desc": "Digi XBee 3 Global LTE Cat 1, no SIM",
+        "lifecycle": "GA",
+        "multiple": false,
+        "family": "xbee",
+        "gen": "XBee 3",
+        "skuClass": "production",
+        "formFactor": "XBee 20-pin through-hole",
+        "skuRegion": "global",
+        "modem": "PLS63-W",
+        "sim4ff": true,
+        "simMff2": false,
+        "simEsim": false,
+        "gnss": "cellular-modem",
+        "mcu": "efr32",
+        "cellAnt": "1 U.FL (cellular diversity)",
+        "cellAntInc": false,
+        "rgbStatusLed": "base board",
+        "modeButton": "base board",
+        "resetButton": "base board",
+        "usb": false,
+        "datasheet": "https://www.digi.com/resources/library/data-sheets/digi-xbee-3-global-cat-1-datasheet",
+        "bleAntInt": "chip",
+        "bleAntIntInc": true
+      },
+      {
+        "name": "XB3-C-N1-UT-001",
+        "short": "XB3-N1",
+        "title": "XBee 3 North America LTE Cat 1",
+        "desc": "Digi XBee 3 North America LTE Cat 1, no SIM",
+        "lifecycle": "GA",
+        "multiple": false,
+        "family": "xbee",
+        "gen": "XBee 3",
+        "skuClass": "production",
+        "formFactor": "XBee 20-pin through-hole",
+        "skuRegion": "noram",
+        "modem": "PLS63-X",
+        "sim4ff": true,
+        "simMff2": false,
+        "simEsim": false,
+        "gnss": "cellular-modem",
+        "mcu": "efr32",
+        "cellAnt": "1 U.FL (cellular diversity)",
+        "cellAntInc": false,
+        "rgbStatusLed": "base board",
+        "modeButton": "base board",
+        "resetButton": "base board",
+        "usb": false,
+        "datasheet": "https://www.digi.com/resources/library/data-sheets/digi-xbee-3-global-cat-1-datasheet",
+        "bleAntInt": "chip",
+        "bleAntIntInc": true
+      },
+      {
+        "name": "XB3-C-G4-UT-001",
+        "short": "XB3-G4",
+        "title": "XBee 3 Global LTE Cat 4",
+        "desc": "Digi XBee 3 Global LTE Cat 4, no SIM",
+        "lifecycle": "GA",
+        "multiple": false,
+        "family": "xbee",
+        "gen": "XBee 3",
+        "skuClass": "production",
+        "formFactor": "XBee 20-pin through-hole",
+        "skuRegion": "global",
+        "modem": "PLS83-W",
+        "sim4ff": true,
+        "simMff2": false,
+        "simEsim": false,
+        "gnss": "cellular-modem",
+        "mcu": "efr32",
+        "cellAnt": "1 U.FL (cellular diversity)",
+        "cellAntInc": false,
+        "rgbStatusLed": "base board",
+        "modeButton": "base board",
+        "resetButton": "base board",
+        "usb": false,
+        "datasheet": "https://www.digi.com/resources/library/data-sheets/digi-xbee-3-global-lte-cat-4-datasheet",
+        "bleAntInt": "chip",
+        "bleAntIntInc": true
+      }
+    ]
   }
 }

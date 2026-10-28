@@ -26,6 +26,8 @@
         const manufacturerNames = {
             quectel: 'Quectel',
             ublox: 'u-blox',
+            telit: 'Telit',
+            thales: 'Thales',
         };
         const regionNames = {
             global: 'Global',
@@ -85,6 +87,10 @@
                 id: 'form-factor',
                 title: 'Form factor',
                 fn: function({sku}) {
+                    if (sku.formFactor) {
+                        // Not a Particle form factor, like XBee
+                        return sku.formFactor;
+                    }
                     if (sku.feather) {
                         return 'Feather';
                     }
@@ -143,7 +149,8 @@
                 id: 'generation',
                 title: 'Generation',
                 fn: function({sku}) {
-                    return 'Gen ' + sku.gen;
+                    // Particle devices have a generation number, others (like XBee 3) have a name
+                    return /^[0-9]+$/.test(sku.gen) ? ('Gen ' + sku.gen) : sku.gen;
                 }
             },
             {
@@ -312,7 +319,8 @@
                     if (link.startsWith(linkPrefix)) {
                         link = link.substring(linkPrefix.length);
                     }
-                    return '<a href="' + link.replace(/"/g, '&quot;') + '">Datasheet</a>';
+                    const external = /^https?:/.test(link) ? ' target="_blank" rel="noopener"' : '';
+                    return '<a href="' + link.replace(/"/g, '&quot;') + '"' + external + '>Datasheet</a>';
                 }
             },
         ];

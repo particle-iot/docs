@@ -101,6 +101,17 @@ $(document).ready(function () {
             return null;
         };
 
+        // Digi XBee modules (kind xbee) are only in the comparison tool, in datastore.data.xbee. 
+        {
+            const xbeeSkus = ((datastore.data.xbee && datastore.data.xbee.skus) || []).filter(e => !e.multiple && e.short);
+            if (xbeeSkus.length) {
+                deviceOptions.push({
+                    label: 'Digi XBee 3',
+                    options: xbeeSkus.map(skuObj => ({value: skuObj.short, title: skuObj.title || skuObj.desc, sku: skuObj.name})),
+                });
+            }
+        }
+
         if (deviceOptions.length == 0) {
             // Nothing to compare, for example if the device data failed to load
             tableElem.text('No devices are available to compare.');
