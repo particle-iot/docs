@@ -1,0 +1,241 @@
+{
+    "_comment": [
+        "Script definitions for docs pages. Pages request definitions with includeDefinitions in the front matter, or they are detected automatically (see scripts/auto-include.js).",
+        "Fields: requires = other definitions loaded first; scripts/styles = URLs emitted as script/link tags; html = raw HTML emitted after the scripts; always = included on every page; detect = auto-detection rules.",
+        "detect.codeBlocks = fenced code block languages, detect.partials = {{> partial}} names, detect.patterns = regular expressions matched against the page source.",
+        "Partials can also declare what they need with a header like {{!-- Required includeDefinitions: [api-helper, zip] --}}.",
+        "Definition order is the tie-breaker for load order; requires always load before the definition that needs them. A URL is only ever emitted once per page."
+    ],
+    "definitions": {
+        "debug-log": {
+            "scripts": ["/assets/js/logDecoder.js", "/assets/js/logUserInterface.js", "/assets/js/debug-log.js"]
+        },
+        "device-animation": {
+            "scripts": ["/assets/js/device-animation.js"]
+        },
+        "collapse": {
+            "always": true,
+            "scripts": ["/assets/js/collapse.js"]
+        },
+        "fonts-license": {
+            "always": true,
+            "scripts": ["/assets/js/fonts-license.js"]
+        },
+        "api-helper": {
+            "scripts": ["/assets/js/particle.min.js", "/assets/js/FileSaver.min.js", "/assets/js/api-helper.js"]
+        },
+        "api-helper-auth": {
+            "always": true,
+            "scripts": ["/assets/js/api-helper-auth.js"]
+        },
+        "api-helper-cloud": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-cloud.js"]
+        },
+        "api-helper-table": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-table.js"]
+        },
+        "api-helper-config": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-config.js"]
+        },
+        "api-helper-events": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-events.js"]
+        },
+        "api-helper-extras": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-extras.js"]
+        },
+        "api-helper-primitives": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-primitives.js"]
+        },
+        "api-helper-json": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-json.js"]
+        },
+        "api-helper-ledger": {
+            "requires": ["api-helper", "api-helper-table"],
+            "scripts": ["/assets/js/api-helper-ledger.js"]
+        },
+        "api-helper-library": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-library.js", "/assets/js/pako.min.js", "/assets/js/untar.js"]
+        },
+        "api-helper-mustache": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-mustache.js", "/assets/js/hogan-3.0.2.amd.js"]
+        },
+        "api-helper-pins": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-pins.js"]
+        },
+        "api-helper-protobuf": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-protobuf.js"]
+        },
+        "api-helper-projects": {
+            "requires": ["api-helper", "zip"],
+            "scripts": ["/assets/js/api-helper-projects.js"]
+        },
+        "api-helper-sim": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-sim.js"]
+        },
+        "api-helper-tools": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-tools.js"]
+        },
+        "api-helper-tickets": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-tickets.js"]
+        },
+        "api-helper-tracker": {
+            "requires": ["api-helper", "zip"],
+            "scripts": ["/assets/js/api-helper-tracker.js"]
+        },
+        "api-helper-troubleshooting": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-troubleshooting.js"]
+        },
+        "api-helper-usb": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/particle-usb.bundle.js", "/assets/js/api-helper-usb.js"]
+        },
+        "api-helper-versions": {
+            "requires": ["api-helper", "api-helper-table", "zip"],
+            "scripts": ["/assets/js/api-helper-versions.js"]
+        },
+        "api-helper-weather": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/api-helper-weather.js"]
+        },
+        "api-helper-webide": {
+            "requires": ["api-helper", "zip"],
+            "scripts": ["/assets/js/api-helper-webide.js"]
+        },
+        "antenna-tool": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/antenna-tool.js"]
+        },
+        "battery-calculator": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/battery-calculator.js"]
+        },
+        "ble-serial": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/ble-serial.js"]
+        },
+        "ble-tdm": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/jsrand.min.js", "/assets/js/ble-tdm.js"]
+        },
+        "cbor": {
+            "scripts": ["/assets/js/cbor.js"]
+        },
+        "chart": {
+            "scripts": ["https://cdn.jsdelivr.net/npm/chart.js"]
+        },
+        "cloud-wifi-config": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/cloud-wifi-config.js"]
+        },
+        "codemirror": {
+            "styles": ["/assets/files/codemirror/codemirror.css", "/assets/files/codemirror/lint.css"],
+            "scripts": [
+                "/assets/files/codemirror/codemirror.js",
+                "/assets/files/codemirror/jshint.js",
+                "/assets/files/codemirror/jsonlint.js",
+                "/assets/files/codemirror/javascript.js",
+                "/assets/files/codemirror/lint.js",
+                "/assets/files/codemirror/json-lint.js"
+            ]
+        },
+        "datastore": {
+            "scripts": ["/assets/js/datastore.js"]
+        },
+        "dataui": {
+            "requires": ["datastore"],
+            "scripts": ["/assets/js/dataui.js"]
+        },
+        "carriers": {
+            "requires": ["datastore", "dataui"],
+            "scripts": ["/assets/js/carriers.js"]
+        },
+        "table-generator": {
+            "scripts": ["/assets/js/table-generator.js"]
+        },
+        "carrier-family-map": {
+            "requires": ["datastore", "dataui", "carriers"],
+            "scripts": ["/assets/js/world-map.js", "https://www.gstatic.com/charts/loader.js"]
+        },
+        "code-generator": {
+            "requires": ["api-helper", "zip"],
+            "scripts": ["/assets/js/CodeGenerator.js", "/assets/js/code-generator.js"]
+        },
+        "device-comparison": {
+            "requires": ["datastore", "dataui", "carriers", "table-generator"],
+            "scripts": ["/assets/js/device-comparison-core.js", "/assets/js/device-comparison.js"]
+        },
+        "device-selector": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/device-selector.js"]
+        },
+        "device-setup-usb": {
+            "requires": ["api-helper", "api-helper-usb", "zip"],
+            "scripts": ["/assets/js/device-setup-usb.js"]
+        },
+        "firmware-reference": {
+            "scripts": ["/assets/js/firmware-reference.js"]
+        },
+        "flash-dump-usb": {
+            "requires": ["api-helper", "api-helper-usb"],
+            "scripts": ["/assets/js/flash-dump-usb.js"]
+        },
+        "lunr": {
+            "scripts": ["/assets/js/lunr.min.js"]
+        },
+        "mermaid": {
+            "detect": { "codeBlocks": ["mermaid"] },
+            "scripts": ["/assets/js/mermaid-customization.js"],
+            "html": "<script type=\"module\">\n  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';\n  mermaid.initialize({ \n    startOnLoad: true,\n    theme: 'base',\n    themeVariables: mermaidCustomization.themeVariables,\n  });\n</script>"
+        },
+        "power-comparison": {
+            "scripts": ["/assets/js/power-comparison.js"]
+        },
+        "release-notes": {
+            "scripts": ["/assets/js/release-notes.js"]
+        },
+        "resistor-calculator": {
+            "scripts": ["/assets/js/resistor-calculator.js"]
+        },
+        "showdown": {
+            "scripts": ["/assets/js/showdown.min.js"]
+        },
+        "sunset-tool": {
+            "requires": ["datastore"],
+            "scripts": ["/assets/js/sunset-tool.js"]
+        },
+        "ts-calculator": {
+            "scripts": ["/assets/js/ts-calculator.js"]
+        },
+        "usb-serial": {
+            "requires": ["api-helper"],
+            "scripts": ["/assets/js/usb-serial.js"]
+        },
+        "webdfu": {
+            "scripts": ["/assets/js/device-restore-dfu.js", "/assets/js/webdfu/dfu.js", "/assets/js/webdfu/dfuse.js"]
+        },
+        "whats-new": {
+            "scripts": ["/assets/js/whats-new.js"]
+        },
+        "xlsx": {
+            "scripts": ["/assets/js/xlsx.full.min.js"]
+        },
+        "zip": {
+            "scripts": ["/assets/js/zip-fs.min.js"]
+        }
+    }
+}
