@@ -15,6 +15,14 @@ description: M-SoM datasheet
  
 This datasheet is for the M635e. For the M404 and M524, see [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/).
 
+If you wish to set up an M635e device, see [M635e getting started](https://developer.particle.io/msom/setup/m635e-setup).
+
+Built-in support for NTN is expected in Device OS 7.0. You can use NTN functionality on current versions
+of Device OS using the firmware in the [NTN blueprint](https://github.com/particle-iot/blueprint-m635e-ntn). This software
+is installed automatically if you set up your M635e at [setup.particle.io/](https://setup.particle.io/).
+
+If you wish to troubleshoot issues with your M635e satellite connection, see [NTN troubleshooting](/troubleshooting/connectivity/ntn-troubleshooting/).
+
 ## Overview
 
 {{!-- BEGIN shared-blurb 444d0715-def6-4883-b6a7-f6b7484663ac --}}
@@ -199,6 +207,7 @@ For additional NTN antenna information, see:
 
 - [Antenna guide](/hardware/certification/antenna/)
 - [NTN troubleshooting](/troubleshooting/connectivity/ntn-troubleshooting/)
+- [M635e getting started guide](https://developer.particle.io/msom/setup/m635e-setup)
 
 {{!-- BEGIN shared-blurb 63e028f0-66d5-4570-bfb6-63fefb4ef8f8 --}}
 <sup>1</sup>From a certification standpoint, the flexible FPC antennas (PARANTCW1EA and PARANTCW1TY) can also be used with NTN. Because of the need for the antenna to have a clear view of the sky outside, it may be difficult to suitably mount the flexible antenna, so generally PARANTCN1EA and PARANTCN1TY are recommended for applications where the M-SoM will be used outdoors.

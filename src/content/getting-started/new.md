@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M635e setup 2026-10-29
+
+Added links to the [M635e getting started](https://developer.particle.io/msom/setup/m635e-setup) guide to the [M635e datasheet](/reference/datasheets/m-series/m635e-datasheet/) and [NTN troubleshooting](/troubleshooting/connectivity/ntn-troubleshooting/) page. 
+
 ### Device comparison tool 2026-10-27
 
 Added a new tool for [device comparsion](/tools/developer-tools/device-comparison/) to compare the features of devices.

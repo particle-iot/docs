@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "c1025fd6bd2aee3c3902022f6dc4bcd2f0f873ceb411435b87382928d22cf66a",
-            "date": "2026-10-27"
+            "hash": "e318ec34d9c28eeea24fc5e0503345ed80b83b44607c1d4da529294f0550ba23",
+            "date": "2026-10-29"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -10039,8 +10039,8 @@
             "date": "2026-06-01"
         },
         "troubleshooting/connectivity/ntn-troubleshooting.md": {
-            "hash": "242aeb39d5f70c223a98aa81406ca1e56362fdf4a4a2c2b810b147a61a45f1c8",
-            "date": "2026-06-15"
+            "hash": "0987bedf82f86b0b71a33b6ab860c4d920bbe22103f34d04e2e27d527ba89d4c",
+            "date": "2026-10-29"
         },
         "reference/device-os/ota-update-control.md": {
             "hash": "62b92a8a28776ebf8dcf30d736242a73af36dbf50208e62e3c6641b8b57fbd72",
@@ -10059,8 +10059,8 @@
             "date": "2026-07-20"
         },
         "reference/datasheets/m-series/m635e-datasheet.md": {
-            "hash": "473eef6bb1bda6d06a25d5039c34a91c5dfe623c371d04c4f9831c4313bd9a56",
-            "date": "2026-10-13"
+            "hash": "f9ebb53fd8966767da79087ff012809f68f58493d472150a78093d5265855d8c",
+            "date": "2026-10-29"
         },
         "reference/device-os/api/introduction/device-programming-summary.md": {
             "hash": "0fb58d421f8ab72358645d102c04e0538ef290693e6ca99349df32bc8e335103",

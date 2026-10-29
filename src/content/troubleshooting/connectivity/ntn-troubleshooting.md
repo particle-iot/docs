@@ -12,6 +12,8 @@ This is a preliminary note and is subject to change.
 
 NTN (satellite) provides an alternate connection method when cellular or Wi-Fi connectivity is not available, but there are a number of constraints to keep in mind.
 
+If you wish to set up an M635e device, see [M635e getting started](https://developer.particle.io/msom/setup/m635e-setup).
+
 ## NTN background
 
 Non-Terrestrial Network (NTN) is a 3GPP standard to allow devices to connect to satellites instead of earth-based cellular towers. It is based on narrowband cellular standards to allow for relatively straightforward inclusion in devices like the Particle M635e M-SoM, which implements it using the Quectel BG95-S5 cellular and NTN modem.
