@@ -119,5 +119,44 @@ You will rarely upgrade Device OS by itself, it will automatically update when t
 
 For more detailed information, see [Firmware introduction](https://docs.particle.io/firmware/best-practices/firmware-introduction/).
 
+## Explaining the code
+
+There's some boilerplate code that is common across most applications that we'll skip for now to focus on the important parts:
+
+
+The first variable defines `ledPin` as the pin that the blue D7 LED is connected to. The other one holds the current state (true or false).
+
+```cpp
+const pin_t ledPin = D7;
+
+bool ledState = false;
+```
+
+The setup() function is called once when your firmware starts running. It tell Device OS that the `ledPin` (D7) is an output (as opposed to an input). Functions like pinMode are part of the Device OS API, and you can find out more in the [Device OS API reference](/reference/device-os/api/input-output/pinmode/).
+
+```cpp
+void setup()
+{
+    pinMode(ledPin, OUTPUT);
+}
+```
+
+The loop() function is called repeatedly by Device OS. In this code, we toggle the state of `ledState` between true (on) and false (off), and set the hardware pin output using [digitalWrite()](/reference/device-os/api/input-output/digitalwrite/).
+
+You can ignore the [Log.info](/reference/device-os/api/logging/) statement for now, but it's used to write messages to the USB serial debug log, which is a common way to help debug your code.
+
+By default, loop() gets called about 1000 times per second, which would be blinking too fast to see, so we delay for 1 second (1000 milliseconds). 
+
+```cpp
+void loop()
+{
+    ledState = !ledState;
+    digitalWrite(ledPin, ledState);
+    Log.info("led state=%d", ledState);
+
+    delay(1000); // milliseconds
+}
+```
+
 {{section-nav}}
 
