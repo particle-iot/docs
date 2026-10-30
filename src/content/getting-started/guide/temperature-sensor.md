@@ -7,3 +7,8 @@ description: Cloud-connected temperature sensor
 
 # {{title}}
 
+{{section-nav}}
+
+
+{{section-nav}}
+

@@ -407,3 +407,29 @@ a.navLinkActive {
     display: none;
   }
 }
+
+// Previous/next buttons and page select, see templates/helpers/section-nav.js
+.section-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+
+  .section-nav-button {
+    white-space: nowrap;
+    margin: 0;
+  }
+  .section-nav-select {
+    min-width: 0;
+    max-width: 100%;
+    padding: 4px;
+  }
+}
+
+@media print {
+  .section-nav {
+    display: none;
+  }
+}

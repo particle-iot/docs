@@ -7,3 +7,8 @@ description: Setting up a new Particle device
 
 # {{title}}
 
+{{section-nav}}
+
+
+{{section-nav}}
+
