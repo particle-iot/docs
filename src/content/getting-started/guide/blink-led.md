@@ -3,6 +3,7 @@ title: Blink an LED
 columns: two
 layout: commonTwo.hbs
 description: Setting up a new Particle device
+includeDefinitions: [device-animation]
 ---
 
 # {{title}}
@@ -34,9 +35,6 @@ This is the Workbench window after creating the project. The **Explorer** panel 
 I've opened the **src** (source) and clicked on **BlinkLed.cpp** to view the source file.
 
 {{imageOverlay src="/assets/images/getting-started-guide/blinkled-window.png" class="no-darken"}}
-
-- Particle devices are programmed in C++
-- The style of programming is similar to programming an Arduino
 
 In embedded programming, it's common for your first project to do nothing but blink an LED.
 
@@ -86,20 +84,40 @@ When the build is done, a message similar to this will display:
 If you are looking at your device, you will notice that it switches to 
 
 - Blinking yellow: Programming the device by USB.
+{{!-- BEGIN shared-blurb 39fe3a4d-397e-417f-b7f5-b1f91d69cee4 --}}
 - Blinking green: Connecting to the network (cellular or Wi-Fi).
 - Blinking cyan: Connecting to the Particle cloud.
 - Fast blinking cyan: Last step of connecting to the Particle cloud.
 - Breathing cyan: Successfully connected.
+{{!-- END shared-blurb --}}
 
 Also you should notice the blue status LED, which may be located next to the USB connector, or next to the D7 pin, blinking on and off once per second.
 
-If you are monitoring the device page for your device in the console during this process, you'll see some cloud events as well:
-
-{{imageOverlay src="/assets/images/getting-started-guide/flash-events.png" class="no-darken"}}
-
+{{device-animation device "blink" "blue" 1000 1000 }}
 
 ## Firmware introduction
 
+- Particle devices are programmed in C++
+- The style of programming is similar to programming an Arduino
+
+Additionally, your device only runs a single firmware program at a time; flashing a program replace the existing program and the device reboots. This is different than a normal computer where multiple applications can be running at the same time.
+
+It's called flashing because the program is stored in flash memory, a type of non-volatile memory that keeps its contents even if you remove power. You can unplug your device for years, plug it back in, and it will run the last flashed program. We call what the LED does "blinking" to avoid the ambiguity between blinking and flashing which would otherwise mean the same thing.
+
+There are two parts:
+
+- User firmware: The part you have written to implement your project
+- Device OS: The operating system that handles the low-level operation for your device
+
+User firmware is split out separately so it can be compiled more quickly and uses less data (and time) to flash.
+
+User firmware **targets** a specific Device OS version, that's the version you select from **Particle: Configure project for device**. 
+
+User firmware will run on any Device OS version that's the same as, or newer, than the target version. 
+
+You will rarely upgrade Device OS by itself, it will automatically update when the user firmware target version specifies a newer version than is on the device. This can occur over USB or OTA. Device OS will never update itself spontaneously like phones do.
+
+For more detailed information, see [Firmware introduction](https://docs.particle.io/firmware/best-practices/firmware-introduction/).
 
 {{section-nav}}
 

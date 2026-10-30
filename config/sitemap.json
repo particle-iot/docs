@@ -10083,11 +10083,11 @@
             "date": "2026-10-23"
         },
         "getting-started/guide/blink-led.md": {
-            "hash": "0f4d92fcf40fde46a499ddc0f4356d0a6ab89bdc277df281896fdc64c814f0c1",
+            "hash": "2a67e537a7d6cceeb993f2457b8b3d7443651ea913d5102a40b8dda8a9daab99",
             "date": "2026-10-30"
         },
         "getting-started/guide/cloud-button.md": {
-            "hash": "25defe8e8d868df6325ed579263044d37c2aef288093f8101343678de28874b3",
+            "hash": "386f99dd7e633b6146b01bc976d145c32a52c3f7d156d72115284039865ba99e",
             "date": "2026-10-30"
         },
         "getting-started/guide/cloud-led.md": {
@@ -10099,7 +10099,7 @@
             "date": "2026-10-30"
         },
         "getting-started/guide/temperature-sensor.md": {
-            "hash": "25defe8e8d868df6325ed579263044d37c2aef288093f8101343678de28874b3",
+            "hash": "094730900ea426033c965a0307d8218b670dfa8ea131c7e14b29e24269026ce9",
             "date": "2026-10-30"
         },
         "getting-started/guide/device-fleets.md": {
@@ -10107,7 +10107,7 @@
             "date": "2026-10-30"
         },
         "getting-started/guide/using-github.md": {
-            "hash": "25defe8e8d868df6325ed579263044d37c2aef288093f8101343678de28874b3",
+            "hash": "021aad22af0db4c8cd4e3cc9468fa0c6ff4406b4d61d1a752686dca3754c434e",
             "date": "2026-10-30"
         }
     }
