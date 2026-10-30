@@ -88,10 +88,12 @@ Additionally, there are a few standard colors.
 When you first turn on a device, it will generally progress through a series of stages:
 
 - Blink white: Powered on. This might be a single blink, and you might not see it.
+{{!-- BEGIN shared-blurb 39fe3a4d-397e-417f-b7f5-b1f91d69cee4 --}}
 - Blinking green: Connecting to the network (cellular or Wi-Fi).
 - Blinking cyan: Connecting to the Particle cloud.
 - Fast blinking cyan: Last step of connecting to the Particle cloud.
 - Breathing cyan: Successfully connected.
+{{!-- END shared-blurb --}}
 
 You can find more on the [Status LED and device modes](/troubleshooting/led/) page.
 

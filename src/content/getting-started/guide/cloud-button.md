@@ -9,6 +9,9 @@ description: Cloud-connected button project
 
 {{section-nav}}
 
+## Monitoring events
+
+## Debugging
 
 {{section-nav}}
 

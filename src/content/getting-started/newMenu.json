@@ -58,10 +58,6 @@
                     "title": "Blink an LED"
                 },
                 {
-                    "dir": "using-github",
-                    "title": "Using Github"
-                },
-                {
                     "dir": "cloud-button",
                     "title": "Cloud button"
                 },
@@ -76,6 +72,10 @@
                 {
                     "dir": "temperature-sensor",
                     "title": "Cloud connected temperature sensor"
+                },
+                {
+                    "dir": "using-github",
+                    "title": "Using Github"
                 }
             ]
         },

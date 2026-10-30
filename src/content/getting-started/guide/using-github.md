@@ -9,6 +9,13 @@ description: Using Github for Particle development
 
 {{section-nav}}
 
+## For code storage and sharing
+
+
+## For libraries
+
+## For blueprints
+
 
 {{section-nav}}
 
