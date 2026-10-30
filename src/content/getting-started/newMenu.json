@@ -47,7 +47,7 @@
             "subsections": [
                 {
                     "dir": "device-setup",
-                    "title": "Device setup"
+                    "title": "Device setup and console"
                 },
                 {
                     "dir": "computer-setup",
