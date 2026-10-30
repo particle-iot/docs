@@ -3,6 +3,7 @@ title: Device setup and console
 columns: two
 layout: commonTwo.hbs
 description: Setting up a new Particle device and using the Particle console
+includeDefinitions: [device-animation]
 ---
 
 # {{title}}
@@ -74,7 +75,7 @@ Most devices have an RGB status LED and it can tell you a lot about what the dev
 First, a few basic terms:
 
 - Blinking: The LED is blinking on and off. There is also fast blinking.
-- Breathing: The LED gently fades on, then fades off. This is the normal operating condition.
+- Breathing: The LED gently fades on, then fades off, and repeats. This is the normal operating condition.
 
 Additionally, there are a few standard colors.
 
@@ -84,7 +85,7 @@ Additionally, there are a few standard colors.
 - Magenta (red and blue at the same time): Device is being updated, or awaiting updates.
 - Yellow: Device is being programmed by USB.
 
-When you first turn on a device, it will generally progress through a series of colors:
+When you first turn on a device, it will generally progress through a series of stages:
 
 - Blink white: Powered on. This might be a single blink, and you might not see it.
 - Blinking green: Connecting to the network (cellular or Wi-Fi).
@@ -94,6 +95,7 @@ When you first turn on a device, it will generally progress through a series of 
 
 You can find more on the [Status LED and device modes](/troubleshooting/led/) page.
 
+{{device-animation device "breathe" "cyan" }}
 
 {{section-nav}}
 
