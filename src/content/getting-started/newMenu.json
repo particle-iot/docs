@@ -42,6 +42,44 @@
             "title": "What's new"
         },
         {
+            "dir": "guide",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "device-setup",
+                    "title": "Device setup"
+                },
+                {
+                    "dir": "computer-setup",
+                    "title": "Computer setup"
+                },
+                {
+                    "dir": "blink-led",
+                    "title": "Blink an LED"
+                },
+                {
+                    "dir": "using-github",
+                    "title": "Using Github"
+                },
+                {
+                    "dir": "cloud-button",
+                    "title": "Cloud button"
+                },
+                {
+                    "dir": "cloud-led",
+                    "title": "Cloud controlled LED"
+                },
+                {
+                    "dir": "device-fleets",
+                    "title": "Device fleets"
+                },
+                {
+                    "dir": "temperature-sensor",
+                    "title": "Cloud connected temperature sensor"
+                }
+            ]
+        },
+        {
             "dir": "hardware",
             "isSection": true,
             "subsections": [
