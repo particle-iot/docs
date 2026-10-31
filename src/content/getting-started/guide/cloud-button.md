@@ -52,7 +52,7 @@ I've opened [console.particle.io](https://console.particle.io/), then my product
 
 In the Events section you can see **cloudButtonTest** every time the button. Clicking on the row will show other details including the device that sent the event and a timestamp.
 
-{{imageOverlay src="/assets/images/getting-started-guide/cloudevent-console" class="no-darken"}}
+{{imageOverlay src="/assets/images/getting-started-guide/cloudevent-console.png" class="no-darken"}}
 
 Below it you can see the rows that were generated when the device was flashed and restarted.
 
