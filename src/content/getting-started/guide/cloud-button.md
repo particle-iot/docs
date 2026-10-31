@@ -13,7 +13,7 @@ This section creates new firmware that sends a Particle event when you double-ta
 
 ## Events
 
-Particle events are one of the [Particle primitives](/getting-started/device-os/introduction-to-device-os/#communication) used to communicate between devices and the Particle cloud. They can be sent in all four directions: device-to-cloud, cloud-to-device, device-to-device, and cloud-to-cloud. It is an unconfirmed one-to-many message that is temporal, not stored in the cloud.
+Particle events are one of the [Particle primitives](/getting-started/device-os/introduction-to-device-os/#communication) used to communicate between devices and the Particle cloud. They can be sent in all four directions: device-to-cloud, cloud-to-device, device-to-device, and cloud-to-cloud. It is an one-to-many message that is temporal, not stored in the cloud. The delivery is best-effort, not guaranteed.
 
 There's an event name (a short string), and data. It's often a string, but can be structured data such as JSON or binary data up to 16 Kbytes on some devices and Device OS versions.
 
@@ -22,12 +22,25 @@ When you send an event from the device to cloud, the destination is typically:
 - An [integration (webhook)](/integrations/introduction/) to send data to an external service
 - The server-sent-events (SSE) data stream
 - Another device that subscribed to the event name
+- [Particle logic](/getting-started/logic-ledger/logic/), a cloud-based solution for processing event data without requiring an external server
 
 Events flow in the same manner with a common API regardless of network transmission method: Wi-Fi, cellular, or Ethernet. Devices with multiple networks can switch between them, for example using Wi-Fi with cellular backup on the M-SoM.
 
-## Monitoring events
+You don't specify a destination for your event - you just send it to the cloud, and whomever is interested in it will receive it. Events are always private, scoped to your account or product, so you don't need to worry about other users being able to see your events, or send you unsolicited events.
+
+All Particle cloud communication is mutually authenticated (using RSA public-private key pairs) and encrypted (using DTLS for most devices).
+
+## Firmware
+
+
+## Monitoring events in the console
+
 
 ## USB serial debugging
+
+
+## Explaining the code
+
 
 {{section-nav}}
 
