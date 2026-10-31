@@ -66,6 +66,10 @@
                     "title": "Cloud controlled LED"
                 },
                 {
+                    "dir": "environment-variables",
+                    "title": "Environment variables"
+                },
+                {
                     "dir": "device-fleets",
                     "title": "Device fleets"
                 },
