@@ -38,7 +38,7 @@ I've opened the **src** (source) and clicked on **BlinkLed.cpp** to view the sou
 
 In embedded programming, it's common for your first project to do nothing but blink an LED.
 
-You can download the project here, or just copy and paste the BlinkLed.cpp source code into your Workbench window.
+You can download the project here, or just copy and paste the BlinkLed.cpp source code into the project you just created.
 
 {{> project-browser project="BlinkLed" default-file="src/BlinkLed.cpp" height="400" flash="true"}}
 
@@ -60,11 +60,9 @@ If you don't import a project that needs to be imported, it will be missing some
 
 ## Configure project for device
 
-Now that you've logged in and opened your project, you must tell Workbench which device you will be working with.
+Now that you've logged in to your Particle account and opened or imported your project, you must tell Workbench which device you will be working with.
 
 Open the command palette (Ctrl + Shift + P or Command + Shift + P) and select **Particle: Configure project for device**.
-
-{{imageOverlay src="/assets/images/getting-started-guide/configure-project-1.png" class="no-darken"}}
 
 Select the type of device you are using.
 
@@ -122,7 +120,7 @@ It's called flashing because the program is stored in flash memory, a type of no
 
 There are two parts:
 
-- User firmware: The part you have written to implement your project
+- User firmware: The code you have written to implement your project
 - Device OS: The operating system that handles the low-level operation for your device
 
 User firmware is split out separately so it can be compiled more quickly and uses less data (and time) to flash.
@@ -131,14 +129,13 @@ User firmware **targets** a specific Device OS version, that's the version you s
 
 User firmware will run on any Device OS version that's the same as, or newer, than the target version. 
 
-You will rarely upgrade Device OS by itself, it will automatically update when the user firmware target version specifies a newer version than is on the device. This can occur over USB or OTA. Device OS will never update itself spontaneously like phones do.
+You will rarely upgrade Device OS by itself; it will automatically update when the user firmware target version specifies a newer version than is on the device. This can occur over USB or OTA. Device OS will never update itself spontaneously like phones do.
 
 For more detailed information, see [Firmware introduction](https://docs.particle.io/firmware/best-practices/firmware-introduction/).
 
 ## Explaining the code
 
 There's some boilerplate code that is common across most applications that we'll skip for now to focus on the important parts:
-
 
 The first variable defines `ledPin` as the pin that the blue D7 LED is connected to. The other one holds the current state (true or false).
 
