@@ -70,11 +70,34 @@ Since my test devices are cellular, there is also information in the SIM panel.
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-07.png" class="no-darken"}}
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-08.png" class="no-darken"}}
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-09.png" class="no-darken"}}
+
+Here's the updated device list. Of note:
+
+- All devices are online (cyan dot to the left of the ID), and the status is **Online**
+- 3 of the devices are unnamed; this is common, though you can name every device if you want to
+- All are running firmware v1
+- 3 of the devices have no owner. This is normal for device fleets.
+
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-10.png" class="no-darken"}}
 
+## setColor function
+
+You can use the setColor for each device individually. The easiest way to do this is using the console device view, because the devices are not claimed (do not have an owner) and do not have a name set. It's recommended that you leave product fleets unclaimed, other than the test devices on your desk. Naming is optional, as well.
+
+It is possible to use the Particle CLI for these devices, but you need to specify the product and Device ID instead of the name:
+
+```
+particle call e00fce68739e1a94b9636c15 setColor 255,0,0 --product 46421
+```
+
+- `e00fce68739e1a94b9636c15` is the device ID instead of the name
+- `--product 46421` specifies the product ID, which is a number; it's listed in numerous places in the console when you are viewing a product
+
+## Startup color
+
+When devices other than the first test device (wombat_magnetic) restart, there is no startup color set. You can go into those devices and set the STARTUP_COLOR individually for each device
 
 ## Cloud debug logs
-
 
 
 
