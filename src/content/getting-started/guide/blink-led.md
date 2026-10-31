@@ -42,6 +42,22 @@ You can download the project here, or just copy and paste the BlinkLed.cpp sourc
 
 {{> project-browser project="BlinkLed" default-file="src/BlinkLed.cpp" height="400" flash="true"}}
 
+## Import project
+
+If you download a project like the one above as a zip file you should download the .zip file and extract it. 
+
+On Windows, be sure to right click on the file and select **Extract All...** instead of just double clicking on it.
+
+{{imageOverlay src="/assets/images/getting-started-guide/extract-all-windows.png" class="no-darken"}}
+
+Use **Particle: Import Project** to import and open the project. You'll be prompted to select the project.properties file and the folder it is contained in will be opened in Workbench. It is opened in place, not copied.
+
+The import step is recommended for projects that contain a project.properties file but do not contain a .vscode directory and do not contain a lib directory in the top level with project.properties.
+
+If you have a complete project you previously created or cloned from Github, you can simply Open Folder to open it. You can also do this if you get an error importing.
+
+If you don't import a project that needs to be imported, it will be missing some settings files like settings.json and launch.json and some features may not work properly.
+
 ## Configure project for device
 
 Now that you've logged in and opened your project, you must tell Workbench which device you will be working with.

@@ -19,6 +19,10 @@ In addition to the Particle.publish function we used in the last tutorial, there
 
 This project will use the Particle.function to update the color of the RGB LED status LED. We'll also use this firmware in the next section, Device fleets.
 
+Particle.function only work from cloud-to-device. Devices cannot make function calls to each other, but they can send events between devices.
+
+## Firmware
+
 
 ## Making function calls
 
@@ -26,6 +30,8 @@ This project will use the Particle.function to update the color of the RGB LED s
 
 ### Particle CLI - making function calls
 
+
+## Explaining the code
 
 
 {{section-nav}}

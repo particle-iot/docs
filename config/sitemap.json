@@ -10083,15 +10083,15 @@
             "date": "2026-10-23"
         },
         "getting-started/guide/blink-led.md": {
-            "hash": "1df32cf74257d692ffae2eb1bbd5b5d12fad826224f3b78f52d1d7b70fa2aa68",
-            "date": "2026-10-30"
+            "hash": "969a75f9cb4d6afb93aaf7c5d664653027a8997094b0b381f2cd4a7fb6ce6fae",
+            "date": "2026-10-31"
         },
         "getting-started/guide/cloud-button.md": {
-            "hash": "511123028d4d4f16f4da4dd1073ab3493a4b83f5603d00bf71ff24072b3ded45",
+            "hash": "87a709977b82769078c408c42afa5554ab8bef7c49ae956cb6ef310079dd5a76",
             "date": "2026-10-30"
         },
         "getting-started/guide/cloud-led.md": {
-            "hash": "956d88e5525bf2c19d36883ab773cef31cbdb615a33c487ae410f5fb024837ac",
+            "hash": "c611bd23353efacf61d10d9b66f1a1ab8f4b8c9b82b9dd46d7df4d141617e69e",
             "date": "2026-10-30"
         },
         "getting-started/guide/computer-setup.md": {
@@ -10107,8 +10107,8 @@
             "date": "2026-10-30"
         },
         "getting-started/guide/using-github.md": {
-            "hash": "021aad22af0db4c8cd4e3cc9468fa0c6ff4406b4d61d1a752686dca3754c434e",
-            "date": "2026-10-30"
+            "hash": "9c5836b38b451403244935f8f6a6fab787c9a56e90f983dfe09d3a025293c85a",
+            "date": "2026-10-31"
         }
     }
 }
