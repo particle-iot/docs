@@ -9,8 +9,6 @@ SerialLogHandler logHandler(LOG_LEVEL_INFO);
 
 unsigned long colorSetTime = 0;
 std::chrono::milliseconds colorExpirationTime = 10s;
-String startupColor;
-bool startupColorShown = false;
 
 // Forward declarations (functions used before they're implemented)
 int setColor(String cmd);
@@ -18,15 +16,6 @@ int setColor(String cmd);
 void setup()
 {
     Particle.function("setColor", setColor);
-
-#if HAL_PLATFORM_ENV
-    // On platform and Device OS version that support environment variables, allow a startup color to be defined
-    String value;
-    if (System.getEnv("STARTUP_COLOR", startupColor)) {
-        Log.info("STARTUP_COLOR=%s", startupColor.c_str());
-    }
-#endif // HAL_PLATFORM_ENV
-
 }
 
 void loop()
@@ -37,12 +26,6 @@ void loop()
         RGB.control(false);
         colorSetTime = 0;
         Log.info("reverted to normal color scheme");
-    }
-
-    if (Particle.connected() && !startupColorShown && startupColor.length()) {
-        // There is a startup color and it has not been shown yet so show it now
-        startupColorShown = true;
-        setColor(startupColor);
     }
 }
 
