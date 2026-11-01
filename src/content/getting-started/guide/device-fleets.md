@@ -133,6 +133,16 @@ Here's the updated device list. Of note:
 
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-10.png" class="no-darken"}}
 
+## Mark as development
+
+If you plan to flash your testing device by USB, be sure to set it to **Mark development device**. This tells the cloud that you will be flashing custom firmware to the device and it should not manage the version to match the fleet. If you do not do this, you may find that as soon as the device connects to the cloud it will revert to the product default or pinned version for the device.
+
+{{imageOverlay src="/assets/images/getting-started-guide/mark-development.png" class="no-darken"}}
+
+You can tell which devices are development by the tool icon next to the firmware version in the product device list.
+
+{{imageOverlay src="/assets/images/getting-started-guide/mark-development-list.png" class="no-darken"}}
+
 ## Using the setColor function
 
 You can use the setColor for each device individually. The easiest way to do this is using the console device view, because the devices are not claimed (do not have an owner) and do not have a name set. It's recommended that you leave product fleets unclaimed, other than the test devices on your desk. Naming is optional, as well.
