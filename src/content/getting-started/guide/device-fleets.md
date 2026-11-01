@@ -57,7 +57,7 @@ If you are part of a growth or enterprise plan, adding the device to your produc
 
 ## Updating devices
 
-We recommend flashing Device OS and your product firmware by USB or SWD/JTAG during manufacture, rather than doing the initial update OTA. This speeds up the first connection process. The [scaling](/scaling/scaling/) section of the docs provides more best practices.
+I recommend flashing Device OS and your product firmware by USB or SWD/JTAG during manufacture, rather than doing the initial update OTA. This speeds up the first connection process. The [scaling](/scaling/scaling/) section of the docs provides more best practices.
 
 For a few test devices, using **Particle: Flash application & DeviceOS (local)** over USB works fine.
 
@@ -114,7 +114,7 @@ Select the devices you want to flash to, either a device group or **Product defa
 
 You will normally use a device group with one or a small number of devices to test your firmware before a wide deployment.
 
-In order to set the Product default the firmware must be running on at least one device. Since we manually flashed it in the previous section, that requirement is met and I can select it now.
+In order to set the Product default the firmware must be running on at least one device. Since I manually flashed it in the previous section, that requirement is met and I can select it now.
 
 Intelligent updates flash the device immediately, if possible, or when the device next comes online. This is usually the best choice.
 

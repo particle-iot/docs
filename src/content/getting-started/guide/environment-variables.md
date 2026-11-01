@@ -40,7 +40,7 @@ As in the previous section, also do:
 
 The code is mostly the same as before. 
 
-Setting `PRODUCT_VERSION` is necessary for fleet firmware updates. The version number must be embedded in the firmware this way for it to be tracked properly. We'll upload the built version to the cloud later.
+Setting `PRODUCT_VERSION` is necessary for fleet firmware updates. The version number must be embedded in the firmware this way for it to be tracked properly. I'll upload the built version to the cloud later.
 
 ```cpp
 PRODUCT_VERSION(1);

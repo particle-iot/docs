@@ -117,7 +117,7 @@ Also you should notice the blue status LED, which may be located next to the USB
 
 Additionally, your device only runs a single firmware program at a time; flashing a program replace the existing program and the device reboots. This is different than a normal computer where multiple applications can be running at the same time.
 
-It's called flashing because the program is stored in flash memory, a type of non-volatile memory that keeps its contents even if you remove power. You can unplug your device for years, plug it back in, and it will run the last flashed program. We call what the LED does "blinking" to avoid the ambiguity between blinking and flashing which would otherwise mean the same thing.
+It's called flashing because the program is stored in flash memory, a type of non-volatile memory that keeps its contents even if you remove power. You can unplug your device for years, plug it back in, and it will run the last flashed program. I call what the LED does "blinking" to avoid the ambiguity between blinking and flashing which would otherwise mean the same thing.
 
 There are two parts:
 
@@ -136,7 +136,7 @@ For more detailed information, see [Firmware introduction](https://docs.particle
 
 ## Explaining the code
 
-There's some boilerplate code that is common across most applications that we'll skip for now to focus on the important parts:
+There's some boilerplate code that is common across most applications that I'll skip for now to focus on the important parts:
 
 The first variable defines `ledPin` as the pin that the blue D7 LED is connected to. The other one holds the current state (true or false).
 
@@ -155,11 +155,11 @@ void setup()
 }
 ```
 
-The loop() function is called repeatedly by Device OS. In this code, we toggle the state of `ledState` between true (on) and false (off), and set the hardware pin output using [digitalWrite()](/reference/device-os/api/input-output/digitalwrite/).
+The loop() function is called repeatedly by Device OS. In this code, I toggle the state of `ledState` between true (on) and false (off), and set the hardware pin output using [digitalWrite()](/reference/device-os/api/input-output/digitalwrite/).
 
 You can ignore the [Log.info](/reference/device-os/api/logging/) statement for now, but it's used to write messages to the USB serial debug log, which is a common way to help debug your code.
 
-By default, loop() gets called about 1000 times per second, which would be blinking too fast to see, so we delay for 1 second (1000 milliseconds). 
+By default, loop() gets called about 1000 times per second, which would be blinking too fast to see, so I delay for 1 second (1000 milliseconds). 
 
 ```cpp
 void loop()

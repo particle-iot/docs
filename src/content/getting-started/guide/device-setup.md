@@ -10,7 +10,7 @@ includeDefinitions: [device-animation]
 
 {{section-nav}}
 
-In this section we'll set up a device and begin exploring the Particle console.
+In this section I'll set up a device and begin exploring the Particle console.
 
 {{content-nav}}
 
@@ -65,7 +65,7 @@ The icons along the left allow you to see your personal devices, SIM cards, inte
 
 ### Products
 
-Setup automatically creates a product for your device. We recommend working in product view, even if your goal is not to create a commercial product. A product just keeps the settings and devices organized for a fleet of devices, and there is no fee to create as many products as you need.
+Setup automatically creates a product for your device. I recommend working in product view, even if your goal is not to create a commercial product. A product just keeps the settings and devices organized for a fleet of devices, and there is no fee to create as many products as you need.
 
 When I set up my Boron, I used the default, randomly generated product and device names. This is my device list view in the console:
 

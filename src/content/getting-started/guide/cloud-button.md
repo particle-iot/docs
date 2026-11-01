@@ -97,13 +97,13 @@ If you used LOG_LEVEL_INFO instead of LOG_LEVEL_TRACE all of the TRACE messages 
 
 ## Explaining the code
 
-In this example, we use `LOG_LEVEL_TRACE`. Previously, this was `LOG_LEVEL_INFO`. The trace level is more verbose, and can be useful for troubleshooting issues.
+In this example, I use `LOG_LEVEL_TRACE`. Previously, this was `LOG_LEVEL_INFO`. The trace level is more verbose, and can be useful for troubleshooting issues.
 
 ```cpp
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);
 ```
 
-At the top we declare some variables, one for the event name to send, and a flag that we set when we want to send an event (triple-tap MODE button).
+At the top I declare some variables, one for the event name to send, and a flag that I set when I want to send an event (triple-tap MODE button).
 
 ```cpp
 const char *eventName = "cloudButtonTest";
@@ -127,7 +127,7 @@ void setup()
 
 As before, the loop function is called frequently, normally 1000 times per second.
 
-In this example, we check the state of the sendEvent flag if we're connected to the Particle cloud.
+In this example, I check the state of the sendEvent flag if the device is connected to the Particle cloud.
 
 ```cpp
 void loop()
@@ -137,7 +137,7 @@ void loop()
             sendEvent = false;
 ```
 
-The reason for the Particle.connected check is that we're about to publish an event, which requires being connected to the cloud. By adding the check, the code will work even if you triple-tap the mode button before being cloud connected.
+The reason for the Particle.connected check is that I'm about to publish an event, which requires being connected to the cloud. By adding the check, the code will work even if you triple-tap the mode button before being cloud connected.
 
 The code uses [Particle.publish](/reference/device-os/api/cloud-functions/particle-publish/) to publish an event to the cloud.
 

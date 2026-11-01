@@ -9,7 +9,7 @@ description: Cloud connected sensors
 
 {{section-nav}}
 
-In this section, we'll make a fleet of temperature sensors and discuss other kinds of sensors you may be interested.
+In this section, I'll make a fleet of temperature sensors and discuss other kinds of sensors you may be interested.
 
 {{content-nav}}
 
@@ -107,7 +107,7 @@ void loop()
 }
 ```
 
-The check sensor initializes the sensor if it has not already been initialized. We do that here, instead of at startup, in case the sensor is plugged in later. I2C isn't fully intended to be a live-pluggable bus, but it does generally work. This is less likely in a solderless breadboard, but on the Tracker One, the I2C bus is exposed via an external connector and you might plug the M8 temperature cable in later.
+The check sensor initializes the sensor if it has not already been initialized. I do that here, instead of at startup, in case the sensor is plugged in later. I2C isn't fully intended to be a live-pluggable bus, but it does generally work. This is less likely in a solderless breadboard, but on the Tracker One, the I2C bus is exposed via an external connector and you might plug the M8 temperature cable in later.
 
 It includes a retry function. It's likely that the first read of the value will fail after initializing the sensor, and it's generally a good defensive programming practice.
 
@@ -185,7 +185,7 @@ If you get a red squiggle for the `#include` statement with this error, make sur
 
 ## Assigning device groups
 
-In this example, since one of the devices does not have a temperature sensor, we'll only release to some devices using a device group.
+In this example, since one of the devices does not have a temperature sensor, I'll only release to some devices using a device group.
 
 I've opened [console.particle.io](https://console.particle.io/), then my product (Chivalrous Pink Borons). It opens to the device list, which is where I want to be.
 
