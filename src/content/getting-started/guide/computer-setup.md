@@ -13,6 +13,8 @@ Programming Particle devices is generally done using a computer, laptop or deskt
 
 It is generally impractical to program a device from a tablet such as the iPad, or from a phone. While a Chromebook can be used for some programming tasks, this guide cannot be used as-is on a Chromebook.
 
+{{content-nav}}
+
 ## Install VSCode
 
 The recommended programming environment for Particle devices is VSCode (Visual Studio Code). It's free and available for Windows, Linux, and Mac.

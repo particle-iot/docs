@@ -10,6 +10,10 @@ includeDefinitions: [device-animation]
 
 {{section-nav}}
 
+In this section we'll set up a device and begin exploring the Particle console.
+
+{{content-nav}}
+
 ## Device setup
 
 Once you have received your Particle device, you need to set it up, which generally involves adding it to your account and updating its software. For cellular devices, activating the SIM card. For Wi-Fi devices, adding your Wi-Fi credentials.

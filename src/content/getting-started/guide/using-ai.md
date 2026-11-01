@@ -11,6 +11,7 @@ description: Using AI agents to write code
 
 In this section we'll implement the temperature sensor code using an AI agent instead of writing it by hand.
 
+{{content-nav}}
 
 
 {{section-nav}}

@@ -188,6 +188,54 @@ navMenu.load = async function() {
     }
 }
 
+// Fills in the {{content-nav}} placeholders (see templates/helpers/content-nav.js) with a list of links
+// to the H2 headings on the page, and optionally the H3 headings, indented below their H2.
+navMenu.loadContentNav = function() {
+    $('div.content-nav').each(function() {
+        const outer = $(this).empty();
+        const levels = parseInt(outer.attr('data-levels')) || 2;
+
+        const selector = (levels >= 3) ? 'h2,h3' : 'h2';
+        const headings = $('div.content-inner').find(selector).filter(function() {
+            return !!$(this).attr('id') && !$(this).closest('.content-nav').length;
+        });
+        if (headings.length == 0) {
+            return;
+        }
+
+        const rootList = $('<ul>').addClass('content-nav-list');
+        let subList;
+
+        headings.each(function() {
+            const headingElem = this;
+            // Clone and remove the permalink icon so only the heading text is used
+            const title = $(headingElem).clone().find('.header-permalinks').remove().end().text().trim();
+            const li = $('<li>').append($('<a>').attr('href', '#' + $(headingElem).attr('id')).text(title));
+
+            if ($(headingElem).prop('tagName') == 'H2') {
+                rootList.append(li);
+                subList = null;
+            }
+            else {
+                // H3, nest below the previous H2 (or at the top level if there isn't one)
+                if (!subList) {
+                    subList = $('<ul>').addClass('content-nav-sublist');
+                    const lastItem = rootList.children('li').last();
+                    if (lastItem.length) {
+                        lastItem.append(subList);
+                    }
+                    else {
+                        rootList.append($('<li>').append(subList));
+                    }
+                }
+                subList.append(li);
+            }
+        });
+
+        outer.append(rootList);
+    });
+}
+
 // Fills in the {{section-nav}} placeholders (see templates/helpers/section-nav.js) with previous/next
 // links and a select of all pages in the section that contains the current page.
 // Must be called after generateNavHtml, which computes href and isActivePage for each item.
@@ -1027,6 +1075,8 @@ navMenu.navigate = function(dir) {
 }
 
 navMenu.ready = async function () {
+    navMenu.loadContentNav();
+
     await navMenu.load();
 
 

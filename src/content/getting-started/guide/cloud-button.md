@@ -11,6 +11,8 @@ description: Cloud-connected button project
 
 This section creates new firmware that sends a Particle event when you triple-tap the MODE button on your device.
 
+{{content-nav}}
+
 ## Events
 
 Particle events are one of the [Particle primitives](/getting-started/device-os/introduction-to-device-os/#communication) used to communicate between devices and the Particle cloud. They can be sent in all four directions: device-to-cloud, cloud-to-device, device-to-device, and cloud-to-cloud. It is an one-to-many message that is temporal, not stored in the cloud. The delivery is best-effort, not guaranteed.

@@ -15,11 +15,13 @@ It maintains a historical record of changes you have made to your code, and prov
 
 It is also free for many individual users, with generous limits on how much code you can store.
 
+{{content-nav}}
+
 ## Creating an account
 
 If you do not already have an account, you can create one at [https://github.com/](https://github.com/). It's only requires a valid email address to sign up.
 
-## For code storage and sharing
+## Github code storage and sharing
 
 
 ## For libraries

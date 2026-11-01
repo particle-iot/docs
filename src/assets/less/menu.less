@@ -433,3 +433,26 @@ a.navLinkActive {
     display: none;
   }
 }
+
+// In-page table of contents, see templates/helpers/content-nav.js
+.content-nav {
+  margin: 20px 0;
+
+  ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .content-nav-sublist {
+    margin: 2px 0 4px 0;
+    padding-left: 24px;
+  }
+  li {
+    margin: 2px 0;
+  }
+}
+
+@media print {
+  .content-nav {
+    display: none;
+  }
+}

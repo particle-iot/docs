@@ -10,6 +10,9 @@ includeDefinitions: [device-animation]
 
 {{section-nav}}
 
+In embedded programming, it's common for your first project to do nothing but blink an LED. This section will create a project and program you device with it.
+
+{{content-nav}}
 
 ## Create new project
 
@@ -35,8 +38,6 @@ This is the Workbench window after creating the project. The **Explorer** panel 
 I've opened the **src** (source) and clicked on **BlinkLed.cpp** to view the source file.
 
 {{imageOverlay src="/assets/images/getting-started-guide/blinkled-window.png" class="no-darken"}}
-
-In embedded programming, it's common for your first project to do nothing but blink an LED.
 
 You can download the project here, or just copy and paste the BlinkLed.cpp source code into the project you just created.
 

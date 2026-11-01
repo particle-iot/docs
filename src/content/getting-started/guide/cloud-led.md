@@ -9,6 +9,11 @@ description: Cloud connected LED
 
 {{section-nav}}
 
+In this section, we'll make it possible to change the device's status LED from the cloud. While normally you'd do something more interesting, like control a bigger light, an electronic lock or gate, or something else external, this is a good place to start.
+
+{{content-nav}}
+
+
 ## Firmware
 
 As in the previous section, you can either:

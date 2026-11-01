@@ -11,9 +11,7 @@ description: Cloud connected sensors
 
 In this section, we'll make a fleet of temperature sensors.
 
-- Building a temperature sensor
-- Using libraries
-- Other kinds of sensors
+{{content-nav}}
 
 This section only describes the device-side part and sending the data to the cloud. After that, you might:
 - Store the data in a database

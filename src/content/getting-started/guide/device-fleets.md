@@ -11,6 +11,8 @@ description: Managing a fleet of devices
 
 This section demonstrates device fleets which allow you to group devices with a common set of firmware and manage them as a group, allowing automatic firmware updates and fleet monitoring.
 
+{{content-nav}}
+
 Any product can have multiple devices, including those in the free tier.
 
 The fleet consists of 4 devices:
