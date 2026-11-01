@@ -95,7 +95,6 @@ Above (before) it, you can see the internal messages for sending. After it, you 
 
 If you used LOG_LEVEL_INFO instead of LOG_LEVEL_TRACE all of the TRACE messages would be hidden from the log.
 
-
 ## Explaining the code
 
 In this example, we use `LOG_LEVEL_TRACE`. Previously, this was `LOG_LEVEL_INFO`. The trace level is more verbose, and can be useful for troubleshooting issues.
@@ -168,6 +167,43 @@ void buttonHandler(system_event_t event, int param) {
     }
 }
 ```
+
+## Debugging connection issues
+
+Hopefully your device will just connect to cellular and cloud successfully, but it it doesn't, enabling trace logging can help troubleshoot:
+
+```cpp
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+```
+
+The [Web device doctor](/tools/doctor/) uses trace logging for its debugging log.
+
+You'll see message like this during the connection process:
+
+```
+0000034831 [ncp.at] TRACE: > AT+CCID
+0000034833 [ncp.at] TRACE: < +CCID: 89883070000006408551
+0000034834 [ncp.at] TRACE: < OK
+0000034835 [ncp.at] TRACE: > AT+UMNOPROF?
+0000034839 [ncp.at] TRACE: < +UMNOPROF: 100
+0000034839 [ncp.at] TRACE: < OK
+0000034840 [ncp.at] TRACE: > AT+UBANDMASK?
+0000034843 [ncp.at] TRACE: < +UBANDMASK: 0,6170,1,524420
+0000034843 [ncp.at] TRACE: < OK
+0000034844 [ncp.at] TRACE: > AT+COPS=3,2
+0000034847 [ncp.at] TRACE: < OK
+0000034847 [ncp.at] TRACE: > AT+CGEREP=1,0
+0000034849 [ncp.at] TRACE: < OK
+0000034849 [ncp.at] TRACE: > AT+URAT?
+0000034852 [ncp.at] TRACE: < +URAT: 7
+0000034852 [ncp.at] TRACE: < OK
+```
+
+The [Debug Log Decoder](/tools/developer-tools/debug-log/) can help decode some of the commands:
+
+{{imageOverlay src="/assets/images/getting-started-guide/debug-log-decoded.png" class="no-darken"}}
+
+You can also find more information in [Interpreting cloud debug logs](/troubleshooting/connectivity/interpreting-cloud-debug/).
 
 ## Next steps
 

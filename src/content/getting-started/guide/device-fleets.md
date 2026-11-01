@@ -74,12 +74,54 @@ Since my test devices are cellular, there is also information in the SIM panel.
 
 ## Releasing firmware
 
+Releasing firmware to a fleet requires that you:
+- Write the firmware
+- Typically test it with your development device for faster iterative development
+- Get the firmware binary
+- Upload the firmware to your product
+- Release the firmware to one or more devices
+
+### Get the firmware binary
+
+Particle user firmware is stored in a `.bin` file. When you compile locally it will be in: `target`/(version)/(platform)/(project nane)`.bin` in your project directory. In this example target/6.4.1/boron/CloudLed2.bin.
+
+{{imageOverlay src="/assets/images/getting-started-guide/fleet-firmware-local.png" class="no-darken"}}
+
+If you've cloud compiled your firmware, it will be in a firmware.bin file in the top level of your project. The name may be different but will follow that general pattern.
+
+{{imageOverlay src="/assets/images/getting-started-guide/fleet-firmware-cloud.png" class="no-darken"}}
+
+### Upload the firmware to your product
+
+To upload firmware, go to your product, Cloud services, then Firmware.
 
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-04.png" class="no-darken"}}
+
+The page will show any firmware you have previously uploaded. Use **Upload firmware** to upload new firmware.
+
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-05.png" class="no-darken"}}
+
+Fill in the parameters. The version must match the `PRODUCT_VERSION()` in your code. The version numbers are allocated sequentially.
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-06.png" class="no-darken"}}
+
+### Release the firmware to one or more devices
+
+To release a version of your firmware, in the firmware list click **Release firmware** on the right side.
+
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-07.png" class="no-darken"}}
+
+Select the devices you want to flash to, either a device group or **Product default**. 
+
+You will normally use a device group with one or a small number of devices to test your firmware before a wide deployment.
+
+In order to set the Product default the firmware must be running on at least one device. Since we manually flashed it in the previous section, that requirement is met and I can select it now.
+
+Intelligent updates flash the device immediately, if possible, or when the device next comes online. This is usually the best choice.
+
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-08.png" class="no-darken"}}
+
+Finally, confirm the update. 
+
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-09.png" class="no-darken"}}
 
 Here's the updated device list. Of note:
@@ -91,7 +133,7 @@ Here's the updated device list. Of note:
 
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-10.png" class="no-darken"}}
 
-## setColor function
+## Using the setColor function
 
 You can use the setColor for each device individually. The easiest way to do this is using the console device view, because the devices are not claimed (do not have an owner) and do not have a name set. It's recommended that you leave product fleets unclaimed, other than the test devices on your desk. Naming is optional, as well.
 
@@ -104,9 +146,9 @@ particle call e00fce68739e1a94b9636c15 setColor 255,0,0 --product 46421
 - `e00fce68739e1a94b9636c15` is the device ID instead of the name
 - `--product 46421` specifies the product ID, which is a number; it's listed in numerous places in the console when you are viewing a product
 
-## Startup color
+## Per-device configuration
 
-When devices other than the first test device (wombat_magnetic) restart, there is no startup color set. You can go into those devices and set the STARTUP_COLOR individually for each device
+When devices other than the first test device (wombat_magnetic) restart, there is no startup color set. You can go into those devices and set the STARTUP_COLOR individually for each device. This is the power of the environment variable: you can set values at the organization, product, and device level.
 
 
 {{section-nav}}
