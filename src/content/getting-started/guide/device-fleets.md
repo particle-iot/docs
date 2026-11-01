@@ -13,6 +13,12 @@ This section demonstrates device fleets which allow you to group devices with a 
 
 Any product can have multiple devices, including those in the free tier.
 
+The fleet consists of 4 devices:
+
+- All devices are added to a product (Chivalrous Pink Borons)
+- One device is for development and it is claimed to a user and named (wombat_magnetic)
+- The remaining devices are unclaimed and unnamed, which is a common device fleet setup
+
 ## Firmware
 
 The firmware from the last section, environment variables, will be reused in this section with a fleet of devices.
@@ -23,7 +29,7 @@ Since there's a `PRODUCT_VERSION(1)` in the firmware, you can see that listed in
 
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-01.png" class="no-darken"}}
 
-## Setting up a device fleet
+## Add devices to your fleet
 
 When you order Particle devices in bulk (tray or reel quantities) from the Particle store, you'll get an email containing the Device IDs and serial numbers for the devices in your order.
 
@@ -47,10 +53,13 @@ If you are part of a growth or enterprise plan, adding the device to your produc
 
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-pic.jpg" class="no-darken"}}
 
+## Updating devices
 
 We recommend flashing Device OS and your product firmware by USB or SWD/JTAG during manufacture, rather than doing the initial update OTA. This speeds up the first connection process. The [scaling](/scaling/scaling/) section of the docs provides more best practices.
 
 For a few test devices, using **Particle: Flash application & DeviceOS (local)** over USB works fine.
+
+## Device list
 
 Once all of the devices have been added to your product and come online, you can see them in your device list.
 
@@ -96,9 +105,6 @@ particle call e00fce68739e1a94b9636c15 setColor 255,0,0 --product 46421
 ## Startup color
 
 When devices other than the first test device (wombat_magnetic) restart, there is no startup color set. You can go into those devices and set the STARTUP_COLOR individually for each device
-
-## Cloud debug logs
-
 
 
 {{section-nav}}

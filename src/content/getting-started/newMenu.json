@@ -74,8 +74,12 @@
                     "title": "Device fleets"
                 },
                 {
-                    "dir": "temperature-sensor",
-                    "title": "Cloud connected temperature sensor"
+                    "dir": "sensors",
+                    "title": "Cloud connected sensors"
+                },
+                {
+                    "dir": "using-ai",
+                    "title": "Using AI agents to write code"
                 },
                 {
                     "dir": "using-github",
