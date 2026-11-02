@@ -10085,6 +10085,46 @@
         "reference/device-os/libraries/p/ParticlePN532.md": {
             "hash": "a4fb4aff97d3eb15a0e29e4ab078d48da965304174ad2ace67a0081da3d44717",
             "date": "2026-11-02"
+        },
+        "getting-started/guide/blink-led.md": {
+            "hash": "4a07bd463594370af9c9c48ba05d55316c08f32d08569e52b8389738a89e6c2a",
+            "date": "2026-11-02"
+        },
+        "getting-started/guide/cloud-button.md": {
+            "hash": "b1477940c6a8a181f5b9231ce66edb8df2f4e89892e65787e4e1dbfd6a3fe19f",
+            "date": "2026-11-02"
+        },
+        "getting-started/guide/cloud-led.md": {
+            "hash": "d11023c327f9c7c349d1bf45136fa02a5846a6991bf2622d13c42b6b588f5414",
+            "date": "2026-11-02"
+        },
+        "getting-started/guide/computer-setup.md": {
+            "hash": "377d843d864219665a9e0e01c12227f4dd1f78cd4e00d237c719b9b4f0ce9008",
+            "date": "2026-11-02"
+        },
+        "getting-started/guide/device-fleets.md": {
+            "hash": "1844bb213c797d2ff0dfde2b2267350b6ceebdb8cb699dd1b5451fad7e1c38c1",
+            "date": "2026-11-02"
+        },
+        "getting-started/guide/environment-variables.md": {
+            "hash": "71882a3cfac828b2dd278cc7b883e53df7358a3d4062e920197d57d2057fecaf",
+            "date": "2026-11-02"
+        },
+        "getting-started/guide/sensors.md": {
+            "hash": "c86f72386c7e743e970ba9b00ec157896807c3f4131450dc357302c4ba0005f9",
+            "date": "2026-11-02"
+        },
+        "getting-started/guide/using-ai.md": {
+            "hash": "d2776437550ba695f98c6253a0dd7be16d984647352d8902c2d81b00a82be93c",
+            "date": "2026-11-02"
+        },
+        "getting-started/guide/using-github.md": {
+            "hash": "ff4ac9d03c4b1a1c5a176807c26997dd4f4336bedc48fc3c1a69f7613b1bff18",
+            "date": "2026-11-02"
+        },
+        "getting-started/guide/physical-button.md": {
+            "hash": "623864390202e7a4af5f734ceacb053e895d4f1f981128f2807d7d0378116b80",
+            "date": "2026-11-02"
         }
     }
 }

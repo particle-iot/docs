@@ -209,11 +209,12 @@ You can also find more information in [Interpreting cloud debug logs](/troublesh
 
 Once the event goes to the cloud you can use integrations (webhooks) to do things like:
 
+{{!-- BEGIN shared-blurb b0a8c9f1-560d-4d7d-94e6-868263d0afaa --}}
 - Control things in the real world using [Zapier](/integrations/community-integrations/zapier/) or [IFTTT](/integrations/community-integrations/ifttt/).
 - Send push notifications to a mobile device using [Pushover](/integrations/community-integrations/pushover/).
 - Send a message via Slack.
 - Integrate with a home automation system.
-
+{{!-- END shared-blurb --}}
 
 {{section-nav}}
 

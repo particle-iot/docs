@@ -13,6 +13,8 @@ In this section I'll implement the temperature sensor code using an AI agent ins
 
 {{content-nav}}
 
+## Creating an AI project
+
 Use **Particle: Create New Project** and create TemeratureSensor2. Be sure to enable AI Agent support when prompted.
 
 {{imageOverlay src="/assets/images/getting-started-guide/agent-enable.png" class="no-darken"}}
@@ -43,6 +45,8 @@ This was Claude's response:
 It generated this code. It selected a different library, but this is fine.
 
 {{imageOverlay src="/assets/images/getting-started-guide/agent-enable.png" class="no-darken"}}
+
+## The code
 
 Here's the full .cpp code. It's a little different, but it is fully functional.
 
@@ -112,5 +116,11 @@ void loop() {
 }
 
 ```
+
+### Events in the console
+
+The events aren't actually the same, because I mis-typed the prompt for the humidity key name to be "humidity" instead of "humid" and the AI agent code limits the numbers to 2 decimal places, but it runs.
+
+{{imageOverlay src="/assets/images/getting-started-guide/agent-events.png" class="no-darken"}}
 
 {{section-nav}}
