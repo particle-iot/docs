@@ -1,0 +1,105 @@
+{
+  "type": "libraries",
+  "id": "ParticlePN532",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ParticlePN532/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "ParticlePN532",
+    "version": "1.0.2",
+    "license": "MIT",
+    "author": "Jackson Horton",
+    "sentence": "Library for interacting with a PN532 NFC module v3 over I2C.",
+    "url": "https://github.com/jacksonhorton/ParticlePN532",
+    "repository": "https://github.com/jacksonhorton/ParticlePN532.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/reference/device-os/libraries/p/ParticlePN532",
+  "versions": {
+    "1.0.2": {
+      "added": "2026-11-02T12:15:20.812Z",
+      "builds": {
+        "6.2.0": {
+          "boron": {
+            "pn532_reader": true
+          },
+          "bsom": {
+            "pn532_reader": true
+          },
+          "b5som": {
+            "pn532_reader": true
+          },
+          "tracker": {
+            "pn532_reader": true
+          },
+          "p2": {
+            "pn532_reader": true
+          },
+          "msom": {
+            "pn532_reader": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "pn532_reader": true
+          },
+          "boron": {
+            "pn532_reader": true
+          },
+          "bsom": {
+            "pn532_reader": true
+          },
+          "b5som": {
+            "pn532_reader": true
+          },
+          "tracker": {
+            "pn532_reader": true
+          },
+          "p2": {
+            "pn532_reader": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "pn532_reader": true
+          },
+          "boron": {
+            "pn532_reader": true
+          },
+          "bsom": {
+            "pn532_reader": true
+          },
+          "b5som": {
+            "pn532_reader": true
+          },
+          "tracker": {
+            "pn532_reader": true
+          },
+          "esomx": {
+            "pn532_reader": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "pn532_reader": true
+          },
+          "electron": {
+            "pn532_reader": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# ParticlePN532\n\nA Particle library port for the PN532 v3 Module by Elechouse.\n\n\nMost of the original code in this repo was ported from [elechouse's official PN532 repo](https://github.com/elechouse/PN532/tree/master).\nThe original author created it as an Arduino library, so I adjusted the source to work in the Particle enviornment.\n\n\nAll testing was done on a Photon 2.\n\n\n## Usage\n\nThis snippet shows the basics of setting up the necessary objects to read from the PN532 chip.\nYou should use Particle's `Wire`(I2C) interface unless you know what you're doing.\n```\n// Initialize I2C interface\nPN532_I2C pn532_i2c(Wire);\nParticlePN532 nfc(pn532_i2c);\n\nvoid setup() {\n    nfc.begin();\n}\n```\n\nFor more specific examples, see the examples folder.\n\n\n## Installation\n\nYou can install the `ParticlePN532` library using the Particle CLI or in the Web IDE.\n\n\nIn the Web IDE, from the libraries tab, search `ParticlePN532` in the community libraries section and install the latest version.\n\n\n## NDEF\n\nIf you want to use NDEF records, additionally use the `ParticleNDEF` library ([found here](https://github.com/jacksonhorton/ParticleNDEF)).\n\n## LICENSE\n[MIT License](https://github.com/jacksonhorton/ParticlePN532/blob/master/LICENSE) (c) 2024, Jackson Horton\n",
+  "allVersions": [
+    "1.0.2",
+    "1.0.1",
+    "1.0.0",
+    "0.0.2",
+    "0.0.1"
+  ]
+}

@@ -198373,6 +198373,99 @@
             }
           }
         }
+      },
+      "0.0.12": {
+        "added": "2026-11-02T12:06:11.356Z",
+        "builds": {
+          "6.2.0": {
+            "boron": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "bsom": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "b5som": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "tracker": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "p2": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "msom": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            }
+          },
+          "5.6.0": {
+            "argon": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "boron": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "bsom": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "b5som": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "tracker": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "p2": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            }
+          },
+          "4.2.0": {
+            "argon": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "boron": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "bsom": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "b5som": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "tracker": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            },
+            "esomx": {
+              "2-test-suite": true,
+              "3-confirmed-delete": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "2-test-suite": false,
+              "3-confirmed-delete": false
+            },
+            "electron": {
+              "2-test-suite": false,
+              "3-confirmed-delete": false
+            }
+          }
+        }
       }
     }
   },
@@ -200471,6 +200564,83 @@
             },
             "electron": {
               "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "ParticlePN532": {
+    "versions": {
+      "1.0.2": {
+        "added": "2026-11-02T12:15:20.812Z",
+        "builds": {
+          "6.2.0": {
+            "boron": {
+              "pn532_reader": true
+            },
+            "bsom": {
+              "pn532_reader": true
+            },
+            "b5som": {
+              "pn532_reader": true
+            },
+            "tracker": {
+              "pn532_reader": true
+            },
+            "p2": {
+              "pn532_reader": true
+            },
+            "msom": {
+              "pn532_reader": true
+            }
+          },
+          "5.6.0": {
+            "argon": {
+              "pn532_reader": true
+            },
+            "boron": {
+              "pn532_reader": true
+            },
+            "bsom": {
+              "pn532_reader": true
+            },
+            "b5som": {
+              "pn532_reader": true
+            },
+            "tracker": {
+              "pn532_reader": true
+            },
+            "p2": {
+              "pn532_reader": true
+            }
+          },
+          "4.2.0": {
+            "argon": {
+              "pn532_reader": true
+            },
+            "boron": {
+              "pn532_reader": true
+            },
+            "bsom": {
+              "pn532_reader": true
+            },
+            "b5som": {
+              "pn532_reader": true
+            },
+            "tracker": {
+              "pn532_reader": true
+            },
+            "esomx": {
+              "pn532_reader": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "pn532_reader": true
+            },
+            "electron": {
+              "pn532_reader": true
             }
           }
         }

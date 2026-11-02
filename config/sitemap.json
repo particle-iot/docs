@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "e318ec34d9c28eeea24fc5e0503345ed80b83b44607c1d4da529294f0550ba23",
-            "date": "2026-10-29"
+            "hash": "77660d8bec6543196a0e28fa1ab513fe1e0b68ab4c2a1d48b4082bcb592d5ff8",
+            "date": "2026-11-02"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9687,8 +9687,8 @@
             "date": "2025-02-14"
         },
         "reference/device-os/libraries/p/PublishQueueExtRK.md": {
-            "hash": "39b09bc788dce79b3ea231b661069b27382ba3794c92e589b41ce6a8b768558e",
-            "date": "2025-11-24"
+            "hash": "9b6b32b68676d01a59a70beea54dd14dc8ebeca00628c9e0280243b532d94a28",
+            "date": "2026-11-02"
         },
         "reference/device-os/libraries/t/tmc2209.md": {
             "hash": "9aaa9e1642eabd6d9b693e8543f181a412f091c34eb5e701223b9f31c5577998",
@@ -10081,6 +10081,10 @@
         "tools/developer-tools/device-comparison.md": {
             "hash": "b6b09638409e73743a7e3035ac0f455973c78345ec036161ea079ec17147438d",
             "date": "2026-10-23"
+        },
+        "reference/device-os/libraries/p/ParticlePN532.md": {
+            "hash": "a4fb4aff97d3eb15a0e29e4ab078d48da965304174ad2ace67a0081da3d44717",
+            "date": "2026-11-02"
         }
     }
 }

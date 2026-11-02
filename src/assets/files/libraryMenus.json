@@ -2592,6 +2592,10 @@
           "dir": "ParticleGeographicLib"
         },
         {
+          "title": "ParticlePN532",
+          "dir": "ParticlePN532"
+        },
+        {
           "title": "ParticleSoftSerial",
           "dir": "ParticleSoftSerial"
         },

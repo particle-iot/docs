@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Library updates 2025-11-02
+
+The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
+
 ### M635e setup 2026-10-29
 
 Added links to the [M635e getting started](https://developer.particle.io/msom/setup/m635e-setup) guide to the [M635e datasheet](/reference/datasheets/m-series/m635e-datasheet/) and [NTN troubleshooting](/troubleshooting/connectivity/ntn-troubleshooting/) page. 
