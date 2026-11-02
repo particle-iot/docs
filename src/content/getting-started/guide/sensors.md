@@ -291,13 +291,20 @@ In many cases, if an Arduino library is available, you can easily port it. Libra
 
 Some sensors intended for use with a Raspberry Pi can work, but since the driver library architecture is completely different, it may be difficult to make it work properly.
 
+## Why not MQTT?
+
+MQTT provides some similar functionality to the Particle cloud primitives, but implemented in a different way.
+
+There is no built-in support for MQTT in Device OS, though there is a third-party library for it. Because TLS/SSL for user applications is also not built-in, doing secure MQTT is not plug-and-play.
+
+Since the MQTT connection is separate from the cloud connection, it cannot take advantage of the built- in RSA public-private key pairs for mutual authentication and instead requires a separate method of authenticating users and devices.
 
 ## Next steps
 
 This section only describes the device-side part and sending the data to the cloud. There are many options for things to do with the data in the [Integration gallery](/integrations/introduction/#integration-gallery).
 
+- Display it on a dashboard using [Blynk](/integrations/community-integrations/blynk/)
 - Store the data in a InfluxDB or QuestDB database
-- Display it on a dashboard like Blynk
-- Analyze it in ThinkSpeak or Ubidots
+- Analyze it in ThingSpeak or Ubidots
 
 {{section-nav}}

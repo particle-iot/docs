@@ -69,5 +69,11 @@ There will be temporary status notifications that appear in the lower right corn
 
 {{imageOverlay src="/assets/images/getting-started-guide/workbench-logged-in.png" class="no-darken"}}
 
+## Community
+
+This is also a good time to sign up for the [Particle community](https://community.particle.io/). It's a great place to ask questions about devices and firmware, and be informed of updates to Device OS and the cloud. 
+
+Note: The username and password for the community are separate from your Particle account. Using the same email is generally a good idea (it's not shown publicly in the community), but the passwords are not synchronized in any way.
+
 {{section-nav}}
 
