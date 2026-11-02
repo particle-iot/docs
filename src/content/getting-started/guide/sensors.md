@@ -286,7 +286,6 @@ Some sensors intended for use with a Raspberry Pi can work, but since the driver
 
 This section only describes the device-side part and sending the data to the cloud. There are many options for things to do with the data in the [Integration gallery](/integrations/introduction/#integration-gallery).
 
-
 - Store the data in a InfluxDB or QuestDB database
 - Display it on a dashboard like Blynk
 - Analyze it in ThinkSpeak or Ubidots
