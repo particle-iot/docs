@@ -9,7 +9,7 @@ description: Cloud connected sensors
 
 {{section-nav}}
 
-In this section, I'll make a fleet of temperature sensors and discuss other kinds of sensors you may be interested.
+In this section, I'll make a fleet of temperature sensors and discuss other kinds of sensors you may be interested in.
 
 {{content-nav}}
 
@@ -82,6 +82,8 @@ The loop() function checks after connecting to the cloud and periodically, based
 
 It generates a JSON object containing temp and humid values for the temperature (in °C) and relative humidity (0-100%), and publishes it as eventName.
 
+This example uses the classic style of the publish call for compatibility with older devices. If you are using a Gen 3 or Gen 4 device with Device OS 6.3.0 or later, see [typed and extended publish](/reference/device-os/typed-publish/) for a more efficient way of sending JSON data.
+
 ```cpp
 void loop()
 {
@@ -107,11 +109,11 @@ void loop()
 }
 ```
 
-The check sensor initializes the sensor if it has not already been initialized. I do that here, instead of at startup, in case the sensor is plugged in later. I2C isn't fully intended to be a live-pluggable bus, but it does generally work. This is less likely in a solderless breadboard, but on the Tracker One, the I2C bus is exposed via an external connector and you might plug the M8 temperature cable in later.
+The checkSensor() function initializes the sensor if it has not already been initialized. I do that here, instead of at startup, in case the sensor is plugged in later. I2C isn't fully intended to be a live-pluggable bus, but it does generally work. This is less likely in a solderless breadboard, but on the Tracker One, the I2C bus is exposed via an external connector and you might plug the M8 temperature cable in later.
 
 It includes a retry function. It's likely that the first read of the value will fail after initializing the sensor, and it's generally a good defensive programming practice.
 
-If a reading is successfully obtained, it adds it to the JSON dta object.
+If a reading is successfully obtained, it adds it to the JSON data object.
 
 If the sensor is unable to be read, an i2cscan() is done for troubleshooting. It is possible that your sensor will be configured for address 0x45 instead of 0x44, and the I2C scan will make this obvious.
 
@@ -247,7 +249,7 @@ Also note that there is a user event stream in Sandbox then Cloud Servers - Even
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-13.png" class="no-darken"}}
 
 
-## Other kinds of sensors
+## Other interfaces for sensors
 
 Particle devices work with many kinds of sensors. Most sensors that work with Arduino also work with Particle devices. They can connect by a number of technologies.
 
@@ -258,6 +260,8 @@ Particle devices work with many kinds of sensors. Most sensors that work with Ar
 [Modbus](/hardware/expansion/about-modbus/) requires additional interface hardware, but is a common way to attach multiple sensors to a single UART serial port. It's common in industrial settings.
 
 [CAN bus](/hardware/tracker/projects/tracker-can/) is a standard typically used in automotive and some industrial monitoring. Only the Tracker One has built-in support for CAN, but other devices can add it with interface hardware.
+
+[4-20mA](/hardware/tracker/projects/tracker-4-20ma/) is an analog standard, but since it's based on current instead of voltage, it's less susceptible to electrical noise and works over longer distances.
 
 [Bluetooth LE (BLE)](/reference/device-os/bluetooth-le/) is a standard for wirelessly connected sensors. There are standard for things like heart rate sensors that are generally compatible, but some devices use a proprietary protocol that may not be easily supported.
 
@@ -277,7 +281,7 @@ I2C temperature sensors like the SHT3x in this section, TMP112, and the DS75, us
 
 Proprietary protocol digital sensors like the DHT11, DHT22, and SHT11 are not recommended. They are not compatible with Gen 4 devices like the P2, Photon 2, and M-SoM, and can be unreliable on Gen 3 devices.
 
-1Wire sensors including the popular DS18B20, allow many sensors to be connected to a single bus. They are not recommended, however, because Gen 4 devices require an 1Wire-to-I2C bridge chip to implement 1Wire; software implementations are not compatible with these devices.
+1Wire sensors including the popular DS18B20, allow many sensors to be connected to a single bus. They are not recommended, however, because Gen 4 devices require an 1Wire-to-I2C bridge chip to implement 1Wire; software implementations are not compatible with these devices. 
 
 ## Sensor compatibility
 

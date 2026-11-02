@@ -139,7 +139,7 @@ void loop()
 
 The reason for the Particle.connected check is that I'm about to publish an event, which requires being connected to the cloud. By adding the check, the code will work even if you triple-tap the mode button before being cloud connected.
 
-The code uses [Particle.publish](/reference/device-os/api/cloud-functions/particle-publish/) to publish an event to the cloud.
+The code uses [Particle.publish](/reference/device-os/api/cloud-functions/particle-publish/) to publish an event to the cloud. This example uses the classic style of the publish call, but for sending structured (JSON) and large data, see [typed and extended publish](/reference/device-os/typed-publish/).
 
 It also prints a log message to the USB serial debug log.
 

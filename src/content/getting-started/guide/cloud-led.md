@@ -93,6 +93,8 @@ This code uses `std::chrono::milliseconds` which allows more friendly time speci
 - `5min` 5 minutes
 - `2h` 2 hours
 
+See [chrono literals](/reference/device-os/api/chrono-literals/) for more information.
+
 ```cpp
 unsigned long colorSetTime = 0;
 std::chrono::milliseconds colorExpirationTime = 10s;
