@@ -207,7 +207,13 @@ You can also find more information in [Interpreting cloud debug logs](/troublesh
 
 ## Next steps
 
-This example only sends an event into the cloud, where it sort of disappears after appearing in the console. This isn't very useful by itself, but you would typically send the event to an external service using an integration (webhook). Or you might process the event in the Particle cloud by using Particle logic.
+Once the event goes to the cloud you can use integrations (webhooks) to do things like:
+
+- Control things in the real world using [Zapier](/integrations/community-integrations/zapier/) or [IFTTT](/integrations/community-integrations/ifttt/).
+- Send push notifications to a mobile device using [Pushover](/integrations/community-integrations/pushover/).
+- Send a message via Slack.
+- Integrate with a home automation system.
+
 
 {{section-nav}}
 
