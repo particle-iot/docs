@@ -155,6 +155,15 @@ int setColor(String cmd)
 - [RGB.control()](/reference/device-os/api/rgb/control-user_control/) allows the firmware to take over the RGB LED from the system.
 - [RGB.color()](/reference/device-os/api/rgb/color-red-green-blue/) sets the color to the specified red, green, and blue values. Each value should be of the range 0 to 255.
 
+## Next steps
+
+Controlling the RGB LED isn't very useful, but there are more tangible real-life things that can be controlled from a Particle device using the same technique.
+
+This custom board controls an electric lock strike, to allow the door to be unlocked remotely.
+
+{{imageOverlay src="/assets/images/getting-started-guide/lock-strike.jpg" class="no-darken"}}
+
+
 
 {{section-nav}}
 
