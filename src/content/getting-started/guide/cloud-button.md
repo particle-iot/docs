@@ -205,6 +205,12 @@ The [Debug Log Decoder](/tools/developer-tools/debug-log/) can help decode some 
 
 You can also find more information in [Interpreting cloud debug logs](/troubleshooting/connectivity/interpreting-cloud-debug/).
 
+## What about HTTP?
+
+Using Particle.publish is typically much more efficient that making a direct HTTP and HTTPS (TLS/SSL) connection from the device. You can still communicate with an external server using HTTP, but it's best to do so using a [webhook](/integrations/webhooks/) from the cloud.
+
+Neither HTTP nor TLS/SSL are built into Device OS, making using them directly more difficult, but also establishing a HTTPS connection may use up to 5 Kbytes of data. Doing a single publish has an overhead in the tens of bytes, and this difference can add up, especially for cellular devices.
+
 ## Next steps
 
 Once the event goes to the cloud you can use integrations (webhooks) to do things like:

@@ -143,7 +143,7 @@ You can tell which devices are development by the tool icon next to the firmware
 
 {{imageOverlay src="/assets/images/getting-started-guide/mark-development-list.png" class="no-darken"}}
 
-## Using the setColor function
+## Calling product device functions
 
 You can use the setColor for each device individually. The easiest way to do this is using the console device view, because the devices are not claimed (do not have an owner) and do not have a name set. It's recommended that you leave product fleets unclaimed, other than the test devices on your desk. Naming is optional, as well.
 

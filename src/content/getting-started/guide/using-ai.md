@@ -44,7 +44,7 @@ This was Claude's response:
 
 It generated this code. It selected a different library, but this is fine.
 
-{{imageOverlay src="/assets/images/getting-started-guide/agent-enable.png" class="no-darken"}}
+{{imageOverlay src="/assets/images/getting-started-guide/agent-code.png" class="no-darken"}}
 
 ## The code
 
