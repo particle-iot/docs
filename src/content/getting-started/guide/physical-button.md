@@ -53,6 +53,8 @@ After installing the library you can navigate into the `lib` directory, then int
 
 {{imageOverlay src="/assets/images/getting-started-guide/library-readme.png" class="no-darken"}}
 
+You can find more information about libraries in [firmware libraries](/getting-started/device-os/firmware-libraries/).
+
 ## Explaining the code
 
 When using a library, you typically `#include` the library. It's typically the same as the library name.

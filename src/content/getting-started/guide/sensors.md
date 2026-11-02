@@ -185,6 +185,8 @@ If you get a red squiggle for the `#include` statement with this error, make sur
 
 {{imageOverlay src="/assets/images/getting-started-guide/library-include-not-found.png" class="no-darken"}}
 
+You can find more information about libraries in [firmware libraries](/getting-started/device-os/firmware-libraries/).
+
 ## Assigning device groups
 
 In this example, since one of the devices does not have a temperature sensor, I'll only release to some devices using a device group.
