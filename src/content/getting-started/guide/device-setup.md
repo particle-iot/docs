@@ -33,7 +33,7 @@ Even though the basic techniques are the same, the exact steps will be different
 
 {{imageOverlay src="/assets/images/getting-started-guide/boron.jpg" class="no-darken"}}
 
-You will generally set up your device from a computer (Windows, Linux, Mac, or Chromebook) connected by USB to your devices.
+You will generally set up your device from a computer (Windows, Linux, Mac) connected by USB to your devices. A Chromebook can be used for device setup, but you'll need a full computer to install and use the Particle Workbench development environment.
 
 Simply follow the instructions at: [https://setup.particle.io/](https://setup.particle.io/).
 

@@ -311,4 +311,6 @@ This section only describes the device-side part and sending the data to the clo
 - Store the data in a InfluxDB or QuestDB database
 - Analyze it in ThingSpeak or Ubidots
 
+There's also a continuation of this section later in [low-power](/getting-started/guide/low-power/) that includes using sleep modes to lower power consumption for battery-powered use.
+
 {{section-nav}}

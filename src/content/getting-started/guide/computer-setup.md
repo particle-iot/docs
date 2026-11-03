@@ -11,7 +11,7 @@ description: Setting up a computer to program Particle devices
 
 Programming Particle devices is generally done using a computer, laptop or desktop. It can run Windows, Linux, or Mac OS.
 
-It is generally impractical to program a device from a tablet such as the iPad, or from a phone. While a Chromebook can be used for some programming tasks, this guide cannot be used as-is on a Chromebook.
+It is generally impractical to program a device from a tablet such as the iPad, or from a phone. While a Chromebook can be used for setup and some programming tasks, this guide cannot be used as-is on a Chromebook because Particle Workbench cannot be installed.
 
 {{content-nav}}
 
@@ -46,6 +46,8 @@ Most features in Particle Workbench (VSCode) are accessed using the **Command Pa
 Instead of scrolling the (very long) list commands, you can type a bit of the command name and it will provide some intelligent guesses. It also puts the most recently used options near the top. Here's I've entered **part** to show the Particle commands:
 
 {{imageOverlay src="/assets/images/getting-started-guide/workbench-palette-particle.png" class="no-darken"}}
+
+To learn more about Particle Workbench, see [workbench getting started](/getting-started/developer-tools/workbench/).
 
 ## Log in
 

@@ -48,6 +48,9 @@ Particle has a collection of reference firmware for various purposes at [bluepri
 
 Each of these designs includes instructions and firmware in a Github repository that you can clone or fork, allowing you to customize if for your own use.
 
+## CI/CD - Github actions
+
+There is good support for continuous integration and continuous deployment (CI/CD) of fleet firmware using [Github actions](/firmware/best-practices/github-actions/). 
 
 {{section-nav}}
 
