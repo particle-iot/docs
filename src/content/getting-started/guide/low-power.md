@@ -118,4 +118,34 @@ If you have not already done so, if you flash a device directly from Workbench m
 ```
 
 
+## Using screen
+
+The `screen` utility on Linux and Mac can be used with UART serial debugging. The commands are not always intuitive, but here's a short list of useful commands:
+
+List USB serial devices so you can find the name:<br/>
+`ls /dev/tty.usb*`
+
+Connect at 115200 baud:<br/>
+`screen /dev/tty.usbserial-AH03FH1E 115200`
+
+
+Exit (detach) - allows you to resume later:<br/>
+Ctrl+A then press `d` (detach)
+
+Resume detached session:<br/>
+`screen -r`
+
+Exit (kill) - disconnects from the port:<br/>
+Ctrl+A then press k (kill)
+
+View scrollback:<br/>
+Ctrl-A then press ESC
+
+Exit viewing scrollback:<br/>
+ESC
+
+Make scrollback bigger:<br/>
+Ctrl+A then `:` then `scrollback 10000` then press Return
+
+
 {{section-nav}}

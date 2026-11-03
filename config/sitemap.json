@@ -10125,6 +10125,10 @@
         "getting-started/guide/physical-button.md": {
             "hash": "79067d8feaca571e71d6f38b79920a508d6b2a72386a499235ec25643a83249c",
             "date": "2026-11-02"
+        },
+        "getting-started/guide/low-power.md": {
+            "hash": "974a069cffa811d20c217f96854e259c8ecc525b5af7ada5d6c37c87043d32f4",
+            "date": "2026-11-03"
         }
     }
 }

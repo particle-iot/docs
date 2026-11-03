@@ -3,7 +3,7 @@
 #include "sht3x-i2c.h"
 #include "FileHelperRK.h"
 
-PRODUCT_VERSION(3);
+PRODUCT_VERSION(6);
 
 #ifndef SYSTEM_VERSION_v620
 SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
@@ -31,6 +31,7 @@ Variant localConfig;
 const std::chrono::milliseconds publishTimeout = 120s; // How long to wait for publish to complete (safety check)
 const std::chrono::seconds minimumSleepTime = 5min; // If sleep time is less than this long, don't actually sleep because it won't save power and may cause excessive reconnection
 const std::chrono::seconds wakeAdvanceTime = 30s; // How much before check time to wake, to allow time to reconnect to cellular
+const std::chrono::milliseconds firmwareUpdateWaitTime = 8s; // How long to wait for a firmware update notification after cloud connecting
 
 // Environment variables
 int temperaturePeriod = 15; // minutes, make 60 evenly divisible by this for best results
@@ -39,9 +40,13 @@ String temperatureSleepMode = "auto";
 // This version of the code uses Variant and CloudEvent and will only work with Device OS 6.3.0 and later.
 CloudEvent event;
 
+bool firmwareUpdateInProgress = false;
+unsigned long connectedMillis = 0;
+
 // Forward declaration for finite state machine states
 void statePublishWait();
 void statePublishCompletionWait();
+void stateCheckFirmwareUpdate();
 void stateCheckSleep();
 
 // The current finite state machine state, and a millis time value used in some states
@@ -52,12 +57,15 @@ unsigned long stateMillis = 0;
 bool checkPower(Variant &obj);
 bool checkSensor(Variant &obj);
 bool i2cscan(TwoWire &wire);
+void firmwareUpdateHandler(system_event_t event, int param);
 
 
 void setup()
 {
     // Uncomment the line below if debugging startup by USB serial debug
     // waitFor(Serial.isConnected, 8000); delay(2000);
+
+    System.on(firmware_update, firmwareUpdateHandler);
 
     // Local configuration stored on the file system
     FileHelperRK::readVariant(localConfigPath, localConfig);
@@ -85,7 +93,7 @@ void setup()
         temperatureSleepMode = stringValue;
         Log.info("temperatureSleepMode=%s", temperatureSleepMode.c_str());
     }
-
+    
 }
 
 void loop()
@@ -97,7 +105,12 @@ void statePublishWait()
 {
     if (!Particle.connected()) {
         // Not cloud connected, try again later
+        connectedMillis = 0;
         return;
+    }
+
+    if (connectedMillis == 0) {
+        connectedMillis = millis();
     }
 
     if (!Time.isValid()) {
@@ -112,9 +125,8 @@ void statePublishWait()
     if (localConfig.has(localConfigNextCheckKey)) {
         int nextCheck = localConfig.get(localConfigNextCheckKey).toInt();
         if (nextCheck != 0) {
-            Log.info("nextCheck %d %s", nextCheck, Time.timeStr(nextCheck).c_str());
-
             if (nextCheck <= Time.now()) {
+                Log.info("checking now nextCheck %d %s", nextCheck, Time.timeStr(nextCheck).c_str());
                 checkNow = true;
                 updateNextCheck = true;
             }
@@ -130,11 +142,16 @@ void statePublishWait()
     if (updateNextCheck) {
         // nextCheck is Unix time (seconds past January 1, 1970 UTC)
         // temperaturePeriod is in minutes
+        int nextCheck = localConfig.get(localConfigNextCheckKey).toInt();
+        if (nextCheck == 0) {
+            nextCheck = (int) Time.now() - Time.second();
+            nextCheck -= (Time.minute() % temperaturePeriod) * 60;  
+        }
+        while(nextCheck < Time.now()) {
+            nextCheck += temperaturePeriod * 60;
+        }        
 
-        int nextCheck = (int) Time.now() - Time.second();
-        nextCheck -= (Time.minute() % temperaturePeriod) * 60;        
-        nextCheck += temperaturePeriod * 60;
-        Log.info("updated %s to %d %s", localConfigNextCheckKey, nextCheck, Time.timeStr(nextCheck).c_str());
+        Log.info("nextCheck updated %s to %d %s", localConfigNextCheckKey, nextCheck, Time.timeStr(nextCheck).c_str());
 
         localConfig.set(localConfigNextCheckKey, Variant(nextCheck));
         FileHelperRK::storeVariant(localConfigPath, localConfig);
@@ -163,7 +180,7 @@ void statePublishWait()
         stateMillis = millis();
     }
     else {
-        stateHandler = stateCheckSleep;
+        stateHandler = stateCheckFirmwareUpdate;
     }
 
 }
@@ -172,13 +189,13 @@ void statePublishCompletionWait() {
     if (event.isSent()) {
         Log.info("publish succeeded");
         event.clear();
-        stateHandler = stateCheckSleep;
+        stateHandler = stateCheckFirmwareUpdate;
     }
     else 
     if (!event.isOk()) {
         Log.info("publish failed error=%d", event.error());
         // It might be reasonable to retry publishing here instead
-        stateHandler = stateCheckSleep;
+        stateHandler = stateCheckFirmwareUpdate;
     }
 
     if (millis() - stateMillis >= publishTimeout.count()) {
@@ -186,10 +203,27 @@ void statePublishCompletionWait() {
         Log.info("publish timeout");
         event.cancel();
         // It might be reasonable to retry publishing here instead
-        stateHandler = stateCheckSleep;
+        stateHandler = stateCheckFirmwareUpdate;
     }
 
     // Wait for completion
+}
+
+void stateCheckFirmwareUpdate() {
+    // Wait for firmware updates if necessary
+
+    if (millis() - connectedMillis < firmwareUpdateWaitTime.count()) {
+        // Firmware notifications can take a short period of time to arrive
+        return;
+    }
+
+    if (firmwareUpdateInProgress) {
+        // Update is in progress, wait
+        return;
+    }
+
+    // Done waiting, check to see if we can sleep
+    stateHandler = stateCheckSleep;
 }
 
 void stateCheckSleep() {
@@ -221,10 +255,11 @@ void stateCheckSleep() {
                 secondsToNextWake = 0;
             }
         }
-
     }
 
     if (secondsToNextWake > 0) {
+        connectedMillis = 0;
+
         Log.info("going to sleep for %d seconds, wake at %s", secondsToNextWake, 
             Time.timeStr(Time.now() + secondsToNextWake).c_str());
         SystemSleepConfiguration config;
@@ -397,3 +432,15 @@ bool i2cscan(TwoWire &wire) {
     return bFound;
 }
 
+void firmwareUpdateHandler(system_event_t event, int param) {
+    switch(param) {
+        case firmware_update_begin:
+            firmwareUpdateInProgress = true;
+            break;
+
+        case firmware_update_complete:
+        case (int)firmware_update_failed:
+            firmwareUpdateInProgress = false;
+            break;
+    }
+}

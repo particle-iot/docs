@@ -88,6 +88,10 @@
                 {
                     "dir": "using-github",
                     "title": "Using Github"
+                },
+                {
+                    "dir": "low-power",
+                    "title": "Using sleep mode to lower power consumption"
                 }
             ]
         },
