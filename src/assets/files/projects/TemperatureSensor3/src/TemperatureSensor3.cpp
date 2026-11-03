@@ -3,7 +3,7 @@
 #include "sht3x-i2c.h"
 #include "FileHelperRK.h"
 
-PRODUCT_VERSION(6);
+PRODUCT_VERSION(7);
 
 #ifndef SYSTEM_VERSION_v620
 SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
@@ -24,7 +24,7 @@ const char *eventName = "temperatureSensorTest";
 
 // Configuration data is stored in the flash file system. This includes the next check time.
 const char *localConfigPath = "/usr/tempconfig.json";
-const char *localConfigNextCheckKey = "nextCheck";
+const char *localConfigLastCheckKey = "lastCheck";
 Variant localConfig;
 
 // Various configuration parameters that cannot be configured using environment variables
@@ -70,6 +70,8 @@ void setup()
     // Local configuration stored on the file system
     FileHelperRK::readVariant(localConfigPath, localConfig);
     Log.info("localConfig %s", localConfig.toJSON().c_str());
+
+    localConfig.remove("nextCheck"); // Temporary
 
     // temperaturePeriod (minutes)
     // Default: 15 (minutes)
@@ -120,40 +122,31 @@ void statePublishWait()
 
     // Check time
     bool checkNow = false;
-    bool updateNextCheck = false;
-
-    if (localConfig.has(localConfigNextCheckKey)) {
-        int nextCheck = localConfig.get(localConfigNextCheckKey).toInt();
-        if (nextCheck != 0) {
-            if (nextCheck <= Time.now()) {
-                Log.info("checking now nextCheck %d %s", nextCheck, Time.timeStr(nextCheck).c_str());
-                checkNow = true;
-                updateNextCheck = true;
-            }
-        }
-        else {
-            updateNextCheck = true;
-        }
-    }
-    else {
-        updateNextCheck = true;
+    
+    if (!localConfig.has(localConfigLastCheckKey)) {
+        // If there is no lastCheck time, set it to the current time rounded down to the temperaturePeriod
+        int lastCheck = (int) Time.now();
+        lastCheck -= Time.second();
+        lastCheck -= (Time.minute() % temperaturePeriod) * 60;  
+        localConfig.set(localConfigLastCheckKey, Variant(lastCheck));
     }
 
-    if (updateNextCheck) {
-        // nextCheck is Unix time (seconds past January 1, 1970 UTC)
-        // temperaturePeriod is in minutes
-        int nextCheck = localConfig.get(localConfigNextCheckKey).toInt();
-        if (nextCheck == 0) {
-            nextCheck = (int) Time.now() - Time.second();
-            nextCheck -= (Time.minute() % temperaturePeriod) * 60;  
-        }
-        while(nextCheck < Time.now()) {
+    int lastCheck = localConfig.get(localConfigLastCheckKey).toInt();
+
+    int nextCheck = lastCheck + temperaturePeriod * 60;
+    if (nextCheck <= Time.now()) {
+        Log.info("checking now lastCheck %d %s, nextCheck %d %s, temperaturePeriod %d", lastCheck, Time.timeStr(lastCheck).c_str(), nextCheck, Time.timeStr(lastCheck).c_str(), temperaturePeriod);
+        checkNow = true;
+
+        // Handle the case where we skipped checks
+        while(nextCheck <= Time.now()) {
             nextCheck += temperaturePeriod * 60;
         }        
 
-        Log.info("nextCheck updated %s to %d %s", localConfigNextCheckKey, nextCheck, Time.timeStr(nextCheck).c_str());
+        lastCheck = nextCheck - temperaturePeriod * 60;
+        Log.info("lastCheck updated %s to %d %s", localConfigLastCheckKey, lastCheck, Time.timeStr(lastCheck).c_str());
 
-        localConfig.set(localConfigNextCheckKey, Variant(nextCheck));
+        localConfig.set(localConfigLastCheckKey, Variant(lastCheck));
         FileHelperRK::storeVariant(localConfigPath, localConfig);
     }
 
@@ -168,7 +161,8 @@ void statePublishWait()
         (void) checkSensor(obj);
 
         // Optional: Also include the next check time in the event
-        obj.set(localConfigNextCheckKey, Variant(localConfig.get(localConfigNextCheckKey).toInt()));
+        obj.set(localConfigLastCheckKey, Variant(localConfig.get(localConfigLastCheckKey).toInt()));
+        obj.set("temperaturePeriod", Variant(temperaturePeriod));
 
         event.name(eventName);
         event.data(obj);
@@ -197,7 +191,7 @@ void statePublishCompletionWait() {
         // It might be reasonable to retry publishing here instead
         stateHandler = stateCheckFirmwareUpdate;
     }
-
+    else
     if (millis() - stateMillis >= publishTimeout.count()) {
         // Timeout
         Log.info("publish timeout");
@@ -228,7 +222,11 @@ void stateCheckFirmwareUpdate() {
 
 void stateCheckSleep() {
 
-    int secondsToNextWake = localConfig.get(localConfigNextCheckKey).toInt() - Time.now() - wakeAdvanceTime.count();
+    int lastCheck = localConfig.get(localConfigLastCheckKey).toInt();
+
+    int nextCheck = lastCheck + temperaturePeriod * 60;
+
+    int secondsToNextWake = nextCheck - Time.now() - wakeAdvanceTime.count();
 
     if (temperatureSleepMode == "never") {
         // Never attempt to sleep
