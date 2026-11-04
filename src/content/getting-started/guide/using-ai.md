@@ -15,7 +15,7 @@ In this section I'll implement the temperature sensor code using an AI agent ins
 
 ## Creating an AI project
 
-Use **Particle: Create New Project** and create TemeratureSensor2. Be sure to enable AI Agent support when prompted.
+Use **Particle: Create New Project** and create TemperatureSensor2. Be sure to enable AI Agent support when prompted.
 
 {{imageOverlay src="/assets/images/getting-started-guide/agent-enable.png" class="no-darken"}}
 

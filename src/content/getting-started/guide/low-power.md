@@ -150,7 +150,6 @@ This code supports two environment variables
   - `never` Never sleep 
 
 
-
 ## Using Serial1LogHandler
 
 USB serial debugging is great for troubleshooting, but it can take anywhere from a few seconds to 10 seconds on Windows for it to reconnect. When debugging sleep issues you can lose too many log messages during this period of time. If you are trying to measure sleep current, using USB will affect those results as well.
@@ -220,6 +219,19 @@ This is a typical log for publishing values:
 0001545182 [app] INFO: going to sleep for 856 seconds, wake at Tue Nov  3 17:59:30 2026
 0001545185 [system.sleep] TRACE: Entering system_sleep_ext()
 ```
+
+## Measuring power consumption
+
+If you are building a battery powered device you may want to get appropriate equipment for measuring current. We use the Otii Arc for this purpose, but there are lower-priced alternatives as well.
+
+{{imageOverlay src="/assets/images/getting-started-guide/arc1.jpg" class="no-darken"}}
+
+In addition to accurately measuring current that can range from 100 microamps to 2 amps, depending on the device, it can also monitor the UART serial debug log, and correlate the logs to the power consumption.
+
+{{imageOverlay src="/assets/images/getting-started-guide/arc2.png" class="no-darken"}}
+
+
+For more information, see [power measurement](/hardware/power/power-measurement/).
 
 ## Next steps
 

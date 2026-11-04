@@ -9,7 +9,7 @@ description: Using Github for Particle development
 
 {{section-nav}}
 
-Github is a place to store code. It can be used for private projects, sharing code privately between team members, and open source programs. It's the primary way Particle open source code is distributed, and is well-integrated with VSCode, making it ideal for use in Particle Workbench.
+Github is a place to store code. It can be used for private projects, sharing code privately between team members, and open source projects. It's the primary way Particle open source code is distributed, and is well-integrated with VSCode, making it ideal for use in Particle Workbench.
 
 It maintains a historical record of changes you have made to your code, and provides a secure, off-computer backup. 
 
