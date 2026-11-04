@@ -3,11 +3,13 @@
 #include "sht3x-i2c.h"
 #include "FileHelperRK.h"
 
-PRODUCT_VERSION(7);
+PRODUCT_VERSION(8);
 
 #ifndef SYSTEM_VERSION_v620
 SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
 #endif
+
+SYSTEM_MODE(AUTOMATIC);
 
 // Normally I use USB serial debug logging, but for debugging sleep mode issues, using UART serial
 // (Serial1LogHandler) works better because you lose too many messages upon wake. It requires an 
@@ -68,10 +70,12 @@ void setup()
     System.on(firmware_update, firmwareUpdateHandler);
 
     // Local configuration stored on the file system
-    FileHelperRK::readVariant(localConfigPath, localConfig);
-    Log.info("localConfig %s", localConfig.toJSON().c_str());
-
-    localConfig.remove("nextCheck"); // Temporary
+    if (!FileHelperRK::readVariant(localConfigPath, localConfig)) {
+        Log.info("localConfig %s", localConfig.toJSON().c_str());
+    }
+    else {
+        Log.info("localConfig not set");
+    }
 
     // temperaturePeriod (minutes)
     // Default: 15 (minutes)
@@ -123,7 +127,7 @@ void statePublishWait()
     // Check time
     bool checkNow = false;
     
-    if (!localConfig.has(localConfigLastCheckKey)) {
+    if (!localConfig.has(localConfigLastCheckKey) || localConfig.get(localConfigLastCheckKey).toInt() > Time.now()) {
         // If there is no lastCheck time, set it to the current time rounded down to the temperaturePeriod
         int lastCheck = (int) Time.now();
         lastCheck -= Time.second();
@@ -132,11 +136,11 @@ void statePublishWait()
     }
 
     int lastCheck = localConfig.get(localConfigLastCheckKey).toInt();
-
     int nextCheck = lastCheck + temperaturePeriod * 60;
+
     if (nextCheck <= Time.now()) {
-        Log.info("checking now lastCheck %d %s, nextCheck %d %s, temperaturePeriod %d", lastCheck, Time.timeStr(lastCheck).c_str(), nextCheck, Time.timeStr(lastCheck).c_str(), temperaturePeriod);
         checkNow = true;
+        Log.info("checking now lastCheck %d %s, nextCheck %d %s, temperaturePeriod %d", lastCheck, Time.timeStr(lastCheck).c_str(), nextCheck, Time.timeStr(nextCheck).c_str(), temperaturePeriod);
 
         // Handle the case where we skipped checks
         while(nextCheck <= Time.now()) {
@@ -144,7 +148,7 @@ void statePublishWait()
         }        
 
         lastCheck = nextCheck - temperaturePeriod * 60;
-        Log.info("lastCheck updated %s to %d %s", localConfigLastCheckKey, lastCheck, Time.timeStr(lastCheck).c_str());
+        Log.info("lastCheck updated to %d %s", lastCheck, Time.timeStr(lastCheck).c_str());
 
         localConfig.set(localConfigLastCheckKey, Variant(lastCheck));
         FileHelperRK::storeVariant(localConfigPath, localConfig);
@@ -221,6 +225,7 @@ void stateCheckFirmwareUpdate() {
 }
 
 void stateCheckSleep() {
+    static bool showLog = true;
 
     int lastCheck = localConfig.get(localConfigLastCheckKey).toInt();
 
@@ -230,6 +235,10 @@ void stateCheckSleep() {
 
     if (temperatureSleepMode == "never") {
         // Never attempt to sleep
+        if (showLog) {
+            Log.info("never mode, staying awake, secondsToNextWake=%d", secondsToNextWake);
+            showLog = false;
+        }
         secondsToNextWake = 0;
     }
     else {
@@ -238,6 +247,10 @@ void stateCheckSleep() {
         if (temperatureSleepMode == "battery" && System.powerSource() != POWER_SOURCE_BATTERY) {
             // In battery mode, if not powered by battery, stay awake            
             secondsToNextWake = 0;
+            if (showLog) {
+                Log.info("battery mode but externally powered, staying awake, secondsToNextWake=%d", secondsToNextWake);
+                showLog = false;
+            }
         }
         else {
             // auto mode
@@ -250,6 +263,10 @@ void stateCheckSleep() {
             }
             else {
                 // Next wake is too close, just stay awake
+                if (showLog) {
+                    Log.info("time to wake too short, staying awake, secondsToNextWake=%d", secondsToNextWake);
+                    showLog = false;
+                }
                 secondsToNextWake = 0;
             }
         }
@@ -257,6 +274,7 @@ void stateCheckSleep() {
 
     if (secondsToNextWake > 0) {
         connectedMillis = 0;
+        showLog = true;
 
         Log.info("going to sleep for %d seconds, wake at %s", secondsToNextWake, 
             Time.timeStr(Time.now() + secondsToNextWake).c_str());
@@ -399,7 +417,7 @@ bool i2cscan(TwoWire &wire) {
                     break;
 
                 case 0x45:
-                    deviceName = "SHT3x termperature sensor (alternate address)";
+                    deviceName = "SHT3x temperature sensor (alternate address)";
                     break;
 
                 case 0x48:
@@ -430,7 +448,7 @@ bool i2cscan(TwoWire &wire) {
     return bFound;
 }
 
-void firmwareUpdateHandler(system_event_t event, int param) {
+void firmwareUpdateHandler(system_event_t ev, int param) {
     switch(param) {
         case firmware_update_begin:
             firmwareUpdateInProgress = true;

@@ -1507,8 +1507,8 @@
             "hash": "d5fdcdf9005ab7cd0c3f68c04c47b3f82ddc1178ae63f012cd4f481ccf6c69a1"
         },
         "troubleshooting/connectivity/interpreting-cloud-debug.md": {
-            "date": "2024-02-27",
-            "hash": "e247bbb5ea9154672e9d828b21036accef0d27d37cf1e2eea7a8e57cbec0123a"
+            "date": "2026-11-04",
+            "hash": "3e32e465d40f04ef2f45e3bc72e3cc4244af7ae297e5cff9891d1b0df3d6f049"
         },
         "troubleshooting/firmware/remote-logging.md": {
             "date": "2023-06-20",
@@ -10127,8 +10127,8 @@
             "date": "2026-11-02"
         },
         "getting-started/guide/low-power.md": {
-            "hash": "913c41352e39eded84a2d61aacf6e61cb316f9a490c46f8aaf6b14aff1dd6905",
-            "date": "2026-11-03"
+            "hash": "3032c3726441637127e3cf5a925f9d11363a48120cfce834f135743fb46a48b1",
+            "date": "2026-11-04"
         }
     }
 }

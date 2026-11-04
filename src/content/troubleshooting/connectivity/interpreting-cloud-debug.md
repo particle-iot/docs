@@ -501,6 +501,114 @@ For Gen 3 devices (Boron, B-Series SoM), the status LED will blink green.
 
 For Gen 2 devices (Electron, E-Series), the status LED will blink dark blue.
 
+### Modem not responding, but was able to be reset
+
+This log is from a Boron 404X with Device OS 6.4.1.
+
+```
+0000377218 [ncp.client] TRACE: Powered on
+0000378421 [ncp.at] TRACE: > AT
+0000379421 [ncp.at] TRACE: > AT
+0000380421 [ncp.at] TRACE: > AT
+0000381421 [ncp.at] TRACE: > AT
+0000382421 [ncp.at] TRACE: > AT
+0000383421 [ncp.at] TRACE: > AT
+0000384421 [ncp.at] TRACE: > AT
+0000385421 [ncp.at] TRACE: > AT
+0000386421 [ncp.at] TRACE: > AT
+0000387421 [ncp.at] TRACE: > AT
+0000388421 [ncp.at] TRACE: > AT
+0000389421 [ncp.at] TRACE: > AT
+0000390421 [ncp.at] TRACE: > AT
+0000391421 [ncp.at] TRACE: > AT
+0000392421 [ncp.at] TRACE: > AT
+0000393421 [ncp.client] ERROR: No response from NCP
+0000393421 [ncp.client] TRACE: Hard reset
+0000393627 [net.pppncp] TRACE: NCP event 3
+0000393627 [net.pppncp] TRACE: NCP power state changed: IF_POWER_STATE_POWERING_UP
+0000393634 [system.nm] TRACE: Interface 4 power state changed: POWERING_UP
+0000393639 [net.pppncp] ERROR: Failed to initialize cellular NCP client: -210
+0000393649 [ncp.client] TRACE: Powering on, ncpId: 0x47
+0000393654 [ncp.client] TRACE: Already on
+0000393656 [net.pppncp] TRACE: NCP event 3
+0000393660 [net.pppncp] TRACE: NCP power state changed: IF_POWER_STATE_UP
+0000393666 [system.nm] TRACE: Interface 4 power state changed: UP
+0000394871 [ncp.at] TRACE: > AT
+0000395871 [ncp.at] TRACE: > AT
+0000396871 [ncp.at] TRACE: > AT
+0000397871 [ncp.at] TRACE: > AT
+0000398871 [ncp.at] TRACE: > AT
+0000399871 [ncp.at] TRACE: > AT
+0000400871 [ncp.at] TRACE: > AT
+0000401871 [ncp.at] TRACE: > AT
+0000402871 [ncp.at] TRACE: > AT
+0000403871 [ncp.at] TRACE: > AT
+0000404871 [ncp.at] TRACE: > AT
+0000405872 [ncp.at] TRACE: > AT
+0000406872 [ncp.at] TRACE: > AT
+0000407872 [ncp.at] TRACE: > AT
+0000408872 [ncp.at] TRACE: > AT
+0000409872 [ncp.client] ERROR: No response from NCP
+0000409872 [ncp.client] TRACE: Hard reset
+0000410078 [net.pppncp] TRACE: NCP event 3
+0000410078 [net.pppncp] TRACE: NCP power state changed: IF_POWER_STATE_POWERING_UP
+0000410085 [system.nm] TRACE: Interface 4 power state changed: POWERING_UP
+0000410090 [net.pppncp] ERROR: Failed to initialize cellular NCP client: -210
+0000410199 [ncp.client] TRACE: Powering on, ncpId: 0x47
+0000410199 [ncp.client] TRACE: Already on
+0000410206 [net.pppncp] TRACE: NCP event 3
+0000410206 [net.pppncp] TRACE: NCP power state changed: IF_POWER_STATE_UP
+0000410217 [system.nm] TRACE: Interface 4 power state changed: UP
+0000411422 [ncp.at] TRACE: > AT
+0000412422 [ncp.at] TRACE: > AT
+0000413422 [ncp.at] TRACE: > AT
+0000414422 [ncp.at] TRACE: > AT
+0000415422 [ncp.at] TRACE: > AT
+0000416422 [ncp.at] TRACE: > AT
+0000417422 [ncp.at] TRACE: > AT
+0000418422 [ncp.at] TRACE: > AT
+0000419422 [ncp.at] TRACE: > AT
+0000420422 [ncp.at] TRACE: > AT
+0000421422 [ncp.at] TRACE: > AT
+0000422422 [ncp.at] TRACE: > AT
+0000423422 [ncp.at] TRACE: > AT
+0000424422 [ncp.at] TRACE: > AT
+0000425422 [ncp.at] TRACE: > AT
+0000426422 [ncp.client] ERROR: No response from NCP
+0000426422 [ncp.client] TRACE: Hard reset
+0000426627 [net.pppncp] TRACE: NCP event 3
+0000426627 [net.pppncp] TRACE: NCP power state changed: IF_POWER_STATE_POWERING_UP
+0000426634 [system.nm] TRACE: Interface 4 power state changed: POWERING_UP
+0000426639 [ncp.client] TRACE: Emergency hardware shutdown the modem (STD)
+0000452147 [net.pppncp] ERROR: Failed to initialize cellular NCP client: -210
+0000452248 [ncp.client] TRACE: Powering on, ncpId: 0x47
+0000453748 [net.pppncp] TRACE: NCP event 3
+0000453748 [net.pppncp] TRACE: NCP power state changed: IF_POWER_STATE_UP
+0000453754 [system.nm] TRACE: Interface 4 power state changed: UP
+0000453759 [ncp.client] TRACE: Powered on
+0000454965 [ncp.at] TRACE: > AT
+0000455319 [ncp.at] TRACE: < OK
+0000455319 [ncp.client] TRACE: NCP ready to accept AT commands
+0000455322 [ncp.at] TRACE: > AT
+0000455325 [ncp.at] TRACE: < OK
+0000455331 [ncp.at] TRACE: > ATI9
+0000455334 [ncp.at] TRACE: < 03.15,A00.01
+0000455336 [ncp.at] TRACE: < OK
+0000455339 [ncp.client] TRACE: App firmware: 1
+0000455342 [ncp.at] TRACE: > AT+UGPIOC?
+0000455348 [ncp.at] TRACE: < +UGPIOC:
+0000455350 [ncp.at] TRACE: < 16,255
+0000455353 [ncp.at] TRACE: < 19,255
+0000455356 [ncp.at] TRACE: < 23,0
+0000455359 [ncp.at] TRACE: < 24,255
+0000455364 [ncp.at] TRACE: < 25,255
+0000455367 [ncp.at] TRACE: < 33,255
+0000455370 [ncp.at] TRACE: < 42,255
+0000455372 [ncp.at] TRACE: < 46,255
+0000455376 [ncp.at] TRACE: < OK
+```
+
+
 ## Other cloud connection issues
 
 
