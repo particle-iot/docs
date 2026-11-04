@@ -11,13 +11,13 @@ description: Cloud-connected physical button project
 
 This section creates new firmware that sends a Particle event when you press a physical button (momentary switch).
 
-You can skip over this section if you wish, because the topics discussed in this section unrelated to the switch hardware will be repeated again later.
+You can skip over this section if you wish, because the topics that are discussed in this section that are unrelated to the switch hardware will be repeated again later.
 
 ## Firmware
 
 As in the previous section, you can either:
 
-- **Particle: Create New Project**, create PhysicalButton, and paste the contents PhysicalButton.cpp file into your file.
+- **Particle: Create New Project**, create PhysicalButton, and paste the contents of the PhysicalButton.cpp file into your file.
 - Download the zip file, extract, then **Particle: Import Project**.
 
 {{> project-browser project="PhysicalButton" default-file="src/PhysicalButton.cpp" height="400" flash="true"}}
@@ -26,8 +26,6 @@ As in the previous section, also do:
 
 - **Particle: Configure project for device**
 - **Particle: Flash application (local)**
-
-Once the new firmware is running, you can test the functionality by triple-tap of the MODE button on the device.
 
 ## Connecting the switch
 

@@ -9,7 +9,7 @@ description: Using sleep mode to lower power consumption
 
 {{section-nav}}
 
-In this section, I'll modify the [sensors](/getting-started/guide/sensors/) code to use sleep mode to lower power consumption, such for battery-powered use.
+In this section, I'll modify the [sensors](/getting-started/guide/sensors/) code to use sleep mode to lower power consumption, such as battery-powered use.
 
 {{content-nav}}
 
@@ -26,7 +26,7 @@ The code implements:
 
 As in the previous section, you can either:
 
-- **Particle: Create New Project**, create CloudLed, and paste the contents CloudLed.cpp file into your file.
+- **Particle: Create New Project**, create TemperatureSensor3, and paste the contents TemperatureSensor3.cpp file into your file.
 - Download the zip file, extract, then **Particle: Import Project**.
 
 {{> project-browser project="TemperatureSensor3" default-file="src/TemperatureSensor3.cpp" height="400" flash="true"}}
@@ -126,7 +126,7 @@ The `stateCheckFirmwareUpdate()` function waits to see if there is a firmware up
 
 The `stateCheckSleep()` function:
 - Checks to see if the temperatureSleepMode has enabled sleep mode.
-- Check to see if the amount of time to sleep is long enough. If too short, the device will stay awake and wait instead of going to sleep.
+- Checks to see if the amount of time to sleep is long enough. If too short, the device will stay awake and wait instead of going to sleep.
 - Enters sleep mode if necessary.
 
 
@@ -134,12 +134,12 @@ The `checkPower()` function logs information about the power source, battery sta
 
 The `checkSensor()` function has minor changes from before due to using typed publish. It also uses single-shot mode so the temperature sensor can go into low power mode between readings.
 
-The `firmwareUpdateHandler()` gets notifications from the system when a firmware update starts and completes, so sleep mode can be blocking during an update.
+The `firmwareUpdateHandler()` gets notifications from the system when a firmware update starts and completes, so sleep mode can be prevented during an update.
 
 
 ## Environment variables
 
-This code supports two environment variables
+This code supports two environment variables:
 
 `temperaturePeriod` is the sleep period in minutes. It's best if 60 is evenly divisible by this number if less than 1 hour.
 
@@ -154,7 +154,7 @@ This code supports two environment variables
 
 USB serial debugging is great for troubleshooting, but it can take anywhere from a few seconds to 10 seconds on Windows for it to reconnect. When debugging sleep issues you can lose too many log messages during this period of time. If you are trying to measure sleep current, using USB will affect those results as well.
 
-The solution is to use a USB to UART adapter, sometimes referred to a FT232, which is the chipset that implements it. I am using one from [Sparkfun](https://www.sparkfun.com/sparkfun-usb-to-serial-breakout-ft232rl.html) here: 
+The solution is to use a USB to UART adapter, sometimes referred to as a FT232, which is the chipset that implements it. I am using one from [Sparkfun](https://www.sparkfun.com/sparkfun-usb-to-serial-breakout-ft232rl.html) here: 
 
 {{imageOverlay src="/assets/images/getting-started-guide/ft232.jpg" class="no-darken"}}
 
@@ -222,7 +222,7 @@ This is a typical log for publishing values:
 
 ## Measuring power consumption
 
-If you are building a battery powered device you may want to get appropriate equipment for measuring current. We use the Otii Arc for this purpose, but there are lower-priced alternatives as well.
+If you are building a battery powered device you may want to get appropriate equipment for measuring current. Particle typically uses the Otii Arc for this purpose, but there are lower-priced alternatives as well.
 
 {{imageOverlay src="/assets/images/getting-started-guide/arc1.jpg" class="no-darken"}}
 

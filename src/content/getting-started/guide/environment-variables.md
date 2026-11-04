@@ -9,7 +9,7 @@ description: Environment variables (cloud configuration)
 
 {{section-nav}}
 
-This code demonstrates two features: environment variables, a way to store configuration settings in the cloud. The firmware will also be used again in the next section, device fleets, allowing a per-device configuration while sharing common firmware across a fleet of devices.
+This code demonstrates environment variables, a way to store configuration settings in the cloud. The firmware will also be used again in the next section, device fleets, allowing a per-device configuration while sharing common firmware across a fleet of devices.
 
 {{!-- BEGIN shared-blurb 79e94a32-654d-4961-8498-5d7969690c4a --}}
 Environment is a collection of lightweight, non‑secret, name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware, they allow configuration of both Device OS features and user features in a hierarchical manner from organization, the product, with optional per-device overrides.
@@ -46,18 +46,15 @@ Setting `PRODUCT_VERSION` is necessary for fleet firmware updates. The version n
 PRODUCT_VERSION(1);
 ```
 
-In setup(), there's this block of code:
+In setup(), the check for `HAL_PLATFORM_ENV` includes the block of code only when targeting versions of Device OS that support environment variables (Device OS 6.4.0 and later). A similar technique can be used for checking for cellular, Wi-Fi, etc.. See [Checking for features](/reference/device-os/api/checking-for-features/) for more information.
 
-The check for `HAL_PLATFORM_ENV` includes this code only when targeting versions of Device OS that support environment variables (Device OS 6.4.0 and later). A similar technique can be used for checking for cellular, Wi-Fi, etc.. See [Checking for features](/reference/device-os/api/checking-for-features/) for more information.
+The [System.getEnv()](/reference/device-os/api/system-calls/enviroment-variables-system/) call gets the value of an environment variable.
 
-The [System.getEnv()](/reference/device-os/api/system-calls/enviroment-variables-system/) call gets the variable of an environment variable.
-
-Environment variables set from the cloud are delivered to the device as an OTA update and the device reset. An environment variable will never change while your code is running, and it will available immediately at boot, before cloud connecting.
+Environment variables set from the cloud are delivered to the device as an OTA update and the device is reset. An environment variable will never change while your code is running, and it will be available immediately at boot, before cloud connecting.
 
 ```cpp
 #if HAL_PLATFORM_ENV
     // On platform and Device OS version that support environment variables, allow a startup color to be defined
-    String value;
     if (System.getEnv("STARTUP_COLOR", startupColor)) {
         Log.info("STARTUP_COLOR=%s", startupColor.c_str());
     }
@@ -94,7 +91,7 @@ When you **Create variable** it may disappear from this window, but it will reap
 
 {{imageOverlay src="/assets/images/getting-started-guide/environment-2.png" class="no-darken"}}
 
-I went back to my product (Chivalrous Pink Borons), the product device list, then my device (wombat_magnetic). In the middle of the window, switched from the **Events** tab to the **Enviroment** tab, and the variable reappeared. Note that it has not been deployed yet; use the **Save changes and apply (1)** button to deploy the change to the device.
+I went back to my product (Chivalrous Pink Borons), the product device list, then my device (wombat_magnetic). In the middle of the window, switched from the **Events** tab to the **Environment** tab, and the variable reappeared. Note that it has not been deployed yet; use the **Save changes and apply (1)** button to deploy the change to the device.
 
 {{imageOverlay src="/assets/images/getting-started-guide/environment-3.png" class="no-darken"}}
 
@@ -102,7 +99,7 @@ After that, the list will look like this:
 
 {{imageOverlay src="/assets/images/getting-started-guide/environment-4.png" class="no-darken"}}
 
-The device should behave like it was getting an OTA updates. It's not flashing all of your firmware, just the settings.
+The device should behave like it was getting an OTA update. It's not flashing all of your firmware, just the settings.
 
 After the device boots and reconnects to the cloud it should show solid magenta (red and blue at the same time) for 10 seconds, then resume breathing cyan.
 

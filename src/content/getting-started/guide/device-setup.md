@@ -18,7 +18,7 @@ In this section I'll set up a device and begin exploring the Particle console.
 
 ## Device setup
 
-Once you have received your Particle device, you need to set it up, which generally involves adding it to your account and updating its software. For cellular devices, activating the SIM card. For Wi-Fi devices, adding your Wi-Fi credentials.
+Once you have received your Particle device, you need to set it up, which generally involves adding it to your account and updating its software. For cellular devices, setup activates the SIM card. For Wi-Fi devices setup, adds your Wi-Fi credentials.
 
 This tutorial uses a Boron, a cellular device, but the tutorial works with most Particle devices including:
 

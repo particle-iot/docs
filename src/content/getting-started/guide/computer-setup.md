@@ -23,7 +23,7 @@ To install it, follow the instructions in the [Workbench quickstart](/quickstart
 
 {{imageOverlay src="/assets/images/getting-started-guide/workbench-install-vscode.png" class="no-darken"}}
 
-If you already have VSCode installed, you can follow the instructions on that page to install the Particle VSCode Pack from the [VisualStudio Marketplace](https://marketplace.visualstudio.com/items?itemName=particle.particle-vscode-pack).
+If you already have VSCode installed, you can follow the instructions on that page to install the Particle VSCode Pack from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=particle.particle-vscode-pack).
 
 
 ## Workbench basics
@@ -32,7 +32,7 @@ When you open VSCode, you'll generally see the VSCode welcome page.
 
 {{imageOverlay src="/assets/images/getting-started-guide/workbench-start.png" class="no-darken"}}
 
-If you click the Particle logo on in the left-hand navigation, you'll see the Workbench home page.
+If you click the Particle logo in the left-hand navigation, you'll see the Workbench home page.
 
 {{imageOverlay src="/assets/images/getting-started-guide/workbench-particle.png" class="no-darken"}}
 
@@ -43,7 +43,7 @@ Most features in Particle Workbench (VSCode) are accessed using the **Command Pa
 
 {{imageOverlay src="/assets/images/getting-started-guide/workbench-palette.png" class="no-darken"}}
 
-Instead of scrolling the (very long) list commands, you can type a bit of the command name and it will provide some intelligent guesses. It also puts the most recently used options near the top. Here's I've entered **part** to show the Particle commands:
+Instead of scrolling the (very long) list commands, you can type a bit of the command name and it will provide some intelligent guesses. It also puts the most recently used options near the top. I've entered **part** to show the Particle commands:
 
 {{imageOverlay src="/assets/images/getting-started-guide/workbench-palette-particle.png" class="no-darken"}}
 
@@ -57,7 +57,7 @@ Open the command palette (Ctrl + Shift + P or Command + Shift + P) and select **
 
 {{imageOverlay src="/assets/images/getting-started-guide/workbench-login.png" class="no-darken"}}
 
-You will generally **Login with username** unless you have a corporate Particle account using single sign on (SSO). You username is your Particle account email.
+You will generally **Login with username** unless you have a corporate Particle account using single sign on (SSO). Your username is your Particle account email.
 
 After entering your username and password, you will be prompted for your 6-digit login code (MFA). Enter this from your authenticator app if you have enabled MFA on your Particle account, otherwise, press Esc (escape).
 

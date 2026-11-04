@@ -133,7 +133,7 @@ Here's the updated device list. Of note:
 
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-10.png" class="no-darken"}}
 
-## Mark as development
+## Mark development
 
 If you plan to flash your testing device by USB, be sure to set it to **Mark development device**. This tells the cloud that you will be flashing custom firmware to the device and it should not manage the version to match the fleet. If you do not do this, you may find that as soon as the device connects to the cloud it will revert to the product default or pinned version for the device.
 

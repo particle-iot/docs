@@ -15,7 +15,7 @@ This section creates new firmware that sends a Particle event when you triple-ta
 
 ## Events
 
-Particle events are one of the [Particle primitives](/getting-started/device-os/introduction-to-device-os/#communication) used to communicate between devices and the Particle cloud. They can be sent in all four directions: device-to-cloud, cloud-to-device, device-to-device, and cloud-to-cloud. It is an one-to-many message that is temporal, not stored in the cloud. The delivery is best-effort, not guaranteed.
+Particle events are one of the [Particle primitives](/getting-started/device-os/introduction-to-device-os/#communication) used to communicate between devices and the Particle cloud. They can be sent in all four directions: device-to-cloud, cloud-to-device, device-to-device, and cloud-to-cloud. It is a one-to-many message that is temporal, not stored in the cloud. The delivery is best-effort, not guaranteed.
 
 There's an event name (a short string), and data. Data is often a string, but can be structured data such as JSON or binary data up to 16 Kbytes on some devices and Device OS versions.
 
@@ -52,7 +52,7 @@ Once the new firmware is running, you can test the functionality by triple-tap o
 
 I've opened [console.particle.io](https://console.particle.io/), then my product (Chivalrous Pink Borons), the product device list, then my device (wombat_magnetic).
 
-In the Events section you can see **cloudButtonTest** every time the button. Clicking on the row will show other details including the device that sent the event and a timestamp.
+In the Events section you can see **cloudButtonTest** every time the button is pressed. Clicking on the row will show other details including the device that sent the event and a timestamp.
 
 {{imageOverlay src="/assets/images/getting-started-guide/cloudevent-console.png" class="no-darken"}}
 
@@ -68,7 +68,7 @@ You may find it useful to open a separate Terminal (Linux and Mac) or Command Pr
 particle serial monitor --follow
 ```
 
-The CLI is installed when you install Workbench and should be available in your terminal window automatically. The `--follow` option retries connecting of the device disconnects, which occurs whenever you reset the device or flash new firmware. Press Ctrl+C or close the window to disconnect when you are done.
+The CLI is installed when you install Workbench and should be available in your terminal window automatically. The `--follow` option retries connecting to the device when it disconnects. This occurs whenever you reset the device or flash new firmware. Press Ctrl+C or close the window to disconnect when you are done.
 
 Here's a portion of the USB serial debug log.
 
@@ -127,7 +127,7 @@ void setup()
 
 As before, the loop function is called frequently, normally 1000 times per second.
 
-In this example, I check the state of the sendEvent flag if the device is connected to the Particle cloud.
+I check that the device is connected to the Particle cloud and that the sendEvent flag is set.
 
 ```cpp
 void loop()
@@ -154,9 +154,9 @@ It also prints a log message to the USB serial debug log.
 
 Finally, this is the implementation of the button click handler. If the button is clicked 3 times (triple-tap) it sets the sendEvent flag.
 
-The only reason triple-tap is used is that the device itself uses single-tap for network signal strength and double-tap for put the device into sleep mode, so those are already taken.
+The only reason triple-tap is used is that the device itself uses single-tap for network signal strength and double-tap for putting the device into sleep mode, so those are already taken.
 
-If are trying this and the status LED goes off, the device probably detected a double-tap. Tap the reset button to get out of sleep mode.
+If you are trying this and the status LED goes off, the device probably detected a double-tap. Tap the reset button to get out of sleep mode.
 
 ```cpp
 void buttonHandler(system_event_t event, int param) {
@@ -170,7 +170,7 @@ void buttonHandler(system_event_t event, int param) {
 
 ## Debugging connection issues
 
-Hopefully your device will just connect to cellular and cloud successfully, but it it doesn't, enabling trace logging can help troubleshoot:
+Hopefully your device will just connect to cellular and cloud successfully, but if it doesn't, enabling trace logging can help troubleshoot:
 
 ```cpp
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);
@@ -207,9 +207,9 @@ You can also find more information in [Interpreting cloud debug logs](/troublesh
 
 ## What about HTTP?
 
-Using Particle.publish is typically much more efficient that making a direct HTTP and HTTPS (TLS/SSL) connection from the device. You can still communicate with an external server using HTTP, but it's best to do so using a [webhook](/integrations/webhooks/) from the cloud.
+Using Particle.publish is typically much more efficient than making a direct HTTP and HTTPS (TLS/SSL) connection from the device. You can still communicate with an external server using HTTP, but it's best to do so using a [webhook](/integrations/webhooks/) from the cloud.
 
-Neither HTTP nor TLS/SSL are built into Device OS, making using them directly more difficult, but also establishing a HTTPS connection may use up to 5 Kbytes of data. Doing a single publish has an overhead in the tens of bytes, and this difference can add up, especially for cellular devices.
+Neither HTTP nor TLS/SSL are built into Device OS, making using them directly more difficult, but also establishing an HTTPS connection may use up to 5 Kbytes of data. Doing a single publish has an overhead in the tens of bytes, and this difference can add up, especially for cellular devices.
 
 ## Next steps
 

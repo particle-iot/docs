@@ -10,7 +10,7 @@ includeDefinitions: [device-animation]
 
 {{section-nav}}
 
-In embedded programming, it's common for your first project to do nothing but blink an LED. This section will create a project and program you device with it.
+In embedded programming, it's common for your first project to do nothing but blink an LED. This section will create a project and program your device with it.
 
 {{content-nav}}
 
@@ -33,7 +33,7 @@ It's best to open a single project in VSCode at a time. Using **Particle: Create
 
 ## Blink an LED
 
-This is the Workbench window after creating the project. The **Explorer** panel in the upper left allows to to browse the files in your project.
+This is the Workbench window after creating the project. The **Explorer** panel in the upper left allows you to browse the files in your project.
 
 I've opened the **src** (source) and clicked on **BlinkLed.cpp** to view the source file.
 
@@ -88,7 +88,7 @@ When using cellular devices, you can save on cellular data by flashing locally.
 
 Open the command palette (Ctrl + Shift + P or Command + Shift + P) and select **Particle: Flash application (local)**.
 
-A **Terminal** pane at the bottom of the window will appears with the build progress. It will sit in this state for a few minutes, but it will be much faster for subsequent builds.
+A **Terminal** pane at the bottom of the window will appear with the build progress. It will sit in this state for a few minutes, but it will be much faster for subsequent builds.
 
 {{imageOverlay src="/assets/images/getting-started-guide/compile-status-1.png" class="no-darken"}}
 
@@ -96,7 +96,7 @@ When the build is done, a message similar to this will display:
 
 {{imageOverlay src="/assets/images/getting-started-guide/compile-status-2.png" class="no-darken"}}
 
-If you are looking at your device, you will notice that it switches to 
+If you are looking at your device, you will notice that it sequences through:
 
 - Blinking yellow: Programming the device by USB.
 {{!-- BEGIN shared-blurb 39fe3a4d-397e-417f-b7f5-b1f91d69cee4 --}}
@@ -115,7 +115,7 @@ Also you should notice the blue status LED, which may be located next to the USB
 - Particle devices are programmed in C++
 - The style of programming is similar to programming an Arduino
 
-Additionally, your device only runs a single firmware program at a time; flashing a program replace the existing program and the device reboots. This is different than a normal computer where multiple applications can be running at the same time.
+Additionally, your device only runs a single firmware program at a time; flashing a program replaces the existing program and the device reboots. This is different than a normal computer where multiple applications can be running at the same time.
 
 It's called flashing because the program is stored in flash memory, a type of non-volatile memory that keeps its contents even if you remove power. You can unplug your device for years, plug it back in, and it will run the last flashed program. I call what the LED does "blinking" to avoid the ambiguity between blinking and flashing which would otherwise mean the same thing.
 
@@ -146,7 +146,7 @@ const pin_t ledPin = D7;
 bool ledState = false;
 ```
 
-The setup() function is called once when your firmware starts running. It tell Device OS that the `ledPin` (D7) is an output (as opposed to an input). Functions like pinMode are part of the Device OS API, and you can find out more in the [Device OS API reference](/reference/device-os/api/input-output/pinmode/).
+The setup() function is called once when your firmware starts running. It tells Device OS that the `ledPin` (D7) is an output (as opposed to an input). Functions like pinMode are part of the Device OS API, and you can find out more in the [Device OS API reference](/reference/device-os/api/input-output/pinmode/).
 
 ```cpp
 void setup()

@@ -29,15 +29,15 @@ This is the prompt I used:
 > 
 > The firmware should use a SHT31 temperature sensor connected by I2C. Find a library to implement this.
 > 
-> Every 15 minutes while cloud connected the firmware should query the sensor for temperature and humidity. Publish the value using Particle.publish with the event > name temperatureSensorTest. The value should be formatted in JSON with the keys "temp" and "humidity".
+> Every 15 minutes while cloud connected the firmware should query the sensor for temperature and humidity. Publish the value using Particle.publish with the event name temperatureSensorTest. The value should be formatted in JSON with the keys "temp" and "humidity".
 
 
 This was Claude's response:
 
-> I wrote the firmware in src/TemperatorSensor2.cpp. It compiles for msom, but I haven’t flashed or run it on a device.
+> I wrote the firmware in src/TemperatureSensor2.cpp. It compiles for msom, but I haven’t flashed or run it on a device.
 > 
 > - Library: I used adafruit-sht31 0.0.7, installed into lib/ and listed in project.properties. It reads the sensor at the default I2C address 0x44.
-> - Publishing: Once the device is cloud connected, it publishes temperatureSensorTest right away, then every 15 minutes. The payload is JSON like {"temp":22.50,> "humidity":45.10}.
+> - Publishing: Once the device is cloud connected, it publishes temperatureSensorTest right away, then every 15 minutes. The payload is JSON like {"temp":22.50, "humidity":45.10}.
 > - Failures: If the sensor isn’t found or a read fails, it logs an error and skips that publish. If the sensor wasn’t found at startup, it retries initialization on the next publish.
 > - Platform: .vscode/settings.json has no particle.targetPlatform, so I compiled for msom as the project instructions say. If your device is a different platform, recompile for that one.
 > - Build output: particle compile left a firmware.bin in the project root.

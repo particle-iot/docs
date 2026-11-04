@@ -1159,8 +1159,8 @@
             "hash": "40f46b9083bb58fd20e3e38ce3f0a00d7d6098f579d5d6962e2821d4e41e43e9"
         },
         "reference/cloud-apis/webhooks.md": {
-            "date": "2026-07-30",
-            "hash": "aed8a4e6f47658144fe415192451479d8683fdf0a13f519108831a18c560137a"
+            "date": "2026-11-04",
+            "hash": "33e8767233b2ef16c005b9066be954adf1100a4e54dc5a7c544ac74a21df0790"
         },
         "reference/developer-tools/cli.md": {
             "date": "2026-10-14",
@@ -9735,8 +9735,8 @@
             "date": "2025-05-13"
         },
         "getting-started/cloud/secrets.md": {
-            "hash": "e83cf20411f0de3f11ca4c9ac28e97781c83718d253bd2c546e11d0e47380280",
-            "date": "2026-04-29"
+            "hash": "65b29ee7e161a243dccab74ad65e9ec74bc628866f51ae90d656849424229bdd",
+            "date": "2026-11-04"
         },
         "hardware/power/power-measurement.md": {
             "hash": "f1e480e1655016822aaa1f2bd14b54b90165a6298bfd3d642145beed05c7330a",
@@ -10087,47 +10087,47 @@
             "date": "2026-11-02"
         },
         "getting-started/guide/blink-led.md": {
-            "hash": "4a07bd463594370af9c9c48ba05d55316c08f32d08569e52b8389738a89e6c2a",
-            "date": "2026-11-02"
+            "hash": "3bcdfc3be4eb455369a9dbaa2bb23485ad7f4025c6ae3eb14f3fc797a4435d54",
+            "date": "2026-11-04"
         },
         "getting-started/guide/cloud-button.md": {
-            "hash": "6ec7c861e87c0199f855ddf63dd8fcacf7f04795bb16368e152374e9efe9007a",
+            "hash": "650f717c3e1bc2005dbb43d746aeb3b6a970058c980b5f8fc859af15f8174d37",
             "date": "2026-11-04"
         },
         "getting-started/guide/cloud-led.md": {
-            "hash": "65b0190e6ff7fecace6859bea2b21188d449e0660fcbab17ea5c47198e48f928",
+            "hash": "07a07f6c8ad2de1dc22fb94cca1f935812d32f4189ccace18b74c1fb39cbe241",
             "date": "2026-11-04"
         },
         "getting-started/guide/computer-setup.md": {
-            "hash": "afb59e35b44841d025af6ab86539a47380627339a478594eb323dcb2971e7f60",
+            "hash": "f4b24e4394b33d19e591f3d8ccd82cb915e3d0ea7d9473b99aba9050cf821085",
             "date": "2026-11-04"
         },
         "getting-started/guide/device-fleets.md": {
-            "hash": "18b18b51480ae8bddff0f61ee99ca8dfbf73513265e8cc9c9405f06b9af6292d",
+            "hash": "ca10e6baa35e2bb5e73b58d56e4c3e0e41355db127e62e2001d1db2445948514",
             "date": "2026-11-04"
         },
         "getting-started/guide/environment-variables.md": {
-            "hash": "98b3eaa42cc42bca0c3c34b3330de691a81337df8af29af76b134f0eac5f1f44",
+            "hash": "a39498dbc0b54a079186184009111ea83bde8fc8668b31b2f01f298ca206d633",
             "date": "2026-11-04"
         },
         "getting-started/guide/sensors.md": {
-            "hash": "0360e29c6782833f20454406ab09eb7751213d3b0d94e3cd94daf084a71e92ad",
+            "hash": "80bc58c8ce9ebf48fdc5f57c2df258d40f7b8ee4656dd9a6e0175dbf20f1d8ba",
             "date": "2026-11-04"
         },
         "getting-started/guide/using-ai.md": {
-            "hash": "8c8b7549adcb542147f69826e52379fee6dea060a6c4140ef75770c92473025b",
+            "hash": "aa3da902c5e466ee5023d18cf7d2f6448ec21df2750e9be5fab05c6373c05f8c",
             "date": "2026-11-04"
         },
         "getting-started/guide/using-github.md": {
-            "hash": "ab7f0189a20429461bb4c2324e20304a6e8f7455f3e11e0620ba3c4e3e86ca7d",
+            "hash": "2d225b15f467140b7289cfba0cfedb91a0ec5f58b31024cb132766bcc9708395",
             "date": "2026-11-04"
         },
         "getting-started/guide/physical-button.md": {
-            "hash": "bd2bf56fd4139610f2eeabd3c2dc86ed27a4b75fac87598d3249a71316b1382a",
+            "hash": "3f79bc35d1b6a6f6f8d952ee199e9db0a33c7bb9039b6695eb3a5d904759731a",
             "date": "2026-11-04"
         },
         "getting-started/guide/low-power.md": {
-            "hash": "68151f95dfacfc2896e1b9093007277d565f5bdbbe73a4a6903737e514219b6f",
+            "hash": "2e4f517bc688925a3f455c0fcadb460d76f619a4bf0254f7418090fc46bc8eba",
             "date": "2026-11-04"
         }
     }

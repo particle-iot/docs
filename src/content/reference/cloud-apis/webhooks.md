@@ -53,7 +53,7 @@ if you need to.
 
 ### Sidebar
 
-Select **Cloud Services** then **Integrations** in the sidebar for your sandbox, sandbox product, organization,
+Select **Cloud services** then **Integrations** in the sidebar for your sandbox, sandbox product, organization,
 or organization product.
 
 {{imageOverlay src="/assets/images/console/sidebar.png" alt="Sidebar"}}

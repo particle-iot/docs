@@ -18,7 +18,7 @@ In this section, I'll make it possible to change the device's status LED from th
 
 As in the previous section, you can either:
 
-- **Particle: Create New Project**, create CloudLed, and paste the contents CloudLed.cpp file into your file.
+- **Particle: Create New Project**, create CloudLed1, and paste the contents CloudLed1.cpp file into your file.
 - Download the zip file, extract, then **Particle: Import Project**.
 
 {{> project-browser project="CloudLed1" default-file="src/CloudLed1.cpp" height="400" flash="true"}}
@@ -40,7 +40,7 @@ I've opened [console.particle.io](https://console.particle.io/), then my product
 
 Of particular interest is the **Functions** panel on the right side of the window.
 
-Enter: **255,255,0** (no spaces, with commas between the numbers) and click **Call**.
+Enter: **255,0,0** (no spaces, with commas between the numbers) and click **Call**.
 
 {{imageOverlay src="/assets/images/getting-started-guide/cloudled1-2.png" class="no-darken"}}
 
@@ -85,7 +85,7 @@ If you are monitoring the USB serial debug log, you'll see a message when the co
 
 The unsigned long variable colorSetTime is used to store the value of `millis()`. This function is often used for millisecond-level timing in your applications. It's very fast and efficient to use.
 
-In some cases you will use Unix time `Time.now()` which is the number of second since January 1, 1970 at UTC. This is better for real-time applications, but the clock will often not be set until you've successfully cloud connected, so depending on the task you may need to use both.
+In some cases you will use Unix time `Time.now()` which is the number of seconds since January 1, 1970 at UTC. This is better for real-time applications, but the clock will often not be set until you've successfully cloud connected, so depending on the task you may need to use both.
 
 This code uses `std::chrono::milliseconds` which allows more friendly time specifications like these, instead of specifying time in milliseconds.
 

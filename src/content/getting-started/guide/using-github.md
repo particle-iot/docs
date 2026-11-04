@@ -19,14 +19,14 @@ It is also free for many individual users, with generous limits on how much code
 
 ## Creating an account
 
-If you do not already have an account, you can create one at [https://github.com/](https://github.com/). It's only requires a valid email address to sign up.
+If you do not already have an account, you can create one at [https://github.com/](https://github.com/). It only requires a valid email address to sign up.
 
 ## Github code storage and sharing
 
 Github is ideal for storing your code and sharing, and there are too many features to list here. A few terms you will encounter:
 
 - **clone** is what you do to make a copy of a repository on your computer so you can build it
-- **fork** makes a copy of repository in your own repository so you can make modifications without affecting the original
+- **fork** makes a copy of a repository in your own repository so you can make modifications without affecting the original
 - **pull** merges changes made in the original into your local version
 - **push** copies your local modifications to the server for safe keeping
 
@@ -46,7 +46,7 @@ Particle has a collection of reference firmware for various purposes at [bluepri
 
 {{imageOverlay src="/assets/images/getting-started-guide/blueprints.png" class="no-darken"}}
 
-Each of these designs includes instructions and firmware in a Github repository that you can clone or fork, allowing you to customize if for your own use.
+Each of these designs includes instructions and firmware in a Github repository that you can clone or fork, allowing you to customize it for your own use.
 
 ## CI/CD - Github actions
 

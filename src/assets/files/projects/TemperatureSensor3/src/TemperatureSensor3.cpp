@@ -77,7 +77,7 @@ void setup()
         Log.info("localConfig not set");
     }
 
-    // temperaturePeriod (minutes)
+    // TEMPERATURE_PERIOD (minutes)
     // Default: 15 (minutes)
     // How often to take temperature readings and publish
     // Make 60 evenly divisible by this for best results
@@ -89,7 +89,7 @@ void setup()
         }
     }
 
-    // temperatureSleepMode
+    // TEMPERATURE_SLEEP_MODE
     // Default: "auto" 
     // "auto" - Best guess based on period
     // "battery" - Like auto, but only sleep when powered by battery
@@ -244,7 +244,9 @@ void stateCheckSleep() {
     else {
         // "auto" or "battery"
 
-        if (temperatureSleepMode == "battery" && System.powerSource() != POWER_SOURCE_BATTERY) {
+#if HAL_PLATFORM_POWER_MANAGEMENT
+        if (temperatureSleepMode == "battery" && System.powerSource() != POWER_SOURCE_BATTERY) 
+        {
             // In battery mode, if not powered by battery, stay awake            
             secondsToNextWake = 0;
             if (showLog) {
@@ -252,7 +254,9 @@ void stateCheckSleep() {
                 showLog = false;
             }
         }
-        else {
+        else 
+#endif // HAL_PLATFORM_POWER_MANAGEMENT
+        {
             // auto mode
             // or 
             // battery mode and powered by a battery
