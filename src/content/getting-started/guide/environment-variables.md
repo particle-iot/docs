@@ -26,7 +26,7 @@ For more information, see [Environment](/getting-started/configuration/environme
 
 As in the previous section, you can either:
 
-- **Particle: Create New Project**, create CloudLed, and paste the contents CloudLed.cpp file into your file.
+- **Particle: Create New Project**, create CloudLed2, and paste the contents CloudLed2.cpp file into your file.
 - Download the zip file, extract, then **Particle: Import Project**.
 
 {{> project-browser project="CloudLed2" default-file="src/CloudLed2.cpp" height="400" flash="true"}}
@@ -94,7 +94,7 @@ When you **Create variable** it may disappear from this window, but it will reap
 
 {{imageOverlay src="/assets/images/getting-started-guide/environment-2.png" class="no-darken"}}
 
-I went back to my product (Chivalrous Pink Borons), the product device list, then my device (wombat_magnetic). In the middle of the window, switch from the **Events** tab to the **Enviroment** tab, and the variable will reappear. Note that it has not been deployed yet; use the **Save changes and apply (1)** button to deploy the change to the device.
+I went back to my product (Chivalrous Pink Borons), the product device list, then my device (wombat_magnetic). In the middle of the window, switched from the **Events** tab to the **Enviroment** tab, and the variable reappeared. Note that it has not been deployed yet; use the **Save changes and apply (1)** button to deploy the change to the device.
 
 {{imageOverlay src="/assets/images/getting-started-guide/environment-3.png" class="no-darken"}}
 

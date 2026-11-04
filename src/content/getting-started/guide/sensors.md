@@ -43,7 +43,7 @@ The rest of the device fleet with 2 more sensors. I didn't order enough for the 
 
 As in the previous section, you can either:
 
-- **Particle: Create New Project**, create CloudLed, and paste the contents CloudLed.cpp file into your file.
+- **Particle: Create New Project**, create TemperatureSensor, and paste the contents TemperatureSensor.cpp file into your file.
 - Download the zip file, extract, then **Particle: Import Project**.
 
 {{> project-browser project="TemperatureSensor" default-file="src/TemperatureSensor.cpp" height="400" flash="true"}}
@@ -183,7 +183,7 @@ Use **Particle: Install library**  to install the **sht3x-i2c** library.
 You can find libraries using [Library search](/reference/device-os/libraries/search/). There are a large number of community libraries available. These were written or ported by community members and may vary in quality and support, however they will typically be a good starting point. Many of the popular libraries are high-quality and suitable even for use in commercial projects.
 {{!-- END shared-blurb --}}
 
-If you get a red squiggle for the `#include` statement with this error, make sure you have done **Particle: Configure project for device**. The include files may not show up until you do this. If you opened a folder in Workbench when **Particle: Import Project** was required, this error can also occur.
+If you get a red squiggle for the `#include` statement with this error, make sure you have done **Particle: Configure project for device**. The include files may not show up until you do this. If you opened a folder in Workbench when **Particle: Import Project** was required, this error can also occur. You may also have to compile or flash the project once before Intellisense will detect library includes.
 
 {{imageOverlay src="/assets/images/getting-started-guide/library-include-not-found.png" class="no-darken"}}
 

@@ -40,7 +40,7 @@ I've opened [console.particle.io](https://console.particle.io/), then my product
 
 Of particular interest is the **Functions** panel on the right side of the window.
 
-Enter: **255,255,0** (no spaces, with commas between the numbers ) and click **Call**.
+Enter: **255,255,0** (no spaces, with commas between the numbers) and click **Call**.
 
 {{imageOverlay src="/assets/images/getting-started-guide/cloudled1-2.png" class="no-darken"}}
 
@@ -124,7 +124,7 @@ void loop()
 }
 ```
 
-The setColor function parses the function value string.
+The setColor function parses the function value cmd string.
 
 ```cpp
 int setColor(String cmd)
@@ -154,6 +154,7 @@ int setColor(String cmd)
 - `sscanf` is a C library function to parse a string. In this case, it parses 3 decimal numbers, comma separated.
 - [RGB.control()](/reference/device-os/api/rgb/control-user_control/) allows the firmware to take over the RGB LED from the system.
 - [RGB.color()](/reference/device-os/api/rgb/color-red-green-blue/) sets the color to the specified red, green, and blue values. Each value should be of the range 0 to 255.
+- The code remembers the millis value when changed, so it can be reverted to system control after 10 seconds.
 
 ## Next steps
 
@@ -162,7 +163,6 @@ Controlling the RGB LED isn't very useful, but there are more tangible real-life
 This custom board controls an electric lock strike, to allow the door to be unlocked remotely.
 
 {{imageOverlay src="/assets/images/getting-started-guide/lock-strike.jpg" class="no-darken"}}
-
 
 
 {{section-nav}}

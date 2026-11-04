@@ -83,7 +83,7 @@ Releasing firmware to a fleet requires that you:
 
 ### Get the firmware binary
 
-Particle user firmware is stored in a `.bin` file. When you compile locally it will be in: `target`/(version)/(platform)/(project nane)`.bin` in your project directory. In this example target/6.4.1/boron/CloudLed2.bin.
+Particle user firmware is stored in a `.bin` file. When you compile locally it will be in: `target`/(version)/(platform)/(project name)`.bin` in your project directory. In this example target/6.4.1/boron/CloudLed2.bin.
 
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-firmware-local.png" class="no-darken"}}
 
@@ -129,7 +129,7 @@ Here's the updated device list. Of note:
 - All devices are online (cyan dot to the left of the ID), and the status is **Online**
 - 3 of the devices are unnamed; this is common, though you can name every device if you want to
 - All are running firmware v1
-- 3 of the devices have no owner. This is normal for device fleets.
+- 3 of the devices have no owner. This is normal for device fleets
 
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-10.png" class="no-darken"}}
 

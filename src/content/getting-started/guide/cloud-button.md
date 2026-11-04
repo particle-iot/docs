@@ -17,7 +17,7 @@ This section creates new firmware that sends a Particle event when you triple-ta
 
 Particle events are one of the [Particle primitives](/getting-started/device-os/introduction-to-device-os/#communication) used to communicate between devices and the Particle cloud. They can be sent in all four directions: device-to-cloud, cloud-to-device, device-to-device, and cloud-to-cloud. It is an one-to-many message that is temporal, not stored in the cloud. The delivery is best-effort, not guaranteed.
 
-There's an event name (a short string), and data. It's often a string, but can be structured data such as JSON or binary data up to 16 Kbytes on some devices and Device OS versions.
+There's an event name (a short string), and data. Data is often a string, but can be structured data such as JSON or binary data up to 16 Kbytes on some devices and Device OS versions.
 
 When you send an event from the device to cloud, the destination is typically:
 
@@ -93,7 +93,7 @@ Above (before) it, you can see the internal messages for sending. After it, you 
 0000027916 [comm.coap] TRACE: ACK 0.00  size=4 token= id=181
 ```
 
-If you used LOG_LEVEL_INFO instead of LOG_LEVEL_TRACE all of the TRACE messages would be hidden from the log.
+If you used `LOG_LEVEL_INFO` instead of `LOG_LEVEL_TRACE` in the `SerialLogHandler` line, all of the TRACE messages would be hidden from the log.
 
 ## Explaining the code
 

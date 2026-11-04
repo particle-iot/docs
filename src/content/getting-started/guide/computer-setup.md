@@ -65,7 +65,7 @@ After entering your username and password, you will be prompted for your 6-digit
 
 Note: There are a number of these prompts in Workbench where you are asked for a value or press Escape. In these cases, Escape is used to continue without specifying a value, not cancel out of the current operation!
 
-You will generally stay logged in for up to 3 months before you have to log in again. Workbench login really just logs you into the Particle CLI, (command line interface) so you can log into either and will be logged into both.
+You will generally stay logged in for up to 3 months before you have to log in again. Workbench login really just logs you into the Particle CLI (command line interface), so you can log into either and will be logged into both.
 
 There will be temporary status notifications that appear in the lower right corner of the VSCode window. These go away after a few seconds but it's worthwhile to look in that corner after doing something for additional status information.
 
@@ -75,7 +75,7 @@ There will be temporary status notifications that appear in the lower right corn
 
 This is also a good time to sign up for the [Particle community](https://community.particle.io/). It's a great place to ask questions about devices and firmware, and be informed of updates to Device OS and the cloud. 
 
-Note: The username and password for the community are separate from your Particle account. Using the same email is generally a good idea (it's not shown publicly in the community), but the passwords are not synchronized in any way.
+Note: The username and password for the community are separate from your Particle account. Using the same email is generally a good idea (it's not shown publicly in the community). The passwords are not synchronized.
 
 {{section-nav}}
 

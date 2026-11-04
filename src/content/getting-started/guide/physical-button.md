@@ -11,7 +11,7 @@ description: Cloud-connected physical button project
 
 This section creates new firmware that sends a Particle event when you press a physical button (momentary switch).
 
-You can skip over this section if you wish, because the topics discussed in this section will be repeated again later.
+You can skip over this section if you wish, because the topics discussed in this section unrelated to the switch hardware will be repeated again later.
 
 ## Firmware
 
@@ -37,6 +37,8 @@ In most cases, you connect a pin, D2 in this case, to GND using the momentary sw
 
 {{imageOverlay src="/assets/images/getting-started-guide/physical-switch.jpg" class="no-darken"}}
 
+Of course there are many kinds of switches, like toggle switches, and specialty sensors like door open sensors, but the basic techniques for sending to the cloud are similar.
+
 ## Using a library 
 
 This code uses a firmware library to implement debouncing of the switch. When a switch opens or closes, sometimes the contacts toggle between open and closed a few times faster than you can see with the naked eye. The processor can see this, however, and it may interpret it incorrectly.
@@ -57,7 +59,7 @@ You can find more information about libraries in [firmware libraries](/getting-s
 
 ## Explaining the code
 
-When using a library, you typically `#include` the library. It's typically the same as the library name.
+When using a library, you typically `#include` the library. The include filename is usually the same as the library name.
 
 Note that on Linux and also cloud compiles (which run on Linux) filenames including header file names are case-sensitive.
 

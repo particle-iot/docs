@@ -10091,28 +10091,28 @@
             "date": "2026-11-02"
         },
         "getting-started/guide/cloud-button.md": {
-            "hash": "1d7bfc77359eaf277e5ace8e6344dde1201f5d0f6f96260b6bf8acdb3755971c",
-            "date": "2026-11-02"
+            "hash": "6ec7c861e87c0199f855ddf63dd8fcacf7f04795bb16368e152374e9efe9007a",
+            "date": "2026-11-04"
         },
         "getting-started/guide/cloud-led.md": {
-            "hash": "c2a25ff028f3c958d4f6f7fd95bd3a98c6da6dc08b1371548714dfbabbe020f9",
-            "date": "2026-11-02"
+            "hash": "65b0190e6ff7fecace6859bea2b21188d449e0660fcbab17ea5c47198e48f928",
+            "date": "2026-11-04"
         },
         "getting-started/guide/computer-setup.md": {
-            "hash": "e843c7d12617ca7ed77c37d92cb78b67cfb93a05713b7a9725f4796c1944c978",
-            "date": "2026-11-02"
+            "hash": "afb59e35b44841d025af6ab86539a47380627339a478594eb323dcb2971e7f60",
+            "date": "2026-11-04"
         },
         "getting-started/guide/device-fleets.md": {
-            "hash": "fb3d1722125ee4944311d2c9bfbec6844eb2a285d75430b3344c879a25047b70",
-            "date": "2026-11-03"
+            "hash": "18b18b51480ae8bddff0f61ee99ca8dfbf73513265e8cc9c9405f06b9af6292d",
+            "date": "2026-11-04"
         },
         "getting-started/guide/environment-variables.md": {
-            "hash": "71882a3cfac828b2dd278cc7b883e53df7358a3d4062e920197d57d2057fecaf",
-            "date": "2026-11-02"
+            "hash": "98b3eaa42cc42bca0c3c34b3330de691a81337df8af29af76b134f0eac5f1f44",
+            "date": "2026-11-04"
         },
         "getting-started/guide/sensors.md": {
-            "hash": "2d08e7852c07279f450a2c3125d0c8d407227f1bd8f6174505dab3d5f762c4ab",
-            "date": "2026-11-03"
+            "hash": "0360e29c6782833f20454406ab09eb7751213d3b0d94e3cd94daf084a71e92ad",
+            "date": "2026-11-04"
         },
         "getting-started/guide/using-ai.md": {
             "hash": "6c16e534c04159085665f980fe020c243f1d6468d11fac444e8dd40fbc376506",
@@ -10123,8 +10123,8 @@
             "date": "2026-11-03"
         },
         "getting-started/guide/physical-button.md": {
-            "hash": "79067d8feaca571e71d6f38b79920a508d6b2a72386a499235ec25643a83249c",
-            "date": "2026-11-02"
+            "hash": "bd2bf56fd4139610f2eeabd3c2dc86ed27a4b75fac87598d3249a71316b1382a",
+            "date": "2026-11-04"
         },
         "getting-started/guide/low-power.md": {
             "hash": "3032c3726441637127e3cf5a925f9d11363a48120cfce834f135743fb46a48b1",

@@ -82,7 +82,7 @@ void setup()
     // How often to take temperature readings and publish
     // Make 60 evenly divisible by this for best results
     int intValue;
-    if (System.getEnv("temperaturePeriod", intValue)) {
+    if (System.getEnv("TEMPERATURE_PERIOD", intValue)) {
         if (intValue >= 1) {
             temperaturePeriod = intValue;
             Log.info("temperaturePeriod=%d (minutes)", temperaturePeriod);
@@ -95,7 +95,7 @@ void setup()
     // "battery" - Like auto, but only sleep when powered by battery
     // "never" - Never sleep 
     String stringValue;
-    if (System.getEnv("temperatureSleepMode", stringValue)) {
+    if (System.getEnv("TEMPERATURE_SLEEP_MODE", stringValue)) {
         temperatureSleepMode = stringValue;
         Log.info("temperatureSleepMode=%s", temperatureSleepMode.c_str());
     }
