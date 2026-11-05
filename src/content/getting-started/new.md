@@ -21,7 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### Library updates 2025-11-02
+### Getting started guide 2026-11-05
+
+A new [getting started guide](/getting-started/guide/) is now available for getting started with the Particle platform.
+
+### Library updates 2026-11-02
 
 The [library viewer](/reference/device-os/libraries/search/) has been updated for newly released or updated libraries.
 

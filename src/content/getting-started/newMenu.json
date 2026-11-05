@@ -42,6 +42,60 @@
             "title": "What's new"
         },
         {
+            "dir": "guide",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "device-setup",
+                    "title": "Device setup and console"
+                },
+                {
+                    "dir": "computer-setup",
+                    "title": "Computer setup"
+                },
+                {
+                    "dir": "blink-led",
+                    "title": "Blink an LED"
+                },
+                {
+                    "dir": "cloud-button",
+                    "title": "Cloud button"
+                },
+                {
+                    "dir": "physical-button",
+                    "title": "Physical button"
+                },
+                {
+                    "dir": "cloud-led",
+                    "title": "Cloud controlled LED"
+                },
+                {
+                    "dir": "environment-variables",
+                    "title": "Environment variables"
+                },
+                {
+                    "dir": "device-fleets",
+                    "title": "Device fleets"
+                },
+                {
+                    "dir": "sensors",
+                    "title": "Cloud connected sensors"
+                },
+                {
+                    "dir": "using-ai",
+                    "title": "Using AI agents to write code"
+                },
+                {
+                    "dir": "using-github",
+                    "title": "Using Github"
+                },
+                {
+                    "dir": "low-power",
+                    "title": "Using sleep mode to lower power consumption"
+                }
+            ]
+        },
+        {
             "dir": "hardware",
             "isSection": true,
             "subsections": [

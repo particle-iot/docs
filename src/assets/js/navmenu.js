@@ -177,6 +177,8 @@ navMenu.load = async function() {
     const nav = navMenu.generateNavHtml(navMenu.menuJson);
     $('.navMenuOuter').replaceWith(nav);
 
+    navMenu.loadSectionNav();
+
     if (typeof firmwareReference != 'undefined') {
         firmwareReference.navMenuLoaded();
     }
@@ -184,6 +186,124 @@ navMenu.load = async function() {
         navMenu.syncNavigation();
         navMenu.searchContent();
     }
+}
+
+// Fills in the {{content-nav}} placeholders (see templates/helpers/content-nav.js) with a list of links
+// to the H2 headings on the page, and optionally the H3 headings, indented below their H2.
+navMenu.loadContentNav = function() {
+    $('div.content-nav').each(function() {
+        const outer = $(this).empty();
+        const levels = parseInt(outer.attr('data-levels')) || 2;
+
+        const selector = (levels >= 3) ? 'h2,h3' : 'h2';
+        const headings = $('div.content-inner').find(selector).filter(function() {
+            return !!$(this).attr('id') && !$(this).closest('.content-nav').length;
+        });
+        if (headings.length == 0) {
+            return;
+        }
+
+        const rootList = $('<ul>').addClass('content-nav-list');
+        let subList;
+
+        headings.each(function() {
+            const headingElem = this;
+            // Clone and remove the permalink icon so only the heading text is used
+            const title = $(headingElem).clone().find('.header-permalinks').remove().end().text().trim();
+            const li = $('<li>').append($('<a>').attr('href', '#' + $(headingElem).attr('id')).text(title));
+
+            if ($(headingElem).prop('tagName') == 'H2') {
+                rootList.append(li);
+                subList = null;
+            }
+            else {
+                // H3, nest below the previous H2 (or at the top level if there isn't one)
+                if (!subList) {
+                    subList = $('<ul>').addClass('content-nav-sublist');
+                    const lastItem = rootList.children('li').last();
+                    if (lastItem.length) {
+                        lastItem.append(subList);
+                    }
+                    else {
+                        rootList.append($('<li>').append(subList));
+                    }
+                }
+                subList.append(li);
+            }
+        });
+
+        outer.append(rootList);
+    });
+}
+
+// Fills in the {{section-nav}} placeholders (see templates/helpers/section-nav.js) with previous/next
+// links and a select of all pages in the section that contains the current page.
+// Must be called after generateNavHtml, which computes href and isActivePage for each item.
+navMenu.loadSectionNav = function() {
+    const elems = $('div.section-nav');
+    if (elems.length == 0) {
+        return;
+    }
+
+    // Find the section (an item with subsections) that directly contains the current page
+    let pages;
+    navMenu.forEachItem(function(itemObj) {
+        if (pages || !itemObj.subsections || itemObj.insertLoc) {
+            return;
+        }
+        const children = itemObj.subsections.filter(function(child) {
+            return !child.anchor && !child.isContent && !child.hidden && !child.internal;
+        });
+        if (children.some(function(child) { return child.isActivePage; })) {
+            pages = children;
+        }
+    });
+
+    if (!pages || pages.length < 2) {
+        return;
+    }
+
+    const pageHref = function(itemObj) {
+        return itemObj.hrefNoAnchor;
+    }
+
+    const index = pages.findIndex(function(itemObj) { return itemObj.isActivePage; });
+    const prev = (index > 0) ? pages[index - 1] : null;
+    const next = (index < (pages.length - 1)) ? pages[index + 1] : null;
+
+    elems.each(function() {
+        const outer = $(this).empty();
+
+        const makeButton = function(itemObj, cls, label) {
+            const button = $('<button>').attr('type', 'button').addClass('apiHelperButton section-nav-button ' + cls).text(label);
+            if (itemObj) {
+                button.attr('title', itemObj.title).on('click', function() {
+                    window.location.href = pageHref(itemObj);
+                });
+            }
+            else {
+                // First or last page; keep the button so the layout doesn't shift
+                button.prop('disabled', true);
+            }
+            return button;
+        }
+
+        const select = $('<select>').addClass('section-nav-select').attr('aria-label', 'Go to page');
+        for(let ii = 0; ii < pages.length; ii++) {
+            $('<option>').val(pageHref(pages[ii])).text((ii + 1) + '. ' + pages[ii].title)
+                .prop('selected', ii == index).appendTo(select);
+        }
+        select.on('change', function() {
+            const href = $(this).val();
+            if (href != pageHref(pages[index])) {
+                window.location.href = href;
+            }
+        });
+
+        outer.append(makeButton(prev, 'section-nav-prev', '‹ Previous'));
+        outer.append(select);
+        outer.append(makeButton(next, 'section-nav-next', 'Next ›'));
+    });
 }
 
 navMenu.openAnchor = function(href) {
@@ -955,6 +1075,8 @@ navMenu.navigate = function(dir) {
 }
 
 navMenu.ready = async function () {
+    navMenu.loadContentNav();
+
     await navMenu.load();
 
 

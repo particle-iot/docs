@@ -1159,8 +1159,8 @@
             "hash": "40f46b9083bb58fd20e3e38ce3f0a00d7d6098f579d5d6962e2821d4e41e43e9"
         },
         "reference/cloud-apis/webhooks.md": {
-            "date": "2026-07-30",
-            "hash": "aed8a4e6f47658144fe415192451479d8683fdf0a13f519108831a18c560137a"
+            "date": "2026-11-04",
+            "hash": "33e8767233b2ef16c005b9066be954adf1100a4e54dc5a7c544ac74a21df0790"
         },
         "reference/developer-tools/cli.md": {
             "date": "2026-10-14",
@@ -1507,8 +1507,8 @@
             "hash": "d5fdcdf9005ab7cd0c3f68c04c47b3f82ddc1178ae63f012cd4f481ccf6c69a1"
         },
         "troubleshooting/connectivity/interpreting-cloud-debug.md": {
-            "date": "2024-02-27",
-            "hash": "e247bbb5ea9154672e9d828b21036accef0d27d37cf1e2eea7a8e57cbec0123a"
+            "date": "2026-11-04",
+            "hash": "3e32e465d40f04ef2f45e3bc72e3cc4244af7ae297e5cff9891d1b0df3d6f049"
         },
         "troubleshooting/firmware/remote-logging.md": {
             "date": "2023-06-20",
@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "77660d8bec6543196a0e28fa1ab513fe1e0b68ab4c2a1d48b4082bcb592d5ff8",
-            "date": "2026-11-02"
+            "hash": "f603b36dc37b91fe5849a0d54e734092cdf874e1632eb4968b9da63a08d6a891",
+            "date": "2026-11-05"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9735,8 +9735,8 @@
             "date": "2025-05-13"
         },
         "getting-started/cloud/secrets.md": {
-            "hash": "e83cf20411f0de3f11ca4c9ac28e97781c83718d253bd2c546e11d0e47380280",
-            "date": "2026-04-29"
+            "hash": "65b29ee7e161a243dccab74ad65e9ec74bc628866f51ae90d656849424229bdd",
+            "date": "2026-11-04"
         },
         "hardware/power/power-measurement.md": {
             "hash": "f1e480e1655016822aaa1f2bd14b54b90165a6298bfd3d642145beed05c7330a",
@@ -10085,6 +10085,50 @@
         "reference/device-os/libraries/p/ParticlePN532.md": {
             "hash": "a4fb4aff97d3eb15a0e29e4ab078d48da965304174ad2ace67a0081da3d44717",
             "date": "2026-11-02"
+        },
+        "getting-started/guide/blink-led.md": {
+            "hash": "ccc82ee3bde4ae89fd1c89c862bc7cabf9fa5118a91c67013afed82296a47c9f",
+            "date": "2026-11-05"
+        },
+        "getting-started/guide/cloud-button.md": {
+            "hash": "d942f9ef6f35695d05136885c1292b2cd96981ea544e5d0a673d89086c36aceb",
+            "date": "2026-11-05"
+        },
+        "getting-started/guide/cloud-led.md": {
+            "hash": "20c1fdeb2d29b38c4550447d4de255ca2fc30e2d90e86054cebafc6e65e68da8",
+            "date": "2026-11-05"
+        },
+        "getting-started/guide/computer-setup.md": {
+            "hash": "95390113fae0bf1c40aacd7cb8ae7ef785317088ff5b4f555230776e58bc9c4d",
+            "date": "2026-11-05"
+        },
+        "getting-started/guide/device-fleets.md": {
+            "hash": "ca10e6baa35e2bb5e73b58d56e4c3e0e41355db127e62e2001d1db2445948514",
+            "date": "2026-11-04"
+        },
+        "getting-started/guide/environment-variables.md": {
+            "hash": "9f2421cf014992a9abcecf5f30133de0cff9a5c50d52cbcc02ccb7f2404a4900",
+            "date": "2026-11-05"
+        },
+        "getting-started/guide/sensors.md": {
+            "hash": "2dded6078fc832473356a86cd1684369a32519b44ff435f97b4789edfee49d37",
+            "date": "2026-11-05"
+        },
+        "getting-started/guide/using-ai.md": {
+            "hash": "aa3da902c5e466ee5023d18cf7d2f6448ec21df2750e9be5fab05c6373c05f8c",
+            "date": "2026-11-04"
+        },
+        "getting-started/guide/using-github.md": {
+            "hash": "2d225b15f467140b7289cfba0cfedb91a0ec5f58b31024cb132766bcc9708395",
+            "date": "2026-11-04"
+        },
+        "getting-started/guide/physical-button.md": {
+            "hash": "d6f4e1fc0dfddbe85fb031c83f35deb1bf23239f0df472de5427f63ca48ca84e",
+            "date": "2026-11-05"
+        },
+        "getting-started/guide/low-power.md": {
+            "hash": "82e90e0ade2bcf9b01c4c4fa57d76ad170f111f8c72d7757f8c024348a764dac",
+            "date": "2026-11-05"
         }
     }
 }

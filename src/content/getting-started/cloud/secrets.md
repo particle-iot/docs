@@ -18,7 +18,7 @@ The cloud secrets feature allows you to:
 
 ## Managing cloud secrets
 
-Cloud secrets are available both in the sandbox level for individual accounts and in the organization level for basic, plus, and enterprise users in the **Cloud Services** section in the [Particle console](https://console.particle.io/).
+Cloud secrets are available both in the sandbox level for individual accounts and in the organization level for basic, plus, and enterprise users in the **Cloud services** section in the [Particle console](https://console.particle.io/).
 
 {{imageOverlay src="/assets/images/secrets/cloud-services-secrets.png" class="no-darken"}}
 

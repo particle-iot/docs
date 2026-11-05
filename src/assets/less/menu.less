@@ -407,3 +407,52 @@ a.navLinkActive {
     display: none;
   }
 }
+
+// Previous/next buttons and page select, see templates/helpers/section-nav.js
+.section-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+
+  .section-nav-button {
+    white-space: nowrap;
+    margin: 0;
+  }
+  .section-nav-select {
+    min-width: 0;
+    max-width: 100%;
+    padding: 4px;
+  }
+}
+
+@media print {
+  .section-nav {
+    display: none;
+  }
+}
+
+// In-page table of contents, see templates/helpers/content-nav.js
+.content-nav {
+  margin: 20px 0;
+
+  ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .content-nav-sublist {
+    margin: 2px 0 4px 0;
+    padding-left: 24px;
+  }
+  li {
+    margin: 2px 0;
+  }
+}
+
+@media print {
+  .content-nav {
+    display: none;
+  }
+}
