@@ -8223,8 +8223,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "77660d8bec6543196a0e28fa1ab513fe1e0b68ab4c2a1d48b4082bcb592d5ff8",
-            "date": "2026-11-02"
+            "hash": "f603b36dc37b91fe5849a0d54e734092cdf874e1632eb4968b9da63a08d6a891",
+            "date": "2026-11-05"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -10087,20 +10087,20 @@
             "date": "2026-11-02"
         },
         "getting-started/guide/blink-led.md": {
-            "hash": "3bcdfc3be4eb455369a9dbaa2bb23485ad7f4025c6ae3eb14f3fc797a4435d54",
-            "date": "2026-11-04"
+            "hash": "ccc82ee3bde4ae89fd1c89c862bc7cabf9fa5118a91c67013afed82296a47c9f",
+            "date": "2026-11-05"
         },
         "getting-started/guide/cloud-button.md": {
-            "hash": "650f717c3e1bc2005dbb43d746aeb3b6a970058c980b5f8fc859af15f8174d37",
-            "date": "2026-11-04"
+            "hash": "d942f9ef6f35695d05136885c1292b2cd96981ea544e5d0a673d89086c36aceb",
+            "date": "2026-11-05"
         },
         "getting-started/guide/cloud-led.md": {
             "hash": "07a07f6c8ad2de1dc22fb94cca1f935812d32f4189ccace18b74c1fb39cbe241",
             "date": "2026-11-04"
         },
         "getting-started/guide/computer-setup.md": {
-            "hash": "f4b24e4394b33d19e591f3d8ccd82cb915e3d0ea7d9473b99aba9050cf821085",
-            "date": "2026-11-04"
+            "hash": "95390113fae0bf1c40aacd7cb8ae7ef785317088ff5b4f555230776e58bc9c4d",
+            "date": "2026-11-05"
         },
         "getting-started/guide/device-fleets.md": {
             "hash": "ca10e6baa35e2bb5e73b58d56e4c3e0e41355db127e62e2001d1db2445948514",
@@ -10123,8 +10123,8 @@
             "date": "2026-11-04"
         },
         "getting-started/guide/physical-button.md": {
-            "hash": "3f79bc35d1b6a6f6f8d952ee199e9db0a33c7bb9039b6695eb3a5d904759731a",
-            "date": "2026-11-04"
+            "hash": "d6f4e1fc0dfddbe85fb031c83f35deb1bf23239f0df472de5427f63ca48ca84e",
+            "date": "2026-11-05"
         },
         "getting-started/guide/low-power.md": {
             "hash": "2e4f517bc688925a3f455c0fcadb460d76f619a4bf0254f7418090fc46bc8eba",

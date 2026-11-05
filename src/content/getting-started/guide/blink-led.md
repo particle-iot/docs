@@ -132,7 +132,7 @@ User firmware will run on any Device OS version that's the same as, or newer, th
 
 You will rarely upgrade Device OS by itself; it will automatically update when the user firmware target version specifies a newer version than is on the device. This can occur over USB or OTA. Device OS will never update itself spontaneously like phones do.
 
-For more detailed information, see [Firmware introduction](https://docs.particle.io/firmware/best-practices/firmware-introduction/).
+For more detailed information, see [Firmware introduction](/firmware/best-practices/firmware-introduction/).
 
 ## Explaining the code
 

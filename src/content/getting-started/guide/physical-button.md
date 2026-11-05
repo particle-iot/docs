@@ -127,3 +127,5 @@ Once the event goes to the cloud you can use integrations (webhooks) to do the s
 You don't have to use a small button like the one above, you could implement a project with a giant button! This one is about 3 inches in diameter.
 
 {{imageOverlay src="/assets/images/getting-started-guide/physical-button-big.jpg" class="no-darken"}}
+
+{{section-nav}}

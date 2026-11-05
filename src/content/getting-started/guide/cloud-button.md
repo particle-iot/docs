@@ -62,7 +62,7 @@ Below it you can see the rows that were generated when the device was flashed an
 
 There is a USB serial debugging log window built into Workbench using **Particle: Serial Monitor**.
 
-You may find it useful to open a separate Terminal (Linux and Mac) or Command Prompt (Windows) window, and instead use the Particle CLI command:
+You may find it useful to open a separate Terminal (Linux and Mac) or Command Prompt (Windows) window, outside of Workbench, and use the Particle CLI command:
 
 ```
 particle serial monitor --follow

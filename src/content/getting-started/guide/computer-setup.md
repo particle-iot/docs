@@ -47,7 +47,7 @@ Instead of scrolling the (very long) list commands, you can type a bit of the co
 
 {{imageOverlay src="/assets/images/getting-started-guide/workbench-palette-particle.png" class="no-darken"}}
 
-To learn more about Particle Workbench, see [workbench getting started](/getting-started/developer-tools/workbench/).
+To learn more about Particle Workbench, see [Workbench getting started](/getting-started/developer-tools/workbench/).
 
 ## Log in
 
