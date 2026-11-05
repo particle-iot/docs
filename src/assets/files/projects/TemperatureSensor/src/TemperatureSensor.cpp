@@ -4,6 +4,11 @@
 
 PRODUCT_VERSION(2);
 
+#ifndef SYSTEM_VERSION_v400ALPHA1
+// For Gen 2 devices or any device using less than Device OS 4.0.0, you need to specify the product ID in the firmware as well.
+PRODUCT_ID(1234);
+#endif
+
 #ifndef SYSTEM_VERSION_v620
 SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
 #endif
@@ -17,7 +22,7 @@ bool sensorStarted = false;
 const char *eventName = "temperatureSensorTest";
 
 unsigned long lastSensorCheck = 0;
-const std::chrono::milliseconds sensorCheckPeriod = 5min;
+const std::chrono::milliseconds sensorCheckPeriod = 15min;
 
 bool checkSensor(JSONWriter &writer);
 bool i2cscan(TwoWire &wire);

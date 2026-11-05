@@ -2,12 +2,18 @@
 
 PRODUCT_VERSION(1);
 
+#ifndef SYSTEM_VERSION_v400ALPHA1
+// For Gen 2 devices or any device using less than Device OS 4.0.0, you need to specify the product ID in the firmware as well.
+PRODUCT_ID(1234);
+#endif
+
 #ifndef SYSTEM_VERSION_v620
 SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
 #endif
 
+
 // This allows for USB serial debug logs
-SerialLogHandler logHandler(LOG_LEVEL_INFO);
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
 
 unsigned long colorSetTime = 0;
 std::chrono::milliseconds colorExpirationTime = 10s;

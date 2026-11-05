@@ -10095,8 +10095,8 @@
             "date": "2026-11-05"
         },
         "getting-started/guide/cloud-led.md": {
-            "hash": "07a07f6c8ad2de1dc22fb94cca1f935812d32f4189ccace18b74c1fb39cbe241",
-            "date": "2026-11-04"
+            "hash": "20c1fdeb2d29b38c4550447d4de255ca2fc30e2d90e86054cebafc6e65e68da8",
+            "date": "2026-11-05"
         },
         "getting-started/guide/computer-setup.md": {
             "hash": "95390113fae0bf1c40aacd7cb8ae7ef785317088ff5b4f555230776e58bc9c4d",
@@ -10107,12 +10107,12 @@
             "date": "2026-11-04"
         },
         "getting-started/guide/environment-variables.md": {
-            "hash": "a39498dbc0b54a079186184009111ea83bde8fc8668b31b2f01f298ca206d633",
-            "date": "2026-11-04"
+            "hash": "9f2421cf014992a9abcecf5f30133de0cff9a5c50d52cbcc02ccb7f2404a4900",
+            "date": "2026-11-05"
         },
         "getting-started/guide/sensors.md": {
-            "hash": "80bc58c8ce9ebf48fdc5f57c2df258d40f7b8ee4656dd9a6e0175dbf20f1d8ba",
-            "date": "2026-11-04"
+            "hash": "2dded6078fc832473356a86cd1684369a32519b44ff435f97b4789edfee49d37",
+            "date": "2026-11-05"
         },
         "getting-started/guide/using-ai.md": {
             "hash": "aa3da902c5e466ee5023d18cf7d2f6448ec21df2750e9be5fab05c6373c05f8c",
@@ -10127,8 +10127,8 @@
             "date": "2026-11-05"
         },
         "getting-started/guide/low-power.md": {
-            "hash": "2e4f517bc688925a3f455c0fcadb460d76f619a4bf0254f7418090fc46bc8eba",
-            "date": "2026-11-04"
+            "hash": "82e90e0ade2bcf9b01c4c4fa57d76ad170f111f8c72d7757f8c024348a764dac",
+            "date": "2026-11-05"
         }
     }
 }

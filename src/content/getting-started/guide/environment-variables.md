@@ -36,6 +36,11 @@ As in the previous section, also do:
 - **Particle: Configure project for device**
 - **Particle: Flash application (local)**
 
+{{note op="start" type="gen2"}}
+Gen 2 devices do not support environment variables, but the fleet code can be used. Be sure to update the `PLATFORM_ID` at the beginning of the .cpp file to match your product ID on Gen 2 devices.
+{{note op="end"}}
+
+
 ## Explaining the code
 
 The code is mostly the same as before. 

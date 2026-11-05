@@ -30,6 +30,10 @@ As in the previous section, also do:
 
 Once the firmware is running you can try making function calls to it.
 
+{{note op="start" type="gen2"}}
+Be sure to update the `PLATFORM_ID` at the beginning of the .cpp file to match your product ID on Gen 2 devices. This is not necessary for Device OS 4.0 and later.
+{{note op="end"}}
+
 ## Making function calls
 
 ### Console - making function calls

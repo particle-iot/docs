@@ -38,6 +38,10 @@ As in the previous section, also do:
 
 If you have not already done so, if you flash a device directly from Workbench make sure you set the **Mark as development device** option in the product, otherwise the firmware that you flash will likely be immediately replaced with the product default firmware!
 
+{{note op="start" type="gen2"}}
+The code in this section uses extended publish that is only available in Device OS 6.3.0 and later, and cannot be used on Gen 2 devices. While the sensors are compatible with Gen 2 devices, the code would need to be modified to use the older style of publish, used in the CloudButton example.
+{{note op="end"}}
+
 ## Explaining the code
 
 This code stores the time until next check on the flash file system. This library makes this easier than making the individual [file system calls](/reference/device-os/api/file-system/).
