@@ -13,7 +13,7 @@ SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and t
 
 
 // This allows for USB serial debug logs
-SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+SerialLogHandler logHandler(LOG_LEVEL_INFO);
 
 unsigned long colorSetTime = 0;
 std::chrono::milliseconds colorExpirationTime = 10s;
