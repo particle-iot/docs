@@ -16,7 +16,7 @@ In this section I'll set up a device and begin exploring the Particle console.
 
 {{content-nav}}
 
-## Device setup
+## Compatible devices
 
 Once you have received your Particle device, you need to set it up, which generally involves adding it to your account and updating its software. For cellular devices, setup activates the SIM card. For Wi-Fi devices setup, adds your Wi-Fi credentials.
 
@@ -34,6 +34,14 @@ It can also be used with our M.2 SoM devices, typically in the [M.2 breakout boa
 Even though the basic techniques are the same, the exact steps will be different with a [Tracker One](/reference/datasheets/tracker/tracker-one/) or [Monitor One](/reference/datasheets/tracker/monitor-one-datasheet/), so those are not ideal for use with this guide.
 
 {{imageOverlay src="/assets/images/getting-started-guide/boron.jpg" class="no-darken"}}
+
+{{note op="start" type="gen2"}}
+You can also use this guide with Gen 2 devices, however some of the later sections use features like environment variables and 
+typed publish that are only available on Gen 3 and Gen 4 devices. You can still set up your Gen 2 device and begin programming 
+it using this guide.
+{{note op="end"}}
+
+## Device setup
 
 You will generally set up your device from a computer (Windows, Linux, Mac) connected by USB to your devices. A Chromebook can be used for device setup, but you'll need a full computer to install and use the Particle Workbench development environment.
 
