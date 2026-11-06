@@ -2,7 +2,7 @@
 // Export as HTML
 // Copy the html file to power.html in this directory
 // Run the script:
-//  node app.js
+//  npm run power-consumption
 // This will update src/assets/files/power.json if the file has changed
 
 // File structure:
@@ -21,7 +21,7 @@ const mdOutputPath = path.join(__dirname, 'power.md');
 
 async function run() {
     try {
-        const html = fs.readFileSync('power.html', 'utf8');
+        const html = fs.readFileSync(path.join(__dirname, 'power.html'), 'utf8');
     
         const $ = cheerio.load(html);   
     

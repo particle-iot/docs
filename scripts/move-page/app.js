@@ -450,7 +450,7 @@ async function run() {
 
 
         if (fixLinks) {
-            const cmd = 'cd ../FixLinks && node app.js';
+            const cmd = 'node "' + path.join(__dirname, '..', 'FixLinks', 'app.js') + '"';
             console.log('Fixing links ' + cmd);
             const { stdout, stderr } = await exec(cmd);
             console.log(stderr + stdout);

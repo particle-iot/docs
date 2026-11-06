@@ -101,6 +101,65 @@ NOTE: If no options are specified, then ALL options will be selected.
 The containerized version is not regularly used. It will probably work, but is not guaranteed to.
 
 
+Command line tools
+------------------
+
+The `scripts` directory contains a number of maintenance tools. They all share the dependencies in the top-level `package.json`, so a single `npm install` in the top of the repository is all that's needed. Run them from the top of the repository using `npm run`. To pass options to a tool, put them after `--`:
+
+```none
+npm run library-tool -- --generate
+```
+
+| Command | Description |
+| :--- | :--- |
+| `npm run api-rename-section` | Rename a section of the Device OS API reference (interactive) |
+| `npm run carriers-update` | Update docs Markdown when `carriers.json` is updated |
+| `npm run export-md` | Export a docs page to Markdown (`--dest` is relative to the top of the repository) |
+| `npm run fake-data` | Generate fake data (device IDs, serial numbers, ICCIDs) for testing |
+| `npm run fix-links` | Fix links within the docs |
+| `npm run fix-tracker-hex` | Fix hex files for the Tracker device |
+| `npm run library-tool` | Particle library tester and data generating tool (see below) |
+| `npm run map-fix` | Update the world map SVG |
+| `npm run menu-json-upgrade` | Upgrade menu JSON files |
+| `npm run move-page` | Move a docs page and add redirects (interactive) |
+| `npm run pin-info-update` | Fix up the `pinInfo.json` file |
+| `npm run pinmap-diagram` | Generate pinmap diagram SVG files |
+| `npm run power-consumption` | Parse the power consumption reference manual (put the HTML export in `scripts/power-consumption/power.html`) |
+| `npm run release-update` | Update release notes and device restore binaries for new Device OS releases |
+| `npm run ticket-forms` | Extract ticket forms and fields from the Zendesk guide (requires the `ZENDESK_AUTH` environment variable) |
+| `npm run title-case-fixer` | Fix capitalization of Markdown headers |
+| `npm run update-app-notes` | Update the application notes tiles from the marketing website (requires Node.js 20 or later) |
+
+The `scripts/ticket-processor` tool runs on a different server, so it is not part of the top-level package. It has its own `package.json` and is run from its own directory using `npm install` and `node app.js`.
+
+### Access token
+
+The `library-tool` and `release-update` tools need a Particle API access token. Copy `scripts/config.example.json` to `scripts/config.json` (which is not committed to git) and edit it:
+
+```json
+{
+    "accessToken": "xxx"
+}
+```
+
+Shared code for reading this file is in `scripts/lib/script-config.js`.
+
+### Library tool
+
+```none
+npm run library-tool -- --fetch-library-list --download-libraries --test-builds --generate
+```
+
+Options:
+
+- `--fetch-library-list` Downloads the library list from the API instead of using `data/libraryList.json`
+- `--download-libraries` Downloads any missing libraries to `data/libraries`
+- `--test-builds` Tests any libraries that have not been built. Build status is stored in `data/libraryData.json`
+- `--generate` Generates data files in the docs repository (this also does `--generate-index`)
+- `--generate-index` Generates an abbreviated index of libraries in `src/assets/files/libraryIndex.json`
+
+These are in the `scripts/LibraryTool` directory. Note that `data/libraries` and `data/libraryList.json` are not committed to github, as they are huge and can be regenerated if needed. The build status in `data/libraryData.json` is stored.
+
 Updating Production Documentation
 ---------------------------------
 

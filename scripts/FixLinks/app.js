@@ -10,7 +10,7 @@ console.log('contentRoot=' + contentRoot);
 
 let redirects = JSON.parse(fs.readFileSync(path.join(topDir, 'config/redirects.json')));
 
-const troubleshootingFile = '../../src/assets/files/troubleshooting.json';
+const troubleshootingFile = path.join(topDir, 'src/assets/files/troubleshooting.json');
 
 
 // To simplify the logic below, we replicate every redirect that does not end with a '/' to one that does

@@ -11,7 +11,7 @@
 // To use:
 // nvm use 20
 // npm install
-// node app.js
+// npm run update-app-notes
 
 const fs = require('fs');
 const path = require('path');
@@ -26,8 +26,9 @@ async function run() {
     try {
         let html;
 
-        if (fs.existsSync('test.html')) {
-            html = fs.readFileSync('test.html', 'utf8');
+        const testHtmlPath = path.join(__dirname, 'test.html');
+        if (fs.existsSync(testHtmlPath)) {
+            html = fs.readFileSync(testHtmlPath, 'utf8');
         }
         else {
             const fetchRes = await fetch('https://www.particle.io/application-notes/');

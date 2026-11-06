@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 
-const pinInfoPath = '../../src/assets/files/pinInfo.json';
+const pinInfoPath = path.join(__dirname, '../../src/assets/files/pinInfo.json');
 
 const pinInfo = JSON.parse(fs.readFileSync(pinInfoPath, 'utf8'));
 

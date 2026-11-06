@@ -37,7 +37,7 @@ var fork = require('./fork');
 var fixLinks = require('./fixLinks');
 var inPlace = require('metalsmith-in-place');
 var watch = require('metalsmith-watch');
-var autotoc = require('metalsmith-autotoc');
+var headerIds = require('./header-ids');
 var fileMetadata = require('metalsmith-filemetadata');
 var msIf = require('metalsmith-if');
 var canonical = require('metalsmith-canonical');
@@ -421,8 +421,8 @@ exports.metalsmith = function () {
     // THIS IS IT!
     // Render the main docs files into HTML
     .use(markdown())
-    // Add a toc key for each file based on the HTML header elements in the file
-    .use(autotoc({
+    // Add an id to each h2 and h3 header element so they can be linked to
+    .use(headerIds({
       selector: 'h2, h3',
       pattern: '**/**/*.md'
     }))

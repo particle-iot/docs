@@ -2,7 +2,7 @@
 // Export as HTML
 // Copy the html file to power.html in this directory
 // Run the script:
-//  node app.js
+//  npm run title-case-fixer
 // This will update src/assets/files/power.json if the file has changed
 
 // File structure:
