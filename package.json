@@ -24,6 +24,7 @@
         "move-page": "node ./scripts/move-page/app.js",
         "pin-info-update": "node ./scripts/pin-info-update/app.js",
         "pinmap-diagram": "node ./scripts/pinmap-diagram/app.js",
+        "project-build-tester": "node ./scripts/ProjectBuildTester/app.js",
         "power-consumption": "node ./scripts/power-consumption/app.js",
         "release-update": "node ./scripts/release-update/app.js",
         "ticket-forms": "node ./scripts/ticket-forms/app.js",
