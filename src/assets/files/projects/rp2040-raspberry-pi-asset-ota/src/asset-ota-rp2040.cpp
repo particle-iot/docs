@@ -32,7 +32,7 @@ void initRP2040();
 // In this case, the asset is the STM32 binary. It will be flashed before the main program starts
 
 void handleAssets(spark::Vector<ApplicationAsset> assets);
-STARTUP(System.onAssetsOta(handleAssets));
+STARTUP(System.onAssetOta(handleAssets));
 
 void handleAssets(spark::Vector<ApplicationAsset> assets) {
   initRP2040();

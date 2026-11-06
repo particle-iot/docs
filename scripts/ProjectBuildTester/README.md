@@ -39,7 +39,7 @@ auto-selected. A platform is only built for a version if that version lists it i
 | `disabled` | `true` to skip the project |
 
 `features` is a list of named restrictions, each with `minVersion` and/or `maxVersion` (inclusive) and optionally
-`deviceConstants`. For example `BLE.setAdvertisingPhy` is `{"minVersion": "3.1.0", "deviceConstants": {"generation": 3}}`.
+`platforms` (an explicit list of allowed platform names, for things with no deviceConstants entry) and `deviceConstants`. For example `BLE.setAdvertisingPhy` is `{"minVersion": "3.1.0", "deviceConstants": {"generation": 3}}`.
 
 `deviceConstants` conditions (used in features and in per-project config) are checked against
 `deviceConstants` in `src/assets/files/carriers.json`: `generation` (number or array), `baseMcu` (string or array),

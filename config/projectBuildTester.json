@@ -15,7 +15,8 @@
             "p2",
             "argon",
             "electron",
-            "photon"
+            "photon",
+            "msom"
         ]
     },
     "features": {
@@ -48,6 +49,11 @@
         },
         "PRODUCT_VERSION without PRODUCT_ID": {
             "minVersion": "4.0.0"
+        },
+        "Serial2": {
+            "platforms": [
+                "msom"
+            ]
         },
         "System.getEnv": {
             "minVersion": "6.4.0"
@@ -87,18 +93,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -132,18 +141,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -177,18 +189,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -222,18 +237,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -252,12 +270,14 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -276,18 +296,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -321,18 +344,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -366,18 +392,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -411,18 +440,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -443,12 +475,14 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -472,18 +506,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -502,18 +539,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -571,18 +611,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -637,18 +680,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -682,18 +728,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -729,18 +778,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -776,18 +828,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -819,18 +874,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -880,14 +938,17 @@
                     },
                     "5.9.0": {
                         "argon": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -914,14 +975,17 @@
                     },
                     "5.9.0": {
                         "argon": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -955,18 +1019,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1000,18 +1067,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1089,18 +1159,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1132,18 +1205,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1200,18 +1276,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1245,18 +1324,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1290,18 +1372,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1352,12 +1437,14 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1392,40 +1479,28 @@
         },
         "enviro-hat": {
             "config": {
-                "addPlatforms": [
-                    "msom"
-                ],
                 "deviceConstants": {
                     "features": [
                         "muonCompatible"
                     ]
-                }
+                },
+                "platforms": [
+                    "msom"
+                ]
             },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "b5som": "failure"
-                    },
-                    "3.3.1": {
-                        "b5som": "failure"
-                    },
-                    "4.2.0": {
-                        "b5som": "failure"
-                    },
                     "5.9.0": {
-                        "b5som": "failure",
-                        "msom": "failure"
+                        "msom": "success"
                     },
                     "6.4.1": {
-                        "b5som": "failure",
-                        "msom": "failure"
+                        "msom": "success"
                     },
                     "6.6.0": {
-                        "b5som": "failure",
-                        "msom": "failure"
+                        "msom": "success"
                     }
                 },
-                "hash": "116422bf6bf70abd7d234fceb2d8d6b49a69bf66e2a1d682eae56bc5aab4a087"
+                "hash": "3007b93169977e50703b49e41a3d6ffb60e987b8f60186e954fced168508b9f5"
             }
         },
         "firmware-update-events": {
@@ -1445,18 +1520,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1475,12 +1553,14 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1499,18 +1579,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1529,12 +1612,14 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1553,12 +1638,14 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1592,18 +1679,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1669,18 +1759,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1688,7 +1781,11 @@
             }
         },
         "neopixel-example": {
-            "config": {},
+            "config": {
+                "excludePlatforms": [
+                    "msom"
+                ]
+            },
             "results": {
                 "builds": {
                     "2.3.1": {
@@ -1714,18 +1811,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "failure",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "failure",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "failure",
                         "p2": "success"
                     }
                 },
@@ -1762,32 +1862,27 @@
         },
         "rp2040-raspberry-pi-asset-ota": {
             "config": {
+                "platforms": [
+                    "msom"
+                ],
                 "requiresFeatures": [
-                    "ApplicationAsset"
+                    "ApplicationAsset",
+                    "Serial2"
                 ]
             },
             "results": {
                 "builds": {
                     "5.9.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     },
                     "6.4.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     },
                     "6.6.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     }
                 },
-                "hash": "7e2430fcb36cc9c883da2b8d6486c4dfe283ef79bcf5af496537d05d9f3286e8"
+                "hash": "774b0afd4b8a1fe50a701a52c2dbad0453bb8056257db1092c322ebf8ccfc667"
             }
         },
         "sound-asset-ota": {
@@ -1802,18 +1897,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },
@@ -1832,18 +1930,21 @@
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
                         "boron": "success",
+                        "msom": "success",
                         "p2": "success"
                     }
                 },

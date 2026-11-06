@@ -9,14 +9,14 @@ SerialLogHandler logHandler(LOG_LEVEL_INFO);
 
 bool i2cscan(TwoWire &wire);
 
-#include "Adafruit_GFX.h"    // Core graphics library
+#include "Adafruit_GFX_RK.h"    // Core graphics library
 // #include "Adafruit_ST7735.h" // Display library 
 
 #include "Adafruit_BME280_RK.h"
 
 #include "LTR559_RK.h"
 
-#include "Sparkfun_ADS1015_Arduino_Library.h"
+#include "SparkFun_ADS1015_Arduino_Library.h"
 
 #include "PMS5003_RK.h"
 

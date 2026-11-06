@@ -74,7 +74,7 @@ const platformIds = {
 const defaultConfig = {
     // Defaults for all projects. Each project can override these in projects.<name>.config
     defaults: {
-        platforms: ['boron', 'b5som', 'p2', 'argon', 'electron', 'photon'],
+        platforms: ['boron', 'b5som', 'p2', 'argon', 'electron', 'photon', 'msom'],
         majorVersions: [6, 5, 4, 3, 2], // Latest GA of each of these is tested
         includePreview: true,           // Also test the latest preview if newer than the latest GA
         extraVersions: [],              // Additional specific versions to test, such as ["6.2.1"]
@@ -292,13 +292,16 @@ function matchDeviceConstants(cond, platform, deviceConstants) {
 
 /**
  * Checks a restriction object with any of minVersion, maxVersion, and deviceConstants against a
- * version and platform. Features in config.features and per-project config use this same format.
+ * version and platform (and platforms, an explicit list of allowed platform names). Features in config.features and per-project config use this same format.
  */
 function matchRestriction(r, version, platform, deviceConstants) {
     if (r.minVersion && compareVersions(version, r.minVersion) < 0) {
         return false;
     }
     if (r.maxVersion && compareVersions(version, r.maxVersion) > 0) {
+        return false;
+    }
+    if (r.platforms && platform && !r.platforms.includes(platform)) {
         return false;
     }
     if (r.deviceConstants && platform && !matchDeviceConstants(r.deviceConstants, platform, deviceConstants)) {
