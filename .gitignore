@@ -14,3 +14,9 @@ _pdf-datasheets-build/
 /src/content/cards
 tmp
 crawler-cache
+# Local settings and generated data for tools in the scripts directory
+/scripts/config.json
+/scripts/*/config.json
+/scripts/LibraryTool/data/libraries
+/scripts/LibraryTool/data/libraryList.json
+/scripts/release-update/temp

@@ -222,11 +222,8 @@ describe('Crawler', function() {
 
       stats.crawled++;
 
-      var $ = cheerio.load(buf.toString(), {
-        normalizeWhitespace: false,
-        xmlMode: false,
-        decodeEntities: true
-      });
+      // cheerio 1.x parses HTML with parse5, which always decodes entities and preserves whitespace
+      var $ = cheerio.load(buf.toString());
 
       var parsedUrl = url.parse(queueItem.url);
       // is this the redirector page? follow device tree from here

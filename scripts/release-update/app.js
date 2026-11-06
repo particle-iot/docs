@@ -17,7 +17,7 @@ const { platform } = require('os');
 
 const argv = require('yargs').argv;
 
-const topDir = path.normalize(path.join('..', '..'));
+const topDir = path.normalize(path.join(__dirname, '..', '..'));
 const configDir = path.join(topDir, 'config');
 const releasesJsonPath = path.join(configDir, 'releases.json');
 
@@ -98,19 +98,8 @@ function getPlatformInfoById(id) {
     return null;
 }
 
-// config.json must contain an accessToken
-let config = {};
-try {
-    config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json'), 'utf8'));
-}
-catch(e) {
-    console.log('failed to read config.json');
-    process.exit(1);
-}
-if (!config.accessToken) {
-    console.log('config.json did not contain accessToken');
-    process.exit(1);
-}
+// scripts/config.json must contain an accessToken
+const config = require('../lib/script-config').load(['accessToken']);
 
 // Create a new empty tempDir if necessary
 const tempDir = path.join(__dirname, 'temp');
@@ -1327,30 +1316,29 @@ async function runTrackerEdgeSource(version, zipFile) { // Version without the v
     // This is not needed for Monitor Edge because it doesn't use submodules
     const repo = 'https://github.com/particle-iot/tracker-edge';
 
-    const stageDir = 'temp';
-    const edgeDir = stageDir + '/tracker-edge';
+    const stagePath = path.join(__dirname, 'temp');
+    const edgeDir = path.join(stagePath, 'tracker-edge');
 
-    const stagePath = path.join(__dirname, stageDir);
     if (!fs.existsSync(stagePath)) {
         fs.mkdirSync(stagePath);
     }
 
     var zip = new JSZip();
 
-    if (!fs.existsSync(path.join(__dirname, edgeDir))) {
-        const cmd = 'cd ' + stageDir + ' && git clone ' + repo;
+    if (!fs.existsSync(edgeDir)) {
+        const cmd = 'cd "' + stagePath + '" && git clone ' + repo;
         const { stdout, stderr } = await exec(cmd);        
     }
     {
-        const cmd = 'cd ' + edgeDir + ' && git fetch';
+        const cmd = 'cd "' + edgeDir + '" && git fetch';
         const { stdout, stderr } = await exec(cmd);
     }
     {
-        const cmd = 'cd ' + edgeDir + ' && git checkout v' + version; // was: git checkout release/v' + version;
+        const cmd = 'cd "' + edgeDir + '" && git checkout v' + version; // was: git checkout release/v' + version;
         const { stdout, stderr } = await exec(cmd);
     }
     {
-        const cmd = 'cd ' + edgeDir + ' && git submodule update --init --recursive';
+        const cmd = 'cd "' + edgeDir + '" && git submodule update --init --recursive';
         const { stdout, stderr } = await exec(cmd);
     }
     

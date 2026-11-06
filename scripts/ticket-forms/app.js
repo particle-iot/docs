@@ -8,7 +8,7 @@ const axios = require('axios');
 // Required environment variables
 // Set using commands like:
 // export ZENDESK_AUTH=user@particle.io/token:xxxxxxxxxxx
-// node app.js
+// npm run ticket-forms
 
 let config = {};
 

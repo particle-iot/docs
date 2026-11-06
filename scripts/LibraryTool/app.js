@@ -14,7 +14,7 @@ const argv = require('yargs').argv;
 var Particle = require('particle-api-js');
 var particle = new Particle();
 
-const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json'), 'utf8'));
+const config = require('../lib/script-config').load(['accessToken']);
 
 
 const targetInfo = [

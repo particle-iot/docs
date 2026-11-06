@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const argv = require('yargs').argv;
 
-const topDir = path.normalize(path.join('..', '..'));
+const topDir = path.normalize(path.join(__dirname, '..', '..'));
 
 const filesDir = path.join(topDir, 'src', 'assets', 'files');
 
