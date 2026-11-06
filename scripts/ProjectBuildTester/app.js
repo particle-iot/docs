@@ -39,7 +39,21 @@ const topDir = path.join(__dirname, '..', '..');
 const projectsDir = path.join(topDir, 'src', 'assets', 'files', 'projects');
 const deviceOsVersionsPath = path.join(topDir, 'src', 'assets', 'files', 'deviceOsVersions.json');
 const configPath = path.join(topDir, 'config', 'projectBuildTester.json');
+const carriersPath = path.join(topDir, 'src', 'assets', 'files', 'carriers.json');
 const logsDir = path.join(__dirname, 'logs'); // git ignored
+const lastRunPath = path.join(logsDir, 'lastRun.txt'); // copy of the console output of the latest run
+
+// Copy everything written with console.log to lastRun.txt (replaced at the start of each run)
+fs.mkdirSync(logsDir, { recursive: true });
+fs.writeFileSync(lastRunPath, '');
+const origConsoleLog = console.log;
+console.log = (...args) => {
+    origConsoleLog(...args);
+    try {
+        fs.appendFileSync(lastRunPath, args.map((a) => typeof a === 'string' ? a : require('util').inspect(a)).join(' ') + '\n');
+    }
+    catch (e) {}
+};
 
 // Platform names (as used by the Particle CLI) by platform ID, as used in deviceOsVersions.json
 const platformIds = {
@@ -64,6 +78,16 @@ const defaultConfig = {
         majorVersions: [6, 5, 4, 3, 2], // Latest GA of each of these is tested
         includePreview: true,           // Also test the latest preview if newer than the latest GA
         extraVersions: [],              // Additional specific versions to test, such as ["6.2.1"]
+    },
+    // Features that a project can list in requiresFeatures. Each has any of minVersion, maxVersion
+    // (inclusive) and deviceConstants (see matchDeviceConstants). Added here if missing from the config file.
+    features: {
+        'Variant': { minVersion: '6.1.0' },
+        'ApplicationAsset': { minVersion: '5.5.0' },
+        'System.getEnv': { minVersion: '6.4.0' },
+        'CloudEvent': { minVersion: '6.3.0' },
+        'Ledger': { minVersion: '6.1.0' },
+        'BLE.setAdvertisingPhy': { minVersion: '3.1.0', deviceConstants: { generation: 3 } },
     },
     projects: {},
 };
@@ -173,6 +197,7 @@ function loadConfig() {
         config = {};
     }
     config.defaults = Object.assign({}, defaultConfig.defaults, config.defaults);
+    config.features = config.features || JSON.parse(JSON.stringify(defaultConfig.features));
     config.projects = config.projects || {};
     return config;
 }
@@ -182,6 +207,7 @@ function saveConfig(config) {
     const tmpPath = configPath + '.tmp';
     fs.writeFileSync(tmpPath, JSON.stringify(sortedObject({
         defaults: config.defaults,
+        features: config.features,
         projects: config.projects,
     }), null, 4) + '\n');
     fs.renameSync(tmpPath, configPath);
@@ -224,11 +250,68 @@ function hashProject(projectName) {
     return hash.digest('hex');
 }
 
+
+// ---------------------------------------------------------------------------------------------
+// Restrictions: features and device constants
+
+/** Loads the deviceConstants from carriers.json, keyed by platform name */
+function loadDeviceConstants() {
+    const carriers = JSON.parse(fs.readFileSync(carriersPath, 'utf8'));
+    return carriers.deviceConstants;
+}
+
+/**
+ * Checks device constants conditions for a platform.
+ *
+ *   generation:       number or array of numbers; the platform's generation must match one
+ *   baseMcu:          string or array of strings; the platform's baseMcu must match one
+ *   features:         array; the platform must have all of these deviceConstants features (wifi, ble, cellular, ...)
+ *   excludeFeatures:  array; the platform must have none of these
+ */
+function matchDeviceConstants(cond, platform, deviceConstants) {
+    const dc = deviceConstants[platform];
+    if (!dc) {
+        return false;
+    }
+    const arr = (v) => Array.isArray(v) ? v : [v];
+    if (cond.generation !== undefined && !arr(cond.generation).includes(dc.generation)) {
+        return false;
+    }
+    if (cond.baseMcu !== undefined && !arr(cond.baseMcu).includes(dc.baseMcu)) {
+        return false;
+    }
+    const features = dc.features || [];
+    if (cond.features && !cond.features.every((f) => features.includes(f))) {
+        return false;
+    }
+    if (cond.excludeFeatures && cond.excludeFeatures.some((f) => features.includes(f))) {
+        return false;
+    }
+    return true;
+}
+
+/**
+ * Checks a restriction object with any of minVersion, maxVersion, and deviceConstants against a
+ * version and platform. Features in config.features and per-project config use this same format.
+ */
+function matchRestriction(r, version, platform, deviceConstants) {
+    if (r.minVersion && compareVersions(version, r.minVersion) < 0) {
+        return false;
+    }
+    if (r.maxVersion && compareVersions(version, r.maxVersion) > 0) {
+        return false;
+    }
+    if (r.deviceConstants && platform && !matchDeviceConstants(r.deviceConstants, platform, deviceConstants)) {
+        return false;
+    }
+    return true;
+}
+
 /**
  * Determine the version/platform combinations to build for a project.
  * Returns [{version, platform}] sorted.
  */
-function computeTargets(projectCfg, defaultVersions, deviceOs, config) {
+function computeTargets(projectCfg, defaultVersions, deviceOs, config, deviceConstants) {
     let platforms = projectCfg.platforms || config.defaults.platforms;
     platforms = platforms.concat(projectCfg.addPlatforms || []);
     const exclude = projectCfg.excludePlatforms || [];
@@ -249,10 +332,7 @@ function computeTargets(projectCfg, defaultVersions, deviceOs, config) {
             continue; // already warned about
         }
         // minVersion and maxVersion are inclusive, and ignore any suffix (3.2.1-p2.3 is treated as 3.2.1)
-        if (projectCfg.minVersion && compareVersions(version, projectCfg.minVersion) < 0) {
-            continue;
-        }
-        if (projectCfg.maxVersion && compareVersions(version, projectCfg.maxVersion) > 0) {
+        if (!matchRestriction(projectCfg, version, null, {})) {
             continue;
         }
         for (const platform of platforms) {
@@ -260,6 +340,16 @@ function computeTargets(projectCfg, defaultVersions, deviceOs, config) {
                 continue; // This Device OS version does not support this platform
             }
             if (argv.platform && !argv.platform.includes(platform)) {
+                continue;
+            }
+            // Project's own deviceConstants conditions
+            if (projectCfg.deviceConstants && !matchDeviceConstants(projectCfg.deviceConstants, platform, deviceConstants)) {
+                continue;
+            }
+            // Features the project requires (see config.features)
+            const featuresOk = (projectCfg.requiresFeatures || []).every((name) =>
+                matchRestriction(config.features[name], version, platform, deviceConstants));
+            if (!featuresOk) {
                 continue;
             }
             targets.push({ version, platform });
@@ -295,9 +385,15 @@ async function compile(projectName, version, platform) {
     }
 }
 
+/**
+ * Reduces compiler output to the interesting lines: errors (not the long compiler command lines),
+ * or the last lines if there are none.
+ */
 function tail(log, lines) {
     const arr = log.split('\n').filter((l) => l.trim().length);
-    return arr.slice(-lines).join('\n');
+    const isCommand = (l) => /^(ccache |arm-none-eabi-|make|mkdir|Invoking|Building)/.test(l);
+    const errors = arr.filter((l) => /error|undefined reference|ld:|Compile failed/i.test(l) && !isCommand(l));
+    return (errors.length ? errors : arr.filter((l) => !isCommand(l))).slice(0, lines).map((l) => l.slice(0, 240)).join('\n');
 }
 
 /** Runs async tasks (functions) with limited concurrency */
@@ -318,6 +414,7 @@ async function runPool(tasks, concurrency) {
 async function main() {
     const deviceOs = loadDeviceOsVersions();
     const config = loadConfig();
+    const deviceConstants = loadDeviceConstants();
     const isFullRun = !argv.project && !argv['os-version'] && !argv.platform;
 
     // Common versions
@@ -341,6 +438,22 @@ async function main() {
         }
     }
     console.log('Device OS versions: ' + defaultVersions.map((v) => v.version + ' (' + v.reason + ')').join(', '));
+
+    // Check that the feature names used by projects exist, and the platforms are in deviceConstants
+    for (const name of Object.keys(config.projects)) {
+        const pc = (config.projects[name] && config.projects[name].config) || {};
+        for (const f of pc.requiresFeatures || []) {
+            if (!config.features[f]) {
+                console.log('project ' + name + ' requires feature ' + f + ' that is not in the features list of the config');
+                process.exit(2);
+            }
+        }
+    }
+    for (const p of config.defaults.platforms) {
+        if (!deviceConstants[p]) {
+            console.log('warning: platform ' + p + ' is not in deviceConstants in carriers.json');
+        }
+    }
 
     // Projects: add entries for new projects, report removed ones
     const projectNames = findProjects();
@@ -385,7 +498,7 @@ async function main() {
             continue;
         }
 
-        const targets = computeTargets(projectCfg, defaultVersions, deviceOs, config);
+        const targets = computeTargets(projectCfg, defaultVersions, deviceOs, config, deviceConstants);
         const hash = hashProject(name);
 
         if (!entry.results || entry.results.hash !== hash) {

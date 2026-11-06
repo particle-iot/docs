@@ -18,6 +18,47 @@
             "photon"
         ]
     },
+    "features": {
+        "ApplicationAsset": {
+            "minVersion": "5.5.0"
+        },
+        "BLE.pairing": {
+            "minVersion": "3.1.0"
+        },
+        "BLE.provisioningMode": {
+            "minVersion": "3.3.0"
+        },
+        "BLE.setAdvertisingPhy": {
+            "deviceConstants": {
+                "generation": 3
+            },
+            "minVersion": "3.1.0"
+        },
+        "BLE.setScanPhy": {
+            "minVersion": "3.1.0"
+        },
+        "CloudEvent": {
+            "minVersion": "6.3.0"
+        },
+        "HAL_DEVICE_SECRET_SIZE": {
+            "minVersion": "4.0.0"
+        },
+        "Ledger": {
+            "minVersion": "6.1.0"
+        },
+        "PRODUCT_VERSION without PRODUCT_ID": {
+            "minVersion": "4.0.0"
+        },
+        "System.getEnv": {
+            "minVersion": "6.4.0"
+        },
+        "SystemPowerConfiguration.auxiliaryPowerControlPin": {
+            "minVersion": "5.9.0"
+        },
+        "Variant": {
+            "minVersion": "6.1.0"
+        }
+    },
     "projects": {
         "BlinkLed": {
             "config": {},
@@ -200,34 +241,13 @@
             }
         },
         "ControlRequestTest": {
-            "config": {},
+            "config": {
+                "requiresFeatures": [
+                    "Variant"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "4.2.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
-                    "5.9.0": {
-                        "argon": "success",
-                        "b5som": "success",
-                        "boron": "success",
-                        "p2": "success"
-                    },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -245,28 +265,13 @@
             }
         },
         "FileAssetExample": {
-            "config": {},
+            "config": {
+                "requiresFeatures": [
+                    "ApplicationAsset"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "4.2.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "5.9.0": {
                         "argon": "success",
                         "b5som": "success",
@@ -425,34 +430,15 @@
             }
         },
         "TemperatureSensor3": {
-            "config": {},
+            "config": {
+                "requiresFeatures": [
+                    "Variant",
+                    "CloudEvent",
+                    "System.getEnv"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "4.2.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
-                    "5.9.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "p2": "failure"
-                    },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -470,23 +456,13 @@
             }
         },
         "UpdateDemo": {
-            "config": {},
+            "config": {
+                "requiresFeatures": [
+                    "PRODUCT_VERSION without PRODUCT_ID"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
                     "4.2.0": {
                         "argon": "success",
                         "b5som": "success",
@@ -516,7 +492,9 @@
         },
         "arduino-uno-asset-ota": {
             "config": {
-                "minVersion": "5.5.0"
+                "requiresFeatures": [
+                    "ApplicationAsset"
+                ]
             },
             "results": {
                 "builds": {
@@ -543,45 +521,26 @@
             }
         },
         "automation-hat": {
-            "config": {},
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "muonCompatible"
+                    ]
+                },
+                "platforms": [
+                    "msom"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "4.2.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "5.9.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     },
                     "6.4.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     },
                     "6.6.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     }
                 },
                 "hash": "08fa8c2395c86c86a19d214f9472d82f121a1cf9733939dd3c887be575f19484"
@@ -589,18 +548,15 @@
         },
         "ble-heartrate": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
-                ]
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "minVersion": "3.0.0"
             },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "3.3.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -635,10 +591,11 @@
         },
         "ble-heartrate-2.x": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
-                ],
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
                 "maxVersion": "2.99.99",
                 "minVersion": "2.0.0"
             },
@@ -655,18 +612,17 @@
         },
         "ble-lesc1-central": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.pairing"
                 ]
             },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "3.3.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -701,18 +657,17 @@
         },
         "ble-lesc1-peripheral": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.pairing"
                 ]
             },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "3.3.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -747,10 +702,11 @@
         },
         "ble-logging": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
-                ]
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                }
             },
             "results": {
                 "builds": {
@@ -793,10 +749,11 @@
         },
         "ble-nearby-beacon": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
-                ]
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                }
             },
             "results": {
                 "builds": {
@@ -839,18 +796,15 @@
         },
         "ble-nearby-central": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
-                ]
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "minVersion": "3.0.0"
             },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "3.3.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -885,10 +839,11 @@
         },
         "ble-nearby-central-2.x": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
-                ],
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
                 "maxVersion": "2.99.99",
                 "minVersion": "2.0.0"
             },
@@ -905,44 +860,34 @@
         },
         "ble-provisioning": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
+                "deviceConstants": {
+                    "features": [
+                        "ble",
+                        "wifi"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.provisioningMode"
                 ]
             },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "3.3.1": {
-                        "argon": "success",
-                        "b5som": "failure",
-                        "boron": "failure"
+                        "argon": "success"
                     },
                     "4.2.0": {
-                        "argon": "success",
-                        "b5som": "failure",
-                        "boron": "failure"
+                        "argon": "success"
                     },
                     "5.9.0": {
                         "argon": "success",
-                        "b5som": "failure",
-                        "boron": "failure",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
-                        "b5som": "failure",
-                        "boron": "failure",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
-                        "b5som": "failure",
-                        "boron": "failure",
                         "p2": "success"
                     }
                 },
@@ -951,44 +896,32 @@
         },
         "ble-provisioning3": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
+                "deviceConstants": {
+                    "features": [
+                        "ble",
+                        "wifi"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.provisioningMode",
+                    "HAL_DEVICE_SECRET_SIZE"
                 ]
             },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "4.2.0": {
-                        "argon": "success",
-                        "b5som": "failure",
-                        "boron": "failure"
+                        "argon": "success"
                     },
                     "5.9.0": {
                         "argon": "success",
-                        "b5som": "failure",
-                        "boron": "failure",
                         "p2": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
-                        "b5som": "failure",
-                        "boron": "failure",
                         "p2": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
-                        "b5som": "failure",
-                        "boron": "failure",
                         "p2": "success"
                     }
                 },
@@ -997,18 +930,17 @@
         },
         "ble-rssi-central": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.setScanPhy"
                 ]
             },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "3.3.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -1043,18 +975,17 @@
         },
         "ble-rssi-coded-central": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.setScanPhy"
                 ]
             },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "3.3.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -1089,18 +1020,17 @@
         },
         "ble-rssi-coded-peripheral": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.setAdvertisingPhy"
                 ]
             },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "3.3.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -1114,20 +1044,17 @@
                     "5.9.0": {
                         "argon": "success",
                         "b5som": "success",
-                        "boron": "success",
-                        "p2": "success"
+                        "boron": "success"
                     },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
-                        "boron": "success",
-                        "p2": "success"
+                        "boron": "success"
                     },
                     "6.6.0": {
                         "argon": "success",
                         "b5som": "success",
-                        "boron": "success",
-                        "p2": "success"
+                        "boron": "success"
                     }
                 },
                 "hash": "e7247c5374e5b3e4d6a5336cc6cf138b3d3689f407768cf0c0f52e43e3fc9b9e"
@@ -1135,10 +1062,11 @@
         },
         "ble-rssi-peripheral": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
-                ]
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                }
             },
             "results": {
                 "builds": {
@@ -1181,18 +1109,15 @@
         },
         "ble-uart-central": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
-                ]
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "minVersion": "3.0.0"
             },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "3.3.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -1227,10 +1152,11 @@
         },
         "ble-uart-central-2.x": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
-                ],
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
                 "maxVersion": "2.99.99",
                 "minVersion": "2.0.0"
             },
@@ -1247,10 +1173,11 @@
         },
         "ble-uart-peripheral": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
-                ]
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                }
             },
             "results": {
                 "builds": {
@@ -1293,18 +1220,17 @@
         },
         "ble-yesno-central": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.pairing"
                 ]
             },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "3.3.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -1339,18 +1265,17 @@
         },
         "ble-yesno-peripheral": {
             "config": {
-                "excludePlatforms": [
-                    "electron",
-                    "photon"
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.pairing"
                 ]
             },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "3.3.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -1384,79 +1309,45 @@
             }
         },
         "can-hat": {
-            "config": {},
+            "config": {
+                "addPlatforms": [
+                    "msom"
+                ],
+                "deviceConstants": {
+                    "features": [
+                        "muonCompatible"
+                    ]
+                },
+                "requiresFeatures": [
+                    "SystemPowerConfiguration.auxiliaryPowerControlPin"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "4.2.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "5.9.0": {
-                        "argon": "failure",
                         "b5som": "success",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     },
                     "6.4.1": {
-                        "argon": "failure",
                         "b5som": "success",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     },
                     "6.6.0": {
-                        "argon": "failure",
                         "b5som": "success",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     }
                 },
                 "hash": "328a9a05dfedb2fecf05a72bce95bad253b7f58e31454124f3e9a9c4c41e4c78"
             }
         },
         "device-info-ledger": {
-            "config": {},
+            "config": {
+                "requiresFeatures": [
+                    "Ledger"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "4.2.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
-                    "5.9.0": {
-                        "argon": "success",
-                        "b5som": "success",
-                        "boron": "success",
-                        "p2": "success"
-                    },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -1474,113 +1365,77 @@
             }
         },
         "display-button-hat": {
-            "config": {},
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "muonCompatible"
+                    ]
+                },
+                "platforms": [
+                    "msom"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "4.2.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "5.9.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     },
                     "6.4.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     },
                     "6.6.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     }
                 },
                 "hash": "fda602b68d9a4149d6eb16d711214aa99590698cf18ec860ac188dd6b8476c71"
             }
         },
         "enviro-hat": {
-            "config": {},
+            "config": {
+                "addPlatforms": [
+                    "msom"
+                ],
+                "deviceConstants": {
+                    "features": [
+                        "muonCompatible"
+                    ]
+                }
+            },
             "results": {
                 "builds": {
                     "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
+                        "b5som": "failure"
                     },
                     "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
+                        "b5som": "failure"
                     },
                     "4.2.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
+                        "b5som": "failure"
                     },
                     "5.9.0": {
-                        "argon": "failure",
                         "b5som": "failure",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "failure"
                     },
                     "6.4.1": {
-                        "argon": "failure",
                         "b5som": "failure",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "failure"
                     },
                     "6.6.0": {
-                        "argon": "failure",
                         "b5som": "failure",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "failure"
                     }
                 },
                 "hash": "116422bf6bf70abd7d234fceb2d8d6b49a69bf66e2a1d682eae56bc5aab4a087"
             }
         },
         "firmware-update-events": {
-            "config": {},
+            "config": {
+                "requiresFeatures": [
+                    "PRODUCT_VERSION without PRODUCT_ID"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
                     "4.2.0": {
                         "argon": "success",
                         "b5som": "success",
@@ -1609,34 +1464,13 @@
             }
         },
         "getting-started-device-ledger": {
-            "config": {},
+            "config": {
+                "requiresFeatures": [
+                    "Ledger"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "4.2.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
-                    "5.9.0": {
-                        "argon": "success",
-                        "b5som": "success",
-                        "boron": "success",
-                        "p2": "success"
-                    },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -1655,7 +1489,9 @@
         },
         "lcd-image-asset-ota": {
             "config": {
-                "minVersion": "5.5.0"
+                "requiresFeatures": [
+                    "ApplicationAsset"
+                ]
             },
             "results": {
                 "builds": {
@@ -1682,34 +1518,13 @@
             }
         },
         "ledger-config": {
-            "config": {},
+            "config": {
+                "requiresFeatures": [
+                    "Ledger"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "4.2.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
-                    "5.9.0": {
-                        "argon": "success",
-                        "b5som": "success",
-                        "boron": "success",
-                        "p2": "success"
-                    },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -1727,34 +1542,13 @@
             }
         },
         "ledger-sensor": {
-            "config": {},
+            "config": {
+                "requiresFeatures": [
+                    "Ledger"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "4.2.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
-                    "5.9.0": {
-                        "argon": "success",
-                        "b5som": "success",
-                        "boron": "success",
-                        "p2": "success"
-                    },
                     "6.4.1": {
                         "argon": "success",
                         "b5som": "success",
@@ -1817,45 +1611,32 @@
             }
         },
         "modbus-hat": {
-            "config": {},
+            "config": {
+                "addPlatforms": [
+                    "msom"
+                ],
+                "deviceConstants": {
+                    "features": [
+                        "muonCompatible"
+                    ]
+                },
+                "requiresFeatures": [
+                    "SystemPowerConfiguration.auxiliaryPowerControlPin"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "4.2.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "5.9.0": {
-                        "argon": "failure",
                         "b5som": "success",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     },
                     "6.4.1": {
-                        "argon": "failure",
                         "b5som": "success",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     },
                     "6.6.0": {
-                        "argon": "failure",
                         "b5som": "success",
-                        "boron": "failure",
-                        "p2": "failure"
+                        "msom": "success"
                     }
                 },
                 "hash": "0eceb84fa9459aa3f7137c74757a35fdb090b48ea939e01cd90c0dc65fa457f3"
@@ -1952,45 +1733,28 @@
             }
         },
         "power-log": {
-            "config": {},
+            "config": {
+                "platforms": [
+                    "boron",
+                    "b5som"
+                ],
+                "requiresFeatures": [
+                    "SystemPowerConfiguration.auxiliaryPowerControlPin"
+                ]
+            },
             "results": {
                 "builds": {
-                    "2.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "3.3.1": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure",
-                        "electron": "failure",
-                        "photon": "failure"
-                    },
-                    "4.2.0": {
-                        "argon": "failure",
-                        "b5som": "failure",
-                        "boron": "failure"
-                    },
                     "5.9.0": {
-                        "argon": "failure",
                         "b5som": "success",
-                        "boron": "success",
-                        "p2": "failure"
+                        "boron": "success"
                     },
                     "6.4.1": {
-                        "argon": "failure",
                         "b5som": "success",
-                        "boron": "success",
-                        "p2": "failure"
+                        "boron": "success"
                     },
                     "6.6.0": {
-                        "argon": "failure",
                         "b5som": "success",
-                        "boron": "success",
-                        "p2": "failure"
+                        "boron": "success"
                     }
                 },
                 "hash": "ce3d49c78dcbb6b276d945b572377c56027728e739a83de286a7a975135a5869"
@@ -1998,7 +1762,9 @@
         },
         "rp2040-raspberry-pi-asset-ota": {
             "config": {
-                "minVersion": "5.5.0"
+                "requiresFeatures": [
+                    "ApplicationAsset"
+                ]
             },
             "results": {
                 "builds": {
@@ -2026,7 +1792,9 @@
         },
         "sound-asset-ota": {
             "config": {
-                "minVersion": "5.5.0"
+                "requiresFeatures": [
+                    "ApplicationAsset"
+                ]
             },
             "results": {
                 "builds": {
@@ -2054,7 +1822,9 @@
         },
         "stm32-asset-ota": {
             "config": {
-                "minVersion": "5.5.0"
+                "requiresFeatures": [
+                    "ApplicationAsset"
+                ]
             },
             "results": {
                 "builds": {

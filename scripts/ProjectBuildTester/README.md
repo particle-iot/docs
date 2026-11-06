@@ -31,13 +31,22 @@ auto-selected. A platform is only built for a version if that version lists it i
 | --- | --- |
 | `platforms` | Replace the default platform list |
 | `addPlatforms` | Add platforms, such as `["tracker"]` |
-| `excludePlatforms` | Never build these, such as `["electron", "photon"]` for BLE |
+| `excludePlatforms` | Never build these |
+| `requiresFeatures` | Names from the `features` list; builds are skipped where any feature isn't available |
+| `deviceConstants` | Platform conditions from `carriers.json` deviceConstants (see below) |
 | `minVersion`, `maxVersion` | Inclusive limits, e.g. `"2.0.0"` / `"2.99.99"` for a 2.x only project |
 | `extraVersions` | Additional versions for this project |
 | `disabled` | `true` to skip the project |
+
+`features` is a list of named restrictions, each with `minVersion` and/or `maxVersion` (inclusive) and optionally
+`deviceConstants`. For example `BLE.setAdvertisingPhy` is `{"minVersion": "3.1.0", "deviceConstants": {"generation": 3}}`.
+
+`deviceConstants` conditions (used in features and in per-project config) are checked against
+`deviceConstants` in `src/assets/files/carriers.json`: `generation` (number or array), `baseMcu` (string or array),
+`features` (platform must have all, such as `["ble", "wifi"]` or `["muonCompatible"]`) and `excludeFeatures`.
 
 `projects.<name>.results` is written by the tool: the source `hash` and `builds[version][platform]` =
 `success` or `failure`. If the hash changes, the old results are discarded. New project directories are added
 automatically; results for removed projects and for versions/platforms no longer tested are pruned on unfiltered runs.
 
-Failed build logs are in `scripts/ProjectBuildTester/logs` (git ignored).
+The console output of the latest run is saved in `scripts/ProjectBuildTester/logs/lastRun.txt`. Failed build logs are in `scripts/ProjectBuildTester/logs` (git ignored).
