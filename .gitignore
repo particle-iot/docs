@@ -20,3 +20,4 @@ crawler-cache
 /scripts/LibraryTool/data/libraries
 /scripts/LibraryTool/data/libraryList.json
 /scripts/release-update/temp
+/scripts/ProjectBuildTester/logs

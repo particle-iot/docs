@@ -1,0 +1,9 @@
+{
+    "name": "project-build-tester",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Test compiles the sample projects in src/assets/files/projects",
+    "scripts": {
+        "start": "node app.js"
+    }
+}

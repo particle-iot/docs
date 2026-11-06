@@ -1,0 +1,1992 @@
+{
+    "defaults": {
+        "extraVersions": [],
+        "includePreview": true,
+        "majorVersions": [
+            6,
+            5,
+            4,
+            3,
+            2
+        ],
+        "platforms": [
+            "boron",
+            "b5som",
+            "p2",
+            "argon",
+            "electron",
+            "photon",
+            "msom"
+        ]
+    },
+    "features": {
+        "ApplicationAsset": {
+            "minVersion": "5.5.0"
+        },
+        "BLE.pairing": {
+            "minVersion": "3.1.0"
+        },
+        "BLE.provisioningMode": {
+            "minVersion": "3.3.0"
+        },
+        "BLE.setAdvertisingPhy": {
+            "deviceConstants": {
+                "generation": 3
+            },
+            "minVersion": "3.1.0"
+        },
+        "BLE.setScanPhy": {
+            "minVersion": "3.1.0"
+        },
+        "CloudEvent": {
+            "minVersion": "6.3.0"
+        },
+        "HAL_DEVICE_SECRET_SIZE": {
+            "minVersion": "4.0.0"
+        },
+        "Ledger": {
+            "minVersion": "6.1.0"
+        },
+        "PRODUCT_VERSION without PRODUCT_ID": {
+            "minVersion": "4.0.0"
+        },
+        "Serial2": {
+            "platforms": [
+                "msom"
+            ]
+        },
+        "System.getEnv": {
+            "minVersion": "6.4.0"
+        },
+        "SystemPowerConfiguration.auxiliaryPowerControlPin": {
+            "minVersion": "5.9.0"
+        },
+        "Variant": {
+            "minVersion": "6.1.0"
+        }
+    },
+    "projects": {
+        "BlinkLed": {
+            "config": {},
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "0ed21fd9e0ac311b29bc7bbc471e321178e679a29e9aec2f261b5849e0ee26b6"
+            }
+        },
+        "CloudButton": {
+            "config": {},
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "0966fb13f3201ec148bfb6769f5172e059f603eea338673f86430c962213860d"
+            }
+        },
+        "CloudLed1": {
+            "config": {},
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "fd33a708ad9523a05a7608e5dd0f4fa62868077ace7c5f54396a8b9effab29a7"
+            }
+        },
+        "CloudLed2": {
+            "config": {},
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "2f6daacb361506f87c9fc6b8e40aba276c399b39a47182a6ff67ecc5abd2bb52"
+            }
+        },
+        "ControlRequestTest": {
+            "config": {
+                "requiresFeatures": [
+                    "Variant"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "fe58f65a8346ceb773610baff0e5b5147969574e0558ad675aa8077acb8387a3"
+            }
+        },
+        "FileAssetExample": {
+            "config": {
+                "requiresFeatures": [
+                    "ApplicationAsset"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "35f0ca960a32f546f3017d9349c7aee1933bbdb4fbada6ad1e4a70f230b01e27"
+            }
+        },
+        "PhysicalButton": {
+            "config": {},
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "f682cc5b1f34dea302f7e869b2aff00f8feb97bbad7e4967a43457706716f2da"
+            }
+        },
+        "StdFunctionExample": {
+            "config": {},
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "dc456c6d7e6f97ac1ea30d0324cb2a2e1f6fe0e5e6b7fc2159f02ee4763044e0"
+            }
+        },
+        "TemperatureSensor": {
+            "config": {},
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "048c56ed4a32dffe80eb72d3279749e4a9f8704bbb7db549aeb43761615b1723"
+            }
+        },
+        "TemperatureSensor3": {
+            "config": {
+                "requiresFeatures": [
+                    "Variant",
+                    "CloudEvent",
+                    "System.getEnv"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "8a66cb7220d54cd04d9427dee07c52875847bd55cf90f4f34c6293b3501993fb"
+            }
+        },
+        "UpdateDemo": {
+            "config": {
+                "requiresFeatures": [
+                    "PRODUCT_VERSION without PRODUCT_ID"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "ab9da668f27ecf68c4f3569c7cafb86d666692bd9ce9b3a28ae63c937ffb0083"
+            }
+        },
+        "arduino-uno-asset-ota": {
+            "config": {
+                "requiresFeatures": [
+                    "ApplicationAsset"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "ea09ec8bb13e3b42c459695d95c1808a1b04ff48015c238cd30a5f7b3f3aa0a6"
+            }
+        },
+        "automation-hat": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "muonCompatible"
+                    ]
+                },
+                "platforms": [
+                    "msom"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "5.9.0": {
+                        "msom": "success"
+                    },
+                    "6.4.1": {
+                        "msom": "success"
+                    },
+                    "6.6.0": {
+                        "msom": "success"
+                    }
+                },
+                "hash": "08fa8c2395c86c86a19d214f9472d82f121a1cf9733939dd3c887be575f19484"
+            }
+        },
+        "ble-heartrate": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "minVersion": "3.0.0"
+            },
+            "results": {
+                "builds": {
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "23f89531eb15d47101d81ffb18f742b0810d10cc3d9bc405048d0127eec5584b"
+            }
+        },
+        "ble-heartrate-2.x": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "maxVersion": "2.99.99",
+                "minVersion": "2.0.0"
+            },
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    }
+                },
+                "hash": "b7d526287b40b8bc6b5ff7ede8305cba37f39d54efcaeb6c801da08a7897b36e"
+            }
+        },
+        "ble-lesc1-central": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.pairing"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "8f2aac5b9686f9ef8e5c0b612a520427b22749c14486cb4414a672617fbb5ed8"
+            }
+        },
+        "ble-lesc1-peripheral": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.pairing"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "ed165091783d05c65bfef367696872e3a01da0e5ba94c5adf573f49d77e46050"
+            }
+        },
+        "ble-logging": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                }
+            },
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "e1e26aadc54296ef482a5ee218a08c07777ea2fa56852520b89d5a10c336689d"
+            }
+        },
+        "ble-nearby-beacon": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                }
+            },
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "73b3c5e2293ee8e439893bc25a30dbca9eb8435102d5244ee4910943926e8085"
+            }
+        },
+        "ble-nearby-central": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "minVersion": "3.0.0"
+            },
+            "results": {
+                "builds": {
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "aed60be85f408c2746fc71ea2c663675a2ffb625c2bf464253f83d279d98cf27"
+            }
+        },
+        "ble-nearby-central-2.x": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "maxVersion": "2.99.99",
+                "minVersion": "2.0.0"
+            },
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    }
+                },
+                "hash": "2e17517bd78880668835c6324142cd68b6b573d09435ab4767424746dcd08beb"
+            }
+        },
+        "ble-provisioning": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble",
+                        "wifi"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.provisioningMode"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "3.3.1": {
+                        "argon": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "441be68628a0a64fb0e525640f35c214f777ba28642cb64a5bc2a7e41de727e5"
+            }
+        },
+        "ble-provisioning3": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble",
+                        "wifi"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.provisioningMode",
+                    "HAL_DEVICE_SECRET_SIZE"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "4.2.0": {
+                        "argon": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "e3349c41c2e746fe2d73d2f329990b02c175cab37d50bede54cb2edf16cfa16f"
+            }
+        },
+        "ble-rssi-central": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.setScanPhy"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "edd92d36fd86a9359f7b7825b892e1d74873c58422384de0bbcd1318db1eb9a2"
+            }
+        },
+        "ble-rssi-coded-central": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.setScanPhy"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "4680911b2abe27624e54fec904ae9a90f9bdd58c670668c787eb1fa38255778b"
+            }
+        },
+        "ble-rssi-coded-peripheral": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.setAdvertisingPhy"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    }
+                },
+                "hash": "e7247c5374e5b3e4d6a5336cc6cf138b3d3689f407768cf0c0f52e43e3fc9b9e"
+            }
+        },
+        "ble-rssi-peripheral": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                }
+            },
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "52c6c532325bfac707be64e84851f734462a158716c60d904c979598e86ef2fe"
+            }
+        },
+        "ble-uart-central": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "minVersion": "3.0.0"
+            },
+            "results": {
+                "builds": {
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "05b2774886e7729fe0ae551e4dd51011fada0868c5be5644c3536973eeeecb66"
+            }
+        },
+        "ble-uart-central-2.x": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "maxVersion": "2.99.99",
+                "minVersion": "2.0.0"
+            },
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    }
+                },
+                "hash": "9fd803912e6791bd273b98b5bd6e21daa7a46d032d45686f70f701aad7eef1bd"
+            }
+        },
+        "ble-uart-peripheral": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                }
+            },
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "0a238c4be2f5981a79b93b389235bceb093b6f1ee06ae8a0b01ab02348356f1f"
+            }
+        },
+        "ble-yesno-central": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.pairing"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "cdc442f120046c5018b0ef7af50d70d328deb6ba693439b201397e1c66c1b8a4"
+            }
+        },
+        "ble-yesno-peripheral": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "ble"
+                    ]
+                },
+                "requiresFeatures": [
+                    "BLE.pairing"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "164e043d9adad9a3cbb8cb3c4a0391d8fc30a807de0ebb90a4abddfc63ec7a42"
+            }
+        },
+        "can-hat": {
+            "config": {
+                "addPlatforms": [
+                    "msom"
+                ],
+                "deviceConstants": {
+                    "features": [
+                        "muonCompatible"
+                    ]
+                },
+                "requiresFeatures": [
+                    "SystemPowerConfiguration.auxiliaryPowerControlPin"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "5.9.0": {
+                        "b5som": "success",
+                        "msom": "success"
+                    },
+                    "6.4.1": {
+                        "b5som": "success",
+                        "msom": "success"
+                    },
+                    "6.6.0": {
+                        "b5som": "success",
+                        "msom": "success"
+                    }
+                },
+                "hash": "328a9a05dfedb2fecf05a72bce95bad253b7f58e31454124f3e9a9c4c41e4c78"
+            }
+        },
+        "device-info-ledger": {
+            "config": {
+                "requiresFeatures": [
+                    "Ledger"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "36922f2a11cbd933c2cff867c93c93ff55153c651deeceddadf6948d04b7577f"
+            }
+        },
+        "display-button-hat": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "muonCompatible"
+                    ]
+                },
+                "platforms": [
+                    "msom"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "5.9.0": {
+                        "msom": "success"
+                    },
+                    "6.4.1": {
+                        "msom": "success"
+                    },
+                    "6.6.0": {
+                        "msom": "success"
+                    }
+                },
+                "hash": "fda602b68d9a4149d6eb16d711214aa99590698cf18ec860ac188dd6b8476c71"
+            }
+        },
+        "enviro-hat": {
+            "config": {
+                "deviceConstants": {
+                    "features": [
+                        "muonCompatible"
+                    ]
+                },
+                "platforms": [
+                    "msom"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "5.9.0": {
+                        "msom": "success"
+                    },
+                    "6.4.1": {
+                        "msom": "success"
+                    },
+                    "6.6.0": {
+                        "msom": "success"
+                    }
+                },
+                "hash": "3007b93169977e50703b49e41a3d6ffb60e987b8f60186e954fced168508b9f5"
+            }
+        },
+        "firmware-update-events": {
+            "config": {
+                "requiresFeatures": [
+                    "PRODUCT_VERSION without PRODUCT_ID"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "4774e38103d675ec77484f5994a54c6659145d091b7dfbd2a1f06c3934130289"
+            }
+        },
+        "getting-started-device-ledger": {
+            "config": {
+                "requiresFeatures": [
+                    "Ledger"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "945cc1e41f96e35496d7cc5e5084fc2e041918339a2446220c6b8d451082aed2"
+            }
+        },
+        "lcd-image-asset-ota": {
+            "config": {
+                "requiresFeatures": [
+                    "ApplicationAsset"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "d5734b451981478439cce7ad3e244e98245a8c783902ef9be3aa857bd1e267b1"
+            }
+        },
+        "ledger-config": {
+            "config": {
+                "requiresFeatures": [
+                    "Ledger"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "d03f46cdca2f1ac75ee0e1924ab2e9e64e9a977ca897f6d8bac307d5754a30d6"
+            }
+        },
+        "ledger-sensor": {
+            "config": {
+                "requiresFeatures": [
+                    "Ledger"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "f5c8bbf2c7ba90a939f70a857b668d589762e328aee1aa7842a3475630508e8b"
+            }
+        },
+        "logic-cloud-alerts": {
+            "config": {},
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "cbb7c2abc9a15794b8fba74b19b03c2e46cac90a43cbaf6524347cb53eb98e7b"
+            }
+        },
+        "modbus-hat": {
+            "config": {
+                "addPlatforms": [
+                    "msom"
+                ],
+                "deviceConstants": {
+                    "features": [
+                        "muonCompatible"
+                    ]
+                },
+                "requiresFeatures": [
+                    "SystemPowerConfiguration.auxiliaryPowerControlPin"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "5.9.0": {
+                        "b5som": "success",
+                        "msom": "success"
+                    },
+                    "6.4.1": {
+                        "b5som": "success",
+                        "msom": "success"
+                    },
+                    "6.6.0": {
+                        "b5som": "success",
+                        "msom": "success"
+                    }
+                },
+                "hash": "0eceb84fa9459aa3f7137c74757a35fdb090b48ea939e01cd90c0dc65fa457f3"
+            }
+        },
+        "modbus-temp-sensor": {
+            "config": {},
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "dfe0b37d6c22dd23fb2e2bb40c298774787ad0fd2c7e67eae17c07b10e75f979"
+            }
+        },
+        "neopixel-example": {
+            "config": {
+                "excludePlatforms": [
+                    "msom"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "electron": "success",
+                        "photon": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "failure",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "failure",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "failure",
+                        "p2": "success"
+                    }
+                },
+                "hash": "a96716204a76ab4caefd9d5d56cdcea1569bcb6637a4bdc538255647a690e883"
+            }
+        },
+        "power-log": {
+            "config": {
+                "platforms": [
+                    "boron",
+                    "b5som"
+                ],
+                "requiresFeatures": [
+                    "SystemPowerConfiguration.auxiliaryPowerControlPin"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "5.9.0": {
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "6.4.1": {
+                        "b5som": "success",
+                        "boron": "success"
+                    },
+                    "6.6.0": {
+                        "b5som": "success",
+                        "boron": "success"
+                    }
+                },
+                "hash": "ce3d49c78dcbb6b276d945b572377c56027728e739a83de286a7a975135a5869"
+            }
+        },
+        "rp2040-raspberry-pi-asset-ota": {
+            "config": {
+                "platforms": [
+                    "msom"
+                ],
+                "requiresFeatures": [
+                    "ApplicationAsset",
+                    "Serial2"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "5.9.0": {
+                        "msom": "success"
+                    },
+                    "6.4.1": {
+                        "msom": "success"
+                    },
+                    "6.6.0": {
+                        "msom": "success"
+                    }
+                },
+                "hash": "774b0afd4b8a1fe50a701a52c2dbad0453bb8056257db1092c322ebf8ccfc667"
+            }
+        },
+        "sound-asset-ota": {
+            "config": {
+                "requiresFeatures": [
+                    "ApplicationAsset"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "241f261cc511ec3eb0a52b313c49979cd620d799daa1ebb3b14da6482393c781"
+            }
+        },
+        "stm32-asset-ota": {
+            "config": {
+                "requiresFeatures": [
+                    "ApplicationAsset"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "5.9.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "b5som": "success",
+                        "boron": "success",
+                        "msom": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "e51c9b4edcec17b820216b6459c6e4cbc07f3838323dc8d869f3f95a2bc229cf"
+            }
+        },
+        "wifi-scan-test": {
+            "config": {
+                "platforms": [
+                    "p2",
+                    "argon",
+                    "photon"
+                ]
+            },
+            "results": {
+                "builds": {
+                    "2.3.1": {
+                        "argon": "success",
+                        "photon": "success"
+                    },
+                    "3.3.1": {
+                        "argon": "success",
+                        "photon": "success"
+                    },
+                    "4.2.0": {
+                        "argon": "success"
+                    },
+                    "5.9.0": {
+                        "argon": "success",
+                        "p2": "success"
+                    },
+                    "6.4.1": {
+                        "argon": "success",
+                        "p2": "success"
+                    },
+                    "6.6.0": {
+                        "argon": "success",
+                        "p2": "success"
+                    }
+                },
+                "hash": "7c376ab80b1a10c65dd7de57726ae55c0c392d7edf9c8e6d338e453f70555a8c"
+            }
+        }
+    }
+}
