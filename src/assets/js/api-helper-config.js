@@ -702,16 +702,21 @@ $(document).ready(async function() {
 
                 if (alwaysBackup || $(thisPartial).find('.saveBackup').prop('checked')) {
                     setStatus(configSchemaPartial, 'Saving backup schema...');
-                    await new Promise(function(resolve, reject) {
-                        apiHelper.downloadSchema('backup-schema.json', product, deviceId, function(err) {
-                            if (err) {
-                                reject(err);
-                            }
-                            else {
-                                resolve();
-                            }
-                        });
-                    });    
+                    try {
+                        await new Promise(function(resolve, reject) {
+                            apiHelper.downloadSchema('backup-schema.json', product, deviceId, function(err) {
+                                if (err) {
+                                    reject(err);
+                                }
+                                else {
+                                    resolve();
+                                }
+                            });
+                        });    
+                    }
+                    catch(e) {
+                        // Ignore exception which can occur if the schema is already the default
+                    }
                 }
 
                 let schemaFile = $(apiHelperTrackerSchemaVersionElem).val();
