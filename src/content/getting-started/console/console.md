@@ -25,9 +25,8 @@ You can explore a live demo environment with a continuously operating device fle
 
 Visit the [demo site](https://www.particle.io/demo/) for instant access.
 
-## Developer tools
 
-### Welcome page
+## Welcome page
 
 The console welcome page provides easy access to developer, product, and organization features.
 
@@ -35,7 +34,7 @@ The console welcome page provides easy access to developer, product, and organiz
 
 The **Sandbox** popup in the upper left corner switches between your personal view ("Sandbox") and being able to see the devices and products in your organization, if your account is part of an organization.
 
-### Search
+## Search - sandbox
 
 The search box makes it easy to search for a device from its Device ID (24-character hex code), serial number, name, or ICCID. You can also search for a product by name.
 
@@ -43,13 +42,15 @@ This can be done at the top level of your sandbox to search your sandbox and all
 
 {{imageOverlay src="/assets/images/console/console-search.png" class="no-darken"}}
 
-### Left navigation
+## Sandbox
+
+### Left navigation - sandbox
 
 Hovering over the left side of the window expands the left navigation, providing access to all of the console features.
 
 {{imageOverlay src="/assets/images/console/left-nav.png" class="no-darken"}}
 
-### Products
+### Products - sandbox
 
 The **Products** page shows the products that you own and also the products you have been granted access to as a team member.
 
@@ -57,7 +58,7 @@ If you are part of an organization, there may be additional products that you ha
 
 {{imageOverlay src="/assets/images/console/products.png" class="no-darken"}}
 
-### Devices
+### Devices - sandbox
 
 The device list shows the devices associated with your account. Note that there are multiple device lists, one for your sandbox, and one in each product that you have access to. 
 
@@ -96,7 +97,7 @@ The product device list has a number of columns that are not present in the sand
 - Billing status - All sandbox devices count toward the 100-device billing limit.
 - Groups - Groups are only available in products.
 
-### SIM cards
+### SIM cards - sandbox
 
 If you have cellular devices, you may have SIM cards listed in the **SIM cards** panel.
 
@@ -108,13 +109,34 @@ In most cases, however, your devices will be associated with a product, in which
 
 When you set up a device at [https://setup.particle.io/](https://setup.particle.io/) it is set up as a product device, and Particle recommends making every device part of a product, even if it's a product of one device. There is no limit to the number of products you can have, even in the free tier.
 
-To remove a device so it no longer counts against the sandbox 100 device limit you must:
+It is unusual to have to use the **Import SIM card** option as adding a device to a product will also add its associated SIM card. 
+
+{{!-- BEGIN shared-blurb 7f993d02-ecbb-4166-bb05-eafb285fd46b --}}
+If you click the **...** button to the right of a SIM card you will be presented with two options:
+
+- **Deactivate SIM** deactivates a SIM card with the mobile carrier so it will no longer be able to connect
+- **Release SIM** releases a SIM card so it will no longer be able to connect, and can be transferred to another user
+
+Deactivated SIM behavior also varies based on your billing plan:
+
+- Free plan: still counts toward the 100 device limit
+- Basic plan: still counts toward the 100 device per block limit
+- Enterprise plans: may stop counting the device as a billable device in some cases
+
+{{imageOverlay src="/assets/images/console/sim-card-deactivate-release.png" class="no-darken"}}
+{{!-- END shared-blurb --}}
+
+{{!-- BEGIN shared-blurb 71e05c82-b8a6-476f-a69f-a57477aaa43e --}}
+To remove a device so it is no longer counted against your free plan 100 device limit, or against the basic plan 100 device per block limit, you must both remove the device from its product and release its SIM card.
 
 - Unclaim (for claimed devices)
 - Remove from product (for product devices)
 - Release SIM (for cellular devices)
+{{!-- END shared-blurb --}}
 
-### Logic
+If you have a Boron device and have enabled using an external 3rd-party SIM card with a plastic 4FF nano SIM card, you will manage the SIM from the SIM provider or mobile carrier's web site, not from the Particle console.
+
+### Logic - sandbox
 
 {{!-- BEGIN shared-blurb 75dc780e-171e-44a5-babe-7042c2fb8cfe --}}
 Logic Functions are bits of Javascript code that get called in response to a Logic Trigger, which can be:
@@ -132,7 +154,7 @@ In many cases, you will want to access Logic from within a product. Those logic 
 
 For more information, see [Logic](/getting-started/logic-ledger/logic/).
 
-### Ledger
+### Ledgers - sandbox
 
 {{!-- BEGIN shared-blurb 21e80dea-8a96-469c-8f9d-86211332beeb --}}
 Ledger allows data to be stored in the cloud, per-device, per-product, or per owner account. 
@@ -156,7 +178,7 @@ In many cases, you will want to access Ledger within a product. Those ledgers ar
 
 For more information, see [Ledger](/getting-started/logic-ledger/ledger/).
 
-### Integrations
+### Integrations - sandbox
 
 Integrations (webhooks) allow interaction with external services. 
 
@@ -170,7 +192,7 @@ Creating sandbox integrations will greatly complicate the process of moving from
 
 For more information, see [Integrations](/integrations/introduction/).
 
-### Events
+### Events - sandbox
 
 {{!-- BEGIN shared-blurb 0cd8e3ce-a3b1-4a76-94d1-ae4402d5899f --}}
 Events are published by devices, Logic, as the result of an integration (webhook), or from the Particle cloud API. They provide a secure, data-efficient way to communicate information between these things. Events are temporal and disappear if not captured by something else, like an integration that could send it to a database, or Ledger. Likewise, the Events view is live, and does not show historical events. It will only show events that pass through the cloud while the panel is open.
@@ -188,12 +210,13 @@ And also for each device, to only show events from that device. Note that the de
 
 {{imageOverlay src="/assets/images/console/events-device.png" class="no-darken"}}
 
-#### Exporting events
+#### Exporting events - sandbox
 
 The [Event Viewer Tool](/tools/cloud-tools/events/) can be used if you want to export events to a file or spreadsheet.
 
-### Authentication
+### Authentication - sandbox
 
+{{!-- BEGIN shared-blurb 9cacae49-a693-461e-a1c4-a75069ae226c --}}
 The **Authentication** tab allows the creation of a new OAuth client ID.
 
 - If you are providing access to the Particle cloud API for an external service, you should use [API users](/reference/cloud-apis/api/#api-users).
@@ -202,9 +225,10 @@ The **Authentication** tab allows the creation of a new OAuth client ID.
 - If you do need to create an OAuth client you should do so at the product level, or organization level, not at the sandbox level.
 
 {{imageOverlay src="/assets/images/console/new-oauth-client.png" class="no-darken"}}
+{{!-- END shared-blurb --}}
 
 
-## Configuration
+### Configuration - sandbox
 
 Configuration is a platform‑wide capability for Particle. Configuration is the control plane for tailoring how devices, cloud, and applications behave, used to solve real-life problems like modem behavior and operating system level radio configuration, as well as to align user applications needs from any vertical or use case. 
 
@@ -225,7 +249,7 @@ For more information, see:
 - [Environment](/getting-started/configuration/environment/): lightweight, non‑secret name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
 - [Secrets](/getting-started/cloud/secrets/): secure, organization‑scoped values that integrations and logic can reference securely.
 
-## Billing & usage
+### Billing & usage - sandbox
 
 The **Billing & Usage** page shows billing information and data usage (data operations and cellular). 
 
@@ -244,7 +268,7 @@ In the Basic and Enterprise plans, usage is divided by the class of devices. For
 These panels turn yellow at 70% of your plan limits, and red when the limits have been reached.
 
 
-### Historical data
+#### Historical data - billing - sandbox
 
 At the bottom of the Billing & Usage panel you can request a data usage report:
 
@@ -257,7 +281,7 @@ It will take several minutes to generate the data, and you will be emailed a csv
 
 This option is also available for organization administrators in the organization Billing & Usage panel.
 
-### Billing limits
+### Billing limits - sandbox
 
 You will receive warnings by email, and as a pop-up, and in the **Billing & Usage** tab in the console at 70%, 90%, and 100% of the allowable data operations. 
 
@@ -301,9 +325,19 @@ If you are part of an organization, there may be additional products that you ha
 
 {{imageOverlay src="/assets/images/console/products.png" class="no-darken"}}
 
+### Left navigation - product
+
+Hovering over the left side of the window expands the left navigation, providing access to all of the console features.
+
+{{imageOverlay src="/assets/images/console/product-left-nav.png" class="no-darken"}}
+
+Note that this is very similar to the one at the top level of the sandbox, but only returns information about the product that you have opened.
+
 ### New product
 
 During setup using [setup.particle.io](https://setup.particle.io/) you are typically offered the option of creating a new product. You can also create a product at any time using the **New product** button. There is no limit to the number of products in your account, even on the free plan, however there is a limit to the number of devices in the free plan.
+
+Storage of geolocation data is truly optional. If not enabled, the product will function normally except the device location map will not display and the APIs for obtaining the device location will not return data.
 
 {{imageOverlay src="/assets/images/console/new-product.png" class="no-darken"}}
 
@@ -313,7 +347,7 @@ Each product can only contain one **platform**. In some cases, like M-SoM or Tra
 
 {{imageOverlay src="/assets/images/console/new-product-device-type.png" class="no-darken"}}
 
-### Product devices
+### Devices - product
 
 When you open a product, it will open to the **Devices** panel.
 
@@ -328,7 +362,8 @@ In the device list you'll notice a number of useful fields for a device fleet.
 
 In this example, the Name and Owner fields are none. It is normal and acceptable to have these fields be unset. Using unclaimed product devices is recommended for all products, and naming is optional. You typically only claim devices to your account (set an owner) for devices you have on your desk for active development.
 
-### Add devices
+
+#### Add devices - product
 
 The controls along the top of the window include the **Add devices** button.
 
@@ -346,13 +381,13 @@ You will then have several options for what to import:
 
 {{imageOverlay src="/assets/images/console/add-devices-2.png" class="no-darken"}}
 
-#### Add one device - Adding devices
+##### Add one device - Add devices
 
 You can add a single device by entering its Device ID, ICCID, IMEI, or Serial number. For more information about unique identifiers for devices, see [serial number management](/hardware/best-practices/serial-number/).
 
 {{imageOverlay src="/assets/images/console/add-devices-6.png" class="no-darken"}}
 
-#### Add many devices - Adding devices
+##### Add many devices - Add devices
 
 You can add multiple devices from a file in multiple formats:
 
@@ -361,7 +396,7 @@ You can add multiple devices from a file in multiple formats:
 
 {{imageOverlay src="/assets/images/console/add-devices-4.png" class="no-darken"}}
 
-##### Device import CSV files
+##### Device import CSV files - Add devices
 
 The CSV file must have a header in the first row that specifies the columns. The only required column is `DEVICEID` but bulk order may include columns such as:
 
@@ -380,7 +415,7 @@ You can also specify the following optional fields:
 - `GROUP` specifies a device group name to set for this device. This will overwrite any existing device groups for the device.
 
 
-#### Add from order - Adding devices
+##### Add from order - Add devices
 
 If you've ordered devices in bulk, you can add all of the devices in the order.
 
@@ -391,20 +426,26 @@ If no orders can be found, this message will be displayed. Orders of "each" devi
 {{imageOverlay src="/assets/images/console/add-devices-5.png" class="no-darken"}}
 
 
-### New group
+#### New group - product
 
-### Export
+The **New group popup allows you to create or delete [device groups](/getting-started/console/device-groups/).
+
+{{imageOverlay src="/assets/images/console/device-group-new.png" class="no-darken"}}
+
+{{imageOverlay src="/assets/images/console/device-group-delete.png" class="no-darken"}}
+
+#### Export - product
 
 The **Export** button downloads a CSV file of the devices in this product. It is typically saved in the Downloads folder on your computer by your web browser.
 
-### Device options
+#### Device options - product
 
 In the **Devices** list, clicking on the **...** button on the right edge provides options:
 
 {{imageOverlay src="/assets/images/console/product-device-list-options.png" class="no-darken"}}
 
 {{!-- BEGIN shared-blurb 74f89cd2-5118-4233-9b9d-7f64a2322a0a --}}
-#### Mark development device
+#### Mark development device - product
 
 Using **Mark development** does several things:
 
@@ -416,11 +457,11 @@ You can tell which devices have Mark development set by the tool icon to the rig
 
 {{imageOverlay src="/assets/images/console/product-device-development.png" class="no-darken"}}
 
-#### Unclaim device
+#### Unclaim device - product
 
 Unclaim device removes the Owner from the device. Not all product devices need owners, but if you have one set, you can remove it with this option.
 
-#### Remove device
+#### Remove device - product
 
 Removes a device from a product. 
 
@@ -430,7 +471,7 @@ If the device has an owner set, it will go into that user's sandbox device list,
 {{!-- END shared-blurb --}}
 
 
-### Device details
+### Device details - product
 
 Clicking on a device in the device list brings up the device details panel.
 
@@ -438,7 +479,7 @@ Clicking on a device in the device list brings up the device details panel.
 
 Each of the areas within this window will be discussed separately.
 
-### General information - device details
+#### General information - device details - product
 
 This panel shows general information about the device and its current status.
 
@@ -447,7 +488,7 @@ This panel shows general information about the device and its current status.
 - A transition from online to offline may be delayed by 45 minutes or more. 
 - A handshake can last for up to 3 days, so a device that is active and working may have a last handshake in the past.
 
-### Controls - device details
+#### Controls - device details - product
 
 There are three buttons in the upper right corner of the window:
 
@@ -458,12 +499,13 @@ There are three buttons in the upper right corner of the window:
 {{imageOverlay src="/assets/images/console/product-device-edit.png" class="no-darken"}}
 
 
-### Location - device details
+#### Location - device details - product
 
 If location storage has been enabled, this panel will show the location of the device on a small map.
 
 {{imageOverlay src="/assets/images/console/product-device-location.png" class="no-darken"}}
 
+{{!-- BEGIN shared-blurb 671d4e83-3dd3-4bac-97ce-d157708f1b29 --}}
 This setting is located in the **Setting** panel for the product.
 
 {{imageOverlay src="/assets/images/console/product-settings-locations.png" class="no-darken"}}
@@ -473,8 +515,9 @@ This setting is located in the **Setting** panel for the product.
 - It may take 24 hours for a device to update its location the first time after enabling location storage
 
 See [location](/getting-started/cloud/location/) for more information.
+{{!-- END shared-blurb --}}
 
-### Events - device details
+#### Events - device details - product
 
 {{!-- BEGIN shared-blurb 0cd8e3ce-a3b1-4a76-94d1-ae4402d5899f --}}
 Events are published by devices, Logic, as the result of an integration (webhook), or from the Particle cloud API. They provide a secure, data-efficient way to communicate information between these things. Events are temporal and disappear if not captured by something else, like an integration that could send it to a database, or Ledger. Likewise, the Events view is live, and does not show historical events. It will only show events that pass through the cloud while the panel is open.
@@ -491,7 +534,7 @@ Clicking **Raw** shows the raw, unformatted data, which can also be copied to th
 {{imageOverlay src="/assets/images/console/product-device-events-raw.png" class="no-darken"}}
 
 
-### Vitals - device details
+#### Vitals - device details - product
 
 The **Vitals** panel shows device health information for a single device. You can choose the time-frame as well.
 
@@ -499,13 +542,13 @@ The **Vitals** panel shows device health information for a single device. You ca
 
 For more information, see [device vitals](/getting-started/console/device-vitals/).
 
-### SIM card - device details
+#### SIM card - device details - product
 
 For cellular devices, information about the SIM card and data usage is available in the **SIM card** panel.
 
 {{imageOverlay src="/assets/images/console/product-device-sim-card.png" class="no-darken"}}
 
-### Environment - device details
+#### Environment - device details - product
 
 The **Environment** panel shows information about environment variables that have been overridden for this device.
 
@@ -513,7 +556,7 @@ The **Environment** panel shows information about environment variables that hav
 
 For more information, see [environment](/getting-started/configuration/environment/).
 
-### Last vitals - device details
+#### Last vitals - device details - product
 
 This panel shows the last device vitals information sent by the device. 
 
@@ -524,7 +567,7 @@ This panel shows the last device vitals information sent by the device.
 
 For more information, see [device vitals](/getting-started/console/device-vitals/).
 
-### Notes - device details
+#### Notes - device details - product
 
 Notes can be used for information about the device for your own purposes. You might store:
 - The specific location of the device
@@ -537,7 +580,7 @@ You can set the notes using the Particle cloud API, or from the **Edit** button 
 
 {{imageOverlay src="/assets/images/console/product-device-edit.png" class="no-darken"}}
 
-### Firmware - device details
+#### Firmware - device details - product
 
 This panel shows the status of OTA firmware updates for this device.
 
@@ -545,11 +588,9 @@ See [OTA firmware updates](/getting-started/cloud/ota-updates/) for more informa
 
 {{imageOverlay src="/assets/images/console/product-device-firmware.png" class="no-darken"}}
 
-### Functions - device details
+#### Functions - device details - product
 
 This panel shows functions defined in the device firmware using [Particle.function](/reference/device-os/api/cloud-functions/particle-function/).
-
-{{imageOverlay src="/assets/images/console/product-device-functions.png" class="no-darken"}}
 
 Tracker devices have a **cmd** function for controlling the device remotely. While non-Tracker devices do not include this function, you can implement a similar feature in your own firmware easily.
 
@@ -560,7 +601,7 @@ Monitor One devices also allow the relay on the I/O card to be controlled from a
 {{imageOverlay src="/assets/images/console/product-device-functions-monitor.png" class="no-darken"}}
 
 
-### Variables - device details
+#### Variables - device details - product
 
 This panel shows functions defined in the device firmware using [Particle.variable](/reference/device-os/api/cloud-functions/particle-variable/).
 
@@ -572,14 +613,14 @@ Note that you should beware when constantly polling variables from an external s
 
 Depending on your application, you may want to use features such as publish or Ledger instead variables for fleets of devices.
 
-### Options
+#### Options - device details - product
 
 This options are also available from the device list in the **...** button.
 
 {{imageOverlay src="/assets/images/console/product-device-options.png" class="no-darken"}}
 
 {{!-- BEGIN shared-blurb 74f89cd2-5118-4233-9b9d-7f64a2322a0a --}}
-#### Mark development device
+#### Mark development device - device details - product
 
 Using **Mark development** does several things:
 
@@ -591,11 +632,11 @@ You can tell which devices have Mark development set by the tool icon to the rig
 
 {{imageOverlay src="/assets/images/console/product-device-development.png" class="no-darken"}}
 
-#### Unclaim device
+#### Unclaim device - device details - product
 
 Unclaim device removes the Owner from the device. Not all product devices need owners, but if you have one set, you can remove it with this option.
 
-#### Remove device
+#### Remove device - device details - product
 
 Removes a device from a product. 
 
@@ -604,111 +645,263 @@ In order to stop billing for cellular devices in the free or basic plan, make su
 If the device has an owner set, it will go into that user's sandbox device list, and will count against their 100 device limit. In order to completely release a device, you must first unclaim device, then remove device. Do the unclaim first, because otherwise the device will disappear from this list before you can unclaim it. 
 {{!-- END shared-blurb --}}
 
+### SIM cards - product
+
+If you have cellular devices, you may have SIM cards listed in the **SIM cards** panel.
+
+{{imageOverlay src="/assets/images/console/sim-cards-product.png" class="no-darken"}}
+
+It is unusual to have to use the **Import SIM card** option as adding a device to a product will also add its associated SIM card. 
+
+{{!-- BEGIN shared-blurb 7f993d02-ecbb-4166-bb05-eafb285fd46b --}}
+If you click the **...** button to the right of a SIM card you will be presented with two options:
+
+- **Deactivate SIM** deactivates a SIM card with the mobile carrier so it will no longer be able to connect
+- **Release SIM** releases a SIM card so it will no longer be able to connect, and can be transferred to another user
+
+Deactivated SIM behavior also varies based on your billing plan:
+
+- Free plan: still counts toward the 100 device limit
+- Basic plan: still counts toward the 100 device per block limit
+- Enterprise plans: may stop counting the device as a billable device in some cases
+
+{{imageOverlay src="/assets/images/console/sim-card-deactivate-release.png" class="no-darken"}}
+{{!-- END shared-blurb --}}
+
+{{!-- BEGIN shared-blurb 71e05c82-b8a6-476f-a69f-a57477aaa43e --}}
+To remove a device so it is no longer counted against your free plan 100 device limit, or against the basic plan 100 device per block limit, you must both remove the device from its product and release its SIM card.
+
+- Unclaim (for claimed devices)
+- Remove from product (for product devices)
+- Release SIM (for cellular devices)
+{{!-- END shared-blurb --}}
+
+### Location - product
+
+If location storage has been enabled, this panel will show the location of the devices in your product.
+
+{{imageOverlay src="/assets/images/console/product-location.png" class="no-darken"}}
+
+{{!-- BEGIN shared-blurb 671d4e83-3dd3-4bac-97ce-d157708f1b29 --}}
+This setting is located in the **Setting** panel for the product.
+
+{{imageOverlay src="/assets/images/console/product-settings-locations.png" class="no-darken"}}
+
+- For non-Tracker devices the location is generally updated once per week
+- Depending on the device, the location may be approximate, up to a 10,000 meter radius of uncertainty
+- It may take 24 hours for a device to update its location the first time after enabling location storage
+
+See [location](/getting-started/cloud/location/) for more information.
+{{!-- END shared-blurb --}}
+
+With real data, it might look like this:
+
+{{imageOverlay src="/assets/images/console/product-location-map.png" class="no-darken"}}
+
+### Logic - product
+
+{{!-- BEGIN shared-blurb 75dc780e-171e-44a5-babe-7042c2fb8cfe --}}
+Logic Functions are bits of Javascript code that get called in response to a Logic Trigger, which can be:
+
+- A Particle event, generated by a device, Particle cloud API, or webhook response
+- A scheduled, periodic time event ("cron")
+
+Logic Functions run in the cloud and are designed to perform short-running calculations such as:
+
+- Generation of new event (which might be subscribed to by a device, or trigger an integration)
+- Storing data in the Ledger database
+{{!-- END shared-blurb --}}
+
+{{imageOverlay src="/assets/images/console/product-logic.png" class="no-darken"}}
+
+For more information, see [Logic](/getting-started/logic-ledger/logic/).
+
+### Ledgers - product
+
+{{!-- BEGIN shared-blurb 21e80dea-8a96-469c-8f9d-86211332beeb --}}
+Ledger allows data to be stored in the cloud, per-device, per-product, or per owner account. 
+
+The three types of Ledgers are:
+
+| Scope | Description |
+| :--- | :--- |
+| Cloud Ledger | Stores information in the cloud without syncing to the edge. |
+| Device to Cloud Ledger | Device storage that syncs automatically to the cloud |
+| Cloud to Device Ledger | Set data in the cloud that will sync to devices |
+
+Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define the data format yourself, and it does not need to be pre-defined (no schema required). It can contain simple values (string, number, boolean) as well as nested objects and arrays. JSON does not support binary data, but you can store small binary data by encoding it, such as as hex, Base64, or Base85 encoding.
+
+Device to Cloud and Cloud to Device ledgers require Device OS 6.1.0 or later. They can be up to 16 KBytes in size. 
+
+Cloud only ledgers (not synchronized to a device) can be up to 1 Mbyte (1024 Kbyte).
+{{!-- END shared-blurb --}}
+
+{{imageOverlay src="/assets/images/console/product-ledgers.png" class="no-darken"}}
+
+### Fleet health - product
+
+The **Fleet health** panel shows device health information for devices in a product. You can choose the time-frame as well.
+
+{{imageOverlay src="/assets/images/console/product-fleet-health.png" class="no-darken"}}
+
+For more information, see [device vitals](/getting-started/console/device-vitals/).
+
+### Integrations - product
+
+Integrations (webhooks) allow interaction with external services. 
+
+{{imageOverlay src="/assets/images/console/product-integrations.png" class="no-darken"}}
+
+In almost all cases you should create integrations in the product it is associated with, or in the organization it is part of. If a product integration, use the **Add new integration** button here.
+
+{{imageOverlay src="/assets/images/console/product-integrations-add.png" class="no-darken"}}
+
+For more information, see [Integrations](/integrations/introduction/).
+
+#### List options - integrations - product
+
+If you click on the **...** in the integration list, there are three options:
+
+- **View details**
+- **Edit integration**
+- **Disable integration**
+
+{{imageOverlay src="/assets/images/console/product-integration-list-options.png" class="no-darken"}}
+
+#### List expand - integrations - product
+
+Clicking on the right allow at the left edge of the integration list expands the entry to show additional information.
+
+{{imageOverlay src="/assets/images/console/product-integration-list-expand.png" class="no-darken"}}
+
+#### View details - integrations - product
+
+{{imageOverlay src="/assets/images/console/product-integration-view.png" class="no-darken"}}
+
+#### View details advanced - integrations - product
+
+Additional details are available by using **Show advanced**:
+
+{{imageOverlay src="/assets/images/console/product-integration-view-advanced.png" class="no-darken"}}
+
+#### View details history - integrations - product
+
+The 10 most recently uses of this integration are shown in the history section.
+
+{{imageOverlay src="/assets/images/console/product-integration-view-history.png" class="no-darken"}}
+
+#### View details history details - integrations - product
+
+Clicking on one of the history options expands to show more details about the event.
+
+{{imageOverlay src="/assets/images/console/product-integration-view-history-details.png" class="no-darken"}}
+
+### Edit integration - integrations - product
+
+Edit integration allows you to adjust all of the settings that you made when you created the integration.
+
+{{imageOverlay src="/assets/images/console/product-integration-edit.png" class="no-darken"}}
+
+### Disable integration - integrations - product
+
+You can disable the integration, so the event will not trigger it. You might do this if the integration is experiencing issues.
+
+Note that a single event can trigger an event at multiple levels, such as the sandbox and a product.
+
+Also note that the event name is a prefix match. And event name that begins with the integration event name will be called.
+
+### Events - product
+
+{{!-- BEGIN shared-blurb 0cd8e3ce-a3b1-4a76-94d1-ae4402d5899f --}}
+Events are published by devices, Logic, as the result of an integration (webhook), or from the Particle cloud API. They provide a secure, data-efficient way to communicate information between these things. Events are temporal and disappear if not captured by something else, like an integration that could send it to a database, or Ledger. Likewise, the Events view is live, and does not show historical events. It will only show events that pass through the cloud while the panel is open.
+{{!-- END shared-blurb --}}
+
+{{imageOverlay src="/assets/images/console/events-product.png" class="no-darken"}}
+
+There is also an Events panel in the sandbox for claimed device events.
+
+And also for each device, to only show events from that device. Note that the device event view does not show responses from webhooks going to that device, only events from the device.
+
+{{imageOverlay src="/assets/images/console/events-device.png" class="no-darken"}}
+
+### Firmware - product
+
+{{imageOverlay src="/assets/images/console/product-firmware.png" class="no-darken"}}
 
 
+### Authentication - sandbox
 
-{{imageOverlay src="/assets/images/console/product-settings.png" class="no-darken"}}
+{{imageOverlay src="/assets/images/console/product-authentication.png" class="no-darken"}}
 
----
+{{!-- BEGIN shared-blurb 9cacae49-a693-461e-a1c4-a75069ae226c --}}
+The **Authentication** tab allows the creation of a new OAuth client ID.
 
-### Devices vs product devices
+- If you are providing access to the Particle cloud API for an external service, you should use [API users](/reference/cloud-apis/api/#api-users).
+- You should avoid using the customer claiming feature and instead manage access for your customers through your own back-end service.
+- You should avoid using the Particle iOS and Android device setup SDKs, which are deprecated and not compatible with current devices.
+- If you do need to create an OAuth client you should do so at the product level, or organization level, not at the sandbox level.
 
-Up until now, you've been an individual user of Particle. Your devices belong to
-you, and you can only act upon one device at a time.
+{{imageOverlay src="/assets/images/console/new-oauth-client.png" class="no-darken"}}
+{{!-- END shared-blurb --}}
 
-When you create a **Product**, you'll have a few additional important concepts available to you: **devices**, **team members** and **customers**.
+### Customers - product
 
-First, you'll set up a **Product**, the overarching group responsible for the
-development of your Internet of Things products.
+It is recommended that you not use the **Customers** feature.
 
-Defining a Product is what unifies a group of homogeneous devices together, and your Product can be configured to function exactly how you
-envision.
+{{imageOverlay src="/assets/images/console/product-customers.png" class="no-darken"}}
 
-Each Product has its own fleet of associated **devices**. Any hardware
-on the Particle Device Cloud including the PØ, P1,
-Photon, and Electron, could be used inside a Product, but it's important to note that only one type of device will be in each Product
+### Environment - product
 
-**Customers** own a device, and have permissions to control
-their device. You will define the extent of their access to the device when you
-configure your Product. 
+{{imageOverlay src="/assets/images/console/product-environment.png" class="no-darken"}}
 
-For cellular devices, it is also common to have all devices claimed to a single account, rather than using individual customer accounts. It is also possible to use unclaimed product devices.
+For more information, see:
 
-Your Product also has **team members** with access to the Console.
+- [Environment](/getting-started/configuration/environment/): lightweight, non‑secret name - value pairs that shape the runtime environment. They are ideal for fast, system level adjustments (endpoints, feature flags, polling intervals) without changing firmware. Available in the cloud and in the firmware.
 
-It is important to note that *team members* and *customers* have different levels of access. For instance, only *team members* will typically be able to send an over-the-air firmware update, while *customers* may have the ability to control their own product. These access levels will be controlled through the Console.
 
-### Defining a product
+### Secrets - product
 
-Our cloud platform thinks that all devices are *Photons*, *Electrons*, or *Cores* — unless it's told otherwise. Now's the time to define your own product within the platform and tell us a bit about how that product should behave.
+There is no secrets panel for a product. Secrets can be defined:
 
-*Photons* are development kits. They're designed to be easy to reprogram and run a variety of software applications that you, our users, develop.
+- In sandbox, and applies to all products in the sandbox of the product owner
+- In organization, and applies to all products in the organization
 
-*Your product* is (probably) not a development kit. While some of the characteristics of the development kits will carry over, you're going to want to make a bunch of changes to how your product works. These include:
+For more information, see:
 
-- Limiting access (e.g. only certain people can reprogram them)
-- Collecting bulk data, events, errors, and logs from all of your devices
-- Distributing firmware updates in a controlled fashion
+- [Secrets](/getting-started/cloud/secrets/): secure, organization‑scoped values that integrations and logic can reference securely.
 
-To create a product, return to your personal console page and click on the **New Product** button.
+### Team - product
 
-![Your product page](/assets/images/products-page.png)
+{{imageOverlay src="/assets/images/console/product-team.png" class="no-darken"}}
 
-This will open up a modal where you can add basic details about your product:
-
-![A new product](/assets/images/new-product-modal.png)
-
-You now have your very first Particle product! Woot!
-
-### Adding team members
-
-Now that you have created a Product successfully, it's time to add your coworkers and friends that are collaborating with you on your IoT product. Adding a team member will give them full access to your Product's Console.
-
-To do this, click on the *team icon* (<i class="ion-person-stalker"></i>) on the sidebar of your Product Console. This will direct you to the team page, where you can view and manage team members. Right now, your username should be the only one listed as a member of the Product. To add a new team member, just click the *Invite team member* button pictured below:
-
-![Team page](/assets/images/team-page.png)
-
-Clicking this button will open up a modal where you can invite a team member by email address. Before inviting a new team member, **make sure that they already have a Particle account with the email address you will be using to invite them to the Product**. 
-
-![Invite team member](/assets/images/invite-team-member.png)
-<p class="caption">The invite team member modal</p>
-
-Once your team member is successfully invited, they will receive an email notifying them of their invitation. The next time they log into their Console, they will have the option of accepting or declining the invitation. Remember that you can have up to 5 team members in the free Prototype tier, so go send some invites!
-
-[API Users](/reference/cloud-apis/api/#api-users) are also displayed in the team members tab.
-
-Nice! Now you have a Product with a team.
-
-### API users
+#### Add API user - team - product
 
 An [API user account](/reference/cloud-apis/api/#api-users) is a specific type of user account in the Particle platform that is designed to replace using 'human' accounts for programmatic tasks. It is highly recommended that you use this feature if you are connecting to the Particle cloud
 from an external web service.
 
-In the **Team** tab for a product or organization, click the **Add API user** button.
+{{imageOverlay src="/assets/images/console/product-add-api-user.png" class="no-darken"}}
 
-![Add API user](/assets/images/console/add-api-user.png)
+{{note op="start" type="warning"}}
+You may find example code that users a user account access token to access the Particle cloud API. You should never do this for a production product; instead use API users for better access control.
+{{note op="end"}}
 
-From this window you can select common scopes, or use the **Advanced customization** slider to access all of the available scopes.
+#### Invite team member - team - product
 
-Once you've created API users, they are listed below team members and can be edited or removed there.
+Products allow multiple users to securely collaborate on a project together. Use the **Invite team member** to invite a user to your product.
 
-Unlike most user tokens, API users tokens do not expire, since they are intended to be embedded in external services. For security reasons, you should still prevent accidentally exposing them, and also use the minimum set of scopes that are necessary.
+{{imageOverlay src="/assets/images/console/product-invite-team.png" class="no-darken"}}
 
+Team members can have a role, which determines what operations they can perform on your product.
 
-### Your product ID
+{{imageOverlay src="/assets/images/console/product-invite-team-role.png" class="no-darken"}}
 
-When you created your product, a unique numeric ID was assigned to it. This small piece of information is *very, very important* to you as a product creator, and it will be used countless times during the development and manufacturing process for your product. You will be able to find your product's ID at any time in the navigation bar when viewing information about your product:
+For more information, see [team access controls](/getting-started/console/team-access-controls/).
 
-![A new product](/assets/images/product-id.png)
-<p class="caption">Your product ID is marked with a key icon</p>
+### Settings - product
 
-This ID will be used by the Particle Device Cloud to identify which devices belong to your Product, and subsequently it is part of what empowers you to manage firmware running on those devices *en masse*.
+There are various settings for the product in the **Settings** panel.
 
-When working with devices that belong to your Product, it is important to note that this product ID must be compiled into the firmware that is running on each device. The product ID that the device reports to the cloud from its firmware will determine which Product it requests to become a part of. This will be covered more in-depth in the [rollout firmware](#rollout-firmware) section below.
-
-### Adding devices
-
-Now that you have your Product, it's time to add devices. Adding devices will assign them to your Product and allow you to start viewing and managing these devices within your Product Console.
+{{imageOverlay src="/assets/images/console/product-settings.png" class="no-darken"}}
 
 
 
