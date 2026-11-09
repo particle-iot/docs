@@ -1351,6 +1351,14 @@ SE, SI, SK, TR, UA, UK(NI).
 
 - [UKCA Certification](/assets/pdfs/phn2-ukca.pdf)
 
+### Japan - Photon 2
+
+- [Japan Certificate of Compliance R210-274205](/assets/pdfs/p2-japan-certificate.pdf)
+- [Japan MIC Bluetooth LE Test Report](/assets/pdfs/p2-japan-ble-test-report.pdf)
+- [Japan MIC Wi-Fi 2.4 GHz Test Report](/assets/pdfs/p2-japan-wifi-2-4ghz-test-report.pdf)
+- [Japan MIC Wi-Fi 5 GHz Test Report (part 1)](/assets/pdfs/p2-japan-wifi-5ghz-test-report-part1.pdf)
+- [Japan MIC Wi-Fi 5 GHz Test Report (part 2)](/assets/pdfs/p2-japan-wifi-5ghz-test-report-part2.pdf)
+
 ### Trace antenna test report - Photon 2
 
 - [P2 trace antenna test report](/assets/pdfs/p2-trace-antenna-test-report.pdf)
@@ -1403,6 +1411,7 @@ SE, SI, SK, TR, UA, UK(NI).
 |  14 | 2024-04-25 | RK | Update retained memory description |
 |  15 | 2024-04-25 | RK | Added I/O characteristics |
 |  16 | 2024-10-02 | RK | Added warning to not use Argon (ANT-FLXV2) antenna |
+|  17 | 2026-11-09 | RK | Added certification R210-274205 (Japan) |
 
 
 ## Known errata

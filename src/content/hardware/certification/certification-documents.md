@@ -1329,6 +1329,14 @@ The P1 module is deprecated. All designs should use the P2 module instead.
 
 - [UKCA Certification](/assets/pdfs/p2-ukca.pdf)
 
+### Japan - P2
+
+- [Japan Certificate of Compliance R210-274205](/assets/pdfs/p2-japan-certificate.pdf)
+- [Japan MIC Bluetooth LE Test Report](/assets/pdfs/p2-japan-ble-test-report.pdf)
+- [Japan MIC Wi-Fi 2.4 GHz Test Report](/assets/pdfs/p2-japan-wifi-2-4ghz-test-report.pdf)
+- [Japan MIC Wi-Fi 5 GHz Test Report (part 1)](/assets/pdfs/p2-japan-wifi-5ghz-test-report-part1.pdf)
+- [Japan MIC Wi-Fi 5 GHz Test Report (part 2)](/assets/pdfs/p2-japan-wifi-5ghz-test-report-part2.pdf)
+
 ### Trace antenna test report - P2
 
 - [P2 trace antenna test report](/assets/pdfs/p2-trace-antenna-test-report.pdf)
@@ -1442,6 +1450,14 @@ The Photon is deprecated. The Photon 2 or P2 should be used in all new designs.
 ### UKCA (United Kingdom) - Photon 2
 
 - [UKCA Certification](/assets/pdfs/phn2-ukca.pdf)
+
+### Japan - Photon 2
+
+- [Japan Certificate of Compliance R210-274205](/assets/pdfs/p2-japan-certificate.pdf)
+- [Japan MIC Bluetooth LE Test Report](/assets/pdfs/p2-japan-ble-test-report.pdf)
+- [Japan MIC Wi-Fi 2.4 GHz Test Report](/assets/pdfs/p2-japan-wifi-2-4ghz-test-report.pdf)
+- [Japan MIC Wi-Fi 5 GHz Test Report (part 1)](/assets/pdfs/p2-japan-wifi-5ghz-test-report-part1.pdf)
+- [Japan MIC Wi-Fi 5 GHz Test Report (part 2)](/assets/pdfs/p2-japan-wifi-5ghz-test-report-part2.pdf)
 
 ### Trace antenna test report - Photon 2
 

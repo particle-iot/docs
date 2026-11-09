@@ -2132,6 +2132,14 @@ SE, SI, SK, TR, UA, UK(NI).
 
 - [UKCA Certification](/assets/pdfs/p2-ukca.pdf)
 
+### Japan - P2
+
+- [Japan Certificate of Compliance R210-274205](/assets/pdfs/p2-japan-certificate.pdf)
+- [Japan MIC Bluetooth LE Test Report](/assets/pdfs/p2-japan-ble-test-report.pdf)
+- [Japan MIC Wi-Fi 2.4 GHz Test Report](/assets/pdfs/p2-japan-wifi-2-4ghz-test-report.pdf)
+- [Japan MIC Wi-Fi 5 GHz Test Report (part 1)](/assets/pdfs/p2-japan-wifi-5ghz-test-report-part1.pdf)
+- [Japan MIC Wi-Fi 5 GHz Test Report (part 2)](/assets/pdfs/p2-japan-wifi-5ghz-test-report-part2.pdf)
+
 ### Trace antenna test report - P2
 
 - [P2 trace antenna test report](/assets/pdfs/p2-trace-antenna-test-report.pdf)
@@ -2189,7 +2197,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 021 | 2024-09-04 | RK | Added note about VBAT_MEAS |
 | 022 | 2024-10-02 | RK | Added warning to not use Argon (ANT-FLXV2) antenna |
 | 023 | 2026-05-18 | RK | Updated EU Declaration of Conformity |
-
+| 024 | 2026-11-09 | RK | Added certification R210-274205 (Japan) |
 
 ## Known errata
 
