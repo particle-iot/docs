@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### P2 Japan certification 2026-11-09
+
+Japan certification documents for the P2 and Photon 2 are now available in the [certification documents](/hardware/certification/certification-documents/#japan-p2).
+
 ### Getting started guide 2026-11-05
 
 A new [getting started guide](/getting-started/guide/) is now available for getting started with the Particle platform.
