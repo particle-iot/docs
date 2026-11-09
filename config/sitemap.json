@@ -592,7 +592,7 @@
         },
         "getting-started/console/console.md": {
             "date": "2026-11-09",
-            "hash": "197ee175ea85cca8246a6e48aa519977248e0153438fcec19f9c05ef0bb0440f"
+            "hash": "fb8d8c8dabf34e29339e68fb22ffb90cb0c3808922b82c55d0d1b95ad0eda215"
         },
         "getting-started/console/development-devices.md": {
             "date": "2025-03-18",
@@ -10135,11 +10135,11 @@
             "date": "2026-11-09"
         },
         "getting-started/tracker/monitor-one-configuration.md": {
-            "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "hash": "dbb8f2438b44114469461e6a0bf4d9f8cad1efaadc0833916f4bfcfc4d107376",
             "date": "2026-11-09"
         },
         "getting-started/tracker/tracker-one-configuration.md": {
-            "hash": "4c8cc007eca5c47114239c2f40e8d6289b37c7adaa272ce1b95640b4baae767d",
+            "hash": "4a4faa6a2e59aa429eeff28a314b04811c93954179eed47af2e1afba1c417e2a",
             "date": "2026-11-09"
         }
     }

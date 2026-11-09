@@ -8,6 +8,7 @@ description: Tracker One configuration
 
 All Asset Tracker devices are intended to be used in a product, not as developer devices. This makes it easy to manage a fleet of asset trackers, allowing per-fleet and per-device configuration settings, and features like fleet mapping. The Product Features in the previous section also apply to Tracker devices.
 
+
 ### Map
 
 {{imageOverlay src="/assets/images/tracker/map-view.png" alt="Map view" }}
@@ -54,7 +55,7 @@ within the circle; it's exact location is not known.
 
 Your Tracker devices are intended to, in general, be configured with fleet-wide settings that are used for all devices in your fleet. The fleet-wide settings are available in Configuration - Typed Configuration in the left-hand navigation bar.
 
-![Settings Icon](/assets/images/tracker/map-settings.png)
+{{imageOverlay src="/assets/images/console/product-configuration-tracker-one.png" class="no-darken"}}
 
 Note that the settings are automatically synchronized with the device, even if the device is asleep or disconnected at the time the change is made. When the device connects to the cloud again, the checksum of the current device and cloud settings are compared, and if they are different, an updated configuration is sent to the device.
 

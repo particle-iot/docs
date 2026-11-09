@@ -4,7 +4,6 @@ shared: true
 columns: two
 layout: commonTwo.hbs
 description: Web-based management for your Particle IoT devices
-includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, zip]
 ---
 
 # {{title}}
@@ -16,8 +15,6 @@ divided into two main sections, [tools for developers](#developer-tools)
 and [tools to manage product fleets](#product-tools).
 
 **Note:** The Console does not work in Microsoft Internet Explorer including Edge. Please use another browser, such as Chrome or Firefox, to access the Console. If you're experiencing rendering issues, turn off any ad blocking extensions you may be using.
-
-{{> sso}}
 
 ## Demo
 
