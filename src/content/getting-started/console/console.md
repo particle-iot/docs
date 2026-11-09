@@ -207,6 +207,8 @@ And also for each device, to only show events from that device. Note that the de
 
 {{imageOverlay src="/assets/images/console/events-device.png" class="no-darken"}}
 
+For a comparison of the various Events panels, see [More about events panels](#more-about-events-panels), below.
+
 #### Exporting events - sandbox
 
 The [Event Viewer Tool](/tools/cloud-tools/events/) can be used if you want to export events to a file or spreadsheet.
@@ -526,6 +528,8 @@ Clicking **Raw** shows the raw, unformatted data, which can also be copied to th
 
 {{imageOverlay src="/assets/images/console/product-device-events-raw.png" class="no-darken"}}
 
+For a comparison of the various Events panels, see [More about events panels](#more-about-events-panels), below.
+
 
 #### Vitals - device details - product
 
@@ -783,6 +787,8 @@ The 10 most recently uses of this integration are shown in the history section.
 
 {{imageOverlay src="/assets/images/console/product-integration-view-history.png" class="no-darken"}}
 
+For a comparison of the various Events panels, see [More about events panels](#more-about-events-panels), below.
+
 #### View details history details - integrations - product
 
 Clicking on one of the history options expands to show more details about the event.
@@ -816,6 +822,8 @@ There is also an Events panel in the sandbox for claimed device events.
 And also for each device, to only show events from that device. Note that the device event view does not show responses from webhooks going to that device, only events from the device.
 
 {{imageOverlay src="/assets/images/console/events-device.png" class="no-darken"}}
+
+For a comparison of the various Events panels, see [More about events panels](#more-about-events-panels), below.
 
 ### Firmware - product
 
@@ -998,3 +1006,38 @@ You can update your credit card from the billing page by clicking on the "UPDATE
 
 If we attempt to charge your credit card and it fails, we do not immediately prevent you or your team from accessing your Device Management Console. We will continue to retry charging your card once every few days <strong>for a maximum of 3 retries</strong>. You will receive an email notification each time an attempt is made and fails. When you receive this notification, the best thing to avoid any interruption in service is to <a href="#updating-your-credit-card">update your credit card</a>.
 
+## More about events panels
+
+There are a number of Events panels in the console, and it can be confusing which one to look at. Here's a real-world example.
+
+There is one product with four devices generating events. Only one of the devices, the developer device "wombat-magnetic" is claimed, all other devices are unclaimed product devices. This is a common configuration.
+
+{{imageOverlay src="/assets/images/console/product-devices.png" class="no-darken"}}
+
+### Sandbox events
+
+The Events panel in the sandbox (top-level) for devices claimed to the account, so only one device's events show up, wombat-magnetic, and also its hook-response events.
+
+{{imageOverlay src="/assets/images/console/events-sandbox-2.png" class="no-darken"}}
+
+### Product events
+
+The Events panel in the product (Chivalrous Pink Borons) shows the event and the hook-response for all four devices in the product, whether claimed or not.
+
+{{imageOverlay src="/assets/images/console/events-product-2.png" class="no-darken"}}
+
+### Device events
+
+The Events panel in the device wombat-magnetic 
+
+{{imageOverlay src="/assets/images/console/events-device-2.png" class="no-darken"}}
+
+### Integration events
+
+In Integration - View details - History it isn't a full Events panel, but it does show the 10 most recent events that triggered the integration (webhook).
+
+{{imageOverlay src="/assets/images/console/integration-history-2.png" class="no-darken"}}
+
+You can see greater details about the event, webhook request, and webhook response by expanding the history log entries.
+
+{{imageOverlay src="/assets/images/console/integration-history-2-event.png" class="no-darken"}}
