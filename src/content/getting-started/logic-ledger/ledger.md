@@ -7,6 +7,7 @@ description: Ledger
 
 # {{title}}
 
+{{!-- BEGIN shared-blurb 21e80dea-8a96-469c-8f9d-86211332beeb --}}
 Ledger allows data to be stored in the cloud, per-device, per-product, or per owner account. 
 
 The three types of Ledgers are:
@@ -22,6 +23,9 @@ Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define t
 Device to Cloud and Cloud to Device ledgers require Device OS 6.1.0 or later. They can be up to 16 KBytes in size. 
 
 Cloud only ledgers (not synchronized to a device) can be up to 1 Mbyte (1024 Kbyte).
+{{!-- END shared-blurb --}}
+
+
 
 {{!-- BEGIN shared-blurb f77c1afd-51d7-488a-a090-9786b7133e73 --}}
 {{!-- END shared-blurb --}}

@@ -27,36 +27,45 @@ Visit the [demo site](https://www.particle.io/demo/) for instant access.
 
 ## Developer tools
 
-While actively developing an IoT project or product, the Console offers
-many helpful features to make prototyping a breeze. See the last time a
-device connected, debug a firmware issue by observing event logs,
-set up a webhook to send data to an external service, and more.
+### Welcome page
+
+The console welcome page provides easy access to developer, product, and organization features.
+
+{{imageOverlay src="/assets/images/console/welcome.png" class="no-darken"}}
+
+The **Sandbox** popup in the upper left corner switches between your personal view ("Sandbox") and being able to see the devices and products in your organization, if your account is part of an organization.
 
 ### Search
 
-The console makes it easy to search for a device from its Device ID (24-character hex code), serial number, name, or ICCID. You can also search for a product by name.
+The search box makes it easy to search for a device from its Device ID (24-character hex code), serial number, name, or ICCID. You can also search for a product by name.
 
 This can be done at the top level of your sandbox to search your sandbox and all organizations you have access to. There is also a search at the top level of each organization to search only that organization.
 
-![Console search](/assets/images/console/console-search.png)
+{{imageOverlay src="/assets/images/console/console-search.png" class="no-darken"}}
 
+### Left navigation
+
+Hovering over the left side of the window expands the left navigation, providing access to all of the console features.
+
+{{imageOverlay src="/assets/images/console/left-nav.png" class="no-darken"}}
+
+### Products
+
+The **Products** page shows the products that you own and also the products you have been granted access to as a team member.
+
+If you are part of an organization, there may be additional products that you have access to by navigating into the organization first using the **Sandbox** popup menu in the upper left corner of the window.
+
+{{imageOverlay src="/assets/images/console/products.png" class="no-darken"}}
 
 ### Devices
 
-The Devices page allows you to see a list of the devices associated with
-your account. Here, you can see specific information about each device,
-including it's unique Device ID, it's name, the type of device, the last time it connected
-to the Particle cloud, and whether or not the device is currently
-online.
+The device list shows the devices associated with your account. Note that there are multiple device lists, one for your sandbox, and one in each product that you have access to. 
 
-{{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac12000 --}}
-![Sandbox device list](/assets/images/console/sandbox-devices.png)
+Clicking on **My Devices** in the left-hand navigation bar brings up the sandbox device list.
 
-When **Sandbox** (1) is selected, you will see the devices in your personal sandbox, vs. your basic or enterprise organization. 
+{{imageOverlay src="/assets/images/console/device-list.png" class="no-darken"}}
 
-Clicking the **Devices** icon (2) shows the Device List.
-
-If the **Show sandbox devices only** checkbox (3) is not checked, then the list will be like the old, pre-checkbox, behavior and will show devices that are claimed to your account, both in your free developer sandbox as well as product devices in free, basic, and enterprise organization products. 
+If the **Show sandbox devices only** checkbox is not checked, then the list will only show devices that are claimed to your account, both in your free developer sandbox as well as product devices in free, basic, and enterprise organization products. 
 
 When checked, the list will only include non-product devices claimed to your account in the free developer sandbox.
 
@@ -64,12 +73,20 @@ When checked, the list will only include non-product devices claimed to your acc
 - **Total claimed product devices** is the total number of devices claimed to your account that are in a product.
 
 The 100-device limit in the free plan is the total of the devices claimed to your account in the developer sandbox, plus all devices in any free plan products that you are the owner of. 
-{{!-- END shared-blurb --}}
 
 You can also take certain actions on devices from this view, such as
 renaming the device and unclaiming it from your account.
 
-Unclaiming a cellular device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also pause or release ownership of your SIM to stop billing.
+Unclaiming a cellular device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also pause or release ownership of your SIM to stop billing. You must also release SIM cards for cellular devices to stop billing.
+
+In this example, clicking the checkbox results in no devices, because every device in this part of a product.
+
+{{imageOverlay src="/assets/images/console/device-list-sandbox-only.png" class="no-darken"}}
+
+
+The product device list will be discussed in more detail below, but this is what it looks like in this account:
+
+{{imageOverlay src="/assets/images/console/device-list-product.png" class="no-darken"}}
 
 The product device list has a number of columns that are not present in the sandbox device list:
 
@@ -79,103 +96,111 @@ The product device list has a number of columns that are not present in the sand
 - Billing status - All sandbox devices count toward the 100-device billing limit.
 - Groups - Groups are only available in products.
 
+### SIM cards
 
-### Event logs
+If you have cellular devices, you may have SIM cards listed in the **SIM cards** panel.
 
-The Logs feature provides a clean interface to view event information in real-time, just from your devices. We're hoping that this is handy both while debugging code during development, and checking out recent activity on your device once you power-on your finished project. Tailored around improving the experience of browsing logs, the page provides a handful of tools, like filtering, modifiers which enable you to narrow down your search for events, making it easier to view only the data that is relevant to you. In this view, you'll only see events that come in while the browser window is open.
+{{imageOverlay src="/assets/images/console/sim-cards.png" class="no-darken"}}
 
-To visit the page go to [https://console.particle.io/events](https://console.particle.io/events)
+In most cases, however, your devices will be associated with a product, in which case the SIM cards are in the product SIM card view, instead.
 
-<img src="/assets/images/eventlogs/full.png" class="full-width" />
+{{imageOverlay src="/assets/images/console/sim-cards-product.png" class="no-darken"}}
 
-#### Logs
+When you set up a device at [https://setup.particle.io/](https://setup.particle.io/) it is set up as a product device, and Particle recommends making every device part of a product, even if it's a product of one device. There is no limit to the number of products you can have, even in the free tier.
 
-The left side of the page contains a real-time log of events passing through the cloud. You'll get the name, data, timestamp and the device name associated with each event as it comes in. Oh Yeah! And, if you click on the event, you can see the event data.
+To remove a device so it no longer counts against the sandbox 100 device limit you must:
+
+- Unclaim (for claimed devices)
+- Remove from product (for product devices)
+- Release SIM (for cellular devices)
+
+### Logic
+
+{{!-- BEGIN shared-blurb 75dc780e-171e-44a5-babe-7042c2fb8cfe --}}
+Logic Functions are bits of Javascript code that get called in response to a Logic Trigger, which can be:
+
+- A Particle event, generated by a device, Particle cloud API, or webhook response
+- A scheduled, periodic time event ("cron")
+
+Logic Functions run in the cloud and are designed to perform short-running calculations such as:
+
+- Generation of new event (which might be subscribed to by a device, or trigger an integration)
+- Storing data in the Ledger database
+{{!-- END shared-blurb --}}
+
+In many cases, you will want to access Logic from within a product. Those logic blocks are specific to that product.
+
+For more information, see [Logic](/getting-started/logic-ledger/logic/).
+
+### Ledger
+
+{{!-- BEGIN shared-blurb 21e80dea-8a96-469c-8f9d-86211332beeb --}}
+Ledger allows data to be stored in the cloud, per-device, per-product, or per owner account. 
+
+The three types of Ledgers are:
+
+| Scope | Description |
+| :--- | :--- |
+| Cloud Ledger | Stores information in the cloud without syncing to the edge. |
+| Device to Cloud Ledger | Device storage that syncs automatically to the cloud |
+| Cloud to Device Ledger | Set data in the cloud that will sync to devices |
+
+Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define the data format yourself, and it does not need to be pre-defined (no schema required). It can contain simple values (string, number, boolean) as well as nested objects and arrays. JSON does not support binary data, but you can store small binary data by encoding it, such as as hex, Base64, or Base85 encoding.
+
+Device to Cloud and Cloud to Device ledgers require Device OS 6.1.0 or later. They can be up to 16 KBytes in size. 
+
+Cloud only ledgers (not synchronized to a device) can be up to 1 Mbyte (1024 Kbyte).
+{{!-- END shared-blurb --}}
+
+In many cases, you will want to access Ledger within a product. Those ledgers are specific to that product.
+
+For more information, see [Ledger](/getting-started/logic-ledger/ledger/).
+
+### Integrations
+
+Integrations (webhooks) allow interaction with external services. 
+
+{{imageOverlay src="/assets/images/console/integration-gallery.png" class="no-darken"}}
+
+In almost all cases you should create integrations in the product it is associated with, or in the organization it is part of. 
+
+{{note op="start" type="warning"}}
+Creating sandbox integrations will greatly complicate the process of moving from the free to the basic or enterprise plans later on.
+{{note op="end"}}
+
+For more information, see [Integrations](/integrations/introduction/).
+
+### Events
+
+Events are published by devices, Logic, as the result of an integration (webhook), or from the Particle cloud API. They provide a secure, data-efficient way to communicate information between these things. Events are temporal and disappear if not captured by something else, like an integration that could send it to a database, or Ledger. Likewise, the Events view is live, and does not show historical events. It will only show events that pass through the cloud while the panel is open.
+
+The sandbox **Cloud services - Events** panel allows viewing of published events. It shows events that were generated by claimed devices in your account. You will typically view events in one of the other places where you can view events. Since product devices are often not claimed to your account, you may not see all events in this panel.
+
+{{imageOverlay src="/assets/images/console/events-sandbox.png" class="no-darken"}}
+
+There are also events tabs in each product, that show events from all product devices, whether claimed or not.
+
+{{imageOverlay src="/assets/images/console/events-product.png" class="no-darken"}}
+
+And also for each device, to only show events from that device. Note that the device event view does not show responses from webhooks going to that device, only events from the device.
+
+{{imageOverlay src="/assets/images/console/events-device.png" class="no-darken"}}
 
 #### Exporting events
 
 The [Event Viewer Tool](/tools/cloud-tools/events/) can be used if you want to export events to a file or spreadsheet.
 
-#### How to publish events
+### Authentication
 
-Publishing events can be achieved in multiple ways:
-- Using `particle.publish` in firmware ([docs](/reference/device-os/api/cloud-functions/particle-publish/))
-- Using Particle API JS's `publishEvent` ([docs](/reference/cloud-apis/javascript/#publishevent))
-- Using the Publish event button in the Event Logs page:
+The **Authentication** tab allows the creation of a new OAuth client ID.
 
-<img src="/assets/images/eventlogs/publish.png" class="full-width" />
+- If you are providing access to the Particle cloud API for an external service, you should use [API users](/reference/cloud-apis/api/#api-users).
+- You should avoid using the customer claiming feature and instead manage access for your customers through your own back-end service.
+- You should avoid using the Particle iOS and Android device setup SDKs, which are deprecated and not compatible with current devices.
+- If you do need to create an OAuth client you should do so at the product level, or organization level, not at the sandbox level.
 
-#### Filtering the events
+{{imageOverlay src="/assets/images/console/new-oauth-client.png" class="no-darken"}}
 
-Filters let you narrow down your search and only see events that are relevant.
-
-You can filter the events by writing anything in the input. Your query will be compared with the event name, data, publisher, and date.
-<img src="/assets/images/eventlogs/filter_word.gif" class="full-width" />
-
-#### Modifiers
-
-Besides writing in the input, you can use modifiers to narrow down your search even further. You can see the list of modifiers by pressing the Advanced button.
-
-<img src="/assets/images/eventlogs/filters.png" class="full-width" />
-
-- `device` Filter by device ID (example: `device:34003d001647353236343012`). The `device` modifier is not usable when viewing a device's individual page, as the stream is already listening only for events coming from that device.
-- `event` Filter by event name (example: `event:status`)
-- `range` Only show events that have a number value between min and max (`range:min-max`, example: `range:20-100`)
-- `data` Filter by data (example: `data:device-is-ok`)
-
-Modifiers can be grouped: `device:34003d001647353236343012 event:temperature range:30-50`
-
-** Note: Having multiple modifiers of the same type is not yet supported (you can not filter by 2 device IDs) **
-
-You can combine modifiers with a query. In this example, we combine the query '35' with the modifier 'event:temperature'. The page will only show events named `temperature` that have `35` as their data.
-<img src="/assets/images/eventlogs/filter_multiple.png" class="full-width" />
-
-#### Viewing event data
-
-To view more details about an event, click on it. If the event data is a valid JSON string, it will be displayed in a way that makes it easier to read and understand.
-
-<img src="/assets/images/eventlogs/eventdata_pretty.png" />
-
-To view the raw version of the JSON, click on the `RAW` button.
-
-<img src="/assets/images/eventlogs/eventdata_raw.png" class="full-width" />
-
-You can copy the data to the clipboard if you click on the copy button.
-
-** Note: You can also navigate through the event list by using the up and down arrow keys **
-
-#### Clearing the event logs
-
-You can empty the list of received events by pressing on the Clear button.
-
-#### Pausing the event stream
-
-If lots of events are coming through, you can put events in a queue by clicking on the Pause button. This should help you navigate through the list of events that you have already received.
-
-To make the events from the queue visible click on the Play button.
-
-<img src="/assets/images/eventlogs/queue.png" class="full-width" />
-
-### Integrations
-
-Integrations allow you to send data from your Particle devices to
-external tools and services. The Console provides an interface to
-create, view, edit, and delete Particle integrations.
-
-<img src="{{assets}}/images/console/integrations-view.png"
-class="full-width"/>
-
-For more information on how to start using integrations, you should
-check out:
-
-- [Webhooks
-guide](/integrations/webhooks/)
-- [Webhooks
-tutorial](/integrations/webhooks/)
-- [Azure IoT Hub
-tutorial](/integrations/community-integrations/azure-iot-hub/)
-- [Google Cloud Platform
-tutorial](/integrations/integrations/google-cloud-platform/)
 
 ## Configuration
 

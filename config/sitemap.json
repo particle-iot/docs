@@ -591,8 +591,8 @@
             "hash": "46f95a29b0a7edd657bd39e51d1497a1f3c1121ea0024912c3f86b22c276d286"
         },
         "getting-started/console/console.md": {
-            "date": "2026-10-26",
-            "hash": "653c54df265a911eb117674fa33c975f572cb2c5519ab45e514df25607194d36"
+            "date": "2026-11-09",
+            "hash": "ec1cf99184923ddd839bbfc043e947071d684369076a8ad6a763f0c334e459aa"
         },
         "getting-started/console/development-devices.md": {
             "date": "2025-03-18",
@@ -675,8 +675,8 @@
             "hash": "ddc7a0dffc2a270cbe665a7f8a589a3293f9081f7b84053e22ef926c2beee3c8"
         },
         "getting-started/products/creating-a-product.md": {
-            "date": "2025-01-07",
-            "hash": "ef7c4c41b7a98219118da11dd5a0bbbb849b32355accbb2aca9af7d34f8ef0fd"
+            "date": "2026-11-09",
+            "hash": "29e74ac37a1e90cbfc3984dc293c3cb25117a6c8104d7f8ff7368a70547df39b"
         },
         "getting-started/products/introduction-to-products.md": {
             "date": "2024-03-13",
@@ -8275,12 +8275,12 @@
             "date": "2024-08-28"
         },
         "getting-started/logic-ledger/ledger.md": {
-            "hash": "2afc9261d2d4aa4c0929b2729f7079b6b1e1b0b5f2e0d8926b1ba64c89523f1a",
-            "date": "2024-09-04"
+            "hash": "d80e1f447ad6dca39b0ad6105f38e2e5ec28bb33bdd1e01239aa3ddc87b9e01e",
+            "date": "2026-11-09"
         },
         "getting-started/logic-ledger/logic.md": {
-            "hash": "b6deb4f82ab9eb44dbb51e4af8b41b64b51b4a3fc8cd0be0b31e166ab0f1d975",
-            "date": "2026-02-23"
+            "hash": "39bd21715cf827097561481b2986689cc8c40cf3084040525f3e68888f741f97",
+            "date": "2026-11-09"
         },
         "getting-started/logic-ledger/data-transformation.md": {
             "hash": "95468cd5b3e47cd95d8b3a0eca2c8648f5cb3736c0ff81b151b0abf9fb4fdf4a",
