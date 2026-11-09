@@ -592,7 +592,7 @@
         },
         "getting-started/console/console.md": {
             "date": "2026-11-09",
-            "hash": "82bbdb00cdc870ac398477dd9f42cb2821d79a6c5e3a6d75c7712059c0e722ec"
+            "hash": "197ee175ea85cca8246a6e48aa519977248e0153438fcec19f9c05ef0bb0440f"
         },
         "getting-started/console/development-devices.md": {
             "date": "2025-03-18",
@@ -10129,6 +10129,18 @@
         "getting-started/guide/low-power.md": {
             "hash": "82e90e0ade2bcf9b01c4c4fa57d76ad170f111f8c72d7757f8c024348a764dac",
             "date": "2026-11-05"
+        },
+        "firmware/best-practices/firmware-release.md": {
+            "hash": "184f653cefa08e2211e6d01d5c7dc0b7786cd2a6012f5245bce6bbbf15d2cecc",
+            "date": "2026-11-09"
+        },
+        "getting-started/tracker/monitor-one-configuration.md": {
+            "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "date": "2026-11-09"
+        },
+        "getting-started/tracker/tracker-one-configuration.md": {
+            "hash": "4c8cc007eca5c47114239c2f40e8d6289b37c7adaa272ce1b95640b4baae767d",
+            "date": "2026-11-09"
         }
     }
 }

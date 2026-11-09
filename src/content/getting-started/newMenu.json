@@ -281,6 +281,14 @@
                 {
                     "dir": "tracker-eval-tutorials",
                     "title": "Tracker eval board tutorials"
+                },
+                {
+                    "dir": "tracker-one-configuration",
+                    "title": "Tracker One configuration"
+                },
+                {
+                    "dir": "monitor-one-configuration",
+                    "title": "Monitor One configuration"
                 }
             ]
         },
