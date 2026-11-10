@@ -92,6 +92,10 @@
                 {
                     "dir": "low-power",
                     "title": "Using sleep mode to lower power consumption"
+                },
+                {
+                    "dir": "using-blynk",
+                    "title": "Using Blynk dashboards"
                 }
             ]
         },
