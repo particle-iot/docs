@@ -25,7 +25,7 @@ The board does not include an antenna, USB cable, battery, or prototyping access
 
 - A Photon 2
 - A micro-USB cable for power and data
-- A computer (Windows, Mac, or Linux), which you'll use to set up the device and to program it with the Web IDE or Workbench
+- A computer (Windows, Mac, or Linux), which you'll use to set up the device and to program it with Particle Workbench
 - Your Wi-Fi network name and password
 - Optionally, a Li-Po battery for portable or backup power
 

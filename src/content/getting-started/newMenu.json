@@ -117,6 +117,10 @@
                     "title": "Photon 2"
                 },
                 {
+                    "dir": "photon",
+                    "title": "Photon 1"
+                },
+                {
                     "dir": "bsom",
                     "title": "B-SoM"
                 },

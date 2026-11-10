@@ -26,7 +26,7 @@ In this setup, we use the Particle Maker Kit with a Photon device to connect an 
 
 The assembled device is shown in the image above. A detailed guide on how to connect the sensors can be found here: [https://docs.particle.io/archives/maker-kit/](https://docs.particle.io/archives/maker-kit/).
 
-Now you can connect your device to the Particle IoT platform. This can be done easily using the Particle mobile app. A full step-by-step description is available here: [https://docs.particle.io/quickstart/photon](https://docs.particle.io/quickstart/photon).
+Now you can connect your device to the Particle IoT platform. This can be done easily using the Particle mobile app. A full step-by-step description is available here: [Photon setup](/getting-started/device-setup/photon/).
 
 You should now see your new device listed in the Particle Console under My devices: [https://console.particle.io/devices](https://console.particle.io/devices).
 

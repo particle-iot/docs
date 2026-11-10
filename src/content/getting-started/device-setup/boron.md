@@ -39,7 +39,7 @@ The Boron must always be used with the included certified cellular antenna to re
 - A Boron (BRN404X or BRN402)
 - The cellular antenna. It is required and must be attached before you power the device.
 - A micro-USB cable for power and data
-- A computer (Windows, Mac, or Linux), which you'll use to set up the device and to program it with the Web IDE or Workbench
+- A computer (Windows, Mac, or Linux), which you'll use to set up the device and to program it with Particle Workbench
 - Optionally, a Li-Po battery for portable or backup power
 
 ## Prepare the hardware

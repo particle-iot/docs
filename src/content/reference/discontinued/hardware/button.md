@@ -41,7 +41,7 @@ For more information, check out the [Internet Button datasheet](/reference/datas
 
 ## Connecting
 
-Plug in your Photon and go through the [setup process](/quickstart/photon/).
+Plug in your Photon and go through the [setup process](/getting-started/device-setup/photon/).
 
 
 ## Examples

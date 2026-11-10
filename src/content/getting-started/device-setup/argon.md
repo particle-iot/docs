@@ -33,7 +33,7 @@ What's in the box depends on whether you purchased the Argon Kit or just the Arg
 - An Argon
 - The Wi-Fi antenna. It is required and must be attached before you power the device.
 - A micro-USB cable for power and data
-- A computer (Windows, Mac, or Linux), which you'll use to set up the device and to program it with the Web IDE or Workbench
+- A computer (Windows, Mac, or Linux), which you'll use to set up the device and to program it with Particle Workbench
 - Optionally, a Li-Po battery for portable or backup power
 
 ## Prepare the hardware

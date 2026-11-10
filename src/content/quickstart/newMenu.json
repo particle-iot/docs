@@ -6,10 +6,6 @@
             "title": "Setup next steps"
         },
         {
-            "dir": "photon",
-            "title": "Photon"
-        },
-        {
             "dir": "electron",
             "title": "Electron"
         },
