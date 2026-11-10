@@ -160,5 +160,9 @@ particle call e00fce68739e1a94b9636c15 setColor 255,0,0 --product 46421
 
 When devices other than the first test device (wombat_magnetic) restart, there is no startup color set. You can go into those devices and set the STARTUP_COLOR individually for each device. This is the power of the environment variable: you can set values at the organization, product, and device level.
 
+## Next steps
+
+To learn more about the firmware release process, see [firmware release process](/firmware/best-practices/firmware-release/).
+
 {{section-nav}}
 

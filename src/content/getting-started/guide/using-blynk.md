@@ -95,7 +95,7 @@ In the product **Events** pane, you can see the events from the devices and that
 
 {{imageOverlay src="/assets/images/console/events-product-2.png" class="no-darken"}}
 
-In Integration - View details - History it isn't a full Events panel, but it does show the 10 most recent events that triggered the integration (webhook).
+In Integration - View details - History it shows the 10 most recent events that triggered the integration (webhook).
 
 {{imageOverlay src="/assets/images/console/integration-history-2.png" class="no-darken"}}
 

@@ -591,8 +591,8 @@
             "hash": "46f95a29b0a7edd657bd39e51d1497a1f3c1121ea0024912c3f86b22c276d286"
         },
         "getting-started/console/console.md": {
-            "date": "2026-11-09",
-            "hash": "9c77d1c76e9b9a5630a75ede0bedc0b6c8d1d46333171a189a0df519955270b5"
+            "date": "2026-11-10",
+            "hash": "23a11887c23ba096ee745e11312451c2d9b2dfb507d352100b153feccf3c1938"
         },
         "getting-started/console/development-devices.md": {
             "date": "2025-03-18",
@@ -1279,8 +1279,8 @@
             "hash": "40d725a4f32e4ce93385a1d96b604c71580d26b5b7f76c5d438a0fa3790a7455"
         },
         "reference/device-os/firmware.md": {
-            "date": "2026-10-19",
-            "hash": "5a1ea587ac46fe8ee56ee81859a3de01e6d3a8460674de92f88eebdaf4ffa4df"
+            "date": "2026-11-10",
+            "hash": "0b525752f4051e83b502355e9bb58d9df4268f87383c6f911c0328f096f4f38e"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3591,8 +3591,8 @@
             "hash": "276ba7cf0a4cbc53d2fe510e561e9922d30616526c5afd70255ded9ca2fbfcaf"
         },
         "reference/device-os/api/macros/product_id.md": {
-            "date": "2023-09-20",
-            "hash": "83802608f4bc7411757af7ab70ce83ba1517d51f599a938c062b0e6a321850a1"
+            "date": "2026-11-10",
+            "hash": "a68075c23568acd04d22197cb927a7aee1e3359751b0ad5e741e26b7ba684db1"
         },
         "reference/device-os/api/sleep-sleep/sleep-sleep.md": {
             "date": "2026-05-08",
@@ -10103,8 +10103,8 @@
             "date": "2026-11-05"
         },
         "getting-started/guide/device-fleets.md": {
-            "hash": "ca10e6baa35e2bb5e73b58d56e4c3e0e41355db127e62e2001d1db2445948514",
-            "date": "2026-11-04"
+            "hash": "6426be263f298631017be89ee4d5f07efc16dbc0aa8df990133e656c7246b91c",
+            "date": "2026-11-10"
         },
         "getting-started/guide/environment-variables.md": {
             "hash": "9f2421cf014992a9abcecf5f30133de0cff9a5c50d52cbcc02ccb7f2404a4900",
@@ -10131,8 +10131,8 @@
             "date": "2026-11-05"
         },
         "firmware/best-practices/firmware-release.md": {
-            "hash": "184f653cefa08e2211e6d01d5c7dc0b7786cd2a6012f5245bce6bbbf15d2cecc",
-            "date": "2026-11-09"
+            "hash": "4569fe08bf855fd7b13e2121168441d99c6d52023dd547eaa4cbe519da323fb1",
+            "date": "2026-11-10"
         },
         "getting-started/tracker/monitor-one-configuration.md": {
             "hash": "dbb8f2438b44114469461e6a0bf4d9f8cad1efaadc0833916f4bfcfc4d107376",
@@ -10143,7 +10143,7 @@
             "date": "2026-11-09"
         },
         "getting-started/guide/using-blynk.md": {
-            "hash": "a7635e092b261802c4d486a35cbf7ce7cf7eb1c2cf122889cb96db377b45e326",
+            "hash": "d7c2bd73598e414596b004c50b212200f3f53bb8af518e9962a2f1293c921eb7",
             "date": "2026-11-10"
         }
     }

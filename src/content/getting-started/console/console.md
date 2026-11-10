@@ -439,19 +439,21 @@ In the **Devices** list, clicking on the **...** button on the right edge provid
 
 {{imageOverlay src="/assets/images/console/product-device-list-options.png" class="no-darken"}}
 
-{{!-- BEGIN shared-blurb 74f89cd2-5118-4233-9b9d-7f64a2322a0a --}}
 #### Mark development device - product
 
+{{!-- BEGIN shared-blurb 74f89cd2-5118-4233-9b9d-7f64a2322a0a --}}
 Using **Mark development** does several things:
 
 - Disables fleet flashing to the device. If you are doing active development and flashing your device by USB or OTA directly from Particle Workbench you need to enable Mark Development, otherwise the cloud may immediately overwrite the firmware you flashed with the product default or pinned versions.
 - Enables override for all typed configuration settings for Tracker devices.
 - Allows local flashing by USB for devices with device protection enabled (enterprise accounts only).
+{{!-- END shared-blurb --}}
 
 You can tell which devices have Mark development set by the tool icon to the right of the version number in the product device list.
 
 {{imageOverlay src="/assets/images/console/product-device-development.png" class="no-darken"}}
 
+{{!-- BEGIN shared-blurb c8948ce2-dde9-40b4-b0ea-8795cc486b19 --}}
 #### Unclaim device - product
 
 Unclaim device removes the Owner from the device. Not all product devices need owners, but if you have one set, you can remove it with this option.
@@ -616,24 +618,26 @@ This options are also available from the device list in the **...** button.
 
 {{imageOverlay src="/assets/images/console/product-device-options.png" class="no-darken"}}
 
-{{!-- BEGIN shared-blurb 74f89cd2-5118-4233-9b9d-7f64a2322a0a --}}
-#### Mark development device - device details - product
+#### Mark development device - product
 
+{{!-- BEGIN shared-blurb 74f89cd2-5118-4233-9b9d-7f64a2322a0a --}}
 Using **Mark development** does several things:
 
 - Disables fleet flashing to the device. If you are doing active development and flashing your device by USB or OTA directly from Particle Workbench you need to enable Mark Development, otherwise the cloud may immediately overwrite the firmware you flashed with the product default or pinned versions.
 - Enables override for all typed configuration settings for Tracker devices.
 - Allows local flashing by USB for devices with device protection enabled (enterprise accounts only).
+{{!-- END shared-blurb --}}
 
 You can tell which devices have Mark development set by the tool icon to the right of the version number in the product device list.
 
 {{imageOverlay src="/assets/images/console/product-device-development.png" class="no-darken"}}
 
-#### Unclaim device - device details - product
+{{!-- BEGIN shared-blurb c8948ce2-dde9-40b4-b0ea-8795cc486b19 --}}
+#### Unclaim device - product
 
 Unclaim device removes the Owner from the device. Not all product devices need owners, but if you have one set, you can remove it with this option.
 
-#### Remove device - device details - product
+#### Remove device - product
 
 Removes a device from a product. 
 
@@ -641,6 +645,7 @@ In order to stop billing for cellular devices in the free or basic plan, make su
 
 If the device has an owner set, it will go into that user's sandbox device list, and will count against their 100 device limit. In order to completely release a device, you must first unclaim device, then remove device. Do the unclaim first, because otherwise the device will disappear from this list before you can unclaim it. 
 {{!-- END shared-blurb --}}
+
 
 ### SIM cards - product
 
