@@ -592,7 +592,7 @@
         },
         "getting-started/console/console.md": {
             "date": "2026-11-10",
-            "hash": "bd282cb4f2c7f36c2b4099ee996aadda9fe61411a3313cd97420d1d27d42813e"
+            "hash": "75c9f38d6a2513167fc3c1755384717102fc515a081a66ee3e163102acc62cb3"
         },
         "getting-started/console/development-devices.md": {
             "date": "2026-11-10",
@@ -600,7 +600,7 @@
         },
         "getting-started/console/device-vitals.md": {
             "date": "2026-11-10",
-            "hash": "048a6cce35e77b4ffa1678bef011dde52611e2af8834a6c5fc16fdc938f9ccfa"
+            "hash": "3d3b9dc9436cdbbbe251145781e165dcac89570b8466ca0c2f85b6aacd55ad38"
         },
         "getting-started/console/device-groups.md": {
             "date": "2026-11-10",
@@ -612,11 +612,11 @@
         },
         "getting-started/console/team-access-controls.md": {
             "date": "2026-11-10",
-            "hash": "7de34e5f9f73fde30c8f8ce3808fb7bee998d786c52c55ab63f42ac72b0b6a3f"
+            "hash": "d53824111a177cfe7cf05cf362d21b6f36e9fcfa06b5aa1e9965ace2b84b43ec"
         },
         "getting-started/console/two-step-authentication.md": {
-            "date": "2023-03-22",
-            "hash": "24c91a8e129af78fd850cf3cfc2687dda1d9013f75b3e1145f3752777b115b33"
+            "date": "2026-11-10",
+            "hash": "87112e496dec0f4070b7bc6f03b5e63f48ef6f7400736d2e9c5a3e8c8c9ab227"
         },
         "getting-started/developer-tools/build.md": {
             "date": "2022-06-14",
@@ -8271,8 +8271,8 @@
             "date": "2024-08-28"
         },
         "getting-started/logic-ledger/ledger.md": {
-            "hash": "d80e1f447ad6dca39b0ad6105f38e2e5ec28bb33bdd1e01239aa3ddc87b9e01e",
-            "date": "2026-11-09"
+            "hash": "3cb53c3bb13c440a15830b563c651a048e3c7bfc0f49531573b2a1e3224dff28",
+            "date": "2026-11-10"
         },
         "getting-started/logic-ledger/logic.md": {
             "hash": "39bd21715cf827097561481b2986689cc8c40cf3084040525f3e68888f741f97",
