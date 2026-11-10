@@ -35,6 +35,8 @@ The Monitor One box contains:
 
 ## Powering on the device
 
+### Using the M12 cable
+
 1. Take the M12 8-pin cable. There are two cables in the box, and this is the one used for power.
 2. Connect the 5.5 x 2.1 mm barrel jack from the power supply to the barrel socket on the adapter.
 3. Plug the M12 8-pin connector into the Monitor One, with the label up and toward the cellular SMA connector.
@@ -45,6 +47,32 @@ The Monitor One box contains:
 If you want to use your own power supply, any 6 - 30 VDC, 2 A adapter with a 5.5 x 2.1 mm center-positive barrel plug will work.
 
 For more details on the Monitor One hardware, see the [Monitor One datasheet](/reference/datasheets/tracker/monitor-one-datasheet/).
+
+### Using USB
+
+It is also possible to power the Monitor One by USB, but the cover must be removed. You will probably want to do this eventually, and the instructions are included below.
+
+## Obtain the serial number
+
+In order to set up a Monitor One device you will need the serial number, because there is no exposed USB port for setup.
+
+### Box serial number
+
+There is a sticker with the serial number on the box. It's below a barcode and begins with P and a 3-digit number.
+
+{{imageOverlay src="/assets/images/monitor-one/monitor-one-serial-box.png" class="no-darken"}}
+
+### Case serial number
+
+There is a sticker on the case itself, but it is hidden under the mounting plate.
+
+Remove the hex screw on the bottom of the mounting plate. It requires the larger of the two included Allen wrenches.
+
+{{imageOverlay src="/assets/images/monitor-one/monitor-one-mounting-screw.png" class="no-darken"}}
+
+Under the mounting plate is a sticker with a barcode and the serial number. It begins with P and a 3-digit number.
+
+{{imageOverlay src="/assets/images/monitor-one/monitor-one-case-sticker.png" class="no-darken"}}
 
 {{!-- BEGIN shared-blurb 2067ac29-149f-46d1-87cd-2045f3795ff2 --}}
 ## Device setup
@@ -230,6 +258,20 @@ Select **Extensions** then **Particle**. Check the checkbox for **Enable Pre-rel
 
 {{imageOverlay src="/assets/images/getting-started-guide/git-10.png" class="no-darken"}}
 {{!-- END shared-blurb --}}
+
+## Accessing the USB port
+
+While you can flash the device OTA, it's usually preferable to open the case to access the USB port.
+
+Remove the 6 screws using the smaller of the two included Allen wrenches.
+
+{{imageOverlay src="/assets/images/monitor-one/monitor-one-screws.png" class="no-darken"}}
+
+Lift the cover off the base. There is a gasket between the two; be careful not to damage it.
+
+There is a Micro USB B connector on the carrier board. It can be used to power the Monitor One as well as program it by USB.
+
+{{imageOverlay src="/assets/images/monitor-one/monitor-one-usb.png" class="no-darken"}}
 
 ## Flashing code
 
