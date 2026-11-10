@@ -15,6 +15,7 @@ It is generally impractical to program a device from a tablet such as the iPad, 
 
 {{content-nav}}
 
+{{!-- BEGIN shared-blurb 168590ce-16d7-4b90-baf2-ed68bb6d653d --}}
 ## Install VSCode
 
 The recommended programming environment for Particle devices is VSCode (Visual Studio Code). It's free and available for Windows, Linux, and Mac.
@@ -70,6 +71,7 @@ You will generally stay logged in for up to 3 months before you have to log in a
 There will be temporary status notifications that appear in the lower right corner of the VSCode window. These go away after a few seconds but it's worthwhile to look in that corner after doing something for additional status information.
 
 {{imageOverlay src="/assets/images/getting-started-guide/workbench-logged-in.png" class="no-darken"}}
+{{!-- END shared-blurb --}}
 
 ## Community
 

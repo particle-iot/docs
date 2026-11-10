@@ -99,12 +99,10 @@ When the build is done, a message similar to this will display:
 If you are looking at your device, you will notice that it sequences through:
 
 - Blinking yellow: Programming the device by USB.
-{{!-- BEGIN shared-blurb 39fe3a4d-397e-417f-b7f5-b1f91d69cee4 --}}
 - Blinking green: Connecting to the network (cellular or Wi-Fi).
 - Blinking cyan: Connecting to the Particle cloud.
 - Fast blinking cyan: Last step of connecting to the Particle cloud.
 - Breathing cyan: Successfully connected.
-{{!-- END shared-blurb --}}
 
 Also you should notice the blue status LED, which may be located next to the USB connector, or next to the D7 pin, blinking on and off once per second.
 

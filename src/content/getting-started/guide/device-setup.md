@@ -41,6 +41,7 @@ typed publish that are only available on Gen 3 and Gen 4 devices. You can still 
 it using this guide.
 {{note op="end"}}
 
+{{!-- BEGIN shared-blurb 2067ac29-149f-46d1-87cd-2045f3795ff2 --}}
 ## Device setup
 
 You will generally set up your device from a computer (Windows, Linux, Mac) connected by USB to your devices. A Chromebook can be used for device setup, but you'll need a full computer to install and use the Particle Workbench development environment.
@@ -102,16 +103,17 @@ Additionally, there are a few standard colors.
 When you first turn on a device, it will generally progress through a series of stages:
 
 - Blink white: Powered on. This might be a single blink, and you might not see it.
-{{!-- BEGIN shared-blurb 39fe3a4d-397e-417f-b7f5-b1f91d69cee4 --}}
 - Blinking green: Connecting to the network (cellular or Wi-Fi).
 - Blinking cyan: Connecting to the Particle cloud.
 - Fast blinking cyan: Last step of connecting to the Particle cloud.
 - Breathing cyan: Successfully connected.
-{{!-- END shared-blurb --}}
 
 You can find more on the [Status LED and device modes](/troubleshooting/led/) page.
 
 {{device-animation device "breathe" "cyan" }}
+
+{{!-- END shared-blurb --}}
+
 
 {{section-nav}}
 

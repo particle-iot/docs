@@ -114,7 +114,7 @@ This page is for the Monitor One. If you are using the Tracker One, see [Tracker
 
 ### From Workbench
 
-To get the latest Tracker Edge firmware version from Github in Workbench, the easiest option is to use the Github extension.
+To get the latest Monitor Edge firmware version from Github in Workbench, the easiest option is to use the Github extension.
 
 {{!-- BEGIN shared-blurb 689a692c-8568-4383-9d3f-eb340e12c0dc --}}
 The Github extension in Workbench makes it easy to use Github. It is typically automatically installed and ready to use.
