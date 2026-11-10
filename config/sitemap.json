@@ -547,8 +547,8 @@
             "hash": "974bb5cd39552954733be876ccafd772a990612480ac28e777289ca9e8928bc2"
         },
         "firmware/tracker-edge/monitor-edge-firmware.md": {
-            "date": "2024-11-21",
-            "hash": "c47c4da987c2945fde497c1c49b16fba09dcb299abc6fded37b47e9c0e495e6e"
+            "date": "2026-11-10",
+            "hash": "34c0ccae184fc21597b32d917068173096466079722dd37ba32defb08d0fa903"
         },
         "firmware/tracker-edge/store-and-forward.md": {
             "date": "2024-02-15",
@@ -559,8 +559,8 @@
             "hash": "fc86887835879b290bd6172c02050d4877a02225d2cfdbe67ebd99aded819347"
         },
         "firmware/tracker-edge/tracker-edge-firmware.md": {
-            "date": "2026-06-24",
-            "hash": "1b10132a3e82805bd55bd3add40cddd5ac75faabac208926941adb43484e2c57"
+            "date": "2026-11-10",
+            "hash": "d678830d36af3408bd55d6c24fcb30bc075480f43a3928418af6ce617132b8ba"
         },
         "getting-started/billing/cellular-data.md": {
             "date": "2026-08-10",
@@ -592,7 +592,7 @@
         },
         "getting-started/console/console.md": {
             "date": "2026-11-09",
-            "hash": "1352c6181c8e129ef302a337d131ae95d0fde274e6a8caa5fc1bb7a5b1b66583"
+            "hash": "9c77d1c76e9b9a5630a75ede0bedc0b6c8d1d46333171a189a0df519955270b5"
         },
         "getting-started/console/development-devices.md": {
             "date": "2025-03-18",
@@ -10119,8 +10119,8 @@
             "date": "2026-11-04"
         },
         "getting-started/guide/using-github.md": {
-            "hash": "2d225b15f467140b7289cfba0cfedb91a0ec5f58b31024cb132766bcc9708395",
-            "date": "2026-11-04"
+            "hash": "9a087fc7903c1172eeaaeb7ce40c12f97bfd9328668701ad5aa2dce3175b3abb",
+            "date": "2026-11-10"
         },
         "getting-started/guide/physical-button.md": {
             "hash": "d6f4e1fc0dfddbe85fb031c83f35deb1bf23239f0df472de5427f63ca48ca84e",
