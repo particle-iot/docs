@@ -604,19 +604,15 @@
         },
         "getting-started/console/device-groups.md": {
             "date": "2026-11-10",
-            "hash": "76d5fcd7f97eae73dbf78a1bba2280a6420197e342a2e80c9143cc989222b071"
+            "hash": "565566406b41abd94b829bc51c5894f82367ba4d07e2d7195b06c47fef11f27e"
         },
         "getting-started/console/fleet-health.md": {
             "date": "2026-11-10",
             "hash": "d1be22bf720625613d6a921433190c3cc19fffe18a4c787fa7fd04dadce14665"
         },
-        "getting-started/console/sim-management.md": {
-            "date": "2025-03-18",
-            "hash": "0bdd41b5c0ea57e91c50ea03ef254787ba258d7303531ba2a018141a737e1213"
-        },
         "getting-started/console/team-access-controls.md": {
-            "date": "2026-10-20",
-            "hash": "08c104c722082a3f9987604d14b255715d96f9aea4ed1bf77c2e98355bd7b6c9"
+            "date": "2026-11-10",
+            "hash": "e1b9832fc5faeaef69a2af30a5296167b5edd415dea04f660dba28a12e025994"
         },
         "getting-started/console/two-step-authentication.md": {
             "date": "2023-03-22",

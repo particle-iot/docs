@@ -325,10 +325,6 @@
                     "title": "Team access controls"
                 },
                 {
-                    "dir": "sim-management",
-                    "title": "SIM management"
-                },
-                {
                     "dir": "two-step-authentication",
                     "title": "Two-step authentication"
                 }

@@ -20,8 +20,6 @@ You can create groups for many purposes, including:
 
 A device can belong to zero or more groups, and groups can be overlapping.
 
-![](/assets/images/device-groups/device-groups-overview.jpg)
-
 ## Assigning device groups
 
 ### Product device list
