@@ -14,7 +14,7 @@ interacting with and managing Particle devices easy. This guide is
 divided into two main sections, [tools for developers](#developer-tools)
 and [tools to manage product fleets](#product-tools).
 
-**Note:** The Console does not work in Microsoft Internet Explorer including Edge. Please use another browser, such as Chrome or Firefox, to access the Console. If you're experiencing rendering issues, turn off any ad blocking extensions you may be using.
+**Note:** The Console does not work in Microsoft Internet Explorer. Please use another browser, such as Chrome, Firefox, or Edge, to access the Console. If you're experiencing rendering issues, turn off any ad blocking extensions you may be using.
 
 ## Demo
 
@@ -75,9 +75,9 @@ The 100-device limit in the free plan is the total of the devices claimed to you
 You can also take certain actions on devices from this view, such as
 renaming the device and unclaiming it from your account.
 
-Unclaiming a cellular device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also pause or release ownership of your SIM to stop billing. You must also release SIM cards for cellular devices to stop billing.
+Unclaiming a cellular device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also release ownership of your SIM to stop billing.
 
-In this example, clicking the checkbox results in no devices, because every device in this part of a product.
+In this example, clicking the checkbox results in no devices, because every device is part of a product.
 
 {{imageOverlay src="/assets/images/console/device-list-sandbox-only.png" class="no-darken"}}
 
@@ -90,7 +90,7 @@ The product device list has a number of columns that are not present in the sand
 
 - Firmware - Fleet-wide firmware releases only apply to products. While you can flash sandbox devices OTA, there isn't a release number associated with it.
 - Device OS - The Device OS version reporting is related to the fleet-wide firmware release process.
-- Owner - All sandbox devices are owned by you, the user logged into the account the sandbox is being viewer for.
+- Owner - All sandbox devices are owned by you, the user logged into the account the sandbox is being viewed for.
 - Billing status - All sandbox devices count toward the 100-device billing limit.
 - Groups - Groups are only available in products.
 
@@ -164,7 +164,7 @@ The three types of Ledgers are:
 | Device to Cloud Ledger | Device storage that syncs automatically to the cloud |
 | Cloud to Device Ledger | Set data in the cloud that will sync to devices |
 
-Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define the data format yourself, and it does not need to be pre-defined (no schema required). It can contain simple values (string, number, boolean) as well as nested objects and arrays. JSON does not support binary data, but you can store small binary data by encoding it, such as as hex, Base64, or Base85 encoding.
+Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define the data format yourself, and it does not need to be pre-defined (no schema required). It can contain simple values (string, number, boolean) as well as nested objects and arrays. JSON does not support binary data, but you can store small binary data by encoding it, such as hex, Base64, or Base85 encoding.
 
 Device to Cloud and Cloud to Device ledgers require Device OS 6.1.0 or later. They can be up to 16 KBytes in size. 
 
@@ -229,7 +229,7 @@ The **Authentication** tab allows the creation of a new OAuth client ID.
 
 ### Configuration - sandbox
 
-Configuration is a platform‑wide capability for Particle. Configuration is the control plane for tailoring how devices, cloud, and applications behave, used to solve real-life problems like modem behavior and operating system level radio configuration, as well as to align user applications needs from any vertical or use case. 
+Configuration is a platform‑wide capability for Particle. Configuration is the control plane for tailoring how devices, cloud, and applications behave, used to solve real-life problems like modem behavior and operating system level radio configuration, as well as to align user application needs from any vertical or use case. 
 
 Configuration scales from organization‑wide defaults, to product‑level settings, to device‑specific overrides where appropriate. 
 
@@ -366,7 +366,7 @@ The controls along the top of the window include the **Add devices** button.
 
 For any product you may be developing, you likely have one or more Particle development kits (i.e. a Photon) that you have been using internally for prototyping purposes. We strongly recommend importing these devices into your Product, and using them as your *development group*.
 
-In addition, you'll want to have a *test group* of devices to serve as the guinea pigs for new versions of product firmware. You should get into the habit of uploading a new version of firmware to your product, and flashing it to your test group to ensure your code is working as expected. This too will be covered more in-depth in the [rollout firmware](#rollout-firmware) section below.
+In addition, you'll want to have a *test group* of devices to serve as the guinea pigs for new versions of product firmware. You should get into the habit of uploading a new version of firmware to your product, and flashing it to your test group to ensure your code is working as expected. For more information, see [firmware release process](/firmware/best-practices/firmware-release/).
 
 To add devices, click on the Devices icon in your product sidebar, then click on the **Add Devices** button.
 
@@ -503,7 +503,7 @@ If location storage has been enabled, this panel will show the location of the d
 {{imageOverlay src="/assets/images/console/product-device-location.png" class="no-darken"}}
 
 {{!-- BEGIN shared-blurb 671d4e83-3dd3-4bac-97ce-d157708f1b29 --}}
-This setting is located in the **Setting** panel for the product.
+This setting is located in the **Settings** panel for the product.
 
 {{imageOverlay src="/assets/images/console/product-settings-locations.png" class="no-darken"}}
 
@@ -602,7 +602,7 @@ Monitor One devices also allow the relay on the I/O card to be controlled from a
 
 #### Variables - device details - product
 
-This panel shows functions defined in the device firmware using [Particle.variable](/reference/device-os/api/cloud-functions/particle-variable/).
+This panel shows variables defined in the device firmware using [Particle.variable](/reference/device-os/api/cloud-functions/particle-variable/).
 
 This is the panel for the Monitor One, which allows access to many fields on the I/O card.
 
@@ -610,11 +610,11 @@ This is the panel for the Monitor One, which allows access to many fields on the
 
 Note that you should beware when constantly polling variables from an external service. Each variable request uses one data operation, and if you have a large fleet of devices this can add up quickly. Variables can also only be retrieved when the device is online and not in power-saving sleep mode. 
 
-Depending on your application, you may want to use features such as publish or Ledger instead variables for fleets of devices.
+Depending on your application, you may want to use features such as publish or Ledger instead of variables for fleets of devices.
 
 #### Options - device details - product
 
-This options are also available from the device list in the **...** button.
+These options are also available from the device list in the **...** button.
 
 {{imageOverlay src="/assets/images/console/product-device-options.png" class="no-darken"}}
 
@@ -685,7 +685,7 @@ If location storage has been enabled, this panel will show the location of the d
 {{imageOverlay src="/assets/images/console/product-location.png" class="no-darken"}}
 
 {{!-- BEGIN shared-blurb 671d4e83-3dd3-4bac-97ce-d157708f1b29 --}}
-This setting is located in the **Setting** panel for the product.
+This setting is located in the **Settings** panel for the product.
 
 {{imageOverlay src="/assets/images/console/product-settings-locations.png" class="no-darken"}}
 
@@ -731,7 +731,7 @@ The three types of Ledgers are:
 | Device to Cloud Ledger | Device storage that syncs automatically to the cloud |
 | Cloud to Device Ledger | Set data in the cloud that will sync to devices |
 
-Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define the data format yourself, and it does not need to be pre-defined (no schema required). It can contain simple values (string, number, boolean) as well as nested objects and arrays. JSON does not support binary data, but you can store small binary data by encoding it, such as as hex, Base64, or Base85 encoding.
+Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define the data format yourself, and it does not need to be pre-defined (no schema required). It can contain simple values (string, number, boolean) as well as nested objects and arrays. JSON does not support binary data, but you can store small binary data by encoding it, such as hex, Base64, or Base85 encoding.
 
 Device to Cloud and Cloud to Device ledgers require Device OS 6.1.0 or later. They can be up to 16 KBytes in size. 
 
@@ -772,7 +772,7 @@ If you click on the **...** in the integration list, there are three options:
 
 #### List expand - integrations - product
 
-Clicking on the right allow at the left edge of the integration list expands the entry to show additional information.
+Clicking on the right arrow at the left edge of the integration list expands the entry to show additional information.
 
 {{imageOverlay src="/assets/images/console/product-integration-list-expand.png" class="no-darken"}}
 
@@ -788,7 +788,7 @@ Additional details are available by using **Show advanced**:
 
 #### View details history - integrations - product
 
-The 10 most recently uses of this integration are shown in the history section.
+The 10 most recent uses of this integration are shown in the history section.
 
 {{imageOverlay src="/assets/images/console/product-integration-view-history.png" class="no-darken"}}
 
@@ -812,7 +812,7 @@ You can disable the integration, so the event will not trigger it. You might do 
 
 Note that a single event can trigger an event at multiple levels, such as the sandbox and a product.
 
-Also note that the event name is a prefix match. And event name that begins with the integration event name will be called.
+Also note that the event name is a prefix match. An event name that begins with the integration event name will be called.
 
 ### Events - product
 
@@ -848,7 +848,7 @@ If you select **Standard** the device will only be updated after the next cloud 
 
 For more information, see [firmware release process](/firmware/best-practices/firmware-release/).
 
-### Authentication - sandbox
+### Authentication - product
 
 {{imageOverlay src="/assets/images/console/product-authentication.png" class="no-darken"}}
 
@@ -871,7 +871,7 @@ It is recommended that you not use the **Customers** feature.
 
 ### Configuration - product
 
-Configuration includes environment and secrets for all product, and also contains Typed configuration for Tracker products (Tracker One and Montior One).
+Configuration includes environment and secrets for all products, and also contains Typed configuration for Tracker products (Tracker One and Monitor One).
 
 {{imageOverlay src="/assets/images/console/product-configuration-typed.png" class="no-darken"}}
 
@@ -927,7 +927,7 @@ from an external web service.
 {{imageOverlay src="/assets/images/console/product-add-api-user.png" class="no-darken"}}
 
 {{note op="start" type="warning"}}
-You may find example code that users a user account access token to access the Particle cloud API. You should never do this for a production product; instead use API users for better access control.
+You may find example code that uses a user account access token to access the Particle cloud API. You should never do this for a production product; instead use API users for better access control.
 {{note op="end"}}
 
 #### Invite team member - team - product
@@ -1009,7 +1009,7 @@ You will receive warnings by email, and as a pop-up and in the [**Billing & Usag
 
 In the Basic and Enterprise plans, you will also have access to an **Organization**, which allows finer access control to multiple products. 
 
-The number of devices is limited by the number of blocks you have purchased, 100 devices per block. You can purchase as many blocks as necessary to support number of devices you need.
+The number of devices is limited by the number of blocks you have purchased, 100 devices per block. You can purchase as many blocks as necessary to support the number of devices you need.
 
 
 ### Status

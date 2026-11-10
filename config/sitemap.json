@@ -592,7 +592,7 @@
         },
         "getting-started/console/console.md": {
             "date": "2026-11-10",
-            "hash": "2823c69be4cdafb8cd8e60c7ef6efda322dc876a389bf59aadb252caf5504e21"
+            "hash": "bd282cb4f2c7f36c2b4099ee996aadda9fe61411a3313cd97420d1d27d42813e"
         },
         "getting-started/console/development-devices.md": {
             "date": "2026-11-10",
@@ -600,11 +600,11 @@
         },
         "getting-started/console/device-vitals.md": {
             "date": "2026-11-10",
-            "hash": "061c05fd948ef02af99e78a914a20f89021d7144b33cb4dd046bead20bd552e8"
+            "hash": "048a6cce35e77b4ffa1678bef011dde52611e2af8834a6c5fc16fdc938f9ccfa"
         },
         "getting-started/console/device-groups.md": {
             "date": "2026-11-10",
-            "hash": "565566406b41abd94b829bc51c5894f82367ba4d07e2d7195b06c47fef11f27e"
+            "hash": "e30e29c7030bd3d9685022422a8ec0334c2f41e643a18e1b535e0978a204fc0b"
         },
         "getting-started/console/fleet-health.md": {
             "date": "2026-11-10",
@@ -612,7 +612,7 @@
         },
         "getting-started/console/team-access-controls.md": {
             "date": "2026-11-10",
-            "hash": "e1b9832fc5faeaef69a2af30a5296167b5edd415dea04f660dba28a12e025994"
+            "hash": "7de34e5f9f73fde30c8f8ce3808fb7bee998d786c52c55ab63f42ac72b0b6a3f"
         },
         "getting-started/console/two-step-authentication.md": {
             "date": "2023-03-22",

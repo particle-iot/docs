@@ -24,7 +24,7 @@ A device can belong to zero or more groups, and groups can be overlapping.
 
 ### Product device list
 
-The product device list shows which group(s) a device belongs to, and also create new groups.
+The product device list shows which group(s) a device belongs to, and also allows you to create new groups.
 
 {{imageOverlay src="/assets/images/console/product-devices.png" class="no-darken"}}
 
@@ -78,7 +78,7 @@ When viewing the **Fleet health** panel of a product, you can restrict the healt
 
 Normally device groups are used to manage devices in the console and for releasing product firmware. However, by using a webhook and some device firmware, you can get the device group list from user firmware running on a Particle device.
 
-A 3rd-party library, [DeviceGroupHelperRK](https://github.com/rickkas7/DeviceGroupHelperRK) is available to make this easier. It is also available when using **Particle: Install Library** in Particle Workbench. Or you can use the technique shown in the library directly into your own firmware.
+A 3rd-party library, [DeviceGroupHelperRK](https://github.com/rickkas7/DeviceGroupHelperRK) is available to make this easier. It is also available when using **Particle: Install Library** in Particle Workbench. Or you can use the technique shown in the library directly in your own firmware.
 
 
 

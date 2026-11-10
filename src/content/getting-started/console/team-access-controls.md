@@ -2,7 +2,7 @@
 title: Team access controls
 columns: two
 layout: commonTwo.hbs
-description: Learn about team access controls, managing access different members of your product team
+description: Learn about team access controls, managing access for different members of your product team
 ---
 
 # {{title}}
@@ -14,7 +14,7 @@ devices in your fleets.
 
 This guide breaks down into two parts:
 - A [summary of the available roles](#roles) and a description of each
-- A [permissions matrix](#permissions-matrix) for an in-depth look at what each role as
+- A [permissions matrix](#permissions-matrix) for an in-depth look at what each role has
 access to
 
 {{imageOverlay src="/assets/images/console/product-team.png" class="no-darken"}}
@@ -36,7 +36,7 @@ your product team.
 
 ### View only
 
-View-only is the most strict of the three product team member roles. It
+View-only is the most restrictive of the product team member roles. It
 is designed specifically for people on your team that you'd only like to
 _see_ information about your device fleet — but don't need to make
 updates.
@@ -55,7 +55,7 @@ these members of your team tools to interact with single devices, but
 limit access to fleet-wide management tools.
 
 Someone with the Support role can:
-- Do everything a Read-only teammate can do **+**
+- Do everything a View-only teammate can do **+**
 - Ping, call functions on, and read variables from individual devices
 - Use Diagnostics tools, like Device Vitals
 - Manage the lifecycle state and data limit of SIM cards
@@ -70,17 +70,13 @@ actions.
 Someone with the Developer role can:
 - Do everything a Support teammate can do **+**
 - Take fleet management actions — like
-adding a devices to groups or provision new devices into a Product
+adding devices to groups or provisioning new devices into a Product
 - Create and manage OAuth clients on behalf of products
 - Create and manage Integrations
 - Upload and release product firmware to the fleet
 - Add/remove devices and SIM cards to and from the product
 
 ### Administrator
-
-The Owner of the product represents the highest level of access. There is one single
-owner for each product. The Owner role is automatically given to the
-creator of the product.
 
 Someone with the Administrator role can:
 - Do everything a Developer teammate can do **+**

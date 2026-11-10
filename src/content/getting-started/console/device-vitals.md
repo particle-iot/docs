@@ -28,7 +28,7 @@ When you are viewing the device list for a product, click on a row for a specifi
 
 {{imageOverlay src="/assets/images/console/product-devices.png" class="no-darken"}}
 
-Device vitals information is avaiable in two locations in this view:
+Device vitals information is available in two locations in this view:
 
 {{imageOverlay src="/assets/images/console/vitals-01.png" class="no-darken"}}
 
@@ -51,7 +51,7 @@ The **Vitals** panel in the middle (next to **Events**) shows device health info
 
 #### Signal strength
 
-The strength of the device’s connection to the network, measured in decibels of received signal power. The raw signal strength is {secondary}. Both signal strength and quality impact the health of the connection.
+The strength of the device’s connection to the network, measured in decibels of received signal power. Both signal strength and quality impact the health of the connection.
 
 In the download, this is the `device.network.signal.strength` column.
 
@@ -66,7 +66,7 @@ In the download, this is the `device.network.signal.quality` column.
 
 #### Round trip time
 
-A longer the round-trip time often correlates with poor signal strength or quality. Round trip time is displayed in seconds — the lower the reported time, the better the performance.
+A longer round-trip time often correlates with poor signal strength or quality. Round trip time is displayed in seconds — the lower the reported time, the better the performance.
 
 Note that only messages sent by the Device Cloud to the device like
 event subscriptions, function calls and variable requests are counted in
@@ -91,7 +91,7 @@ The state of charge of the device’s connected battery, represented as a percen
 
 In the download, this is the `device.power.battery.charge` column.
 
-If the battery charge falls too low,  the device is at risk of losing power and going offline. Battery charge is displayed as a percentage from 0-100% — the closer to 100, the more charge is available to the battery.
+If the battery charge falls too low, the device is at risk of losing power and going offline. Battery charge is displayed as a percentage from 0-100% — the closer to 100, the more charge is available to the battery.
 
 Only devices that contain a fuel gauge chip report the battery state. This includes:
 
@@ -155,11 +155,11 @@ and want regular intervals of data for analysis. For instance, to publish
 vitals every hour, add the following to your `setup()` function:
 
 ```cpp
-setup () {
+void setup() {
   Particle.publishVitals(3600);
 }
 
-loop () {
+void loop() {
   // Your loop logic goes here
 }
 ```
@@ -173,7 +173,7 @@ here](/reference/device-os/api/cloud-functions/particle-publishvitals/).
 
 **Note**: You should take care when determining how often devices should
 send their vitals to the Device Cloud. There's a trade off to be made:
-The more frequent you send the vitals, the higher fidelity of data
+The more frequently you send the vitals, the higher fidelity of data
 available to you when troubleshooting. But, this comes with an increase
 in cellular data usage (Each vitals message is ~150 bytes). You can find
 the proper balance for your specific needs. A good starting point is every
@@ -206,7 +206,7 @@ void loop() {
         if (vitalsTimeNext == 0 || vitalsTimeNext > (Time.now() + vitalsPeriod.count())) {
             vitalsTimeNext = Time.now() + vitalsPeriod.count();
         }
-        if (Time.now() <= vitalsTimeNext) {
+        if (Time.now() > vitalsTimeNext) {
             Particle.publishVitals(particle::NOW);
             vitalsTimeNext = Time.now() + vitalsPeriod.count();
         }
@@ -224,18 +224,7 @@ diagnostic information on a regular cadence**.
 You will need to make a `POST` request to the [refresh device
 vitals](/reference/cloud-apis/api/#refresh-device-vitals) API endpoint, then listen for the
 published event from the device either using the [server-sent event
-stream](/reference/cloud-apis/api/#product-event-streamh) or by
+stream](/reference/cloud-apis/api/#product-event-stream) or by
 [setting up a webhook](/integrations/webhooks/) that
 triggers off of the `spark/device/diagnostics/update` event.
-
-### Cellular network
-
-In addition to the need for an active SIM, the device still must be in
-range of a cell tower to create a healthy connection to the cellular
-network.
-
-Particle is a mobile virtual network operator (MVNO) that enables
-Particle SIM cards to connect to cell towers from a variety
-of carriers around the world. This test verifies that the active SIM
-card in the device has a healthy data session with a cell tower.
 
