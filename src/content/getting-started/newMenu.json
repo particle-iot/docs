@@ -109,6 +109,10 @@
                     "title": "Boron"
                 },
                 {
+                    "dir": "argon",
+                    "title": "Argon"
+                },
+                {
                     "dir": "photon2",
                     "title": "Photon 2"
                 },

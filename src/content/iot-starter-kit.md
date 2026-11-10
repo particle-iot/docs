@@ -35,7 +35,7 @@ The IoT Starter Kit comes with seven different Grove modules that work out-of-th
 For technical documentation on each of the included components, please see the links below.
 
 {{box op="start"}}
-* [Particle Argon](/argon/)
+* [Particle Argon](/getting-started/device-setup/argon/)
   * [2.4 GHz antenna](/reference/datasheets/wi-fi/argon-datasheet/#antenna)
   * Micro-USB cable
   * [LiPo battery](/hardware/power/batteries/)

@@ -46,7 +46,7 @@ To get started, you'll need the following things:
 
 ## Step one: Select your device
 
-You've already [connected your device](/quickstart/argon/). This means that when you open the Particle App, you'll see a screen like this:
+You've already [connected your device](/getting-started/device-setup/argon/). This means that when you open the Particle App, you'll see a screen like this:
 
 ![](/assets/images/gen3-tinker-device-screen.png)
 

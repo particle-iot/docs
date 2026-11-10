@@ -1,5 +1,6 @@
 {
   "/api": "/reference/cloud-apis/api",
+  "/argon": "/getting-started/device-setup/argon",
   "/b-series": "/getting-started/device-setup/bsom",
   "/b402": "/getting-started/device-setup/bsom",
   "/b404": "/getting-started/device-setup/bsom",
@@ -248,7 +249,7 @@
   "/guide/getting-started/examples/electron": "/tutorials/hardware-projects/hardware-examples/electron",
   "/guide/getting-started/examples/photon": "/tutorials/hardware-projects/hardware-examples/photon",
   "/guide/getting-started/intro": "/",
-  "/guide/getting-started/intro/argon": "/quickstart/argon",
+  "/guide/getting-started/intro/argon": "/getting-started/device-setup/argon",
   "/guide/getting-started/intro/boron": "/getting-started/device-setup/boron",
   "/guide/getting-started/intro/electron": "/quickstart/electron",
   "/guide/getting-started/intro/photon": "/quickstart/photon",
@@ -351,6 +352,7 @@
   "/photon/webhooks": "/tutorials/device-os/webhooks",
   "/po": "/troubleshooting/troubleshooting/?p=227",
   "/quickstart": "/getting-started/device-setup/boron",
+  "/quickstart/argon": "/getting-started/device-setup/argon",
   "/quickstart/b-som": "/getting-started/device-setup/bsom",
   "/quickstart/boron": "/getting-started/device-setup/boron",
   "/quickstart/button": "/reference/discontinued/hardware/button",
