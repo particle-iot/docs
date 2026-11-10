@@ -70,7 +70,7 @@ Finally, when a device is marked as a Development Device, all configuration fiel
 
 The Location settings include:
 
-- **Radius Trigger** in meters, floating point. When the current position's distance from the last publish exceeds this distance, the new position is published. 0.0 means do not use a publish radius. The GNSS is not monitored during sleep mode, and the radius will only be checked when otherwise waking from sleep. The maximum location update frequency still limits how frequently publishes occur even if if the radius trigger is reached.
+- **Radius Trigger** in meters, floating point. When the current position's distance from the last publish exceeds this distance, the new position is published. 0.0 means do not use a publish radius. The GNSS is not monitored during sleep mode, and the radius will only be checked when otherwise waking from sleep. The maximum location update frequency still limits how frequently publishes occur even if the radius trigger is reached.
 
 | US Units | Meters |
 | :--- | :--- |
@@ -103,7 +103,7 @@ In some cases, you will want to set the maximum and minimum to the same value. T
 | 24 hours | 86400 |
 
 
-- **Minimize Data**. If checked, only only latitude and longitude data is sent on each location publish. If unchecked (the default), additional information such as speed and heading are sent.
+- **Minimize Data**. If checked, only latitude and longitude data is sent on each location publish. If unchecked (the default), additional information such as speed and heading are sent.
 
 - **Publish on GPS lock**. If checked, publish location when GNSS lock is obtained, even if the device has not reached the radius trigger or maximum location update frequency yet. The minimum location update frequency is still obeyed.
 
@@ -355,7 +355,7 @@ When disabled, location publishes that occur when the device does not have cellu
 
 ![Motion Settings](/assets/images/tracker/settings-2.png)
 
-The motion settings determine how the IMU (inertial measurement unit, the accelerometer) is used to determine whether to publish a location. The **Interval minimum** also applies to motion events. Movement events can occur while the device is awake, also also wake a device from sleep mode.
+The motion settings determine how the IMU (inertial measurement unit, the accelerometer) is used to determine whether to publish a location. The **Interval minimum** also applies to motion events. Movement events can occur while the device is awake, also wake a device from sleep mode.
 
 - **Movement** publishes if the device moves, and has several sensitivity options:
 
