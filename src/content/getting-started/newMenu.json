@@ -100,6 +100,45 @@
             ]
         },
         {
+            "dir": "device-setup",
+            "title": "Device setup",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "boron",
+                    "title": "Boron"
+                },
+                {
+                    "dir": "photon2",
+                    "title": "Photon 2"
+                },
+                {
+                    "dir": "bsom",
+                    "title": "B-SoM"
+                },
+                {
+                    "dir": "msom",
+                    "title": "M-SoM"
+                },
+                {
+                    "dir": "m635",
+                    "title": "M635e"
+                },
+                {
+                    "dir": "muon",
+                    "title": "Muon"
+                },
+                {
+                    "dir": "monitor-one",
+                    "title": "Monitor One"
+                },
+                {
+                    "dir": "tracker-one",
+                    "title": "Tracker One"
+                }
+            ]
+        },
+        {
             "dir": "hardware",
             "isSection": true,
             "subsections": [
@@ -270,7 +309,7 @@
                 },
                 {
                     "title": "Secrets",
-                    "href": "/getting-started/cloud/secrets/"                    
+                    "href": "/getting-started/cloud/secrets/"
                 }
             ]
         },

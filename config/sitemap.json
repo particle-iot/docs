@@ -959,8 +959,8 @@
             "hash": "260911ff96b81c34e1c49a23fc78ea242c9be2d8807683b6d221f50c5620fae3"
         },
         "hardware/expansion/about-modbus.md": {
-            "date": "2024-02-27",
-            "hash": "c4b12e00d82ec0289ea49bf3fd748443c875abacc010aae37e7aac0796ccc95d"
+            "date": "2026-11-10",
+            "hash": "029acc391c57cc5bcace87cc99b02c2a1d75acb5156c1fac37cdd19057f49804"
         },
         "hardware/expansion/beyond-prototyping.md": {
             "date": "2025-10-15",
@@ -1411,8 +1411,8 @@
             "hash": "f8d9c44479044bee8f53f30f3aeb0a50d3233d0bbd40154dca569cf300849f54"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2026-10-08",
-            "hash": "872ed9177c63dac63398273ed52a4365960053e2bef741520788c48d18e3b4fc"
+            "date": "2026-11-10",
+            "hash": "db24f836ccc52c46b4920e11cdef890ea083824b97b673e9f39e32999a03ca09"
         },
         "reference/datasheets/tracker/tracker-one.md": {
             "date": "2026-10-08",
@@ -9067,8 +9067,8 @@
             "date": "2025-02-20"
         },
         "hardware/community/monitor-one-modbus.md": {
-            "hash": "6a762ab6189422b698484f03c9771ff543287589254b1fdbec32367cf04210ea",
-            "date": "2025-07-23"
+            "hash": "3b7029520140f07a70b2e63a60aa031b6fd77d8a930ae7574808a8efe4e21b84",
+            "date": "2026-11-10"
         },
         "hardware/community/hardware-community.md": {
             "hash": "b667868a06fb1b18348f889d008212908a0d12d134971d103c6e37d432ca9460",
@@ -10140,6 +10140,38 @@
         },
         "getting-started/guide/using-blynk.md": {
             "hash": "d7c2bd73598e414596b004c50b212200f3f53bb8af518e9962a2f1293c921eb7",
+            "date": "2026-11-10"
+        },
+        "getting-started/device-setup/boron.md": {
+            "hash": "a52b1068fd70b6a5976f7fa2800422bf6dec67a410206db382972a5de57760e4",
+            "date": "2026-11-10"
+        },
+        "getting-started/device-setup/bsom.md": {
+            "hash": "0566fc01809dc0dc8bc2f5562ef670ed19a3a6c3f65563bbbbd0645e7b872985",
+            "date": "2026-11-10"
+        },
+        "getting-started/device-setup/m635.md": {
+            "hash": "6fe891f51b942f9f01f2232d06eb5173f130155e89a23612e711704ae47be74e",
+            "date": "2026-11-10"
+        },
+        "getting-started/device-setup/monitor-one.md": {
+            "hash": "231140e29274ca22774b8cb642c2388db93b3da249ab9e1235f3a87dd93dfe76",
+            "date": "2026-11-10"
+        },
+        "getting-started/device-setup/msom.md": {
+            "hash": "01945b9cf657ae3db3ed26782bf9a7f4770ecf106c95b68065b97e0757d15f49",
+            "date": "2026-11-10"
+        },
+        "getting-started/device-setup/muon.md": {
+            "hash": "94e80fbde662e9b5a2a740655d21f48ba8719a4953b254d8f38263128ea5310d",
+            "date": "2026-11-10"
+        },
+        "getting-started/device-setup/tracker-one.md": {
+            "hash": "81c4a4a973ba72f99d9a78d95ad28e263b8be275c8adba3246f44250dfceea06",
+            "date": "2026-11-10"
+        },
+        "getting-started/device-setup/photon2.md": {
+            "hash": "5497c7a41a3bc63c0e4699e292b61667a2cdd93f4bf33731b912f16eaa5c852c",
             "date": "2026-11-10"
         }
     }

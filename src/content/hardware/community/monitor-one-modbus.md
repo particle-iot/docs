@@ -20,7 +20,7 @@ In this example, we will cover the basic setup for the Monitor One for getting m
 This tutorial series is based on the following docs:
 - [Monitor One Reference Datasheet](/reference/datasheets/tracker/monitor-one-datasheet/)
 
-- [Monitor One Quickstart](/quickstart/monitor-one/)
+- [Monitor One setup](/getting-started/device-setup/monitor-one/)
 
 - [Monitor Edge Firmware](/firmware/tracker-edge/monitor-edge-firmware/)
 
