@@ -592,19 +592,19 @@
         },
         "getting-started/console/console.md": {
             "date": "2026-11-10",
-            "hash": "23a11887c23ba096ee745e11312451c2d9b2dfb507d352100b153feccf3c1938"
+            "hash": "57be50733070710308e4bffdc2d4728004d81a9ababa289a3ce482b30e664ef6"
         },
         "getting-started/console/development-devices.md": {
-            "date": "2025-03-18",
-            "hash": "f695ed67c4bb90d190ae05aa0ab4bd77deb0c16b8e181e5b973b968e825d54b7"
+            "date": "2026-11-10",
+            "hash": "204dc4b93f4625f67053e699913e50b4449447290b455ac96dcfc771bf7e4d41"
         },
         "getting-started/console/device-vitals.md": {
             "date": "2025-10-15",
             "hash": "c6d7df6617ef198bb13961797ca04749289bfa1d0a38802588e175916052eb0a"
         },
         "getting-started/console/device-groups.md": {
-            "date": "2025-03-18",
-            "hash": "8d519fcda1a69213cbb2027988c27da67250f1fc8374c280d23e8007b7614fc1"
+            "date": "2026-11-10",
+            "hash": "76d5fcd7f97eae73dbf78a1bba2280a6420197e342a2e80c9143cc989222b071"
         },
         "getting-started/console/fleet-health.md": {
             "date": "2023-03-17",
@@ -10131,7 +10131,7 @@
             "date": "2026-11-05"
         },
         "firmware/best-practices/firmware-release.md": {
-            "hash": "4569fe08bf855fd7b13e2121168441d99c6d52023dd547eaa4cbe519da323fb1",
+            "hash": "f4cd156f4312b88db2bda06e87cfce662752e466bc854c2eb68777d9f4abd053",
             "date": "2026-11-10"
         },
         "getting-started/tracker/monitor-one-configuration.md": {

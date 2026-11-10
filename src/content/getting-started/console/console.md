@@ -423,7 +423,7 @@ If no orders can be found, this message will be displayed. Orders of "each" devi
 
 #### New group - product
 
-The **New group popup allows you to create or delete [device groups](/getting-started/console/device-groups/).
+The **New group** popup allows you to create or delete [device groups](/getting-started/console/device-groups/).
 
 {{imageOverlay src="/assets/images/console/device-group-new.png" class="no-darken"}}
 
@@ -832,7 +832,19 @@ For a comparison of the various Events panels, see [More about events panels](#m
 
 ### Firmware - product
 
+The **Firmware** panel is used to manage firmware versions and release versions to fleets of devices.
+
 {{imageOverlay src="/assets/images/console/product-firmware.png" class="no-darken"}}
+
+Clicking **Release firmware** brings up the options for releasing. Clicking on **Groups** brings up a list of device groups and also **Product default**.
+
+{{imageOverlay src="/assets/images/getting-started-guide/fleet-20.png" class="no-darken"}}
+
+In almost all cases you will want to select **Intelligent** which will roll out the update immediately if the device is online. 
+
+If you select **Standard** the device will only be updated after the next cloud connection, which can be up to three days from now, though it could be much sooner if the device is currently in sleep mode.
+
+{{imageOverlay src="/assets/images/getting-started-guide/fleet-21.png" class="no-darken"}}
 
 For more information, see [firmware release process](/firmware/best-practices/firmware-release/).
 

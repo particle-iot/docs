@@ -61,7 +61,7 @@ In most cases we recommend having one or more devices on each developer's desk f
 
 ### Mark development
 
-This options are also available from the device list in the **...** button.
+When viewing the device list for a product, there are options in the **...** button.
 
 {{imageOverlay src="/assets/images/console/product-device-list-options.png" class="no-darken"}}
 
