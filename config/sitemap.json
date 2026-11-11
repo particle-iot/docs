@@ -10155,8 +10155,8 @@
             "date": "2026-11-10"
         },
         "getting-started/device-setup/monitor-one.md": {
-            "hash": "4979f51f96a6adf63a2c8396a27a26c09fff3053714cdf9b6f97e33589b4f305",
-            "date": "2026-11-10"
+            "hash": "4c1265ff7980d31c93e99d606e9c52bc43e5326af3c45f2e98621350c835c7a9",
+            "date": "2026-11-11"
         },
         "getting-started/device-setup/msom.md": {
             "hash": "01945b9cf657ae3db3ed26782bf9a7f4770ecf106c95b68065b97e0757d15f49",
@@ -10167,8 +10167,8 @@
             "date": "2026-11-10"
         },
         "getting-started/device-setup/tracker-one.md": {
-            "hash": "ff0509ef9e8a6463e2bbd85130eedfa7b262d8e9025a9a14bd7de6c9615641f4",
-            "date": "2026-11-10"
+            "hash": "2903febdb6f24c35d08fffb6df84db706802f2e8999f36474815a2b15accb5ac",
+            "date": "2026-11-11"
         },
         "getting-started/device-setup/photon2.md": {
             "hash": "f711e1c664f80ed749de0567c265cfc9b06844c539696498e6ad18d5094eab82",
@@ -10188,6 +10188,14 @@
         },
         "getting-started/guide-monitor-one/computer-setup.md": {
             "hash": "75a55e586ee0fc09da65d4c4dd8c4d74635601837533727315b39d6b5f780daf",
+            "date": "2026-11-11"
+        },
+        "getting-started/guide-monitor-one/monitor-edge.md": {
+            "hash": "513391362d2ad3f2d209271b6483c3bdb36aa8bf4dcb6aecf3375b9082605215",
+            "date": "2026-11-11"
+        },
+        "getting-started/guide-tracker-one/tracker-edge.md": {
+            "hash": "98a404582fde6a2a82bbd51202ec248ebe0040f96e85e99e9d18d7554c520b04",
             "date": "2026-11-11"
         }
     }

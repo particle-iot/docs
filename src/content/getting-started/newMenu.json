@@ -111,6 +111,10 @@
                 {
                     "dir": "computer-setup",
                     "title": "Computer setup - Tracker One"
+                },
+                {
+                    "dir": "tracker-edge",
+                    "title": "Tracker Edge firmware - Monitor One"
                 }
             ]
         },
@@ -126,6 +130,10 @@
                 {
                     "dir": "computer-setup",
                     "title": "Computer setup - Monitor One"
+                },
+                {
+                    "dir": "monitor-edge",
+                    "title": "Monitor Edge firmware - Monitor One"
                 }
             ]
         },
