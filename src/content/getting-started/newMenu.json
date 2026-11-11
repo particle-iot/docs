@@ -92,6 +92,10 @@
                 {
                     "dir": "low-power",
                     "title": "Using sleep mode to lower power consumption"
+                },
+                {
+                    "dir": "using-blynk",
+                    "title": "Using Blynk dashboards"
                 }
             ]
         },
@@ -281,6 +285,14 @@
                 {
                     "dir": "tracker-eval-tutorials",
                     "title": "Tracker eval board tutorials"
+                },
+                {
+                    "dir": "tracker-one-configuration",
+                    "title": "Tracker One configuration"
+                },
+                {
+                    "dir": "monitor-one-configuration",
+                    "title": "Monitor One configuration"
                 }
             ]
         },
@@ -311,10 +323,6 @@
                 {
                     "dir": "team-access-controls",
                     "title": "Team access controls"
-                },
-                {
-                    "dir": "sim-management",
-                    "title": "SIM management"
                 },
                 {
                     "dir": "two-step-authentication",

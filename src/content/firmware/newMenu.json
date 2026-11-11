@@ -82,6 +82,10 @@
                     "title": "Firmware build options"
                 },
                 {
+                    "dir": "firmware-release",
+                    "title": "Firmware release process"
+                },
+                {
                     "dir": "firmware-template",
                     "title": "Firmware template"
                 }

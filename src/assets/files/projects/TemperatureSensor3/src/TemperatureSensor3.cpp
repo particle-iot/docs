@@ -39,6 +39,9 @@ const std::chrono::milliseconds firmwareUpdateWaitTime = 8s; // How long to wait
 int temperaturePeriod = 15; // minutes, make 60 evenly divisible by this for best results
 String temperatureSleepMode = "auto"; 
 
+// Used by the out of memory handler
+int outOfMemory = -1;
+
 // This version of the code uses Variant and CloudEvent and will only work with Device OS 6.3.0 and later.
 CloudEvent event;
 
@@ -60,6 +63,7 @@ bool checkPower(Variant &obj);
 bool checkSensor(Variant &obj);
 bool i2cscan(TwoWire &wire);
 void firmwareUpdateHandler(system_event_t event, int param);
+void outOfMemoryHandler(system_event_t event, int param);
 
 
 void setup()
@@ -68,6 +72,7 @@ void setup()
     // waitFor(Serial.isConnected, 8000); delay(2000);
 
     System.on(firmware_update, firmwareUpdateHandler);
+    System.on(out_of_memory, outOfMemoryHandler);
 
     // Local configuration stored on the file system
     if (!FileHelperRK::readVariant(localConfigPath, localConfig)) {
@@ -105,6 +110,14 @@ void setup()
 void loop()
 {
     stateHandler();
+
+    if (outOfMemory >= 0) {
+        // An out of memory condition occurred - reset device.
+        Log.info("out of memory occurred size=%d", outOfMemory);
+        delay(100);
+
+        System.reset(RESET_NO_WAIT);
+    }
 }
 
 void statePublishWait() 
@@ -463,4 +476,8 @@ void firmwareUpdateHandler(system_event_t ev, int param) {
             firmwareUpdateInProgress = false;
             break;
     }
+}
+
+void outOfMemoryHandler(system_event_t event, int param) {
+    outOfMemory = param;
 }

@@ -24379,6 +24379,7 @@ With Device OS 4.0 and later, you only need the `PRODUCT_VERSION` and not the `P
 
 {{api name1="PRODUCT_ID"}}
 
+{{!-- BEGIN shared-blurb 13e6f38f-8576-4245-8b7e-d0e77acd5d5b --}}
 #### Device OS 4.0 and later
 
 In Device OS 4.0 and later, the `PRODUCT_ID` macro is no longer used. If you attempt to use it, you will get an error during compilation targeting 4.0.0 and later.
@@ -24425,6 +24426,8 @@ If you want to make your product firmware compile both before and after 4.0, you
 PRODUCT_ID(PLATFORM_ID)
 #endif
 ```
+{{!-- END shared-blurb --}}
+
 
 ## sleep() [ Sleep ]
 

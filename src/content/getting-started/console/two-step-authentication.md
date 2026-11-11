@@ -61,7 +61,7 @@ Open the Authenticator mobile app you installed earlier. A 6-digit login code is
 
 ### From the Particle command line interface (CLI)
 
-The [Particle CLI]() also allows two-step authentication:
+The [Particle CLI](/getting-started/developer-tools/cli/) also allows two-step authentication:
 
 ```html
 $ particle login

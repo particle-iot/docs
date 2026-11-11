@@ -112,6 +112,64 @@ Replace &lt;device-id> with the 24-character hex device ID.
 This page is for the Monitor One. If you are using the Tracker One, see [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/).
 {{note op="end"}}
 
+### From Workbench
+
+To get the latest Tracker Edge firmware version from Github in Workbench, the easiest option is to use the Github extension.
+
+{{!-- BEGIN shared-blurb 689a692c-8568-4383-9d3f-eb340e12c0dc --}}
+The Github extension in Workbench makes it easy to use Github. It is typically automatically installed and ready to use.
+
+Open the command palette (Ctrl + Shift + P or Command + Shift + P). Start typing "git" to see a list of commands available.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-01.png" class="no-darken"}}
+
+If you want to make a clone of a repository you can use **Git: Clone (Recursive)**. You can use the non-recursive option as well for most repositories, but some like tracker-edge and device-os require it, and it doesn't hurt to use it all of the time. Recursive also clones submodules, which you could also do using `git submodule init recursive` from the command line, but the built-in version is usually easier.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-02.png" class="no-darken"}}
+
+If you haven't signed in yet, sigh in with your Github credentials.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-03.png" class="no-darken"}}
+{{imageOverlay src="/assets/images/getting-started-guide/git-04.png" class="no-darken"}}
+
+You will be prompted for where to clone from, select **Clone from Github**.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-12.png" class="no-darken"}}
+{{!-- END shared-blurb --}}
+
+Enter the repository **particle-iot/monitor-edge**.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-13.png" class="no-darken"}}
+
+{{!-- BEGIN shared-blurb 484581eb-e78e-44ed-bc11-bb1d0945f2d6 --}}
+When the clone is complete you are prompted for where to open it. You should only select **Open** (replaces current window) or **Open in New Window**. Using the Add to Workspace option will create a multi-root workspace, with multiple projects, which does not work well with the Particle extension.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-06.png" class="no-darken"}}
+
+If you are prompted to Select CMakeLists.txt, just use Escape to exit the request, or select **Don't Show Again**. The main tracker-edge firmware doesn't use CMakeLists.txt.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-11.png" class="no-darken"}}
+
+Open the command palette (Ctrl + Shift + P or Command + Shift + P) and select **Particle: Configure project for device**.
+
+Select **Asset Tracker / Monitor One**.
+{{imageOverlay src="/assets/images/getting-started-guide/git-07.png" class="no-darken"}}
+
+Select the version of Device OS for the current Tracker Edge firmware. This is currently 6.5.0 or later.
+{{imageOverlay src="/assets/images/getting-started-guide/git-08.png" class="no-darken"}}
+
+If you do not have the option for 6.5.0, select **Preferences** then **Settings** in VSCode.
+{{imageOverlay src="/assets/images/getting-started-guide/git-09.png" class="no-darken"}}
+
+Select **Extensions** then **Particle**. Check the checkbox for **Enable Pre-release Device OS Builds**.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-10.png" class="no-darken"}}
+{{!-- END shared-blurb --}}
+
+
+
+## From Github (manually)
+
 The Monitor Edge firmware can be downloaded from GitHub:
 
 [https://github.com/particle-iot/monitor-edge](https://github.com/particle-iot/monitor-edge)

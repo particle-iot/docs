@@ -417,7 +417,6 @@ The device lists can be confusing because there are multiple device lists with s
 
 When you first open the console the sandbox device view is what you see. 
 
-{{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac12000 --}}
 ![Sandbox device list](/assets/images/console/sandbox-devices.png)
 
 When **Sandbox** (1) is selected, you will see the devices in your personal sandbox, vs. your basic or enterprise organization. 
@@ -432,7 +431,6 @@ When checked, the list will only include non-product devices claimed to your acc
 - **Total claimed product devices** is the total number of devices claimed to your account that are in a product.
 
 The 100-device limit in the free plan is the total of the devices claimed to your account in the developer sandbox, plus all devices in any free plan products that you are the owner of. 
-{{!-- END shared-blurb --}}
 
 ### Sandbox products
 

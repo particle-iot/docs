@@ -48,6 +48,38 @@ Particle has a collection of reference firmware for various purposes at [bluepri
 
 Each of these designs includes instructions and firmware in a Github repository that you can clone or fork, allowing you to customize it for your own use.
 
+## Github in Workbench
+
+{{!-- BEGIN shared-blurb 689a692c-8568-4383-9d3f-eb340e12c0dc --}}
+The Github extension in Workbench makes it easy to use Github. It is typically automatically installed and ready to use.
+
+Open the command palette (Ctrl + Shift + P or Command + Shift + P). Start typing "git" to see a list of commands available.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-01.png" class="no-darken"}}
+
+If you want to make a clone of a repository you can use **Git: Clone (Recursive)**. You can use the non-recursive option as well for most repositories, but some like tracker-edge and device-os require it, and it doesn't hurt to use it all of the time. Recursive also clones submodules, which you could also do using `git submodule init recursive` from the command line, but the built-in version is usually easier.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-02.png" class="no-darken"}}
+
+If you haven't signed in yet, sigh in with your Github credentials.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-03.png" class="no-darken"}}
+{{imageOverlay src="/assets/images/getting-started-guide/git-04.png" class="no-darken"}}
+
+You will be prompted for where to clone from, select **Clone from Github**.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-12.png" class="no-darken"}}
+{{!-- END shared-blurb --}}
+
+Enter the repository, such as **particle-iot/tracker-edge**.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-05.png" class="no-darken"}}
+
+When the clone is complete you are prompted for where to open it. You should only select **Open** (replaces current window) or **Open in New Window**. Using the Add to Workspace option will create a multi-root workspace, with multiple projects, which does not work well with the Particle extension.
+
+{{imageOverlay src="/assets/images/getting-started-guide/git-06.png" class="no-darken"}}
+
+
 ## CI/CD - Github actions
 
 There is good support for continuous integration and continuous deployment (CI/CD) of fleet firmware using [Github actions](/firmware/best-practices/github-actions/). 

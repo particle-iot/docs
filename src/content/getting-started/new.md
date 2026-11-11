@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Console docs update 2026-11-11
+
+Updated docs for the [console](/getting-started/console/console/), the other pages in that section, and [firmware release process](/firmware/best-practices/firmware-release/).
+
 ### P2 Japan certification 2026-11-09
 
 Japan certification documents for the P2 and Photon 2 are now available in the [certification documents](/hardware/certification/certification-documents/#japan-p2).
