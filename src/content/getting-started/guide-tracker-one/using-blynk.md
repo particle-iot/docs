@@ -99,15 +99,15 @@ And also for a single device.
 
 In the product **Events** pane, you can see the events from the devices and that a response was received from the webhook.
 
-{{imageOverlay src="/assets/images/getting-started/tracker-blynk-07.png" class="no-darken"}}
+{{imageOverlay src="/assets/images/getting-started-guide/tracker-blynk-07.png" class="no-darken"}}
 
 In Integration - View details - History it shows the 10 most recent events that triggered the integration (webhook).
 
-{{imageOverlay src="/assets/images/getting-started/tracker-blynk-09.png" class="no-darken"}}
+{{imageOverlay src="/assets/images/getting-started-guide/tracker-blynk-09.png" class="no-darken"}}
 
 You can see greater details about the event, webhook request, and webhook response by expanding the history log entries.
 
-{{imageOverlay src="/assets/images/getting-started/tracker-blynk-10.png" class="no-darken"}}
+{{imageOverlay src="/assets/images/getting-started-guide/tracker-blynk-10.png" class="no-darken"}}
 
 
 {{section-nav}}
