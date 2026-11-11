@@ -1431,8 +1431,8 @@
             "hash": "2d0efc7fc4fd67e37d06d48cc8057e16d2d508fcfcf64e511555d626301a3f9b"
         },
         "reference/discontinued/hardware/button.md": {
-            "date": "2023-03-17",
-            "hash": "799171868e6be7c992809414b0cd7f06c4bbbd23ea1dd93462252b71a9ead191"
+            "date": "2026-11-10",
+            "hash": "814717cbf1def94fdb6f6fff659d7b00fcc455cf2773ea69daa793a4ce72743c"
         },
         "reference/discontinued/hardware/core-datasheet.md": {
             "date": "2023-03-17",
@@ -8108,23 +8108,23 @@
         },
         "archives/tinker/photon.md": {
             "date": "2026-11-10",
-            "hash": "beed38cf696d3872aed5fcf6819f973066a590c30fb574df700b7fb24f3e9940"
+            "hash": "c5571928f8d3ca25ff2c6ded129f30263041073efe48e25abc28b77fe406bf58"
         },
         "archives/tinker/electron.md": {
             "date": "2026-11-10",
-            "hash": "beed38cf696d3872aed5fcf6819f973066a590c30fb574df700b7fb24f3e9940"
+            "hash": "c5571928f8d3ca25ff2c6ded129f30263041073efe48e25abc28b77fe406bf58"
         },
         "archives/tinker/argon.md": {
             "date": "2026-11-10",
-            "hash": "beed38cf696d3872aed5fcf6819f973066a590c30fb574df700b7fb24f3e9940"
+            "hash": "c5571928f8d3ca25ff2c6ded129f30263041073efe48e25abc28b77fe406bf58"
         },
         "archives/tinker/boron.md": {
             "date": "2026-11-10",
-            "hash": "beed38cf696d3872aed5fcf6819f973066a590c30fb574df700b7fb24f3e9940"
+            "hash": "c5571928f8d3ca25ff2c6ded129f30263041073efe48e25abc28b77fe406bf58"
         },
         "archives/tinker/xenon.md": {
             "date": "2026-11-10",
-            "hash": "beed38cf696d3872aed5fcf6819f973066a590c30fb574df700b7fb24f3e9940"
+            "hash": "c5571928f8d3ca25ff2c6ded129f30263041073efe48e25abc28b77fe406bf58"
         },
         "troubleshooting/led/boron.md": {
             "date": "2024-05-15",
@@ -9879,8 +9879,8 @@
             "date": "2025-08-27"
         },
         "integrations/community-integrations/signl4.md": {
-            "hash": "ad0931e6a484fcaa233af810caaa1213074418bac61ef7a7ec3df4655e54ceb3",
-            "date": "2025-09-23"
+            "hash": "20988f0965297267c63935812b0b15b4d345a27fe35a6889da0935b69b9235fc",
+            "date": "2026-11-10"
         },
         "reference/device-os/libraries/c/CRC32_RK.md": {
             "hash": "67fec790b381b75424ab50034b82e443522dbb0f8e27ddfad7de86b4d144508f",
@@ -10143,7 +10143,7 @@
             "date": "2026-11-10"
         },
         "getting-started/device-setup/boron.md": {
-            "hash": "a52b1068fd70b6a5976f7fa2800422bf6dec67a410206db382972a5de57760e4",
+            "hash": "c4134e32de8776be31663f3b1bc24ee2d11f631e767f2c55ae1966357f330c42",
             "date": "2026-11-10"
         },
         "getting-started/device-setup/bsom.md": {
@@ -10155,7 +10155,7 @@
             "date": "2026-11-10"
         },
         "getting-started/device-setup/monitor-one.md": {
-            "hash": "e7c01ac2871db08455d108a16da03fb2c262696c6f0c1d14aeeaf42e76596d9e",
+            "hash": "4979f51f96a6adf63a2c8396a27a26c09fff3053714cdf9b6f97e33589b4f305",
             "date": "2026-11-10"
         },
         "getting-started/device-setup/msom.md": {
@@ -10167,15 +10167,19 @@
             "date": "2026-11-10"
         },
         "getting-started/device-setup/tracker-one.md": {
-            "hash": "3c7942cee4fc57d93c1a0beeb0bd36c2d241571f99a81c7481dc1877c28ac163",
+            "hash": "ff0509ef9e8a6463e2bbd85130eedfa7b262d8e9025a9a14bd7de6c9615641f4",
             "date": "2026-11-10"
         },
         "getting-started/device-setup/photon2.md": {
-            "hash": "5497c7a41a3bc63c0e4699e292b61667a2cdd93f4bf33731b912f16eaa5c852c",
+            "hash": "f711e1c664f80ed749de0567c265cfc9b06844c539696498e6ad18d5094eab82",
             "date": "2026-11-10"
         },
         "getting-started/device-setup/argon.md": {
-            "hash": "19b3717d63d657593d6e9187d3b55249d2a13de70316bd17bf8e3ee98617e07c",
+            "hash": "160885487aa5a7ce2ee5e1c5f6644264b9cac3b495efb0eb1d5efaef8866ef6f",
+            "date": "2026-11-10"
+        },
+        "getting-started/device-setup/photon.md": {
+            "hash": "1477ae784cffc5f59f00f69bfad9b9574540bc33a69030cb7c92b2007f34b1de",
             "date": "2026-11-10"
         }
     }

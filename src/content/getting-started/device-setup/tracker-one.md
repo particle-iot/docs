@@ -9,6 +9,10 @@ description: Unboxing and setting up a Particle Tracker One
 
 This page walks you through unboxing and powering up a [Tracker One](/reference/datasheets/tracker/tracker-one/), a rugged, ready-to-go asset tracking device. It also explains the status LEDs. By the end, the Tracker One will be powered up and ready to add to your Particle account.
 
+{{note op="start" type="note"}}
+This page is for the Tracker One. For the Monitor One, see [Monitor One setup](/getting-started/device-setup/monitor-one/).
+{{note op="end"}}
+
 {{content-nav}}
 
 ## Unboxing

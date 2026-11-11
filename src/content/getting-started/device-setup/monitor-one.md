@@ -9,6 +9,10 @@ description: Unboxing and setting up a Particle Monitor One
 
 This page walks you through unboxing and powering up a [Monitor One](/reference/datasheets/tracker/monitor-one-datasheet/). By the end, the Monitor One will be powered up and ready to add to your Particle account.
 
+{{note op="start" type="note"}}
+This page is for the Monitor One. For the Tracker One, see [Tracker One setup](/getting-started/device-setup/tracker-one/).
+{{note op="end"}}
+
 {{content-nav}}
 
 ## Unboxing
