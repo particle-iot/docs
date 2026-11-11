@@ -41,7 +41,6 @@ typed publish that are only available on Gen 3 and Gen 4 devices. You can still 
 it using this guide.
 {{note op="end"}}
 
-{{!-- BEGIN shared-blurb 2067ac29-149f-46d1-87cd-2045f3795ff2 --}}
 ## Device setup
 
 You will generally set up your device from a computer (Windows, Linux, Mac) connected by USB to your devices. A Chromebook can be used for device setup, but you'll need a full computer to install and use the Particle Workbench development environment.
@@ -87,6 +86,7 @@ When I set up my Boron, I used the default, randomly generated product and devic
 
 Most devices have an RGB status LED and it can tell you a lot about what the device is doing. 
 
+{{!-- BEGIN shared-blurb 948cc343-0c55-490f-8042-fa6a6d0aa6cb --}}
 First, a few basic terms:
 
 - Blinking: The LED is blinking on and off. There is also fast blinking.
@@ -111,8 +111,7 @@ When you first turn on a device, it will generally progress through a series of 
 You can find more on the [Status LED and device modes](/troubleshooting/led/) page.
 
 {{device-animation device "breathe" "cyan" }}
-
-{{!-- END shared-blurb --}}
+{{!-- END shared-blurb 948cc343-0c55-490f-8042-fa6a6d0aa6cb --}}
 
 
 {{section-nav}}

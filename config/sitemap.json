@@ -10095,8 +10095,8 @@
             "date": "2026-11-05"
         },
         "getting-started/guide/computer-setup.md": {
-            "hash": "42c442384b856b657fc94240ba73e82e1326237243a2fc5ad9fbf05a3a53d00d",
-            "date": "2026-11-10"
+            "hash": "75a55e586ee0fc09da65d4c4dd8c4d74635601837533727315b39d6b5f780daf",
+            "date": "2026-11-11"
         },
         "getting-started/guide/device-fleets.md": {
             "hash": "6426be263f298631017be89ee4d5f07efc16dbc0aa8df990133e656c7246b91c",
@@ -10181,6 +10181,14 @@
         "getting-started/device-setup/photon.md": {
             "hash": "1477ae784cffc5f59f00f69bfad9b9574540bc33a69030cb7c92b2007f34b1de",
             "date": "2026-11-10"
+        },
+        "getting-started/guide-tracker-one/computer-setup.md": {
+            "hash": "75a55e586ee0fc09da65d4c4dd8c4d74635601837533727315b39d6b5f780daf",
+            "date": "2026-11-11"
+        },
+        "getting-started/guide-monitor-one/computer-setup.md": {
+            "hash": "75a55e586ee0fc09da65d4c4dd8c4d74635601837533727315b39d6b5f780daf",
+            "date": "2026-11-11"
         }
     }
 }

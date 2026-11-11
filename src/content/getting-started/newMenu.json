@@ -100,6 +100,36 @@
             ]
         },
         {
+            "dir": "guide-tracker-one",
+            "title": "Guide - Tracker One",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "device-setup",
+                    "title": "Device setup and console - Tracker One"
+                },
+                {
+                    "dir": "computer-setup",
+                    "title": "Computer setup - Tracker One"
+                }
+            ]
+        },
+        {
+            "dir": "guide-monitor-one",
+            "title": "Guide - Monitor One",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "device-setup",
+                    "title": "Device setup and console - Monitor One"
+                },
+                {
+                    "dir": "computer-setup",
+                    "title": "Computer setup - Monitor One"
+                }
+            ]
+        },
+        {
             "dir": "device-setup",
             "title": "Device setup",
             "isSection": true,
