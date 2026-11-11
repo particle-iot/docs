@@ -10139,8 +10139,8 @@
             "date": "2026-11-10"
         },
         "getting-started/guide/using-blynk.md": {
-            "hash": "d7c2bd73598e414596b004c50b212200f3f53bb8af518e9962a2f1293c921eb7",
-            "date": "2026-11-10"
+            "hash": "b46c7db5a44b9b9725ea360b1caef0708a54134ed41f32684be517f5b9c7ecee",
+            "date": "2026-11-11"
         },
         "getting-started/device-setup/boron.md": {
             "hash": "c4134e32de8776be31663f3b1bc24ee2d11f631e767f2c55ae1966357f330c42",
@@ -10195,7 +10195,15 @@
             "date": "2026-11-11"
         },
         "getting-started/guide-tracker-one/tracker-edge.md": {
-            "hash": "98a404582fde6a2a82bbd51202ec248ebe0040f96e85e99e9d18d7554c520b04",
+            "hash": "dfee104f211779316643a07ce2ad988e71833e9716bd798680aa24b1e0143195",
+            "date": "2026-11-11"
+        },
+        "getting-started/guide-tracker-one/temperature-sensor.md": {
+            "hash": "4e2825bb1e5304f4e133c7bd3c6a4187b39eaeeb83b6c9cd3ec5ee0d60c253df",
+            "date": "2026-11-11"
+        },
+        "getting-started/guide-tracker-one/using-blynk.md": {
+            "hash": "512e58c7144cf8e1fe847c7b9e40d934cfcbb9fa3c0fde09cb6b2b96a9b2e4e2",
             "date": "2026-11-11"
         }
     }

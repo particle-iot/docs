@@ -114,7 +114,15 @@
                 },
                 {
                     "dir": "tracker-edge",
-                    "title": "Tracker Edge firmware - Monitor One"
+                    "title": "Tracker Edge firmware - Tracker One"
+                },
+                {
+                    "dir": "temperature-sensor",
+                    "title": "Temperature sensor - Tracker One"
+                },
+                {
+                    "dir": "using-blynk",
+                    "title": "Using Blynk dashboards - Tracker One"
                 }
             ]
         },

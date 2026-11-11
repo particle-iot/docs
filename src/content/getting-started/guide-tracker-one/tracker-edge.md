@@ -2,7 +2,7 @@
 title: Tracker Edge firmware - Tracker One
 columns: two
 layout: commonTwo.hbs
-description: Setting up Tracker Edge on the Monitor One
+description: Setting up Tracker Edge on the Tracker One
 ---
 
 # {{title}}
@@ -13,7 +13,7 @@ Tracker Edge is the standard firmware for the Tracker One and Tracker SoM. It ca
 
 You should always start using Tracker Edge as the base, instead of programming it like other Particle devices directly to Device OS, because of the support for the Tracker One built-in peripherals and console support built into Tracker Edge.
 
-You can skip this section for now, however, as there is significant functionality built-in.
+You can skip this section for now, however, as there is significant functionality built-in and setup.particle.io will update your device to the latest Tracker Edge.
 
 {{content-nav}}
 
@@ -73,6 +73,7 @@ Select **Extensions** then **Particle**. Check the checkbox for **Enable Pre-rel
 
 ## Flashing code
 
+{{!-- BEGIN shared-blurb d2ee6341-5e98-4805-85c8-7dedf9b2c2d1 --}}
 There are two ways you typically compile and flash code:
 
 - Local: compiling on your computer and flashing the device by USB
@@ -89,6 +90,8 @@ A **Terminal** pane at the bottom of the window will appear with the build progr
 When the build is done, a message similar to this will display:
 
 {{imageOverlay src="/assets/images/getting-started-guide/compile-status-2.png" class="no-darken"}}
+{{!-- END shared-blurb d2ee6341-5e98-4805-85c8-7dedf9b2c2d1 --}}
+
 
 ## Next steps
 

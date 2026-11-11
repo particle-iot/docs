@@ -64,7 +64,7 @@ When using Blynk with https upload of data, as is done with the Particle integra
 
 The Blynk blueprint accomplishes this by hardcoding the API token into the device firmware and sending it in the Particle event to the webhook. This is does not work well with device fleets that share common firmware. Fortunately, the environment variable feature works great for this use case.
 
-From my product (Chivalrous Pink Borons) I selected **Cloud services** then **Configuration** then **Environment variablesn**:
+From my product (Chivalrous Pink Borons) I selected **Cloud services** then **Configuration** then **Environment variables**:
 
 {{imageOverlay src="/assets/images/getting-started-guide/blynk-06.png" class="no-darken"}}
 
@@ -73,7 +73,7 @@ I created a new environment variable **BLYNK_DEVICE_TOKEN** but did not set a va
 {{imageOverlay src="/assets/images/getting-started-guide/blynk-07.png" class="no-darken"}}
 
 I then went into each device in my product, and in the **Environment** section created a new variable **BLYNK_DEVICE_TOKEN** and the value of the Blynk auth token for this device.
-{{imageOverlay src="/assets/images/getting-started-guide/blynk-08.png" class="no-darken"}}
+{{imageOverlay src="/assets/images/getting-started-guide/blynk-11.png" class="no-darken"}}
 
 You can create and view the Blynk auth tokens from the **Devices** section in Blynk.
 
