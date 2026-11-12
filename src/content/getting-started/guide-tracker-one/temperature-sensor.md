@@ -114,29 +114,28 @@ When the build is done, a message similar to this will display:
 {{imageOverlay src="/assets/images/getting-started-guide/compile-status-2.png" class="no-darken"}}
 {{!-- END shared-blurb d2ee6341-5e98-4805-85c8-7dedf9b2c2d1 --}}
 
+{{!-- BEGIN shared-blurb 8ac7e965-a930-4ea5-89d9-0485b7532671 --}}
 ## Events in the console
 
-Opening the product ("Lean Lime Asset Tracker" in my case), then the device will eventually show the location event. Since the events panel does not show historical events, and by default it will only send once per hour, it may be hard to see this.
-
-{{imageOverlay src="/assets/images/getting-started-guide/tracker-temperature-01.png" class="no-darken"}}
+Opening the product, then the device will eventually show the location event. Since the events panel does not show historical events, and by default it will only send once per hour, it may be hard to see this.
 
 If you click on the `loc` event row, it will show you greater details, including the sh31_temp and sh31_humid values that were added.
 
-{{imageOverlay src="/assets/images/getting-started-guide/tracker-temperature-02.png" class="no-darken"}}
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/temperature-02.png") class="no-darken"}}
 
 ## Adjusting the publish period
 
 The publish period is set in the Tracker configuration.
 
-Open the product ("Lean Lime Asset Tracker" in my case), then in the left navigation bar, **Configuration** then **Typed Configuration**.
-
-The default should be the **Location** pane.
+Open the product, then in the left navigation bar, **Configuration** then **Typed Configuration**. Open the **Location** pane if not already selected.
 
 To set the publish period when the device is not moving, set the **Minimum location update frequency**. The default is 3600 (1 hour). You can set it to a lower value, but be aware of the number of data operations you will use if the limit is very low. A safe value is 900 (15 minutes).
 
-{{imageOverlay src="/assets/images/getting-started-guide/tracker-temperature-03.png" class="no-darken"}}
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/temperature-03.png") class="no-darken"}}
 
 For more information, see [Location settings](/getting-started/tracker/tracker-one-configuration/#location-settings) for more information.
+{{!-- END shared-blurb 8ac7e965-a930-4ea5-89d9-0485b7532671 --}}
+
 
 
 {{content-nav}}

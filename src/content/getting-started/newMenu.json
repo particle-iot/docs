@@ -142,6 +142,10 @@
                 {
                     "dir": "monitor-edge",
                     "title": "Monitor Edge firmware - Monitor One"
+                },
+                {
+                    "dir": "temperature-sensor",
+                    "title": "Temperature sensor - Monitor One"
                 }
             ]
         },

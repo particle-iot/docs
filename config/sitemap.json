@@ -10199,11 +10199,15 @@
             "date": "2026-11-12"
         },
         "getting-started/guide-tracker-one/temperature-sensor.md": {
-            "hash": "4e2825bb1e5304f4e133c7bd3c6a4187b39eaeeb83b6c9cd3ec5ee0d60c253df",
-            "date": "2026-11-11"
+            "hash": "91acac5467b3224a426291fa4bd5a8df4d47ceaa03d175f776e694ebb72a25e8",
+            "date": "2026-11-12"
         },
         "getting-started/guide-tracker-one/using-blynk.md": {
             "hash": "15e0d3aeb613b5fe106587d1936d176e27e82ba25bf82af0e7dd5324a972a92c",
+            "date": "2026-11-12"
+        },
+        "getting-started/guide-monitor-one/temperature-sensor.md": {
+            "hash": "eb1af405bc2f454e0a0cc95986a2e313736226a6a11d66e2a2f09f91d7694907",
             "date": "2026-11-12"
         }
     }
