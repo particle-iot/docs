@@ -74,7 +74,7 @@ Select **Extensions** then **Particle**. Check the checkbox for **Enable Pre-rel
 
 ## Flashing code
 
-{{!-- BEGIN shared-blurb d2ee6341-5e98-4805-85c8-7dedf9b2c2d1 --}}
+{{!-- BEGIN shared-blurb b3722033-a4ea-4663-aa99-a5c7013c3e72 --}}
 There are two ways you typically compile and flash code:
 
 - Local: compiling on your computer and flashing the device by USB
@@ -91,7 +91,7 @@ A **Terminal** pane at the bottom of the window will appear with the build progr
 When the build is done, a message similar to this will display:
 
 {{imageOverlay src="/assets/images/getting-started-guide/compile-status-2.png" class="no-darken"}}
-{{!-- END shared-blurb d2ee6341-5e98-4805-85c8-7dedf9b2c2d1 --}}
+{{!-- END shared-blurb b3722033-a4ea-4663-aa99-a5c7013c3e72 --}}
 
 
 ## Next steps

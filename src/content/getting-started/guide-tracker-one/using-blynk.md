@@ -4,6 +4,9 @@ columns: two
 layout: commonTwo.hbs
 description: Using Blynk dashboards
 guide-custom-images: tracker-one
+guide-blynk-event: loc
+guide-blynk-temp: \{{loc.sh_31temp}}
+guide-blynk-humid: \{{loc.sh_31humid}}
 ---
 
 # {{title}}
@@ -12,6 +15,7 @@ This section includes information on creating integrations and more about enviro
 
 {{section-nav}}
 
+{{!-- BEGIN shared-blurb 2ca6542b-e2b9-4e7a-a643-42463ecdf415 --}}
 ## Setting up Blynk
 
 [Blynk](https://blynk.io/) is an external service for processing IoT device data and displaying it in dashboards and apps with minimal code required. 
@@ -32,16 +36,14 @@ I selected **Blynk** then **Start now**.
 
 {{imageOverlay src="/assets/images/getting-started-guide/blynk-03.png" class="no-darken"}}
 
-This is the default integration template:
+I edited the integration for my purposes:
 
-{{imageOverlay src="/assets/images/getting-started-guide/blynk-04.png" class="no-darken"}}
-
-I edited it for my purposes:
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-05.png") class="no-darken"}}
 
 | Field | Old Value | New Value |
 | :---- | :-------- | :-------- |
 | Name  |  | Blynk |
-| Event name | blynk_get | loc |
+| Event name | blynk_get | {{{guide-blynk-event}}} |
 | Status | on | on |
 | Allow environment variables in this integration | off | on |
 | Blynk server address | ny3.blink.cloud | ny3.blink.cloud |
@@ -52,12 +54,10 @@ I edited it for my purposes:
 | V3 | \{{{v3}}} | (deleted) |
 | V4 | \{{{v4}}} | (deleted) |
 | V5 | \{{{v5}}} | (deleted) |
-| V15 | | \{{loc.sh_31temp}} ||
+| V15 | | {{{guide-blynk-temp}}} ||
 | V6 | \{{{PARTICLE_PUBLISHED_AT}}} | \{{{PARTICLE_PUBLISHED_AT}}} |
 | token | | \{{{BLYNK_DEVICE_TOKEN}}} |
-| V16 | | \{{loc.sh31_humid}} | 
-
-{{imageOverlay src="/assets/images/getting-started-guide/tracker-blynk-01.png" class="no-darken"}}
+| V16 | | {{{guide-blynk-humid}}} | 
 
 ## Create an environment variable
 
@@ -74,15 +74,16 @@ I created a new environment variable **BLYNK_DEVICE_TOKEN** but did not set a va
 {{imageOverlay src="/assets/images/getting-started-guide/blynk-07.png" class="no-darken"}}
 
 I then went into each device in my product, and in the **Environment** section created a new variable **BLYNK_DEVICE_TOKEN** and the value of the Blynk auth token for this device.
-{{imageOverlay src="/assets/images/getting-started-guide/tracker-blynk-08.png" class="no-darken"}}
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-05.png") class="no-darken"}}
+
+
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-08.png") class="no-darken"}}
 
 You can create and view the Blynk auth tokens from the **Devices** section in Blynk.
 
-{{imageOverlay src="/assets/images/getting-started-guide/tracker-blynk-03.png" class="no-darken"}}
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-09.png") class="no-darken"}}
 
 When you select **Allow environment variables in this integration** in the integration settings it allows you use the value of an environment variable via Mustache templates. I use this feature to set the value of `token` to `\{{{BLYNK_DEVICE_TOKEN}}}`.
-
-If you've seen the non-Tracker version of this integration, you'll notice that the event name, V16, and V17 values are different. This is because the integration adapts the event format between the device firmware and the format the Blynk accepts. As you can see from the device list, the Boron and Tracker devices feed into a single Blynk dashboard.
 
 Note: You use an environment variable instead of a **Secret** because the value needs to be scoped to device. Secrets are scoped only to Sandbox or Organization and can't be overridden on a per-device basis.
 
@@ -90,25 +91,22 @@ Note: You use an environment variable instead of a **Secret** because the value 
 
 Once the data is in Blynk you can drag and drop controls to easy make dashboards.
 
-{{imageOverlay src="/assets/images/getting-started-guide/tracker-blynk-05.png" class="no-darken"}}
-
-And also for a single device.
-
-{{imageOverlay src="/assets/images/getting-started-guide/tracker-blynk-04.png" class="no-darken"}}
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-10.png") class="no-darken"}}
 
 ## Monitoring the integration
 
 In the product **Events** pane, you can see the events from the devices and that a response was received from the webhook.
 
-{{imageOverlay src="/assets/images/getting-started-guide/tracker-blynk-07.png" class="no-darken"}}
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-12.png") class="no-darken"}}
 
 In Integration - View details - History it shows the 10 most recent events that triggered the integration (webhook).
 
-{{imageOverlay src="/assets/images/getting-started-guide/tracker-blynk-09.png" class="no-darken"}}
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-13.png") class="no-darken"}}
 
 You can see greater details about the event, webhook request, and webhook response by expanding the history log entries.
 
-{{imageOverlay src="/assets/images/getting-started-guide/tracker-blynk-10.png" class="no-darken"}}
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-14.png") class="no-darken"}}
 
+{{!-- END shared-blurb 2ca6542b-e2b9-4e7a-a643-42463ecdf415 --}}
 
 {{section-nav}}
