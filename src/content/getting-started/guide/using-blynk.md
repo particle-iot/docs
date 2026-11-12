@@ -89,8 +89,6 @@ I created a new environment variable **BLYNK_DEVICE_TOKEN** but did not set a va
 {{imageOverlay src="/assets/images/getting-started-guide/blynk-07.png" class="no-darken"}}
 
 I then went into each device in my product, and in the **Environment** section created a new variable **BLYNK_DEVICE_TOKEN** and the value of the Blynk auth token for this device.
-{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-05.png") class="no-darken"}}
-
 
 {{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-08.png") class="no-darken"}}
 

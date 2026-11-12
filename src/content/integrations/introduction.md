@@ -58,8 +58,6 @@ For more information, see [cloud secrets](/getting-started/cloud/secrets/).
 
 In your integration configuration, turn **Allow environment variables in this integration** on.
 
-{{imageOverlay src="/assets/images/getting-started-guide/blynk-05.png" class="no-darken"}}
-
 It allows you use the value of an environment variable via Mustache templates. I use this feature to set the value of `token` to `\{{{BLYNK_DEVICE_TOKEN}}}` in the example above. This value is stored in a device-scoped environment variable, so each device has its own token.
 
 You use an environment variable in this use-case instead of a **Secret** because the value needs to be scoped to device. Secrets are scoped only to Sandbox or Organization and can't be overridden on a per-device basis.
