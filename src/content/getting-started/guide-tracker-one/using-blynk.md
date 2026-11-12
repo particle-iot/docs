@@ -122,4 +122,95 @@ You can see greater details about the event, webhook request, and webhook respon
 
 {{!-- END shared-blurb 2ca6542b-e2b9-4e7a-a643-42463ecdf415 --}}
 
+## Using logic and ledger
+
+Instead of using environment variables, you can use Logic and Ledger. This technique is useful if you have several per-device configurable parameters, because creating one environment variable per configurable item will be tedious.
+
+### Create a ledger - logic and ledger example
+
+Create a new **Cloud Ledger** that is **Device** scoped.
+
+{{imageOverlay src="/assets/images/getting-started-guide/blynk-21.png" class="no-darken"}}
+
+Create a ledger for each Device ID with a name and the Blynk auth token for this device.
+
+{{imageOverlay src="/assets/images/getting-started-guide/blynk-22.png" class="no-darken"}}
+
+{{imageOverlay src="/assets/images/getting-started-guide/blynk-23.png" class="no-darken"}}
+
+### Create an integration - logic and ledger example
+
+Create a new integration. This is necessary because Logic can't directly call a web server, it instead sends an event using a standard integration. Note that the event name is different.
+
+```json
+{
+    "name": "Blynk-Logic",
+    "event": "blynk-logic",
+    "responseTopic": "{{PARTICLE_DEVICE_ID}}/hook-response/{{PARTICLE_EVENT_NAME}}",
+    "disabled": false,
+    "parameters": [
+        {
+            "value": "ny3.blynk.cloud",
+            "template_name": "BLYNK_SERVER_ADDRESS"
+        }
+    ],
+    "secrets": [],
+    "use_env": false,
+    "template": "webhook",
+    "url": "https://{{{BLYNK_SERVER_ADDRESS}}}/external/api/batch/update",
+    "requestType": "GET",
+    "noDefaults": true,
+    "rejectUnauthorized": true,
+    "unchunked": false,
+    "data_url_response_event": false,
+    "query": {
+        "V14": "{{name}}",
+        "V15": "{{temp}}",
+        "V16": "{{humid}}",
+        "V6": "{{PARTICLE_PUBLISHED_AT}}",
+        "token": "{{token}}"
+    }
+}
+```
+
+### Logic block - logic and ledger example
+
+The logic block receives the request from the device, transforms it, then makes a new event.
+
+{{imageOverlay src="/assets/images/getting-started-guide/blynk-24.png" class="no-darken"}}
+
+
+```js
+import Particle from 'particle:core';
+
+export default function reformat({ event }) {
+  let data;
+  try {
+	  data = JSON.parse(event.eventData);
+  } catch (err) {
+    console.error("Invalid JSON", event.eventData);
+    throw err;
+  }
+  const deviceLedger = Particle.ledger('device-mapping');
+  
+  const deviceLedgerData = deviceLedger.get();
+  if (!deviceLedgerData) {
+      console.log('no data for device');
+      return;
+  }
+  
+  const reformatted = {
+    name: deviceLedgerData.data.name,
+    token: deviceLedgerData.data.token,
+    temp: data.loc.sh31_temp,
+    humid: data.loc.sh31_humid
+  };
+  Particle.publish("blynk-logic", reformatted, { productId: event.productId });
+}
+```
+
+{{imageOverlay src="/assets/images/getting-started-guide/blynk-25.png" class="no-darken"}}
+{{imageOverlay src="/assets/images/getting-started-guide/blynk-26.png" class="no-darken"}}
+
+
 {{section-nav}}
