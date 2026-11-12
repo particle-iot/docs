@@ -67,10 +67,11 @@ If you haven't signed in yet, sigh in with your Github credentials.
 {{imageOverlay src="/assets/images/getting-started-guide/git-03.png" class="no-darken"}}
 {{imageOverlay src="/assets/images/getting-started-guide/git-04.png" class="no-darken"}}
 
+{{!-- END shared-blurb --}}
+
 You will be prompted for where to clone from, select **Clone from Github**.
 
 {{imageOverlay src="/assets/images/getting-started-guide/git-12.png" class="no-darken"}}
-{{!-- END shared-blurb --}}
 
 Enter the repository, such as **particle-iot/tracker-edge**.
 

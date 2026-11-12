@@ -547,8 +547,8 @@
             "hash": "974bb5cd39552954733be876ccafd772a990612480ac28e777289ca9e8928bc2"
         },
         "firmware/tracker-edge/monitor-edge-firmware.md": {
-            "date": "2026-11-10",
-            "hash": "cd174eaae65ba2e2dcd83bd34cf048a69b8a46d965020be081b976cdbf05be70"
+            "date": "2026-11-12",
+            "hash": "1c8fde3400272efec8a3e7a407b878b0b3ec38b202843f6998204f1c443ed747"
         },
         "firmware/tracker-edge/store-and-forward.md": {
             "date": "2024-02-15",
@@ -559,8 +559,8 @@
             "hash": "fc86887835879b290bd6172c02050d4877a02225d2cfdbe67ebd99aded819347"
         },
         "firmware/tracker-edge/tracker-edge-firmware.md": {
-            "date": "2026-11-10",
-            "hash": "d678830d36af3408bd55d6c24fcb30bc075480f43a3928418af6ce617132b8ba"
+            "date": "2026-11-12",
+            "hash": "7a70f8c9773923af6d5a6710c7d8472d139584a71261e3ea016a91e9e4557e76"
         },
         "getting-started/billing/cellular-data.md": {
             "date": "2026-08-10",
@@ -10115,8 +10115,8 @@
             "date": "2026-11-04"
         },
         "getting-started/guide/using-github.md": {
-            "hash": "9a087fc7903c1172eeaaeb7ce40c12f97bfd9328668701ad5aa2dce3175b3abb",
-            "date": "2026-11-10"
+            "hash": "acbfaa88b3112d8fe80e5e5f96cef1e9d10c316c3880b5c82033b5091d057c02",
+            "date": "2026-11-12"
         },
         "getting-started/guide/physical-button.md": {
             "hash": "d6f4e1fc0dfddbe85fb031c83f35deb1bf23239f0df472de5427f63ca48ca84e",
@@ -10191,11 +10191,11 @@
             "date": "2026-11-12"
         },
         "getting-started/guide-monitor-one/monitor-edge.md": {
-            "hash": "710eefa240ad0189a2fe03e744e450203f178021e2f205bd4eec24def4321f57",
+            "hash": "6f9aa56850ff3aaf31e58b845feb2edb88647b361f3f5b8052047847c941b6bc",
             "date": "2026-11-12"
         },
         "getting-started/guide-tracker-one/tracker-edge.md": {
-            "hash": "aac1042418a9736035c568c46326cf44acfcd139b0cbfa0144121715877d6902",
+            "hash": "bd343cb9409094b1d551ac1e39ecfaf1ccd58e4e6d6da8e6d5e4d0cd09da4558",
             "date": "2026-11-12"
         },
         "getting-started/guide-tracker-one/temperature-sensor.md": {
