@@ -30,11 +30,42 @@ You can follow the Blynk blueprint instructions as is, however I've made a few m
 
 From my product I selected **Cloud services** then **Integrations** then **Add new integration** to open the integrations gallery.
 
-I selected **Blynk** then **Start now**.
+I selected **Custom webhook** then **Start now**.
 
 {{imageOverlay src="/assets/images/getting-started-guide/blynk-02.png" class="no-darken"}}
 
-{{imageOverlay src="/assets/images/getting-started-guide/blynk-03.png" class="no-darken"}}
+There is a built-in template for Blynk but because of the number of changes that are required, it's easier to just a custom webhook instead.
+
+The default view is **Webhook builder** but click **Custom template** to copy and paste the configuration.
+
+```json
+{
+    "name": "Blynk",
+    "event": "{{guide-blynk-event}}",
+    "responseTopic": "\{{PARTICLE_DEVICE_ID}}/hook-response/\{{PARTICLE_EVENT_NAME}}",
+    "disabled": false,
+    "parameters": [
+        {
+            "value": "ny3.blynk.cloud",
+            "template_name": "BLYNK_SERVER_ADDRESS"
+        }
+    ],
+    "use_env": true,
+    "template": "webhook",
+    "url": "https://\{{{BLYNK_SERVER_ADDRESS}}}/external/api/batch/update",
+    "requestType": "GET",
+    "noDefaults": true,
+    "rejectUnauthorized": true,
+    "unchunked": false,
+    "data_url_response_event": false,
+    "query": {
+        "V15": "{{guide-blynk-temp}}",
+        "V6": "\{{PARTICLE_PUBLISHED_AT}}",
+        "token": "\{{BLYNK_DEVICE_TOKEN}}",
+        "V16": "{{guide-blynk-humid}}"
+    }
+}
+```
 
 I edited the integration for my purposes:
 

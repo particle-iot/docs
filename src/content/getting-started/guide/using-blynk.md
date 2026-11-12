@@ -5,8 +5,8 @@ layout: commonTwo.hbs
 description: Using Blynk dashboards
 guide-custom-images: default
 guide-blynk-event: temperatureSensorTest
-guide-blynk-temp: \{{temp}}
-guide-blynk-humid: \{{humid}}
+guide-blynk-temp: temp
+guide-blynk-humid: humid
 ---
 
 # {{title}}
@@ -30,34 +30,49 @@ You can follow the Blynk blueprint instructions as is, however I've made a few m
 
 From my product I selected **Cloud services** then **Integrations** then **Add new integration** to open the integrations gallery.
 
-I selected **Blynk** then **Start now**.
+I selected **Custom webhook** then **Start now**.
 
 {{imageOverlay src="/assets/images/getting-started-guide/blynk-02.png" class="no-darken"}}
 
-{{imageOverlay src="/assets/images/getting-started-guide/blynk-03.png" class="no-darken"}}
+There is a built-in template for Blynk but because of the number of changes that are required, it's easier to just a custom webhook instead.
 
-I edited the integration for my purposes:
+The default view is **Webhook builder**. Click **Custom template** to copy and paste the configuration.
 
-{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-05.png") class="no-darken"}}
+```json
+{
+    "name": "Blynk",
+    "event": "{{guide-blynk-event}}",
+    "responseTopic": "\{{PARTICLE_DEVICE_ID}}/hook-response/\{{PARTICLE_EVENT_NAME}}",
+    "disabled": false,
+    "parameters": [
+        {
+            "value": "ny3.blynk.cloud",
+            "template_name": "BLYNK_SERVER_ADDRESS"
+        }
+    ],
+    "use_env": true,
+    "template": "webhook",
+    "url": "https://\{{BLYNK_SERVER_ADDRESS}}/external/api/batch/update",
+    "requestType": "GET",
+    "noDefaults": true,
+    "rejectUnauthorized": true,
+    "unchunked": false,
+    "data_url_response_event": false,
+    "query": {
+        "V15": "\{{ {{guide-blynk-temp}} }}",
+        "V6": "\{{PARTICLE_PUBLISHED_AT}}",
+        "token": "\{{BLYNK_DEVICE_TOKEN}}",
+        "V16": "\{{ {{guide-blynk-humid}} }}"
+    }
+}
+```
 
-| Field | Old Value | New Value |
-| :---- | :-------- | :-------- |
-| Name  |  | Blynk |
-| Event name | blynk_get | {{{guide-blynk-event}}} |
-| Status | on | on |
-| Allow environment variables in this integration | off | on |
-| Blynk server address | ny3.blink.cloud | ny3.blink.cloud |
-| Blynk auth token| | |
-| V0 | \{{{v0}}} | (deleted) |
-| V1 | \{{{v2}}} | (deleted) |
-| V2 | \{{{v2}}} | (deleted) |
-| V3 | \{{{v3}}} | (deleted) |
-| V4 | \{{{v4}}} | (deleted) |
-| V5 | \{{{v5}}} | (deleted) |
-| V15 | | {{{guide-blynk-temp}}} ||
-| V6 | \{{{PARTICLE_PUBLISHED_AT}}} | \{{{PARTICLE_PUBLISHED_AT}}} |
-| token | | \{{{BLYNK_DEVICE_TOKEN}}} |
-| V16 | | {{{guide-blynk-humid}}} | 
+**Update BLYNK_SERVER_ADDRESS to your address**, which may be different!
+
+The finished webhook should look like this:
+
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-04.png") class="no-darken"}}
+
 
 ## Create an environment variable
 
