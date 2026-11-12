@@ -144,6 +144,10 @@
                     "title": "Monitor Edge firmware - Monitor One"
                 },
                 {
+                    "dir": "developer-edition",
+                    "title": "Developer edition technical details - Monitor One"
+                },
+                {
                     "dir": "temperature-sensor",
                     "title": "Temperature sensor - Monitor One"
                 }

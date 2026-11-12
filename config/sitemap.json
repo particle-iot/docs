@@ -10209,6 +10209,10 @@
         "getting-started/guide-monitor-one/temperature-sensor.md": {
             "hash": "eb1af405bc2f454e0a0cc95986a2e313736226a6a11d66e2a2f09f91d7694907",
             "date": "2026-11-12"
+        },
+        "getting-started/guide-monitor-one/developer-edition.md": {
+            "hash": "d203106f17ed6e0b7690eebc8e6bd4994c2a6035ba7637f2bd920e78c3820b99",
+            "date": "2026-11-12"
         }
     }
 }
