@@ -36,7 +36,7 @@ I selected **Custom webhook** then **Start now**.
 
 There is a built-in template for Blynk but because of the number of changes that are required, it's easier to just a custom webhook instead.
 
-The default view is **Webhook builder** but click **Custom template** to copy and paste the configuration.
+The default view is **Webhook builder**. Click **Custom template** to copy and paste the configuration.
 
 ```json
 {
@@ -52,43 +52,27 @@ The default view is **Webhook builder** but click **Custom template** to copy an
     ],
     "use_env": true,
     "template": "webhook",
-    "url": "https://\{{{BLYNK_SERVER_ADDRESS}}}/external/api/batch/update",
+    "url": "https://\{{BLYNK_SERVER_ADDRESS}}/external/api/batch/update",
     "requestType": "GET",
     "noDefaults": true,
     "rejectUnauthorized": true,
     "unchunked": false,
     "data_url_response_event": false,
     "query": {
-        "V15": "{{guide-blynk-temp}}",
+        "V15": "\{{ {{guide-blynk-temp}} }}",
         "V6": "\{{PARTICLE_PUBLISHED_AT}}",
         "token": "\{{BLYNK_DEVICE_TOKEN}}",
-        "V16": "{{guide-blynk-humid}}"
+        "V16": "\{{ {{guide-blynk-humid}} }}"
     }
 }
 ```
 
-I edited the integration for my purposes:
+**Update BLYNK_SERVER_ADDRESS to your address**, which may be different!
 
-{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-05.png") class="no-darken"}}
+The finished webhook should look like this:
 
-| Field | Old Value | New Value |
-| :---- | :-------- | :-------- |
-| Name  |  | Blynk |
-| Event name | blynk_get | {{{guide-blynk-event}}} |
-| Status | on | on |
-| Allow environment variables in this integration | off | on |
-| Blynk server address | ny3.blink.cloud | ny3.blink.cloud |
-| Blynk auth token| | |
-| V0 | \{{{v0}}} | (deleted) |
-| V1 | \{{{v2}}} | (deleted) |
-| V2 | \{{{v2}}} | (deleted) |
-| V3 | \{{{v3}}} | (deleted) |
-| V4 | \{{{v4}}} | (deleted) |
-| V5 | \{{{v5}}} | (deleted) |
-| V15 | | {{{guide-blynk-temp}}} ||
-| V6 | \{{{PARTICLE_PUBLISHED_AT}}} | \{{{PARTICLE_PUBLISHED_AT}}} |
-| token | | \{{{BLYNK_DEVICE_TOKEN}}} |
-| V16 | | {{{guide-blynk-humid}}} | 
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/blynk-04.png") class="no-darken"}}
+
 
 ## Create an environment variable
 
