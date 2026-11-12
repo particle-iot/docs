@@ -3,6 +3,7 @@ title: Using AI
 columns: two
 layout: commonTwo.hbs
 description: Using AI agents to write code
+guide-custom-images: default
 ---
 
 # {{title}}

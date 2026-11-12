@@ -3,6 +3,7 @@ title: Monitor Edge firmware - Monitor One
 columns: two
 layout: commonTwo.hbs
 description: Setting up Monitor Edge on the Monitor One
+guide-custom-images: monitor-one
 ---
 
 # {{title}}

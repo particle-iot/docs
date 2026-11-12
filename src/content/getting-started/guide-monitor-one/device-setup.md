@@ -4,6 +4,7 @@ columns: two
 layout: commonTwo.hbs
 description: Setting up a new Monitor One and using the Particle console
 includeDefinitions: [device-animation]
+guide-custom-images: monitor-one
 ---
 
 # {{title}}
@@ -25,6 +26,7 @@ This page is for the Monitor One.
 - For the Tracker One, see [Tracker One Guide](/getting-started/guide-tracker-one/device-setup/).
 - For the all other Particle devices, see [Guide](/getting-started/guide/device-setup/).
 
+{{!-- BEGIN shared-blurb c482b7e9-aca7-4dbf-abe2-6391a3c69064 --}}
 ## Device setup
 
 You will generally set up your device from a computer (Windows, Linux, Mac) connected by USB to your devices. A Chromebook can be used for device setup, but you'll need a full computer to install and use the Particle Workbench development environment.
@@ -36,6 +38,7 @@ Simply follow the instructions at: [https://setup.particle.io/](https://setup.pa
 If you do not already have a Particle account you can create one as part of the setup process. You will use this account to access things like the Particle console in the next step. It's quick and there is no fee or credit card required.
 
 {{imageOverlay src="/assets/images/getting-started-guide/create-account.png" class="no-darken"}}
+{{!-- END shared-blurb c482b7e9-aca7-4dbf-abe2-6391a3c69064 --}}
 
 ## Obtain the serial number
 
@@ -76,6 +79,7 @@ When you reach the last step of setup you can click the button to **Go to Consol
 
 {{imageOverlay src="/assets/images/getting-started-guide/monitor-one-setup-05.png" class="no-darken"}}
 
+{{!-- BEGIN shared-blurb ab16a861-d1d8-44f3-b5ea-0f5ddaf98052 --}}
 ## Console
 
 The Particle console can be found any time at [https://console.particle.io/](https://console.particle.io/). 
@@ -86,7 +90,7 @@ The Particle console can be found any time at [https://console.particle.io/](htt
 
 When you open the console you'll see the home view:
 
-{{imageOverlay src="/assets/images/getting-started-guide/monitor-one-setup-06.png" class="no-darken"}}
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/console-home.png") class="no-darken"}}
 
 Initially you will be in **Sandbox** view where you see your personal devices. If your account is associated with your company, the Sandbox popup at the top will allow you to switch into your company's organization to see their devices.
 
@@ -95,10 +99,12 @@ The icons along the left allow you to see your personal devices, SIM cards, inte
 ### Products
 
 Setup automatically creates a product for your device. I recommend working in product view, even if your goal is not to create a commercial product. A product just keeps the settings and devices organized for a fleet of devices, and there is no fee to create as many products as you need. A fleet can be as small as a single device.
- 
-When I set up my Monitor One, I used the default, randomly generated product and device names. This is my device list view in the console:
 
-{{imageOverlay src="/assets/images/getting-started-guide/monitor-one-setup-07.png" class="no-darken"}}
+When I set up my device, I used the default, randomly generated product and device names. This is my device list view in the console:
+
+{{imageOverlay src=(concat "/assets/images/getting-started-guide/" guide-custom-images "/product-devices.png") class="no-darken"}}
+{{!-- END shared-blurb ab16a861-d1d8-44f3-b5ea-0f5ddaf98052 --}}
+
 
 ## Status LED and device modes
 

@@ -3,6 +3,7 @@ title: Low-power
 columns: two
 layout: commonTwo.hbs
 description: Using sleep mode to lower power consumption
+guide-custom-images: default
 ---
 
 # {{title}}

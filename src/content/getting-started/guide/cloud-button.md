@@ -3,6 +3,7 @@ title: Cloud button
 columns: two
 layout: commonTwo.hbs
 description: Cloud-connected button project
+guide-custom-images: default
 ---
 
 # {{title}}

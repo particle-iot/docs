@@ -3,6 +3,7 @@ title: Environment variables
 columns: two
 layout: commonTwo.hbs
 description: Environment variables (cloud configuration)
+guide-custom-images: default
 ---
 
 # {{title}}

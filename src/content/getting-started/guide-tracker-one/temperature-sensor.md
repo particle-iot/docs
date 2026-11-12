@@ -3,6 +3,7 @@ title: Temperature sensor - Tracker One
 columns: two
 layout: commonTwo.hbs
 description: Adding a temperature sensor to the Tracker One
+guide-custom-images: tracker-one
 ---
 
 # {{title}}

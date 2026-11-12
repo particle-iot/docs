@@ -3,6 +3,7 @@ title: Using Blynk dashboards
 columns: two
 layout: commonTwo.hbs
 description: Using Blynk dashboards
+guide-custom-images: tracker-one
 ---
 
 # {{title}}

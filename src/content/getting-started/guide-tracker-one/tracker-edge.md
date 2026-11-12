@@ -3,6 +3,7 @@ title: Tracker Edge firmware - Tracker One
 columns: two
 layout: commonTwo.hbs
 description: Setting up Tracker Edge on the Tracker One
+guide-custom-images: tracker-one
 ---
 
 # {{title}}

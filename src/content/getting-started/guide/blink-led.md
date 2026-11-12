@@ -4,6 +4,7 @@ columns: two
 layout: commonTwo.hbs
 description: Setting up a new Particle device
 includeDefinitions: [device-animation]
+guide-custom-images: default
 ---
 
 # {{title}}

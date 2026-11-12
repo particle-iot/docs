@@ -3,6 +3,7 @@ title: Sensors
 columns: two
 layout: commonTwo.hbs
 description: Cloud connected sensors
+guide-custom-images: default
 ---
 
 # {{title}}
