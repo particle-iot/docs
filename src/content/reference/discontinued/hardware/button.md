@@ -35,7 +35,7 @@ Inside the tin, you will find:
 If you {{popup 'turn your internet button over' 'img' 'internet-button-bottom.jpg'}}, you can see some of the components. There are four buttons, a buzzer, and a space for a JST connector if you prefer battery power to USB power.
 </br>
 </br>
-You can also remove the module cover and Photon, then the shield cover, to expose the {{popup 'top of the shield' 'img' 'internet-button-uncovered.jpg'}}. Here, you can see the exposed LEDs and and the accelerometer.
+You can also remove the module cover and Photon, then the shield cover, to expose the {{popup 'top of the shield' 'img' 'internet-button-uncovered.jpg'}}. Here, you can see the exposed LEDs and the accelerometer.
 
 For more information, check out the [Internet Button datasheet](/reference/datasheets/accessories/legacy-accessories/#internet-button).
 

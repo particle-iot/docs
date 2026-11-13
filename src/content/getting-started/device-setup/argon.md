@@ -7,7 +7,7 @@ description: Unboxing and setting up a Particle Argon Wi-Fi
 
 # {{title}}
 
-This page walks you through unboxing and setting up a [Argon](/reference/datasheets/wi-fi/argon-datasheet/), a Wi-Fi development board with Bluetooth LE. By the end, the Argon will be powered up and ready to add to your Particle account.
+This page walks you through unboxing and setting up an [Argon](/reference/datasheets/wi-fi/argon-datasheet/), a Wi-Fi development board with Bluetooth LE. By the end, the Argon will be powered up and ready to add to your Particle account.
 
 {{content-nav}}
 
@@ -38,7 +38,7 @@ What's in the box depends on whether you purchased the Argon Kit or just the Arg
 
 ## Prepare the hardware
 
-1. Connect the Wi-Fi antenna to the u.FL connector on the Argon. Be sure to use the Wi-Fi connector, not the BT (bluetooth) connector.
+1. Connect the Wi-Fi antenna to the u.FL connector on the Argon. Be sure to use the Wi-Fi connector, not the BT (Bluetooth) connector.
 2. If you want to use a battery, connect the Li-Po battery.
 3. Connect the micro-USB cable between the Argon and your computer. This provides both power and a data connection.
 

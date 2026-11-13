@@ -148,7 +148,7 @@ If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now
 
 ## Step six: analogRead
 
-If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
+If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
 
 Plug in a sensor. In this example, we'll use a photoresistor. You can use any resistor for this; a larger resistor (like 10K Ohms) will give you a wider range of values whereas a smaller resistor (like 330 Ohms) will give you lower range of values. Connect the Photoresistor between A0 and A5. Then, connect the resistor between A0 and GND.
 
@@ -306,7 +306,7 @@ If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now
 
 ## Step six: analogRead
 
-If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
+If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
 
 Plug in a sensor. In this example, we'll use a photoresistor.
 
@@ -469,7 +469,7 @@ If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now
 
 ## Step six: analogRead
 
-If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
+If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
 
 Plug in a sensor. In this example, we'll use a photoresistor.
 
@@ -632,7 +632,7 @@ If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now
 
 ## Step six: analogRead
 
-If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
+If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
 
 Plug in a sensor. In this example, we'll use a photoresistor.
 

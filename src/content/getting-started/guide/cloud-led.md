@@ -19,7 +19,7 @@ In this section, I'll make it possible to change the device's status LED from th
 
 As in the previous section, you can either:
 
-- **Particle: Create New Project**, create CloudLed1, and paste the contents CloudLed1.cpp file into your file.
+- **Particle: Create New Project**, create CloudLed1, and paste the contents of the CloudLed1.cpp file into your file.
 - Download the zip file, extract, then **Particle: Import Project**.
 
 {{> project-browser project="CloudLed1" default-file="src/CloudLed1.cpp" height="400" flash="true"}}

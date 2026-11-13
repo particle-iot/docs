@@ -37,7 +37,7 @@ All Particle cloud communication is mutually authenticated (using RSA public-pri
 
 As in the previous section, you can either:
 
-- **Particle: Create New Project**, create CloudButton, and paste the contents CloudButton.cpp file into your file.
+- **Particle: Create New Project**, create CloudButton, and paste the contents of the CloudButton.cpp file into your file.
 - Download the zip file, extract, then **Particle: Import Project**.
 
 {{> project-browser project="CloudButton" default-file="src/CloudButton.cpp" height="400" flash="true"}}

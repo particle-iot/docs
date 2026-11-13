@@ -27,7 +27,7 @@ The code implements:
 
 As in the previous section, you can either:
 
-- **Particle: Create New Project**, create TemperatureSensor3, and paste the contents TemperatureSensor3.cpp file into your file.
+- **Particle: Create New Project**, create TemperatureSensor3, and paste the contents of the TemperatureSensor3.cpp file into your file.
 - Download the zip file, extract, then **Particle: Import Project**.
 
 {{> project-browser project="TemperatureSensor3" default-file="src/TemperatureSensor3.cpp" height="400" flash="true"}}

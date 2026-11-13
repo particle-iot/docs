@@ -756,7 +756,7 @@ Fixed a problem in the Monitor Edge v2 schema. There was an incorrect integer va
 
 ### Carrier list on mobile 2025-04-02
 
-Fixed a bug in the [carrier list](/reference/cellular/cellular-carriers/) where clicking on one of the tabs at at the top (By Device, Country Details, etc.) would instead open a different page (possibly the Verizon FAQ).
+Fixed a bug in the [carrier list](/reference/cellular/cellular-carriers/) where clicking on one of the tabs at the top (By Device, Country Details, etc.) would instead open a different page (possibly the Verizon FAQ).
 
 ### Location clarifications 2025-04-02
 
@@ -1553,7 +1553,7 @@ Added a warning about not setting the CS pin high in a [SPI DMA transfer callbac
 
 ### B-SoM eval board fix 2024-04-18
 
-The pinout diagram for the [M.2 eval board board](/reference/datasheets/b-series/b-series-eval-board/) 60-pin expansion header pin 25 (A4) was missing from the diagram. The tables are text were correct.
+The pinout diagram for the [M.2 eval board](/reference/datasheets/b-series/b-series-eval-board/) 60-pin expansion header pin 25 (A4) was missing from the diagram. The tables are text were correct.
 
 
 ### M404 certification update 2024-04-18

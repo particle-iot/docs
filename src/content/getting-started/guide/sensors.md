@@ -44,7 +44,7 @@ The rest of the device fleet with 2 more sensors. I didn't order enough for the 
 
 As in the previous section, you can either:
 
-- **Particle: Create New Project**, create TemperatureSensor, and paste the contents TemperatureSensor.cpp file into your file.
+- **Particle: Create New Project**, create TemperatureSensor, and paste the contents of the TemperatureSensor.cpp file into your file.
 - Download the zip file, extract, then **Particle: Import Project**.
 
 {{> project-browser project="TemperatureSensor" default-file="src/TemperatureSensor.cpp" height="400" flash="true"}}

@@ -26,7 +26,7 @@ Since this is just for testing, I did not attempt to use the M12 connector and i
 
 ### Start with Monitor Edge
 
-Follow the instructions in [Monitor Edge firmware - Montior One](/getting-started/guide-monitor-one/monitor-edge/) to get the Monitor Edge firmware.
+Follow the instructions in [Monitor Edge firmware - Monitor One](/getting-started/guide-monitor-one/monitor-edge/) to get the Monitor Edge firmware.
 
 ### Add the sht3x-i2c library
 
