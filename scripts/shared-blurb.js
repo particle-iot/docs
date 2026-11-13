@@ -156,6 +156,17 @@ function getFrontMatter(fileContents) {
 
 module.exports = function(options) {
 
+    // Index of blurbId -> {fileName: true} for every file known to contain the blurb. It is built from the
+    // first (full) build. When running under metalsmith-watch, later runs only contain the files that changed,
+    // so the index is used to find the other copies of a changed blurb, which are read from disk.
+    const blurbIndex = {};
+    let fullBuildDone = false;
+
+    const skipFile = function(fileName) {
+        // Skip over expanded version of fireware.md (individual files for each L2 header)
+        return !fileName.endsWith('.md') || fileName.startsWith('reference/device-os/api/');
+    };
+
 	return function(files, metalsmith, done) {
         // Read config file
         let blurbConfig = {
@@ -186,20 +197,75 @@ module.exports = function(options) {
 
         const malformedLogged = {};
 
+        // Files processed by this plugin. On a full build this is just files. On an incremental build (watch)
+        // it also includes other files on disk that share a blurb with a changed file. Those extra files are not
+        // part of the metalsmith pipeline, they are only updated on disk. The file watcher then rebuilds them.
+        const work = Object.assign({}, files);
+
+        const updateIndex = function(fileName, text) {
+            for(const id of Object.keys(blurbIndex)) {
+                delete blurbIndex[id][fileName];
+            }
+            for(const b of findBlurbs(text, fileName, function() {})) {
+                if (!blurbIndex[b.blurbId]) {
+                    blurbIndex[b.blurbId] = {};
+                }
+                blurbIndex[b.blurbId][fileName] = true;
+            }
+        };
+
+        if (!fullBuildDone) {
+            fullBuildDone = true;
+            for(const fileName of Object.keys(files)) {
+                if (!skipFile(fileName)) {
+                    updateIndex(fileName, files[fileName].contents.toString('utf8'));
+                }
+            }
+        }
+        else {
+            // Incremental build. Refresh the index for the changed files, then pull in every other file that
+            // shares a blurb with them (repeating, because those files may contain other blurbs).
+            const queue = [];
+            for(const fileName of Object.keys(files)) {
+                if (!skipFile(fileName)) {
+                    const text = files[fileName].contents.toString('utf8');
+                    updateIndex(fileName, text);
+                    queue.push(text);
+                }
+            }
+            while(queue.length) {
+                const text = queue.pop();
+                for(const b of findBlurbs(text, '', function() {})) {
+                    for(const otherName of Object.keys(blurbIndex[b.blurbId] || {})) {
+                        if (work[otherName]) {
+                            continue;
+                        }
+                        try {
+                            const diskText = fs.readFileSync(path.join(contentDir, otherName), 'utf8');
+                            const frontMatter = getFrontMatter(diskText);
+                            const body = diskText.substring(frontMatter.length);
+                            work[otherName] = { contents: Buffer.from(body, 'utf8'), extra: true };
+                            queue.push(body);
+                        }
+                        catch(e) {
+                            // File was deleted or renamed
+                            delete blurbIndex[b.blurbId][otherName];
+                        }
+                    }
+                }
+            }
+        }
+
         for(let round = 0; round < maxRounds; round++) {
             let blurbInfo = {};
 
             // Process all files looking for blurbs
-            for(const fileName of Object.keys(files)) {
-                if (!fileName.endsWith('.md')) {
-                    continue;
-                }
-                // Skip over expanded version of fireware.md (individual files for each L2 header)
-                if (fileName.startsWith('reference/device-os/api/')) {
+            for(const fileName of Object.keys(work)) {
+                if (skipFile(fileName)) {
                     continue;
                 }
 
-                const oldText = files[fileName].contents.toString('utf8');
+                const oldText = work[fileName].contents.toString('utf8');
 
                 // Only log malformed blurbs once, not on every round
                 const blurbs = findBlurbs(oldText, fileName, function(msg) {
@@ -356,11 +422,11 @@ module.exports = function(options) {
             // Process all files to update blurbs
             const writeFiles = {};
             for(const loc of filteredUpdates) {
-                const oldText = files[loc.fileName].contents.toString('utf8');
+                const oldText = work[loc.fileName].contents.toString('utf8');
 
                 const newText = oldText.substring(0, loc.startEnd) + loc.blurbText + oldText.substring(loc.end);
 
-                files[loc.fileName].contents = Buffer.from(newText, 'utf8');
+                work[loc.fileName].contents = Buffer.from(newText, 'utf8');
                 writeFiles[loc.fileName] = true;
             }
 
@@ -369,7 +435,7 @@ module.exports = function(options) {
                 const oldFileContents = fs.readFileSync(path.join(contentDir, fileName), 'utf8');
                 const frontMatter = getFrontMatter(oldFileContents);
 
-                fs.writeFileSync(path.join(contentDir, fileName), frontMatter + files[fileName].contents.toString('utf8'));
+                fs.writeFileSync(path.join(contentDir, fileName), frontMatter + work[fileName].contents.toString('utf8'));
 
                 // The file was just written by this script, so its modification time no longer says anything about
                 // which edit is the most recent

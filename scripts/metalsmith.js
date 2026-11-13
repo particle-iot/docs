@@ -120,6 +120,16 @@ var generateSearch = process.env.SEARCH_INDEX !== '0';
 
 var noScripts = false;
 
+// When true, the early build steps that generate files that are committed to GitHub (src/assets/files/versionInfo.json,
+// pinInfo.json, carriers, pinmap diagrams, world maps, shared blurbs, datasheet PDFs, etc.) are run. When false (the
+// default, and what CI uses) those steps are skipped and the previously committed versions are used. The metalsmith
+// markdown to HTML generation always runs.
+//    npm start                 generate, build, and serve with interactive updates (generate is the default)
+//    npm run build             CI-style build: use the committed generated files
+//    npm run build-generate    generate, then build
+//    npm run start-no-generate interactive server using the committed generated files
+var generate = false;
+
 exports.metalsmith = function () {
   function removeEmptyTokens(token) {
     if (token.length > 0) {
@@ -150,7 +160,7 @@ exports.metalsmith = function () {
         ]
     }))
     .use(msIf(
-      environment === 'development',
+      generate,
       trackerSchema({
         dir: '../src/assets/files/tracker/',
         officialSchema: 'tracker-edge.json',     // This is the source of the generated files
@@ -161,21 +171,21 @@ exports.metalsmith = function () {
         ]
     })))
     .use(msIf(
-      environment === 'development',
+      generate,
       systemVersion({
       })))
     .use(msIf(
-      environment === 'development',
+      generate,
       pinInfoGenerator(
       )))
     .use(msIf(
-        environment === 'development',
+        generate,
         function(files, metalsmith, done) {
         carriersUpdate.doUpdate(__dirname, files);
         done();
       }))
     .use(msIf(
-        environment === 'development',
+        generate,
         function(files, metalsmith, done) {
             pinmapDiagram.metalsmith(files, metalsmith, done, {
               topDir: path.normalize(path.join(__dirname, '..')),
@@ -183,7 +193,7 @@ exports.metalsmith = function () {
             });
         }))
     .use(msIf(
-      environment === 'development',
+      generate,
       copyFiles({
         sourceTopDir: '..',
         destTopDir: '../src',
@@ -197,7 +207,7 @@ exports.metalsmith = function () {
       })
     ))
     // Generate static world maps (see scripts/world-map/maps.js) into src/assets/images/maps and the build
-    .use(worldMapBuild({ sourceDir: '../src', formats: ['svg', 'png'] }))
+    .use(msIf(generate, worldMapBuild({ sourceDir: '../src', formats: ['svg', 'png'] })))
     .use(troubleshooting({
         sourceDir: '../src',
         jsonFile: 'assets/files/troubleshooting.json',
@@ -314,21 +324,21 @@ exports.metalsmith = function () {
     .use(navMenuGenerator({
       contentDir: '../src/content',
     }))
-    .use(sharedBlurb({
+    .use(msIf(generate, sharedBlurb({
       contentDir: '../src/content',
       config: '../config/sharedBlurbs.json'
-    }))
-    .use(updateShared({
+    })))
+    .use(msIf(generate, updateShared({
       contentDir: '../src/content',
       config: '../config'
-    }))
-    .use(setupFirmware({
+    })))
+    .use(msIf(generate, setupFirmware({
       contentDir: '../src/content',
       filesDir: '../src/assets/files',
       sources: [
         'troubleshooting/connectivity/cloud-debug.md',
       ],
-    }))
+    })))
     .use(autoInclude({
     }))
     // Duplicate files that have the devices frontmatter set and make one copy for each device
@@ -367,7 +377,7 @@ exports.metalsmith = function () {
     // For files matching pdfGenerationOptions.patterns, clone the file with pdf-generation: true
     // set in its metadata so that the inPlace step below renders a PDF-specific version alongside
     // the normal page (see the comment at the top of pdf-generation.js for why).
-    .use(pdfGeneration.preRender(pdfGenerationOptions))
+    .use(msIf(generate, pdfGeneration.preRender(pdfGenerationOptions)))
     // Replace the {{handlebar}} markers inside Markdown files before they are rendered into HTML and
     // any other files with a .hbs extension in the src folder
     .use(inPlace({
@@ -378,7 +388,7 @@ exports.metalsmith = function () {
     // pipeline (they must never be turned into pages of their own), and regenerate any datasheet
     // PDF whose rendered Markdown has changed since the last build. Skips everything if wkhtmltopdf
     // isn't installed on this machine.
-    .use(pdfGeneration.postRender(pdfGenerationOptions))
+    .use(msIf(generate, pdfGeneration.postRender(pdfGenerationOptions)))
     // Remove the .hbs extension from generated files that contained handlebar markers
     .use(copy({
       pattern: '**/*.hbs',
@@ -463,7 +473,8 @@ exports.compress = function (callback) {
     .build(callback);
 };
 
-exports.build = function (callback) {
+exports.build = function (callback, options) {
+  generate = !!(options && options.generate);
   git.branch(function (str) {
     gitBranch = process.env.CIRCLE_BRANCH || str;
     exports.metalsmith()
@@ -479,6 +490,7 @@ exports.build = function (callback) {
 };
 
 exports.test = function (callback) {
+  generate = false;
   var server = serve({ cache: 300, port: 8081 });
   git.branch(function (str) {
     gitBranch = process.env.CIRCLE_BRANCH || str;
@@ -497,8 +509,9 @@ exports.test = function (callback) {
   return server;
 };
 
-exports.server = function (callback) {
+exports.server = function (callback, options) {
   environment = 'development';
+  generate = !(options && options.generate === false);
   git.branch(function (str) {
     gitBranch = process.env.CIRCLE_BRANCH || str;
     exports.metalsmith().use(serve({ port: 8080 }))
