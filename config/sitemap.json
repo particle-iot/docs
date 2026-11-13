@@ -563,12 +563,12 @@
             "hash": "7a70f8c9773923af6d5a6710c7d8472d139584a71261e3ea016a91e9e4557e76"
         },
         "getting-started/billing/cellular-data.md": {
-            "date": "2026-08-10",
-            "hash": "759c92063a22714a362e88766b9f038f8d208197f7e0da672748cba4fd51f316"
+            "date": "2026-11-13",
+            "hash": "e6d7b777149cc970609ad086f28bc0c02d2bfb4c1e9f8ac0d1ca3836d78716d0"
         },
         "getting-started/billing/data-operations.md": {
-            "date": "2025-02-03",
-            "hash": "57df71eb3ef663fd8338762fb1363200f7816bf07b269a4585fdc6110dca9a95"
+            "date": "2026-11-13",
+            "hash": "e748c40079793f3f1cfff8607c96bb9bf518c6dd36421c26ef649527f1288b64"
         },
         "getting-started/billing/migrating-to-growth.md": {
             "date": "2024-02-27",
@@ -583,8 +583,8 @@
             "hash": "9e16169a7940a479f6c1e311c27f9a0b10bc9a9428d49aec430185d8b14beebf"
         },
         "getting-started/cloud/introduction.md": {
-            "date": "2025-02-03",
-            "hash": "ded82e02e1b0f2942b863854cb9efb96fb0f09ee094fab1232ad0ac11ccc1988"
+            "date": "2026-11-13",
+            "hash": "5d946b3458156e51a6f1b83e175c71b0609b0cdabdced428c9958cb6a853e564"
         },
         "getting-started/cloud/ota-updates.md": {
             "date": "2026-07-07",
@@ -791,8 +791,8 @@
             "hash": "227f260583025d5f6d2fcf05f60ea0e6e6870c878fb5a3e0f7db549219236cb9"
         },
         "scaling/quick-start-guide/billing.md": {
-            "date": "2026-10-26",
-            "hash": "fa5051bdad60b5f1eb7109f7fbda7d1cdb51630a8e775b2d3c76c00733d015be"
+            "date": "2026-11-13",
+            "hash": "3d9152bc14144596b8ec3c14bdd07092f15c1f2025c9b13fd44a989c86396419"
         },
         "scaling/quick-start-guide/bulk-device-operations.md": {
             "date": "2024-03-13",
@@ -815,8 +815,8 @@
             "hash": "1c011bd01911bb4b6e3c19fdeaf50b9e83d4768060c8600668686b914b7bd72b"
         },
         "scaling/quick-start-guide/organizations.md": {
-            "date": "2025-02-03",
-            "hash": "42f8f548321ad048335a09756bc2cc441438742641911301fb8c7842dde2af26"
+            "date": "2026-11-13",
+            "hash": "c661f47bec847bd0c4876663e4319eebc3ef6fa72ebabbc39a6b3545bb0f1278"
         },
         "scaling/quick-start-guide/returns.md": {
             "date": "2026-07-31",
@@ -1139,8 +1139,8 @@
             "hash": "429481c485deb0b2b4299d39d5a8c4fc8773477cfe7dd45a44e960f1641b7ff2"
         },
         "reference/cloud-apis/data-report-tutorial.md": {
-            "date": "2026-10-05",
-            "hash": "1eb2699ae7302841bb3b01f8b59bc74d786d6ee12acb0499bca491673c7ad6f4"
+            "date": "2026-11-13",
+            "hash": "d49b97a62158b58877776664eb3cbb104cf2c082690b8d241e724bc75b165cf3"
         },
         "reference/cloud-apis/javascript.md": {
             "date": "2026-03-12",
@@ -8407,8 +8407,8 @@
             "date": "2024-03-13"
         },
         "getting-started/billing/migrating-to-basic.md": {
-            "hash": "03bfd305af30a7d9962e8ac22bcf6f1fba4ac6c025856df20c49f967b71cd344",
-            "date": "2025-02-03"
+            "hash": "7f0394c715b7b5ab870fdcf80060153e2417daa9bb8081762b03aaed8fd6448b",
+            "date": "2026-11-13"
         },
         "integrations/org-integrations.md": {
             "hash": "9d91388b1aaf2f693e355af935ab5d6c3d0c95ed696e714d9f3ad10fedfca43a",
@@ -10035,8 +10035,8 @@
             "date": "2026-06-01"
         },
         "troubleshooting/connectivity/ntn-troubleshooting.md": {
-            "hash": "0987bedf82f86b0b71a33b6ab860c4d920bbe22103f34d04e2e27d527ba89d4c",
-            "date": "2026-10-29"
+            "hash": "8c429eddff86f1ec9a1e9bb953ca76778b92e0555230e3b4080fa19e51538bc7",
+            "date": "2026-11-13"
         },
         "reference/device-os/ota-update-control.md": {
             "hash": "62b92a8a28776ebf8dcf30d736242a73af36dbf50208e62e3c6641b8b57fbd72",

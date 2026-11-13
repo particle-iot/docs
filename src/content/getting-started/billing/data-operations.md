@@ -15,6 +15,7 @@ The central billing element for both cellular and Wi-Fi is the Data Operation:
 - The data has a maximum size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/api/cloud-functions/overview-of-api-field-limits/)
 - Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
 - Certain retransmissions, as described below
+- Satellite (NTN) messages are metered separately in [Satellite Data Operations](/getting-started/billing/data-operations/#satellite-data-operations), not in these Data Operations
 
 The following do **not** count against your Data Operations limit:
 
@@ -31,6 +32,18 @@ In the Free Plan you will have an opportunity to upgrade to the basic/plus plan.
 {{!-- END shared-blurb --}}
 
 {{> dataoperationscalc}}
+
+## Satellite data operations
+
+Satellite messages are metered in Satellite Data Operations, purchased separately from the Data Operations in your plan. Satellite is available on paid plans and is enabled per-device. See [NTN troubleshooting](/troubleshooting/connectivity/ntn-troubleshooting/) for the constraints of satellite connectivity.
+
+### What is a Satellite Data Operation?
+
+A Satellite Data Operation is up to 256 bytes sent or received over satellite. Both uplink and downlink are measured. Satellite Data Operations are purchased separately from your paid plan and are enabled per-device. Satellite Data Operations are not available on the free plan.
+
+### What happens when my satellite allowance is exceeded?
+
+Additional blocks of Satellite Data Operations can be purchased. If not purchased, satellite messaging will stop, but your device will continue running, until the end of the billing cycle.
 
 ## Blocks
 

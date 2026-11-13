@@ -68,11 +68,15 @@ The NTN provider can detect if your data packet transmission locations are frequ
 
 NTN has limits significantly lower than cellular. In particular:
 
-- Packet size: The amount of data in each transmission is limited to around 50 bytes
+- Packet size: The amount of data in each transmission is limited to around 256 bytes
 - Packet rate: You are limited to sending one packet of data every 2 to 3 minutes
 - Latency: Each packet will take 5 to 10 seconds to transmit and be received
 
 Because of these limitations, devices will not automatically switch Particle.publish to use NTN. Likewise, it is not possible to do a remote firmware update (OTA) over NTN networks, nor can you use Particle.subscribe, Particle.function, or direct TCP/IP access (TCP or UDP) over NTN.
+
+### Satellite data operations
+
+Satellite messages are metered in Satellite Data Operations, purchased separately from the Data Operations in your plan. A Satellite Data Operation is up to 256 bytes sent or received over satellite, counting both uplink and downlink. Satellite is available on paid plans and is enabled per-device. If your allowance is exceeded and additional blocks are not purchased, satellite messaging will stop, but your device will continue running, until the end of the billing cycle. See [satellite data operations](/getting-started/billing/data-operations/#satellite-data-operations) for details.
 
 ### Carrier restrictions
 
