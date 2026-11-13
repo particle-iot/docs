@@ -110,6 +110,7 @@ The central billing element for both cellular and Wi-Fi is the Data Operation:
 - The data has a maximum size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/api/cloud-functions/overview-of-api-field-limits/)
 - Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
 - Certain retransmissions, as described below
+- Satellite (NTN) messages are metered separately in [Satellite Data Operations](/getting-started/billing/data-operations/#satellite-data-operations), not in these Data Operations
 
 The following do **not** count against your Data Operations limit:
 
