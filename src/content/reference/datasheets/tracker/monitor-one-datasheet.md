@@ -25,7 +25,7 @@ The Monitor One is an off-the-shelf complete gateway design, like the Tracker On
 
 Particle gateway device like the Monitor One and Tracker One are designed to be used off-the-shelf to interface to other devices and sensors using standard protocols such as CAN bus, I2C, and serial.
 
-For information on setting up a Monitor One Developer Edition, see the [Monitor One Quickstart](/quickstart/monitor-one/).
+For information on setting up a Monitor One Developer Edition, see the [Monitor One setup](/getting-started/device-setup/monitor-one/).
 
 *The pictures in this datasheet are of a pre-release unit.*
 

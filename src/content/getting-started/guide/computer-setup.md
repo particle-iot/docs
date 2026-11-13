@@ -3,6 +3,7 @@ title: Computer setup
 columns: two
 layout: commonTwo.hbs
 description: Setting up a computer to program Particle devices
+guide-custom-images: default
 ---
 
 # {{title}}
@@ -15,6 +16,7 @@ It is generally impractical to program a device from a tablet such as the iPad, 
 
 {{content-nav}}
 
+{{!-- BEGIN shared-blurb 168590ce-16d7-4b90-baf2-ed68bb6d653d --}}
 ## Install VSCode
 
 The recommended programming environment for Particle devices is VSCode (Visual Studio Code). It's free and available for Windows, Linux, and Mac.
@@ -70,12 +72,16 @@ You will generally stay logged in for up to 3 months before you have to log in a
 There will be temporary status notifications that appear in the lower right corner of the VSCode window. These go away after a few seconds but it's worthwhile to look in that corner after doing something for additional status information.
 
 {{imageOverlay src="/assets/images/getting-started-guide/workbench-logged-in.png" class="no-darken"}}
+{{!-- END shared-blurb 168590ce-16d7-4b90-baf2-ed68bb6d653d --}}
 
+{{!-- BEGIN shared-blurb 675f4980-ac02-43f1-af10-f92980e0881e --}}
 ## Community
 
 This is also a good time to sign up for the [Particle community](https://community.particle.io/). It's a great place to ask questions about devices and firmware, and be informed of updates to Device OS and the cloud. 
 
 Note: The username and password for the community are separate from your Particle account. Using the same email is generally a good idea (it's not shown publicly in the community). The passwords are not synchronized.
+{{!-- END shared-blurb 675f4980-ac02-43f1-af10-f92980e0881e --}}
+
 
 {{section-nav}}
 

@@ -445,7 +445,7 @@ async function run() {
             const uuid = crypto.randomUUID();
 
             console.log('{{!-- BEGIN shared-blurb ' + uuid + ' --}}');
-            console.log('{{!-- END shared-blurb --}}');
+            console.log('{{!-- END shared-blurb ' + uuid + ' --}}');
         } 
 
 

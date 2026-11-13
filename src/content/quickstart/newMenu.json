@@ -6,27 +6,6 @@
             "title": "Setup next steps"
         },
         {
-            "dir": "monitor-one",
-            "title": "Monitor One",
-            "internal": true
-        },
-        {
-            "dir": "argon",
-            "title": "Argon"
-        },
-        {
-            "dir": "boron",
-            "title": "Boron"
-        },
-        {
-            "dir": "b-som",
-            "title": "B-Series SoM"
-        },
-        {
-            "dir": "photon",
-            "title": "Photon"
-        },
-        {
             "dir": "electron",
             "title": "Electron"
         },

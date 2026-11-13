@@ -3,6 +3,7 @@ title: Sensors
 columns: two
 layout: commonTwo.hbs
 description: Cloud connected sensors
+guide-custom-images: default
 ---
 
 # {{title}}
@@ -43,7 +44,7 @@ The rest of the device fleet with 2 more sensors. I didn't order enough for the 
 
 As in the previous section, you can either:
 
-- **Particle: Create New Project**, create TemperatureSensor, and paste the contents TemperatureSensor.cpp file into your file.
+- **Particle: Create New Project**, create TemperatureSensor, and paste the contents of the TemperatureSensor.cpp file into your file.
 - Download the zip file, extract, then **Particle: Import Project**.
 
 {{> project-browser project="TemperatureSensor" default-file="src/TemperatureSensor.cpp" height="400" flash="true"}}
@@ -192,6 +193,16 @@ If you get a red squiggle for the `#include` statement with this error, make sur
 {{imageOverlay src="/assets/images/getting-started-guide/library-include-not-found.png" class="no-darken"}}
 
 You can find more information about libraries in [firmware libraries](/getting-started/device-os/firmware-libraries/).
+
+## Compatibility across devices
+
+In most cases, the same firmware source and libraries work across all devices, though you will typically have to recompile for each platform, as the binaries are different.
+
+In the case of the Boron, Photon 2, and Argon with this sensor, the firmware and the pinouts are the same so you can swap between devices with the same wiring.
+
+{{imageOverlay src="/assets/images/getting-started-guide/sensor-photon2.jpg" class="no-darken"}}
+{{imageOverlay src="/assets/images/getting-started-guide/sensor-argon.png" class="no-darken"}}
+
 
 ## Assigning device groups
 

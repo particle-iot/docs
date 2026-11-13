@@ -34,7 +34,7 @@ The Air Quality Kit includes a Particle Argon and three specialized sensors to m
 ![The Particle Leak Detection Kit's contents knolled on a white background](/assets/images/Leak-Detection-Kit-contents.jpg)
 For technical documentation on each of the included components, please see the links below.
 {{box op="start"}}
-- **[Particle Argon](/argon/)**  
+- **[Particle Argon](/getting-started/device-setup/argon/)**  
 - **[Particle Xenon](/xenon/)** (2)
 - **LiPo battery** (3)
 - **[2.4GHz antenna](/reference/datasheets/wi-fi/argon-datasheet/#antenna)**

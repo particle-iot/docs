@@ -17,7 +17,7 @@ Low-power, cheap, and Mesh-capable Xenons will be used with water sensors to det
 
 ![The Particle Leak Detection Kit's contents knolled on a white background](/assets/images/Leak-Detection-Kit-contents.jpg)
 
-- **[Particle Argon](/argon/)**  
+- **[Particle Argon](/getting-started/device-setup/argon/)**  
 - **[Particle Xenon](/xenon/)** (2)
 - **LiPo battery** (3)
 - **[2.4 GHz antenna](/reference/datasheets/wi-fi/argon-datasheet/#antenna)

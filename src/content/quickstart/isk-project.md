@@ -10,7 +10,7 @@ columns: two
 The Particle IoT Starter Kits comes with seven different components that work out-of-the-box with Particle devices, and the include Grove FeatherWing Adapter allows you to plug in your new grove modules for rapid prototyping. The Grove FeatherWing Adapter houses eight Grove connectors that support all types of Grove modules. For more information about the modules in this kit, [click here](/quickstart/isk-project/#appendix-grove-sensor-resources) to jump to the technical appendix that covers each module.
 {{box op="start"}}
 For this project you'll need the following parts from you kit:
-* [Particle Argon](/argon/)
+* [Particle Argon](/getting-started/device-setup/argon/)
   * [2.4 GHz antenna](/reference/datasheets/wi-fi/argon-datasheet/#antenna)
   * Micro-USB cable
   * [LiPo battery](/hardware/power/batteries/)

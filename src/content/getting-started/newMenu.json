@@ -100,6 +100,107 @@
             ]
         },
         {
+            "dir": "guide-tracker-one",
+            "title": "Guide - Tracker One",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "device-setup",
+                    "title": "Device setup and console - Tracker One"
+                },
+                {
+                    "dir": "computer-setup",
+                    "title": "Computer setup - Tracker One"
+                },
+                {
+                    "dir": "tracker-edge",
+                    "title": "Tracker Edge firmware - Tracker One"
+                },
+                {
+                    "dir": "temperature-sensor",
+                    "title": "Temperature sensor - Tracker One"
+                },
+                {
+                    "dir": "using-blynk",
+                    "title": "Using Blynk dashboards - Tracker One"
+                }
+            ]
+        },
+        {
+            "dir": "guide-monitor-one",
+            "title": "Guide - Monitor One",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "device-setup",
+                    "title": "Device setup and console - Monitor One"
+                },
+                {
+                    "dir": "computer-setup",
+                    "title": "Computer setup - Monitor One"
+                },
+                {
+                    "dir": "monitor-edge",
+                    "title": "Monitor Edge firmware - Monitor One"
+                },
+                {
+                    "dir": "developer-edition",
+                    "title": "Developer edition technical details - Monitor One"
+                },
+                {
+                    "dir": "temperature-sensor",
+                    "title": "Temperature sensor - Monitor One"
+                }
+            ]
+        },
+        {
+            "dir": "device-setup",
+            "title": "Device setup",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "msom",
+                    "title": "M-SoM"
+                },
+                {
+                    "dir": "m635",
+                    "title": "M635e"
+                },
+                {
+                    "dir": "muon",
+                    "title": "Muon"
+                },
+                {
+                    "dir": "photon2",
+                    "title": "Photon 2"
+                },
+                {
+                    "dir": "boron",
+                    "title": "Boron"
+                },
+                {
+                    "dir": "bsom",
+                    "title": "B-SoM"
+                },
+                {
+                    "dir": "monitor-one",
+                    "title": "Monitor One"
+                },
+                {
+                    "dir": "tracker-one",
+                    "title": "Tracker One"
+                },
+                {
+                    "dir": "argon",
+                    "title": "Argon"
+                },
+                {
+                    "dir": "photon",
+                    "title": "Photon 1"
+                }
+            ]
+        },
+        {
             "dir": "hardware",
             "isSection": true,
             "subsections": [
@@ -114,54 +215,6 @@
                 {
                     "dir": "cellular-overview",
                     "title": "Cellular overview"
-                }
-            ]
-        },
-        {
-            "dir": "setup",
-            "isSection": true,
-            "subsections": [
-                {
-                    "dir": "setup-options",
-                    "title": "Setup options",
-                    "tiles": [
-                        {
-                            "title": "setup.particle.io",
-                            "detail": "Set up your Particle device from a web browser",
-                            "href": "https://setup.particle.io/"
-                        },
-                        {
-                            "title": "Command Line",
-                            "detail": "Command line interface setup",
-                            "href": "/getting-started/developer-tools/cli/"
-                        },
-                        {
-                            "title": "Tracker",
-                            "detail": "Set up a Tracker One of Tracker SoM eval board",
-                            "href": "/getting-started/tracker/tracker-setup/"
-                        }
-                    ]
-                },
-                {
-                    "dir": "manual-setup",
-                    "title": "Manual setup"
-                },
-                {
-                    "dir": "accounts",
-                    "title": "Accounts and access controls"
-                },
-                {
-                    "dir": "wpa2-enterprise",
-                    "title": "WPA2 Enterprise Wi-Fi Setup"
-                },
-                {
-                    "dir": "wifi-setup-options",
-                    "title": "Wi-Fi setup for products",
-                    "href": "/reference/device-os/wifi-setup-options/"
-                },
-                {
-                    "dir": "classroom",
-                    "title": "Classroom setup"
                 }
             ]
         },
@@ -270,7 +323,7 @@
                 },
                 {
                     "title": "Secrets",
-                    "href": "/getting-started/cloud/secrets/"                    
+                    "href": "/getting-started/cloud/secrets/"
                 }
             ]
         },
@@ -456,6 +509,54 @@
                 }
             ]
         },
+        {
+            "dir": "setup",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "setup-options",
+                    "title": "Setup options",
+                    "tiles": [
+                        {
+                            "title": "setup.particle.io",
+                            "detail": "Set up your Particle device from a web browser",
+                            "href": "https://setup.particle.io/"
+                        },
+                        {
+                            "title": "Command Line",
+                            "detail": "Command line interface setup",
+                            "href": "/getting-started/developer-tools/cli/"
+                        },
+                        {
+                            "title": "Tracker",
+                            "detail": "Set up a Tracker One of Tracker SoM eval board",
+                            "href": "/getting-started/tracker/tracker-setup/"
+                        }
+                    ]
+                },
+                {
+                    "dir": "manual-setup",
+                    "title": "Manual setup"
+                },
+                {
+                    "dir": "accounts",
+                    "title": "Accounts and access controls"
+                },
+                {
+                    "dir": "wpa2-enterprise",
+                    "title": "WPA2 Enterprise Wi-Fi Setup"
+                },
+                {
+                    "dir": "wifi-setup-options",
+                    "title": "Wi-Fi setup for products",
+                    "href": "/reference/device-os/wifi-setup-options/"
+                },
+                {
+                    "dir": "classroom",
+                    "title": "Classroom setup"
+                }
+            ]
+        },        
         {
             "dir": "hardware-tutorials",
             "isSection": true,

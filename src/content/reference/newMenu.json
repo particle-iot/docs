@@ -428,8 +428,8 @@
                             "title": "Monitor One Datasheet"
                         },
                         {
-                            "title": "Monitor One Developer Edition Quickstart",
-                            "href": "/quickstart/monitor-one/"
+                            "title": "Monitor One setup",
+                            "href": "/getting-started/device-setup/monitor-one/"
                         },
                         {
                             "dir": "monitor-one-developer-edition-manual",

@@ -114,7 +114,7 @@ This page is for the Monitor One. If you are using the Tracker One, see [Tracker
 
 ### From Workbench
 
-To get the latest Tracker Edge firmware version from Github in Workbench, the easiest option is to use the Github extension.
+To get the latest Monitor Edge firmware version from Github in Workbench, the easiest option is to use the Github extension.
 
 {{!-- BEGIN shared-blurb 689a692c-8568-4383-9d3f-eb340e12c0dc --}}
 The Github extension in Workbench makes it easy to use Github. It is typically automatically installed and ready to use.
@@ -132,14 +132,13 @@ If you haven't signed in yet, sigh in with your Github credentials.
 {{imageOverlay src="/assets/images/getting-started-guide/git-03.png" class="no-darken"}}
 {{imageOverlay src="/assets/images/getting-started-guide/git-04.png" class="no-darken"}}
 
-You will be prompted for where to clone from, select **Clone from Github**.
-
-{{imageOverlay src="/assets/images/getting-started-guide/git-12.png" class="no-darken"}}
 {{!-- END shared-blurb --}}
 
-Enter the repository **particle-iot/monitor-edge**.
+You will be prompted for where to clone from, select **Clone from Github**.
 
-{{imageOverlay src="/assets/images/getting-started-guide/git-13.png" class="no-darken"}}
+Enter the repository **https://github.com/particle-iot/monitor-edge**.
+
+{{imageOverlay src="/assets/images/getting-started-guide/monitor-one/git-05.png" class="no-darken"}}
 
 {{!-- BEGIN shared-blurb 484581eb-e78e-44ed-bc11-bb1d0945f2d6 --}}
 When the clone is complete you are prompted for where to open it. You should only select **Open** (replaces current window) or **Open in New Window**. Using the Add to Workspace option will create a multi-root workspace, with multiple projects, which does not work well with the Particle extension.

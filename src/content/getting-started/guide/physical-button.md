@@ -3,6 +3,7 @@ title: Physical button
 columns: two
 layout: commonTwo.hbs
 description: Cloud-connected physical button project
+guide-custom-images: default
 ---
 
 # {{title}}

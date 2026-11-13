@@ -3,6 +3,7 @@ title: Environment variables
 columns: two
 layout: commonTwo.hbs
 description: Environment variables (cloud configuration)
+guide-custom-images: default
 ---
 
 # {{title}}
@@ -26,7 +27,7 @@ For more information, see [Environment](/getting-started/configuration/environme
 
 As in the previous section, you can either:
 
-- **Particle: Create New Project**, create CloudLed2, and paste the contents CloudLed2.cpp file into your file.
+- **Particle: Create New Project**, create CloudLed2, and paste the contents of the CloudLed2.cpp file into your file.
 - Download the zip file, extract, then **Particle: Import Project**.
 
 {{> project-browser project="CloudLed2" default-file="src/CloudLed2.cpp" height="400" flash="true"}}
