@@ -211,6 +211,8 @@
   "/getting-started/device-os": "/getting-started/device-os/introduction-to-device-os",
   "/getting-started/function-publish-demo": "/getting-started/cloud/cloud-communication",
   "/getting-started/guide": "/getting-started/guide/device-setup",
+  "/getting-started/guide-monitor-one": "/getting-started/guide-monitor-one/device-setup",
+  "/getting-started/guide-tracker-one": "/getting-started/guide-tracker-one/device-setup",
   "/getting-started/hardware": "/getting-started/hardware/hardware-overview",
   "/getting-started/hardware-tutorials": "/getting-started/hardware-tutorials/hardware-examples",
   "/getting-started/hardware-tutorials/maker-kit": "/archives/maker-kit",

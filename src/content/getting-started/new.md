@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device setup 2026-11-13
+
+There are new [device setup](/getting-started/device-setup/msom/) pages that lead into the [guide](/getting-started/guide/) sections. There are new guide sections for [Tracker One guide](/getting-started/guide-tracker-one/) and [Monitor One guide](/getting-started/guide-monitor-one/).
+
 ### Console docs update 2026-11-11
 
 Updated docs for the [console](/getting-started/console/console/), the other pages in that section, and [firmware release process](/firmware/best-practices/firmware-release/).
