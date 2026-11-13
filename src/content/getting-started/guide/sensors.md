@@ -194,6 +194,16 @@ If you get a red squiggle for the `#include` statement with this error, make sur
 
 You can find more information about libraries in [firmware libraries](/getting-started/device-os/firmware-libraries/).
 
+## Compatibility across devices
+
+In most cases, the same firmware source and libraries work across all devices, though you will typically have to recompile for each platform, as the binaries are different.
+
+In the case of the Boron, Photon 2, and Argon with this sensor, the firmware and the pinouts are the same so you can swap between devices with the same wiring.
+
+{{imageOverlay src="/assets/images/getting-started-guide/sensor-photon2.jpg" class="no-darken"}}
+{{imageOverlay src="/assets/images/getting-started-guide/sensor-argon.png" class="no-darken"}}
+
+
 ## Assigning device groups
 
 In this example, since one of the devices does not have a temperature sensor, I'll only release to some devices using a device group.
