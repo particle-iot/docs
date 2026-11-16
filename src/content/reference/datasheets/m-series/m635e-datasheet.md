@@ -1055,6 +1055,23 @@ We strongly recommend against placing components under the SOM board because the
 
 The [M.2 breakout board design](https://github.com/particle-iot/m2-breakout-board/) design files for EagleCAD are available as a reference design.
 
+{{!-- BEGIN shared-blurb e7a5a5bb-bdcc-4831-b3f0-47e348ad1d47 --}}
+### EagleCAD alternatives
+
+Autodesk has discontinued EagleCAD, here are some alternatives:
+
+|                       | Autodesk Fusion | KiCAD   | EasyEDA |
+| :-------------------- | :-------------: | :-----: | :-----: |
+| Import projects       | &check;         | &check; | &check; |
+| Import libraries      | &check;         |         | &check; |
+| Cost                  | Expensive       | Free    | Free    |
+
+The easiest and least expensive is EasyEDA because it is able to import the .lbr library files that include the footprints.
+
+KiCAD is a popular free alternative, and there is an Eagle library importer, but it only works with Eagle 6 and Eagle 7 libraries and the libraries here are Eagle 9 libraries. Many projects can be imported, however.
+{{!-- END shared-blurb e7a5a5bb-bdcc-4831-b3f0-47e348ad1d47 --}}
+
+
 ## Product Handling
 
 ### ESD Precautions

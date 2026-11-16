@@ -1039,8 +1039,8 @@
             "hash": "654127ce7e7b344ec647c8a4cc2ad47df11f4eb2dc9caf0d2bc914e759c80d4e"
         },
         "hardware/wi-fi/p2-first-board.md": {
-            "date": "2026-09-30",
-            "hash": "c5e07c3ca53f8be97d19f3eaa843b4c34e51a62a9e835e03ea63c8114362e2b8"
+            "date": "2026-11-16",
+            "hash": "cc9d72a20dd6a208c96b5533a4e9029f241a24ace9bd53781b67059f23c0d475"
         },
         "hardware/tracker/m8-temperature-humidity.md": {
             "date": "2023-03-17",
@@ -1511,8 +1511,8 @@
             "hash": "b356f425a5356524cd159fcea54e4218905dd25141a93832f22114d0d5e4ed13"
         },
         "troubleshooting/debuggers/debugger-adapter.md": {
-            "date": "2025-09-23",
-            "hash": "21bbb3ea86a564d2b0d32dc5ff1ae396cb147cbcece332c51c1d74af03f204cd"
+            "date": "2026-11-16",
+            "hash": "386165d0d98069a02ad1d9c8edaf6b0309abc7dac13cb0dd385eebcea67c59a0"
         },
         "troubleshooting/guides/connectivity-troubleshooting/cellular-connectivity-troubleshooting-guide.md": {
             "date": "2023-09-06",
@@ -8219,8 +8219,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "ac8e65b9d208cc386c7dee0d7016ede6ccba1ce44e73b5a199f91009a110d0ad",
-            "date": "2026-11-13"
+            "hash": "5b255e2f1eaa1522e9caf66978ad88095be431c661822a0f2c5d86d773ce7c72",
+            "date": "2026-11-16"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8387,8 +8387,8 @@
             "date": "2025-01-07"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "d3f244d246cf8084039c66ff061d30380cc12e058dee70d2d37b23f3ffd98eac",
-            "date": "2026-10-21"
+            "hash": "e4f76089ac1a65a885968d9fb597410ef0c44d33d87ffafcdc4c17dd693cda7f",
+            "date": "2026-11-16"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "0add4679270f635c9990d95e4b0d22cdeb91ad8a065b8ddbb6712fc9454cabd5",
@@ -10055,8 +10055,8 @@
             "date": "2026-07-20"
         },
         "reference/datasheets/m-series/m635e-datasheet.md": {
-            "hash": "f9ebb53fd8966767da79087ff012809f68f58493d472150a78093d5265855d8c",
-            "date": "2026-10-29"
+            "hash": "1d8c928e4c6f3cd97c74532b5b71e6b8e457ae8c04fa0ab377f2492ede4092fb",
+            "date": "2026-11-16"
         },
         "reference/device-os/api/introduction/device-programming-summary.md": {
             "hash": "0fb58d421f8ab72358645d102c04e0538ef290693e6ca99349df32bc8e335103",
