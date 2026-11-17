@@ -65,6 +65,40 @@
             ]
         },
         {
+            "dir": "guide",
+            "isSection": true,
+            "subsections": [
+                {
+                    "dir": "prototype",
+                    "title": "Prototype"
+                },
+                {
+                    "dir": "purchase",
+                    "title": "Purchase"
+                },
+                {
+                    "dir": "assemble",
+                    "title": "Assemble"
+                },
+                {
+                    "dir": "certification",
+                    "title": "Certification"
+                },
+                {
+                    "dir": "test",
+                    "title": "Test"
+                },
+                {
+                    "dir": "prepare-for-shipping",
+                    "title": "Prepare for shipping"
+                },
+                {
+                    "dir": "customer-setup",
+                    "title": "Customer setup"
+                }
+            ]
+        },
+        {
             "dir": "manufacturing",
             "isSection": true,
             "subsections": [
