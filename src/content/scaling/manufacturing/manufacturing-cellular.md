@@ -19,12 +19,12 @@ It is assumed that you have incorporated one of the following Particle SKUs into
 
 | Device | Generation | SKUs |
 | :--- | :--- | :--- |
-| B-Series SoM | Gen 3 | B404, B402, B524, B523 |
-| Boron | Gen 3 | BRN404, BRN402, BRN314, BRN310 |
+| M-SoM | Gen 4 | M404, M524, M634e |
+| B-Series SoM | Gen 3 | B404, B402, B504, B524, B523 |
+| Boron | Gen 3 | BRN404X, BRN404, BRN402, BRN314, BRN310 |
 | Tracker One | Gen 3 | ONE404, ONE402, ONE524, ONE523 |
 | Tracker SoM | Gen 3 | T404, T402, T524, T523 |
 | E-Series | Gen 2 | E404, E402, E314, E313, E310 |
-| Electron | Gen 2 | ELC404, ELC314, E270, E260, E350 |
 
 
 #### There is one contract manufacturer (CM) handling assembly of the product.
@@ -76,7 +76,6 @@ The following procedure involves commands from the host computer via the Particl
 
 This procedure is divided into the following sections:
 
-- SIM Activation
 - Assembly and Test 
 - Programming
 - Provisioning
@@ -89,7 +88,7 @@ SIM Activation can be performed asynchronously to the manufacturing process, unl
 
 In some cases, such as using LTE Cat M1 devices (B-Series B404/B402, Boron BRN404/BRN402, E-Series E404/E402, Electron LTE ELC404/ELC402) it will be impossible to do a full end-to-end test of cellular at the CM if your CM is based in China, as these devices are unable to connect to cellular in China. 
 
-**The recommended manufacturing flow uses the bulk-import function in the provisioning process to facilitate the activation of SIMs.** Doing so will greatly simplify the process and you can skip the steps in this section. 
+**The recommended manufacturing flow uses the bulk-import function in the provisioning process to facilitate the activation of SIMs.** Doing so will greatly simplify the process and you can skip the steps in this section. Importing the Device ID, serial number, or order number will both add the device to your product and activate the SIM card in a single step.
 
 It can take up to an hour to activate a SIM card, and in some cases longer, so pre-activation of SIMs in bulk is recommended as it can significantly slow the manufacturing process if done one-by-one.
 
@@ -112,17 +111,6 @@ curl "https://api.particle.io/v1/products/$PRODUCT_NUM/sims"
 ```
 
 There are numerous wireless scanners that emulate a USB keyboard, which is handy for scanning the number directly into a manufacturing script.
-
-
-- If you are building a product with the Electron 3G (ELC314, E260, or E270), insert the 4FF Nano SIM card. 
-
-With these SKUs you typically purchase a pack of 50 SIM cards at the same time you purchased trays of 50 Electron devices, but the are not associated with each other until you come online with the SIM card in the device.
-
-Find the ICCID of your Particle SIM card. The ICCID is visible on the back of the larger plastic card that contains the Nano SIM card. you can also capture it by USB, as in the following step.
-
-![](/assets/images/manufacturing/electron-sim.png)
-
-The ICCID is the number underneath the barcode, beginning with 89.
 
 
 - You can capture the data using the Particle CLI and USB connection
@@ -159,6 +147,8 @@ As stated above, programming is best done using JTAG, if possible.
 
 - Particle offers a Hex Generator Tool, allowing you to easily assemble images for target devices and Device OS versions.
 
+{{collapse op="start" label="Show older information"}}
+
 - For Gen 3 devices (Boron, B-Series) running Device OS 3.x and earlier, you will need to set the setup done bit as you are bypassing the conventional mobile provisioning flow. This is ideally done by adding the following lines of code to your manufacturing test firmware; this only needs to be done once.
 
 ```
@@ -176,16 +166,17 @@ It is also possible to do this using the Particle CLI and USB if you are using a
 
 - For the Tracker One and Tracker SoM, you will need to update the NCP (ESP32) firmware if you intend to use the Device OS 3.0.0 or later. It is not required for 2.x, but it is backwards compatible if you need to revert to 2.x from 3.x for any reason. This must be done over USB in listening mode (blinking dark blue, --serial). See [Argon and Tracker NCP](/reference/developer-tools/jtag/#argon-and-tracker-ncp) for more information.
 - All Monitor One devices ship the correct NCP version already.
+{{collapse op="end"}}
 
 
 - Once your hex files are with your CM, enable your CM to pursue one of the following programmer strategies as detailed within our docs:
 
-  - [Particle Debugger with OpenOCD](/reference/developer-tools/jtag/#particle-debugger-with-openocd-via-particle-workbench-) (using Particle Workbench)
-  - [Particle Debugger with OpenOCD](/reference/developer-tools/jtag/#particle-debugger-with-openocd-via-particle-workbench-) (standalone)
-  - [Particle Debugger with drag-and-drop](/reference/developer-tools/jtag/#particle-debugger-with-drag-and-drop) (Gen 3 only)
-  - [Particle Debugger with web browser flash](/reference/developer-tools/jtag/#particle-debugger-with-drag-and-drop) (experimental, Gen 3 only)
-  - [Segger J-Link with Nordic nrfjprog](/reference/developer-tools/jtag/#segger-j-link-with-nordic-tools-nrfjprog-) (Gen 3 only)
-  - [Segger J-Link with Segger Tools](/reference/developer-tools/jtag/#segger-j-link-with-segger-tools) (Both Gen 2 and Gen 3)
+  - [CMSIS/DAP or Particle Debugger with OpenOCD](/reference/developer-tools/jtag/#particle-debugger-with-openocd-via-particle-workbench-) (using Particle Workbench)
+  - [CMSIS/DAP or Particle Debugger with OpenOCD](/reference/developer-tools/jtag/#particle-debugger-with-openocd-via-particle-workbench-) (standalone)
+  - [CMSIS/DAP or Particle Debugger with drag-and-drop](/reference/developer-tools/jtag/#particle-debugger-with-drag-and-drop) (Gen 3 only)
+  - [CMSIS/DAP or Particle Debugger with web browser flash](/reference/developer-tools/jtag/#particle-debugger-with-drag-and-drop) (experimental, Gen 3 only)
+  - [Segger J-Link with Nordic nrfjprog](/reference/developer-tools/jtag/#segger-j-link-with-nordic-tools-nrfjprog-) (Gen 3 only, not compatible with Gen 4)
+  - [Segger J-Link with Segger Tools](/reference/developer-tools/jtag/#segger-j-link-with-segger-tools) (Both Gen 2 and Gen 3, not compatible with Gen 4)
   - [ST-LINK/V2 with ST-LINK Software](/reference/developer-tools/jtag/#st-link-v2-with-st-link-software-for-windows) (Windows, Gen 2 only)
 
 - Flash manufacturing test application hex and allow your device to connect to the Particle Cloud.

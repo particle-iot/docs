@@ -117,7 +117,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Deprecated | E26K |
 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Deprecated | E26T |
 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | Deprecated | E27K |
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | NRND | E27T |
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | Deprecated | E27T |
 | E310KIT | E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | NRND | E31K |
 | E310MOD1 | E-Series 2G/3G (Global - E310), [x1] | Deprecated | E31M |
 | E310TRAY50 | E-Series 2G/3G (Global - E310), Tray [x50] | Deprecated | E31T |
@@ -135,7 +135,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | NRND | P030 |
 | E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated | P030 |
 | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA | P052 |
-| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | NRND | P035 |
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Deprecated | P035 |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Deprecated | E4DK |
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Deprecated | E4DT |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated | P036 |
@@ -214,7 +214,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | E26K | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Deprecated |
 | E26T | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Deprecated |
 | E27K | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | Deprecated |
-| E27T | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | NRND |
+| E27T | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | Deprecated |
 | E31K | E310KIT | E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | NRND |
 | E31M | E310MOD1 | E-Series 2G/3G (Global - E310), [x1] | Deprecated |
 | E31T | E310TRAY50 | E-Series 2G/3G (Global - E310), Tray [x50] | Deprecated |
@@ -273,7 +273,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P033 | B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | NRND |
 | P034 | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | GA |
 | P034 | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | GA |
-| P035 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | NRND |
+| P035 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Deprecated |
 | P036 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated |
 | P042 | B404XMEA | B-Series LTE-M (NorAm, EtherSIM), [x1] | GA |
 | P042 | B404XMTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | GA |

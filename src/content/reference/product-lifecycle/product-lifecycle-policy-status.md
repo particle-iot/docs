@@ -33,10 +33,8 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 | B404MTY | B-Series LTE-M (NorAm, EtherSIM), Tray [x50] | 3 | NRND | B404XMTY | &nbsp; |
 | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | 3 | NRND | B524MTY | &nbsp; |
 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | 3 | NRND | BRN404XTRAY50 | &nbsp; |
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | 2 | NRND | B524MTY | &nbsp; |
 | E314TRAY50 | E-Series 2G/3G (Global - E314), Tray [x50] | 2 | NRND | &nbsp; | &nbsp; |
 | E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | 2 | NRND | E404XTRAY50 | &nbsp; |
-| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | 2 | NRND | &nbsp; | &nbsp; |
 | P1REEL | P1 Wi-Fi Module, Reel [x500] | 2 | NRND | &nbsp; | &nbsp; |
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | 3 | NRND | T404MTY | &nbsp; |
 | ARGNTRAY50 | Argon, Tray [x50] | 3 | Deprecated | &nbsp; | 2025-03-31 |
@@ -46,9 +44,11 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | 3 | Deprecated | &nbsp; | 2025-03-31 |
 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 3 | Deprecated | BRN404XTRAY50 | &nbsp; |
 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | 2 | Deprecated | BRN404XTRAY50 | &nbsp; |
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | 2 | Deprecated | B524MTY | 2025-03-31 |
 | E310TRAY50 | E-Series 2G/3G (Global - E310), Tray [x50] | 2 | Deprecated | &nbsp; | &nbsp; |
 | E350TRAY50 | Electron 2G (Global), Tray [x50] | 2 | Deprecated | B524MTY | &nbsp; |
 | E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 2 | Deprecated | E404XTRAY50 | &nbsp; |
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | 2 | Deprecated | &nbsp; | 2025-03-31 |
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | 2 | Deprecated | BRN404XTRAY50 | 2025-03-31 |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 2 | Deprecated | &nbsp; | &nbsp; |
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | 3 | Deprecated | ONE404MTY | &nbsp; |

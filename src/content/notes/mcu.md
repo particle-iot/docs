@@ -148,8 +148,8 @@
 | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | E260KIT | 2 | Deprecated |
 | Electron 2G/3G (Americas/Aus), Tray [x50] | E260TRAY50 | 2 | Deprecated |
 | Electron 2G/3G (EMEA) Starter Kit, [x1] | E270KIT | 2 | Deprecated |
-| Electron 2G/3G (EMEA), Tray [x50] | E270TRAY50 | 2 | NRND |
-| Electron 2G/3G (Global - U201) , Tray [x50] | ELC314TY | 2 | NRND |
+| Electron 2G/3G (EMEA), Tray [x50] | E270TRAY50 | 2 | Deprecated |
+| Electron 2G/3G (Global - U201) , Tray [x50] | ELC314TY | 2 | Deprecated |
 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | SNSRKIT3G260 | 2 | Deprecated |
 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | SNSRKIT3G270 | 2 | Deprecated |
 | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ELC404TY | 2 | Deprecated |

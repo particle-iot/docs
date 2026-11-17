@@ -21,7 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### EagleCAD alternatives 2026-11=16
+### Device setup 2026-11-17 
+
+Added device setup instructions for the [Electron](/getting-started/device-setup/electron/) including a 2G/3G sunset warning, and also added sunset warnings for the Boron 2G/3G.
+
+### EagleCAD alternatives 2026-11-16
 
 Included alternatives to EagleCAD in locations where it is mentioned.
 
