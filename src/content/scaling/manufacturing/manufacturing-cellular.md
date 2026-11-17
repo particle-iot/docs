@@ -7,7 +7,7 @@ description: Manufacturing with Particle Cellular Devices
 
 # {{title}}
 
-This document is designed to identify best practices for manufacturing products with Particle cellular devices at scale. The following information should be interpreted as a series of informed suggestions, not as prescribed rules, and we have done our best to account for the various exceptions we might expect from the following workflow.
+The following information should be interpreted as a series of informed suggestions, not as prescribed rules, and we have done our best to account for the various exceptions we might expect from the following workflow.
 
 ## Assumptions & caveats
 
