@@ -404,10 +404,10 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | BRN404XKIT|
 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Generally fast<sup>2</sup> | Deprecated | BRN404XTRAY50|
 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | B524MEA|
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | Generally fast<sup>2</sup> | NRND | B524MTY|
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | Generally fast<sup>2</sup> | Deprecated | B524MTY|
 | E350KIT | Electron 2G Kit (Global) | Generally fast<sup>2</sup> | Deprecated | B524MEA|
 | E350TRAY50 | Electron 2G (Global), Tray [x50] | Generally fast<sup>2</sup> | Deprecated | B524MTY|
-| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Fast<sup>1</sup> | NRND | |
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Fast<sup>1</sup> | Deprecated | |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | BRN404XKIT|
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | Deprecated | BRN404XTRAY50|
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | Deprecated | |

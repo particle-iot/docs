@@ -35219,7 +35219,7 @@
     {
       "name": "E270TRAY50",
       "desc": "Electron 2G/3G (EMEA), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "B524MTY",
       "modem": "U270",
       "multiple": true,
@@ -35834,7 +35834,7 @@
     {
       "name": "ELC314TY",
       "desc": "Electron 2G/3G (Global - U201) , Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "multiple": true,
       "singleSku": "ELC314EA",

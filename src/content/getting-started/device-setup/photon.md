@@ -11,6 +11,8 @@ This page walks you through unboxing and setting up a [Photon](/reference/datash
 
 {{note op="start" type="note"}}
 This page is for the Photon 1. For the Photon 2, see [Photon 2 setup](/getting-started/device-setup/photon2/).
+
+The Photon 1 has been deprecated. See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
 {{note op="end"}}
 
 {{content-nav}}

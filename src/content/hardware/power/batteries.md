@@ -119,7 +119,7 @@ instead of using a battery pack temperature sensor.
 | [E260KIT](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
 | [E260TRAY50](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (Americas/Aus), Tray [x50] | micro-b | 2-pin | Deprecated |
 | [E270KIT](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (EMEA) Starter Kit, [x1] | micro-b | 2-pin | Deprecated |
-| [E270TRAY50](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (EMEA), Tray [x50] | micro-b | 2-pin | NRND |
+| [E270TRAY50](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (EMEA), Tray [x50] | micro-b | 2-pin | Deprecated |
 | [E310KIT](/reference/datasheets/e-series/e-series-eval-board/) | E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | micro-b | 2-pin | NRND |
 | [E310MOD1](/reference/datasheets/e-series/e-series-datasheet/) | E-Series 2G/3G (Global - E310), [x1] | &nbsp; | 2-pin | Deprecated |
 | [E310TRAY50](/reference/datasheets/e-series/e-series-datasheet/) | E-Series 2G/3G (Global - E310), Tray [x50] | &nbsp; | 2-pin | Deprecated |
@@ -137,7 +137,7 @@ instead of using a battery pack temperature sensor.
 | [E404MOD1](/reference/datasheets/e-series/e-series-datasheet/) | E-Series LTE-M (NorAm, EtherSIM), [x1] | &nbsp; | 2-pin | NRND |
 | [E404TRAY50](/reference/datasheets/e-series/e-series-datasheet/) | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | Deprecated |
 | [E404XTRAY50](/reference/datasheets/e-series/e404x-datasheet/) | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | &nbsp; | 2-pin | GA |
-| [ELC314TY](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (Global - U201) , Tray [x50] | micro-b | 2-pin | NRND |
+| [ELC314TY](/reference/datasheets/e-series/electron-datasheet/) | Electron 2G/3G (Global - U201) , Tray [x50] | micro-b | 2-pin | Deprecated |
 | [ELC402EA](/reference/datasheets/e-series/electron-datasheet/) | Electron LTE CAT-M1 (NorAm), [x1] | micro-b | 2-pin | Deprecated |
 | [ELC402TY](/reference/datasheets/e-series/electron-datasheet/) | Electron LTE CAT-M1 (NorAm), Tray [x50] | micro-b | 2-pin | Deprecated |
 | [ELC404TY](/reference/datasheets/e-series/electron-datasheet/) | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | micro-b | 2-pin | Deprecated |

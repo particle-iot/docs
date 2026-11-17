@@ -547,9 +547,9 @@ The BRN404X is not certified for use in Europe at this time.
 
 | SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | NRND | B524MTY|
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | U270 |  | Deprecated | |
 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 |  | Deprecated | B524MEA|
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | Deprecated | B524MTY|
 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 |  | Deprecated | |
 
 
@@ -751,7 +751,7 @@ Additional FCC Test Reports:
 
 | SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | NRND | |
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

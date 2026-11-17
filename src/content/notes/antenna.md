@@ -219,7 +219,7 @@ For more information, see the [Antenna guide](/hardware/certification/antenna/).
 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | E402TRAY50 | &check; | Cellular | NRND |
 | E-Series LTE-M (NorAm, EtherSIM) Evaluation Kit, [x1] | E404KIT | &check; | Cellular | NRND |
 | E-Series LTE-M (NorAm, EtherSIM), [x1] | E404MOD1 | &check; | Cellular | NRND |
-| Electron 2G/3G (Global - U201) , Tray [x50] | ELC314TY | &nbsp; | Cellular | NRND |
+| Electron 2G/3G (Global - U201) , Tray [x50] | ELC314TY | &nbsp; | Cellular | Deprecated |
 | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ELC404TY | &nbsp; | Cellular | Deprecated |
 | Electron LTE CAT-M1 (NorAm), [x1] | ELC402EA | &check; | Cellular | Deprecated |
 | Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC402TY | &nbsp; | Cellular | Deprecated |
@@ -261,7 +261,7 @@ For more information, see the [Antenna guide](/hardware/certification/antenna/).
 | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | E260KIT | &check; | Cellular | Deprecated |
 | Electron 2G/3G (Americas/Aus), Tray [x50] | E260TRAY50 | &nbsp; | Cellular | Deprecated |
 | Electron 2G/3G (EMEA) Starter Kit, [x1] | E270KIT | &check; | Cellular | Deprecated |
-| Electron 2G/3G (EMEA), Tray [x50] | E270TRAY50 | &nbsp; | Cellular | NRND |
+| Electron 2G/3G (EMEA), Tray [x50] | E270TRAY50 | &nbsp; | Cellular | Deprecated |
 
 
 

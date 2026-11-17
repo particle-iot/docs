@@ -896,7 +896,7 @@ let countryDetails = {};
 countryDetails.fromQuery = function(urlParams) {
     const device = urlParams.get('device');
     if (device) {
-        $(countryDetails.options.deviceList).val($(countryDetails.options.deviceList).val());
+        $(countryDetails.options.deviceList).val(device);
     }
     const country = urlParams.get('country');
     if (country) {

@@ -643,8 +643,8 @@
             "hash": "4f6c0d93a3dd402078eaff079dbf2262adf03f1ca6a62e2696cc5757ba6b8924"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2026-10-21",
-            "hash": "680cd0411795da510aa15c301b889ec35442efbd93ade094b90358dd7fb69f5d"
+            "date": "2026-11-17",
+            "hash": "b428cdaa693aceb4181ecd7f81534ee755a13e5b30946b12aa45665a3fe6dc48"
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2026-10-21",
@@ -783,8 +783,8 @@
             "hash": "16e3837cff57d57e7823abbd69235dff0509b52ab775480186b4dc26b53acfd7"
         },
         "scaling/manufacturing/manufacturing-cellular.md": {
-            "date": "2024-11-13",
-            "hash": "d897ffff0a584325aed7a4c86acb3b37f6d2c5faeba0c0927f401d1db3c75fce"
+            "date": "2026-11-17",
+            "hash": "77e8aa6a2a0c34f928df7aab64d2206bfa54910a4df710167b6ee13c7b9b982c"
         },
         "scaling/manufacturing/manufacturing-firmware-versions.md": {
             "date": "2024-02-27",
@@ -923,16 +923,16 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2026-10-26",
-            "hash": "e8796ea2f0c43f73cfe04b4a0a09bc63265e610e9d7aa1aabcaf72e4878b5018"
+            "date": "2026-11-17",
+            "hash": "aa6cbe342639aa6c69ba8a058ecddff74dfcd3d5107f059cbe7285a450a097c6"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2026-08-14",
             "hash": "33d8342e26f75987c556993b5acc058287bb1e5603dcef37aca60e8f881db7e6"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2026-11-09",
-            "hash": "cbf725a61ffc6cdf85b46c7b7b9892843847c7c8b0a367ed0b768de8128c5dff"
+            "date": "2026-11-17",
+            "hash": "06754ff6b156a7781e924abd2c149cec6fd976853f790e67836302fbcef52af6"
         },
         "hardware/certification/certification.md": {
             "date": "2024-06-14",
@@ -995,16 +995,16 @@
             "hash": "3f7c5572f37c0a60c60d97baf347f615813bd91fab7539b06b91fd2609910bfd"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2026-10-26",
-            "hash": "e3ae7e9b36b8e135a4a9a3c4b516d72cef2a7e59c25de2ecee94fea37e677cfd"
+            "date": "2026-11-17",
+            "hash": "b5efd678dbe3d0a70160760beb0d30f16cb814d7392ac39e5d10832e3b28c6d5"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2024-02-27",
             "hash": "9ed5cd56c4320b2e640932bae22868e675f9526d5d1fde0dfa468b327b9a16c9"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2026-10-26",
-            "hash": "db72814c49b571f57af26e2cff758dfe3892431475898e87df0be772521707ed"
+            "date": "2026-11-17",
+            "hash": "d106ce70a79d5fb7902e09108c930f20d471497ba7dd7b6df7bced0cc9994591"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2026-10-14",
@@ -1027,12 +1027,12 @@
             "hash": "049c2279674052cb84dbf67aa1991d6d5c571897a12a61106195a616285a81dd"
         },
         "hardware/power/batteries.md": {
-            "date": "2026-10-21",
-            "hash": "5cec30d84e3425d80c2761af82f55be97115d0200fdb81ccd10c3d1f0c966f80"
+            "date": "2026-11-17",
+            "hash": "876a2b6f320e1eea1b46bef7534151c6788fd27e5e4ee47af5ea8a892ad50993"
         },
         "hardware/power/power-supply-guide.md": {
-            "date": "2026-10-21",
-            "hash": "db6b430a1a38a4441fccd80508aac17f20f67ccdee8a03c8c45a9fddc9f01b0f"
+            "date": "2026-11-17",
+            "hash": "39cb5711b643c95beef757c9ffc1f9dc8de8e0307ca278b4d6391cc8c7ac0bd4"
         },
         "hardware/power/vehicle-power.md": {
             "date": "2024-02-27",
@@ -1311,8 +1311,8 @@
             "hash": "cf1f652127effe895448e8505412ce9dbf38c7066050d622d18bb0c2cdad8a44"
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
-            "date": "2025-06-24",
-            "hash": "10fb4c2ce07c871837104d6d734d8b424b17643324299cafb0774571e65db1db"
+            "date": "2026-11-17",
+            "hash": "ce56f68d567d8a89e97fcae66364649dbb499afb16a2212f4d1e3437259f91a1"
         },
         "reference/product-lifecycle/product-lifecycle-stages.md": {
             "date": "2023-03-17",
@@ -1383,8 +1383,8 @@
             "hash": "450e78aff263a664b847e3a7b5f66f9a15f9b9e6bc6605d0e237d373c459b6e3"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
-            "date": "2026-10-06",
-            "hash": "9ce227a57cb29ad57f9884d5475f7c224185743c827d5ba4094d02857755efb4"
+            "date": "2026-11-17",
+            "hash": "c3e4f2125ec96768a25032bc77bf455026be70d2d5501a44d9f41b249ca0f5f6"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
             "date": "2025-09-03",
@@ -8159,8 +8159,8 @@
             "date": "2026-08-25"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "589580657bce1863fa61b2db3c74c8b06a7b75e3169af3464c731a39229a4961",
-            "date": "2026-10-21"
+            "hash": "66bbaa1a84e946baf475d1035a27c099e57366fae16d4fea89918467633dd310",
+            "date": "2026-11-17"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8219,8 +8219,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "5b255e2f1eaa1522e9caf66978ad88095be431c661822a0f2c5d86d773ce7c72",
-            "date": "2026-11-16"
+            "hash": "c6f85dc11acf61fd29fbcb8d4385bb34f93d887f20e6bc4a789a4078830d3e65",
+            "date": "2026-11-17"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -9735,8 +9735,8 @@
             "date": "2026-11-04"
         },
         "hardware/power/power-measurement.md": {
-            "hash": "f1e480e1655016822aaa1f2bd14b54b90165a6298bfd3d642145beed05c7330a",
-            "date": "2026-03-05"
+            "hash": "3c54f0438090cc778a147463bf18ce1eb3f49005fa33a76bbfe348abe8228ffe",
+            "date": "2026-11-17"
         },
         "archives/monitor-one-modbus.md": {
             "hash": "4fc7a3da7379fc79f2fde296de93668b3a45326d15ff339e713da1cdcda0b400",
@@ -10143,8 +10143,8 @@
             "date": "2026-11-12"
         },
         "getting-started/device-setup/boron.md": {
-            "hash": "c4134e32de8776be31663f3b1bc24ee2d11f631e767f2c55ae1966357f330c42",
-            "date": "2026-11-10"
+            "hash": "b5bada025e76250ae8b82418722cd1503b1c9c59bb57721125ab82eb3def3269",
+            "date": "2026-11-17"
         },
         "getting-started/device-setup/bsom.md": {
             "hash": "0566fc01809dc0dc8bc2f5562ef670ed19a3a6c3f65563bbbbd0645e7b872985",
@@ -10179,8 +10179,8 @@
             "date": "2026-11-13"
         },
         "getting-started/device-setup/photon.md": {
-            "hash": "1477ae784cffc5f59f00f69bfad9b9574540bc33a69030cb7c92b2007f34b1de",
-            "date": "2026-11-10"
+            "hash": "6579fbbd9d53f8ffa78211706b6a927f39211049771b9a199083960de56b198d",
+            "date": "2026-11-17"
         },
         "getting-started/guide-tracker-one/computer-setup.md": {
             "hash": "2f2be49cd4043f81a732c22550a631c478e5b0e932fcaf665a7b2f7b394b0c8c",
@@ -10213,6 +10213,10 @@
         "getting-started/guide-monitor-one/developer-edition.md": {
             "hash": "d203106f17ed6e0b7690eebc8e6bd4994c2a6035ba7637f2bd920e78c3820b99",
             "date": "2026-11-12"
+        },
+        "getting-started/device-setup/electron.md": {
+            "hash": "4c196406678211883c19ff9a5f632de014adafbe84827868b38cf16f11157270",
+            "date": "2026-11-17"
         }
     }
 }

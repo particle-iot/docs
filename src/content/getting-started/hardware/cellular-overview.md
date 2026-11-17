@@ -249,16 +249,16 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 
 | SKU | Description | Region  | Modem | EtherSIM | Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | NRND | B524MTY|
-| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | NRND | |
 | ASSET2GV2 | Asset Tracker 2G | Global | G350 |  | Deprecated | |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | U260 |  | Deprecated | |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | U270 |  | Deprecated | |
 | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | U260 |  | Deprecated | BRN404XKIT|
 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 |  | Deprecated | BRN404XTRAY50|
 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 |  | Deprecated | B524MEA|
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | Deprecated | B524MTY|
 | E350KIT | Electron 2G Kit (Global) | Global | G350 |  | Deprecated | B524MEA|
 | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | Deprecated | B524MTY|
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | Deprecated | |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | BRN404XKIT|
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | BRN404XTRAY50|
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
@@ -287,7 +287,7 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | EMEAA | B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EG91-E | &check; | 3 | GA | &nbsp; |
 | EMEAA | B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EG91-E | &check; | 3 | GA | &nbsp; |
 | EMEAA | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | U270 | &nbsp; | 2 | Deprecated | B524MEA |
-| EMEAA | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | U270 | &nbsp; | 2 | NRND | B524MTY |
+| EMEAA | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | U270 | &nbsp; | 2 | Deprecated | B524MTY |
 | EMEAA | M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EG91-EX | &check; | 4 | GA | &nbsp; |
 | EMEAA | M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EG91-EX | &check; | 4 | GA | &nbsp; |
 | EMEAA | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EG91-EX | &check; | 3 | GA | &nbsp; |
@@ -317,7 +317,7 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | Global | E314TRAY50 | E-Series 2G/3G (Global - E314), Tray [x50] | U201 | &check; | 2 | NRND | &nbsp; |
 | Global | E350KIT | Electron 2G Kit (Global) | G350 | &nbsp; | 2 | Deprecated | B524MEA |
 | Global | E350TRAY50 | Electron 2G (Global), Tray [x50] | G350 | &nbsp; | 2 | Deprecated | B524MTY |
-| Global | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | U201 | &check; | 2 | NRND | &nbsp; |
+| Global | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | U201 | &check; | 2 | Deprecated | &nbsp; |
 | Global | M635EMEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | BG95-S5 | &check; | 4 | In development | &nbsp; |
 | Global | MUON404 | Muon LTE-M/2G Dev Board (Global, EtherSIM), [x1] | BG95-M5 | &check; | 4 | GA | &nbsp; |
 | Global | MUON404EA | Muon LTE-M/2G Kit (Global, EtherSIM), [x1] | BG95-M5 | &check; | 4 | GA | &nbsp; |
@@ -467,14 +467,14 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | U201 | E314KIT | E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | &check; | 2 | NRND | &nbsp; |
 | U201 | E314MOD1 | E-Series 2G/3G (Global - E314), [x1] | Global | &check; | 2 | Deprecated | &nbsp; |
 | U201 | E314TRAY50 | E-Series 2G/3G (Global - E314), Tray [x50] | Global | &check; | 2 | NRND | &nbsp; |
-| U201 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | &check; | 2 | NRND | &nbsp; |
+| U201 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | &check; | 2 | Deprecated | &nbsp; |
 | U260 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | &nbsp; | 2 | Deprecated | &nbsp; |
 | U260 | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | &nbsp; | 2 | Deprecated | BRN404XKIT |
 | U260 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | &nbsp; | 2 | Deprecated | BRN404XTRAY50 |
 | U260 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | &nbsp; | 2 | Deprecated | &nbsp; |
 | U270 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | &nbsp; | 2 | Deprecated | &nbsp; |
 | U270 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | &nbsp; | 2 | Deprecated | B524MEA |
-| U270 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | 2 | NRND | B524MTY |
+| U270 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | 2 | Deprecated | B524MTY |
 | U270 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | 2 | Deprecated | &nbsp; |
 
 
@@ -519,7 +519,7 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | EtherSIM | E404MOD1 | E-Series LTE-M (NorAm, EtherSIM), [x1] | NORAM | R410 | 2 | NRND | &nbsp; |
 | EtherSIM | E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | 2 | Deprecated | E404XTRAY50 |
 | EtherSIM | E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | 3 | GA | &nbsp; |
-| EtherSIM | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | 2 | NRND | &nbsp; |
+| EtherSIM | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | 2 | Deprecated | &nbsp; |
 | EtherSIM | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | 2 | Deprecated | &nbsp; |
 | EtherSIM | M404MEA | M-Series LTE-M/2G (NorAm, EtherSIM), [x1] | NORAM | BG95-M5 | 4 | GA | &nbsp; |
 | EtherSIM | M404MTY | M-Series LTE-M/2G (NorAm, EtherSIM), Tray [x50] | NORAM | BG95-M5 | 4 | GA | &nbsp; |
@@ -578,7 +578,7 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | Type T | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | U260 | 2 | Deprecated | BRN404XKIT |
 | Type T | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 | 2 | Deprecated | BRN404XTRAY50 |
 | Type T | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 | 2 | Deprecated | B524MEA |
-| Type T | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 | 2 | NRND | B524MTY |
+| Type T | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 | 2 | Deprecated | B524MTY |
 | Type T | E310KIT | E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 | 2 | NRND | E314KIT |
 | Type T | E310MOD1 | E-Series 2G/3G (Global - E310), [x1] | Global | U201 | 2 | Deprecated | &nbsp; |
 | Type T | E310TRAY50 | E-Series 2G/3G (Global - E310), Tray [x50] | Global | U201 | 2 | Deprecated | &nbsp; |
@@ -688,8 +688,6 @@ Some Particle devices are compatible with [3rd-party SIM cards](/troubleshooting
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 3 | NRND | BRN404XTRAY50 |
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | U270 | 2 | NRND | B524MTY |
-| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | &check; | U201 | 2 | NRND | &nbsp; |
 | ASSET2GV2 | Asset Tracker 2G | Global | &nbsp; | G350 | 2 | Deprecated | &nbsp; |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | &nbsp; | U260 | 2 | Deprecated | &nbsp; |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | &nbsp; | U270 | 2 | Deprecated | &nbsp; |
@@ -707,8 +705,10 @@ Some Particle devices are compatible with [3rd-party SIM cards](/troubleshooting
 | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | &nbsp; | U260 | 2 | Deprecated | BRN404XKIT |
 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | &nbsp; | U260 | 2 | Deprecated | BRN404XTRAY50 |
 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | Deprecated | B524MEA |
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | U270 | 2 | Deprecated | B524MTY |
 | E350KIT | Electron 2G Kit (Global) | Global | &nbsp; | G350 | 2 | Deprecated | B524MEA |
 | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | &nbsp; | G350 | 2 | Deprecated | B524MTY |
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | &check; | U201 | 2 | Deprecated | &nbsp; |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | &nbsp; | U260 | 2 | Deprecated | &nbsp; |
 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | Deprecated | &nbsp; |
 
@@ -760,11 +760,9 @@ The following SKUs are 2G/3G only and should not be deployed in the United State
 
 | SKU | Description | Region | EtherSIM | Modem | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :---: | :--- | :---: | :--- | :--- |
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | U270 | 2 | NRND | B524MTY |
 | E310KIT | E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | &nbsp; | U201 | 2 | NRND | E314KIT |
 | E314KIT | E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | &check; | U201 | 2 | NRND | &nbsp; |
 | E314TRAY50 | E-Series 2G/3G (Global - E314), Tray [x50] | Global | &check; | U201 | 2 | NRND | &nbsp; |
-| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | &check; | U201 | 2 | NRND | &nbsp; |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | &nbsp; | U260 | 2 | Deprecated | &nbsp; |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | &nbsp; | U270 | 2 | Deprecated | &nbsp; |
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &nbsp; | U201 | 3 | Deprecated | &nbsp; |
@@ -774,10 +772,12 @@ The following SKUs are 2G/3G only and should not be deployed in the United State
 | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | &nbsp; | U260 | 2 | Deprecated | BRN404XKIT |
 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | &nbsp; | U260 | 2 | Deprecated | BRN404XTRAY50 |
 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | Deprecated | B524MEA |
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | U270 | 2 | Deprecated | B524MTY |
 | E310MOD1 | E-Series 2G/3G (Global - E310), [x1] | Global | &nbsp; | U201 | 2 | Deprecated | &nbsp; |
 | E310TRAY50 | E-Series 2G/3G (Global - E310), Tray [x50] | Global | &nbsp; | U201 | 2 | Deprecated | &nbsp; |
 | E313EA | E-Series 2G/3G (Global - E313), [x1] | Global | &nbsp; | U201 | 2 | Deprecated | &nbsp; |
 | E314MOD1 | E-Series 2G/3G (Global - E314), [x1] | Global | &check; | U201 | 2 | Deprecated | &nbsp; |
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | &check; | U201 | 2 | Deprecated | &nbsp; |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | &nbsp; | U260 | 2 | Deprecated | &nbsp; |
 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | Deprecated | &nbsp; |
 | E313TRAY50 | E-Series 2G/3G (Global - E313), Tray [x50] | Global | &nbsp; | U201 | 2 | End of life | &nbsp; |

@@ -30,9 +30,13 @@ What's in the box depends on whether you purchased the Boron Kit or just the Bor
 - Boron LTE development board (BRN404X or BRN402)
 - Cellular flex antenna (PARANTC41EA)
 
-{{note op="start" type="warning"}}
-The Boron must always be used with the included certified cellular antenna to remain compliant with regulatory certifications.
-{{note op="end"}}
+### Boron 2G/3G (BRN310 and BRN314)
+
+The Boron 2G/3G has been discontinued. Because it only supports 2G and 3G, it will no longer work in areas where this service is no
+longer available, including most of the United States and Canada. See [2G/3G sunset](/reference/discontinued/cellular/2g-3g-sunset/)
+for more information.
+
+If you are in an area that still offers 2G or 3G service, you can still set it up as described below.
 
 ## What you'll need
 
