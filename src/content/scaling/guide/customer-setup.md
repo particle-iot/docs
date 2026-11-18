@@ -16,15 +16,13 @@ The final step of the process will be your customers setting up their device, wh
 
 ## Cellular devices (pre-configured)
 
-If your product is semi-custom, pre-configured for each user, they will probably only need to power up the device.
+If your product is semi-custom, pre-configured for each user, they will probably only need to power up the device that you have already configured.
 
-This will also be simple if the customer does not have a web or mobile user interface, for example if they are just feeding data into your infrastructure.
+This will also be simple if you do not have a customer-facing web or mobile user interface, for example if they are just feeding data into your infrastructure.
 
-- shipping mode
+## Cellular devices (customer-configured)
 
-## Cellular devices (other)
-
-In some cases, you will need your customer to associate their device with an account you have created for this, either using a web application or mobile application.
+In some cases, you will need your customer to associate their device with an account using a web application or mobile application, or some similar technique.
 
 There are too many possibilities to list here, but typically this is done by entering information such as a serial number (either your own number, or Particle's) into a web or mobile app. This is mostly standard front-end and back-end implementation, and is not really specific to Particle, so it is generally straightforward for most web or mobile developers to create such as solution for you.
 

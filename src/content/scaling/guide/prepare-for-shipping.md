@@ -16,7 +16,23 @@ This section describes how to prepare your tested devices for shipping to your c
 
 ## If your device requires a battery
 
-There are a number of restrictions if your product requires a battery that affect shipping. 
+There are a number of restrictions if your product requires a battery that affect shipping. The rules vary by country, method of transport (air or ground), and often by carrier.
+
+As a general rule, ground shipping is generally acceptable for devices that contain a Li-Po battery as an integral part of the product, and the battery is electrically isolated to prevent your device from turning on during shipping.
+
+### Shipping mode
+
+The Tracker One uses **shipping mode** to ship the sealed devices with the battery connected. This is implemented using the bq24195 PMIC chip, which can isolate the battery from the rest of the device using a FET (transistor). 
+
+One important caveat is that you can enter shipping mode under software control, but the only way to get out of shipping mode is to supply external power, such as by USB. 
+
+The same technique can be used with other devices that include a similar PMIC.
+
+### Other techniques
+
+Disconnecting the battery is a common solution, especially if you are using the Particle JST-PH connector, and if your customers are technical. 
+
+Many consumer electronics with replaceable batteries using plastic pull tabs to isolate the batteries, but this isn't generally practical for larger Li-Po battery packs.
 
 
 ## Shipping without upgrading firmware (not recommended)

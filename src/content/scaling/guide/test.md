@@ -17,10 +17,37 @@ guide-custom-images: default
 
 A common step is to run specialized firmware designed to test all of the feature of your hardware, without requiring a cloud connection.
 
+## Flash firmware and Device OS
 
-## Onboard your device to the Particle platform (if not already done)
+### Using Particle Workbench
 
-If you did not import all of your devices into the Particle cloud at the beginning, you could do it now, one device at a time.
+During development, you will probably use [Particle Workbench](/getting-started/developer-tools/workbench/) for flashing code and Device OS 
+to your development devices. While this can be done for small batches, it's not usually done at scale.
+
+### Using SWD/JTAG
+
+Many contract manufacturers prefer to use SWD/JTAG. The main advantage is that a single self-contained .hex file can contain bootloader(s), Device OS, 
+and user firmware. The machine doing the flashing can be a dedicated machine with no Internet connection, sometimes a requirement during manufacturing.
+
+It's also extremely fast; a Gen 3 device such as the B-SoM can have the bootloader, softdevice, Device OS, and user firmware flashed in around 4 seconds
+using the Segger J/LINK.
+
+### Using the Particle CLI
+
+The Particle CLI can be used to flash Device OS and user firmware to devices one at a time over USB (DFU and CDC).
+
+### Using Device OS Flashing Utility
+
+The [Device OS Flashing Utility](https://github.com/particle-iot/device-os-flash-util) is an internal tool that is available to the public. It can flash 
+Device OS and user firmware to devices over USB (DFU and CDC), as well as SWD/JTAG using OpenOCD. It also can flash multiple devices at the same time.
+
+
+## Onboard your device to the Particle platform
+
+If you did not import all of your devices into the Particle cloud at the beginning, you could do it now, one device at a time, after flashing. This is done
+by adding your device, typically by using its serial number or Device ID, to your product in the console.
+
+
 
 
 ## End-to-end test
