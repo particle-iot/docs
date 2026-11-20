@@ -238,11 +238,20 @@ These devices do not have a cellular modem and therefore do not need a cellular 
 
 Full certification of a device typically involves three different certifications:
 
-1. **Unintentional radiator**. This is a certification that your completed device does not emit extraneous radiation that would affect other devices. This is almost always required, but is the least expensive and easiest test to complete. In the United States, this is FCC 47 CFR Part 15 Subpart B. A test lab performs the measurements and you sign a Suppliers Declaration of Conformity (SDoC).
+1. **Unintentional radiator**. 
+{{!-- BEGIN shared-blurb 713d110e-fc34-4409-b87b-0ad799c24123 --}}
+This is a certification that your completed device does not emit extraneous radiation that would affect other devices. This is almost always required, but is the least expensive and easiest test to complete. In the United States, this is FCC 47 CFR Part 15 Subpart B. A test lab performs the measurements and you sign a Suppliers Declaration of Conformity (SDoC).
+{{!-- END shared-blurb 713d110e-fc34-4409-b87b-0ad799c24123 --}}
 
-2. **Intentional radiator**. This test is more involved and requires testing the power output in each band the transmitters are capable of using. In the United States, this is FCC 47 CRF Part 15, Subpart C. If you use a similar antenna to the one Particle used during its tests, you may be able to avoid having to perform this certification again.
+2. **Intentional radiator**. 
+{{!-- BEGIN shared-blurb f473a08e-d4a3-47b7-8df7-67fa405e1783 --}}
+This test is more involved and requires testing the power output in each band the transmitters are capable of using. In the United States, this is FCC 47 CFR Part 15, Subpart C. If you use a similar antenna to the one Particle used during its tests, you may be able to avoid having to perform this certification again.
+{{!-- END shared-blurb f473a08e-d4a3-47b7-8df7-67fa405e1783 --}}
 
-3. [PTCRB](https://www.ptcrb.com/). This is a certification for cellular devices in the United States. If you use a similar antenna to the one Particle used during its tests, you may be able to avoid having to perform this certification again. 
+3. **PTCRB**
+{{!-- BEGIN shared-blurb 7b0af859-0129-436f-929e-c8832ce3ee2a --}}
+[PTCRB](https://www.ptcrb.com/) is a certification for cellular devices in the United States. If you use a similar antenna to the one Particle used during its tests, you may be able to avoid having to perform this certification again. 
+{{!-- END shared-blurb 7b0af859-0129-436f-929e-c8832ce3ee2a --}}
 
 In the United States [this document from the FCC](https://apps.fcc.gov/kdb/GetAttachment.html?id=bNCiEdkFEKnHsZF9GHCNdg%3D%3D&desc=996369%20D04%20Module%20Integration%20Guide%20V02&tracking_number=44637) provides a great deal of information about the various certifications. The process is similar in Canada (ISED, formerly known as IC). In the European Union you will need to have a test lab perform similar tests, but there isn't the equivalent of an FCC or ISED identification number for the EU.
 

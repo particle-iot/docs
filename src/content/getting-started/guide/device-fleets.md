@@ -52,7 +52,7 @@ Then **Add many devices**, and drag and drop the file of Device IDs or serial nu
 
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-03.png" class="no-darken"}}
 
-If you are part of a growth or enterprise plan, adding the device to your product does not immediately start billing. Billing only starts after the device connects to the cloud the first time, so you can add the device to your product during manufacture without having to worry about incurring costs.
+If you are part of a basic or enterprise plan, adding the device to your product does not immediately start billing. Billing only starts after the device connects to the cloud the first time, so you can add the device to your product during manufacture without having to worry about incurring costs.
 
 {{imageOverlay src="/assets/images/getting-started-guide/fleet-pic.jpg" class="no-darken"}}
 

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated manufacturing guide 2025-11-20
+
+Updated the [manufacturing guide](/scaling/guide/prototype/) with additional information.
+
 ### Carrier list 2026-11-20
 
 Updated the reason values in the [carrier list](/reference/cellular/cellular-carriers/). For the M635e, there were a number of countries that listed no NTN in the reason, but did have Skylo service.
