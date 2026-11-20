@@ -134,7 +134,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2026-09-19T09:58:04.333Z",
+                  "value": "2026-11-20T09:37:54.113Z",
                   "disabled": true
                 }
               ]
@@ -199,7 +199,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2026-09-19T09:58:04.335Z",
+                      "value": "2026-11-20T09:37:54.114Z",
                       "disabled": true
                     }
                   ]
@@ -1596,7 +1596,7 @@
                 },
                 {
                   "key": "expires_at",
-                  "value": "2026-09-19T09:58:04.349Z",
+                  "value": "2026-11-20T09:37:54.119Z",
                   "disabled": true
                 },
                 {
@@ -1656,7 +1656,7 @@
                     },
                     {
                       "key": "expires_at",
-                      "value": "2026-09-19T09:58:04.350Z",
+                      "value": "2026-11-20T09:37:54.120Z",
                       "disabled": true
                     },
                     {
@@ -3407,13 +3407,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-09-19T09:58:04.364Z",
+                  "value": "2026-11-20T09:37:54.127Z",
                   "description": "Oldest diagnostic to return, inclusive. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-09-19T09:58:04.364Z",
+                  "value": "2026-11-20T09:37:54.127Z",
                   "description": "Newest diagnostic to return, exclusive. Date in ISO8601 format.",
                   "disabled": true
                 }
@@ -5434,13 +5434,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-09-19T09:58:04.375Z",
+                  "value": "2026-11-20T09:37:54.133Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-09-19T09:58:04.375Z",
+                  "value": "2026-11-20T09:37:54.133Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5541,13 +5541,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-09-19T09:58:04.377Z",
+                  "value": "2026-11-20T09:37:54.134Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-09-19T09:58:04.377Z",
+                  "value": "2026-11-20T09:37:54.134Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5648,13 +5648,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-09-19T09:58:04.379Z",
+                  "value": "2026-11-20T09:37:54.134Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-09-19T09:58:04.379Z",
+                  "value": "2026-11-20T09:37:54.134Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5755,13 +5755,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-09-19T09:58:04.380Z",
+                  "value": "2026-11-20T09:37:54.135Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-09-19T09:58:04.380Z",
+                  "value": "2026-11-20T09:37:54.135Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -5862,13 +5862,13 @@
               "query": [
                 {
                   "key": "start_date",
-                  "value": "2026-09-19T09:58:04.382Z",
+                  "value": "2026-11-20T09:37:54.135Z",
                   "description": "DateTime to start on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
                 {
                   "key": "end_date",
-                  "value": "2026-09-19T09:58:04.382Z",
+                  "value": "2026-11-20T09:37:54.135Z",
                   "description": "DateTime to end on (inclusive), defaults to the current time. Date in ISO8601 format.",
                   "disabled": true
                 },
@@ -11915,10 +11915,16 @@
                   "value": "string",
                   "description": "Org ID or Slug",
                   "disabled": false
+                },
+                {
+                  "key": "include_overage",
+                  "value": false,
+                  "description": "When true, each pool also carries its overage and the response carries available_now, the per-metric total remaining across overlapping pools",
+                  "disabled": true
                 }
               ]
             },
-            "description": "Get the organization's usage pools with consumption for the current period. Returns an empty list when the organization has no pools."
+            "description": "Get the organization's usage pools with their consumption. Each pool is its own budget over its own date window; pools never reset. The list covers the contract's whole lifecycle — pools that have not started yet, pools draining today, and pools that have ended — each stamped with its status. Returns an empty list when the organization has no pools."
           },
           "response": []
         },

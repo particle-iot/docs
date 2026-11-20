@@ -2911,6 +2911,62 @@
           },
           {
             "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "parentNode": {
+              "path": "esim",
+              "field": "esim",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "esim.allocated_profiles",
+            "isArray": true,
+            "description": "<p>ICCIDs of the eSIM profiles Particle allocated for this device</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "parentNode": {
+              "path": "esim",
+              "field": "esim",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "esim.installed_profiles",
+            "isArray": true,
+            "description": "<p>ICCIDs of the eSIM profiles installed on the device's eUICC. May include 3rd party profiles</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "esim",
+              "field": "esim",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "esim.target_country",
+            "isArray": false,
+            "description": "<p>ISO 3166 alpha-3 code of the primary country where this device will be used</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "esim",
+              "field": "esim",
+              "type": "Object",
+              "isArray": false
+            },
+            "field": "esim.target_profile",
+            "isArray": false,
+            "description": "<p>ICCID of the allocated profile that provides service in the target country</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "modem_firmware_version",
@@ -13594,7 +13650,7 @@
         "optional": true,
         "field": "scope",
         "isArray": false,
-        "description": "<p>Limits the scope of what the access tokens created using the client are allowed to do. Provide a space separated list of scopes. The only current valid scopes are <code>customers:create</code> and <code>\\*:\\*</code> for full control.</p>"
+        "description": "<p>Limits the scope of what the access tokens created using the client are allowed to do. Provide a space separated list of scopes. The only current valid scopes are <code>customers:create</code> and <code>\\*:\\*</code> for full control. Scopes are limited to what your role allows; the request fails with 400 if none of them are allowed.</p>"
       }
     ],
     "name": "CreateOAuthClient",
@@ -13769,7 +13825,7 @@
         "optional": true,
         "field": "scope",
         "isArray": false,
-        "description": "<p>Update the scope of the OAuth client. to only allow customer creation from the client or pass <code>none</code> to remove all scopes (full permissions)</p>"
+        "description": "<p>Update the scope of the OAuth client. to only allow customer creation from the client or pass <code>none</code> to remove all scopes (full permissions). Scopes are limited to what your role allows, as when creating a client.</p>"
       }
     ],
     "examples": [
@@ -16846,7 +16902,7 @@
     "url": "/v1/orgs/:orgIdOrSlug/usage_pools",
     "title": "Get usage pools for an organization",
     "name": "getUsagePoolsForOrganization",
-    "description": "<p>Get the organization's usage pools with consumption for the current period. Returns an empty list when the organization has no pools.</p>",
+    "description": "<p>Get the organization's usage pools with their consumption. Each pool is its own budget over its own date window; pools never reset. The list covers the contract's whole lifecycle — pools that have not started yet, pools draining today, and pools that have ended — each stamped with its status. Returns an empty list when the organization has no pools.</p>",
     "group": "ServiceAgreements.2",
     "parameter": {
       "fields": {
@@ -16858,6 +16914,14 @@
             "field": "orgIdOrSlug",
             "isArray": false,
             "description": "<p>Org ID or Slug</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "include_overage",
+            "isArray": false,
+            "description": "<p>When true, each pool also carries its overage and the response carries available_now, the per-metric total remaining across overlapping pools</p>"
           }
         ]
       }
@@ -16872,11 +16936,47 @@
         "Success 200": [
           {
             "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "field": "available_now",
+            "isArray": false,
+            "description": "<p>Per-metric total remaining across the pools active today (include_overage only); a metric with no active pools is omitted, and a metric is null while its active pools are not all counted yet</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Object[]",
             "optional": false,
             "field": "pools",
             "isArray": true,
             "description": "<p>Usage pools</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "pools",
+              "field": "pools",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "pools.status",
+            "isArray": false,
+            "description": "<p>Where the pool stands today: &quot;active&quot; (live and counting), &quot;scheduled&quot; (starts in the future) or &quot;expired&quot; (ended, meters final)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "parentNode": {
+              "path": "pools",
+              "field": "pools",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "pools.key",
+            "isArray": false,
+            "description": "<p>Stable pool identifier; unique among pools whose date windows overlap</p>"
           },
           {
             "group": "Success 200",
@@ -16904,7 +17004,7 @@
             },
             "field": "pools.metric",
             "isArray": false,
-            "description": "<p>What the pool counts (cellular_data, data_operations)</p>"
+            "description": "<p>What the pool counts (cellular_data, data_operations, satellite_messages)</p>"
           },
           {
             "group": "Success 200",
@@ -16918,7 +17018,7 @@
             },
             "field": "pools.unit",
             "isArray": false,
-            "description": "<p>Unit of the quantity (byte, operation)</p>"
+            "description": "<p>Unit of the quantity (byte, operation, message)</p>"
           },
           {
             "group": "Success 200",
@@ -16936,7 +17036,7 @@
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "String[]",
             "optional": false,
             "parentNode": {
               "path": "pools",
@@ -16944,9 +17044,9 @@
               "type": "Object[]",
               "isArray": true
             },
-            "field": "pools.period",
-            "isArray": false,
-            "description": "<p>Reset cadence (monthly, annual, contract_length, term — the pool's own effective window)</p>"
+            "field": "pools.connectivity_scope",
+            "isArray": true,
+            "description": "<p>Connectivity the pool covers: cellular, wifi, ethernet, satellite, ntn, or &quot;all&quot;</p>"
           },
           {
             "group": "Success 200",
@@ -16958,9 +17058,9 @@
               "type": "Object[]",
               "isArray": true
             },
-            "field": "pools.connectivity_scope",
+            "field": "pools.profile_type_scope",
             "isArray": true,
-            "description": "<p>Connectivity the pool covers</p>"
+            "description": "<p>eSIM profile types the pool covers: internal profile type ids, or &quot;all&quot; (any usage) / &quot;legacy&quot; (untagged usage)</p>"
           },
           {
             "group": "Success 200",
@@ -17030,7 +17130,7 @@
             },
             "field": "pools.period_start",
             "isArray": false,
-            "description": "<p>Current period start</p>"
+            "description": "<p>Start of the pool's window, null when consumption is unavailable</p>"
           },
           {
             "group": "Success 200",
@@ -17044,7 +17144,7 @@
             },
             "field": "pools.period_end",
             "isArray": false,
-            "description": "<p>Current period end</p>"
+            "description": "<p>End of the pool's window; null while open-ended or when consumption is unavailable</p>"
           },
           {
             "group": "Success 200",
@@ -17059,6 +17159,20 @@
             "field": "pools.consumption_available",
             "isArray": false,
             "description": "<p>Whether consumption figures are being tracked</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": true,
+            "parentNode": {
+              "path": "pools",
+              "field": "pools",
+              "type": "Object[]",
+              "isArray": true
+            },
+            "field": "pools.overage",
+            "isArray": false,
+            "description": "<p>Usage beyond the pool's quantity attributed to it (include_overage only; null when consumption is unavailable, like consumption and remaining)</p>"
           }
         ]
       }
