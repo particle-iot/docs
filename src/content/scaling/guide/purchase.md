@@ -47,12 +47,11 @@ You will also be mailed a csv file of devices in your order. You can use that to
 
 ### Scan data matrix code reader (alternative)
 
-If you are working with a smaller quantity of devices, you may want to use handheld code reader. 
+If you are working with a smaller quantity of devices, you may want to use [handheld code reader](https://www.amazon.com/dp/B06XQ2HP8T) that can read data matrix codes. 
 
-[take video]
+{{imageOverlay src="/assets/images/getting-started-guide/matrix-code-reader.png" class="no-darken"}}
 
-Use 
-/tools/cloud-tools/import-devices/
+These generally can be used wired or wirelessly and emulate a keyboard entering the code. This can be used with the [import devices tool](/tools/cloud-tools/import-devices/) which can parse out the serial number and ignore the mobile secret values to add devices as quickly as you can scan them, no need to interact with the computer between devices.
 
 
 

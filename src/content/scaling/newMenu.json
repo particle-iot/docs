@@ -6,19 +6,19 @@
             "title": "Scaling",
             "tiles": [
                 {
-                    "title": "Manufacturing",
-                    "detail": "Process for manufacturing cellular products at scale",
-                    "href": "/scaling/manufacturing/manufacturing-cellular/"
+                    "title": "Platform introduction",
+                    "detail": "Introduction to the Particle platform",
+                    "href": "/scaling/guide/quick-start-guide/tools-overview/"
                 },
                 {
-                    "title": "USB Flashing",
-                    "detail": "Automating device flashing over USB using node.js",
-                    "href": "https://github.com/particle-iot/node-example-device-flash-setup/"
+                    "title": "Manufacturing Guide",
+                    "detail": "Guide to manufacturing options",
+                    "href": "/scaling/guide/prototype/"
                 },
                 {
-                    "title": "Device onboarding",
-                    "detail": "Bulk configuration of devices using node.js",
-                    "href": "https://github.com/particle-iot/node-example-device-cloud-setup/"
+                    "title": "Messaging architecture for scale",
+                    "detail": "Leveraging Particle Device OS and Cloud API for device fleets",
+                    "href": "/scaling/guide/messaging-architecture-for-scale/"
                 }
             ]
         },
@@ -102,10 +102,6 @@
             "dir": "manufacturing",
             "isSection": true,
             "subsections": [
-                {
-                    "dir": "manufacturing-cellular",
-                    "title": "Manufacturing - Cellular"
-                },
                 {
                     "dir": "lcc-module-smt",
                     "title": "LCC Module SMT"

@@ -16,9 +16,11 @@ This section describes how your devices are assembled into your product.
 
 ## CM assembles, tests, and flashes your devices
 
+One option is to have your contract manufacturer (CM) assemble, test, and flash your devices. If they are able to do all of these steps for you, it is obviously the easiest solution for you and best for large deployments.
 
 ## CM assembles your devices (alternative)
 
+It may be more feasible and less expensive to have your CM assemble the hardware, but leave the Particle platform steps to you. This is good for small to medium deployments, especially if your CM is located in China and is not familiar with the Particle platform.
 
 ## Assemble your own devices (alternative)
 

@@ -16,6 +16,8 @@ guide-custom-images: default
 
 A common step is to run specialized firmware designed to test all of the feature of your hardware, without requiring a cloud connection.
 
+This firmware is different than the firmware you use on devices in the field, as is designed to do a low-level test of any hardware components you have added.
+
 ## Flash firmware and Device OS
 
 ### Using Particle Workbench
@@ -40,14 +42,10 @@ The Particle CLI can be used to flash Device OS and user firmware to devices one
 The [Device OS Flashing Utility](https://github.com/particle-iot/device-os-flash-util) is an internal tool that is available to the public. It can flash 
 Device OS and user firmware to devices over USB (DFU and CDC), as well as SWD/JTAG using OpenOCD. It also can flash multiple devices at the same time.
 
-
 ## Onboard your device to the Particle platform
 
 If you did not import all of your devices into the Particle cloud at the beginning, you could do it now, one device at a time, after flashing. This is done
 by adding your device, typically by using its serial number or Device ID, to your product in the console.
-
-
-
 
 ## End-to-end test
 

@@ -783,8 +783,8 @@
             "hash": "16e3837cff57d57e7823abbd69235dff0509b52ab775480186b4dc26b53acfd7"
         },
         "scaling/manufacturing/manufacturing-cellular.md": {
-            "date": "2026-11-17",
-            "hash": "4f4e7cd4ef4a4f57d142e1f59572a4b7f53d967f8bcd650bd0f18c98ce7b3655"
+            "date": "2026-11-20",
+            "hash": "4caf339db5228d498061576a943915f97605c90e2d1666f33fef6580340e9f68"
         },
         "scaling/manufacturing/manufacturing-firmware-versions.md": {
             "date": "2024-02-27",
@@ -923,8 +923,8 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2026-11-17",
-            "hash": "aa6cbe342639aa6c69ba8a058ecddff74dfcd3d5107f059cbe7285a450a097c6"
+            "date": "2026-11-20",
+            "hash": "6a93c00bed6c29759497234d42782bb0e453eee5efb13ac9fa43f1556c1e2651"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2026-08-14",
@@ -8219,8 +8219,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "c6f85dc11acf61fd29fbcb8d4385bb34f93d887f20e6bc4a789a4078830d3e65",
-            "date": "2026-11-17"
+            "hash": "d25780dce0ed46f814ef25a839e1c369e665162b31640f58858fe40391610b4e",
+            "date": "2026-11-20"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -10215,8 +10215,40 @@
             "date": "2026-11-12"
         },
         "getting-started/device-setup/electron.md": {
-            "hash": "4c196406678211883c19ff9a5f632de014adafbe84827868b38cf16f11157270",
-            "date": "2026-11-17"
+            "hash": "19450488080d0aee2f3806058d278722bf1640140a9cebe6845f458a3cc65b81",
+            "date": "2026-11-20"
+        },
+        "scaling/guide/assemble.md": {
+            "hash": "d25051690540e388ea95810dca121e5e71c02a695ee7a60cbbe8d7e8d4fef511",
+            "date": "2026-11-20"
+        },
+        "scaling/guide/certification.md": {
+            "hash": "af65eb49010f100ff46bd77a9451063d5c0a794b21728a187fa61e2fd818050b",
+            "date": "2026-11-20"
+        },
+        "scaling/guide/customer-setup.md": {
+            "hash": "85cf4a5e88a295223a73ad5457ba37453d0ee6a629b688acf8cc87cb01a55d36",
+            "date": "2026-11-20"
+        },
+        "scaling/guide/manufacturing-test.md": {
+            "hash": "1008b1e00e59750c86061007cb2f58e4c707e7afda6259ef1174ee27e28b9af4",
+            "date": "2026-11-20"
+        },
+        "scaling/guide/prepare-for-shipping.md": {
+            "hash": "597dbd2e21b33779850c02c6459385e809255acd47ac40e6ec802df26ff2c689",
+            "date": "2026-11-20"
+        },
+        "scaling/guide/purchase.md": {
+            "hash": "f13be392efe4e45e6076cbb19a8d8316e019d88451eb168af121c8a3c3a57870",
+            "date": "2026-11-20"
+        },
+        "scaling/guide/prototype.md": {
+            "hash": "bd4aa5948fda7bc69a5c19f41e4b7eeabf304ab88c265bef1ade2a27725329f9",
+            "date": "2026-11-20"
+        },
+        "archives/manufacturing-cellular.md": {
+            "hash": "01e97b1f6d323f15e8390e2d5b2d9d2b3cd10135d6eb288805c6a7da73084510",
+            "date": "2026-11-20"
         }
     }
 }

@@ -7,6 +7,10 @@ description: Manufacturing with Particle Cellular Devices
 
 # {{title}}
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 The following information should be interpreted as a series of informed suggestions, not as prescribed rules, and we have done our best to account for the various exceptions we might expect from the following workflow.
 
 ## Assumptions & caveats
