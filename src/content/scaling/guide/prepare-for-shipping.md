@@ -32,7 +32,7 @@ The same technique can be used with other devices that include a similar PMIC an
 
 Disconnecting the battery is a common solution, especially if you are using the Particle JST-PH connector, and if your customers are technical. 
 
-Many consumer electronics with replaceable batteries using plastic pull tabs to isolate the batteries, but this isn't generally practical for larger Li-Po battery packs
+Many consumer electronics with replaceable batteries use plastic pull tabs to isolate the batteries, but this isn't generally practical for larger Li-Po battery packs
 that are connected using the JST-PH connector.
 
 
