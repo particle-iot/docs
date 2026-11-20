@@ -85,8 +85,8 @@
                     "title": "Certification"
                 },
                 {
-                    "dir": "test",
-                    "title": "Test"
+                    "dir": "manufacturing-test",
+                    "title": "Manufacturing test"
                 },
                 {
                     "dir": "prepare-for-shipping",

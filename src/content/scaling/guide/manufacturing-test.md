@@ -1,5 +1,5 @@
 ---
-title: Test
+title: Manfacturing Test
 columns: two
 layout: commonTwo.hbs
 description: Testing devices during manufacturing
@@ -9,7 +9,6 @@ guide-custom-images: default
 # {{title}}
 
 {{section-nav}}
-
 
 {{content-nav}}
 
