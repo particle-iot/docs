@@ -8,7 +8,7 @@
                 {
                     "title": "Platform introduction",
                     "detail": "Introduction to the Particle platform",
-                    "href": "/scaling/guide/quick-start-guide/tools-overview/"
+                    "href": "/scaling/quick-start-guide/tools-overview/"
                 },
                 {
                     "title": "Manufacturing Guide",
@@ -18,7 +18,7 @@
                 {
                     "title": "Messaging architecture for scale",
                     "detail": "Leveraging Particle Device OS and Cloud API for device fleets",
-                    "href": "/scaling/guide/messaging-architecture-for-scale/"
+                    "href": "/scaling/best-practices/messaging-architecture-for-scale/"
                 }
             ]
         },

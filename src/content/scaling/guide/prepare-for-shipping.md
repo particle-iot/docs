@@ -26,7 +26,7 @@ The Tracker One uses **shipping mode** to ship the sealed devices with the batte
 
 You can enter shipping mode under software control, but the only way to get out of shipping mode is to supply external power, such as by USB. 
 
-The same technique can be used with other devices that include a similar PMIC and is not limited to the Tracker One and Monitor One.
+The same technique can be used with other devices that include a similar PMIC and is not limited to the Tracker One.
 
 ### Other techniques
 

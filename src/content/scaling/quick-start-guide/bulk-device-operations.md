@@ -35,5 +35,5 @@ For more information, see [device claiming](/getting-started/cloud/device-claimi
 
 Often you will want to program the devices with Device OS and your firmware during device onboarding. This allows the device to immediately be used by your customer and provides an opportunity for testing. 
 
-For more information, see [manufacturing](/scaling/manufacturing/manufacturing-cellular/).
+For more information, see [manufacturing guide](/scaling/guide/prototype/).
 

@@ -35,7 +35,7 @@ See [Prototyping](/hardware/expansion/prototyping/) for more information.
 
 ## Building custom hardware
 
-Once you go past initial prototyping, you may want to consider using a cusom circuit board, or switch to using a production device like the B-SoM or P2.
+Once you go past initial prototyping, you may want to consider using a custom circuit board, or switch to using a production device like the B-SoM or P2.
 
 See [Beyond prototyping](/hardware/expansion/beyond-prototyping/) for more information.
 

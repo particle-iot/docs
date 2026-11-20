@@ -146,7 +146,7 @@ If you are using [customers](#customers) you will most likely use [claim codes](
 #### Product claiming
 
 {{note op="start" type="product"}}
-For product devices, you can claim the devices while offline by using the Particle cloud API [claim a device endpoint](/reference/cloud-apis/api/#claim-a-device). You would typically do this as part of your [manufacturing flow](/scaling/manufacturing/manufacturing-cellular/).
+For product devices, you can claim the devices while offline by using the Particle cloud API [claim a device endpoint](/reference/cloud-apis/api/#claim-a-device). You would typically do this as part of your manufacturing flow. For more information, see [manufacturing guide](/scaling/guide/prototype/).
 {{note op="end"}}
 
 #### Particle mobile app claiming
@@ -284,7 +284,7 @@ This is handy if you have multiple products running the same firmware. However, 
 
 You should add Device IDs to products during manufacture. When you order devices in tray or reel quantities from the Particle wholesale store, you get a list of device IDs in the order. You can import the file into the Particle console.
 
-You could also do this on a per-device basis as part of your [manufacturing flow](/scaling/manufacturing/manufacturing-cellular/).
+You could also do this on a per-device basis as part of your manufacturing flow. For more information, see [manufacturing guide](/scaling/guide/prototype/).
 
 This is required when using Device OS 4.0 or later, or if using the [wildcard PRODUCT_ID](#wildcard-product-firmware) macro. Since it is required for later versions, you should plan to switch to pre-adding Device IDs if you have not already done so.
 

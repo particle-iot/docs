@@ -4,7 +4,7 @@ Even if you are still prototyping and developing, it's a good idea to start by [
 
 There are many ways to manage onboarding devices at scale. For examples, see:
 
-- [Cellular manufacturing guide](/scaling/manufacturing/manufacturing-cellular/)
+- [Manufacturing guide](/scaling/guide/prototype/)
 - [Console add devices](/getting-started/console/console/#adding-devices)
 - [Import devices tool](/tools/cloud-tools/import-devices/)
 

@@ -26,7 +26,7 @@ Pre-adding devices:
 In most cases activating the SIM occurs quickly, it can take up to 12 hours in some cases. By pre-activating your SIM cards it eliminates 
 the wait to use them.
 
-In the growth and enterprise plans, billing does not start until the device first connects to the Particle cloud, so adding them in advance
+In the basic and enterprise plans, billing does not start until the device first connects to the Particle cloud, so adding them in advance
 does not generally carry a significant cost.
 
 ## Adding devices in bulk

@@ -27,7 +27,7 @@ All-in-one gateway like the Tracker One that does not connect to an external har
 ### Intentional radiator
 
 {{!-- BEGIN shared-blurb f473a08e-d4a3-47b7-8df7-67fa405e1783 --}}
-This test is more involved and requires testing the power output in each band the transmitters are capable of using. In the United States, this is FCC 47 CRF Part 15, Subpart C. If you use a similar antenna to the one Particle used during its tests, you may be able to avoid having to perform this certification again.
+This test is more involved and requires testing the power output in each band the transmitters are capable of using. In the United States, this is FCC 47 CFR Part 15, Subpart C. If you use a similar antenna to the one Particle used during its tests, you may be able to avoid having to perform this certification again.
 {{!-- END shared-blurb f473a08e-d4a3-47b7-8df7-67fa405e1783 --}}
 
 ### PTCRB

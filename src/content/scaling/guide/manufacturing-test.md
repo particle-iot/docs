@@ -1,5 +1,5 @@
 ---
-title: Manfacturing Test
+title: Manufacturing test
 columns: two
 layout: commonTwo.hbs
 description: Testing devices during manufacturing

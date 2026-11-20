@@ -1,6 +1,6 @@
-The features of a free product vs. growth product are the same, which makes free products excellent for prototyping. However there are important billing differences:
+The features of a free product vs. basic product are the same, which makes free products excellent for prototyping. However there are important billing differences:
 
-| Free Product | Growth Product |
+| Free Product | Basic Product |
 | :---: | :---: |
 | Free | Cost varies by number of blocks required |
 | When you hit the limit, pauses until end of billing cycle | Automatically adds a block if necessary |

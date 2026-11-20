@@ -30,7 +30,7 @@ There are too many possibilities to list here, but typically this is done by ent
 
 The most complicated scenario is for Wi-Fi devices, because your customer will need to configure their Wi-Fi credentials into the device. This will typically require a mobile app or a computer with a USB connection to the Particle device.
 
-See [Wi-Fi setup options](reference/device-os/wifi-setup-options/) for more information about Wi-Fi setup.
+See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information about Wi-Fi setup.
 
 {{section-nav}}
 
