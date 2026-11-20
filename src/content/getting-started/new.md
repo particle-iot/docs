@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Carrier list 2026-11-20
+
+Updated the reason values in the [carrier list](/reference/cellular/cellular-carriers/). For the M635e, there were a number of countries that listed no NTN in the reason, but did have Skylo service.
+
 ### Device setup 2026-11-17 
 
 Added device setup instructions for the [Electron](/getting-started/device-setup/electron/) including a 2G/3G sunset warning, and also added sunset warnings for the Boron 2G/3G.
